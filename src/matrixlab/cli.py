@@ -2252,22 +2252,15 @@ def agent_plan_check(selector_receipt: str = typer.Argument(...)):
         stable.pop("selector_payload_sig8", None)
         return sig8(stable)
 
-    def plan_check_sig(payload: dict) -> str:
-        stable = dict(payload)
-        stable.pop("plan_check_id", None)
-        stable.pop("plan_check_payload_sig8", None)
-        return sig8(stable)
-
     def write_plan_check(payload: dict) -> Path:
-        payload = dict(payload)
-        payload["plan_check_schema_version"] = "agent_plan_check_receipt_v1"
-        payload["plan_check_payload_sig8"] = plan_check_sig(payload)
-        payload["plan_check_id"] = payload["plan_check_payload_sig8"]
-
-        out_dir = Path("data/agent_plan_checks")
-        out_dir.mkdir(parents=True, exist_ok=True)
-        out_path = out_dir / f"{payload['plan_check_id']}.json"
-        out_path.write_text(json.dumps(payload, indent=2, sort_keys=True))
+        out_path, _payload = write_content_addressed_receipt(
+            payload,
+            "data/agent_plan_checks",
+            "plan_check_schema_version",
+            "agent_plan_check_receipt_v1",
+            "plan_check_id",
+            "plan_check_payload_sig8",
+        )
         return out_path
 
     path = resolve_selector_path(selector_receipt)
@@ -2404,20 +2397,15 @@ def agent_exec_dry_run(plan_check_receipt: str = typer.Argument(...)):
             "plan_check_receipt must be an explicit plan-check JSON path or plan_check_id present under data/agent_plan_checks/"
         )
 
-    def exec_dry_run_sig(payload: dict) -> str:
-        return stable_sig(payload, "exec_dry_run_id", "exec_dry_run_payload_sig8")
-
     def write_exec_dry_run(payload: dict) -> tuple[Path, dict]:
-        payload = dict(payload)
-        payload["exec_dry_run_schema_version"] = "agent_exec_dry_run_receipt_v1"
-        payload["exec_dry_run_payload_sig8"] = exec_dry_run_sig(payload)
-        payload["exec_dry_run_id"] = payload["exec_dry_run_payload_sig8"]
-
-        out_dir = Path("data/agent_exec_dry_runs")
-        out_dir.mkdir(parents=True, exist_ok=True)
-        out_path = out_dir / f"{payload['exec_dry_run_id']}.json"
-        out_path.write_text(json.dumps(payload, indent=2, sort_keys=True))
-        return out_path, payload
+        return write_content_addressed_receipt(
+            payload,
+            "data/agent_exec_dry_runs",
+            "exec_dry_run_schema_version",
+            "agent_exec_dry_run_receipt_v1",
+            "exec_dry_run_id",
+            "exec_dry_run_payload_sig8",
+        )
 
     plan_path = resolve_plan_check_path(plan_check_receipt)
     plan = json.loads(plan_path.read_text())
