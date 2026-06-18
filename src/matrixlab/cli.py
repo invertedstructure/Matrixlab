@@ -480,9 +480,7 @@ def execute_run(
         depth_min=depth_min,
         depth_max=depth_max,
         cycles_per_case=cycles_per_case,
-        max_cells=max_cells,
-        strict_laws=strict_laws,
-    )
+        max_cells=max_cells,    )
 
     all_receipts = []
     total_cases = 0
@@ -524,7 +522,7 @@ def execute_run(
                     after=a,
                     rank_before=before_rank,
                     rank_after=after_rank,
-                )
+ )
 
                 law_id, law_ok, law_fail_reason = expected_law(family, move_id, profile)
 
