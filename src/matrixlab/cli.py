@@ -973,5 +973,115 @@ def profiles(
     console.print(table)
 
 
+@app.command()
+def coarse_profiles(
+    run_id: str = typer.Argument("latest"),
+    limit: int = typer.Option(50, help="Max rows to show."),
+):
+    """
+    Compare raw move-profile counts against coarse normalized profile counts.
+    """
+    init_db()
+
+    if run_id == "latest":
+        run_id = latest_run_id()
+
+    with sqlite3.connect(DB_PATH) as con:
+        family_counts = con.execute(
+            """
+            select
+                family,
+                count(distinct move_profile_id) as raw_profiles,
+                count(distinct (
+                    move_id
+                    || '|dr=' || row_delta
+                    || '|dc=' || col_delta
+                    || '|rank=' || rank_delta
+                    || '|supp_sign=' ||
+                        case
+                            when support_delta > 0 then '+'
+                            when support_delta < 0 then '-'
+                            else '0'
+                        end
+                    || '|newcols_class=' ||
+                        case
+                            when new_column_types_added = 0 then '0'
+                            when new_column_types_added = 1 then '1'
+                            else 'many'
+                        end
+                )) as coarse_profiles,
+                count(*) as receipts
+            from receipts
+            where run_id = ?
+            group by family
+            order by raw_profiles desc
+            """,
+            (run_id,),
+        ).fetchall()
+
+        coarse_rows = con.execute(
+            """
+            select
+                family,
+                move_id,
+                row_delta,
+                col_delta,
+                rank_delta,
+                case
+                    when support_delta > 0 then '+'
+                    when support_delta < 0 then '-'
+                    else '0'
+                end as support_sign,
+                case
+                    when new_column_types_added = 0 then '0'
+                    when new_column_types_added = 1 then '1'
+                    else 'many'
+                end as newcols_class,
+                count(*) as n
+            from receipts
+            where run_id = ?
+            group by
+                family,
+                move_id,
+                row_delta,
+                col_delta,
+                rank_delta,
+                support_sign,
+                newcols_class
+            order by family, n desc
+            limit ?
+            """,
+            (run_id, limit),
+        ).fetchall()
+
+    print(f"[bold green]Coarse profile comparison for run:[/bold green] {run_id}")
+
+    table = Table(title="Raw vs coarse profile counts")
+    table.add_column("family")
+    table.add_column("raw", justify="right")
+    table.add_column("coarse", justify="right")
+    table.add_column("receipts", justify="right")
+
+    for row in family_counts:
+        table.add_row(*(str(x) for x in row))
+
+    console.print(table)
+
+    table = Table(title="Coarse profile rows")
+    table.add_column("family")
+    table.add_column("move")
+    table.add_column("dr", justify="right")
+    table.add_column("dc", justify="right")
+    table.add_column("rank", justify="right")
+    table.add_column("supp", justify="right")
+    table.add_column("newcols")
+    table.add_column("count", justify="right")
+
+    for row in coarse_rows:
+        table.add_row(*(str(x) for x in row))
+
+    console.print(table)
+
+
 if __name__ == "__main__":
     app()
