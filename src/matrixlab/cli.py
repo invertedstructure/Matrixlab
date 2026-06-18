@@ -65,22 +65,43 @@ ALLOWED_AGENT_PREFIX = ["uv", "run", "python", "src/matrixlab/cli.py"]
 ALLOWED_AGENT_SUBCOMMANDS = ["agent-eval", "gate", "stress"]
 
 
-def validate_agent_command_argv(argv: list[str]) -> list[str]:
+def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
     failures: list[str] = []
 
+    if command_index is None:
+        if not isinstance(argv, list):
+            return ["command_argv_not_list"]
+
+        if argv[: len(ALLOWED_AGENT_PREFIX)] != ALLOWED_AGENT_PREFIX:
+            failures.append("command_prefix_not_allowed")
+
+        if len(argv) <= len(ALLOWED_AGENT_PREFIX):
+            failures.append("missing_subcommand")
+            return failures
+
+        subcommand = argv[len(ALLOWED_AGENT_PREFIX)]
+        if subcommand not in ALLOWED_AGENT_SUBCOMMANDS:
+            failures.append(f"subcommand_not_allowed:{subcommand}")
+
+        return failures
+
+    i = command_index
+
     if not isinstance(argv, list):
-        return ["command_argv_not_list"]
+        failures.append(f"command_{i}_argv_not_list")
+        return failures
+
+    if len(argv) < len(ALLOWED_AGENT_PREFIX) + 1:
+        failures.append(f"command_{i}_argv_too_short")
+        return failures
 
     if argv[: len(ALLOWED_AGENT_PREFIX)] != ALLOWED_AGENT_PREFIX:
-        failures.append("command_prefix_not_allowed")
-
-    if len(argv) <= len(ALLOWED_AGENT_PREFIX):
-        failures.append("missing_subcommand")
+        failures.append(f"command_{i}_prefix_not_allowed")
         return failures
 
     subcommand = argv[len(ALLOWED_AGENT_PREFIX)]
     if subcommand not in ALLOWED_AGENT_SUBCOMMANDS:
-        failures.append(f"subcommand_not_allowed:{subcommand}")
+        failures.append(f"command_{i}_subcommand_not_allowed:{subcommand}")
 
     return failures
 
@@ -2340,21 +2361,7 @@ def agent_plan_check(selector_receipt: str = typer.Argument(...)):
         failures.append("manual_parameters_required")
 
     for i, argv in enumerate(command_argvs):
-        if not isinstance(argv, list):
-            failures.append(f"command_{i}_argv_not_list")
-            continue
-
-        if len(argv) < 5:
-            failures.append(f"command_{i}_argv_too_short")
-            continue
-
-        if argv[:4] != allowed_prefix:
-            failures.append(f"command_{i}_prefix_not_allowed")
-            continue
-
-        subcommand = argv[4]
-        if subcommand not in allowed_subcommands:
-            failures.append(f"command_{i}_subcommand_not_allowed:{subcommand}")
+        failures.extend(validate_agent_command_argv(argv, command_index=i))
 
     expected_fields = [
         "expected_gate_result",
