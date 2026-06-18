@@ -456,6 +456,46 @@ def parse_families(families: str) -> list[str]:
 
     return [FAMILY_MAP[x] for x in letters]
 
+
+def run_id_exists(run_id: str) -> bool:
+    init_db()
+
+    with sqlite3.connect(DB_PATH) as con:
+        found = con.execute(
+            "select 1 from runs where run_id = ? limit 1",
+            (run_id,),
+        ).fetchone()
+        if found is not None:
+            return True
+
+    for root in [
+        Path("data/runs"),
+        Path("data/receipts"),
+        Path("data/traces"),
+        Path("data/artifacts"),
+    ]:
+        if (root / run_id).exists():
+            return True
+
+    return False
+
+
+def allocate_run_id(requested_run_id: Optional[str] = None) -> str:
+    if requested_run_id is None:
+        base = datetime.now(timezone.utc).strftime("run_%Y%m%d_%H%M%S_%f")
+    else:
+        base = requested_run_id
+
+    if not run_id_exists(base):
+        return base
+
+    for i in range(1, 1000):
+        candidate = f"{base}_{i:03d}"
+        if not run_id_exists(candidate):
+            return candidate
+
+    raise RuntimeError(f"Could not allocate unique run_id from base {base}")
+
 def execute_run(
     depth_min: int,
     depth_max: int,
@@ -465,9 +505,7 @@ def execute_run(
     run_id: Optional[str],
     strict_laws: bool = False,
 ) -> dict:
-    if run_id is None:
-        stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
-        run_id = f"run_{stamp}"
+    run_id = allocate_run_id(run_id)
 
     family_names = parse_families(families)
 
@@ -1233,6 +1271,241 @@ def laws(
         console.print(table)
 
 
+
+
+@app.command("recover-collision")
+def recover_collision(run_id: str = typer.Argument("latest")):
+    """
+    Recover a run_id collision by splitting receipt rows whose family is not in the stored run family set.
+    """
+    import shutil
+
+    init_db()
+
+    if run_id == "latest":
+        run_id = latest_run_id()
+
+    with sqlite3.connect(DB_PATH) as con:
+        con.row_factory = sqlite3.Row
+
+        run_row = con.execute(
+            "select * from runs where run_id = ?",
+            (run_id,),
+        ).fetchone()
+
+        if run_row is None:
+            raise typer.BadParameter(f"No run found: {run_id}")
+
+        run_row = dict(run_row)
+        stored_families = str(run_row.get("families", ""))
+        expected_families = {x.strip() for x in stored_families.split(",") if x.strip()}
+
+        family_rows = con.execute(
+            """
+            select family, count(*) as n
+            from receipts
+            where run_id = ?
+            group by family
+            order by family
+            """,
+            (run_id,),
+        ).fetchall()
+
+        outsider_families = {
+            row["family"]
+            for row in family_rows
+            if row["family"] not in expected_families
+        }
+
+        receipt_count = con.execute(
+            "select count(*) from receipts where run_id = ?",
+            (run_id,),
+        ).fetchone()[0]
+
+        print(f"recover target: {run_id}")
+        print(f"stored families: {sorted(expected_families)}")
+        print(f"receipt rows: {receipt_count}")
+        print(f"outsider families: {sorted(outsider_families)}")
+
+        if not outsider_families:
+            print("[bold green]No outsider-family collision detected.[/bold green]")
+            return
+
+        intruder_rows = con.execute(
+            """
+            select rowid, *
+            from receipts
+            where run_id = ?
+              and family in ({})
+            order by family, case_id, cycle_n
+            """.format(",".join("?" for _ in outsider_families)),
+            (run_id, *sorted(outsider_families)),
+        ).fetchall()
+
+        new_run_id = allocate_run_id(f"{run_id}_recovered")
+
+        receipt_root = Path("data/receipts")
+        trace_root = Path("data/traces")
+        artifact_root = Path("data/artifacts")
+        run_root = Path("data/runs")
+
+        for root in [receipt_root, trace_root, artifact_root, run_root]:
+            (root / new_run_id).mkdir(parents=True, exist_ok=True)
+
+        case_ids = sorted({row["case_id"] for row in intruder_rows})
+        receipt_updates = []
+
+        for row in intruder_rows:
+            old_path = Path(row["receipt_path"])
+            if not old_path.exists():
+                old_path = receipt_root / run_id / row["case_id"] / f"cycle_{int(row['cycle_n']):04d}.json"
+
+            new_path = receipt_root / new_run_id / row["case_id"] / f"cycle_{int(row['cycle_n']):04d}.json"
+            new_path.parent.mkdir(parents=True, exist_ok=True)
+
+            if old_path.exists():
+                data = json.loads(old_path.read_text())
+                data["run_id"] = new_run_id
+                data["receipt_path"] = str(new_path)
+                new_path.write_text(json.dumps(data, indent=2, sort_keys=True))
+            else:
+                new_path.write_text("{}\n")
+
+            receipt_updates.append((new_run_id, str(new_path), row["rowid"]))
+
+        for case_id in case_ids:
+            old_trace = trace_root / run_id / f"{case_id}.json"
+            new_trace = trace_root / new_run_id / f"{case_id}.json"
+            if old_trace.exists():
+                data = json.loads(old_trace.read_text())
+                data["run_id"] = new_run_id
+                new_trace.write_text(json.dumps(data, indent=2, sort_keys=True))
+
+            old_artifact = artifact_root / run_id / f"{case_id}_final_matrix.npy"
+            new_artifact = artifact_root / new_run_id / f"{case_id}_final_matrix.npy"
+            if old_artifact.exists():
+                shutil.copy2(old_artifact, new_artifact)
+
+        con.executemany(
+            "update receipts set run_id = ?, receipt_path = ? where rowid = ?",
+            receipt_updates,
+        )
+        con.commit()
+
+    with sqlite3.connect(DB_PATH) as con:
+        con.row_factory = sqlite3.Row
+
+        recovered_stats = con.execute(
+            """
+            select
+              min(depth) as depth_min,
+              max(depth) as depth_max,
+              max(cycle_n) as cycles_per_case,
+              max(matrix_cells) as max_matrix_cells,
+              count(distinct case_id) as total_cases,
+              count(*) as total_receipts
+            from receipts
+            where run_id = ?
+            """,
+            (new_run_id,),
+        ).fetchone()
+
+        remaining_stats = con.execute(
+            """
+            select
+              count(distinct case_id) as total_cases,
+              count(*) as total_receipts
+            from receipts
+            where run_id = ?
+            """,
+            (run_id,),
+        ).fetchone()
+
+        recovered_families = [
+            row[0]
+            for row in con.execute(
+                "select distinct family from receipts where run_id = ? order by family",
+                (new_run_id,),
+            ).fetchall()
+        ]
+
+        original_halts = {
+            row[0]: row[1]
+            for row in con.execute(
+                """
+                select halt_reason, count(*)
+                from receipts
+                where run_id = ? and halt_reason is not null
+                group by halt_reason
+                """,
+                (run_id,),
+            ).fetchall()
+        }
+
+        recovered_halts = {
+            row[0]: row[1]
+            for row in con.execute(
+                """
+                select halt_reason, count(*)
+                from receipts
+                where run_id = ? and halt_reason is not null
+                group by halt_reason
+                """,
+                (new_run_id,),
+            ).fetchall()
+        }
+
+    insert_run_start(
+        run_id=new_run_id,
+        families=recovered_families,
+        depth_min=int(recovered_stats["depth_min"] or 0),
+        depth_max=int(recovered_stats["depth_max"] or 0),
+        cycles_per_case=int(recovered_stats["cycles_per_case"] or 0),
+        max_cells=int(run_row.get("max_cells") or recovered_stats["max_matrix_cells"] or 0),
+    )
+    finish_run(
+        new_run_id,
+        "DONE",
+        int(recovered_stats["total_cases"] or 0),
+        int(recovered_stats["total_receipts"] or 0),
+    )
+
+    finish_run(
+        run_id,
+        "DONE",
+        int(remaining_stats["total_cases"] or 0),
+        int(remaining_stats["total_receipts"] or 0),
+    )
+
+    original_summary = {
+        "run_id": run_id,
+        "created_utc": utc_now(),
+        "families": sorted(expected_families),
+        "total_cases": int(remaining_stats["total_cases"] or 0),
+        "total_receipts": int(remaining_stats["total_receipts"] or 0),
+        "halt_counts": original_halts,
+    }
+    recovered_summary = {
+        "run_id": new_run_id,
+        "created_utc": utc_now(),
+        "families": recovered_families,
+        "depth_min": int(recovered_stats["depth_min"] or 0),
+        "depth_max": int(recovered_stats["depth_max"] or 0),
+        "cycles_per_case": int(recovered_stats["cycles_per_case"] or 0),
+        "total_cases": int(recovered_stats["total_cases"] or 0),
+        "total_receipts": int(recovered_stats["total_receipts"] or 0),
+        "halt_counts": recovered_halts,
+    }
+
+    (run_root / run_id).mkdir(parents=True, exist_ok=True)
+    (run_root / new_run_id).mkdir(parents=True, exist_ok=True)
+    (run_root / run_id / "summary.json").write_text(json.dumps(original_summary, indent=2, sort_keys=True))
+    (run_root / new_run_id / "summary.json").write_text(json.dumps(recovered_summary, indent=2, sort_keys=True))
+
+    print(f"[bold green]RECOVERED[/bold green]")
+    print(f"original run:  {run_id}")
+    print(f"recovered run: {new_run_id}")
+    print(f"moved receipts: {len(receipt_updates)}")
 
 @app.command()
 def gate(run_id: str = typer.Argument("latest")):
