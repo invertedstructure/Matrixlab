@@ -658,7 +658,7 @@ def run(
     families: str = typer.Option("A,B,C,D,E", help="Family letters: A,B,C,D,E."),
     cycles_per_case: int = typer.Option(0, help="Cycles per case. 0 means depth_max."),
     max_cells: int = typer.Option(250_000, help="Hard matrix cell limit before halt."),
-    strict_laws: bool = typer.Option(False, help=\"Halt immediately on law failure.\"),
+    strict_laws: bool = typer.Option(False, help="Halt immediately on law failure."),
     run_id: Optional[str] = typer.Option(None, help="Optional run id."),
 ):
     execute_run(
@@ -676,7 +676,7 @@ def stress(
     depth_max: int = typer.Option(100, help="Push depth upward."),
     cycles_per_case: int = typer.Option(100, help="Push cycles upward."),
     max_cells: int = typer.Option(250_000, help="Hard matrix cell limit."),
-    strict_laws: bool = typer.Option(False, help=\"Halt immediately on law failure.\"),
+    strict_laws: bool = typer.Option(False, help="Halt immediately on law failure."),
     families: str = typer.Option("A,B,C,D,E", help="Family letters."),
 ):
     """
