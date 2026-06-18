@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
@@ -9,10 +10,14 @@ from typing import Optional
 import numpy as np
 import typer
 from rich import print
+from rich.table import Table
+from rich.console import Console
 
 
-app = typer.Typer(help="MatrixLab receipt runner v0")
+app = typer.Typer(no_args_is_help=True, help="MatrixLab receipt runner v0.2")
+console = Console()
 
+DB_PATH = Path("data/runs/registry.sqlite")
 
 FAMILY_MAP = {
     "A": "one_sided_suspension",
@@ -23,8 +28,11 @@ FAMILY_MAP = {
 }
 
 
+def utc_now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
 def sig8(obj) -> str:
-    """Small deterministic fingerprint for receipts."""
     payload = json.dumps(obj, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(payload.encode()).hexdigest()[:8]
 
@@ -70,10 +78,9 @@ def gf2_rank(a: np.ndarray) -> int:
 
 def base_cycle_matrix(n: int) -> np.ndarray:
     """
-    Simple cycle incidence-style binary matrix.
+    Simple binary cycle incidence matrix.
     Rows = vertices.
     Columns = edges.
-    Each edge touches two vertices.
     """
     a = np.zeros((n, n), dtype=np.uint8)
     for i in range(n):
@@ -83,17 +90,14 @@ def base_cycle_matrix(n: int) -> np.ndarray:
 
 
 def apply_move(a: np.ndarray, family: str, cycle_n: int) -> tuple[np.ndarray, str]:
-    """Apply one deterministic lawful-ish mutation family."""
     rows, cols = a.shape
 
     if family == "one_sided_suspension":
-        # Duplicate an existing column. No new column type.
         j = cycle_n % cols
         new_col = a[:, [j]]
         return np.concatenate([a, new_col], axis=1), "duplicate_existing_column"
 
     if family == "two_sided_suspension":
-        # Add one row and one column touching old bottom + new row.
         out = np.zeros((rows + 1, cols + 1), dtype=np.uint8)
         out[:rows, :cols] = a
         out[rows - 1, cols] = 1
@@ -101,24 +105,22 @@ def apply_move(a: np.ndarray, family: str, cycle_n: int) -> tuple[np.ndarray, st
         return out, "add_row_and_link_column"
 
     if family == "suspension_plus_repair":
-        # Add a repair column equal to xor of two existing columns.
         j1 = cycle_n % cols
         j2 = (cycle_n + 1) % cols
-        repair = (a[:, [j1]] ^ a[:, [j2]])
+        repair = a[:, [j1]] ^ a[:, [j2]]
         return np.concatenate([a, repair], axis=1), "xor_repair_column"
 
     if family == "projection_quotient":
-        # Occasionally merge/drop a row; otherwise add harmless zero column.
         if rows > 2 and cycle_n % 2 == 0:
             out = a.copy()
             out[0] ^= out[-1]
             out = out[:-1, :]
             return out, "quotient_merge_last_row"
+
         zero = np.zeros((rows, 1), dtype=np.uint8)
         return np.concatenate([a, zero], axis=1), "append_zero_column"
 
     if family == "relabel_symmetry_stress":
-        # Deterministic row/column relabeling.
         row_shift = cycle_n % rows
         col_shift = cycle_n % cols
         out = np.roll(a, shift=row_shift, axis=0)
@@ -128,45 +130,229 @@ def apply_move(a: np.ndarray, family: str, cycle_n: int) -> tuple[np.ndarray, st
     raise ValueError(f"Unknown family: {family}")
 
 
-@app.command()
-def run(
-    depth_min: int = typer.Option(3, help="Smallest cycle length/depth."),
-    depth_max: int = typer.Option(8, help="Largest cycle length/depth."),
-    families: str = typer.Option("A,B,C,D,E", help="Comma-separated family letters."),
-    run_id: Optional[str] = typer.Option(None, help="Optional run id."),
-):
-    """
-    Run small matrix mutation sweeps and write receipts.
-    """
+def init_db() -> None:
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+    with sqlite3.connect(DB_PATH) as con:
+        con.execute(
+            """
+            create table if not exists runs (
+                run_id text primary key,
+                created_utc text not null,
+                status text not null,
+                families text not null,
+                depth_min integer not null,
+                depth_max integer not null,
+                cycles_per_case integer not null,
+                max_cells integer not null,
+                total_cases integer default 0,
+                total_receipts integer default 0
+            )
+            """
+        )
+
+        con.execute(
+            """
+            create table if not exists receipts (
+                run_id text not null,
+                case_id text not null,
+                family text not null,
+                depth integer not null,
+                cycle_n integer not null,
+                move_id text not null,
+                registered_moves_total integer not null,
+                moves_reused integer not null,
+                new_move_required integer not null,
+                rows integer not null,
+                cols integer not null,
+                cells integer not null,
+                rank_before integer not null,
+                rank_after integer not null,
+                compression_ratio real not null,
+                trajectory_signature text not null,
+                halt_reason text,
+                state_sig8_before text not null,
+                state_sig8_after text not null,
+                receipt_path text not null,
+                primary key (run_id, case_id, cycle_n)
+            )
+            """
+        )
+
+
+def insert_run_start(
+    run_id: str,
+    families: list[str],
+    depth_min: int,
+    depth_max: int,
+    cycles_per_case: int,
+    max_cells: int,
+) -> None:
+    init_db()
+
+    with sqlite3.connect(DB_PATH) as con:
+        con.execute(
+            """
+            insert or replace into runs (
+                run_id, created_utc, status, families,
+                depth_min, depth_max, cycles_per_case, max_cells,
+                total_cases, total_receipts
+            )
+            values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                run_id,
+                utc_now(),
+                "RUNNING",
+                ",".join(families),
+                depth_min,
+                depth_max,
+                cycles_per_case,
+                max_cells,
+                0,
+                0,
+            ),
+        )
+
+
+def insert_receipt(receipt: dict) -> None:
+    with sqlite3.connect(DB_PATH) as con:
+        con.execute(
+            """
+            insert or replace into receipts (
+                run_id, case_id, family, depth, cycle_n,
+                move_id, registered_moves_total, moves_reused,
+                new_move_required, rows, cols, cells,
+                rank_before, rank_after, compression_ratio,
+                trajectory_signature, halt_reason,
+                state_sig8_before, state_sig8_after, receipt_path
+            )
+            values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                receipt["run_id"],
+                receipt["case_id"],
+                receipt["family"],
+                receipt["depth"],
+                receipt["cycle_n"],
+                receipt["move_id"],
+                receipt["registered_moves_total"],
+                receipt["moves_reused"],
+                int(receipt["new_move_required"]),
+                receipt["matrix_shape"][0],
+                receipt["matrix_shape"][1],
+                receipt["matrix_cells"],
+                receipt["rank_before"],
+                receipt["rank_after"],
+                receipt["compression_ratio"],
+                receipt["trajectory_signature"],
+                receipt["halt_reason"],
+                receipt["state_sig8_before"],
+                receipt["state_sig8_after"],
+                receipt["receipt_path"],
+            ),
+        )
+
+
+def finish_run(run_id: str, status: str, total_cases: int, total_receipts: int) -> None:
+    with sqlite3.connect(DB_PATH) as con:
+        con.execute(
+            """
+            update runs
+            set status = ?, total_cases = ?, total_receipts = ?
+            where run_id = ?
+            """,
+            (status, total_cases, total_receipts, run_id),
+        )
+
+
+def latest_run_id() -> str:
+    init_db()
+    with sqlite3.connect(DB_PATH) as con:
+        row = con.execute(
+            """
+            select run_id
+            from runs
+            order by created_utc desc
+            limit 1
+            """
+        ).fetchone()
+
+    if row is None:
+        raise typer.BadParameter("No runs found yet.")
+
+    return row[0]
+
+
+def parse_families(families: str) -> list[str]:
+    selected = [x.strip().upper() for x in families.split(",") if x.strip()]
+    unknown = [x for x in selected if x not in FAMILY_MAP]
+
+    if unknown:
+        raise typer.BadParameter(f"Unknown family letters: {unknown}")
+
+    return [FAMILY_MAP[x] for x in selected]
+
+
+def execute_run(
+    depth_min: int,
+    depth_max: int,
+    families: str,
+    cycles_per_case: int,
+    max_cells: int,
+    run_id: Optional[str],
+) -> dict:
     if run_id is None:
         stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
         run_id = f"run_{stamp}"
 
-    selected = [x.strip().upper() for x in families.split(",") if x.strip()]
-    family_names = [FAMILY_MAP[x] for x in selected]
+    family_names = parse_families(families)
 
     run_dir = Path("data/runs") / run_id
     receipt_dir = Path("data/receipts") / run_id
     trace_dir = Path("data/traces") / run_id
+    artifact_dir = Path("data/artifacts") / run_id
 
-    run_dir.mkdir(parents=True, exist_ok=True)
-    receipt_dir.mkdir(parents=True, exist_ok=True)
-    trace_dir.mkdir(parents=True, exist_ok=True)
+    for p in [run_dir, receipt_dir, trace_dir, artifact_dir]:
+        p.mkdir(parents=True, exist_ok=True)
+
+    if cycles_per_case <= 0:
+        cycles_per_case = depth_max
+
+    insert_run_start(
+        run_id=run_id,
+        families=family_names,
+        depth_min=depth_min,
+        depth_max=depth_max,
+        cycles_per_case=cycles_per_case,
+        max_cells=max_cells,
+    )
 
     all_receipts = []
+    total_cases = 0
+    case_halts: dict[str, int] = {}
 
     print(f"[bold green]MatrixLab run started[/bold green]: {run_id}")
+    print(f"Families: {family_names}")
+    print(f"Depths: {depth_min}..{depth_max}")
+    print(f"Cycles per case: {cycles_per_case}")
+    print(f"Max cells per matrix: {max_cells}")
 
     for n in range(depth_min, depth_max + 1):
         for family in family_names:
+            total_cases += 1
             case_id = f"n{n}_{family}"
-            case_receipts = []
+
             registered_moves = set()
             trajectory = []
+            seen_states = set()
 
             a = base_cycle_matrix(n)
+            seen_states.add(matrix_sig8(a))
 
-            for cycle_n in range(1, n + 1):
+            halt_reason = "CYCLES_COMPLETE"
+
+            for cycle_n in range(1, cycles_per_case + 1):
                 before_sig = matrix_sig8(a)
                 before_rank = gf2_rank(a)
 
@@ -179,6 +365,25 @@ def run(
                 registered_moves.add(move_id)
                 trajectory.append(after_sig)
 
+                rows, cols = a.shape
+                cells = rows * cols
+
+                current_halt = None
+
+                if cells > max_cells:
+                    current_halt = "MAX_CELLS_EXCEEDED"
+                    halt_reason = current_halt
+
+                elif after_sig in seen_states:
+                    current_halt = "REPEATED_STATE"
+                    halt_reason = current_halt
+
+                elif cycle_n == cycles_per_case:
+                    current_halt = "CYCLES_COMPLETE"
+                    halt_reason = current_halt
+
+                seen_states.add(after_sig)
+
                 receipt = {
                     "run_id": run_id,
                     "case_id": case_id,
@@ -189,37 +394,46 @@ def run(
                     "registered_moves_total": len(registered_moves),
                     "moves_reused": cycle_n - len(registered_moves),
                     "new_move_required": new_move_required,
-                    "matrix_shape": list(a.shape),
+                    "matrix_shape": [int(rows), int(cols)],
+                    "matrix_cells": int(cells),
                     "rank_before": before_rank,
                     "rank_after": after_rank,
                     "state_sig8_before": before_sig,
                     "state_sig8_after": after_sig,
                     "compression_ratio": round(cycle_n / len(registered_moves), 4),
                     "trajectory_signature": sig8(trajectory),
-                    "halt_reason": None,
+                    "halt_reason": current_halt,
+                    "receipt_path": "",
                 }
-
-                case_receipts.append(receipt)
-                all_receipts.append(receipt)
 
                 case_path = receipt_dir / case_id
                 case_path.mkdir(parents=True, exist_ok=True)
+                receipt_path = case_path / f"cycle_{cycle_n:04d}.json"
+                receipt["receipt_path"] = str(receipt_path)
 
-                with open(case_path / f"cycle_{cycle_n:04d}.json", "w") as f:
+                with open(receipt_path, "w") as f:
                     json.dump(receipt, f, indent=2, sort_keys=True)
 
-            final_receipt = case_receipts[-1]
-            final_receipt["halt_reason"] = "DEPTH_COMPLETE"
+                insert_receipt(receipt)
+                all_receipts.append(receipt)
+
+                if current_halt is not None:
+                    case_halts[halt_reason] = case_halts.get(halt_reason, 0) + 1
+                    break
+
+            np.save(artifact_dir / f"{case_id}_final_matrix.npy", a)
 
             with open(trace_dir / f"{case_id}.json", "w") as f:
                 json.dump(
                     {
                         "run_id": run_id,
                         "case_id": case_id,
+                        "halt_reason": halt_reason,
                         "trajectory": trajectory,
                         "trajectory_signature": sig8(trajectory),
                         "final_shape": list(a.shape),
                         "final_rank": gf2_rank(a),
+                        "final_state_sig8": matrix_sig8(a),
                     },
                     f,
                     indent=2,
@@ -228,21 +442,233 @@ def run(
 
     summary = {
         "run_id": run_id,
-        "created_utc": datetime.now(timezone.utc).isoformat(),
+        "created_utc": utc_now(),
         "families": family_names,
         "depth_min": depth_min,
         "depth_max": depth_max,
+        "cycles_per_case": cycles_per_case,
+        "max_cells": max_cells,
+        "total_cases": total_cases,
         "total_receipts": len(all_receipts),
-        "total_cases": (depth_max - depth_min + 1) * len(family_names),
+        "halt_counts": case_halts,
         "max_registered_moves": max(r["registered_moves_total"] for r in all_receipts),
         "max_compression_ratio": max(r["compression_ratio"] for r in all_receipts),
+        "max_matrix_cells": max(r["matrix_cells"] for r in all_receipts),
     }
 
     with open(run_dir / "summary.json", "w") as f:
         json.dump(summary, f, indent=2, sort_keys=True)
 
+    finish_run(run_id, "DONE", total_cases, len(all_receipts))
+
     print("[bold green]Done.[/bold green]")
     print(json.dumps(summary, indent=2))
+
+    return summary
+
+
+@app.command()
+def run(
+    depth_min: int = typer.Option(3, help="Smallest starting cycle size."),
+    depth_max: int = typer.Option(8, help="Largest starting cycle size."),
+    families: str = typer.Option("A,B,C,D,E", help="Family letters: A,B,C,D,E."),
+    cycles_per_case: int = typer.Option(0, help="Cycles per case. 0 means depth_max."),
+    max_cells: int = typer.Option(250_000, help="Hard matrix cell limit before halt."),
+    run_id: Optional[str] = typer.Option(None, help="Optional run id."),
+):
+    execute_run(
+        depth_min=depth_min,
+        depth_max=depth_max,
+        families=families,
+        cycles_per_case=cycles_per_case,
+        max_cells=max_cells,
+        run_id=run_id,
+    )
+
+
+@app.command()
+def stress(
+    depth_max: int = typer.Option(100, help="Push depth upward."),
+    cycles_per_case: int = typer.Option(100, help="Push cycles upward."),
+    max_cells: int = typer.Option(250_000, help="Hard matrix cell limit."),
+    families: str = typer.Option("A,B,C,D,E", help="Family letters."),
+):
+    """
+    Deliberately push the runner until halt reasons appear.
+    """
+    execute_run(
+        depth_min=3,
+        depth_max=depth_max,
+        families=families,
+        cycles_per_case=cycles_per_case,
+        max_cells=max_cells,
+        run_id=None,
+    )
+
+
+@app.command()
+def summarize(run_id: str = typer.Argument("latest")):
+    """
+    Show run summary from SQLite.
+    """
+    init_db()
+
+    if run_id == "latest":
+        run_id = latest_run_id()
+
+    with sqlite3.connect(DB_PATH) as con:
+        run_row = con.execute(
+            """
+            select run_id, created_utc, status, families, depth_min, depth_max,
+                   cycles_per_case, max_cells, total_cases, total_receipts
+            from runs
+            where run_id = ?
+            """,
+            (run_id,),
+        ).fetchone()
+
+        if run_row is None:
+            raise typer.BadParameter(f"Run not found: {run_id}")
+
+        halt_rows = con.execute(
+            """
+            select halt_reason, count(*)
+            from receipts
+            where run_id = ? and halt_reason is not null
+            group by halt_reason
+            order by count(*) desc
+            """,
+            (run_id,),
+        ).fetchall()
+
+        family_rows = con.execute(
+            """
+            select family, count(distinct case_id), count(*), max(cells), max(compression_ratio)
+            from receipts
+            where run_id = ?
+            group by family
+            order by family
+            """,
+            (run_id,),
+        ).fetchall()
+
+    print(f"[bold green]Run:[/bold green] {run_id}")
+    print(f"Created: {run_row[1]}")
+    print(f"Status: {run_row[2]}")
+    print(f"Families: {run_row[3]}")
+    print(f"Depths: {run_row[4]}..{run_row[5]}")
+    print(f"Cycles per case: {run_row[6]}")
+    print(f"Max cells: {run_row[7]}")
+    print(f"Total cases: {run_row[8]}")
+    print(f"Total receipts: {run_row[9]}")
+
+    table = Table(title="Halts")
+    table.add_column("halt_reason")
+    table.add_column("count", justify="right")
+    for halt, count in halt_rows:
+        table.add_row(str(halt), str(count))
+    console.print(table)
+
+    table = Table(title="By family")
+    table.add_column("family")
+    table.add_column("cases", justify="right")
+    table.add_column("receipts", justify="right")
+    table.add_column("max_cells", justify="right")
+    table.add_column("max_compression", justify="right")
+    for family, cases, receipts, max_cells_seen, max_compression in family_rows:
+        table.add_row(
+            str(family),
+            str(cases),
+            str(receipts),
+            str(max_cells_seen),
+            str(max_compression),
+        )
+    console.print(table)
+
+
+@app.command()
+def inspect(
+    case_id: str = typer.Argument(..., help="Example: n6_two_sided_suspension"),
+    run_id: str = typer.Option("latest", help="Run id or latest."),
+    cycle: Optional[int] = typer.Option(None, help="Specific cycle number."),
+):
+    """
+    Inspect receipts for one case.
+    """
+    init_db()
+
+    if run_id == "latest":
+        run_id = latest_run_id()
+
+    with sqlite3.connect(DB_PATH) as con:
+        if cycle is None:
+            rows = con.execute(
+                """
+                select cycle_n, move_id, rows, cols, cells, rank_before, rank_after,
+                       registered_moves_total, moves_reused, compression_ratio,
+                       halt_reason, state_sig8_after
+                from receipts
+                where run_id = ? and case_id = ?
+                order by cycle_n
+                """,
+                (run_id, case_id),
+            ).fetchall()
+        else:
+            rows = con.execute(
+                """
+                select cycle_n, move_id, rows, cols, cells, rank_before, rank_after,
+                       registered_moves_total, moves_reused, compression_ratio,
+                       halt_reason, state_sig8_after
+                from receipts
+                where run_id = ? and case_id = ? and cycle_n = ?
+                order by cycle_n
+                """,
+                (run_id, case_id, cycle),
+            ).fetchall()
+
+    if not rows:
+        raise typer.BadParameter(f"No receipts found for run={run_id}, case={case_id}")
+
+    table = Table(title=f"{run_id} / {case_id}")
+    table.add_column("cycle", justify="right")
+    table.add_column("move")
+    table.add_column("shape")
+    table.add_column("rank")
+    table.add_column("moves")
+    table.add_column("reuse")
+    table.add_column("comp")
+    table.add_column("halt")
+    table.add_column("state")
+
+    for r in rows:
+        (
+            cycle_n,
+            move_id,
+            rows_n,
+            cols_n,
+            cells,
+            rank_before,
+            rank_after,
+            registered_moves,
+            moves_reused,
+            compression_ratio,
+            halt_reason,
+            state_sig,
+        ) = r
+
+        table.add_row(
+            str(cycle_n),
+            move_id,
+            f"{rows_n}x{cols_n}={cells}",
+            f"{rank_before}->{rank_after}",
+            str(registered_moves),
+            str(moves_reused),
+            str(compression_ratio),
+            str(halt_reason or ""),
+            state_sig,
+        )
+
+    console.print(table)
 
 
 if __name__ == "__main__":
