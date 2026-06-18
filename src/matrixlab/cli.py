@@ -2908,5 +2908,146 @@ def agent_loop_summary(post_check_receipt: str = typer.Argument(...)):
     print(f"[bold green]loop_summary_path[/bold green]: {out_path}")
 
 
+
+@app.command("agent-confirm-loop")
+def agent_confirm_loop(
+    loop_summary_receipt: str = typer.Argument(...),
+    decision: str = typer.Option(..., "--decision", "-d", help="Operator decision: continue or stop."),
+):
+    """
+    Record explicit operator confirmation for a completed PASS loop summary.
+    """
+    def resolve_json_path(value: str, directory: str, suffix: str = ".json") -> Path:
+        candidate = Path(value)
+        if candidate.exists():
+            return candidate
+
+        candidate = Path(directory) / f"{value}{suffix}"
+        if candidate.exists():
+            return candidate
+
+        raise typer.BadParameter(f"could not resolve {value!r} under {directory}")
+
+    def stable_sig(payload: dict, id_key: str, sig_key: str) -> str:
+        stable = dict(payload)
+        stable.pop(id_key, None)
+        stable.pop(sig_key, None)
+        return sig8(stable)
+
+    def confirmation_sig(payload: dict) -> str:
+        return stable_sig(payload, "confirmation_id", "confirmation_payload_sig8")
+
+    def write_confirmation(payload: dict) -> tuple[Path, dict]:
+        payload = dict(payload)
+        payload["confirmation_schema_version"] = "agent_operator_confirmation_receipt_v1"
+        payload["confirmation_payload_sig8"] = confirmation_sig(payload)
+        payload["confirmation_id"] = payload["confirmation_payload_sig8"]
+
+        out_dir = Path("data/agent_confirmations")
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out_path = out_dir / f"{payload['confirmation_id']}.json"
+        out_path.write_text(json.dumps(payload, indent=2, sort_keys=True))
+        return out_path, payload
+
+    decision = decision.strip().lower()
+    allowed_decisions = {"continue", "stop"}
+
+    loop_path = resolve_json_path(loop_summary_receipt, "data/agent_loop_summaries")
+    loop = json.loads(loop_path.read_text())
+
+    failures = []
+
+    if decision not in allowed_decisions:
+        failures.append(f"decision_not_allowed:{decision}")
+
+    loop_id = loop.get("loop_summary_id")
+    loop_sig = loop.get("loop_summary_payload_sig8")
+    recomputed_loop_sig = stable_sig(loop, "loop_summary_id", "loop_summary_payload_sig8")
+
+    if loop.get("loop_summary_schema_version") != "agent_loop_summary_receipt_v1":
+        failures.append("loop_summary_schema_version_mismatch")
+
+    if loop_path.stem != loop_id:
+        failures.append("loop_summary_id_filename_mismatch")
+
+    if loop_id != loop_sig:
+        failures.append("loop_summary_id_payload_sig_mismatch")
+
+    if recomputed_loop_sig != loop_sig:
+        failures.append("loop_summary_payload_sig_recompute_mismatch")
+
+    if loop.get("gate") != "PASS":
+        failures.append("loop_summary_gate_not_PASS")
+
+    loop_terminal = loop.get("terminal") or {}
+    if loop_terminal.get("type") != "ADVANCE":
+        failures.append("loop_summary_terminal_not_ADVANCE")
+
+    compact = loop.get("compact_card") or {}
+    chain = loop.get("chain") or {}
+    observed_eval = chain.get("observed_eval") or {}
+
+    observed_eval_id = observed_eval.get("id")
+    observed_run_id = compact.get("observed_run_id")
+    observed_compression_signal = compact.get("observed_compression_signal")
+
+    if not observed_eval_id:
+        failures.append("missing_observed_eval_id")
+
+    if not observed_run_id:
+        failures.append("missing_observed_run_id")
+
+    if decision == "continue" and not failures:
+        terminal_type = "ADVANCE"
+        stop_code = None
+        next_command_goal = "AGENT_SELECT_FROM_OBSERVED_EVAL"
+        next_allowed_source = {
+            "kind": "agent_eval",
+            "eval_id": observed_eval_id,
+            "run_id": observed_run_id,
+        }
+    elif decision == "stop" and not failures:
+        terminal_type = "STOP"
+        stop_code = "operator_stopped_cleanly"
+        next_command_goal = None
+        next_allowed_source = None
+    else:
+        terminal_type = "STOP"
+        stop_code = "operator_confirmation_failed"
+        next_command_goal = None
+        next_allowed_source = None
+
+    payload = {
+        "input_loop_summary_path": str(loop_path),
+        "input_loop_summary_id": loop_id,
+        "loop_summary_payload_sig8": loop_sig,
+        "recomputed_loop_summary_payload_sig8": recomputed_loop_sig,
+        "operator_decision": decision,
+        "allowed_decisions": sorted(allowed_decisions),
+        "observed_eval_id": observed_eval_id,
+        "observed_run_id": observed_run_id,
+        "observed_compression_signal": observed_compression_signal,
+        "source_selected_goal": compact.get("selected_goal"),
+        "source_next_permitted_goal": compact.get("next_permitted_goal"),
+        "gate": "PASS" if not failures else "FAIL",
+        "failures": failures,
+        "next_allowed_source": next_allowed_source,
+        "terminal": {
+            "type": terminal_type,
+            "stop_code": stop_code,
+            "next_command_goal": next_command_goal,
+        },
+    }
+
+    out_path, payload = write_confirmation(payload)
+
+    print(json.dumps(payload, indent=2, sort_keys=True))
+    if failures:
+        print(f"[bold red]confirmation_path[/bold red]: {out_path}")
+        raise typer.Exit(1)
+
+    print(f"[bold green]confirmation_path[/bold green]: {out_path}")
+
+
 if __name__ == "__main__":
     app()
