@@ -87,6 +87,46 @@ def move_profile_id(
     return profile_id, profile
 
 
+def expected_law(family: str, move_id: str, profile: dict) -> tuple[str, bool, str]:
+    dr = profile["row_delta"]
+    dc = profile["col_delta"]
+    rk = profile["rank_delta"]
+    sp = profile["support_delta"]
+
+    if family == "one_sided_suspension":
+        law_id = "ONE_SIDED_DUPLICATE_COL_PRESERVES_RANK"
+        ok = dr == 0 and dc == 1 and rk == 0
+        return law_id, ok, "" if ok else f"expected dr=0 dc=1 rank=0 got dr={dr} dc={dc} rank={rk}"
+
+    if family == "two_sided_suspension":
+        law_id = "TWO_SIDED_ADD_ROW_COL_RAISES_RANK"
+        ok = dr == 1 and dc == 1 and rk == 1 and sp > 0
+        return law_id, ok, "" if ok else f"expected dr=1 dc=1 rank=1 supp>0 got dr={dr} dc={dc} rank={rk} supp={sp}"
+
+    if family == "suspension_plus_repair":
+        law_id = "REPAIR_ADDS_COLUMN_PRESERVES_RANK"
+        ok = dr == 0 and dc == 1 and rk == 0
+        return law_id, ok, "" if ok else f"expected dr=0 dc=1 rank=0 got dr={dr} dc={dc} rank={rk}"
+
+    if family == "projection_quotient":
+        if move_id == "append_zero_column":
+            law_id = "PROJECTION_APPEND_ZERO_PRESERVES_RANK"
+            ok = dr == 0 and dc == 1 and rk == 0 and sp == 0
+            return law_id, ok, "" if ok else f"expected dr=0 dc=1 rank=0 supp=0 got dr={dr} dc={dc} rank={rk} supp={sp}"
+
+        if move_id == "quotient_merge_last_row":
+            law_id = "PROJECTION_QUOTIENT_MERGE_CONTRACTS_ROWS"
+            ok = dr == -1 and dc == 0 and rk <= 0
+            return law_id, ok, "" if ok else f"expected dr=-1 dc=0 rank<=0 got dr={dr} dc={dc} rank={rk}"
+
+    if family == "relabel_symmetry_stress":
+        law_id = "RELABEL_PRESERVES_SHAPE_RANK_SUPPORT"
+        ok = dr == 0 and dc == 0 and rk == 0 and sp == 0
+        return law_id, ok, "" if ok else f"expected dr=0 dc=0 rank=0 supp=0 got dr={dr} dc={dc} rank={rk} supp={sp}"
+
+    return "UNKNOWN_LAW", False, f"no law for family={family} move={move_id}"
+
+
 def gf2_rank(a: np.ndarray) -> int:
     """Rank over F2 using basic Gaussian elimination."""
     m = a.copy().astype(np.uint8) % 2
@@ -218,6 +258,9 @@ def init_db() -> None:
                 cycle_n integer not null,
                 move_id text not null,
                 move_profile_id text,
+                law_id text,
+                law_ok integer,
+                law_fail_reason text,
                 row_delta integer,
                 col_delta integer,
                 rank_delta integer,
@@ -246,6 +289,9 @@ def init_db() -> None:
 
         for col_name, col_type in [
             ("move_profile_id", "text"),
+            ("law_id", "text"),
+            ("law_ok", "integer"),
+            ("law_fail_reason", "text"),
             ("row_delta", "integer"),
             ("col_delta", "integer"),
             ("rank_delta", "integer"),
@@ -302,6 +348,7 @@ def insert_receipt(receipt: dict) -> None:
             insert or replace into receipts (
                 run_id, case_id, family, depth, cycle_n,
                 move_id, move_profile_id,
+                law_id, law_ok, law_fail_reason,
                 row_delta, col_delta, rank_delta, support_delta,
                 distinct_column_types_before, distinct_column_types_after,
                 new_column_types_added,
@@ -311,7 +358,7 @@ def insert_receipt(receipt: dict) -> None:
                 trajectory_signature, halt_reason,
                 state_sig8_before, state_sig8_after, receipt_path
             )
-            values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 receipt["run_id"],
@@ -321,6 +368,9 @@ def insert_receipt(receipt: dict) -> None:
                 receipt["cycle_n"],
                 receipt["move_id"],
                 receipt["move_profile_id"],
+                receipt["law_id"],
+                int(receipt["law_ok"]),
+                receipt["law_fail_reason"],
                 receipt["row_delta"],
                 receipt["col_delta"],
                 receipt["rank_delta"],
@@ -462,6 +512,8 @@ def execute_run(
                     rank_after=after_rank,
                 )
 
+                law_id, law_ok, law_fail_reason = expected_law(family, move_id, profile)
+
                 new_move_required = profile_id not in registered_moves
                 registered_moves.add(profile_id)
                 trajectory.append(after_sig)
@@ -496,6 +548,9 @@ def execute_run(
                     "cycle_n": cycle_n,
                     "move_id": move_id,
                     "move_profile_id": profile_id,
+                    "law_id": law_id,
+                    "law_ok": law_ok,
+                    "law_fail_reason": law_fail_reason,
                     "row_delta": profile["row_delta"],
                     "col_delta": profile["col_delta"],
                     "rank_delta": profile["rank_delta"],
@@ -1081,6 +1136,71 @@ def coarse_profiles(
         table.add_row(*(str(x) for x in row))
 
     console.print(table)
+
+
+@app.command()
+def laws(
+    run_id: str = typer.Argument("latest"),
+    limit: int = typer.Option(40, help="Max failing rows to show."),
+):
+    """
+    Summarize expected-law checks by family and move.
+    """
+    init_db()
+
+    if run_id == "latest":
+        run_id = latest_run_id()
+
+    with sqlite3.connect(DB_PATH) as con:
+        rows = con.execute(
+            """
+            select family, law_id, law_ok, count(*)
+            from receipts
+            where run_id = ?
+            group by family, law_id, law_ok
+            order by family, law_id, law_ok
+            """,
+            (run_id,),
+        ).fetchall()
+
+        failures = con.execute(
+            """
+            select family, case_id, cycle_n, move_id, law_id, law_fail_reason
+            from receipts
+            where run_id = ?
+              and law_ok = 0
+            order by family, case_id, cycle_n
+            limit ?
+            """,
+            (run_id, limit),
+        ).fetchall()
+
+    print(f"[bold green]Law check for run:[/bold green] {run_id}")
+
+    table = Table(title="Law checks")
+    table.add_column("family")
+    table.add_column("law")
+    table.add_column("ok", justify="right")
+    table.add_column("count", justify="right")
+
+    for row in rows:
+        table.add_row(*(str(x) for x in row))
+
+    console.print(table)
+
+    if failures:
+        table = Table(title="Law failures")
+        table.add_column("family")
+        table.add_column("case")
+        table.add_column("cycle", justify="right")
+        table.add_column("move")
+        table.add_column("law")
+        table.add_column("reason")
+
+        for row in failures:
+            table.add_row(*(str(x) for x in row))
+
+        console.print(table)
 
 
 if __name__ == "__main__":
