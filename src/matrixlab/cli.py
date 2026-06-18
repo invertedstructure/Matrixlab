@@ -905,5 +905,73 @@ def analyze(run_id: str = typer.Argument("latest")):
     console.print(table)
 
 
+@app.command()
+def profiles(
+    run_id: str = typer.Argument("latest"),
+    family: Optional[str] = typer.Option(None, help="Optional family filter."),
+    limit: int = typer.Option(30, help="Max rows to show."),
+):
+    """
+    Show compact move-profile counts.
+    """
+    init_db()
+
+    if run_id == "latest":
+        run_id = latest_run_id()
+
+    params = [run_id]
+    family_clause = ""
+
+    if family:
+        family_clause = "and family = ?"
+        params.append(family)
+
+    with sqlite3.connect(DB_PATH) as con:
+        rows = con.execute(
+            f"""
+            select
+                family,
+                move_id,
+                row_delta,
+                col_delta,
+                rank_delta,
+                support_delta,
+                new_column_types_added,
+                count(*) as n
+            from receipts
+            where run_id = ?
+            {family_clause}
+            group by
+                family,
+                move_id,
+                row_delta,
+                col_delta,
+                rank_delta,
+                support_delta,
+                new_column_types_added
+            order by family, n desc
+            limit ?
+            """,
+            (*params, limit),
+        ).fetchall()
+
+    print(f"[bold green]Move profiles for run:[/bold green] {run_id}")
+
+    table = Table(title="Move profiles")
+    table.add_column("family")
+    table.add_column("move")
+    table.add_column("dr", justify="right")
+    table.add_column("dc", justify="right")
+    table.add_column("rank", justify="right")
+    table.add_column("support", justify="right")
+    table.add_column("newcols", justify="right")
+    table.add_column("count", justify="right")
+
+    for row in rows:
+        table.add_row(*(str(x) for x in row))
+
+    console.print(table)
+
+
 if __name__ == "__main__":
     app()
