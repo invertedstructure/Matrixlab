@@ -2017,6 +2017,8 @@ def agent_select(eval_report: str = typer.Argument(...)):
     """
     Select the next command from a fixed allowlist based on an explicit agent-eval JSON report.
     """
+    import shlex
+
     def resolve_eval_path(value: str) -> Path:
         candidate = Path(value)
         if candidate.exists():
@@ -2091,6 +2093,7 @@ def agent_select(eval_report: str = typer.Argument(...)):
                 "command_lines": [],
                 "command_script": "",
                 "command_count": 0,
+                "command_argvs": [],
                 "requires_manual_parameters": [],
                 "expected_gate_result": None,
                 "expected_next_receipts": None,
@@ -2173,6 +2176,7 @@ def agent_select(eval_report: str = typer.Argument(...)):
             "command_lines": selected["command_lines"],
             "command_script": "\n".join(selected["command_lines"]),
             "command_count": len(selected["command_lines"]),
+            "command_argvs": selected.get("command_argvs") or [shlex.split(line) for line in selected["command_lines"]],
             "requires_manual_parameters": selected["requires_manual_parameters"],
             "expected_gate_result": selected.get("expected_gate_result"),
             "expected_next_receipts": selected.get("expected_next_receipts"),
