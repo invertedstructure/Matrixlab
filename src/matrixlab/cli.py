@@ -2087,7 +2087,12 @@ def agent_select(eval_report: str = typer.Argument(...)):
                 "selected_command_goal": None,
                 "command_kind": None,
                 "command_lines": [],
+                "command_script": "",
+                "command_count": 0,
                 "requires_manual_parameters": [],
+                "expected_gate_result": None,
+                "expected_next_receipts": None,
+                "expected_terminal": "STOP",
             }
         )
         out_path = write_selection(payload)
@@ -2120,6 +2125,9 @@ def agent_select(eval_report: str = typer.Argument(...)):
                 f"uv run python src/matrixlab/cli.py agent-eval latest --previous {current_run_id}",
             ],
             "requires_manual_parameters": [],
+            "expected_gate_result": "PASS",
+            "expected_next_receipts": "normal_strict_small_run",
+            "expected_terminal": "ADVANCE",
         },
         "RUN_FULL_NORMAL_STRICT": {
             "command_kind": "ALLOWLIST_COMMAND",
@@ -2129,6 +2137,9 @@ def agent_select(eval_report: str = typer.Argument(...)):
                 f"uv run python src/matrixlab/cli.py agent-eval latest --previous {current_run_id}",
             ],
             "requires_manual_parameters": [],
+            "expected_gate_result": "PASS",
+            "expected_next_receipts": "normal_strict_full_run",
+            "expected_terminal": "ADVANCE",
         },
         "RUN_BAD_PROBE_STRICT_NEGATIVE_CONTROL": {
             "command_kind": "ALLOWLIST_COMMAND_EXPECTED_FAIL",
@@ -2138,6 +2149,9 @@ def agent_select(eval_report: str = typer.Argument(...)):
                 "uv run python src/matrixlab/cli.py agent-eval latest || true",
             ],
             "requires_manual_parameters": [],
+            "expected_gate_result": "FAIL",
+            "expected_next_receipts": "law_violation_probe_strict_negative_control",
+            "expected_terminal": "STOP",
         },
     }
 
@@ -2155,7 +2169,12 @@ def agent_select(eval_report: str = typer.Argument(...)):
             "selected_command_goal": goal,
             "command_kind": selected["command_kind"],
             "command_lines": selected["command_lines"],
+            "command_script": "\n".join(selected["command_lines"]),
+            "command_count": len(selected["command_lines"]),
             "requires_manual_parameters": selected["requires_manual_parameters"],
+            "expected_gate_result": selected.get("expected_gate_result"),
+            "expected_next_receipts": selected.get("expected_next_receipts"),
+            "expected_terminal": selected.get("expected_terminal"),
         }
     )
 
