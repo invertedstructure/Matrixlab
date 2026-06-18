@@ -2527,5 +2527,195 @@ def agent_exec_dry_run(plan_check_receipt: str = typer.Argument(...)):
     print(f"[bold green]exec_dry_run_path[/bold green]: {out_path}")
 
 
+
+@app.command("agent-post-check")
+def agent_post_check(
+    exec_dry_run_receipt: str = typer.Argument(...),
+    observed_eval: str = typer.Argument(...),
+):
+    """
+    Verify that a manual execution result matches a prior PASS executor dry-run receipt.
+    """
+    def resolve_json_path(value: str, directory: str, suffix: str = ".json") -> Path:
+        candidate = Path(value)
+        if candidate.exists():
+            return candidate
+
+        candidate = Path(directory) / f"{value}{suffix}"
+        if candidate.exists():
+            return candidate
+
+        raise typer.BadParameter(f"could not resolve {value!r} under {directory}")
+
+    def stable_sig(payload: dict, id_key: str, sig_key: str) -> str:
+        stable = dict(payload)
+        stable.pop(id_key, None)
+        stable.pop(sig_key, None)
+        return sig8(stable)
+
+    def post_check_sig(payload: dict) -> str:
+        return stable_sig(payload, "post_check_id", "post_check_payload_sig8")
+
+    def write_post_check(payload: dict) -> tuple[Path, dict]:
+        payload = dict(payload)
+        payload["post_check_schema_version"] = "agent_post_check_receipt_v1"
+        payload["post_check_payload_sig8"] = post_check_sig(payload)
+        payload["post_check_id"] = payload["post_check_payload_sig8"]
+
+        out_dir = Path("data/agent_post_checks")
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out_path = out_dir / f"{payload['post_check_id']}.json"
+        out_path.write_text(json.dumps(payload, indent=2, sort_keys=True))
+        return out_path, payload
+
+    dry_path = resolve_json_path(exec_dry_run_receipt, "data/agent_exec_dry_runs")
+    eval_path = resolve_json_path(observed_eval, "data/evals")
+
+    dry = json.loads(dry_path.read_text())
+    observed = json.loads(eval_path.read_text())
+
+    failures = []
+
+    dry_id = dry.get("exec_dry_run_id")
+    dry_sig = dry.get("exec_dry_run_payload_sig8")
+    recomputed_dry_sig = stable_sig(dry, "exec_dry_run_id", "exec_dry_run_payload_sig8")
+
+    if dry.get("exec_dry_run_schema_version") != "agent_exec_dry_run_receipt_v1":
+        failures.append("exec_dry_run_schema_version_mismatch")
+
+    if dry_path.stem != dry_id:
+        failures.append("exec_dry_run_id_filename_mismatch")
+
+    if dry_id != dry_sig:
+        failures.append("exec_dry_run_id_payload_sig_mismatch")
+
+    if recomputed_dry_sig != dry_sig:
+        failures.append("exec_dry_run_payload_sig_recompute_mismatch")
+
+    if dry.get("gate") != "PASS":
+        failures.append("exec_dry_run_gate_not_PASS")
+
+    if dry.get("dry_run_only") is not True:
+        failures.append("exec_dry_run_not_marked_dry_run_only")
+
+    if dry.get("subprocess_execution") is not False:
+        failures.append("exec_dry_run_subprocess_execution_not_false")
+
+    dry_terminal = dry.get("terminal") or {}
+    if dry_terminal.get("type") != "ADVANCE":
+        failures.append("exec_dry_run_terminal_not_ADVANCE")
+
+    observed_input_runs = observed.get("input_runs") or []
+    observed_current_run = observed_input_runs[0] if observed_input_runs else None
+    observed_previous_run = observed_input_runs[1] if len(observed_input_runs) > 1 else None
+
+    dry_selector_previous = None
+    for argv in dry.get("command_argvs") or []:
+        if len(argv) >= 7 and argv[4] == "agent-eval":
+            for i, part in enumerate(argv):
+                if part == "--previous" and i + 1 < len(argv):
+                    dry_selector_previous = argv[i + 1]
+
+    if observed.get("gate") != "PASS":
+        failures.append("observed_eval_gate_not_PASS")
+
+    observed_terminal = observed.get("terminal") or {}
+    if observed_terminal.get("type") != "ADVANCE":
+        failures.append("observed_eval_terminal_not_ADVANCE")
+
+    observed_metrics = observed.get("metrics") or {}
+    if int(observed_metrics.get("law_failures") or 0) != 0:
+        failures.append("observed_eval_law_failures_nonzero")
+
+    if int(observed_metrics.get("unknown_laws") or 0) != 0:
+        failures.append("observed_eval_unknown_laws_nonzero")
+
+    if int(observed_metrics.get("orphan_receipt_runs") or 0) != 0:
+        failures.append("observed_eval_orphan_receipts_nonzero")
+
+    if dry_selector_previous and observed_previous_run != dry_selector_previous:
+        failures.append("observed_previous_run_mismatch")
+
+    expected_gate_result = dry.get("expected_gate_result")
+    expected_terminal = dry.get("expected_terminal")
+    expected_next_receipts = dry.get("expected_next_receipts")
+
+    if expected_gate_result != "PASS":
+        failures.append("dry_expected_gate_result_not_PASS")
+
+    if expected_terminal != "ADVANCE":
+        failures.append("dry_expected_terminal_not_ADVANCE")
+
+    if not expected_next_receipts:
+        failures.append("missing_dry_expected_next_receipts")
+
+    allowed_compression_signals = {
+        "BASELINE",
+        "FLAT",
+        "GOOD",
+        "GOOD_WEAK",
+        "GOOD_RECEIPT_EXPANSION",
+    }
+
+    compression_signal = (observed.get("classification") or {}).get("compression_signal")
+    if compression_signal not in allowed_compression_signals:
+        failures.append(f"observed_compression_signal_not_allowed:{compression_signal}")
+
+    expected_shape = {
+        "total_cases": 490,
+        "total_receipts": 48784,
+        "coarse_move_profiles_total": 9,
+        "raw_move_profiles_total": 405,
+        "registered_moves_total": 100,
+        "max_moves_applied_before_halt": 100,
+    }
+
+    observed_shape = {
+        key: observed_metrics.get(key)
+        for key in expected_shape
+    }
+
+    for key, expected_value in expected_shape.items():
+        if observed_shape.get(key) != expected_value:
+            failures.append(f"observed_shape_mismatch:{key}")
+
+    payload = {
+        "input_exec_dry_run_path": str(dry_path),
+        "input_exec_dry_run_id": dry_id,
+        "exec_dry_run_payload_sig8": dry_sig,
+        "recomputed_exec_dry_run_payload_sig8": recomputed_dry_sig,
+        "input_observed_eval_path": str(eval_path),
+        "input_observed_eval_id": observed.get("eval_id"),
+        "observed_current_run": observed_current_run,
+        "observed_previous_run": observed_previous_run,
+        "dry_selector_previous_run": dry_selector_previous,
+        "observed_gate": observed.get("gate"),
+        "observed_terminal": observed_terminal,
+        "observed_compression_signal": compression_signal,
+        "allowed_compression_signals": sorted(allowed_compression_signals),
+        "expected_shape": expected_shape,
+        "observed_shape": observed_shape,
+        "expected_gate_result": expected_gate_result,
+        "expected_next_receipts": expected_next_receipts,
+        "expected_terminal": expected_terminal,
+        "gate": "PASS" if not failures else "FAIL",
+        "failures": failures,
+        "terminal": {
+            "type": "ADVANCE" if not failures else "STOP",
+            "stop_code": None if not failures else "post_check_failed",
+            "next_command_goal": "READY_FOR_OPERATOR_CONFIRMATION_OR_NEXT_SELECTOR" if not failures else None,
+        },
+    }
+
+    out_path, payload = write_post_check(payload)
+
+    print(json.dumps(payload, indent=2, sort_keys=True))
+    if failures:
+        print(f"[bold red]post_check_path[/bold red]: {out_path}")
+        raise typer.Exit(1)
+
+    print(f"[bold green]post_check_path[/bold green]: {out_path}")
+
+
 if __name__ == "__main__":
     app()
