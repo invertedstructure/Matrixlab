@@ -2348,5 +2348,184 @@ def agent_plan_check(selector_receipt: str = typer.Argument(...)):
     print(f"[bold green]plan_check_path[/bold green]: {out_path}")
 
 
+
+@app.command("agent-exec-dry-run")
+def agent_exec_dry_run(plan_check_receipt: str = typer.Argument(...)):
+    """
+    Emit a dry-run executor receipt from a PASS agent-plan-check receipt. Does not execute subprocesses.
+    """
+    def resolve_plan_check_path(value: str) -> Path:
+        candidate = Path(value)
+        if candidate.exists():
+            return candidate
+
+        candidate = Path("data/agent_plan_checks") / f"{value}.json"
+        if candidate.exists():
+            return candidate
+
+        raise typer.BadParameter(
+            "plan_check_receipt must be an explicit plan-check JSON path or plan_check_id present under data/agent_plan_checks/"
+        )
+
+    def stable_sig(payload: dict, id_key: str, sig_key: str) -> str:
+        stable = dict(payload)
+        stable.pop(id_key, None)
+        stable.pop(sig_key, None)
+        return sig8(stable)
+
+    def exec_dry_run_sig(payload: dict) -> str:
+        return stable_sig(payload, "exec_dry_run_id", "exec_dry_run_payload_sig8")
+
+    def write_exec_dry_run(payload: dict) -> tuple[Path, dict]:
+        payload = dict(payload)
+        payload["exec_dry_run_schema_version"] = "agent_exec_dry_run_receipt_v1"
+        payload["exec_dry_run_payload_sig8"] = exec_dry_run_sig(payload)
+        payload["exec_dry_run_id"] = payload["exec_dry_run_payload_sig8"]
+
+        out_dir = Path("data/agent_exec_dry_runs")
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out_path = out_dir / f"{payload['exec_dry_run_id']}.json"
+        out_path.write_text(json.dumps(payload, indent=2, sort_keys=True))
+        return out_path, payload
+
+    plan_path = resolve_plan_check_path(plan_check_receipt)
+    plan = json.loads(plan_path.read_text())
+
+    failures = []
+
+    plan_check_id = plan.get("plan_check_id")
+    plan_check_payload_sig8 = plan.get("plan_check_payload_sig8")
+    plan_check_schema_version = plan.get("plan_check_schema_version")
+    recomputed_plan_sig8 = stable_sig(plan, "plan_check_id", "plan_check_payload_sig8")
+
+    if plan_check_schema_version != "agent_plan_check_receipt_v1":
+        failures.append("plan_check_schema_version_mismatch")
+
+    if not plan_check_id:
+        failures.append("missing_plan_check_id")
+
+    if not plan_check_payload_sig8:
+        failures.append("missing_plan_check_payload_sig8")
+
+    if plan_path.stem != plan_check_id:
+        failures.append("plan_check_id_filename_mismatch")
+
+    if plan_check_id != plan_check_payload_sig8:
+        failures.append("plan_check_id_payload_sig_mismatch")
+
+    if recomputed_plan_sig8 != plan_check_payload_sig8:
+        failures.append("plan_check_payload_sig_recompute_mismatch")
+
+    if plan.get("gate") != "PASS":
+        failures.append("plan_check_gate_not_PASS")
+
+    terminal = plan.get("terminal") or {}
+    if terminal.get("type") != "ADVANCE":
+        failures.append("plan_check_terminal_not_ADVANCE")
+
+    selector_path = Path(plan.get("input_selector_path") or "")
+    selector = None
+
+    if not selector_path.exists():
+        failures.append("selector_receipt_missing")
+    else:
+        selector = json.loads(selector_path.read_text())
+        selector_id = selector.get("selector_id")
+        selector_payload_sig8 = selector.get("selector_payload_sig8")
+        recomputed_selector_sig8 = stable_sig(selector, "selector_id", "selector_payload_sig8")
+
+        if selector.get("selector_schema_version") != "agent_select_receipt_v1":
+            failures.append("selector_schema_version_mismatch")
+
+        if selector_path.stem != selector_id:
+            failures.append("selector_id_filename_mismatch")
+
+        if selector_id != selector_payload_sig8:
+            failures.append("selector_id_payload_sig_mismatch")
+
+        if recomputed_selector_sig8 != selector_payload_sig8:
+            failures.append("selector_payload_sig_recompute_mismatch")
+
+        if selector.get("verdict") != "SELECTED":
+            failures.append("selector_verdict_not_SELECTED")
+
+    command_argvs = selector.get("command_argvs") if selector else []
+    command_lines = selector.get("command_lines") if selector else []
+
+    allowed_prefix = ["uv", "run", "python", "src/matrixlab/cli.py"]
+    allowed_subcommands = {"stress", "gate", "agent-eval"}
+
+    for i, argv in enumerate(command_argvs or []):
+        if not isinstance(argv, list):
+            failures.append(f"command_{i}_argv_not_list")
+            continue
+
+        if len(argv) < 5:
+            failures.append(f"command_{i}_argv_too_short")
+            continue
+
+        if argv[:4] != allowed_prefix:
+            failures.append(f"command_{i}_prefix_not_allowed")
+            continue
+
+        if argv[4] not in allowed_subcommands:
+            failures.append(f"command_{i}_subcommand_not_allowed:{argv[4]}")
+
+    execution_plan = []
+    for i, argv in enumerate(command_argvs or []):
+        subcommand = argv[4] if len(argv) >= 5 else None
+        execution_plan.append(
+            {
+                "order": i,
+                "argv": argv,
+                "subcommand": subcommand,
+                "would_execute": False,
+                "expected_output_kind": (
+                    "run_receipt" if subcommand == "stress"
+                    else "gate_receipt" if subcommand == "gate"
+                    else "agent_eval_receipt" if subcommand == "agent-eval"
+                    else "unknown"
+                ),
+            }
+        )
+
+    payload = {
+        "input_plan_check_path": str(plan_path),
+        "input_plan_check_id": plan_check_id,
+        "plan_check_payload_sig8": plan_check_payload_sig8,
+        "recomputed_plan_check_payload_sig8": recomputed_plan_sig8,
+        "input_selector_path": str(selector_path) if selector_path else None,
+        "input_selector_id": selector.get("selector_id") if selector else None,
+        "selector_payload_sig8": selector.get("selector_payload_sig8") if selector else None,
+        "selector_command_goal": selector.get("selected_command_goal") if selector else None,
+        "selector_command_kind": selector.get("command_kind") if selector else None,
+        "dry_run_only": True,
+        "subprocess_execution": False,
+        "command_count": len(command_argvs or []),
+        "command_lines": command_lines or [],
+        "command_argvs": command_argvs or [],
+        "execution_plan": execution_plan,
+        "expected_gate_result": selector.get("expected_gate_result") if selector else None,
+        "expected_next_receipts": selector.get("expected_next_receipts") if selector else None,
+        "expected_terminal": selector.get("expected_terminal") if selector else None,
+        "gate": "PASS" if not failures else "FAIL",
+        "failures": failures,
+        "terminal": {
+            "type": "ADVANCE" if not failures else "STOP",
+            "stop_code": None if not failures else "exec_dry_run_failed",
+            "next_command_goal": "MANUAL_EXECUTE_SELECTED_ARGVS" if not failures else None,
+        },
+    }
+
+    out_path, payload = write_exec_dry_run(payload)
+
+    print(json.dumps(payload, indent=2, sort_keys=True))
+    if failures:
+        print(f"[bold red]exec_dry_run_path[/bold red]: {out_path}")
+        raise typer.Exit(1)
+
+    print(f"[bold green]exec_dry_run_path[/bold green]: {out_path}")
+
+
 if __name__ == "__main__":
     app()
