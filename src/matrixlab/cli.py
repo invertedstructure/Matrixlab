@@ -3049,5 +3049,303 @@ def agent_confirm_loop(
     print(f"[bold green]confirmation_path[/bold green]: {out_path}")
 
 
+
+@app.command("agent-next-from-confirmation")
+def agent_next_from_confirmation(confirmation_receipt: str = typer.Argument(...)):
+    """
+    Consume a PASS continue confirmation and emit the next fixed selector receipt from its allowed eval source.
+    """
+    import shlex
+
+    def resolve_json_path(value: str, directory: str, suffix: str = ".json") -> Path:
+        candidate = Path(value)
+        if candidate.exists():
+            return candidate
+
+        candidate = Path(directory) / f"{value}{suffix}"
+        if candidate.exists():
+            return candidate
+
+        raise typer.BadParameter(f"could not resolve {value!r} under {directory}")
+
+    def stable_sig(payload: dict, id_key: str, sig_key: str) -> str:
+        stable = dict(payload)
+        stable.pop(id_key, None)
+        stable.pop(sig_key, None)
+        return sig8(stable)
+
+    def selector_payload_sig(payload: dict) -> str:
+        stable_payload = dict(payload)
+        stable_payload.pop("selector_id", None)
+        stable_payload.pop("selector_payload_sig8", None)
+        return sig8(stable_payload)
+
+    def write_selector(payload: dict) -> tuple[Path, dict]:
+        payload = dict(payload)
+        payload["selector_schema_version"] = "agent_select_receipt_v1"
+        payload["selector_payload_sig8"] = selector_payload_sig(payload)
+        payload["selector_id"] = payload["selector_payload_sig8"]
+
+        out_dir = Path("data/agent_select")
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out_path = out_dir / f"{payload['selector_id']}.json"
+        out_path.write_text(json.dumps(payload, indent=2, sort_keys=True))
+        return out_path, payload
+
+    def next_receipt_sig(payload: dict) -> str:
+        return stable_sig(payload, "next_from_confirmation_id", "next_from_confirmation_payload_sig8")
+
+    def write_next_receipt(payload: dict) -> tuple[Path, dict]:
+        payload = dict(payload)
+        payload["next_from_confirmation_schema_version"] = "agent_next_from_confirmation_receipt_v1"
+        payload["next_from_confirmation_payload_sig8"] = next_receipt_sig(payload)
+        payload["next_from_confirmation_id"] = payload["next_from_confirmation_payload_sig8"]
+
+        out_dir = Path("data/agent_next_from_confirmations")
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out_path = out_dir / f"{payload['next_from_confirmation_id']}.json"
+        out_path.write_text(json.dumps(payload, indent=2, sort_keys=True))
+        return out_path, payload
+
+    conf_path = resolve_json_path(confirmation_receipt, "data/agent_confirmations")
+    conf = json.loads(conf_path.read_text())
+
+    failures = []
+
+    conf_id = conf.get("confirmation_id")
+    conf_sig = conf.get("confirmation_payload_sig8")
+    recomputed_conf_sig = stable_sig(conf, "confirmation_id", "confirmation_payload_sig8")
+
+    if conf.get("confirmation_schema_version") != "agent_operator_confirmation_receipt_v1":
+        failures.append("confirmation_schema_version_mismatch")
+
+    if conf_path.stem != conf_id:
+        failures.append("confirmation_id_filename_mismatch")
+
+    if conf_id != conf_sig:
+        failures.append("confirmation_id_payload_sig_mismatch")
+
+    if recomputed_conf_sig != conf_sig:
+        failures.append("confirmation_payload_sig_recompute_mismatch")
+
+    if conf.get("gate") != "PASS":
+        failures.append("confirmation_gate_not_PASS")
+
+    if conf.get("operator_decision") != "continue":
+        failures.append("operator_decision_not_continue")
+
+    conf_terminal = conf.get("terminal") or {}
+    if conf_terminal.get("type") != "ADVANCE":
+        failures.append("confirmation_terminal_not_ADVANCE")
+
+    if conf_terminal.get("next_command_goal") != "AGENT_SELECT_FROM_OBSERVED_EVAL":
+        failures.append("confirmation_next_goal_mismatch")
+
+    next_allowed_source = conf.get("next_allowed_source") or {}
+    if next_allowed_source.get("kind") != "agent_eval":
+        failures.append("next_allowed_source_kind_not_agent_eval")
+
+    eval_id = next_allowed_source.get("eval_id")
+    run_id = next_allowed_source.get("run_id")
+
+    eval_path = Path("data/evals") / f"{eval_id}.json" if eval_id else None
+    eval_report = None
+
+    if not eval_id:
+        failures.append("missing_next_eval_id")
+    elif not eval_path.exists():
+        failures.append("next_eval_receipt_missing")
+    else:
+        eval_report = json.loads(eval_path.read_text())
+
+    if eval_report:
+        if eval_report.get("eval_id") != eval_id:
+            failures.append("next_eval_id_mismatch")
+
+        if eval_report.get("gate") != "PASS":
+            failures.append("next_eval_gate_not_PASS")
+
+        terminal = eval_report.get("terminal") or {}
+        if terminal.get("type") != "ADVANCE":
+            failures.append("next_eval_terminal_not_ADVANCE")
+
+        input_runs = eval_report.get("input_runs") or []
+        if run_id and (not input_runs or input_runs[0] != run_id):
+            failures.append("next_eval_run_id_mismatch")
+
+    def selector_base_for_eval(report: dict, path: Path) -> dict:
+        terminal = report.get("terminal") or {}
+        input_runs = report.get("input_runs") or []
+        current_run_id = input_runs[0] if input_runs else None
+        goal = terminal.get("next_command_goal")
+        gate = report.get("gate")
+        terminal_type = terminal.get("type")
+
+        return {
+            "input_eval_path": str(path),
+            "input_eval_id": report.get("eval_id"),
+            "input_runs": input_runs,
+            "eval_gate": gate,
+            "eval_terminal_type": terminal_type,
+            "requested_goal": goal,
+            "selector_version": "agent_select_allowlist_v0",
+            "safety_rules": [
+                "explicit_confirmation_only",
+                "confirmation_must_be_PASS_continue",
+                "next_allowed_source_must_be_agent_eval",
+                "referenced_eval_must_exist",
+                "referenced_eval_gate_must_PASS",
+                "no_latest_file_or_mtime_authority",
+                "no_command_invention",
+                "no_code_editing",
+                "no_architecture_widening",
+                "refuse_if_eval_gate_not_PASS",
+                "refuse_if_terminal_not_ADVANCE",
+                "fixed_allowlist_only",
+            ],
+        }
+
+    def refuse_selector(base_payload: dict, reason: str, stop_code: str = None):
+        payload = dict(base_payload)
+        payload.update(
+            {
+                "verdict": "REFUSE",
+                "refusal_reason": reason,
+                "stop_code": stop_code or reason,
+                "selected_command_goal": None,
+                "command_kind": None,
+                "command_lines": [],
+                "command_script": "",
+                "command_count": 0,
+                "command_argvs": [],
+                "requires_manual_parameters": [],
+                "expected_gate_result": None,
+                "expected_next_receipts": None,
+                "expected_terminal": "STOP",
+            }
+        )
+        return write_selector(payload)
+
+    selected_selector_path = None
+    selected_selector = None
+
+    if not failures and eval_report:
+        base_payload = selector_base_for_eval(eval_report, eval_path)
+        goal = base_payload.get("requested_goal")
+        current_run_id = (base_payload.get("input_runs") or [None])[0]
+
+        if base_payload.get("eval_gate") != "PASS":
+            selected_selector_path, selected_selector = refuse_selector(base_payload, "eval_gate_not_PASS", "gate_failed")
+        elif base_payload.get("eval_terminal_type") != "ADVANCE":
+            selected_selector_path, selected_selector = refuse_selector(base_payload, "terminal_not_ADVANCE", "not_advance")
+        elif not goal:
+            selected_selector_path, selected_selector = refuse_selector(base_payload, "missing_next_command_goal")
+        else:
+            allowlist = {
+                "ADD_PREVIOUS_RUN_COMPARISON": {
+                    "command_kind": "ALLOWLIST_TEMPLATE_REQUIRES_PARAMETER",
+                    "command_lines": [
+                        f"uv run python src/matrixlab/cli.py agent-eval {current_run_id} --previous <previous_run_id>"
+                    ],
+                    "requires_manual_parameters": ["previous_run_id"],
+                    "expected_gate_result": "PASS",
+                    "expected_next_receipts": "depends_on_previous_run_parameter",
+                    "expected_terminal": "ADVANCE_OR_STOP_TYPED",
+                },
+                "RUN_SMALL_NORMAL_STRICT": {
+                    "command_kind": "ALLOWLIST_COMMAND",
+                    "command_lines": [
+                        "uv run python src/matrixlab/cli.py stress --families ABCDE --depth-max 20 --cycles-per-case 20 --max-cells 50000 --strict-laws",
+                        "uv run python src/matrixlab/cli.py gate latest",
+                        f"uv run python src/matrixlab/cli.py agent-eval latest --previous {current_run_id}",
+                    ],
+                    "requires_manual_parameters": [],
+                    "expected_gate_result": "PASS",
+                    "expected_next_receipts": "normal_strict_small_run",
+                    "expected_terminal": "ADVANCE",
+                },
+                "RUN_FULL_NORMAL_STRICT": {
+                    "command_kind": "ALLOWLIST_COMMAND",
+                    "command_lines": [
+                        "uv run python src/matrixlab/cli.py stress --families ABCDE --depth-max 100 --cycles-per-case 100 --max-cells 50000 --strict-laws",
+                        "uv run python src/matrixlab/cli.py gate latest",
+                        f"uv run python src/matrixlab/cli.py agent-eval latest --previous {current_run_id}",
+                    ],
+                    "requires_manual_parameters": [],
+                    "expected_gate_result": "PASS",
+                    "expected_next_receipts": "normal_strict_full_run",
+                    "expected_terminal": "ADVANCE",
+                },
+                "RUN_BAD_PROBE_STRICT_NEGATIVE_CONTROL": {
+                    "command_kind": "ALLOWLIST_COMMAND_EXPECTED_FAIL",
+                    "command_lines": [
+                        "uv run python src/matrixlab/cli.py stress --families F --depth-max 8 --cycles-per-case 5 --max-cells 50000 --strict-laws",
+                        "uv run python src/matrixlab/cli.py gate latest || true",
+                        "uv run python src/matrixlab/cli.py agent-eval latest || true",
+                    ],
+                    "requires_manual_parameters": [],
+                    "expected_gate_result": "FAIL",
+                    "expected_next_receipts": "law_violation_probe_strict_negative_control",
+                    "expected_terminal": "STOP",
+                },
+            }
+
+            if goal not in allowlist:
+                selected_selector_path, selected_selector = refuse_selector(base_payload, "goal_not_in_allowlist")
+            else:
+                selected = allowlist[goal]
+                payload = dict(base_payload)
+                payload.update(
+                    {
+                        "verdict": "SELECTED",
+                        "refusal_reason": None,
+                        "stop_code": None,
+                        "selected_command_goal": goal,
+                        "command_kind": selected["command_kind"],
+                        "command_lines": selected["command_lines"],
+                        "command_script": "\n".join(selected["command_lines"]),
+                        "command_count": len(selected["command_lines"]),
+                        "command_argvs": selected.get("command_argvs") or [shlex.split(line) for line in selected["command_lines"]],
+                        "requires_manual_parameters": selected["requires_manual_parameters"],
+                        "expected_gate_result": selected.get("expected_gate_result"),
+                        "expected_next_receipts": selected.get("expected_next_receipts"),
+                        "expected_terminal": selected.get("expected_terminal"),
+                    }
+                )
+                selected_selector_path, selected_selector = write_selector(payload)
+
+    payload = {
+        "input_confirmation_path": str(conf_path),
+        "input_confirmation_id": conf_id,
+        "confirmation_payload_sig8": conf_sig,
+        "recomputed_confirmation_payload_sig8": recomputed_conf_sig,
+        "operator_decision": conf.get("operator_decision"),
+        "next_allowed_source": next_allowed_source,
+        "referenced_eval_path": str(eval_path) if eval_path else None,
+        "referenced_eval_id": eval_id,
+        "referenced_run_id": run_id,
+        "selected_selector_path": str(selected_selector_path) if selected_selector_path else None,
+        "selected_selector_id": selected_selector.get("selector_id") if selected_selector else None,
+        "selected_selector_verdict": selected_selector.get("verdict") if selected_selector else None,
+        "selected_command_goal": selected_selector.get("selected_command_goal") if selected_selector else None,
+        "gate": "PASS" if not failures and selected_selector and selected_selector.get("verdict") == "SELECTED" else "FAIL",
+        "failures": failures if failures else ([] if selected_selector and selected_selector.get("verdict") == "SELECTED" else ["selector_not_selected"]),
+        "terminal": {
+            "type": "ADVANCE" if not failures and selected_selector and selected_selector.get("verdict") == "SELECTED" else "STOP",
+            "stop_code": None if not failures and selected_selector and selected_selector.get("verdict") == "SELECTED" else "next_from_confirmation_failed",
+            "next_command_goal": "PLAN_CHECK_SELECTED_SELECTOR" if not failures and selected_selector and selected_selector.get("verdict") == "SELECTED" else None,
+        },
+    }
+
+    out_path, payload = write_next_receipt(payload)
+
+    print(json.dumps(payload, indent=2, sort_keys=True))
+    if payload["gate"] != "PASS":
+        print(f"[bold red]next_from_confirmation_path[/bold red]: {out_path}")
+        raise typer.Exit(1)
+
+    print(f"[bold green]next_from_confirmation_path[/bold green]: {out_path}")
+
+
 if __name__ == "__main__":
     app()
