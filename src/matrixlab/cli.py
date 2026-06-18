@@ -65,6 +65,15 @@ ALLOWED_AGENT_PREFIX = ["uv", "run", "python", "src/matrixlab/cli.py"]
 ALLOWED_AGENT_SUBCOMMANDS = ["agent-eval", "gate", "stress"]
 
 
+AGENT_SELECT_SCHEMA = "agent_select_receipt_v1"
+AGENT_PLAN_CHECK_SCHEMA = "agent_plan_check_receipt_v1"
+AGENT_EXEC_DRY_RUN_SCHEMA = "agent_exec_dry_run_receipt_v1"
+AGENT_POST_CHECK_SCHEMA = "agent_post_check_receipt_v1"
+AGENT_LOOP_SUMMARY_SCHEMA = "agent_loop_summary_receipt_v1"
+AGENT_CONFIRMATION_SCHEMA = "agent_operator_confirmation_receipt_v1"
+AGENT_NEXT_FROM_CONFIRMATION_SCHEMA = "agent_next_from_confirmation_receipt_v1"
+
+
 def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
     failures: list[str] = []
 
@@ -2122,7 +2131,7 @@ def agent_select(eval_report: str = typer.Argument(...)):
 
     def write_selection(payload: dict) -> Path:
         payload = dict(payload)
-        payload["selector_schema_version"] = "agent_select_receipt_v1"
+        payload["selector_schema_version"] = AGENT_SELECT_SCHEMA
         payload["selector_payload_sig8"] = selector_payload_sig(payload)
         payload["selector_id"] = payload["selector_payload_sig8"]
 
@@ -2302,7 +2311,7 @@ def agent_plan_check(selector_receipt: str = typer.Argument(...)):
             payload,
             "data/agent_plan_checks",
             "plan_check_schema_version",
-            "agent_plan_check_receipt_v1",
+            AGENT_PLAN_CHECK_SCHEMA,
             "plan_check_id",
             "plan_check_payload_sig8",
         )
@@ -2330,7 +2339,7 @@ def agent_plan_check(selector_receipt: str = typer.Argument(...)):
 
     failures = []
 
-    if selector_schema_version != "agent_select_receipt_v1":
+    if selector_schema_version != AGENT_SELECT_SCHEMA:
         failures.append("selector_schema_version_mismatch")
 
     if not selector_id:
@@ -2433,7 +2442,7 @@ def agent_exec_dry_run(plan_check_receipt: str = typer.Argument(...)):
             payload,
             "data/agent_exec_dry_runs",
             "exec_dry_run_schema_version",
-            "agent_exec_dry_run_receipt_v1",
+            AGENT_EXEC_DRY_RUN_SCHEMA,
             "exec_dry_run_id",
             "exec_dry_run_payload_sig8",
         )
@@ -2448,7 +2457,7 @@ def agent_exec_dry_run(plan_check_receipt: str = typer.Argument(...)):
     plan_check_schema_version = plan.get("plan_check_schema_version")
     recomputed_plan_sig8 = stable_sig(plan, "plan_check_id", "plan_check_payload_sig8")
 
-    if plan_check_schema_version != "agent_plan_check_receipt_v1":
+    if plan_check_schema_version != AGENT_PLAN_CHECK_SCHEMA:
         failures.append("plan_check_schema_version_mismatch")
 
     if not plan_check_id:
@@ -2484,7 +2493,7 @@ def agent_exec_dry_run(plan_check_receipt: str = typer.Argument(...)):
         selector_payload_sig8 = selector.get("selector_payload_sig8")
         recomputed_selector_sig8 = stable_sig(selector, "selector_id", "selector_payload_sig8")
 
-        if selector.get("selector_schema_version") != "agent_select_receipt_v1":
+        if selector.get("selector_schema_version") != AGENT_SELECT_SCHEMA:
             failures.append("selector_schema_version_mismatch")
 
         if selector_path.stem != selector_id:
@@ -2592,7 +2601,7 @@ def agent_post_check(
             payload,
             "data/agent_post_checks",
             "post_check_schema_version",
-            "agent_post_check_receipt_v1",
+            AGENT_POST_CHECK_SCHEMA,
             "post_check_id",
             "post_check_payload_sig8",
         )
@@ -2609,7 +2618,7 @@ def agent_post_check(
     dry_sig = dry.get("exec_dry_run_payload_sig8")
     recomputed_dry_sig = stable_sig(dry, "exec_dry_run_id", "exec_dry_run_payload_sig8")
 
-    if dry.get("exec_dry_run_schema_version") != "agent_exec_dry_run_receipt_v1":
+    if dry.get("exec_dry_run_schema_version") != AGENT_EXEC_DRY_RUN_SCHEMA:
         failures.append("exec_dry_run_schema_version_mismatch")
 
     if dry_path.stem != dry_id:
@@ -2758,7 +2767,7 @@ def agent_loop_summary(post_check_receipt: str = typer.Argument(...)):
             payload,
             "data/agent_loop_summaries",
             "loop_summary_schema_version",
-            "agent_loop_summary_receipt_v1",
+            AGENT_LOOP_SUMMARY_SCHEMA,
             "loop_summary_id",
             "loop_summary_payload_sig8",
         )
@@ -2780,7 +2789,7 @@ def agent_loop_summary(post_check_receipt: str = typer.Argument(...)):
     post_sig = post.get("post_check_payload_sig8")
     recomputed_post_sig = stable_sig(post, "post_check_id", "post_check_payload_sig8")
 
-    if post.get("post_check_schema_version") != "agent_post_check_receipt_v1":
+    if post.get("post_check_schema_version") != AGENT_POST_CHECK_SCHEMA:
         failures.append("post_check_schema_version_mismatch")
 
     if post_path.stem != post_id:
@@ -2931,7 +2940,7 @@ def agent_confirm_loop(
             payload,
             "data/agent_confirmations",
             "confirmation_schema_version",
-            "agent_operator_confirmation_receipt_v1",
+            AGENT_CONFIRMATION_SCHEMA,
             "confirmation_id",
             "confirmation_payload_sig8",
         )
@@ -2951,7 +2960,7 @@ def agent_confirm_loop(
     loop_sig = loop.get("loop_summary_payload_sig8")
     recomputed_loop_sig = stable_sig(loop, "loop_summary_id", "loop_summary_payload_sig8")
 
-    if loop.get("loop_summary_schema_version") != "agent_loop_summary_receipt_v1":
+    if loop.get("loop_summary_schema_version") != AGENT_LOOP_SUMMARY_SCHEMA:
         failures.append("loop_summary_schema_version_mismatch")
 
     if loop_path.stem != loop_id:
@@ -3046,7 +3055,7 @@ def agent_next_from_confirmation(confirmation_receipt: str = typer.Argument(...)
 
     def write_selector(payload: dict) -> tuple[Path, dict]:
         payload = dict(payload)
-        payload["selector_schema_version"] = "agent_select_receipt_v1"
+        payload["selector_schema_version"] = AGENT_SELECT_SCHEMA
         payload["selector_payload_sig8"] = selector_payload_sig(payload)
         payload["selector_id"] = payload["selector_payload_sig8"]
 
@@ -3062,7 +3071,7 @@ def agent_next_from_confirmation(confirmation_receipt: str = typer.Argument(...)
             payload,
             "data/agent_next_from_confirmations",
             "next_from_confirmation_schema_version",
-            "agent_next_from_confirmation_receipt_v1",
+            AGENT_NEXT_FROM_CONFIRMATION_SCHEMA,
             "next_from_confirmation_id",
             "next_from_confirmation_payload_sig8",
         )
@@ -3076,7 +3085,7 @@ def agent_next_from_confirmation(confirmation_receipt: str = typer.Argument(...)
     conf_sig = conf.get("confirmation_payload_sig8")
     recomputed_conf_sig = stable_sig(conf, "confirmation_id", "confirmation_payload_sig8")
 
-    if conf.get("confirmation_schema_version") != "agent_operator_confirmation_receipt_v1":
+    if conf.get("confirmation_schema_version") != AGENT_CONFIRMATION_SCHEMA:
         failures.append("confirmation_schema_version_mismatch")
 
     if conf_path.stem != conf_id:
