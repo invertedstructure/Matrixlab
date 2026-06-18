@@ -1853,6 +1853,69 @@ def agent_eval(
             },
         }
 
+
+    def safe_ratio(num, den):
+        num = float(num or 0)
+        den = float(den or 0)
+        if den == 0:
+            return None
+        return round(num / den, 6)
+
+    def vocabulary_scores(metrics: dict) -> dict:
+        continuation = int(metrics.get("max_moves_applied_before_halt") or 0)
+        receipts = int(metrics.get("total_receipts") or 0)
+        cases = int(metrics.get("total_cases") or 0)
+        registered = int(metrics.get("registered_moves_total") or 0)
+        raw = int(metrics.get("raw_move_profiles_total") or 0)
+        coarse = int(metrics.get("coarse_move_profiles_total") or 0)
+
+        return {
+            "continuation_radius": continuation,
+            "registered_moves_total": registered,
+            "raw_move_profiles_total": raw,
+            "coarse_move_profiles_total": coarse,
+            "continuation_per_registered_move": safe_ratio(continuation, registered),
+            "continuation_per_raw_profile": safe_ratio(continuation, raw),
+            "continuation_per_coarse_profile": safe_ratio(continuation, coarse),
+            "receipts_per_registered_move": safe_ratio(receipts, registered),
+            "receipts_per_raw_profile": safe_ratio(receipts, raw),
+            "receipts_per_coarse_profile": safe_ratio(receipts, coarse),
+            "receipts_per_case": safe_ratio(receipts, cases),
+        }
+
+    def classify_compression_signal(current: dict, previous: Optional[dict], delta: Optional[dict]) -> str:
+        if current.get("gate") != "PASS":
+            return "BLOCKED"
+
+        if previous is None or not delta:
+            return "BASELINE"
+
+        if previous.get("gate") != "PASS":
+            return "BASELINE_PREVIOUS_BLOCKED"
+
+        radius_delta = int(delta.get("continuation_radius_delta") or 0)
+        coarse_delta = int(delta.get("coarse_move_profiles_delta") or 0)
+        raw_delta = int(delta.get("raw_move_profiles_delta") or 0)
+        registered_delta = int(delta.get("registered_moves_delta") or 0)
+        receipt_delta = int(delta.get("total_receipts_delta") or 0)
+
+        if radius_delta > 0 and coarse_delta <= 0 and registered_delta <= 0:
+            return "GOOD"
+
+        if radius_delta > 0 and coarse_delta <= 1:
+            return "GOOD_WEAK"
+
+        if radius_delta == 0 and coarse_delta == 0 and raw_delta == 0 and registered_delta == 0:
+            return "FLAT"
+
+        if radius_delta <= 0 and (coarse_delta > 0 or raw_delta > 0 or registered_delta > 0):
+            return "BAD"
+
+        if receipt_delta > 0 and coarse_delta == 0:
+            return "GOOD_RECEIPT_EXPANSION"
+
+        return "MIXED"
+
     current_run = resolve_run_id(run_id)
     previous_run = resolve_run_id(previous)
 
@@ -1875,6 +1938,10 @@ def agent_eval(
             "law_failures_delta": cm["law_failures"] - pm["law_failures"],
             "unknown_laws_delta": cm["unknown_laws"] - pm["unknown_laws"],
         }
+
+    current_scores = vocabulary_scores(current.get("metrics", {})) if current.get("exists") else {}
+    previous_scores = vocabulary_scores(previous_metrics.get("metrics", {})) if previous_metrics and previous_metrics.get("exists") else None
+    compression_signal = classify_compression_signal(current, previous_metrics, delta)
 
     gate = current.get("gate", "FAIL")
     stop_code = None
@@ -1904,7 +1971,10 @@ def agent_eval(
         "metrics": current.get("metrics", {}),
         "profile_summary": current.get("profile_summary", {}),
         "delta_vs_previous": delta,
+        "vocabulary_growth_score": current_scores,
+        "previous_vocabulary_growth_score": previous_scores,
         "classification": {
+            "compression_signal": compression_signal,
             "continuation_radius_growth": None if not delta else (
                 "up" if delta["continuation_radius_delta"] > 0 else
                 "flat" if delta["continuation_radius_delta"] == 0 else
