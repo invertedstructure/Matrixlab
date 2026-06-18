@@ -2717,5 +2717,196 @@ def agent_post_check(
     print(f"[bold green]post_check_path[/bold green]: {out_path}")
 
 
+
+@app.command("agent-loop-summary")
+def agent_loop_summary(post_check_receipt: str = typer.Argument(...)):
+    """
+    Emit a compact receipt card for one complete operator-mediated agent loop.
+    """
+    def resolve_json_path(value: str, directory: str, suffix: str = ".json") -> Path:
+        candidate = Path(value)
+        if candidate.exists():
+            return candidate
+
+        candidate = Path(directory) / f"{value}{suffix}"
+        if candidate.exists():
+            return candidate
+
+        raise typer.BadParameter(f"could not resolve {value!r} under {directory}")
+
+    def stable_sig(payload: dict, id_key: str, sig_key: str) -> str:
+        stable = dict(payload)
+        stable.pop(id_key, None)
+        stable.pop(sig_key, None)
+        return sig8(stable)
+
+    def loop_summary_sig(payload: dict) -> str:
+        return stable_sig(payload, "loop_summary_id", "loop_summary_payload_sig8")
+
+    def write_loop_summary(payload: dict) -> tuple[Path, dict]:
+        payload = dict(payload)
+        payload["loop_summary_schema_version"] = "agent_loop_summary_receipt_v1"
+        payload["loop_summary_payload_sig8"] = loop_summary_sig(payload)
+        payload["loop_summary_id"] = payload["loop_summary_payload_sig8"]
+
+        out_dir = Path("data/agent_loop_summaries")
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out_path = out_dir / f"{payload['loop_summary_id']}.json"
+        out_path.write_text(json.dumps(payload, indent=2, sort_keys=True))
+        return out_path, payload
+
+    def load_optional(path_value):
+        if not path_value:
+            return None, None
+        path = Path(path_value)
+        if not path.exists():
+            return path, None
+        return path, json.loads(path.read_text())
+
+    post_path = resolve_json_path(post_check_receipt, "data/agent_post_checks")
+    post = json.loads(post_path.read_text())
+
+    failures = []
+
+    post_id = post.get("post_check_id")
+    post_sig = post.get("post_check_payload_sig8")
+    recomputed_post_sig = stable_sig(post, "post_check_id", "post_check_payload_sig8")
+
+    if post.get("post_check_schema_version") != "agent_post_check_receipt_v1":
+        failures.append("post_check_schema_version_mismatch")
+
+    if post_path.stem != post_id:
+        failures.append("post_check_id_filename_mismatch")
+
+    if post_id != post_sig:
+        failures.append("post_check_id_payload_sig_mismatch")
+
+    if recomputed_post_sig != post_sig:
+        failures.append("post_check_payload_sig_recompute_mismatch")
+
+    dry_path, dry = load_optional(post.get("input_exec_dry_run_path"))
+    eval_path, observed_eval = load_optional(post.get("input_observed_eval_path"))
+
+    if dry is None:
+        failures.append("missing_exec_dry_run_receipt")
+
+    if observed_eval is None:
+        failures.append("missing_observed_eval_receipt")
+
+    plan_path, plan = load_optional(dry.get("input_plan_check_path") if dry else None)
+    selector_path, selector = load_optional(dry.get("input_selector_path") if dry else None)
+
+    if dry and plan is None:
+        failures.append("missing_plan_check_receipt")
+
+    if dry and selector is None:
+        failures.append("missing_selector_receipt")
+
+    source_eval_path, source_eval = load_optional(selector.get("input_eval_path") if selector else None)
+
+    if selector and source_eval is None:
+        failures.append("missing_source_eval_receipt")
+
+    def receipt_ref(data: dict | None, id_key: str, gate_key: str = "gate"):
+        if not data:
+            return {
+                "id": None,
+                "gate": None,
+                "terminal_type": None,
+                "terminal_goal": None,
+                "stop_code": None,
+            }
+        terminal = data.get("terminal") or {}
+        return {
+            "id": data.get(id_key),
+            "gate": data.get(gate_key),
+            "terminal_type": terminal.get("type"),
+            "terminal_goal": terminal.get("next_command_goal"),
+            "stop_code": terminal.get("stop_code"),
+        }
+
+    chain = {
+        "source_eval": receipt_ref(source_eval, "eval_id"),
+        "selector": {
+            "id": selector.get("selector_id") if selector else None,
+            "verdict": selector.get("verdict") if selector else None,
+            "selected_command_goal": selector.get("selected_command_goal") if selector else None,
+            "command_count": selector.get("command_count") if selector else None,
+        },
+        "plan_check": receipt_ref(plan, "plan_check_id"),
+        "exec_dry_run": receipt_ref(dry, "exec_dry_run_id"),
+        "observed_eval": receipt_ref(observed_eval, "eval_id"),
+        "post_check": receipt_ref(post, "post_check_id"),
+    }
+
+    observed_metrics = (observed_eval or {}).get("metrics") or {}
+    observed_input_runs = (observed_eval or {}).get("input_runs") or []
+
+    post_failures = post.get("failures") or []
+    if post.get("gate") != "PASS":
+        failures.append("post_check_gate_not_PASS")
+
+    if post_failures:
+        failures.extend([f"post_check_failure:{x}" for x in post_failures])
+
+    if dry and dry.get("gate") != "PASS":
+        failures.append("exec_dry_run_gate_not_PASS")
+
+    if plan and plan.get("gate") != "PASS":
+        failures.append("plan_check_gate_not_PASS")
+
+    if selector and selector.get("verdict") != "SELECTED":
+        failures.append("selector_verdict_not_SELECTED")
+
+    if source_eval and source_eval.get("gate") != "PASS":
+        failures.append("source_eval_gate_not_PASS")
+
+    if observed_eval and observed_eval.get("gate") != "PASS":
+        failures.append("observed_eval_gate_not_PASS")
+
+    compact_card = {
+        "selected_goal": selector.get("selected_command_goal") if selector else None,
+        "observed_run_id": observed_input_runs[0] if observed_input_runs else None,
+        "observed_previous_run_id": observed_input_runs[1] if len(observed_input_runs) > 1 else None,
+        "observed_compression_signal": ((observed_eval or {}).get("classification") or {}).get("compression_signal"),
+        "observed_total_cases": observed_metrics.get("total_cases"),
+        "observed_total_receipts": observed_metrics.get("total_receipts"),
+        "observed_coarse_profiles": observed_metrics.get("coarse_move_profiles_total"),
+        "observed_raw_profiles": observed_metrics.get("raw_move_profiles_total"),
+        "observed_registered_moves": observed_metrics.get("registered_moves_total"),
+        "observed_continuation_radius": observed_metrics.get("max_moves_applied_before_halt"),
+        "observed_law_failures": observed_metrics.get("law_failures"),
+        "observed_unknown_laws": observed_metrics.get("unknown_laws"),
+        "observed_orphan_receipt_runs": observed_metrics.get("orphan_receipt_runs"),
+        "next_permitted_goal": (post.get("terminal") or {}).get("next_command_goal"),
+    }
+
+    payload = {
+        "input_post_check_path": str(post_path),
+        "input_post_check_id": post_id,
+        "post_check_payload_sig8": post_sig,
+        "recomputed_post_check_payload_sig8": recomputed_post_sig,
+        "chain": chain,
+        "compact_card": compact_card,
+        "post_check_failures": post_failures,
+        "gate": "PASS" if not failures else "FAIL",
+        "failures": failures,
+        "terminal": {
+            "type": "ADVANCE" if not failures else "STOP",
+            "stop_code": None if not failures else "loop_summary_failed",
+            "next_command_goal": "OPERATOR_CONFIRM_NEXT_LOOP" if not failures else None,
+        },
+    }
+
+    out_path, payload = write_loop_summary(payload)
+
+    print(json.dumps(payload, indent=2, sort_keys=True))
+    if failures:
+        print(f"[bold red]loop_summary_path[/bold red]: {out_path}")
+        raise typer.Exit(1)
+
+    print(f"[bold green]loop_summary_path[/bold green]: {out_path}")
+
+
 if __name__ == "__main__":
     app()
