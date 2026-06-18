@@ -667,6 +667,7 @@ def run(
         max_cells=max_cells,
         strict_laws=strict_laws,
         run_id=run_id,
+        strict_laws=strict_laws,
     )
 
 
