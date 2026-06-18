@@ -1233,5 +1233,86 @@ def laws(
         console.print(table)
 
 
+
+@app.command()
+def gate(run_id: str = typer.Argument("latest")):
+    """
+    Exit nonzero if a run violates law checks or is incomplete.
+    """
+    init_db()
+
+    if run_id == "latest":
+        run_id = latest_run_id()
+
+    with sqlite3.connect(DB_PATH) as con:
+        run_row = con.execute(
+            "select status, total_cases, total_receipts from runs where run_id = ?",
+            (run_id,),
+        ).fetchone()
+
+        if run_row is None:
+            raise typer.BadParameter(f"No run found: {run_id}")
+
+        status, total_cases, total_receipts = run_row
+
+        receipt_count = con.execute(
+            "select count(*) from receipts where run_id = ?",
+            (run_id,),
+        ).fetchone()[0]
+
+        law_failures = con.execute(
+            "select count(*) from receipts where run_id = ? and coalesce(law_ok, 0) = 0",
+            (run_id,),
+        ).fetchone()[0]
+
+        unknown_laws = con.execute(
+            "select count(*) from receipts where run_id = ? and law_id = 'UNKNOWN_LAW'",
+            (run_id,),
+        ).fetchone()[0]
+
+        halt_rows = con.execute(
+            """
+            select halt_reason, count(*)
+            from receipts
+            where run_id = ? and halt_reason is not null
+            group by halt_reason
+            order by halt_reason
+            """,
+            (run_id,),
+        ).fetchall()
+
+    table = Table(title=f"Gate checks / {run_id}")
+    table.add_column("check")
+    table.add_column("value", justify="right")
+    table.add_row("status", str(status))
+    table.add_row("total_cases", str(total_cases))
+    table.add_row("total_receipts", str(total_receipts))
+    table.add_row("receipt_rows", str(receipt_count))
+    table.add_row("law_failures", str(law_failures))
+    table.add_row("unknown_laws", str(unknown_laws))
+    console.print(table)
+
+    halt_table = Table(title="Halts")
+    halt_table.add_column("halt_reason")
+    halt_table.add_column("count", justify="right")
+    for halt_reason, count in halt_rows:
+        halt_table.add_row(str(halt_reason), str(count))
+    console.print(halt_table)
+
+    failed = (
+        status != "DONE"
+        or receipt_count == 0
+        or total_receipts != receipt_count
+        or law_failures > 0
+        or unknown_laws > 0
+    )
+
+    if failed:
+        print("[bold red]GATE_FAIL[/bold red]")
+        raise typer.Exit(1)
+
+    print("[bold green]GATE_PASS[/bold green]")
+
+
 if __name__ == "__main__":
     app()
