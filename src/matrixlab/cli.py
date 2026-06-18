@@ -2030,7 +2030,18 @@ def agent_select(eval_report: str = typer.Argument(...)):
             "eval_report must be an explicit eval JSON path or eval_id present under data/evals/"
         )
 
+    def selector_payload_sig(payload: dict) -> str:
+        stable_payload = dict(payload)
+        stable_payload.pop("selector_id", None)
+        stable_payload.pop("selector_payload_sig8", None)
+        return sig8(stable_payload)
+
     def write_selection(payload: dict) -> Path:
+        payload = dict(payload)
+        payload["selector_schema_version"] = "agent_select_receipt_v1"
+        payload["selector_payload_sig8"] = selector_payload_sig(payload)
+        payload["selector_id"] = payload["selector_payload_sig8"]
+
         out_dir = Path("data/agent_select")
         out_dir.mkdir(parents=True, exist_ok=True)
         out_path = out_dir / f"{payload['selector_id']}.json"
@@ -2049,15 +2060,6 @@ def agent_select(eval_report: str = typer.Argument(...)):
     current_run_id = input_runs[0] if input_runs else None
 
     base_payload = {
-        "selector_id": sig8(
-            {
-                "eval_id": eval_id,
-                "goal": goal,
-                "gate": gate,
-                "terminal_type": terminal_type,
-                "input_runs": input_runs,
-            }
-        ),
         "input_eval_path": str(path),
         "input_eval_id": eval_id,
         "input_runs": input_runs,
