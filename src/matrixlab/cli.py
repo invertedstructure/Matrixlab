@@ -1401,7 +1401,7 @@ def recover_collision(run_id: str = typer.Argument("latest")):
               min(depth) as depth_min,
               max(depth) as depth_max,
               max(cycle_n) as cycles_per_case,
-              max(matrix_cells) as max_matrix_cells,
+              0 as max_matrix_cells,
               count(distinct case_id) as total_cases,
               count(*) as total_receipts
             from receipts
@@ -1461,7 +1461,7 @@ def recover_collision(run_id: str = typer.Argument("latest")):
         depth_min=int(recovered_stats["depth_min"] or 0),
         depth_max=int(recovered_stats["depth_max"] or 0),
         cycles_per_case=int(recovered_stats["cycles_per_case"] or 0),
-        max_cells=int(run_row.get("max_cells") or recovered_stats["max_matrix_cells"] or 0),
+        max_cells=int(run_row.get("max_cells") or 0),
     )
     finish_run(
         new_run_id,
