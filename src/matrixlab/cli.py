@@ -2555,20 +2555,16 @@ def agent_post_check(
     """
     Verify that a manual execution result matches a prior PASS executor dry-run receipt.
     """
-    def post_check_sig(payload: dict) -> str:
-        return stable_sig(payload, "post_check_id", "post_check_payload_sig8")
 
     def write_post_check(payload: dict) -> tuple[Path, dict]:
-        payload = dict(payload)
-        payload["post_check_schema_version"] = "agent_post_check_receipt_v1"
-        payload["post_check_payload_sig8"] = post_check_sig(payload)
-        payload["post_check_id"] = payload["post_check_payload_sig8"]
-
-        out_dir = Path("data/agent_post_checks")
-        out_dir.mkdir(parents=True, exist_ok=True)
-        out_path = out_dir / f"{payload['post_check_id']}.json"
-        out_path.write_text(json.dumps(payload, indent=2, sort_keys=True))
-        return out_path, payload
+        return write_content_addressed_receipt(
+            payload,
+            "data/agent_post_checks",
+            "post_check_schema_version",
+            "agent_post_check_receipt_v1",
+            "post_check_id",
+            "post_check_payload_sig8",
+        )
 
     dry_path = resolve_json_path(exec_dry_run_receipt, "data/agent_exec_dry_runs")
     eval_path = resolve_json_path(observed_eval, "data/evals")
@@ -2725,20 +2721,16 @@ def agent_loop_summary(post_check_receipt: str = typer.Argument(...)):
     """
     Emit a compact receipt card for one complete operator-mediated agent loop.
     """
-    def loop_summary_sig(payload: dict) -> str:
-        return stable_sig(payload, "loop_summary_id", "loop_summary_payload_sig8")
 
     def write_loop_summary(payload: dict) -> tuple[Path, dict]:
-        payload = dict(payload)
-        payload["loop_summary_schema_version"] = "agent_loop_summary_receipt_v1"
-        payload["loop_summary_payload_sig8"] = loop_summary_sig(payload)
-        payload["loop_summary_id"] = payload["loop_summary_payload_sig8"]
-
-        out_dir = Path("data/agent_loop_summaries")
-        out_dir.mkdir(parents=True, exist_ok=True)
-        out_path = out_dir / f"{payload['loop_summary_id']}.json"
-        out_path.write_text(json.dumps(payload, indent=2, sort_keys=True))
-        return out_path, payload
+        return write_content_addressed_receipt(
+            payload,
+            "data/agent_loop_summaries",
+            "loop_summary_schema_version",
+            "agent_loop_summary_receipt_v1",
+            "loop_summary_id",
+            "loop_summary_payload_sig8",
+        )
 
     def load_optional(path_value):
         if not path_value:
@@ -2902,20 +2894,16 @@ def agent_confirm_loop(
     """
     Record explicit operator confirmation for a completed PASS loop summary.
     """
-    def confirmation_sig(payload: dict) -> str:
-        return stable_sig(payload, "confirmation_id", "confirmation_payload_sig8")
 
     def write_confirmation(payload: dict) -> tuple[Path, dict]:
-        payload = dict(payload)
-        payload["confirmation_schema_version"] = "agent_operator_confirmation_receipt_v1"
-        payload["confirmation_payload_sig8"] = confirmation_sig(payload)
-        payload["confirmation_id"] = payload["confirmation_payload_sig8"]
-
-        out_dir = Path("data/agent_confirmations")
-        out_dir.mkdir(parents=True, exist_ok=True)
-        out_path = out_dir / f"{payload['confirmation_id']}.json"
-        out_path.write_text(json.dumps(payload, indent=2, sort_keys=True))
-        return out_path, payload
+        return write_content_addressed_receipt(
+            payload,
+            "data/agent_confirmations",
+            "confirmation_schema_version",
+            "agent_operator_confirmation_receipt_v1",
+            "confirmation_id",
+            "confirmation_payload_sig8",
+        )
 
     decision = decision.strip().lower()
     allowed_decisions = {"continue", "stop"}
@@ -3037,20 +3025,16 @@ def agent_next_from_confirmation(confirmation_receipt: str = typer.Argument(...)
         out_path.write_text(json.dumps(payload, indent=2, sort_keys=True))
         return out_path, payload
 
-    def next_receipt_sig(payload: dict) -> str:
-        return stable_sig(payload, "next_from_confirmation_id", "next_from_confirmation_payload_sig8")
 
     def write_next_receipt(payload: dict) -> tuple[Path, dict]:
-        payload = dict(payload)
-        payload["next_from_confirmation_schema_version"] = "agent_next_from_confirmation_receipt_v1"
-        payload["next_from_confirmation_payload_sig8"] = next_receipt_sig(payload)
-        payload["next_from_confirmation_id"] = payload["next_from_confirmation_payload_sig8"]
-
-        out_dir = Path("data/agent_next_from_confirmations")
-        out_dir.mkdir(parents=True, exist_ok=True)
-        out_path = out_dir / f"{payload['next_from_confirmation_id']}.json"
-        out_path.write_text(json.dumps(payload, indent=2, sort_keys=True))
-        return out_path, payload
+        return write_content_addressed_receipt(
+            payload,
+            "data/agent_next_from_confirmations",
+            "next_from_confirmation_schema_version",
+            "agent_next_from_confirmation_receipt_v1",
+            "next_from_confirmation_id",
+            "next_from_confirmation_payload_sig8",
+        )
 
     conf_path = resolve_json_path(confirmation_receipt, "data/agent_confirmations")
     conf = json.loads(conf_path.read_text())
