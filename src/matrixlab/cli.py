@@ -73,6 +73,7 @@ AGENT_LOOP_SUMMARY_SCHEMA = "agent_loop_summary_receipt_v1"
 AGENT_CONFIRMATION_SCHEMA = "agent_operator_confirmation_receipt_v1"
 AGENT_NEXT_FROM_CONFIRMATION_SCHEMA = "agent_next_from_confirmation_receipt_v1"
 AGENT_CYCLE_LEDGER_SCHEMA = "agent_cycle_ledger_receipt_v1"
+AGENT_CYCLE_NEXT_SCHEMA = "agent_cycle_next_receipt_v1"
 
 
 def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
@@ -3478,6 +3479,190 @@ def agent_cycle_ledger(
 
     typer.echo(json.dumps(payload, indent=2, sort_keys=True))
     typer.echo(f"cycle_ledger_path: {out_path}")
+
+
+
+@app.command("agent-cycle-next")
+def agent_cycle_next(
+    cycle_ledger: str = typer.Argument(
+        ...,
+        help="Explicit cycle ledger id or JSON path.",
+    ),
+    depth_step: int = typer.Option(
+        50,
+        "--depth-step",
+        help="Continuation-radius expansion step.",
+    ),
+    families: str = typer.Option(
+        "ABCDE",
+        "--families",
+        help="Move families for the next controlled stress run.",
+    ),
+    max_cells: int = typer.Option(
+        50000,
+        "--max-cells",
+        help="Max cells for the next controlled stress run.",
+    ),
+    strict_laws: bool = typer.Option(
+        True,
+        "--strict-laws/--no-strict-laws",
+        help="Preserve strict law checking for the next controlled stress run.",
+    ),
+):
+    """Select the next controlled experiment from a cycle ledger."""
+
+    failures = []
+
+    try:
+        ledger_path = resolve_json_path(cycle_ledger, "data/agent_cycle_ledgers")
+        ledger = json.loads(ledger_path.read_text())
+    except Exception as exc:
+        ledger_path = None
+        ledger = {}
+        failures.append(f"cycle_ledger_unresolved:{cycle_ledger}:{exc}")
+
+    ledger_sig = None
+    if ledger:
+        ledger_sig = stable_sig(ledger, "cycle_ledger_id", "cycle_ledger_payload_sig8")
+
+        if ledger.get("gate") != "PASS":
+            failures.append("cycle_ledger_gate_not_PASS")
+
+        if ledger.get("cycle_ledger_payload_sig8") != ledger_sig:
+            failures.append("cycle_ledger_sig_mismatch")
+
+        if ledger_path and ledger_path.stem != ledger.get("cycle_ledger_id"):
+            failures.append("cycle_ledger_filename_id_mismatch")
+
+    cycles = ledger.get("cycles") or []
+    assessment = ledger.get("compression_assessment") or {}
+    last_cycle = cycles[-1] if cycles else {}
+
+    if not cycles:
+        failures.append("cycle_ledger_has_no_cycles")
+
+    if not assessment.get("all_gates_pass"):
+        failures.append("cycle_ledger_not_all_gates_pass")
+
+    if not assessment.get("all_laws_clean"):
+        failures.append("cycle_ledger_not_all_laws_clean")
+
+    previous_run_id = last_cycle.get("run_id")
+    current_radius = last_cycle.get("max_moves_applied_before_halt")
+
+    if not previous_run_id:
+        failures.append("missing_last_run_id")
+
+    if not isinstance(current_radius, int):
+        failures.append("missing_integer_current_radius")
+        current_radius = 0
+
+    if depth_step <= 0:
+        failures.append("depth_step_not_positive")
+
+    next_radius = current_radius + depth_step if isinstance(current_radius, int) else depth_step
+
+    ledger_verdict = ledger.get("verdict")
+    if ledger_verdict in ["REPRODUCED_FLAT_STABILITY", "BOUNDED_VOCABULARY_CONTINUATION"]:
+        selected_goal = "RUN_FULL_NORMAL_STRICT_EXPAND_CONTINUATION_RADIUS"
+        selection_reason = "ledger_is_clean_and_repeated_same_radius_no_longer_adds_information"
+    elif ledger_verdict == "BASELINE_LEDGER":
+        selected_goal = "RUN_FULL_NORMAL_STRICT_REPRODUCE_BASELINE"
+        selection_reason = "single_cycle_ledger_needs_one_reproduction_before_expansion"
+    else:
+        selected_goal = None
+        selection_reason = f"ledger_verdict_not_actionable:{ledger_verdict}"
+        failures.append("ledger_verdict_not_actionable")
+
+    command_argvs = []
+    if not failures:
+        stress_argv = [
+            "uv",
+            "run",
+            "python",
+            "src/matrixlab/cli.py",
+            "stress",
+            "--families",
+            families,
+            "--depth-max",
+            str(next_radius),
+            "--cycles-per-case",
+            str(next_radius),
+            "--max-cells",
+            str(max_cells),
+        ]
+
+        if strict_laws:
+            stress_argv.append("--strict-laws")
+
+        command_argvs = [
+            stress_argv,
+            [
+                "uv",
+                "run",
+                "python",
+                "src/matrixlab/cli.py",
+                "gate",
+                "latest",
+            ],
+            [
+                "uv",
+                "run",
+                "python",
+                "src/matrixlab/cli.py",
+                "agent-eval",
+                "latest",
+                "--previous",
+                previous_run_id,
+            ],
+        ]
+
+    command_lines = [" ".join(argv) for argv in command_argvs]
+
+    payload = {
+        "input_cycle_ledger": cycle_ledger,
+        "input_cycle_ledger_path": str(ledger_path) if ledger_path else None,
+        "cycle_ledger_id": ledger.get("cycle_ledger_id"),
+        "cycle_ledger_payload_sig8": ledger.get("cycle_ledger_payload_sig8"),
+        "recomputed_cycle_ledger_payload_sig8": ledger_sig,
+        "ledger_gate": ledger.get("gate"),
+        "ledger_verdict": ledger_verdict,
+        "ledger_cycle_count": ledger.get("cycle_count"),
+        "last_run_id": previous_run_id,
+        "last_eval_id": last_cycle.get("eval_id"),
+        "current_radius": current_radius,
+        "depth_step": depth_step,
+        "next_radius": next_radius,
+        "families": families,
+        "max_cells": max_cells,
+        "strict_laws": strict_laws,
+        "selected_goal": selected_goal,
+        "selection_reason": selection_reason,
+        "command_kind": "CONTROLLED_CONTINUATION_EXPANSION" if not failures else None,
+        "command_count": len(command_argvs),
+        "command_argvs": command_argvs,
+        "command_lines": command_lines,
+        "command_script": "\n".join(command_lines),
+        "failures": failures,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": None if failures else "MANUAL_EXECUTE_CYCLE_NEXT_COMMANDS",
+            "stop_code": "cycle_next_failed" if failures else None,
+        },
+    }
+
+    out_path, payload = write_content_addressed_receipt(
+        payload,
+        "data/agent_cycle_next",
+        "cycle_next_schema_version",
+        AGENT_CYCLE_NEXT_SCHEMA,
+        "cycle_next_id",
+        "cycle_next_payload_sig8",
+    )
+
+    typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+    typer.echo(f"cycle_next_path: {out_path}")
 
 
 
