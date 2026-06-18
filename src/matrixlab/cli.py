@@ -57,6 +57,10 @@ def stable_sig(payload: dict, id_key: str, sig_key: str) -> str:
     return sig8(stable)
 
 
+def selector_payload_sig(payload: dict) -> str:
+    return stable_sig(payload, "selector_id", "selector_payload_sig8")
+
+
 def write_content_addressed_receipt(
     payload: dict,
     out_dir: str | Path,
@@ -2071,12 +2075,6 @@ def agent_select(eval_report: str = typer.Argument(...)):
             "eval_report must be an explicit eval JSON path or eval_id present under data/evals/"
         )
 
-    def selector_payload_sig(payload: dict) -> str:
-        stable_payload = dict(payload)
-        stable_payload.pop("selector_id", None)
-        stable_payload.pop("selector_payload_sig8", None)
-        return sig8(stable_payload)
-
     def write_selection(payload: dict) -> Path:
         payload = dict(payload)
         payload["selector_schema_version"] = "agent_select_receipt_v1"
@@ -3038,12 +3036,6 @@ def agent_next_from_confirmation(confirmation_receipt: str = typer.Argument(...)
     Consume a PASS continue confirmation and emit the next fixed selector receipt from its allowed eval source.
     """
     import shlex
-
-    def selector_payload_sig(payload: dict) -> str:
-        stable_payload = dict(payload)
-        stable_payload.pop("selector_id", None)
-        stable_payload.pop("selector_payload_sig8", None)
-        return sig8(stable_payload)
 
     def write_selector(payload: dict) -> tuple[Path, dict]:
         payload = dict(payload)
