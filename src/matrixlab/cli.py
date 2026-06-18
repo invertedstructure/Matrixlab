@@ -230,6 +230,12 @@ def apply_move(a: np.ndarray, family: str, cycle_n: int) -> tuple[np.ndarray, st
 
         return out, "deterministic_row_col_relabel"
 
+    if family == "law_violation_probe":
+        out = np.zeros((rows + 1, cols + 1), dtype=np.uint8)
+        out[:rows, :cols] = a
+        out[-1, -1] = 1
+        return out, "bad_duplicate_claim"
+
     raise ValueError(f"Unknown family: {family}")
 
 
