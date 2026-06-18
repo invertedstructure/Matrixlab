@@ -528,7 +528,7 @@ def execute_run(
 
                 law_id, law_ok, law_fail_reason = expected_law(family, move_id, profile)
 
-                law_halt = strict_laws and not law_ok
+                law_halt = bool(strict_laws and not law_ok)
 
                 new_move_required = profile_id not in registered_moves
                 registered_moves.add(profile_id)
@@ -667,6 +667,7 @@ def run(
         families=families,
         cycles_per_case=cycles_per_case,
         max_cells=max_cells,
+        strict_laws=strict_laws,
         run_id=run_id,
     )
 
@@ -688,6 +689,7 @@ def stress(
         families=families,
         cycles_per_case=cycles_per_case,
         max_cells=max_cells,
+        strict_laws=strict_laws,
         run_id=None,
     )
 
