@@ -25,6 +25,7 @@ FAMILY_MAP = {
     "C": "suspension_plus_repair",
     "D": "projection_quotient",
     "E": "relabel_symmetry_stress",
+    "F": "law_violation_probe",
 }
 
 
@@ -92,6 +93,11 @@ def expected_law(family: str, move_id: str, profile: dict) -> tuple[str, bool, s
     dc = profile["col_delta"]
     rk = profile["rank_delta"]
     sp = profile["support_delta"]
+
+    if family == "law_violation_probe":
+        law_id = "PROBE_CLAIMS_DUPLICATE_COL_PRESERVES_RANK"
+        ok = dr == 0 and dc == 1 and rk == 0
+        return law_id, ok, "" if ok else f"expected dr=0 dc=1 rank=0 got dr={dr} dc={dc} rank={rk}"
 
     if family == "one_sided_suspension":
         law_id = "ONE_SIDED_DUPLICATE_COL_PRESERVES_RANK"
