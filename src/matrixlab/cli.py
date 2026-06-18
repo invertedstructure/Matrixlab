@@ -1587,5 +1587,356 @@ def gate(run_id: str = typer.Argument("latest")):
     print("[bold green]GATE_PASS[/bold green]")
 
 
+
+@app.command("agent-eval")
+def agent_eval(
+    run_id: str = typer.Argument("latest"),
+    previous: Optional[str] = typer.Option(None, "--previous", "-p", help="Optional previous run id for delta comparison."),
+):
+    """
+    Emit a machine-readable agent/eval report for one run, optionally compared to a previous run.
+    """
+    init_db()
+
+    def resolve_run_id(value: Optional[str]) -> Optional[str]:
+        if value is None:
+            return None
+        if value == "latest":
+            return latest_run_id()
+        return value
+
+    def table_columns(con, table_name: str) -> set[str]:
+        return {row[1] for row in con.execute(f"pragma table_info({table_name})").fetchall()}
+
+    def coarse_id(row: sqlite3.Row) -> str:
+        support_delta = int(row["support_delta"] or 0) if "support_delta" in row.keys() else 0
+        newcols = int(row["new_column_types_added"] or 0) if "new_column_types_added" in row.keys() else 0
+
+        if support_delta > 0:
+            supp = "+"
+        elif support_delta < 0:
+            supp = "-"
+        else:
+            supp = "0"
+
+        if newcols == 0:
+            newcls = "0"
+        elif newcols == 1:
+            newcls = "1"
+        else:
+            newcls = "many"
+
+        return (
+            f"{row['move_id']}"
+            f"|dr={int(row['row_delta'] or 0)}"
+            f"|dc={int(row['col_delta'] or 0)}"
+            f"|rank={int(row['rank_delta'] or 0)}"
+            f"|supp={supp}"
+            f"|newcols={newcls}"
+        )
+
+    def collect(run: str) -> dict:
+        with sqlite3.connect(DB_PATH) as con:
+            con.row_factory = sqlite3.Row
+            cols = table_columns(con, "receipts")
+
+            run_row = con.execute(
+                "select * from runs where run_id = ?",
+                (run,),
+            ).fetchone()
+
+            if run_row is None:
+                return {
+                    "run_id": run,
+                    "exists": False,
+                    "gate": "FAIL",
+                    "failure_mode": "missing_run",
+                }
+
+            run_row = dict(run_row)
+
+            receipt_rows = con.execute(
+                "select * from receipts where run_id = ? order by case_id, cycle_n",
+                (run,),
+            ).fetchall()
+
+            receipt_count = len(receipt_rows)
+
+            law_failures = con.execute(
+                "select count(*) from receipts where run_id = ? and coalesce(law_ok, 0) = 0",
+                (run,),
+            ).fetchone()[0]
+
+            unknown_laws = con.execute(
+                "select count(*) from receipts where run_id = ? and law_id = 'UNKNOWN_LAW'",
+                (run,),
+            ).fetchone()[0]
+
+            orphan_receipt_runs = con.execute(
+                """
+                select count(distinct receipts.run_id)
+                from receipts
+                left join runs on runs.run_id = receipts.run_id
+                where runs.run_id is null
+                """
+            ).fetchone()[0]
+
+            halt_rows = con.execute(
+                """
+                select halt_reason, count(*)
+                from receipts
+                where run_id = ? and halt_reason is not null
+                group by halt_reason
+                order by halt_reason
+                """,
+                (run,),
+            ).fetchall()
+
+            family_rows = con.execute(
+                """
+                select family, count(*) as receipts
+                from receipts
+                where run_id = ?
+                group by family
+                order by family
+                """,
+                (run,),
+            ).fetchall()
+
+            move_rows = con.execute(
+                """
+                select move_id, count(*) as receipts
+                from receipts
+                where run_id = ?
+                group by move_id
+                order by receipts desc, move_id
+                """,
+                (run,),
+            ).fetchall()
+
+            raw_profile_total = con.execute(
+                """
+                select count(distinct move_profile_id)
+                from receipts
+                where run_id = ?
+                """,
+                (run,),
+            ).fetchone()[0]
+
+            max_registered_moves = con.execute(
+                """
+                select max(registered_moves_total)
+                from receipts
+                where run_id = ?
+                """,
+                (run,),
+            ).fetchone()[0] or 0
+
+            max_cycle = con.execute(
+                """
+                select max(cycle_n)
+                from receipts
+                where run_id = ?
+                """,
+                (run,),
+            ).fetchone()[0] or 0
+
+            cases_with_reuse = con.execute(
+                """
+                select count(distinct case_id)
+                from receipts
+                where run_id = ? and coalesce(moves_reused, 0) > 0
+                """,
+                (run,),
+            ).fetchone()[0]
+
+            cases_with_new_shape = 0
+            if "new_column_types_added" in cols:
+                cases_with_new_shape = con.execute(
+                    """
+                    select count(distinct case_id)
+                    from receipts
+                    where run_id = ? and coalesce(new_column_types_added, 0) > 0
+                    """,
+                    (run,),
+                ).fetchone()[0]
+
+        coarse_counts = {}
+        for row in receipt_rows:
+            if all(k in row.keys() for k in ["move_id", "row_delta", "col_delta", "rank_delta", "support_delta", "new_column_types_added"]):
+                cid = coarse_id(row)
+                coarse_counts[cid] = coarse_counts.get(cid, 0) + 1
+
+        total_receipts = int(run_row.get("total_receipts") or 0)
+        status = str(run_row.get("status") or "")
+        gate_failures = []
+
+        if status != "DONE":
+            gate_failures.append("run_status_not_done")
+        if receipt_count == 0:
+            gate_failures.append("no_receipts")
+        if receipt_count != total_receipts:
+            gate_failures.append("receipt_rows_mismatch")
+        if law_failures > 0:
+            gate_failures.append("law_failures")
+        if unknown_laws > 0:
+            gate_failures.append("unknown_laws")
+        if orphan_receipt_runs > 0:
+            gate_failures.append("orphan_receipt_runs")
+        if not coarse_counts:
+            gate_failures.append("missing_coarse_profile_summary")
+
+        gate = "PASS" if not gate_failures else "FAIL"
+
+        receipt_sig_payload = {
+            "run_id": run,
+            "total_receipts": total_receipts,
+            "receipt_rows": receipt_count,
+            "halt_counts": {row["halt_reason"]: row["count"] for row in halt_rows},
+            "law_failures": law_failures,
+            "unknown_laws": unknown_laws,
+            "raw_move_profiles_total": raw_profile_total,
+            "coarse_move_profiles_total": len(coarse_counts),
+            "max_moves_applied_before_halt": int(max_cycle),
+            "max_registered_moves": int(max_registered_moves),
+        }
+
+        failure_mode = None
+        if law_failures:
+            failure_mode = "law_failure"
+        elif unknown_laws:
+            failure_mode = "unknown_law"
+        elif orphan_receipt_runs:
+            failure_mode = "orphan_receipt"
+        elif receipt_count != total_receipts:
+            failure_mode = "receipt_projection_bug"
+        elif status != "DONE":
+            failure_mode = "run_incomplete"
+        elif not coarse_counts:
+            failure_mode = "profile_summary_missing"
+
+        return {
+            "run_id": run,
+            "exists": True,
+            "gate": gate,
+            "gate_failures": gate_failures,
+            "metrics": {
+                "status": status,
+                "families": str(run_row.get("families") or ""),
+                "depth_min": int(run_row.get("depth_min") or 0),
+                "depth_max": int(run_row.get("depth_max") or 0),
+                "cycles_per_case": int(run_row.get("cycles_per_case") or 0),
+                "total_cases": int(run_row.get("total_cases") or 0),
+                "total_receipts": total_receipts,
+                "receipt_rows": receipt_count,
+                "registered_moves_total": int(max_registered_moves),
+                "raw_move_profiles_total": int(raw_profile_total),
+                "coarse_move_profiles_total": int(len(coarse_counts)),
+                "max_moves_applied_before_halt": int(max_cycle),
+                "halt_reason_counts": {row["halt_reason"]: row["count"] for row in halt_rows},
+                "law_failures": int(law_failures),
+                "unknown_laws": int(unknown_laws),
+                "orphan_receipt_runs": int(orphan_receipt_runs),
+                "new_shape_required": bool(cases_with_new_shape > 0),
+                "reused_shape": bool(cases_with_reuse > 0),
+                "receipt_sig8": sig8(receipt_sig_payload),
+            },
+            "profile_summary": {
+                "by_family": {row["family"]: row["receipts"] for row in family_rows},
+                "by_move": {row["move_id"]: row["receipts"] for row in move_rows},
+                "coarse_profiles": coarse_counts,
+            },
+            "classification": {
+                "new_shape_required": bool(cases_with_new_shape > 0),
+                "reused_shape": bool(cases_with_reuse > 0),
+                "failure_mode": failure_mode,
+            },
+        }
+
+    current_run = resolve_run_id(run_id)
+    previous_run = resolve_run_id(previous)
+
+    current = collect(current_run)
+    previous_metrics = collect(previous_run) if previous_run else None
+
+    delta = None
+    if previous_metrics and current.get("exists") and previous_metrics.get("exists"):
+        cm = current["metrics"]
+        pm = previous_metrics["metrics"]
+
+        delta = {
+            "previous_run_id": previous_run,
+            "current_run_id": current_run,
+            "total_receipts_delta": cm["total_receipts"] - pm["total_receipts"],
+            "continuation_radius_delta": cm["max_moves_applied_before_halt"] - pm["max_moves_applied_before_halt"],
+            "registered_moves_delta": cm["registered_moves_total"] - pm["registered_moves_total"],
+            "raw_move_profiles_delta": cm["raw_move_profiles_total"] - pm["raw_move_profiles_total"],
+            "coarse_move_profiles_delta": cm["coarse_move_profiles_total"] - pm["coarse_move_profiles_total"],
+            "law_failures_delta": cm["law_failures"] - pm["law_failures"],
+            "unknown_laws_delta": cm["unknown_laws"] - pm["unknown_laws"],
+        }
+
+    gate = current.get("gate", "FAIL")
+    stop_code = None
+    next_command_goal = "COMPARE_PREVIOUS_RUN"
+
+    if gate != "PASS":
+        terminal_type = "STOP"
+        stop_code = current.get("classification", {}).get("failure_mode") or "gate_failed"
+        next_command_goal = None
+    elif previous_run is None:
+        terminal_type = "ADVANCE"
+        next_command_goal = "ADD_PREVIOUS_RUN_COMPARISON"
+    else:
+        terminal_type = "ADVANCE"
+        next_command_goal = "ADD_VOCABULARY_GROWTH_SCORING"
+
+    eval_report = {
+        "eval_id": sig8(
+            {
+                "current": current_run,
+                "previous": previous_run,
+                "receipt_sig8": current.get("metrics", {}).get("receipt_sig8"),
+            }
+        ),
+        "input_runs": [x for x in [current_run, previous_run] if x],
+        "gate": gate,
+        "metrics": current.get("metrics", {}),
+        "profile_summary": current.get("profile_summary", {}),
+        "delta_vs_previous": delta,
+        "classification": {
+            "continuation_radius_growth": None if not delta else (
+                "up" if delta["continuation_radius_delta"] > 0 else
+                "flat" if delta["continuation_radius_delta"] == 0 else
+                "down"
+            ),
+            "mutation_vocabulary_growth": None if not delta else (
+                "up" if delta["coarse_move_profiles_delta"] > 0 else
+                "flat" if delta["coarse_move_profiles_delta"] == 0 else
+                "down"
+            ),
+            "new_shape_required": current.get("classification", {}).get("new_shape_required"),
+            "reused_shape": current.get("classification", {}).get("reused_shape"),
+            "failure_mode": current.get("classification", {}).get("failure_mode"),
+        },
+        "terminal": {
+            "type": terminal_type,
+            "next_command_goal": next_command_goal,
+            "stop_code": stop_code,
+        },
+    }
+
+    eval_dir = Path("data/evals")
+    eval_dir.mkdir(parents=True, exist_ok=True)
+    eval_path = eval_dir / f"{eval_report['eval_id']}.json"
+    eval_path.write_text(json.dumps(eval_report, indent=2, sort_keys=True))
+
+    print(json.dumps(eval_report, indent=2, sort_keys=True))
+    print(f"[bold green]eval_path[/bold green]: {eval_path}")
+
+    if gate != "PASS":
+        raise typer.Exit(1)
+
+
 if __name__ == "__main__":
     app()
