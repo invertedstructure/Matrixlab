@@ -61,6 +61,30 @@ def selector_payload_sig(payload: dict) -> str:
     return stable_sig(payload, "selector_id", "selector_payload_sig8")
 
 
+ALLOWED_AGENT_PREFIX = ["uv", "run", "python", "src/matrixlab/cli.py"]
+ALLOWED_AGENT_SUBCOMMANDS = ["agent-eval", "gate", "stress"]
+
+
+def validate_agent_command_argv(argv: list[str]) -> list[str]:
+    failures: list[str] = []
+
+    if not isinstance(argv, list):
+        return ["command_argv_not_list"]
+
+    if argv[: len(ALLOWED_AGENT_PREFIX)] != ALLOWED_AGENT_PREFIX:
+        failures.append("command_prefix_not_allowed")
+
+    if len(argv) <= len(ALLOWED_AGENT_PREFIX):
+        failures.append("missing_subcommand")
+        return failures
+
+    subcommand = argv[len(ALLOWED_AGENT_PREFIX)]
+    if subcommand not in ALLOWED_AGENT_SUBCOMMANDS:
+        failures.append(f"subcommand_not_allowed:{subcommand}")
+
+    return failures
+
+
 def write_content_addressed_receipt(
     payload: dict,
     out_dir: str | Path,
@@ -2276,7 +2300,7 @@ def agent_plan_check(selector_receipt: str = typer.Argument(...)):
     verdict = data.get("verdict")
     command_kind = data.get("command_kind")
 
-    allowed_prefix = ["uv", "run", "python", "src/matrixlab/cli.py"]
+    allowed_prefix = list(ALLOWED_AGENT_PREFIX)
     allowed_subcommands = {
         "stress",
         "gate",
@@ -2472,7 +2496,7 @@ def agent_exec_dry_run(plan_check_receipt: str = typer.Argument(...)):
     command_lines = selector.get("command_lines") if selector else []
 
     allowed_prefix = ["uv", "run", "python", "src/matrixlab/cli.py"]
-    allowed_subcommands = {"stress", "gate", "agent-eval"}
+    allowed_subcommands = set(ALLOWED_AGENT_SUBCOMMANDS)
 
     for i, argv in enumerate(command_argvs or []):
         if not isinstance(argv, list):
