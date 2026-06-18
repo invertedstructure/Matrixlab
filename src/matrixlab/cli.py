@@ -45,6 +45,48 @@ def matrix_sig8(a: np.ndarray) -> str:
     return sig8(body)
 
 
+def column_type_set(a: np.ndarray) -> set[tuple[int, ...]]:
+    return {tuple(int(x) for x in a[:, j]) for j in range(a.shape[1])}
+
+
+def support_size(a: np.ndarray) -> int:
+    return int(a.sum())
+
+
+def move_profile_id(
+    move_id: str,
+    before: np.ndarray,
+    after: np.ndarray,
+    rank_before: int,
+    rank_after: int,
+) -> tuple[str, dict]:
+    before_cols = column_type_set(before)
+    after_cols = column_type_set(after)
+    new_col_types = after_cols - before_cols
+
+    profile = {
+        "move_id": move_id,
+        "row_delta": int(after.shape[0] - before.shape[0]),
+        "col_delta": int(after.shape[1] - before.shape[1]),
+        "rank_delta": int(rank_after - rank_before),
+        "support_delta": int(support_size(after) - support_size(before)),
+        "distinct_column_types_before": len(before_cols),
+        "distinct_column_types_after": len(after_cols),
+        "new_column_types_added": len(new_col_types),
+    }
+
+    profile_id = (
+        f"{move_id}"
+        f"|dr={profile['row_delta']}"
+        f"|dc={profile['col_delta']}"
+        f"|rank={profile['rank_delta']}"
+        f"|supp={profile['support_delta']}"
+        f"|newcols={profile['new_column_types_added']}"
+    )
+
+    return profile_id, profile
+
+
 def gf2_rank(a: np.ndarray) -> int:
     """Rank over F2 using basic Gaussian elimination."""
     m = a.copy().astype(np.uint8) % 2
@@ -121,11 +163,26 @@ def apply_move(a: np.ndarray, family: str, cycle_n: int) -> tuple[np.ndarray, st
         return np.concatenate([a, zero], axis=1), "append_zero_column"
 
     if family == "relabel_symmetry_stress":
-        row_shift = cycle_n % rows
-        col_shift = cycle_n % cols
-        out = np.roll(a, shift=row_shift, axis=0)
-        out = np.roll(out, shift=col_shift, axis=1)
-        return out, "relabel_rows_and_columns"
+        # Deterministic nontrivial row/column relabel.
+        # Goal: stress raw representation while preserving rank-style invariants.
+        seed = rows * 1_000_003 + cols * 9_176 + cycle_n * 131_071
+        rng = np.random.default_rng(seed)
+
+        row_perm = rng.permutation(rows)
+        col_perm = rng.permutation(cols)
+
+        out = a[row_perm, :][:, col_perm]
+
+        # Avoid useless automorphism/no-op relabels.
+        if np.array_equal(out, a) and rows > 1:
+            out = out.copy()
+            out[[0, 1], :] = out[[1, 0], :]
+
+        if np.array_equal(out, a) and cols > 1:
+            out = out.copy()
+            out[:, [0, 1]] = out[:, [1, 0]]
+
+        return out, "deterministic_row_col_relabel"
 
     raise ValueError(f"Unknown family: {family}")
 
@@ -160,6 +217,14 @@ def init_db() -> None:
                 depth integer not null,
                 cycle_n integer not null,
                 move_id text not null,
+                move_profile_id text,
+                row_delta integer,
+                col_delta integer,
+                rank_delta integer,
+                support_delta integer,
+                distinct_column_types_before integer,
+                distinct_column_types_after integer,
+                new_column_types_added integer,
                 registered_moves_total integer not null,
                 moves_reused integer not null,
                 new_move_required integer not null,
@@ -178,6 +243,21 @@ def init_db() -> None:
             )
             """
         )
+
+        for col_name, col_type in [
+            ("move_profile_id", "text"),
+            ("row_delta", "integer"),
+            ("col_delta", "integer"),
+            ("rank_delta", "integer"),
+            ("support_delta", "integer"),
+            ("distinct_column_types_before", "integer"),
+            ("distinct_column_types_after", "integer"),
+            ("new_column_types_added", "integer"),
+        ]:
+            try:
+                con.execute(f"alter table receipts add column {col_name} {col_type}")
+            except sqlite3.OperationalError:
+                pass
 
 
 def insert_run_start(
@@ -221,13 +301,17 @@ def insert_receipt(receipt: dict) -> None:
             """
             insert or replace into receipts (
                 run_id, case_id, family, depth, cycle_n,
-                move_id, registered_moves_total, moves_reused,
+                move_id, move_profile_id,
+                row_delta, col_delta, rank_delta, support_delta,
+                distinct_column_types_before, distinct_column_types_after,
+                new_column_types_added,
+                registered_moves_total, moves_reused,
                 new_move_required, rows, cols, cells,
                 rank_before, rank_after, compression_ratio,
                 trajectory_signature, halt_reason,
                 state_sig8_before, state_sig8_after, receipt_path
             )
-            values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 receipt["run_id"],
@@ -236,6 +320,14 @@ def insert_receipt(receipt: dict) -> None:
                 receipt["depth"],
                 receipt["cycle_n"],
                 receipt["move_id"],
+                receipt["move_profile_id"],
+                receipt["row_delta"],
+                receipt["col_delta"],
+                receipt["rank_delta"],
+                receipt["support_delta"],
+                receipt["distinct_column_types_before"],
+                receipt["distinct_column_types_after"],
+                receipt["new_column_types_added"],
                 receipt["registered_moves_total"],
                 receipt["moves_reused"],
                 int(receipt["new_move_required"]),
@@ -356,13 +448,22 @@ def execute_run(
                 before_sig = matrix_sig8(a)
                 before_rank = gf2_rank(a)
 
+                before_matrix = a.copy()
                 a, move_id = apply_move(a, family, cycle_n)
 
                 after_sig = matrix_sig8(a)
                 after_rank = gf2_rank(a)
 
-                new_move_required = move_id not in registered_moves
-                registered_moves.add(move_id)
+                profile_id, profile = move_profile_id(
+                    move_id=move_id,
+                    before=before_matrix,
+                    after=a,
+                    rank_before=before_rank,
+                    rank_after=after_rank,
+                )
+
+                new_move_required = profile_id not in registered_moves
+                registered_moves.add(profile_id)
                 trajectory.append(after_sig)
 
                 rows, cols = a.shape
@@ -375,7 +476,10 @@ def execute_run(
                     halt_reason = current_halt
 
                 elif after_sig in seen_states:
-                    current_halt = "REPEATED_STATE"
+                    if after_sig == before_sig:
+                        current_halt = "REPEATED_STATE_TRIVIAL"
+                    else:
+                        current_halt = "REPEATED_STATE_PERIODIC"
                     halt_reason = current_halt
 
                 elif cycle_n == cycles_per_case:
@@ -391,6 +495,14 @@ def execute_run(
                     "depth": n,
                     "cycle_n": cycle_n,
                     "move_id": move_id,
+                    "move_profile_id": profile_id,
+                    "row_delta": profile["row_delta"],
+                    "col_delta": profile["col_delta"],
+                    "rank_delta": profile["rank_delta"],
+                    "support_delta": profile["support_delta"],
+                    "distinct_column_types_before": profile["distinct_column_types_before"],
+                    "distinct_column_types_after": profile["distinct_column_types_after"],
+                    "new_column_types_added": profile["new_column_types_added"],
                     "registered_moves_total": len(registered_moves),
                     "moves_reused": cycle_n - len(registered_moves),
                     "new_move_required": new_move_required,
@@ -453,7 +565,8 @@ def execute_run(
         "halt_counts": case_halts,
         "max_registered_moves": max(r["registered_moves_total"] for r in all_receipts),
         "max_compression_ratio": max(r["compression_ratio"] for r in all_receipts),
-        "max_matrix_cells": max(r["matrix_cells"] for r in all_receipts),
+            "max_matrix_cells": max(r["matrix_cells"] for r in all_receipts),
+        "max_registered_move_profiles": max(r["registered_moves_total"] for r in all_receipts),
     }
 
     with open(run_dir / "summary.json", "w") as f:
@@ -668,6 +781,127 @@ def inspect(
             state_sig,
         )
 
+    console.print(table)
+
+
+@app.command()
+def analyze(run_id: str = typer.Argument("latest")):
+    """
+    Analyze where and how the latest run broke.
+    """
+    init_db()
+
+    if run_id == "latest":
+        run_id = latest_run_id()
+
+    with sqlite3.connect(DB_PATH) as con:
+        halt_by_family = con.execute(
+            """
+            select family, halt_reason, count(*)
+            from receipts
+            where run_id = ? and halt_reason is not null
+            group by family, halt_reason
+            order by family, halt_reason
+            """,
+            (run_id,),
+        ).fetchall()
+
+        growth = con.execute(
+            """
+            select family,
+                   min(cells) as min_cells,
+                   max(cells) as max_cells,
+                   avg(cells) as avg_cells,
+                   max(cycle_n) as max_cycle,
+                   max(compression_ratio) as max_compression
+            from receipts
+            where run_id = ?
+            group by family
+            order by family
+            """,
+            (run_id,),
+        ).fetchall()
+
+        repeated = con.execute(
+            """
+            select family, min(depth), max(depth), count(*), min(cycle_n), max(cycle_n)
+            from receipts
+            where run_id = ? and halt_reason = 'REPEATED_STATE'
+            group by family
+            order by family
+            """,
+            (run_id,),
+        ).fetchall()
+
+        first_halts = con.execute(
+            """
+            select family, case_id, depth, cycle_n, halt_reason, rows, cols, cells, state_sig8_after
+            from receipts
+            where run_id = ? and halt_reason is not null
+            order by family, depth
+            limit 25
+            """,
+            (run_id,),
+        ).fetchall()
+
+    print(f"[bold green]Analysis for run:[/bold green] {run_id}")
+
+    table = Table(title="Halt reasons by family")
+    table.add_column("family")
+    table.add_column("halt_reason")
+    table.add_column("count", justify="right")
+    for family, halt, count in halt_by_family:
+        table.add_row(str(family), str(halt), str(count))
+    console.print(table)
+
+    table = Table(title="Growth by family")
+    table.add_column("family")
+    table.add_column("min_cells", justify="right")
+    table.add_column("max_cells", justify="right")
+    table.add_column("avg_cells", justify="right")
+    table.add_column("max_cycle", justify="right")
+    table.add_column("max_compression", justify="right")
+    for family, min_cells, max_cells, avg_cells, max_cycle, max_comp in growth:
+        table.add_row(
+            str(family),
+            str(min_cells),
+            str(max_cells),
+            f"{avg_cells:.2f}",
+            str(max_cycle),
+            str(max_comp),
+        )
+    console.print(table)
+
+    if repeated:
+        table = Table(title="Repeated-state families")
+        table.add_column("family")
+        table.add_column("min_depth", justify="right")
+        table.add_column("max_depth", justify="right")
+        table.add_column("cases", justify="right")
+        table.add_column("repeat_cycle_min", justify="right")
+        table.add_column("repeat_cycle_max", justify="right")
+        for row in repeated:
+            table.add_row(*(str(x) for x in row))
+        console.print(table)
+
+    table = Table(title="First halts, first 25")
+    table.add_column("family")
+    table.add_column("case")
+    table.add_column("depth", justify="right")
+    table.add_column("cycle", justify="right")
+    table.add_column("halt")
+    table.add_column("shape")
+    table.add_column("state")
+    for family, case_id, depth, cycle_n, halt, rows, cols, cells, sig in first_halts:
+        table.add_row(
+            family,
+            case_id,
+            str(depth),
+            str(cycle_n),
+            str(halt),
+            f"{rows}x{cols}={cells}",
+            sig,
+        )
     console.print(table)
 
 
