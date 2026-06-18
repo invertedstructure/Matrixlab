@@ -1954,9 +1954,12 @@ def agent_eval(
     elif previous_run is None:
         terminal_type = "ADVANCE"
         next_command_goal = "ADD_PREVIOUS_RUN_COMPARISON"
-    else:
+    elif not current_scores:
         terminal_type = "ADVANCE"
         next_command_goal = "ADD_VOCABULARY_GROWTH_SCORING"
+    else:
+        terminal_type = "ADVANCE"
+        next_command_goal = "ADD_FIXED_COMMAND_SELECTOR_ALLOWLIST"
 
     eval_report = {
         "eval_id": sig8(
