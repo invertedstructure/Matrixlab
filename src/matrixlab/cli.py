@@ -38,6 +38,45 @@ def sig8(obj) -> str:
     return hashlib.sha256(payload.encode()).hexdigest()[:8]
 
 
+def resolve_json_path(value: str, directory: str, suffix: str = ".json") -> Path:
+    candidate = Path(value)
+    if candidate.exists():
+        return candidate
+
+    candidate = Path(directory) / f"{value}{suffix}"
+    if candidate.exists():
+        return candidate
+
+    raise typer.BadParameter(f"could not resolve {value!r} under {directory}")
+
+
+def stable_sig(payload: dict, id_key: str, sig_key: str) -> str:
+    stable = dict(payload)
+    stable.pop(id_key, None)
+    stable.pop(sig_key, None)
+    return sig8(stable)
+
+
+def write_content_addressed_receipt(
+    payload: dict,
+    out_dir: str | Path,
+    schema_key: str,
+    schema_value: str,
+    id_key: str,
+    sig_key: str,
+) -> tuple[Path, dict]:
+    payload = dict(payload)
+    payload[schema_key] = schema_value
+    payload[sig_key] = stable_sig(payload, id_key, sig_key)
+    payload[id_key] = payload[sig_key]
+
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / f"{payload[id_key]}.json"
+    out_path.write_text(json.dumps(payload, indent=2, sort_keys=True))
+    return out_path, payload
+
+
 def matrix_sig8(a: np.ndarray) -> str:
     body = {
         "shape": list(a.shape),
@@ -2367,12 +2406,6 @@ def agent_exec_dry_run(plan_check_receipt: str = typer.Argument(...)):
             "plan_check_receipt must be an explicit plan-check JSON path or plan_check_id present under data/agent_plan_checks/"
         )
 
-    def stable_sig(payload: dict, id_key: str, sig_key: str) -> str:
-        stable = dict(payload)
-        stable.pop(id_key, None)
-        stable.pop(sig_key, None)
-        return sig8(stable)
-
     def exec_dry_run_sig(payload: dict) -> str:
         return stable_sig(payload, "exec_dry_run_id", "exec_dry_run_payload_sig8")
 
@@ -2536,23 +2569,6 @@ def agent_post_check(
     """
     Verify that a manual execution result matches a prior PASS executor dry-run receipt.
     """
-    def resolve_json_path(value: str, directory: str, suffix: str = ".json") -> Path:
-        candidate = Path(value)
-        if candidate.exists():
-            return candidate
-
-        candidate = Path(directory) / f"{value}{suffix}"
-        if candidate.exists():
-            return candidate
-
-        raise typer.BadParameter(f"could not resolve {value!r} under {directory}")
-
-    def stable_sig(payload: dict, id_key: str, sig_key: str) -> str:
-        stable = dict(payload)
-        stable.pop(id_key, None)
-        stable.pop(sig_key, None)
-        return sig8(stable)
-
     def post_check_sig(payload: dict) -> str:
         return stable_sig(payload, "post_check_id", "post_check_payload_sig8")
 
@@ -2723,23 +2739,6 @@ def agent_loop_summary(post_check_receipt: str = typer.Argument(...)):
     """
     Emit a compact receipt card for one complete operator-mediated agent loop.
     """
-    def resolve_json_path(value: str, directory: str, suffix: str = ".json") -> Path:
-        candidate = Path(value)
-        if candidate.exists():
-            return candidate
-
-        candidate = Path(directory) / f"{value}{suffix}"
-        if candidate.exists():
-            return candidate
-
-        raise typer.BadParameter(f"could not resolve {value!r} under {directory}")
-
-    def stable_sig(payload: dict, id_key: str, sig_key: str) -> str:
-        stable = dict(payload)
-        stable.pop(id_key, None)
-        stable.pop(sig_key, None)
-        return sig8(stable)
-
     def loop_summary_sig(payload: dict) -> str:
         return stable_sig(payload, "loop_summary_id", "loop_summary_payload_sig8")
 
@@ -2917,23 +2916,6 @@ def agent_confirm_loop(
     """
     Record explicit operator confirmation for a completed PASS loop summary.
     """
-    def resolve_json_path(value: str, directory: str, suffix: str = ".json") -> Path:
-        candidate = Path(value)
-        if candidate.exists():
-            return candidate
-
-        candidate = Path(directory) / f"{value}{suffix}"
-        if candidate.exists():
-            return candidate
-
-        raise typer.BadParameter(f"could not resolve {value!r} under {directory}")
-
-    def stable_sig(payload: dict, id_key: str, sig_key: str) -> str:
-        stable = dict(payload)
-        stable.pop(id_key, None)
-        stable.pop(sig_key, None)
-        return sig8(stable)
-
     def confirmation_sig(payload: dict) -> str:
         return stable_sig(payload, "confirmation_id", "confirmation_payload_sig8")
 
@@ -3056,23 +3038,6 @@ def agent_next_from_confirmation(confirmation_receipt: str = typer.Argument(...)
     Consume a PASS continue confirmation and emit the next fixed selector receipt from its allowed eval source.
     """
     import shlex
-
-    def resolve_json_path(value: str, directory: str, suffix: str = ".json") -> Path:
-        candidate = Path(value)
-        if candidate.exists():
-            return candidate
-
-        candidate = Path(directory) / f"{value}{suffix}"
-        if candidate.exists():
-            return candidate
-
-        raise typer.BadParameter(f"could not resolve {value!r} under {directory}")
-
-    def stable_sig(payload: dict, id_key: str, sig_key: str) -> str:
-        stable = dict(payload)
-        stable.pop(id_key, None)
-        stable.pop(sig_key, None)
-        return sig8(stable)
 
     def selector_payload_sig(payload: dict) -> str:
         stable_payload = dict(payload)
