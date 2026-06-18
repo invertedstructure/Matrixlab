@@ -454,8 +454,8 @@ def execute_run(
     families: str,
     cycles_per_case: int,
     max_cells: int,
-    strict_laws: bool = False,
     run_id: Optional[str],
+    strict_laws: bool = False,
 ) -> dict:
     if run_id is None:
         stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
