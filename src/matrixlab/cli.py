@@ -1959,7 +1959,7 @@ def agent_eval(
         next_command_goal = "ADD_VOCABULARY_GROWTH_SCORING"
     else:
         terminal_type = "ADVANCE"
-        next_command_goal = "ADD_FIXED_COMMAND_SELECTOR_ALLOWLIST"
+        next_command_goal = "RUN_FULL_NORMAL_STRICT"
 
     eval_report = {
         "eval_id": sig8(
@@ -2009,6 +2009,160 @@ def agent_eval(
 
     if gate != "PASS":
         raise typer.Exit(1)
+
+
+
+@app.command("agent-select")
+def agent_select(eval_report: str = typer.Argument(...)):
+    """
+    Select the next command from a fixed allowlist based on an explicit agent-eval JSON report.
+    """
+    def resolve_eval_path(value: str) -> Path:
+        candidate = Path(value)
+        if candidate.exists():
+            return candidate
+
+        candidate = Path("data/evals") / f"{value}.json"
+        if candidate.exists():
+            return candidate
+
+        raise typer.BadParameter(
+            "eval_report must be an explicit eval JSON path or eval_id present under data/evals/"
+        )
+
+    def write_selection(payload: dict) -> Path:
+        out_dir = Path("data/agent_select")
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out_path = out_dir / f"{payload['selector_id']}.json"
+        out_path.write_text(json.dumps(payload, indent=2, sort_keys=True))
+        return out_path
+
+    path = resolve_eval_path(eval_report)
+    report = json.loads(path.read_text())
+
+    eval_id = report.get("eval_id")
+    gate = report.get("gate")
+    terminal = report.get("terminal") or {}
+    terminal_type = terminal.get("type")
+    goal = terminal.get("next_command_goal")
+    input_runs = report.get("input_runs") or []
+    current_run_id = input_runs[0] if input_runs else None
+
+    base_payload = {
+        "selector_id": sig8(
+            {
+                "eval_id": eval_id,
+                "goal": goal,
+                "gate": gate,
+                "terminal_type": terminal_type,
+                "input_runs": input_runs,
+            }
+        ),
+        "input_eval_path": str(path),
+        "input_eval_id": eval_id,
+        "input_runs": input_runs,
+        "eval_gate": gate,
+        "eval_terminal_type": terminal_type,
+        "requested_goal": goal,
+        "selector_version": "agent_select_allowlist_v0",
+        "safety_rules": [
+            "explicit_eval_json_only",
+            "no_latest_file_or_mtime_authority",
+            "no_command_invention",
+            "no_code_editing",
+            "no_architecture_widening",
+            "refuse_if_eval_gate_not_PASS",
+            "refuse_if_terminal_not_ADVANCE",
+            "fixed_allowlist_only",
+        ],
+    }
+
+    def refuse(reason: str, stop_code: str = None):
+        payload = dict(base_payload)
+        payload.update(
+            {
+                "verdict": "REFUSE",
+                "refusal_reason": reason,
+                "stop_code": stop_code or reason,
+                "selected_command_goal": None,
+                "command_kind": None,
+                "command_lines": [],
+                "requires_manual_parameters": [],
+            }
+        )
+        out_path = write_selection(payload)
+        print(json.dumps(payload, indent=2, sort_keys=True))
+        print(f"[bold red]selection_path[/bold red]: {out_path}")
+        raise typer.Exit(1)
+
+    if gate != "PASS":
+        refuse("eval_gate_not_PASS", terminal.get("stop_code") or "gate_failed")
+
+    if terminal_type != "ADVANCE":
+        refuse("terminal_not_ADVANCE", terminal.get("stop_code") or "not_advance")
+
+    if not goal:
+        refuse("missing_next_command_goal")
+
+    allowlist = {
+        "ADD_PREVIOUS_RUN_COMPARISON": {
+            "command_kind": "ALLOWLIST_TEMPLATE_REQUIRES_PARAMETER",
+            "command_lines": [
+                f"uv run python src/matrixlab/cli.py agent-eval {current_run_id} --previous <previous_run_id>"
+            ],
+            "requires_manual_parameters": ["previous_run_id"],
+        },
+        "RUN_SMALL_NORMAL_STRICT": {
+            "command_kind": "ALLOWLIST_COMMAND",
+            "command_lines": [
+                "uv run python src/matrixlab/cli.py stress --families ABCDE --depth-max 20 --cycles-per-case 20 --max-cells 50000 --strict-laws",
+                "uv run python src/matrixlab/cli.py gate latest",
+                f"uv run python src/matrixlab/cli.py agent-eval latest --previous {current_run_id}",
+            ],
+            "requires_manual_parameters": [],
+        },
+        "RUN_FULL_NORMAL_STRICT": {
+            "command_kind": "ALLOWLIST_COMMAND",
+            "command_lines": [
+                "uv run python src/matrixlab/cli.py stress --families ABCDE --depth-max 100 --cycles-per-case 100 --max-cells 50000 --strict-laws",
+                "uv run python src/matrixlab/cli.py gate latest",
+                f"uv run python src/matrixlab/cli.py agent-eval latest --previous {current_run_id}",
+            ],
+            "requires_manual_parameters": [],
+        },
+        "RUN_BAD_PROBE_STRICT_NEGATIVE_CONTROL": {
+            "command_kind": "ALLOWLIST_COMMAND_EXPECTED_FAIL",
+            "command_lines": [
+                "uv run python src/matrixlab/cli.py stress --families F --depth-max 8 --cycles-per-case 5 --max-cells 50000 --strict-laws",
+                "uv run python src/matrixlab/cli.py gate latest || true",
+                "uv run python src/matrixlab/cli.py agent-eval latest || true",
+            ],
+            "requires_manual_parameters": [],
+        },
+    }
+
+    if goal not in allowlist:
+        refuse("goal_not_in_allowlist")
+
+    selected = allowlist[goal]
+
+    payload = dict(base_payload)
+    payload.update(
+        {
+            "verdict": "SELECTED",
+            "refusal_reason": None,
+            "stop_code": None,
+            "selected_command_goal": goal,
+            "command_kind": selected["command_kind"],
+            "command_lines": selected["command_lines"],
+            "requires_manual_parameters": selected["requires_manual_parameters"],
+        }
+    )
+
+    out_path = write_selection(payload)
+
+    print(json.dumps(payload, indent=2, sort_keys=True))
+    print(f"[bold green]selection_path[/bold green]: {out_path}")
 
 
 if __name__ == "__main__":
