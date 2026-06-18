@@ -454,6 +454,7 @@ def execute_run(
     families: str,
     cycles_per_case: int,
     max_cells: int,
+    strict_laws: bool = False,
     run_id: Optional[str],
 ) -> dict:
     if run_id is None:
@@ -480,6 +481,7 @@ def execute_run(
         depth_max=depth_max,
         cycles_per_case=cycles_per_case,
         max_cells=max_cells,
+        strict_laws=strict_laws,
     )
 
     all_receipts = []
@@ -525,6 +527,8 @@ def execute_run(
                 )
 
                 law_id, law_ok, law_fail_reason = expected_law(family, move_id, profile)
+
+                law_halt = strict_laws and not law_ok
 
                 new_move_required = profile_id not in registered_moves
                 registered_moves.add(profile_id)
@@ -654,6 +658,7 @@ def run(
     families: str = typer.Option("A,B,C,D,E", help="Family letters: A,B,C,D,E."),
     cycles_per_case: int = typer.Option(0, help="Cycles per case. 0 means depth_max."),
     max_cells: int = typer.Option(250_000, help="Hard matrix cell limit before halt."),
+    strict_laws: bool = typer.Option(False, help=\"Halt immediately on law failure.\"),
     run_id: Optional[str] = typer.Option(None, help="Optional run id."),
 ):
     execute_run(
@@ -671,6 +676,7 @@ def stress(
     depth_max: int = typer.Option(100, help="Push depth upward."),
     cycles_per_case: int = typer.Option(100, help="Push cycles upward."),
     max_cells: int = typer.Option(250_000, help="Hard matrix cell limit."),
+    strict_laws: bool = typer.Option(False, help=\"Halt immediately on law failure.\"),
     families: str = typer.Option("A,B,C,D,E", help="Family letters."),
 ):
     """
