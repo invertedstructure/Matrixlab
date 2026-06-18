@@ -438,15 +438,23 @@ def latest_run_id() -> str:
     return row[0]
 
 
-def parse_families(families: str) -> list[str]:
-    selected = [x.strip().upper() for x in families.split(",") if x.strip()]
-    unknown = [x for x in selected if x not in FAMILY_MAP]
 
+def parse_families(families: str) -> list[str]:
+    raw = families.replace(",", " ").split()
+    letters = []
+
+    for token in raw:
+        token = token.strip().upper()
+        if len(token) > 1 and all(ch in FAMILY_MAP for ch in token):
+            letters.extend(token)
+        elif token:
+            letters.append(token)
+
+    unknown = [x for x in letters if x not in FAMILY_MAP]
     if unknown:
         raise typer.BadParameter(f"Unknown family letters: {unknown}")
 
-    return [FAMILY_MAP[x] for x in selected]
-
+    return [FAMILY_MAP[x] for x in letters]
 
 def execute_run(
     depth_min: int,
@@ -537,7 +545,11 @@ def execute_run(
 
                 current_halt = None
 
-                if cells > max_cells:
+                if law_halt:
+                    current_halt = "LAW_VIOLATION"
+                    halt_reason = current_halt
+
+                elif cells > max_cells:
                     current_halt = "MAX_CELLS_EXCEEDED"
                     halt_reason = current_halt
 
