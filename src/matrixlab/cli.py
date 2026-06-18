@@ -2190,5 +2190,163 @@ def agent_select(eval_report: str = typer.Argument(...)):
     print(f"[bold green]selection_path[/bold green]: {out_path}")
 
 
+
+@app.command("agent-plan-check")
+def agent_plan_check(selector_receipt: str = typer.Argument(...)):
+    """
+    Validate a content-addressed agent-select receipt before any execution layer exists.
+    """
+    def resolve_selector_path(value: str) -> Path:
+        candidate = Path(value)
+        if candidate.exists():
+            return candidate
+
+        candidate = Path("data/agent_select") / f"{value}.json"
+        if candidate.exists():
+            return candidate
+
+        raise typer.BadParameter(
+            "selector_receipt must be an explicit selector JSON path or selector_id present under data/agent_select/"
+        )
+
+    def stable_selector_sig(payload: dict) -> str:
+        stable = dict(payload)
+        stable.pop("selector_id", None)
+        stable.pop("selector_payload_sig8", None)
+        return sig8(stable)
+
+    def plan_check_sig(payload: dict) -> str:
+        stable = dict(payload)
+        stable.pop("plan_check_id", None)
+        stable.pop("plan_check_payload_sig8", None)
+        return sig8(stable)
+
+    def write_plan_check(payload: dict) -> Path:
+        payload = dict(payload)
+        payload["plan_check_schema_version"] = "agent_plan_check_receipt_v1"
+        payload["plan_check_payload_sig8"] = plan_check_sig(payload)
+        payload["plan_check_id"] = payload["plan_check_payload_sig8"]
+
+        out_dir = Path("data/agent_plan_checks")
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out_path = out_dir / f"{payload['plan_check_id']}.json"
+        out_path.write_text(json.dumps(payload, indent=2, sort_keys=True))
+        return out_path
+
+    path = resolve_selector_path(selector_receipt)
+    data = json.loads(path.read_text())
+
+    selector_id = data.get("selector_id")
+    selector_payload_sig8 = data.get("selector_payload_sig8")
+    selector_schema_version = data.get("selector_schema_version")
+    recomputed_selector_sig8 = stable_selector_sig(data)
+
+    command_argvs = data.get("command_argvs") or []
+    command_count = data.get("command_count")
+    verdict = data.get("verdict")
+    command_kind = data.get("command_kind")
+
+    allowed_prefix = ["uv", "run", "python", "src/matrixlab/cli.py"]
+    allowed_subcommands = {
+        "stress",
+        "gate",
+        "agent-eval",
+    }
+
+    failures = []
+
+    if selector_schema_version != "agent_select_receipt_v1":
+        failures.append("selector_schema_version_mismatch")
+
+    if not selector_id:
+        failures.append("missing_selector_id")
+
+    if not selector_payload_sig8:
+        failures.append("missing_selector_payload_sig8")
+
+    if path.stem != selector_id:
+        failures.append("selector_id_filename_mismatch")
+
+    if selector_id != selector_payload_sig8:
+        failures.append("selector_id_payload_sig_mismatch")
+
+    if recomputed_selector_sig8 != selector_payload_sig8:
+        failures.append("selector_payload_sig_recompute_mismatch")
+
+    if verdict != "SELECTED":
+        failures.append("selector_verdict_not_SELECTED")
+
+    if command_kind not in {"ALLOWLIST_COMMAND", "ALLOWLIST_COMMAND_EXPECTED_FAIL", "ALLOWLIST_TEMPLATE_REQUIRES_PARAMETER"}:
+        failures.append("command_kind_not_allowed")
+
+    if command_count != len(command_argvs):
+        failures.append("command_count_argv_count_mismatch")
+
+    if data.get("requires_manual_parameters"):
+        failures.append("manual_parameters_required")
+
+    for i, argv in enumerate(command_argvs):
+        if not isinstance(argv, list):
+            failures.append(f"command_{i}_argv_not_list")
+            continue
+
+        if len(argv) < 5:
+            failures.append(f"command_{i}_argv_too_short")
+            continue
+
+        if argv[:4] != allowed_prefix:
+            failures.append(f"command_{i}_prefix_not_allowed")
+            continue
+
+        subcommand = argv[4]
+        if subcommand not in allowed_subcommands:
+            failures.append(f"command_{i}_subcommand_not_allowed:{subcommand}")
+
+    expected_fields = [
+        "expected_gate_result",
+        "expected_next_receipts",
+        "expected_terminal",
+        "input_eval_id",
+        "input_eval_path",
+        "input_runs",
+        "selected_command_goal",
+        "selector_version",
+    ]
+
+    for field in expected_fields:
+        if data.get(field) in (None, "", []):
+            failures.append(f"missing_expected_field:{field}")
+
+    payload = {
+        "input_selector_path": str(path),
+        "input_selector_id": selector_id,
+        "selector_payload_sig8": selector_payload_sig8,
+        "recomputed_selector_payload_sig8": recomputed_selector_sig8,
+        "selector_schema_version": selector_schema_version,
+        "selector_verdict": verdict,
+        "selector_command_kind": command_kind,
+        "selector_command_count": command_count,
+        "selector_argv_count": len(command_argvs),
+        "allowed_prefix": allowed_prefix,
+        "allowed_subcommands": sorted(allowed_subcommands),
+        "gate": "PASS" if not failures else "FAIL",
+        "failures": failures,
+        "terminal": {
+            "type": "ADVANCE" if not failures else "STOP",
+            "stop_code": None if not failures else "plan_check_failed",
+            "next_command_goal": "EXECUTOR_DRY_RUN_RECEIPT" if not failures else None,
+        },
+    }
+
+    out_path = write_plan_check(payload)
+
+    print(json.dumps(payload, indent=2, sort_keys=True))
+    if failures:
+        print(f"[bold red]plan_check_path[/bold red]: {out_path}")
+        raise typer.Exit(1)
+
+    print(f"[bold green]plan_check_path[/bold green]: {out_path}")
+
+
 if __name__ == "__main__":
     app()
