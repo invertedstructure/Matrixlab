@@ -77,6 +77,7 @@ AGENT_CYCLE_NEXT_SCHEMA = "agent_cycle_next_receipt_v1"
 AGENT_CYCLE_OBSERVATION_SCHEMA = "agent_cycle_observation_receipt_v1"
 AGENT_CHEAT_CHECK_SCHEMA = "agent_cheat_check_receipt_v0"
 AGENT_CHEAT_ADVERSARIAL_SCHEMA = "agent_cheat_adversarial_receipt_v0"
+CELL_TRANSFER_CONTRACT_SCHEMA = "cell_transfer_contract_v0"
 
 
 def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
@@ -5083,6 +5084,333 @@ def agent_cheat_adversarial(
 
     typer.echo(json.dumps(payload, indent=2, sort_keys=True))
     typer.echo(f"agent_cheat_adversarial_path: {out_path}")
+
+
+
+@app.command("cell-transfer-contract")
+def cell_transfer_contract(
+    source_ledger: str = typer.Argument(
+        ...,
+        help="Frozen source-cell cycle ledger id or JSON path.",
+    ),
+    cheat_check: str = typer.Argument(
+        ...,
+        help="Passing symbolic cheat-check receipt id or JSON path.",
+    ),
+    cheat_adversarial: str = typer.Argument(
+        ...,
+        help="Passing adversarial cheat-harness receipt id or JSON path.",
+    ),
+    source_cell: str = typer.Option("CELL_0", "--source-cell"),
+    target_cell: str = typer.Option("CELL_1", "--target-cell"),
+    target_probe_kind: str = typer.Option("DOMAIN_SHIFT_PROBE", "--target-probe-kind"),
+):
+    """Create a measurement-discipline-only transfer contract between cells."""
+
+    import hashlib
+
+    failures = []
+    warnings = []
+
+    try:
+        ledger_path = resolve_json_path(source_ledger, "data/agent_cycle_ledgers")
+        ledger = json.loads(ledger_path.read_text())
+    except Exception as exc:
+        ledger_path = None
+        ledger = {}
+        failures.append(f"source_ledger_unresolved:{source_ledger}:{exc}")
+
+    try:
+        cheat_check_path = resolve_json_path(cheat_check, "data/agent_cheat_checks")
+        cheat_check_payload = json.loads(cheat_check_path.read_text())
+    except Exception as exc:
+        cheat_check_path = None
+        cheat_check_payload = {}
+        failures.append(f"cheat_check_unresolved:{cheat_check}:{exc}")
+
+    try:
+        cheat_adversarial_path = resolve_json_path(cheat_adversarial, "data/agent_cheat_adversarial")
+        cheat_adversarial_payload = json.loads(cheat_adversarial_path.read_text())
+    except Exception as exc:
+        cheat_adversarial_path = None
+        cheat_adversarial_payload = {}
+        failures.append(f"cheat_adversarial_unresolved:{cheat_adversarial}:{exc}")
+
+    ledger_sig = None
+    if ledger:
+        ledger_sig = stable_sig(ledger, "cycle_ledger_id", "cycle_ledger_payload_sig8")
+
+        if ledger.get("gate") != "PASS":
+            failures.append("source_ledger_gate_not_PASS")
+
+        if ledger.get("cycle_ledger_payload_sig8") != ledger_sig:
+            failures.append("source_ledger_sig_mismatch")
+
+        if ledger_path and ledger_path.stem != ledger.get("cycle_ledger_id"):
+            failures.append("source_ledger_filename_id_mismatch")
+
+    cheat_check_sig = None
+    if cheat_check_payload:
+        cheat_check_sig = stable_sig(
+            cheat_check_payload,
+            "agent_cheat_check_id",
+            "agent_cheat_check_payload_sig8",
+        )
+
+        if cheat_check_payload.get("gate") != "PASS":
+            failures.append("cheat_check_gate_not_PASS")
+
+        if cheat_check_payload.get("agent_cheat_check_payload_sig8") != cheat_check_sig:
+            failures.append("cheat_check_sig_mismatch")
+
+        if cheat_check_path and cheat_check_path.stem != cheat_check_payload.get("agent_cheat_check_id"):
+            failures.append("cheat_check_filename_id_mismatch")
+
+    cheat_adversarial_sig = None
+    if cheat_adversarial_payload:
+        cheat_adversarial_sig = stable_sig(
+            cheat_adversarial_payload,
+            "agent_cheat_adversarial_id",
+            "agent_cheat_adversarial_payload_sig8",
+        )
+
+        if cheat_adversarial_payload.get("gate") != "PASS":
+            failures.append("cheat_adversarial_gate_not_PASS")
+
+        if cheat_adversarial_payload.get("agent_cheat_adversarial_payload_sig8") != cheat_adversarial_sig:
+            failures.append("cheat_adversarial_sig_mismatch")
+
+        if cheat_adversarial_path and cheat_adversarial_path.stem != cheat_adversarial_payload.get("agent_cheat_adversarial_id"):
+            failures.append("cheat_adversarial_filename_id_mismatch")
+
+    cycles = ledger.get("cycles") or []
+    assessment = ledger.get("compression_assessment") or {}
+    last_cycle = cycles[-1] if cycles else {}
+
+    if not cycles:
+        failures.append("source_ledger_has_no_cycles")
+
+    if ledger.get("verdict") != "BOUNDED_VOCABULARY_CONTINUATION":
+        failures.append(f"source_ledger_unexpected_verdict:{ledger.get('verdict')}")
+
+    if assessment.get("all_laws_clean") is not True:
+        failures.append("source_ledger_laws_not_clean")
+
+    if assessment.get("boundary_events"):
+        failures.append("source_ledger_has_boundary_events")
+
+    if assessment.get("coarse_profiles_delta") != 0:
+        failures.append("source_ledger_coarse_profiles_delta_not_zero")
+
+    baseline_run_id = last_cycle.get("run_id")
+    baseline_eval_id = last_cycle.get("eval_id")
+    baseline_radius = last_cycle.get("max_moves_applied_before_halt")
+    baseline_coarse_profiles_total = last_cycle.get("coarse_profiles_total")
+    baseline_raw_profiles_total = last_cycle.get("raw_profiles_total")
+    baseline_registered_moves_total = last_cycle.get("registered_moves_total")
+
+    for payload_name, payload in [
+        ("cheat_check", cheat_check_payload),
+        ("cheat_adversarial", cheat_adversarial_payload),
+    ]:
+        if payload:
+            if payload.get("baseline_ledger_id") != ledger.get("cycle_ledger_id"):
+                failures.append(
+                    f"{payload_name}_baseline_ledger_mismatch:"
+                    f"{payload.get('baseline_ledger_id')}!={ledger.get('cycle_ledger_id')}"
+                )
+            if payload.get("baseline_run_id") != baseline_run_id:
+                failures.append(
+                    f"{payload_name}_baseline_run_mismatch:"
+                    f"{payload.get('baseline_run_id')}!={baseline_run_id}"
+                )
+            if payload.get("baseline_eval_id") != baseline_eval_id:
+                failures.append(
+                    f"{payload_name}_baseline_eval_mismatch:"
+                    f"{payload.get('baseline_eval_id')}!={baseline_eval_id}"
+                )
+            if payload.get("baseline_radius") != baseline_radius:
+                failures.append(
+                    f"{payload_name}_baseline_radius_mismatch:"
+                    f"{payload.get('baseline_radius')}!={baseline_radius}"
+                )
+            if payload.get("baseline_coarse_profiles_total") != baseline_coarse_profiles_total:
+                failures.append(
+                    f"{payload_name}_coarse_profiles_mismatch:"
+                    f"{payload.get('baseline_coarse_profiles_total')}!={baseline_coarse_profiles_total}"
+                )
+
+    adversarial_results = {
+        row.get("name"): row.get("detected")
+        for row in cheat_adversarial_payload.get("adversarial_results", [])
+    }
+
+    required_adversarial = {
+        "temp_db_law_failure_mutation",
+        "temp_db_unknown_law_mutation",
+        "temp_db_receipt_delete_mutation",
+        "temp_db_profile_novelty_insert_mutation",
+        "temp_ledger_previous_run_chain_mutation",
+    }
+
+    missing_adversarial = sorted(required_adversarial - set(adversarial_results))
+    if missing_adversarial:
+        failures.extend([f"missing_required_adversarial_check:{name}" for name in missing_adversarial])
+
+    undetected_adversarial = [
+        name
+        for name in sorted(required_adversarial)
+        if adversarial_results.get(name) is not True
+    ]
+    if undetected_adversarial:
+        failures.extend([f"required_adversarial_check_not_detected:{name}" for name in undetected_adversarial])
+
+    symbolic_checks = {
+        "fake_novelty": (cheat_check_payload.get("fake_novelty_injection_result") or {}).get("detected"),
+        "fake_law_failure": (cheat_check_payload.get("fake_law_failure_injection_result") or {}).get("detected"),
+        "fake_orphan_receipt": (cheat_check_payload.get("fake_orphan_receipt_result") or {}).get("detected"),
+        "fake_receipt_count_mismatch": (cheat_check_payload.get("fake_receipt_count_mismatch_result") or {}).get("detected"),
+        "fake_previous_run_chain_break": (cheat_check_payload.get("fake_previous_run_chain_break_result") or {}).get("detected"),
+    }
+
+    undetected_symbolic = [
+        name for name, detected in symbolic_checks.items() if detected is not True
+    ]
+    if undetected_symbolic:
+        failures.extend([f"required_symbolic_check_not_detected:{name}" for name in undetected_symbolic])
+
+    cli_path = Path("src/matrixlab/cli.py")
+    cli_sha256 = hashlib.sha256(cli_path.read_bytes()).hexdigest() if cli_path.exists() else None
+
+    identity_locks = {
+        "cli_sha256_after_contract_command": cli_sha256,
+        "source_ledger_schema_version": ledger.get("cycle_ledger_schema_version"),
+        "cheat_check_schema_version": cheat_check_payload.get("agent_cheat_check_schema_version"),
+        "cheat_adversarial_schema_version": cheat_adversarial_payload.get("agent_cheat_adversarial_schema_version"),
+        "receipt_schema_identity": "registry_sqlite_receipts_table_and_json_receipts_current",
+        "law_checker_identity": "current_cli_law_checker_no_delta_allowed",
+        "profile_classifier_identity": "current_cli_coarse_profile_classifier_no_delta_allowed",
+        "halt_vocabulary_identity": "current_cli_halt_vocabulary_no_delta_allowed",
+        "evaluator_identity": "current_cli_agent_eval_no_delta_allowed",
+        "cheat_harness_identity": "agent-cheat-check+d478_style_and_agent-cheat-adversarial_temp_db_mutations",
+    }
+
+    transferred = [
+        "receipt_counting_discipline",
+        "law_failure_detection",
+        "unknown_law_detection",
+        "profile_novelty_detection",
+        "ledger_chain_validation",
+        "symbolic_cheat_check",
+        "real_temp_db_adversarial_cheat_harness",
+        "marginal_information_stop_rule",
+        "baseline_comparison_format",
+    ]
+
+    not_transferred = [
+        "empirical_boundedness_claim",
+        "coarse_profile_total_value",
+        "raw_profile_growth_rate",
+        "radius_threshold",
+        "domain_specific_halt_distribution",
+        "future_domain_conclusion_strength",
+    ]
+
+    target_cell_definition = {
+        "domain_shift_definition": (
+            "generator_manifest_delta > 0 AND registered_move_id_set_delta = 0 "
+            "AND law_checker_identity_delta = 0 AND receipt_schema_delta = 0 "
+            "AND profile_classifier_identity_delta = 0 AND halt_vocabulary_delta = 0 "
+            "AND evaluator_identity_delta = 0"
+        ),
+        "allowed_to_change": [
+            "seed_object_distribution",
+            "move_family_schedule",
+            "composition_pattern_of_existing_registered_moves",
+            "depth_radius_profile",
+            "stress_shape_built_from_existing_registered_moves",
+        ],
+        "forbidden_to_change": [
+            "move_ontology",
+            "law_checker_semantics",
+            "receipt_schema",
+            "profile_classifier_semantics",
+            "coarse_profile_vocabulary_definition",
+            "halt_vocabulary",
+            "evaluator_meaning",
+            "cheat_harness_meaning",
+        ],
+        "outcomes": [
+            "MEASUREMENT_TRANSFER_STABLE_CURVE",
+            "MEASUREMENT_TRANSFER_DIFFERENT_CURVE",
+            "STOP_DOMAIN_REQUIRES_ONTOLOGY_SHIFT",
+            "FAIL_MEASUREMENT_TRUST",
+        ],
+        "target_rule": "target_cell_must_earn_its_own_curve_under_imported_ruler",
+    }
+
+    payload = {
+        "source_cell": source_cell,
+        "target_cell": target_cell,
+        "target_probe_kind": target_probe_kind,
+        "transfer_kind": "MEASUREMENT_DISCIPLINE_ONLY",
+        "input_source_ledger": source_ledger,
+        "input_source_ledger_path": str(ledger_path) if ledger_path else None,
+        "input_cheat_check": cheat_check,
+        "input_cheat_check_path": str(cheat_check_path) if cheat_check_path else None,
+        "input_cheat_adversarial": cheat_adversarial,
+        "input_cheat_adversarial_path": str(cheat_adversarial_path) if cheat_adversarial_path else None,
+        "source_baseline": {
+            "ledger_id": ledger.get("cycle_ledger_id"),
+            "ledger_payload_sig8": ledger.get("cycle_ledger_payload_sig8"),
+            "recomputed_ledger_payload_sig8": ledger_sig,
+            "run_id": baseline_run_id,
+            "eval_id": baseline_eval_id,
+            "radius": baseline_radius,
+            "coarse_profiles_total": baseline_coarse_profiles_total,
+            "raw_profiles_total": baseline_raw_profiles_total,
+            "registered_moves_total": baseline_registered_moves_total,
+            "cycle_count": ledger.get("cycle_count"),
+            "verdict": ledger.get("verdict"),
+            "stop_reason": "MARGINAL_INFORMATION_FLATTENED_FOR_RADIUS_EXPANSION",
+        },
+        "measurement_trust": {
+            "cheat_check_id": cheat_check_payload.get("agent_cheat_check_id"),
+            "cheat_check_payload_sig8": cheat_check_payload.get("agent_cheat_check_payload_sig8"),
+            "recomputed_cheat_check_payload_sig8": cheat_check_sig,
+            "cheat_check_gate": cheat_check_payload.get("gate"),
+            "symbolic_checks": symbolic_checks,
+            "cheat_adversarial_id": cheat_adversarial_payload.get("agent_cheat_adversarial_id"),
+            "cheat_adversarial_payload_sig8": cheat_adversarial_payload.get("agent_cheat_adversarial_payload_sig8"),
+            "recomputed_cheat_adversarial_payload_sig8": cheat_adversarial_sig,
+            "cheat_adversarial_gate": cheat_adversarial_payload.get("gate"),
+            "adversarial_checks": adversarial_results,
+        },
+        "identity_locks": identity_locks,
+        "transferred": transferred,
+        "not_transferred": not_transferred,
+        "target_cell_definition": target_cell_definition,
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": None if failures else "BUILD_DOMAIN_SHIFT_GENERATOR_V0",
+            "stop_code": "cell_transfer_contract_failed" if failures else None,
+        },
+    }
+
+    out_path, payload = write_content_addressed_receipt(
+        payload,
+        "data/cell_transfer_contracts",
+        "cell_transfer_contract_schema_version",
+        CELL_TRANSFER_CONTRACT_SCHEMA,
+        "cell_transfer_contract_id",
+        "cell_transfer_contract_payload_sig8",
+    )
+
+    typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+    typer.echo(f"cell_transfer_contract_path: {out_path}")
 
 
 
