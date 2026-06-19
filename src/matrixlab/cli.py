@@ -78,6 +78,7 @@ AGENT_CYCLE_OBSERVATION_SCHEMA = "agent_cycle_observation_receipt_v1"
 AGENT_CHEAT_CHECK_SCHEMA = "agent_cheat_check_receipt_v0"
 AGENT_CHEAT_ADVERSARIAL_SCHEMA = "agent_cheat_adversarial_receipt_v0"
 CELL_TRANSFER_CONTRACT_SCHEMA = "cell_transfer_contract_v0"
+DOMAIN_SHIFT_GENERATOR_SCHEMA = "domain_shift_generator_v0"
 
 
 def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
@@ -5411,6 +5412,246 @@ def cell_transfer_contract(
 
     typer.echo(json.dumps(payload, indent=2, sort_keys=True))
     typer.echo(f"cell_transfer_contract_path: {out_path}")
+
+
+
+@app.command("domain-shift-generator")
+def domain_shift_generator(
+    transfer_contract: str = typer.Argument(
+        ...,
+        help="Passing cell transfer contract id or JSON path.",
+    ),
+    shift_kind: str = typer.Option(
+        "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+        "--shift-kind",
+        help="Domain shift kind. Must not alter evaluator or move ontology.",
+    ),
+    radius: int = typer.Option(250, "--radius"),
+    max_cells: int = typer.Option(300000, "--max-cells"),
+):
+    """Create a Cell 1 domain-shift generator manifest without running it."""
+
+    failures = []
+    warnings = []
+
+    allowed_shift_kinds = {
+        "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+    }
+
+    if shift_kind not in allowed_shift_kinds:
+        failures.append(f"unsupported_shift_kind:{shift_kind}")
+
+    try:
+        contract_path = resolve_json_path(transfer_contract, "data/cell_transfer_contracts")
+        contract = json.loads(contract_path.read_text())
+    except Exception as exc:
+        contract_path = None
+        contract = {}
+        failures.append(f"transfer_contract_unresolved:{transfer_contract}:{exc}")
+
+    contract_sig = None
+    if contract:
+        contract_sig = stable_sig(
+            contract,
+            "cell_transfer_contract_id",
+            "cell_transfer_contract_payload_sig8",
+        )
+
+        if contract.get("gate") != "PASS":
+            failures.append("transfer_contract_gate_not_PASS")
+
+        if contract.get("cell_transfer_contract_payload_sig8") != contract_sig:
+            failures.append("transfer_contract_sig_mismatch")
+
+        if contract_path and contract_path.stem != contract.get("cell_transfer_contract_id"):
+            failures.append("transfer_contract_filename_id_mismatch")
+
+        if contract.get("transfer_kind") != "MEASUREMENT_DISCIPLINE_ONLY":
+            failures.append(f"unexpected_transfer_kind:{contract.get('transfer_kind')}")
+
+        if contract.get("target_probe_kind") != "DOMAIN_SHIFT_PROBE":
+            failures.append(f"unexpected_target_probe_kind:{contract.get('target_probe_kind')}")
+
+    source_baseline = contract.get("source_baseline") or {}
+    identity_locks = contract.get("identity_locks") or {}
+    target_cell_definition = contract.get("target_cell_definition") or {}
+
+    baseline_eval_id = source_baseline.get("eval_id")
+    try:
+        baseline_eval_path = resolve_json_path(baseline_eval_id, "data/evals")
+        baseline_eval = json.loads(baseline_eval_path.read_text())
+    except Exception as exc:
+        baseline_eval_path = None
+        baseline_eval = {}
+        failures.append(f"baseline_eval_unresolved:{baseline_eval_id}:{exc}")
+
+    eval_metrics = baseline_eval.get("metrics") or {}
+    profile_summary = baseline_eval.get("profile_summary") or {}
+
+    baseline_move_id_set = sorted((profile_summary.get("by_move") or {}).keys())
+    if not baseline_move_id_set:
+        failures.append("baseline_move_id_set_empty")
+
+    expected_move_id_set = sorted(
+        [
+            "add_row_and_link_column",
+            "append_zero_column",
+            "deterministic_row_col_relabel",
+            "duplicate_existing_column",
+            "quotient_merge_last_row",
+            "xor_repair_column",
+        ]
+    )
+
+    if baseline_move_id_set and baseline_move_id_set != expected_move_id_set:
+        warnings.append(
+            "baseline_move_id_set_differs_from_expected_known_set:"
+            + ",".join(baseline_move_id_set)
+        )
+
+    source_generator_manifest = {
+        "cell": "CELL_0",
+        "generator_kind": "BASELINE_UNIFORM_FAMILY_DEPTH_SWEEP_V0",
+        "families": eval_metrics.get("families"),
+        "depth_min": eval_metrics.get("depth_min"),
+        "depth_max": eval_metrics.get("depth_max"),
+        "cycles_per_case": eval_metrics.get("cycles_per_case"),
+        "max_cells": source_baseline.get("max_matrix_cells") or None,
+        "observed_radius": source_baseline.get("radius"),
+        "observed_move_id_set": baseline_move_id_set,
+        "observed_coarse_profiles_total": source_baseline.get("coarse_profiles_total"),
+        "observed_raw_profiles_total": source_baseline.get("raw_profiles_total"),
+        "observed_registered_moves_total": source_baseline.get("registered_moves_total"),
+        "schedule_description": "uniform depth sweep over imported families under Cell 0 runner",
+    }
+
+    target_registered_move_id_set = list(baseline_move_id_set)
+
+    target_generator_manifest = {
+        "cell": "CELL_1",
+        "generator_kind": shift_kind,
+        "domain_shift_axis": "move_family_schedule_and_composition_pattern",
+        "domain_shift_label": "D1_schedule_reweight_existing_moves",
+        "radius": radius,
+        "depth_min": eval_metrics.get("depth_min"),
+        "depth_max": radius,
+        "cycles_per_case": radius,
+        "max_cells": max_cells,
+        "registered_move_id_set": target_registered_move_id_set,
+        "registered_move_id_set_delta": 0,
+        "ontology_delta": 0,
+        "evaluator_delta": 0,
+        "law_delta": 0,
+        "receipt_schema_delta": 0,
+        "profile_classifier_delta": 0,
+        "halt_vocabulary_delta": 0,
+        "generator_manifest_delta": 1,
+        "allowed_family_set": [
+            "one_sided_suspension",
+            "two_sided_suspension",
+            "suspension_plus_repair",
+            "projection_quotient",
+            "relabel_symmetry_stress",
+        ],
+        "shifted_family_schedule": [
+            "relabel_symmetry_stress",
+            "projection_quotient",
+            "two_sided_suspension",
+            "suspension_plus_repair",
+            "one_sided_suspension",
+        ],
+        "shifted_family_weights": {
+            "relabel_symmetry_stress": 3,
+            "projection_quotient": 2,
+            "two_sided_suspension": 2,
+            "suspension_plus_repair": 1,
+            "one_sided_suspension": 1,
+        },
+        "composition_pattern": "frontload_relabel_and_projection_then_apply_growth_and_repair_using_existing_moves_only",
+        "new_move_types_allowed": False,
+        "new_laws_allowed": False,
+        "new_classifier_categories_allowed": False,
+        "new_halt_reasons_allowed": False,
+        "execution_support_status": "MANIFEST_ONLY_NEEDS_RUNNER_SUPPORT",
+    }
+
+    domain_shift_predicate = {
+        "generator_manifest_delta_gt_zero": target_generator_manifest["generator_manifest_delta"] > 0,
+        "registered_move_id_set_delta_zero": target_generator_manifest["registered_move_id_set_delta"] == 0,
+        "ontology_delta_zero": target_generator_manifest["ontology_delta"] == 0,
+        "evaluator_delta_zero": target_generator_manifest["evaluator_delta"] == 0,
+        "law_delta_zero": target_generator_manifest["law_delta"] == 0,
+        "receipt_schema_delta_zero": target_generator_manifest["receipt_schema_delta"] == 0,
+        "profile_classifier_delta_zero": target_generator_manifest["profile_classifier_delta"] == 0,
+        "halt_vocabulary_delta_zero": target_generator_manifest["halt_vocabulary_delta"] == 0,
+    }
+
+    if not all(domain_shift_predicate.values()):
+        failures.append("domain_shift_predicate_failed")
+
+    forbidden_change_check = {
+        "move_ontology_changed": False,
+        "law_checker_semantics_changed": False,
+        "receipt_schema_changed": False,
+        "profile_classifier_semantics_changed": False,
+        "coarse_profile_vocabulary_definition_changed": False,
+        "halt_vocabulary_changed": False,
+        "evaluator_meaning_changed": False,
+        "cheat_harness_meaning_changed": False,
+    }
+
+    if any(forbidden_change_check.values()):
+        failures.append("forbidden_change_detected")
+
+    target_test_plan = {
+        "precheck_goal": "VERIFY_IMPORTED_RULER_IDENTITIES_BEFORE_RUN",
+        "runner_support_goal": "BUILD_DOMAIN_SHIFT_RUNNER_SUPPORT_V0",
+        "run_goal": "RUN_SHIFTED_DOMAIN_UNDER_IMPORTED_EVALUATOR",
+        "post_run_goal": "RUN_CHEAT_HARNESS_ON_TARGET_RECEIPTS",
+        "curve_goal": "PUSH_UNTIL_MARGINAL_INFORMATION_FLATTENS_FOR_TARGET_METRIC",
+        "outcome_set": target_cell_definition.get("outcomes"),
+    }
+
+    payload = {
+        "input_transfer_contract": transfer_contract,
+        "input_transfer_contract_path": str(contract_path) if contract_path else None,
+        "transfer_contract_id": contract.get("cell_transfer_contract_id"),
+        "transfer_contract_payload_sig8": contract.get("cell_transfer_contract_payload_sig8"),
+        "recomputed_transfer_contract_payload_sig8": contract_sig,
+        "source_cell": contract.get("source_cell"),
+        "target_cell": contract.get("target_cell"),
+        "transfer_kind": contract.get("transfer_kind"),
+        "target_probe_kind": contract.get("target_probe_kind"),
+        "shift_kind": shift_kind,
+        "source_baseline": source_baseline,
+        "identity_locks": identity_locks,
+        "source_generator_manifest": source_generator_manifest,
+        "target_generator_manifest": target_generator_manifest,
+        "domain_shift_predicate": domain_shift_predicate,
+        "forbidden_change_check": forbidden_change_check,
+        "target_test_plan": target_test_plan,
+        "not_transferred_from_source_cell": contract.get("not_transferred"),
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": None if failures else "BUILD_DOMAIN_SHIFT_RUNNER_SUPPORT_V0",
+            "stop_code": "domain_shift_generator_failed" if failures else None,
+        },
+    }
+
+    out_path, payload = write_content_addressed_receipt(
+        payload,
+        "data/domain_shift_generators",
+        "domain_shift_generator_schema_version",
+        DOMAIN_SHIFT_GENERATOR_SCHEMA,
+        "domain_shift_generator_id",
+        "domain_shift_generator_payload_sig8",
+    )
+
+    typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+    typer.echo(f"domain_shift_generator_path: {out_path}")
 
 
 
