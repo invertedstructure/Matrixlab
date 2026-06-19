@@ -74,6 +74,7 @@ AGENT_CONFIRMATION_SCHEMA = "agent_operator_confirmation_receipt_v1"
 AGENT_NEXT_FROM_CONFIRMATION_SCHEMA = "agent_next_from_confirmation_receipt_v1"
 AGENT_CYCLE_LEDGER_SCHEMA = "agent_cycle_ledger_receipt_v1"
 AGENT_CYCLE_NEXT_SCHEMA = "agent_cycle_next_receipt_v1"
+AGENT_CYCLE_OBSERVATION_SCHEMA = "agent_cycle_observation_receipt_v1"
 
 
 def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
@@ -3663,6 +3664,170 @@ def agent_cycle_next(
 
     typer.echo(json.dumps(payload, indent=2, sort_keys=True))
     typer.echo(f"cycle_next_path: {out_path}")
+
+
+
+@app.command("agent-cycle-observe")
+def agent_cycle_observe(
+    cycle_next: str = typer.Argument(
+        ...,
+        help="Explicit cycle-next id or JSON path.",
+    ),
+    observed_eval: str = typer.Argument(
+        ...,
+        help="Explicit observed agent-eval id or JSON path.",
+    ),
+):
+    """Validate and record the observed result of a cycle-next execution."""
+
+    failures = []
+    warnings = []
+
+    try:
+        cycle_next_path = resolve_json_path(cycle_next, "data/agent_cycle_next")
+        cycle_next_payload = json.loads(cycle_next_path.read_text())
+    except Exception as exc:
+        cycle_next_path = None
+        cycle_next_payload = {}
+        failures.append(f"cycle_next_unresolved:{cycle_next}:{exc}")
+
+    try:
+        eval_path = resolve_json_path(observed_eval, "data/evals")
+        eval_payload = json.loads(eval_path.read_text())
+    except Exception as exc:
+        eval_path = None
+        eval_payload = {}
+        failures.append(f"observed_eval_unresolved:{observed_eval}:{exc}")
+
+    cycle_next_sig = None
+    if cycle_next_payload:
+        cycle_next_sig = stable_sig(
+            cycle_next_payload,
+            "cycle_next_id",
+            "cycle_next_payload_sig8",
+        )
+
+        if cycle_next_payload.get("gate") != "PASS":
+            failures.append("cycle_next_gate_not_PASS")
+
+        if cycle_next_payload.get("cycle_next_payload_sig8") != cycle_next_sig:
+            failures.append("cycle_next_sig_mismatch")
+
+        if cycle_next_path and cycle_next_path.stem != cycle_next_payload.get("cycle_next_id"):
+            failures.append("cycle_next_filename_id_mismatch")
+
+    if eval_payload.get("gate") != "PASS":
+        failures.append("observed_eval_gate_not_PASS")
+
+    metrics = eval_payload.get("metrics") or {}
+    classification = eval_payload.get("classification") or {}
+    delta = eval_payload.get("delta_vs_previous") or {}
+    terminal = eval_payload.get("terminal") or {}
+    input_runs = eval_payload.get("input_runs") or []
+
+    observed_run_id = input_runs[0] if len(input_runs) >= 1 else None
+    observed_previous_run_id = input_runs[1] if len(input_runs) >= 2 else None
+
+    expected_previous_run_id = cycle_next_payload.get("last_run_id")
+    expected_radius = cycle_next_payload.get("next_radius")
+    expected_families = cycle_next_payload.get("families")
+    expected_max_cells = cycle_next_payload.get("max_cells")
+
+    if observed_previous_run_id != expected_previous_run_id:
+        failures.append(
+            f"observed_previous_run_mismatch:{observed_previous_run_id}!={expected_previous_run_id}"
+        )
+
+    if metrics.get("depth_max") != expected_radius:
+        failures.append(f"depth_max_mismatch:{metrics.get('depth_max')}!={expected_radius}")
+
+    if metrics.get("cycles_per_case") != expected_radius:
+        failures.append(
+            f"cycles_per_case_mismatch:{metrics.get('cycles_per_case')}!={expected_radius}"
+        )
+
+    if metrics.get("max_cells") not in [None, expected_max_cells]:
+        failures.append(f"max_cells_mismatch:{metrics.get('max_cells')}!={expected_max_cells}")
+
+    if metrics.get("max_moves_applied_before_halt") != expected_radius:
+        failures.append(
+            "max_moves_applied_before_halt_mismatch:"
+            f"{metrics.get('max_moves_applied_before_halt')}!={expected_radius}"
+        )
+
+    if metrics.get("law_failures") != 0:
+        failures.append("law_failures_nonzero")
+
+    if metrics.get("unknown_laws") != 0:
+        failures.append("unknown_laws_nonzero")
+
+    if metrics.get("orphan_receipt_runs") != 0:
+        failures.append("orphan_receipt_runs_nonzero")
+
+    if terminal.get("type") != "ADVANCE":
+        failures.append("observed_eval_terminal_not_ADVANCE")
+
+    halt_reason_counts = metrics.get("halt_reason_counts") or {}
+    max_cells_exceeded_count = halt_reason_counts.get("MAX_CELLS_EXCEEDED", 0)
+
+    boundary_event = None
+    if max_cells_exceeded_count:
+        boundary_event = {
+            "type": "MAX_CELLS_EXCEEDED",
+            "count": max_cells_exceeded_count,
+            "meaning": "resource_boundary_appeared_at_current_radius",
+        }
+        warnings.append("max_cells_boundary_observed")
+
+    payload = {
+        "input_cycle_next": cycle_next,
+        "input_cycle_next_path": str(cycle_next_path) if cycle_next_path else None,
+        "input_observed_eval": observed_eval,
+        "input_observed_eval_path": str(eval_path) if eval_path else None,
+        "cycle_next_id": cycle_next_payload.get("cycle_next_id"),
+        "cycle_next_payload_sig8": cycle_next_payload.get("cycle_next_payload_sig8"),
+        "recomputed_cycle_next_payload_sig8": cycle_next_sig,
+        "observed_eval_id": eval_payload.get("eval_id"),
+        "observed_run_id": observed_run_id,
+        "observed_previous_run_id": observed_previous_run_id,
+        "expected_previous_run_id": expected_previous_run_id,
+        "expected_radius": expected_radius,
+        "observed_radius": metrics.get("max_moves_applied_before_halt"),
+        "expected_families": expected_families,
+        "expected_max_cells": expected_max_cells,
+        "observed_gate": eval_payload.get("gate"),
+        "observed_terminal": terminal,
+        "classification": classification,
+        "delta_vs_previous": delta,
+        "metrics": metrics,
+        "boundary_event": boundary_event,
+        "warnings": warnings,
+        "failures": failures,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": None
+            if failures
+            else (
+                "DECIDE_RESOURCE_BOUNDARY_OR_EXPAND_MAX_CELLS"
+                if boundary_event
+                else "APPEND_OBSERVATION_TO_CYCLE_LEDGER"
+            ),
+            "stop_code": "cycle_observation_failed" if failures else None,
+        },
+    }
+
+    out_path, payload = write_content_addressed_receipt(
+        payload,
+        "data/agent_cycle_observations",
+        "cycle_observation_schema_version",
+        AGENT_CYCLE_OBSERVATION_SCHEMA,
+        "cycle_observation_id",
+        "cycle_observation_payload_sig8",
+    )
+
+    typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+    typer.echo(f"cycle_observation_path: {out_path}")
 
 
 
