@@ -81,6 +81,7 @@ CELL_TRANSFER_CONTRACT_SCHEMA = "cell_transfer_contract_v0"
 DOMAIN_SHIFT_GENERATOR_SCHEMA = "domain_shift_generator_v0"
 DOMAIN_SHIFT_RUNNER_SUPPORT_SCHEMA = "domain_shift_runner_support_v0"
 DOMAIN_SHIFT_SLOT_RUNNER_SUPPORT_SCHEMA = "domain_shift_slot_runner_support_v0"
+DOMAIN_SHIFT_SLOT_OBSERVATION_SCHEMA = "domain_shift_slot_observation_v0"
 
 
 def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
@@ -6484,6 +6485,369 @@ def domain_shift_slot_runner_support(
 
     typer.echo(json.dumps(payload, indent=2, sort_keys=True))
     typer.echo(f"domain_shift_slot_runner_support_path: {out_path}")
+
+
+
+@app.command("domain-shift-slot-observe")
+def domain_shift_slot_observe(
+    slot_execution: str = typer.Argument(
+        ...,
+        help="Passing domain shift slot run execution id or JSON path.",
+    ),
+):
+    """Observe a slot-separated domain-shift execution and classify transfer outcome."""
+
+    failures = []
+    warnings = []
+
+    try:
+        slot_execution_path = resolve_json_path(slot_execution, "data/domain_shift_slot_runs")
+        execution = json.loads(slot_execution_path.read_text())
+    except Exception as exc:
+        slot_execution_path = None
+        execution = {}
+        failures.append(f"slot_execution_unresolved:{slot_execution}:{exc}")
+
+    execution_id = execution.get("domain_shift_slot_run_execution_id")
+    execution_sig = None
+    if execution:
+        execution_sig_payload = dict(execution)
+        execution_sig_payload.pop("domain_shift_slot_run_execution_id", None)
+        execution_sig = hashlib.sha256(
+            json.dumps(execution_sig_payload, sort_keys=True).encode()
+        ).hexdigest()[:8]
+
+        if execution_id != execution_sig:
+            failures.append(
+                f"slot_execution_id_mismatch:stored={execution_id}:recomputed={execution_sig}"
+            )
+
+        if slot_execution_path and slot_execution_path.stem != execution_id:
+            failures.append("slot_execution_filename_id_mismatch")
+
+        if execution.get("gate") != "PASS":
+            failures.append("slot_execution_gate_not_PASS")
+
+    source_support_id = execution.get("source_support_id")
+    try:
+        support_path = resolve_json_path(source_support_id, "data/domain_shift_slot_runner_support")
+        support = json.loads(support_path.read_text())
+    except Exception as exc:
+        support_path = None
+        support = {}
+        failures.append(f"slot_support_unresolved:{source_support_id}:{exc}")
+
+    support_sig = None
+    if support:
+        support_sig = stable_sig(
+            support,
+            "domain_shift_slot_runner_support_id",
+            "domain_shift_slot_runner_support_payload_sig8",
+        )
+
+        if support.get("gate") != "PASS":
+            failures.append("slot_support_gate_not_PASS")
+
+        if support.get("domain_shift_slot_runner_support_payload_sig8") != support_sig:
+            failures.append("slot_support_sig_mismatch")
+
+        if support_path and support_path.stem != support.get("domain_shift_slot_runner_support_id"):
+            failures.append("slot_support_filename_id_mismatch")
+
+    generator_id = support.get("domain_shift_generator_id") if support else None
+    try:
+        generator_path = resolve_json_path(generator_id, "data/domain_shift_generators")
+        generator = json.loads(generator_path.read_text())
+    except Exception as exc:
+        generator_path = None
+        generator = {}
+        failures.append(f"domain_shift_generator_unresolved:{generator_id}:{exc}")
+
+    generator_sig = None
+    if generator:
+        generator_sig = stable_sig(
+            generator,
+            "domain_shift_generator_id",
+            "domain_shift_generator_payload_sig8",
+        )
+
+        if generator.get("gate") != "PASS":
+            failures.append("domain_shift_generator_gate_not_PASS")
+
+        if generator.get("domain_shift_generator_payload_sig8") != generator_sig:
+            failures.append("domain_shift_generator_sig_mismatch")
+
+    transfer_contract_id = support.get("transfer_contract_id") if support else None
+    try:
+        transfer_path = resolve_json_path(transfer_contract_id, "data/cell_transfer_contracts")
+        transfer = json.loads(transfer_path.read_text())
+    except Exception as exc:
+        transfer_path = None
+        transfer = {}
+        failures.append(f"transfer_contract_unresolved:{transfer_contract_id}:{exc}")
+
+    transfer_sig = None
+    if transfer:
+        transfer_sig = stable_sig(
+            transfer,
+            "cell_transfer_contract_id",
+            "cell_transfer_contract_payload_sig8",
+        )
+
+        if transfer.get("gate") != "PASS":
+            failures.append("transfer_contract_gate_not_PASS")
+
+        if transfer.get("cell_transfer_contract_payload_sig8") != transfer_sig:
+            failures.append("transfer_contract_sig_mismatch")
+
+    slot_results = execution.get("slot_results") or []
+    expected_slots = ((support.get("runner_support") or {}).get("slots") or []) if support else []
+
+    if execution.get("slot_count_expected") != len(expected_slots):
+        failures.append(
+            f"slot_count_expected_mismatch:execution={execution.get('slot_count_expected')}:support={len(expected_slots)}"
+        )
+
+    if execution.get("slot_count_observed") != len(slot_results):
+        failures.append(
+            f"slot_count_observed_mismatch:declared={execution.get('slot_count_observed')}:actual={len(slot_results)}"
+        )
+
+    if len(slot_results) != len(expected_slots):
+        failures.append(f"slot_result_count_mismatch:results={len(slot_results)}:support={len(expected_slots)}")
+
+    observed_labels = [slot.get("slot_label") for slot in slot_results]
+    expected_labels = [slot.get("slot_label") for slot in expected_slots]
+
+    if observed_labels != expected_labels:
+        failures.append("slot_label_order_mismatch")
+
+    run_ids = [slot.get("run_id") for slot in slot_results]
+    eval_ids = [slot.get("eval_id") for slot in slot_results]
+
+    if len(run_ids) != len(set(run_ids)):
+        failures.append("slot_run_ids_not_unique")
+
+    if len(eval_ids) != len(set(eval_ids)):
+        failures.append("slot_eval_ids_not_unique")
+
+    dirty_slots = []
+    boundary_slots = []
+    receipt_mismatch_slots = []
+    eval_gate_fail_slots = []
+
+    aggregate_by_family = {}
+    repeated_family_consistency = {}
+    aggregate_coarse_profiles = {}
+    aggregate_by_move = {}
+
+    for slot in slot_results:
+        label = slot.get("slot_label")
+        family_code = slot.get("family_code")
+        family = slot.get("family")
+        eval_id = slot.get("eval_id")
+
+        if slot.get("eval_gate") != "PASS":
+            eval_gate_fail_slots.append(label)
+
+        if slot.get("law_failures") != 0 or slot.get("unknown_laws") != 0 or slot.get("orphan_receipt_runs") != 0:
+            dirty_slots.append(label)
+
+        if slot.get("boundary_count") != 0:
+            boundary_slots.append(label)
+
+        if slot.get("total_receipts") != slot.get("receipt_rows"):
+            receipt_mismatch_slots.append(label)
+
+        aggregate_by_family.setdefault(family, {
+            "family_code": family_code,
+            "slot_count": 0,
+            "run_ids": [],
+            "eval_ids": [],
+            "total_receipts": 0,
+            "receipt_rows": 0,
+            "coarse_counts": [],
+            "raw_counts": [],
+            "registered_counts": [],
+        })
+        agg = aggregate_by_family[family]
+        agg["slot_count"] += 1
+        agg["run_ids"].append(slot.get("run_id"))
+        agg["eval_ids"].append(eval_id)
+        agg["total_receipts"] += int(slot.get("total_receipts") or 0)
+        agg["receipt_rows"] += int(slot.get("receipt_rows") or 0)
+        agg["coarse_counts"].append(slot.get("coarse_move_profiles_total"))
+        agg["raw_counts"].append(slot.get("raw_move_profiles_total"))
+        agg["registered_counts"].append(slot.get("registered_moves_total"))
+
+        try:
+            eval_data = json.loads((Path("data/evals") / f"{eval_id}.json").read_text())
+            profile_summary = eval_data.get("profile_summary") or {}
+            for key, value in (profile_summary.get("coarse_profiles") or {}).items():
+                aggregate_coarse_profiles[key] = aggregate_coarse_profiles.get(key, 0) + int(value)
+            for key, value in (profile_summary.get("by_move") or {}).items():
+                aggregate_by_move[key] = aggregate_by_move.get(key, 0) + int(value)
+        except Exception as exc:
+            failures.append(f"eval_profile_load_failed:{label}:{eval_id}:{exc}")
+
+    for family, agg in aggregate_by_family.items():
+        repeated_family_consistency[family] = {
+            "slot_count": agg["slot_count"],
+            "coarse_counts": agg["coarse_counts"],
+            "raw_counts": agg["raw_counts"],
+            "registered_counts": agg["registered_counts"],
+            "coarse_consistent": len(set(agg["coarse_counts"])) <= 1,
+            "raw_consistent": len(set(agg["raw_counts"])) <= 1,
+            "registered_consistent": len(set(agg["registered_counts"])) <= 1,
+        }
+
+    repeated_family_inconsistencies = {
+        family: row
+        for family, row in repeated_family_consistency.items()
+        if row["slot_count"] > 1 and not (
+            row["coarse_consistent"] and row["raw_consistent"] and row["registered_consistent"]
+        )
+    }
+
+    if eval_gate_fail_slots:
+        failures.append("slot_eval_gate_failures:" + ",".join(eval_gate_fail_slots))
+
+    if dirty_slots:
+        failures.append("slot_measurement_dirty:" + ",".join(dirty_slots))
+
+    if boundary_slots:
+        failures.append("slot_resource_boundaries:" + ",".join(boundary_slots))
+
+    if receipt_mismatch_slots:
+        failures.append("slot_receipt_projection_mismatches:" + ",".join(receipt_mismatch_slots))
+
+    if repeated_family_inconsistencies:
+        failures.append("repeated_family_measurement_inconsistent")
+
+    support_runner = support.get("runner_support") or {}
+    semantic_pressure = {
+        "requires_new_move_types": support_runner.get("requires_new_move_types"),
+        "requires_new_laws": support_runner.get("requires_new_laws"),
+        "requires_new_classifier_semantics": support_runner.get("requires_new_classifier_semantics"),
+        "requires_new_halt_vocabulary": support_runner.get("requires_new_halt_vocabulary"),
+        "requires_new_evaluator_semantics": support_runner.get("requires_new_evaluator_semantics"),
+    }
+
+    semantic_pressure_detected = any(value is True for value in semantic_pressure.values())
+
+    source_baseline = support.get("source_baseline") or {}
+    source_coarse_total = source_baseline.get("coarse_profiles_total")
+    aggregate_coarse_total = len(aggregate_coarse_profiles)
+    aggregate_raw_total_by_slot_sum = sum(int(slot.get("raw_move_profiles_total") or 0) for slot in slot_results)
+
+    if failures:
+        outcome = "FAIL_MEASUREMENT_TRUST"
+        next_goal = None
+        stop_code = "domain_shift_slot_observation_failed"
+        terminal_type = "STOP"
+    elif semantic_pressure_detected:
+        outcome = "STOP_DOMAIN_REQUIRES_ONTOLOGY_SHIFT"
+        next_goal = None
+        stop_code = "domain_requires_ontology_shift"
+        terminal_type = "STOP"
+    elif aggregate_coarse_total == source_coarse_total:
+        outcome = "MEASUREMENT_TRANSFER_STABLE_CURVE"
+        next_goal = "DECIDE_SCALE_RADIUS_OR_FREEZE_RADIUS_50_CELL1_OBSERVATION"
+        stop_code = None
+        terminal_type = "ADVANCE"
+    else:
+        outcome = "MEASUREMENT_TRANSFER_DIFFERENT_CURVE"
+        next_goal = "DECIDE_SCALE_RADIUS_OR_FREEZE_RADIUS_50_CELL1_OBSERVATION"
+        stop_code = None
+        terminal_type = "ADVANCE"
+
+    observation = {
+        "slot_execution": {
+            "input": slot_execution,
+            "path": str(slot_execution_path) if slot_execution_path else None,
+            "id": execution_id,
+            "recomputed_id": execution_sig,
+            "gate": execution.get("gate"),
+        },
+        "slot_support": {
+            "id": source_support_id,
+            "path": str(support_path) if support_path else None,
+            "stored_sig": support.get("domain_shift_slot_runner_support_payload_sig8"),
+            "recomputed_sig": support_sig,
+            "gate": support.get("gate"),
+        },
+        "domain_shift_generator": {
+            "id": generator_id,
+            "path": str(generator_path) if generator_path else None,
+            "stored_sig": generator.get("domain_shift_generator_payload_sig8"),
+            "recomputed_sig": generator_sig,
+            "gate": generator.get("gate"),
+        },
+        "transfer_contract": {
+            "id": transfer_contract_id,
+            "path": str(transfer_path) if transfer_path else None,
+            "stored_sig": transfer.get("cell_transfer_contract_payload_sig8"),
+            "recomputed_sig": transfer_sig,
+            "gate": transfer.get("gate"),
+        },
+        "radius": execution.get("radius"),
+        "max_cells": execution.get("max_cells"),
+        "slot_count_expected": execution.get("slot_count_expected"),
+        "slot_count_observed": execution.get("slot_count_observed"),
+        "slot_labels": observed_labels,
+        "run_ids": run_ids,
+        "eval_ids": eval_ids,
+        "aggregate_by_family": aggregate_by_family,
+        "repeated_family_consistency": repeated_family_consistency,
+        "aggregate_coarse_profiles_total": aggregate_coarse_total,
+        "source_coarse_profiles_total": source_coarse_total,
+        "aggregate_raw_total_by_slot_sum": aggregate_raw_total_by_slot_sum,
+        "aggregate_coarse_profiles": aggregate_coarse_profiles,
+        "aggregate_by_move": aggregate_by_move,
+        "semantic_pressure": semantic_pressure,
+        "semantic_pressure_detected": semantic_pressure_detected,
+        "measurement_cleanliness": {
+            "eval_gate_fail_slots": eval_gate_fail_slots,
+            "dirty_slots": dirty_slots,
+            "boundary_slots": boundary_slots,
+            "receipt_mismatch_slots": receipt_mismatch_slots,
+            "repeated_family_inconsistencies": repeated_family_inconsistencies,
+        },
+        "outcome": outcome,
+        "confidence_scope": "RADIUS_50_SLOT_SEPARATED_PROBE_ONLY",
+    }
+
+    payload = {
+        "input_slot_execution": slot_execution,
+        "slot_execution_id": execution_id,
+        "source_support_id": source_support_id,
+        "domain_shift_generator_id": generator_id,
+        "transfer_contract_id": transfer_contract_id,
+        "source_cell": support.get("source_cell"),
+        "target_cell": support.get("target_cell"),
+        "shift_kind": support.get("shift_kind"),
+        "observation": observation,
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": terminal_type,
+            "next_command_goal": next_goal,
+            "stop_code": stop_code,
+        },
+    }
+
+    out_path, payload = write_content_addressed_receipt(
+        payload,
+        "data/domain_shift_slot_observations",
+        "domain_shift_slot_observation_schema_version",
+        DOMAIN_SHIFT_SLOT_OBSERVATION_SCHEMA,
+        "domain_shift_slot_observation_id",
+        "domain_shift_slot_observation_payload_sig8",
+    )
+
+    typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+    typer.echo(f"domain_shift_slot_observation_path: {out_path}")
 
 
 
