@@ -76,6 +76,7 @@ AGENT_CYCLE_LEDGER_SCHEMA = "agent_cycle_ledger_receipt_v1"
 AGENT_CYCLE_NEXT_SCHEMA = "agent_cycle_next_receipt_v1"
 AGENT_CYCLE_OBSERVATION_SCHEMA = "agent_cycle_observation_receipt_v1"
 AGENT_CHEAT_CHECK_SCHEMA = "agent_cheat_check_receipt_v0"
+AGENT_CHEAT_ADVERSARIAL_SCHEMA = "agent_cheat_adversarial_receipt_v0"
 
 
 def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
@@ -4570,6 +4571,518 @@ def agent_cheat_check(
 
     typer.echo(json.dumps(payload, indent=2, sort_keys=True))
     typer.echo(f"agent_cheat_check_path: {out_path}")
+
+
+
+@app.command("agent-cheat-adversarial")
+def agent_cheat_adversarial(
+    cycle_ledger: str = typer.Argument(
+        ...,
+        help="Frozen clean cycle ledger id or JSON path.",
+    ),
+):
+    """Adversarial cheating detector using real temp DB mutations only."""
+
+    import sqlite3
+    import tempfile
+    import shutil
+
+    failures = []
+    warnings = []
+
+    protected_files = [
+        "data/runs/registry.sqlite",
+        "src/matrixlab/cli.py",
+    ]
+    protected_dirs = [
+        "data/receipts",
+        "data/evals",
+        "data/agent_cycle_ledgers",
+        "data/agent_cycle_observations",
+        "data/agent_cycle_next",
+        "data/agent_cheat_checks",
+    ]
+
+    def production_snapshot():
+        snap = {}
+        for target in protected_files:
+            path = Path(target)
+            if path.exists():
+                stat = path.stat()
+                snap[target] = {
+                    "exists": True,
+                    "kind": "file",
+                    "mtime_ns": stat.st_mtime_ns,
+                    "size": stat.st_size,
+                }
+            else:
+                snap[target] = {"exists": False}
+        for target in protected_dirs:
+            path = Path(target)
+            if path.exists():
+                stat = path.stat()
+                snap[target] = {
+                    "exists": True,
+                    "kind": "dir",
+                    "mtime_ns": stat.st_mtime_ns,
+                    "direct_child_count": len(list(path.iterdir())),
+                }
+            else:
+                snap[target] = {"exists": False}
+        return snap
+
+    production_before = production_snapshot()
+
+    try:
+        ledger_path = resolve_json_path(cycle_ledger, "data/agent_cycle_ledgers")
+        ledger = json.loads(ledger_path.read_text())
+    except Exception as exc:
+        ledger_path = None
+        ledger = {}
+        failures.append(f"cycle_ledger_unresolved:{cycle_ledger}:{exc}")
+
+    ledger_sig = None
+    if ledger:
+        ledger_sig = stable_sig(ledger, "cycle_ledger_id", "cycle_ledger_payload_sig8")
+
+        if ledger.get("gate") != "PASS":
+            failures.append("cycle_ledger_gate_not_PASS")
+
+        if ledger.get("cycle_ledger_payload_sig8") != ledger_sig:
+            failures.append("cycle_ledger_sig_mismatch")
+
+        if ledger_path and ledger_path.stem != ledger.get("cycle_ledger_id"):
+            failures.append("cycle_ledger_filename_id_mismatch")
+
+    cycles = ledger.get("cycles") or []
+    assessment = ledger.get("compression_assessment") or {}
+    last_cycle = cycles[-1] if cycles else {}
+
+    if not cycles:
+        failures.append("cycle_ledger_has_no_cycles")
+
+    if not assessment.get("all_laws_clean"):
+        failures.append("cycle_ledger_not_all_laws_clean")
+
+    if assessment.get("boundary_events"):
+        failures.append("cycle_ledger_has_boundary_events")
+
+    baseline_run_id = last_cycle.get("run_id")
+    baseline_eval_id = last_cycle.get("eval_id")
+
+    if not baseline_run_id:
+        failures.append("baseline_run_id_missing")
+
+    if not baseline_eval_id:
+        failures.append("baseline_eval_id_missing")
+
+    try:
+        eval_path = resolve_json_path(baseline_eval_id, "data/evals")
+        eval_payload = json.loads(eval_path.read_text())
+    except Exception as exc:
+        eval_path = None
+        eval_payload = {}
+        failures.append(f"baseline_eval_unresolved:{baseline_eval_id}:{exc}")
+
+    eval_metrics = eval_payload.get("metrics") or {}
+
+    db_path = Path("data/runs/registry.sqlite")
+    if not db_path.exists():
+        failures.append("registry_db_missing")
+
+    def summarize_db(sqlite_path, run_id):
+        con = sqlite3.connect(sqlite_path)
+        con.row_factory = sqlite3.Row
+
+        run_row = con.execute(
+            "select * from runs where run_id=?",
+            (run_id,),
+        ).fetchone()
+
+        receipt_rows = con.execute(
+            "select count(*) as n from receipts where run_id=?",
+            (run_id,),
+        ).fetchone()["n"]
+
+        law_failures = con.execute(
+            "select count(*) as n from receipts where run_id=? and law_ok=0",
+            (run_id,),
+        ).fetchone()["n"]
+
+        unknown_laws = con.execute(
+            "select count(*) as n from receipts where run_id=? and law_id='UNKNOWN'",
+            (run_id,),
+        ).fetchone()["n"]
+
+        coarse_profiles_total = con.execute(
+            """
+            select count(distinct
+                move_id || '|dr=' || row_delta ||
+                '|dc=' || col_delta ||
+                '|rank=' || rank_delta ||
+                '|supp=' ||
+                    case
+                        when support_delta > 0 then '+'
+                        when support_delta < 0 then '-'
+                        else '0'
+                    end ||
+                '|newcols=' ||
+                    case
+                        when new_column_types_added is null then 'unknown'
+                        when new_column_types_added = 0 then '0'
+                        when new_column_types_added = 1 then '1'
+                        else 'many'
+                    end
+            ) as n
+            from receipts
+            where run_id=? and move_id is not null
+            """,
+            (run_id,),
+        ).fetchone()["n"]
+
+        raw_profiles_total = con.execute(
+            """
+            select count(distinct move_profile_id) as n
+            from receipts
+            where run_id=? and move_profile_id is not null
+            """,
+            (run_id,),
+        ).fetchone()["n"]
+
+        registered_moves_total = con.execute(
+            "select max(registered_moves_total) as n from receipts where run_id=?",
+            (run_id,),
+        ).fetchone()["n"]
+
+        max_moves_applied_before_halt = con.execute(
+            "select max(cycle_n) as n from receipts where run_id=?",
+            (run_id,),
+        ).fetchone()["n"]
+
+        max_matrix_cells = con.execute(
+            "select max(cells) as n from receipts where run_id=?",
+            (run_id,),
+        ).fetchone()["n"]
+
+        halt_reason_counts = [
+            dict(row)
+            for row in con.execute(
+                """
+                select halt_reason, count(*) as n
+                from receipts
+                where run_id=?
+                group by halt_reason
+                order by n desc, halt_reason
+                """,
+                (run_id,),
+            )
+        ]
+
+        con.close()
+
+        return {
+            "run_row": dict(run_row) if run_row else None,
+            "receipt_rows": receipt_rows,
+            "law_failures": law_failures,
+            "unknown_laws": unknown_laws,
+            "coarse_move_profiles_total": coarse_profiles_total,
+            "raw_move_profiles_total": raw_profiles_total,
+            "registered_moves_total": registered_moves_total,
+            "max_moves_applied_before_halt": max_moves_applied_before_halt,
+            "max_matrix_cells": max_matrix_cells,
+            "halt_reason_counts": halt_reason_counts,
+        }
+
+    baseline_sql_summary = {}
+    temp_db_summary = {}
+    adversarial_results = []
+
+    def add_adversarial_result(name, detected, detail):
+        adversarial_results.append(
+            {
+                "name": name,
+                "detected": bool(detected),
+                "detail": detail,
+            }
+        )
+
+    if db_path.exists() and baseline_run_id:
+        baseline_sql_summary = summarize_db(db_path, baseline_run_id)
+
+        baseline_matches_eval = {
+            "receipt_rows": baseline_sql_summary.get("receipt_rows") == eval_metrics.get("receipt_rows"),
+            "law_failures": baseline_sql_summary.get("law_failures") == eval_metrics.get("law_failures"),
+            "unknown_laws": baseline_sql_summary.get("unknown_laws") == eval_metrics.get("unknown_laws"),
+            "coarse_profiles": baseline_sql_summary.get("coarse_move_profiles_total") == eval_metrics.get("coarse_move_profiles_total"),
+            "raw_profiles": baseline_sql_summary.get("raw_move_profiles_total") == eval_metrics.get("raw_move_profiles_total"),
+            "registered_moves": baseline_sql_summary.get("registered_moves_total") == eval_metrics.get("registered_moves_total"),
+            "continuation_radius": baseline_sql_summary.get("max_moves_applied_before_halt") == eval_metrics.get("max_moves_applied_before_halt"),
+        }
+
+        for name, ok in baseline_matches_eval.items():
+            if ok is not True:
+                failures.append(f"baseline_sql_eval_mismatch:{name}")
+
+        with tempfile.TemporaryDirectory(prefix="matrixlab_adversarial_cheat_") as tmp:
+            tmp_path = Path(tmp)
+            temp_db = tmp_path / "registry.sqlite"
+            shutil.copy2(db_path, temp_db)
+
+            temp_db_summary = summarize_db(temp_db, baseline_run_id)
+            if temp_db_summary != baseline_sql_summary:
+                failures.append("temp_db_copy_summary_mismatch")
+
+            con = sqlite3.connect(temp_db)
+            con.row_factory = sqlite3.Row
+
+            # 1. Real temp DB law failure mutation.
+            con.execute("begin")
+            con.execute(
+                """
+                update receipts
+                set law_ok=0, law_fail_reason='CHEAT_INJECTED_LAW_FAILURE'
+                where rowid = (
+                    select rowid
+                    from receipts
+                    where run_id=? and law_ok=1
+                    limit 1
+                )
+                """,
+                (baseline_run_id,),
+            )
+            con.commit()
+            mutated = summarize_db(temp_db, baseline_run_id)
+            add_adversarial_result(
+                "temp_db_law_failure_mutation",
+                mutated.get("law_failures") > baseline_sql_summary.get("law_failures", 0),
+                {
+                    "baseline_law_failures": baseline_sql_summary.get("law_failures"),
+                    "mutated_law_failures": mutated.get("law_failures"),
+                    "detector": "independent_sql_law_failures_must_remain_zero",
+                },
+            )
+            con.close()
+            shutil.copy2(db_path, temp_db)
+            con = sqlite3.connect(temp_db)
+            con.row_factory = sqlite3.Row
+
+            # 2. Real temp DB unknown law mutation.
+            con.execute("begin")
+            con.execute(
+                """
+                update receipts
+                set law_id='UNKNOWN'
+                where rowid = (
+                    select rowid
+                    from receipts
+                    where run_id=? and law_id is not null
+                    limit 1
+                )
+                """,
+                (baseline_run_id,),
+            )
+            con.commit()
+            mutated = summarize_db(temp_db, baseline_run_id)
+            add_adversarial_result(
+                "temp_db_unknown_law_mutation",
+                mutated.get("unknown_laws") > baseline_sql_summary.get("unknown_laws", 0),
+                {
+                    "baseline_unknown_laws": baseline_sql_summary.get("unknown_laws"),
+                    "mutated_unknown_laws": mutated.get("unknown_laws"),
+                    "detector": "independent_sql_unknown_laws_must_remain_zero",
+                },
+            )
+            con.close()
+            shutil.copy2(db_path, temp_db)
+            con = sqlite3.connect(temp_db)
+            con.row_factory = sqlite3.Row
+
+            # 3. Real temp DB receipt deletion mutation.
+            con.execute("begin")
+            con.execute(
+                """
+                delete from receipts
+                where rowid = (
+                    select rowid
+                    from receipts
+                    where run_id=?
+                    limit 1
+                )
+                """,
+                (baseline_run_id,),
+            )
+            con.commit()
+            mutated = summarize_db(temp_db, baseline_run_id)
+            add_adversarial_result(
+                "temp_db_receipt_delete_mutation",
+                mutated.get("receipt_rows") != eval_metrics.get("receipt_rows"),
+                {
+                    "baseline_eval_receipt_rows": eval_metrics.get("receipt_rows"),
+                    "baseline_sql_receipt_rows": baseline_sql_summary.get("receipt_rows"),
+                    "mutated_sql_receipt_rows": mutated.get("receipt_rows"),
+                    "detector": "independent_sql_receipt_rows_must_match_eval_receipt_rows",
+                },
+            )
+            con.close()
+            shutil.copy2(db_path, temp_db)
+            con = sqlite3.connect(temp_db)
+            con.row_factory = sqlite3.Row
+
+            # 4. Real temp DB novelty insertion mutation.
+            columns = [
+                row["name"]
+                for row in con.execute("pragma table_info(receipts)")
+            ]
+            row_payload = {col: None for col in columns}
+            row_payload.update(
+                {
+                    "run_id": baseline_run_id,
+                    "case_id": "CHEAT_FAKE_CASE",
+                    "family": "CHEAT_FAKE_FAMILY",
+                    "depth": -1,
+                    "cycle_n": -1,
+                    "move_id": "CHEAT_FAKE_MOVE",
+                    "registered_moves_total": baseline_sql_summary.get("registered_moves_total"),
+                    "moves_reused": 0,
+                    "new_move_required": 1,
+                    "rows": 1,
+                    "cols": 1,
+                    "cells": 1,
+                    "rank_before": 0,
+                    "rank_after": 1,
+                    "compression_ratio": 1.0,
+                    "trajectory_signature": "CHEAT_FAKE_TRAJECTORY",
+                    "halt_reason": None,
+                    "state_sig8_before": "CHEATBEF",
+                    "state_sig8_after": "CHEATAFT",
+                    "receipt_path": "/tmp/CHEAT_FAKE_RECEIPT.json",
+                    "move_profile_id": "CHEAT_FAKE_PROFILE",
+                    "row_delta": 99,
+                    "col_delta": 99,
+                    "rank_delta": 99,
+                    "support_delta": 99,
+                    "distinct_column_types_before": 0,
+                    "distinct_column_types_after": 99,
+                    "new_column_types_added": 99,
+                    "law_id": "CHEAT_FAKE_LAW",
+                    "law_ok": 1,
+                    "law_fail_reason": None,
+                }
+            )
+            placeholders = ",".join(["?"] * len(columns))
+            col_list = ",".join(columns)
+
+            con.execute("begin")
+            con.execute(
+                f"insert into receipts ({col_list}) values ({placeholders})",
+                [row_payload[col] for col in columns],
+            )
+            con.commit()
+            mutated = summarize_db(temp_db, baseline_run_id)
+            add_adversarial_result(
+                "temp_db_profile_novelty_insert_mutation",
+                (
+                    mutated.get("coarse_move_profiles_total") > baseline_sql_summary.get("coarse_move_profiles_total", 0)
+                    and mutated.get("raw_move_profiles_total") > baseline_sql_summary.get("raw_move_profiles_total", 0)
+                ),
+                {
+                    "baseline_coarse_profiles_total": baseline_sql_summary.get("coarse_move_profiles_total"),
+                    "mutated_coarse_profiles_total": mutated.get("coarse_move_profiles_total"),
+                    "baseline_raw_profiles_total": baseline_sql_summary.get("raw_move_profiles_total"),
+                    "mutated_raw_profiles_total": mutated.get("raw_move_profiles_total"),
+                    "detector": "independent_sql_profile_counts_must_not_grow_under_same_baseline",
+                },
+            )
+            con.close()
+            shutil.copy2(db_path, temp_db)
+            con = sqlite3.connect(temp_db)
+            con.row_factory = sqlite3.Row
+
+            # 5. Real in-memory ledger chain mutation.
+            mutated_ledger = json.loads(json.dumps(ledger))
+            if mutated_ledger.get("cycles") and len(mutated_ledger["cycles"]) >= 2:
+                mutated_ledger["cycles"][-1]["previous_run_id"] = "CHEAT_FAKE_PREVIOUS_RUN"
+            chain_detected = False
+            mutated_cycles = mutated_ledger.get("cycles") or []
+            for index, row in enumerate(mutated_cycles):
+                if index == 0:
+                    continue
+                prev = mutated_cycles[index - 1]
+                if row.get("previous_run_id") != prev.get("run_id"):
+                    chain_detected = True
+                    break
+            add_adversarial_result(
+                "temp_ledger_previous_run_chain_mutation",
+                chain_detected,
+                {
+                    "detector": "cycle_previous_run_id_must_equal_prior_cycle_run_id",
+                    "mutated_last_previous_run_id": mutated_ledger.get("cycles", [{}])[-1].get("previous_run_id") if mutated_ledger.get("cycles") else None,
+                },
+            )
+
+            con.close()
+
+    undetected = [
+        result["name"]
+        for result in adversarial_results
+        if result.get("detected") is not True
+    ]
+    if undetected:
+        failures.extend([f"adversarial_mutation_not_detected:{name}" for name in undetected])
+
+    production_after = production_snapshot()
+    modified_targets = [
+        target
+        for target in sorted(set(production_before) | set(production_after))
+        if production_before.get(target) != production_after.get(target)
+    ]
+
+    if modified_targets:
+        failures.append("protected_production_artifacts_modified:" + ",".join(modified_targets))
+
+    payload = {
+        "input_cycle_ledger": cycle_ledger,
+        "input_cycle_ledger_path": str(ledger_path) if ledger_path else None,
+        "baseline_ledger_id": ledger.get("cycle_ledger_id"),
+        "baseline_ledger_payload_sig8": ledger.get("cycle_ledger_payload_sig8"),
+        "recomputed_baseline_ledger_payload_sig8": ledger_sig,
+        "baseline_run_id": baseline_run_id,
+        "baseline_eval_id": baseline_eval_id,
+        "baseline_eval_path": str(eval_path) if eval_path else None,
+        "baseline_radius": eval_metrics.get("max_moves_applied_before_halt"),
+        "baseline_coarse_profiles_total": eval_metrics.get("coarse_move_profiles_total"),
+        "baseline_raw_profiles_total": eval_metrics.get("raw_move_profiles_total"),
+        "baseline_registered_moves_total": eval_metrics.get("registered_moves_total"),
+        "baseline_total_receipts": eval_metrics.get("total_receipts"),
+        "baseline_sql_summary": baseline_sql_summary,
+        "temp_db_summary": temp_db_summary,
+        "adversarial_results": adversarial_results,
+        "production_modification_check": {
+            "before": production_before,
+            "after": production_after,
+            "modified_targets": modified_targets,
+        },
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": None if failures else "FREEZE_MEASUREMENT_TRUST_AND_START_DOMAIN_SHIFT_PROBE",
+            "stop_code": "cheat_adversarial_failed" if failures else None,
+        },
+    }
+
+    out_path, payload = write_content_addressed_receipt(
+        payload,
+        "data/agent_cheat_adversarial",
+        "agent_cheat_adversarial_schema_version",
+        AGENT_CHEAT_ADVERSARIAL_SCHEMA,
+        "agent_cheat_adversarial_id",
+        "agent_cheat_adversarial_payload_sig8",
+    )
+
+    typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+    typer.echo(f"agent_cheat_adversarial_path: {out_path}")
 
 
 
