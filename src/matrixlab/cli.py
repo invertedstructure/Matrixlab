@@ -80,6 +80,7 @@ AGENT_CHEAT_ADVERSARIAL_SCHEMA = "agent_cheat_adversarial_receipt_v0"
 CELL_TRANSFER_CONTRACT_SCHEMA = "cell_transfer_contract_v0"
 DOMAIN_SHIFT_GENERATOR_SCHEMA = "domain_shift_generator_v0"
 DOMAIN_SHIFT_RUNNER_SUPPORT_SCHEMA = "domain_shift_runner_support_v0"
+DOMAIN_SHIFT_SLOT_RUNNER_SUPPORT_SCHEMA = "domain_shift_slot_runner_support_v0"
 
 
 def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
@@ -5789,6 +5790,22 @@ def domain_shift_runner_support(
     if compact_family_schedule and not parse_preserves_reweighted_schedule:
         failures.append("runner_does_not_preserve_reweighted_family_schedule")
 
+    family_slot_counts = {}
+    for code in compact_family_schedule:
+        family_slot_counts[code] = family_slot_counts.get(code, 0) + 1
+
+    duplicate_family_slots = {
+        code: count
+        for code, count in family_slot_counts.items()
+        if count > 1
+    }
+
+    if duplicate_family_slots:
+        failures.append(
+            "identity_distinguishability_deficit_duplicate_family_slots:"
+            + ",".join(f"{code}x{count}" for code, count in sorted(duplicate_family_slots.items()))
+        )
+
     radius = target_manifest.get("radius")
     max_cells = target_manifest.get("max_cells")
     depth_min = target_manifest.get("depth_min")
@@ -5862,6 +5879,9 @@ def domain_shift_runner_support(
         "expanded_family_names": expanded_family_names,
         "parsed_family_names": parsed_family_names,
         "parse_preserves_reweighted_schedule": parse_preserves_reweighted_schedule,
+        "family_slot_counts": family_slot_counts,
+        "duplicate_family_slots": duplicate_family_slots,
+        "identity_distinguishability_status": "FAIL_DUPLICATE_FAMILY_SLOTS" if duplicate_family_slots else "OK",
         "family_name_to_code": family_name_to_code,
         "family_code_to_name": family_code_to_name,
         "shifted_family_weights": shifted_weights,
@@ -5912,6 +5932,307 @@ def domain_shift_runner_support(
 
     typer.echo(json.dumps(payload, indent=2, sort_keys=True))
     typer.echo(f"domain_shift_runner_support_path: {out_path}")
+
+
+
+@app.command("domain-shift-slot-runner-support")
+def domain_shift_slot_runner_support(
+    domain_shift_generator: str = typer.Argument(
+        ...,
+        help="Passing domain shift generator id or JSON path.",
+    ),
+):
+    """Create slot-separated runner support for repeated-family domain shifts."""
+
+    failures = []
+    warnings = []
+
+    try:
+        generator_path = resolve_json_path(domain_shift_generator, "data/domain_shift_generators")
+        generator = json.loads(generator_path.read_text())
+    except Exception as exc:
+        generator_path = None
+        generator = {}
+        failures.append(f"domain_shift_generator_unresolved:{domain_shift_generator}:{exc}")
+
+    generator_sig = None
+    if generator:
+        generator_sig = stable_sig(
+            generator,
+            "domain_shift_generator_id",
+            "domain_shift_generator_payload_sig8",
+        )
+
+        if generator.get("gate") != "PASS":
+            failures.append("domain_shift_generator_gate_not_PASS")
+
+        if generator.get("domain_shift_generator_payload_sig8") != generator_sig:
+            failures.append("domain_shift_generator_sig_mismatch")
+
+        if generator_path and generator_path.stem != generator.get("domain_shift_generator_id"):
+            failures.append("domain_shift_generator_filename_id_mismatch")
+
+        terminal = generator.get("terminal") or {}
+        if terminal.get("next_command_goal") != "BUILD_DOMAIN_SHIFT_RUNNER_SUPPORT_V0":
+            failures.append(
+                f"domain_shift_generator_not_runner_ready:{terminal.get('next_command_goal')}"
+            )
+
+    target_manifest = generator.get("target_generator_manifest") or {}
+    predicate = generator.get("domain_shift_predicate") or {}
+    forbidden = generator.get("forbidden_change_check") or {}
+    source_baseline = generator.get("source_baseline") or {}
+
+    if not all(predicate.values()):
+        failures.append("domain_shift_predicate_not_all_true")
+
+    if any(forbidden.values()):
+        failures.append("forbidden_change_detected")
+
+    required_zero_fields = [
+        "registered_move_id_set_delta",
+        "ontology_delta",
+        "evaluator_delta",
+        "law_delta",
+        "receipt_schema_delta",
+        "profile_classifier_delta",
+        "halt_vocabulary_delta",
+    ]
+
+    for field in required_zero_fields:
+        if target_manifest.get(field) != 0:
+            failures.append(f"{field}_not_zero:{target_manifest.get(field)}")
+
+    required_false_fields = [
+        "new_move_types_allowed",
+        "new_laws_allowed",
+        "new_classifier_categories_allowed",
+        "new_halt_reasons_allowed",
+    ]
+
+    for field in required_false_fields:
+        if target_manifest.get(field) is not False:
+            failures.append(f"{field}_not_false:{target_manifest.get(field)}")
+
+    family_name_to_code = {
+        "one_sided_suspension": "A",
+        "two_sided_suspension": "B",
+        "suspension_plus_repair": "C",
+        "projection_quotient": "D",
+        "relabel_symmetry_stress": "E",
+    }
+
+    family_code_to_name = {v: k for k, v in family_name_to_code.items()}
+
+    shifted_schedule = target_manifest.get("shifted_family_schedule") or []
+    shifted_weights = target_manifest.get("shifted_family_weights") or {}
+
+    expanded_family_names = []
+    slots = []
+    family_seen = {}
+
+    for family in shifted_schedule:
+        if family not in family_name_to_code:
+            failures.append(f"unknown_shifted_family:{family}")
+            continue
+
+        weight = shifted_weights.get(family)
+        if not isinstance(weight, int) or weight <= 0:
+            failures.append(f"invalid_shifted_family_weight:{family}:{weight}")
+            continue
+
+        for _ in range(weight):
+            family_seen[family] = family_seen.get(family, 0) + 1
+            slot_n = len(slots) + 1
+            code = family_name_to_code[family]
+            expanded_family_names.append(family)
+            slots.append(
+                {
+                    "slot_n": slot_n,
+                    "family": family,
+                    "family_code": code,
+                    "family_occurrence_n": family_seen[family],
+                    "slot_label": f"slot_{slot_n:02d}_{code}{family_seen[family]}",
+                    "distinguishability_key": f"{family}|slot={slot_n}|occurrence={family_seen[family]}",
+                }
+            )
+
+    compact_family_schedule = "".join(slot["family_code"] for slot in slots)
+
+    family_slot_counts = {}
+    for slot in slots:
+        code = slot["family_code"]
+        family_slot_counts[code] = family_slot_counts.get(code, 0) + 1
+
+    duplicate_family_slots = {
+        code: count
+        for code, count in family_slot_counts.items()
+        if count > 1
+    }
+
+    if not duplicate_family_slots:
+        warnings.append("slot_runner_support_used_without_duplicate_family_slots")
+
+    if compact_family_schedule:
+        try:
+            parsed = parse_families(compact_family_schedule)
+            parsed_family_names = [
+                item.value if hasattr(item, "value") else str(item)
+                for item in parsed
+            ]
+        except Exception as exc:
+            parsed_family_names = []
+            failures.append(f"parse_shifted_family_schedule_failed:{exc}")
+    else:
+        parsed_family_names = []
+
+    if parsed_family_names != expanded_family_names:
+        failures.append("expanded_schedule_parse_mismatch")
+
+    radius = target_manifest.get("radius")
+    max_cells = target_manifest.get("max_cells")
+    depth_max = target_manifest.get("depth_max")
+    cycles_per_case = target_manifest.get("cycles_per_case")
+
+    if radius != depth_max or radius != cycles_per_case:
+        failures.append(
+            f"radius_depth_cycles_mismatch:radius={radius}:depth_max={depth_max}:cycles={cycles_per_case}"
+        )
+
+    if not isinstance(radius, int) or radius <= 0:
+        failures.append(f"invalid_radius:{radius}")
+
+    if not isinstance(max_cells, int) or max_cells <= 0:
+        failures.append(f"invalid_max_cells:{max_cells}")
+
+    source_run_id = source_baseline.get("run_id")
+    if not source_run_id:
+        failures.append("source_baseline_run_id_missing")
+
+    slot_command_argvs = []
+    slot_command_lines = []
+
+    if not failures:
+        for slot in slots:
+            stress_argv = [
+                "uv",
+                "run",
+                "python",
+                "src/matrixlab/cli.py",
+                "stress",
+                "--families",
+                slot["family_code"],
+                "--depth-max",
+                str(radius),
+                "--cycles-per-case",
+                str(radius),
+                "--max-cells",
+                str(max_cells),
+                "--strict-laws",
+            ]
+            gate_argv = [
+                "uv",
+                "run",
+                "python",
+                "src/matrixlab/cli.py",
+                "gate",
+                "latest",
+            ]
+            eval_argv = [
+                "uv",
+                "run",
+                "python",
+                "src/matrixlab/cli.py",
+                "agent-eval",
+                "latest",
+                "--previous",
+                source_run_id,
+            ]
+
+            slot_command_argvs.append(
+                {
+                    "slot": slot,
+                    "commands": [stress_argv, gate_argv, eval_argv],
+                }
+            )
+
+            slot_command_lines.extend(
+                [
+                    f"echo DOMAIN_SHIFT_SLOT {slot['slot_label']} {slot['distinguishability_key']}",
+                    " ".join(stress_argv),
+                    " ".join(gate_argv),
+                    " ".join(eval_argv),
+                ]
+            )
+
+    slot_command_script = "\n".join(slot_command_lines) if slot_command_lines else None
+
+    runner_support = {
+        "support_kind": "SLOT_SEPARATED_EXISTING_STRESS_RUNNER",
+        "identity_failure_class": "IDENTITY_DISTINGUISHABILITY_DEFICIT",
+        "reason_single_run_repetition_is_forbidden": (
+            "receipt projection is not slot-distinguished for repeated family entries; "
+            "therefore repeated families must execute as separate run slots"
+        ),
+        "domain_shift_axis": target_manifest.get("domain_shift_axis"),
+        "domain_shift_label": target_manifest.get("domain_shift_label"),
+        "compact_family_schedule": compact_family_schedule,
+        "expanded_family_names": expanded_family_names,
+        "parsed_family_names": parsed_family_names,
+        "family_slot_counts": family_slot_counts,
+        "duplicate_family_slots": duplicate_family_slots,
+        "slot_count": len(slots),
+        "slots": slots,
+        "family_name_to_code": family_name_to_code,
+        "family_code_to_name": family_code_to_name,
+        "uses_existing_registered_moves_only": True,
+        "requires_new_move_types": False,
+        "requires_new_laws": False,
+        "requires_new_classifier_semantics": False,
+        "requires_new_halt_vocabulary": False,
+        "requires_new_evaluator_semantics": False,
+        "preserves_repetition_distinguishability": True,
+    }
+
+    payload = {
+        "input_domain_shift_generator": domain_shift_generator,
+        "input_domain_shift_generator_path": str(generator_path) if generator_path else None,
+        "domain_shift_generator_id": generator.get("domain_shift_generator_id"),
+        "domain_shift_generator_payload_sig8": generator.get("domain_shift_generator_payload_sig8"),
+        "recomputed_domain_shift_generator_payload_sig8": generator_sig,
+        "transfer_contract_id": generator.get("transfer_contract_id"),
+        "source_cell": generator.get("source_cell"),
+        "target_cell": generator.get("target_cell"),
+        "shift_kind": generator.get("shift_kind"),
+        "source_baseline": source_baseline,
+        "target_generator_manifest": target_manifest,
+        "runner_support": runner_support,
+        "command_kind": "EXECUTE_DOMAIN_SHIFT_D1_SLOT_SEPARATED",
+        "slot_command_count": len(slot_command_argvs),
+        "slot_command_argvs": slot_command_argvs,
+        "slot_command_lines": slot_command_lines,
+        "slot_command_script": slot_command_script,
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": None if failures else "MANUAL_EXECUTE_DOMAIN_SHIFT_SLOT_COMMANDS",
+            "stop_code": "domain_shift_slot_runner_support_failed" if failures else None,
+        },
+    }
+
+    out_path, payload = write_content_addressed_receipt(
+        payload,
+        "data/domain_shift_slot_runner_support",
+        "domain_shift_slot_runner_support_schema_version",
+        DOMAIN_SHIFT_SLOT_RUNNER_SUPPORT_SCHEMA,
+        "domain_shift_slot_runner_support_id",
+        "domain_shift_slot_runner_support_payload_sig8",
+    )
+
+    typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+    typer.echo(f"domain_shift_slot_runner_support_path: {out_path}")
 
 
 
