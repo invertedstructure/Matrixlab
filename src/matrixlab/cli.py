@@ -459,7 +459,255 @@ def insert_run_start(
         )
 
 
+
+
+# ---------------------------------------------------------------------------
+# Operator progress reporting for long MatrixLab runs.
+#
+# Purpose:
+# - visible liveness while receipts are being produced
+# - visible transition from active run to post-processing
+# - visible interrupted signal on Ctrl-C / termination
+# - no semantic impact on receipts, laws, evaluator, or move ontology
+# ---------------------------------------------------------------------------
+
+_ML_PROGRESS_STATE = {
+    "configured": False,
+    "installed_handlers": False,
+    "phase": "NOT_STARTED",
+    "run_id": None,
+    "started_monotonic": None,
+    "last_emit_monotonic": None,
+    "receipt_count": 0,
+    "expected_cases": None,
+    "expected_receipts": None,
+    "families": None,
+    "depth_min": None,
+    "depth_max": None,
+    "cycles_per_case": None,
+    "last_family": None,
+    "last_depth": None,
+    "last_cycle": None,
+}
+
+
+def _ml_progress_enabled() -> bool:
+    import os
+
+    value = os.environ.get("MATRIXLAB_PROGRESS", "1").strip().lower()
+    return value not in {"0", "false", "off", "no"}
+
+
+def _ml_progress_interval_sec() -> float:
+    import os
+
+    try:
+        return max(0.0, float(os.environ.get("MATRIXLAB_PROGRESS_INTERVAL_SEC", "5")))
+    except Exception:
+        return 5.0
+
+
+def _ml_progress_every_receipts() -> int:
+    import os
+
+    try:
+        return max(1, int(os.environ.get("MATRIXLAB_PROGRESS_EVERY_RECEIPTS", "500")))
+    except Exception:
+        return 500
+
+
+def _ml_progress_receipt_get(receipt, key, default=None):
+    if isinstance(receipt, dict):
+        return receipt.get(key, default)
+    return getattr(receipt, key, default)
+
+
+def _ml_progress_emit(phase=None, *, extra=None, force=False):
+    if not _ml_progress_enabled():
+        return
+
+    import sys
+    import time
+
+    now = time.monotonic()
+    state = _ML_PROGRESS_STATE
+
+    if state.get("started_monotonic") is None:
+        state["started_monotonic"] = now
+
+    last_emit = state.get("last_emit_monotonic")
+    interval = _ml_progress_interval_sec()
+
+    if not force and last_emit is not None and (now - last_emit) < interval:
+        return
+
+    state["last_emit_monotonic"] = now
+
+    if phase is not None:
+        state["phase"] = phase
+
+    elapsed = now - state["started_monotonic"]
+    receipt_count = state.get("receipt_count") or 0
+    expected_receipts = state.get("expected_receipts")
+    expected_cases = state.get("expected_cases")
+
+    pct = None
+    if expected_receipts:
+        pct = min(100.0, (receipt_count / expected_receipts) * 100.0)
+
+    parts = [
+        "MATRIXLAB_PROGRESS",
+        f"phase={state.get('phase')}",
+        f"run_id={state.get('run_id') or '?'}",
+        f"receipts={receipt_count}" + (f"/~{expected_receipts}" if expected_receipts else ""),
+    ]
+
+    if pct is not None:
+        parts.append(f"pct~={pct:.1f}")
+
+    if expected_cases:
+        parts.append(f"cases~={expected_cases}")
+
+    if state.get("families"):
+        parts.append(f"families={state.get('families')}")
+
+    if state.get("depth_min") is not None and state.get("depth_max") is not None:
+        parts.append(f"depth={state.get('depth_min')}..{state.get('depth_max')}")
+
+    if state.get("cycles_per_case") is not None:
+        parts.append(f"cycles={state.get('cycles_per_case')}")
+
+    if state.get("last_family") is not None:
+        parts.append(f"last_family={state.get('last_family')}")
+
+    if state.get("last_depth") is not None:
+        parts.append(f"last_depth={state.get('last_depth')}")
+
+    if state.get("last_cycle") is not None:
+        parts.append(f"last_cycle={state.get('last_cycle')}")
+
+    parts.append(f"elapsed={elapsed:.1f}s")
+
+    if extra:
+        parts.append(f"note={extra}")
+
+    print(" ".join(str(part) for part in parts), file=sys.stderr, flush=True)
+
+
+def _ml_progress_signal_handler(signum, frame):
+    _ml_progress_emit("INTERRUPTED", extra=f"signal={signum}", force=True)
+    raise KeyboardInterrupt
+
+
+def _ml_progress_install_handlers():
+    state = _ML_PROGRESS_STATE
+    if state.get("installed_handlers"):
+        return
+
+    try:
+        import signal
+
+        signal.signal(signal.SIGINT, _ml_progress_signal_handler)
+        signal.signal(signal.SIGTERM, _ml_progress_signal_handler)
+        state["installed_handlers"] = True
+    except Exception:
+        # Progress reporting must never affect MatrixLab semantics.
+        pass
+
+
+def _ml_progress_run_config(local_vars):
+    if not _ml_progress_enabled():
+        return
+
+    import time
+
+    state = _ML_PROGRESS_STATE
+    state["configured"] = True
+    state["phase"] = "STARTING"
+    state["started_monotonic"] = time.monotonic()
+    state["last_emit_monotonic"] = None
+    state["receipt_count"] = 0
+
+    families = local_vars.get("families")
+    depth_min = local_vars.get("depth_min")
+    depth_max = local_vars.get("depth_max")
+    cycles_per_case = local_vars.get("cycles_per_case")
+    run_id = local_vars.get("run_id")
+
+    family_count = None
+    try:
+        family_count = len(families) if families is not None else None
+    except Exception:
+        family_count = None
+
+    expected_cases = None
+    expected_receipts = None
+    try:
+        if family_count is not None and depth_min is not None and depth_max is not None:
+            expected_cases = family_count * (int(depth_max) - int(depth_min) + 1)
+            if cycles_per_case is not None:
+                expected_receipts = expected_cases * int(cycles_per_case)
+    except Exception:
+        expected_cases = None
+        expected_receipts = None
+
+    state["run_id"] = run_id
+    state["families"] = ",".join(str(f) for f in families) if families is not None else None
+    state["depth_min"] = depth_min
+    state["depth_max"] = depth_max
+    state["cycles_per_case"] = cycles_per_case
+    state["expected_cases"] = expected_cases
+    state["expected_receipts"] = expected_receipts
+    state["last_family"] = None
+    state["last_depth"] = None
+    state["last_cycle"] = None
+
+    _ml_progress_install_handlers()
+    _ml_progress_emit("STARTING", force=True)
+
+
+def _ml_progress_after_receipt(receipt):
+    if not _ml_progress_enabled():
+        return
+
+    state = _ML_PROGRESS_STATE
+    state["phase"] = "RUNNING"
+    state["receipt_count"] = (state.get("receipt_count") or 0) + 1
+
+    run_id = _ml_progress_receipt_get(receipt, "run_id")
+    if run_id is not None:
+        state["run_id"] = run_id
+
+    family = _ml_progress_receipt_get(receipt, "family")
+    if family is not None:
+        state["last_family"] = family
+
+    depth = (
+        _ml_progress_receipt_get(receipt, "depth")
+        or _ml_progress_receipt_get(receipt, "n")
+        or _ml_progress_receipt_get(receipt, "case_depth")
+    )
+    if depth is not None:
+        state["last_depth"] = depth
+
+    cycle = (
+        _ml_progress_receipt_get(receipt, "cycle")
+        or _ml_progress_receipt_get(receipt, "cycle_n")
+    )
+    if cycle is not None:
+        state["last_cycle"] = cycle
+
+    every = _ml_progress_every_receipts()
+    force = state["receipt_count"] == 1 or state["receipt_count"] % every == 0
+    _ml_progress_emit("RUNNING", force=force)
+
+
+def _ml_progress_phase(phase, *, extra=None):
+    _ml_progress_emit(phase, extra=extra, force=True)
+
+
 def insert_receipt(receipt: dict) -> None:
+    _ml_progress_after_receipt(receipt)
     with sqlite3.connect(DB_PATH) as con:
         con.execute(
             """
@@ -611,6 +859,7 @@ def execute_run(
     run_id: Optional[str],
     strict_laws: bool = False,
 ) -> dict:
+    _ml_progress_run_config(locals())
     run_id = allocate_run_id(run_id)
 
     family_names = parse_families(families)
@@ -846,6 +1095,8 @@ def stress(
         strict_laws=strict_laws,
         run_id=None,
     )
+    _ml_progress_phase("POST_PROCESSING", extra="stress_execute_run_returned")
+    _ml_progress_phase("COMPLETED", extra="stress_command_done")
 
 
 @app.command()
