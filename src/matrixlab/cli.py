@@ -3831,5 +3831,258 @@ def agent_cycle_observe(
 
 
 
+@app.command("agent-cycle-append-observation")
+def agent_cycle_append_observation(
+    cycle_ledger: str = typer.Argument(
+        ...,
+        help="Explicit cycle ledger id or JSON path.",
+    ),
+    cycle_observation: str = typer.Argument(
+        ...,
+        help="Explicit clean cycle observation id or JSON path.",
+    ),
+):
+    """Append a clean cycle observation to an existing cycle ledger."""
+
+    failures = []
+
+    try:
+        ledger_path = resolve_json_path(cycle_ledger, "data/agent_cycle_ledgers")
+        ledger = json.loads(ledger_path.read_text())
+    except Exception as exc:
+        ledger_path = None
+        ledger = {}
+        failures.append(f"cycle_ledger_unresolved:{cycle_ledger}:{exc}")
+
+    try:
+        observation_path = resolve_json_path(cycle_observation, "data/agent_cycle_observations")
+        observation = json.loads(observation_path.read_text())
+    except Exception as exc:
+        observation_path = None
+        observation = {}
+        failures.append(f"cycle_observation_unresolved:{cycle_observation}:{exc}")
+
+    ledger_sig = None
+    if ledger:
+        ledger_sig = stable_sig(ledger, "cycle_ledger_id", "cycle_ledger_payload_sig8")
+
+        if ledger.get("gate") != "PASS":
+            failures.append("cycle_ledger_gate_not_PASS")
+
+        if ledger.get("cycle_ledger_payload_sig8") != ledger_sig:
+            failures.append("cycle_ledger_sig_mismatch")
+
+        if ledger_path and ledger_path.stem != ledger.get("cycle_ledger_id"):
+            failures.append("cycle_ledger_filename_id_mismatch")
+
+    observation_sig = None
+    if observation:
+        observation_sig = stable_sig(
+            observation,
+            "cycle_observation_id",
+            "cycle_observation_payload_sig8",
+        )
+
+        if observation.get("gate") != "PASS":
+            failures.append("cycle_observation_gate_not_PASS")
+
+        if observation.get("cycle_observation_payload_sig8") != observation_sig:
+            failures.append("cycle_observation_sig_mismatch")
+
+        if observation_path and observation_path.stem != observation.get("cycle_observation_id"):
+            failures.append("cycle_observation_filename_id_mismatch")
+
+    cycles = list(ledger.get("cycles") or [])
+    if not cycles:
+        failures.append("cycle_ledger_has_no_cycles")
+
+    last_cycle = cycles[-1] if cycles else {}
+    metrics = observation.get("metrics") or {}
+    classification = observation.get("classification") or {}
+    terminal = observation.get("terminal") or {}
+
+    if terminal.get("next_command_goal") != "APPEND_OBSERVATION_TO_CYCLE_LEDGER":
+        failures.append("cycle_observation_not_append_ready")
+
+    if observation.get("boundary_event") is not None:
+        failures.append("cycle_observation_has_boundary_event")
+
+    if observation.get("observed_previous_run_id") != last_cycle.get("run_id"):
+        failures.append(
+            "cycle_observation_previous_run_mismatch:"
+            f"{observation.get('observed_previous_run_id')}!={last_cycle.get('run_id')}"
+        )
+
+    if metrics.get("law_failures") != 0:
+        failures.append("law_failures_nonzero")
+
+    if metrics.get("unknown_laws") != 0:
+        failures.append("unknown_laws_nonzero")
+
+    if metrics.get("orphan_receipt_runs") != 0:
+        failures.append("orphan_receipt_runs_nonzero")
+
+    next_cycle_n = len(cycles) + 1
+
+    appended_cycle = {
+        "cycle_n": next_cycle_n,
+        "cycle_source": "cycle_observation",
+        "loop_summary_id": None,
+        "loop_summary_path": None,
+        "loop_summary_sig8": None,
+        "loop_summary_recomputed_sig8": None,
+        "loop_summary_gate": None,
+        "cycle_observation_id": observation.get("cycle_observation_id"),
+        "cycle_observation_path": str(observation_path) if observation_path else None,
+        "cycle_observation_sig8": observation.get("cycle_observation_payload_sig8"),
+        "cycle_observation_recomputed_sig8": observation_sig,
+        "cycle_next_id": observation.get("cycle_next_id"),
+        "selected_goal": "RUN_FULL_NORMAL_STRICT_EXPAND_CONTINUATION_RADIUS",
+        "run_id": observation.get("observed_run_id"),
+        "eval_id": observation.get("observed_eval_id"),
+        "previous_run_id": observation.get("observed_previous_run_id"),
+        "post_check_id": None,
+        "registered_moves_total": metrics.get("registered_moves_total"),
+        "max_moves_applied_before_halt": metrics.get("max_moves_applied_before_halt"),
+        "coarse_profiles_total": metrics.get("coarse_move_profiles_total"),
+        "raw_profiles_total": metrics.get("raw_move_profiles_total"),
+        "total_cases": metrics.get("total_cases"),
+        "total_receipts": metrics.get("total_receipts"),
+        "compression_signal": classification.get("compression_signal"),
+        "law_failures": metrics.get("law_failures"),
+        "unknown_laws": metrics.get("unknown_laws"),
+        "orphan_receipt_runs": metrics.get("orphan_receipt_runs"),
+        "halt_reason_counts": metrics.get("halt_reason_counts"),
+        "receipt_sig8": metrics.get("receipt_sig8"),
+        "boundary_event": observation.get("boundary_event"),
+        "next_permitted_goal": terminal.get("next_command_goal"),
+    }
+
+    cycles.append(appended_cycle)
+
+    for index, row in enumerate(cycles):
+        expected_cycle_n = index + 1
+        if row.get("cycle_n") != expected_cycle_n:
+            failures.append(f"cycle_number_mismatch:{row.get('cycle_n')}!={expected_cycle_n}")
+
+        if not row.get("run_id"):
+            failures.append(f"cycle_{expected_cycle_n}_missing_run_id")
+
+        if not row.get("eval_id"):
+            failures.append(f"cycle_{expected_cycle_n}_missing_eval_id")
+
+        if row.get("law_failures") != 0:
+            failures.append(f"cycle_{expected_cycle_n}_law_failures_nonzero")
+
+        if row.get("unknown_laws") != 0:
+            failures.append(f"cycle_{expected_cycle_n}_unknown_laws_nonzero")
+
+        if row.get("orphan_receipt_runs") != 0:
+            failures.append(f"cycle_{expected_cycle_n}_orphan_receipt_runs_nonzero")
+
+        if index > 0:
+            prev = cycles[index - 1]
+            if row.get("previous_run_id") != prev.get("run_id"):
+                failures.append(
+                    f"cycle_{expected_cycle_n}_previous_run_mismatch:"
+                    f"{row.get('previous_run_id')}!={prev.get('run_id')}"
+                )
+
+    first = cycles[0] if cycles else {}
+    last = cycles[-1] if cycles else {}
+
+    registered_delta = None
+    continuation_delta = None
+    coarse_delta = None
+    receipt_delta = None
+
+    if len(cycles) >= 2:
+        registered_delta = (last.get("registered_moves_total") or 0) - (
+            first.get("registered_moves_total") or 0
+        )
+        continuation_delta = (last.get("max_moves_applied_before_halt") or 0) - (
+            first.get("max_moves_applied_before_halt") or 0
+        )
+        coarse_delta = (last.get("coarse_profiles_total") or 0) - (
+            first.get("coarse_profiles_total") or 0
+        )
+        receipt_delta = (last.get("total_receipts") or 0) - (
+            first.get("total_receipts") or 0
+        )
+
+    compression_assessment = {
+        "cycle_count": len(cycles),
+        "first_run_id": first.get("run_id"),
+        "last_run_id": last.get("run_id"),
+        "registered_moves_delta": registered_delta,
+        "continuation_radius_delta": continuation_delta,
+        "coarse_profiles_delta": coarse_delta,
+        "total_receipts_delta": receipt_delta,
+        "all_compression_signals": [row.get("compression_signal") for row in cycles],
+        "all_gates_pass": all(
+            row.get("loop_summary_gate") in [None, "PASS"] for row in cycles
+        ),
+        "all_laws_clean": all(
+            row.get("law_failures") == 0
+            and row.get("unknown_laws") == 0
+            and row.get("orphan_receipt_runs") == 0
+            for row in cycles
+        ),
+        "boundary_events": [
+            row.get("boundary_event")
+            for row in cycles
+            if row.get("boundary_event") is not None
+        ],
+    }
+
+    if failures:
+        verdict = "FAIL"
+    elif compression_assessment["boundary_events"]:
+        verdict = "CLEAN_CHAIN_WITH_BOUNDARY_EVENTS"
+    elif coarse_delta == 0 and continuation_delta and continuation_delta > 0:
+        verdict = "BOUNDED_VOCABULARY_CONTINUATION"
+    elif registered_delta == 0 and continuation_delta == 0 and coarse_delta == 0 and receipt_delta == 0:
+        verdict = "REPRODUCED_FLAT_STABILITY"
+    else:
+        verdict = "MEASURED_NONFLAT_CHANGE"
+
+    payload = {
+        "input_cycle_ledger": cycle_ledger,
+        "input_cycle_ledger_path": str(ledger_path) if ledger_path else None,
+        "input_cycle_observation": cycle_observation,
+        "input_cycle_observation_path": str(observation_path) if observation_path else None,
+        "source_cycle_ledger_id": ledger.get("cycle_ledger_id"),
+        "source_cycle_ledger_payload_sig8": ledger.get("cycle_ledger_payload_sig8"),
+        "recomputed_source_cycle_ledger_payload_sig8": ledger_sig,
+        "appended_cycle_observation_id": observation.get("cycle_observation_id"),
+        "appended_cycle_observation_payload_sig8": observation.get("cycle_observation_payload_sig8"),
+        "recomputed_appended_cycle_observation_payload_sig8": observation_sig,
+        "cycle_count": len(cycles),
+        "cycles": cycles,
+        "compression_assessment": compression_assessment,
+        "verdict": verdict,
+        "failures": failures,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": None if failures else "USE_LEDGER_FOR_NEXT_AGENT_EVAL_DIRECTION",
+            "stop_code": "cycle_ledger_append_failed" if failures else None,
+        },
+    }
+
+    out_path, payload = write_content_addressed_receipt(
+        payload,
+        "data/agent_cycle_ledgers",
+        "cycle_ledger_schema_version",
+        AGENT_CYCLE_LEDGER_SCHEMA,
+        "cycle_ledger_id",
+        "cycle_ledger_payload_sig8",
+    )
+
+    typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+    typer.echo(f"cycle_ledger_path: {out_path}")
+
+
+
 if __name__ == "__main__":
     app()
