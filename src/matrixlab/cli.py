@@ -79,6 +79,7 @@ AGENT_CHEAT_CHECK_SCHEMA = "agent_cheat_check_receipt_v0"
 AGENT_CHEAT_ADVERSARIAL_SCHEMA = "agent_cheat_adversarial_receipt_v0"
 CELL_TRANSFER_CONTRACT_SCHEMA = "cell_transfer_contract_v0"
 DOMAIN_SHIFT_GENERATOR_SCHEMA = "domain_shift_generator_v0"
+DOMAIN_SHIFT_RUNNER_SUPPORT_SCHEMA = "domain_shift_runner_support_v0"
 
 
 def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
@@ -5652,6 +5653,265 @@ def domain_shift_generator(
 
     typer.echo(json.dumps(payload, indent=2, sort_keys=True))
     typer.echo(f"domain_shift_generator_path: {out_path}")
+
+
+
+@app.command("domain-shift-runner-support")
+def domain_shift_runner_support(
+    domain_shift_generator: str = typer.Argument(
+        ...,
+        help="Passing domain shift generator id or JSON path.",
+    ),
+):
+    """Validate executable runner support for a domain-shift generator manifest."""
+
+    failures = []
+    warnings = []
+
+    try:
+        generator_path = resolve_json_path(domain_shift_generator, "data/domain_shift_generators")
+        generator = json.loads(generator_path.read_text())
+    except Exception as exc:
+        generator_path = None
+        generator = {}
+        failures.append(f"domain_shift_generator_unresolved:{domain_shift_generator}:{exc}")
+
+    generator_sig = None
+    if generator:
+        generator_sig = stable_sig(
+            generator,
+            "domain_shift_generator_id",
+            "domain_shift_generator_payload_sig8",
+        )
+
+        if generator.get("gate") != "PASS":
+            failures.append("domain_shift_generator_gate_not_PASS")
+
+        if generator.get("domain_shift_generator_payload_sig8") != generator_sig:
+            failures.append("domain_shift_generator_sig_mismatch")
+
+        if generator_path and generator_path.stem != generator.get("domain_shift_generator_id"):
+            failures.append("domain_shift_generator_filename_id_mismatch")
+
+        terminal = generator.get("terminal") or {}
+        if terminal.get("next_command_goal") != "BUILD_DOMAIN_SHIFT_RUNNER_SUPPORT_V0":
+            failures.append(
+                f"domain_shift_generator_not_runner_ready:{terminal.get('next_command_goal')}"
+            )
+
+    target_manifest = generator.get("target_generator_manifest") or {}
+    predicate = generator.get("domain_shift_predicate") or {}
+    forbidden = generator.get("forbidden_change_check") or {}
+    source_baseline = generator.get("source_baseline") or {}
+
+    if not all(predicate.values()):
+        failures.append("domain_shift_predicate_not_all_true")
+
+    if any(forbidden.values()):
+        failures.append("forbidden_change_detected")
+
+    if target_manifest.get("registered_move_id_set_delta") != 0:
+        failures.append("registered_move_id_set_delta_not_zero")
+
+    if target_manifest.get("ontology_delta") != 0:
+        failures.append("ontology_delta_not_zero")
+
+    if target_manifest.get("evaluator_delta") != 0:
+        failures.append("evaluator_delta_not_zero")
+
+    if target_manifest.get("law_delta") != 0:
+        failures.append("law_delta_not_zero")
+
+    if target_manifest.get("receipt_schema_delta") != 0:
+        failures.append("receipt_schema_delta_not_zero")
+
+    if target_manifest.get("profile_classifier_delta") != 0:
+        failures.append("profile_classifier_delta_not_zero")
+
+    if target_manifest.get("halt_vocabulary_delta") != 0:
+        failures.append("halt_vocabulary_delta_not_zero")
+
+    if target_manifest.get("new_move_types_allowed") is not False:
+        failures.append("new_move_types_allowed_not_false")
+
+    if target_manifest.get("new_laws_allowed") is not False:
+        failures.append("new_laws_allowed_not_false")
+
+    if target_manifest.get("new_classifier_categories_allowed") is not False:
+        failures.append("new_classifier_categories_allowed_not_false")
+
+    if target_manifest.get("new_halt_reasons_allowed") is not False:
+        failures.append("new_halt_reasons_allowed_not_false")
+
+    family_name_to_code = {
+        "one_sided_suspension": "A",
+        "two_sided_suspension": "B",
+        "suspension_plus_repair": "C",
+        "projection_quotient": "D",
+        "relabel_symmetry_stress": "E",
+    }
+
+    family_code_to_name = {v: k for k, v in family_name_to_code.items()}
+
+    shifted_schedule = target_manifest.get("shifted_family_schedule") or []
+    shifted_weights = target_manifest.get("shifted_family_weights") or {}
+
+    expanded_family_names = []
+    for family in shifted_schedule:
+        if family not in family_name_to_code:
+            failures.append(f"unknown_shifted_family:{family}")
+            continue
+
+        weight = shifted_weights.get(family)
+        if not isinstance(weight, int) or weight <= 0:
+            failures.append(f"invalid_shifted_family_weight:{family}:{weight}")
+            continue
+
+        expanded_family_names.extend([family] * weight)
+
+    compact_family_schedule = "".join(
+        family_name_to_code[name] for name in expanded_family_names
+    )
+
+    parsed_family_names = []
+    parse_preserves_reweighted_schedule = False
+    if compact_family_schedule:
+        try:
+            parsed = parse_families(compact_family_schedule)
+            parsed_family_names = [
+                item.value if hasattr(item, "value") else str(item)
+                for item in parsed
+            ]
+            parse_preserves_reweighted_schedule = parsed_family_names == expanded_family_names
+        except Exception as exc:
+            failures.append(f"parse_shifted_family_schedule_failed:{exc}")
+
+    if compact_family_schedule and not parse_preserves_reweighted_schedule:
+        failures.append("runner_does_not_preserve_reweighted_family_schedule")
+
+    radius = target_manifest.get("radius")
+    max_cells = target_manifest.get("max_cells")
+    depth_min = target_manifest.get("depth_min")
+    depth_max = target_manifest.get("depth_max")
+    cycles_per_case = target_manifest.get("cycles_per_case")
+
+    if radius != depth_max or radius != cycles_per_case:
+        failures.append(
+            f"radius_depth_cycles_mismatch:radius={radius}:depth_max={depth_max}:cycles={cycles_per_case}"
+        )
+
+    if not isinstance(radius, int) or radius <= 0:
+        failures.append(f"invalid_radius:{radius}")
+
+    if not isinstance(max_cells, int) or max_cells <= 0:
+        failures.append(f"invalid_max_cells:{max_cells}")
+
+    source_run_id = source_baseline.get("run_id")
+    if not source_run_id:
+        failures.append("source_baseline_run_id_missing")
+
+    command_argvs = []
+    command_lines = []
+    command_script = None
+
+    if not failures:
+        command_argvs = [
+            [
+                "uv",
+                "run",
+                "python",
+                "src/matrixlab/cli.py",
+                "stress",
+                "--families",
+                compact_family_schedule,
+                "--depth-max",
+                str(radius),
+                "--cycles-per-case",
+                str(radius),
+                "--max-cells",
+                str(max_cells),
+                "--strict-laws",
+            ],
+            [
+                "uv",
+                "run",
+                "python",
+                "src/matrixlab/cli.py",
+                "gate",
+                "latest",
+            ],
+            [
+                "uv",
+                "run",
+                "python",
+                "src/matrixlab/cli.py",
+                "agent-eval",
+                "latest",
+                "--previous",
+                source_run_id,
+            ],
+        ]
+        command_lines = [" ".join(argv) for argv in command_argvs]
+        command_script = "\n".join(command_lines)
+
+    runner_support = {
+        "support_kind": "EXISTING_STRESS_RUNNER_WITH_REWEIGHTED_FAMILIES",
+        "domain_shift_axis": target_manifest.get("domain_shift_axis"),
+        "domain_shift_label": target_manifest.get("domain_shift_label"),
+        "compact_family_schedule": compact_family_schedule,
+        "expanded_family_names": expanded_family_names,
+        "parsed_family_names": parsed_family_names,
+        "parse_preserves_reweighted_schedule": parse_preserves_reweighted_schedule,
+        "family_name_to_code": family_name_to_code,
+        "family_code_to_name": family_code_to_name,
+        "shifted_family_weights": shifted_weights,
+        "uses_existing_registered_moves_only": True,
+        "requires_new_move_types": False,
+        "requires_new_laws": False,
+        "requires_new_classifier_semantics": False,
+        "requires_new_halt_vocabulary": False,
+        "requires_new_evaluator_semantics": False,
+    }
+
+    payload = {
+        "input_domain_shift_generator": domain_shift_generator,
+        "input_domain_shift_generator_path": str(generator_path) if generator_path else None,
+        "domain_shift_generator_id": generator.get("domain_shift_generator_id"),
+        "domain_shift_generator_payload_sig8": generator.get("domain_shift_generator_payload_sig8"),
+        "recomputed_domain_shift_generator_payload_sig8": generator_sig,
+        "transfer_contract_id": generator.get("transfer_contract_id"),
+        "source_cell": generator.get("source_cell"),
+        "target_cell": generator.get("target_cell"),
+        "shift_kind": generator.get("shift_kind"),
+        "source_baseline": source_baseline,
+        "target_generator_manifest": target_manifest,
+        "runner_support": runner_support,
+        "command_kind": "EXECUTE_DOMAIN_SHIFT_D1_SCHEDULE_REWEIGHT",
+        "command_count": len(command_argvs),
+        "command_argvs": command_argvs,
+        "command_lines": command_lines,
+        "command_script": command_script,
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": None if failures else "MANUAL_EXECUTE_DOMAIN_SHIFT_COMMANDS",
+            "stop_code": "domain_shift_runner_support_failed" if failures else None,
+        },
+    }
+
+    out_path, payload = write_content_addressed_receipt(
+        payload,
+        "data/domain_shift_runner_support",
+        "domain_shift_runner_support_schema_version",
+        DOMAIN_SHIFT_RUNNER_SUPPORT_SCHEMA,
+        "domain_shift_runner_support_id",
+        "domain_shift_runner_support_payload_sig8",
+    )
+
+    typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+    typer.echo(f"domain_shift_runner_support_path: {out_path}")
 
 
 
