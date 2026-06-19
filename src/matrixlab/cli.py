@@ -82,6 +82,8 @@ DOMAIN_SHIFT_GENERATOR_SCHEMA = "domain_shift_generator_v0"
 DOMAIN_SHIFT_RUNNER_SUPPORT_SCHEMA = "domain_shift_runner_support_v0"
 DOMAIN_SHIFT_SLOT_RUNNER_SUPPORT_SCHEMA = "domain_shift_slot_runner_support_v0"
 DOMAIN_SHIFT_SLOT_OBSERVATION_SCHEMA = "domain_shift_slot_observation_v0"
+SCALABILITY_CONTRACT_SCHEMA = "scalability_contract_v0"
+SCALABILITY_CONTRACT_VERIFICATION_SCHEMA = "scalability_contract_verification_v0"
 
 
 def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
@@ -6485,6 +6487,692 @@ def domain_shift_slot_runner_support(
 
     typer.echo(json.dumps(payload, indent=2, sort_keys=True))
     typer.echo(f"domain_shift_slot_runner_support_path: {out_path}")
+
+
+
+def _scalability_contract_clean_repeated_family_consistency(repeated_family_consistency):
+    if not isinstance(repeated_family_consistency, dict):
+        return False
+
+    for row in repeated_family_consistency.values():
+        if not isinstance(row, dict):
+            return False
+        if row.get("coarse_consistent") is not True:
+            return False
+        if row.get("raw_consistent") is not True:
+            return False
+        if row.get("registered_consistent") is not True:
+            return False
+
+    return True
+
+
+def _scalability_contract_clean_measurement(measurement_cleanliness):
+    if not isinstance(measurement_cleanliness, dict):
+        return False
+
+    required_empty = [
+        "boundary_slots",
+        "dirty_slots",
+        "eval_gate_fail_slots",
+        "receipt_mismatch_slots",
+    ]
+
+    for key in required_empty:
+        if measurement_cleanliness.get(key) != []:
+            return False
+
+    if measurement_cleanliness.get("repeated_family_inconsistencies") != {}:
+        return False
+
+    return True
+
+
+def _scalability_contract_resolve_json(identifier, directory):
+    return resolve_json_path(identifier, directory)
+
+
+def _scalability_contract_verify_core(contract):
+    failures = []
+    warnings = []
+
+    baseline = contract.get("baseline") or {}
+
+    required_contract_fields = {
+        "contract_kind": "POST_R50_PRE_R75_FIRST_ORDER_OBSERVATION_CONTRACT",
+        "next_scale_step": "RADIUS_75_SLOT_SEPARATED",
+        "execution_shape": "KEEP_9_SLOT_SEPARATED_RUNS",
+        "representative_subset_status": "NOT_LICENSED_AT_V0",
+        "target_metric": "first_order_curve_stability",
+        "r75_observation_gate": "RADIUS_SCALE_OBSERVATION_GATE_V0",
+    }
+
+    for key, expected in required_contract_fields.items():
+        if contract.get(key) != expected:
+            failures.append(f"contract_field_mismatch:{key}:{contract.get(key)}")
+
+    required_baseline_bindings = {
+        "observation_id": "566a342b",
+        "slot_execution_id": "74358d77",
+        "source_support_id": "54890760",
+        "transfer_contract_id": "50a01dcd",
+        "domain_shift_generator_id": "da466dc2",
+        "radius": 50,
+        "confidence_scope": "RADIUS_50_SLOT_SEPARATED_PROBE_ONLY",
+    }
+
+    for key, expected in required_baseline_bindings.items():
+        if baseline.get(key) != expected:
+            failures.append(f"baseline_binding_mismatch:{key}:expected={expected}:actual={baseline.get(key)}")
+
+    baseline_observation_id = baseline.get("observation_id")
+    baseline_slot_execution_id = baseline.get("slot_execution_id")
+    baseline_support_id = baseline.get("source_support_id")
+    baseline_transfer_contract_id = baseline.get("transfer_contract_id")
+    baseline_generator_id = baseline.get("domain_shift_generator_id")
+
+    observation = {}
+    execution = {}
+    support = {}
+    transfer = {}
+    generator = {}
+
+    try:
+        observation_path = _scalability_contract_resolve_json(
+            baseline_observation_id, "data/domain_shift_slot_observations"
+        )
+        observation = json.loads(observation_path.read_text())
+        observation_sig = stable_sig(
+            observation,
+            "domain_shift_slot_observation_id",
+            "domain_shift_slot_observation_payload_sig8",
+        )
+        if observation.get("domain_shift_slot_observation_payload_sig8") != observation_sig:
+            failures.append("baseline_observation_sig_mismatch")
+        if observation_path.stem != observation.get("domain_shift_slot_observation_id"):
+            failures.append("baseline_observation_filename_id_mismatch")
+    except Exception as exc:
+        observation_path = None
+        observation_sig = None
+        failures.append(f"baseline_observation_unresolved:{baseline_observation_id}:{exc}")
+
+    try:
+        execution_path = _scalability_contract_resolve_json(
+            baseline_slot_execution_id, "data/domain_shift_slot_runs"
+        )
+        execution = json.loads(execution_path.read_text())
+        execution_sig_payload = dict(execution)
+        execution_sig_payload.pop("domain_shift_slot_run_execution_id", None)
+        execution_sig = hashlib.sha256(
+            json.dumps(execution_sig_payload, sort_keys=True).encode()
+        ).hexdigest()[:8]
+        if execution.get("domain_shift_slot_run_execution_id") != execution_sig:
+            failures.append("baseline_slot_execution_sig_mismatch")
+        if execution_path.stem != execution.get("domain_shift_slot_run_execution_id"):
+            failures.append("baseline_slot_execution_filename_id_mismatch")
+    except Exception as exc:
+        execution_path = None
+        execution_sig = None
+        failures.append(f"baseline_slot_execution_unresolved:{baseline_slot_execution_id}:{exc}")
+
+    try:
+        support_path = _scalability_contract_resolve_json(
+            baseline_support_id, "data/domain_shift_slot_runner_support"
+        )
+        support = json.loads(support_path.read_text())
+        support_sig = stable_sig(
+            support,
+            "domain_shift_slot_runner_support_id",
+            "domain_shift_slot_runner_support_payload_sig8",
+        )
+        if support.get("domain_shift_slot_runner_support_payload_sig8") != support_sig:
+            failures.append("baseline_support_sig_mismatch")
+        if support_path.stem != support.get("domain_shift_slot_runner_support_id"):
+            failures.append("baseline_support_filename_id_mismatch")
+    except Exception as exc:
+        support_path = None
+        support_sig = None
+        failures.append(f"baseline_support_unresolved:{baseline_support_id}:{exc}")
+
+    try:
+        transfer_path = _scalability_contract_resolve_json(
+            baseline_transfer_contract_id, "data/cell_transfer_contracts"
+        )
+        transfer = json.loads(transfer_path.read_text())
+        transfer_sig = stable_sig(
+            transfer,
+            "cell_transfer_contract_id",
+            "cell_transfer_contract_payload_sig8",
+        )
+        if transfer.get("cell_transfer_contract_payload_sig8") != transfer_sig:
+            failures.append("baseline_transfer_contract_sig_mismatch")
+        if transfer_path.stem != transfer.get("cell_transfer_contract_id"):
+            failures.append("baseline_transfer_contract_filename_id_mismatch")
+    except Exception as exc:
+        transfer_path = None
+        transfer_sig = None
+        failures.append(f"baseline_transfer_contract_unresolved:{baseline_transfer_contract_id}:{exc}")
+
+    try:
+        generator_path = _scalability_contract_resolve_json(
+            baseline_generator_id, "data/domain_shift_generators"
+        )
+        generator = json.loads(generator_path.read_text())
+        generator_sig = stable_sig(
+            generator,
+            "domain_shift_generator_id",
+            "domain_shift_generator_payload_sig8",
+        )
+        if generator.get("domain_shift_generator_payload_sig8") != generator_sig:
+            failures.append("baseline_generator_sig_mismatch")
+        if generator_path.stem != generator.get("domain_shift_generator_id"):
+            failures.append("baseline_generator_filename_id_mismatch")
+    except Exception as exc:
+        generator_path = None
+        generator_sig = None
+        failures.append(f"baseline_generator_unresolved:{baseline_generator_id}:{exc}")
+
+    observation_body = observation.get("observation") or {}
+    measurement_cleanliness = observation_body.get("measurement_cleanliness") or {}
+    repeated_family_consistency = observation_body.get("repeated_family_consistency") or {}
+
+    if observation.get("gate") != "PASS":
+        failures.append("baseline_observation_gate_not_PASS")
+
+    if observation_body.get("outcome") != "MEASUREMENT_TRANSFER_STABLE_CURVE":
+        failures.append(f"baseline_outcome_not_stable_curve:{observation_body.get('outcome')}")
+
+    terminal = observation.get("terminal") or {}
+    if terminal.get("type") != "ADVANCE":
+        failures.append(f"baseline_terminal_not_ADVANCE:{terminal.get('type')}")
+
+    if observation_body.get("confidence_scope") != "RADIUS_50_SLOT_SEPARATED_PROBE_ONLY":
+        failures.append("baseline_confidence_scope_mismatch")
+
+    if observation_body.get("slot_count_expected") != 9:
+        failures.append(f"baseline_slot_count_expected_not_9:{observation_body.get('slot_count_expected')}")
+
+    if observation_body.get("slot_count_observed") != 9:
+        failures.append(f"baseline_slot_count_observed_not_9:{observation_body.get('slot_count_observed')}")
+
+    if baseline.get("slot_count_expected") != 9:
+        failures.append(f"contract_baseline_slot_count_expected_not_9:{baseline.get('slot_count_expected')}")
+
+    if baseline.get("slot_count_observed") != 9:
+        failures.append(f"contract_baseline_slot_count_observed_not_9:{baseline.get('slot_count_observed')}")
+
+    if not _scalability_contract_clean_measurement(measurement_cleanliness):
+        failures.append("baseline_measurement_cleanliness_not_clean")
+
+    if not _scalability_contract_clean_repeated_family_consistency(repeated_family_consistency):
+        failures.append("baseline_repeated_family_consistency_not_clean")
+
+    if observation_body.get("semantic_pressure_detected") is not False:
+        failures.append("baseline_semantic_pressure_detected_not_false")
+
+    if baseline.get("semantic_pressure_detected") is not False:
+        failures.append("contract_baseline_semantic_pressure_detected_not_false")
+
+    if observation_body.get("aggregate_coarse_profiles_total") != baseline.get("aggregate_coarse_profiles_total"):
+        failures.append("baseline_aggregate_coarse_profiles_total_mismatch")
+
+    if observation_body.get("aggregate_raw_total_by_slot_sum") != baseline.get("aggregate_raw_total_by_slot_sum"):
+        failures.append("baseline_aggregate_raw_total_by_slot_sum_mismatch")
+
+    if execution.get("gate") != "PASS":
+        failures.append("baseline_slot_execution_gate_not_PASS")
+
+    if support.get("gate") != "PASS":
+        failures.append("baseline_support_gate_not_PASS")
+
+    if transfer.get("gate") != "PASS":
+        failures.append("baseline_transfer_contract_gate_not_PASS")
+
+    if generator.get("gate") != "PASS":
+        failures.append("baseline_generator_gate_not_PASS")
+
+    required_r75_fields = contract.get("required_r75_fields") or []
+    required_r75_field_set = {
+        "radius",
+        "confidence_scope",
+        "slot_count_expected",
+        "slot_count_observed",
+        "measurement_cleanliness",
+        "repeated_family_consistency",
+        "aggregate_by_family",
+        "aggregate_by_move",
+        "aggregate_coarse_profiles",
+        "aggregate_coarse_profiles_total",
+        "aggregate_raw_total_by_slot_sum",
+        "semantic_pressure",
+        "semantic_pressure_detected",
+        "delta_vs_radius_50",
+        "delta_class",
+        "normalized_deltas_if_available",
+        "operator_burden_v0_if_available",
+        "terminal_decision",
+    }
+
+    missing_r75_fields = sorted(required_r75_field_set - set(required_r75_fields))
+    if missing_r75_fields:
+        failures.append("missing_required_r75_fields:" + ",".join(missing_r75_fields))
+
+    delta_classes = set(contract.get("delta_classes") or [])
+    expected_delta_classes = {
+        "SAME_SHAPES_SAME_COUNTS",
+        "SAME_SHAPES_COUNT_SHIFT",
+        "NEW_SHAPE_OBSERVED",
+        "MISSING_SHAPE_OBSERVED",
+        "REPEATED_FAMILY_INCONSISTENT",
+        "UNCLASSIFIED_DELTA",
+    }
+    if delta_classes != expected_delta_classes:
+        failures.append("delta_classes_mismatch")
+
+    failure_classes = set(contract.get("failure_classes") or [])
+    expected_failure_classes = {
+        "STOP_MEASUREMENT_FAILURE",
+        "STOP_RESOURCE_BOUNDARY",
+        "STOP_IDENTITY_DISTINGUISHABILITY_DEFICIT",
+        "STOP_ONTOLOGY_PRESSURE",
+        "STOP_UNCLASSIFIED_DELTA",
+    }
+    if failure_classes != expected_failure_classes:
+        failures.append("failure_classes_mismatch")
+
+    continuation_classes = set(contract.get("non_failure_continuation_classes") or [])
+    expected_continuation_classes = {
+        "CURVE_STABLE_CONTINUE",
+        "CURVE_CHANGED_CONTINUE_MEASUREMENT",
+        "PROVISIONAL_R50_R75_ENVELOPE",
+    }
+    if continuation_classes != expected_continuation_classes:
+        failures.append("non_failure_continuation_classes_mismatch")
+
+    forbidden = contract.get("forbidden") or {}
+    forbidden_required_true = [
+        "implement_compression",
+        "implement_caching",
+        "skip_receipts",
+        "alter_existing_run_semantics",
+        "alter_existing_gate_semantics",
+        "alter_move_registry_semantics",
+        "add_new_cell_types",
+        "add_new_theorem_layers",
+        "add_new_domain_shift_families",
+        "select_representative_subset",
+        "treat_r50_as_global_scalability_proof",
+        "treat_contract_as_proof_of_future_scale",
+    ]
+
+    for key in forbidden_required_true:
+        if forbidden.get(key) is not True:
+            failures.append(f"forbidden_clause_missing_or_not_true:{key}")
+
+    verification = {
+        "baseline_linkage_check": {
+            "baseline_observation_resolves": observation_path is not None,
+            "baseline_observation_sig_matches": bool(
+                observation
+                and observation.get("domain_shift_slot_observation_payload_sig8") == observation_sig
+            ),
+            "baseline_slot_execution_resolves": execution_path is not None,
+            "baseline_slot_execution_sig_matches": bool(
+                execution
+                and execution.get("domain_shift_slot_run_execution_id") == execution_sig
+            ),
+            "baseline_support_resolves": support_path is not None,
+            "baseline_support_sig_matches": bool(
+                support
+                and support.get("domain_shift_slot_runner_support_payload_sig8") == support_sig
+            ),
+            "baseline_transfer_contract_resolves": transfer_path is not None,
+            "baseline_transfer_contract_sig_matches": bool(
+                transfer
+                and transfer.get("cell_transfer_contract_payload_sig8") == transfer_sig
+            ),
+            "baseline_generator_resolves": generator_path is not None,
+            "baseline_generator_sig_matches": bool(
+                generator
+                and generator.get("domain_shift_generator_payload_sig8") == generator_sig
+            ),
+        },
+        "baseline_observation_check": {
+            "gate": observation.get("gate"),
+            "outcome": observation_body.get("outcome"),
+            "terminal_type": terminal.get("type"),
+            "slot_count_expected": observation_body.get("slot_count_expected"),
+            "slot_count_observed": observation_body.get("slot_count_observed"),
+            "measurement_cleanliness_clean": _scalability_contract_clean_measurement(measurement_cleanliness),
+            "repeated_family_consistency_clean": _scalability_contract_clean_repeated_family_consistency(repeated_family_consistency),
+            "semantic_pressure_detected": observation_body.get("semantic_pressure_detected"),
+            "aggregate_coarse_profiles_total": observation_body.get("aggregate_coarse_profiles_total"),
+            "aggregate_raw_total_by_slot_sum": observation_body.get("aggregate_raw_total_by_slot_sum"),
+        },
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+    }
+
+    return verification
+
+
+def _scalability_contract_payload_from_observation(observation_id):
+    observation_path = resolve_json_path(observation_id, "data/domain_shift_slot_observations")
+    observation = json.loads(observation_path.read_text())
+    obs = observation.get("observation") or {}
+
+    baseline = {
+        "radius": obs.get("radius"),
+        "confidence_scope": obs.get("confidence_scope"),
+        "observation_id": observation.get("domain_shift_slot_observation_id"),
+        "slot_execution_id": observation.get("slot_execution_id"),
+        "source_support_id": observation.get("source_support_id"),
+        "transfer_contract_id": observation.get("transfer_contract_id"),
+        "domain_shift_generator_id": observation.get("domain_shift_generator_id"),
+        "slot_count_expected": obs.get("slot_count_expected"),
+        "slot_count_observed": obs.get("slot_count_observed"),
+        "aggregate_coarse_profiles_total": obs.get("aggregate_coarse_profiles_total"),
+        "aggregate_raw_total_by_slot_sum": obs.get("aggregate_raw_total_by_slot_sum"),
+        "semantic_pressure_detected": obs.get("semantic_pressure_detected"),
+        "outcome": obs.get("outcome"),
+        "gate": observation.get("gate"),
+        "terminal_type": (observation.get("terminal") or {}).get("type"),
+        "total_receipts_sum": sum(
+            int(row.get("total_receipts") or 0)
+            for row in (obs.get("aggregate_by_family") or {}).values()
+        ),
+        "receipt_rows_sum": sum(
+            int(row.get("receipt_rows") or 0)
+            for row in (obs.get("aggregate_by_family") or {}).values()
+        ),
+    }
+
+    contract = {
+        "contract_kind": "POST_R50_PRE_R75_FIRST_ORDER_OBSERVATION_CONTRACT",
+        "layer": "OUTER_MIDDLE_BOUNDARY_OBJECT",
+        "baseline": baseline,
+        "next_scale_step": "RADIUS_75_SLOT_SEPARATED",
+        "execution_shape": "KEEP_9_SLOT_SEPARATED_RUNS",
+        "representative_subset_status": "NOT_LICENSED_AT_V0",
+        "target_metric": "first_order_curve_stability",
+        "secondary_metrics": [
+            "receipt_burden",
+            "runtime_burden_if_available",
+            "slot_consistency",
+            "identity_distinguishability",
+            "semantic_pressure",
+            "operator_burden_if_available",
+            "resource_boundary_if_observable",
+        ],
+        "required_r75_artifact": "domain_shift_slot_observation_v0 with radius=75",
+        "r50_r75_comparison_artifact": "radius_scale_observation_v0",
+        "required_r75_fields": [
+            "radius",
+            "confidence_scope",
+            "slot_count_expected",
+            "slot_count_observed",
+            "measurement_cleanliness",
+            "repeated_family_consistency",
+            "aggregate_by_family",
+            "aggregate_by_move",
+            "aggregate_coarse_profiles",
+            "aggregate_coarse_profiles_total",
+            "aggregate_raw_total_by_slot_sum",
+            "semantic_pressure",
+            "semantic_pressure_detected",
+            "delta_vs_radius_50",
+            "delta_class",
+            "normalized_deltas_if_available",
+            "operator_burden_v0_if_available",
+            "terminal_decision",
+        ],
+        "delta_classes": [
+            "SAME_SHAPES_SAME_COUNTS",
+            "SAME_SHAPES_COUNT_SHIFT",
+            "NEW_SHAPE_OBSERVED",
+            "MISSING_SHAPE_OBSERVED",
+            "REPEATED_FAMILY_INCONSISTENT",
+            "UNCLASSIFIED_DELTA",
+        ],
+        "failure_classes": [
+            "STOP_MEASUREMENT_FAILURE",
+            "STOP_RESOURCE_BOUNDARY",
+            "STOP_IDENTITY_DISTINGUISHABILITY_DEFICIT",
+            "STOP_ONTOLOGY_PRESSURE",
+            "STOP_UNCLASSIFIED_DELTA",
+        ],
+        "non_failure_continuation_classes": [
+            "CURVE_STABLE_CONTINUE",
+            "CURVE_CHANGED_CONTINUE_MEASUREMENT",
+            "PROVISIONAL_R50_R75_ENVELOPE",
+        ],
+        "r75_observation_gate": "RADIUS_SCALE_OBSERVATION_GATE_V0",
+        "r75_observation_gate_pass_requirements": [
+            "R75 observation gate passes",
+            "R75 verification gate passes",
+            "slot_count_observed = slot_count_expected = 9",
+            "sigs match",
+            "no receipt mismatches",
+            "no dirty slots",
+            "no eval-gate failures",
+            "no unresolved slot execution/support/generator/contract",
+            "semantic pressure fields are explicit",
+            "delta_vs_radius_50 exists",
+            "delta_class is assigned",
+            "terminal decision is explicit",
+        ],
+        "r75_decision_rule": {
+            "measurement_fails": "STOP_MEASUREMENT_FAILURE",
+            "repeated_family_consistency_breaks": "STOP_IDENTITY_DISTINGUISHABILITY_DEFICIT",
+            "semantic_pressure_appears": "STOP_ONTOLOGY_PRESSURE",
+            "resource_envelope_exceeded": "STOP_RESOURCE_BOUNDARY",
+            "delta_unclassified": "STOP_UNCLASSIFIED_DELTA",
+            "same_shapes_acceptable_burden": [
+                "CURVE_STABLE_CONTINUE",
+                "PROVISIONAL_R50_R75_ENVELOPE",
+            ],
+            "new_or_shifted_shapes_cleanly_classified": "CURVE_CHANGED_CONTINUE_MEASUREMENT",
+        },
+        "forbidden": {
+            "implement_compression": True,
+            "implement_caching": True,
+            "skip_receipts": True,
+            "alter_existing_run_semantics": True,
+            "alter_existing_gate_semantics": True,
+            "alter_move_registry_semantics": True,
+            "add_new_cell_types": True,
+            "add_new_theorem_layers": True,
+            "add_new_domain_shift_families": True,
+            "select_representative_subset": True,
+            "treat_r50_as_global_scalability_proof": True,
+            "treat_contract_as_proof_of_future_scale": True,
+        },
+        "terminal": {
+            "type": "ADVANCE",
+            "next_command_goal": "RUN_RADIUS_75_SLOT_SEPARATED_UNDER_SCALABILITY_CONTRACT_V0",
+            "stop_code": None,
+        },
+    }
+
+    verification = _scalability_contract_verify_core(contract)
+    contract["baseline_linkage_check"] = verification["baseline_linkage_check"]
+    contract["verification_result"] = {
+        "gate": verification["gate"],
+        "failures": verification["failures"],
+        "warnings": verification["warnings"],
+    }
+
+    if verification["gate"] != "PASS":
+        contract["terminal"] = {
+            "type": "STOP",
+            "next_command_goal": None,
+            "stop_code": "STOP_CONTRACT_BUILD_FAIL",
+        }
+
+    return contract, verification
+
+
+
+@app.command("scalability-contract")
+def scalability_contract(
+    baseline_observation: str = typer.Argument(
+        "566a342b",
+        help="R50 domain shift slot observation id or JSON path.",
+    ),
+):
+    """Build the post-R50/pre-R75 first-order scalability contract."""
+
+    try:
+        contract, verification = _scalability_contract_payload_from_observation(baseline_observation)
+        build_failures = list(verification.get("failures") or [])
+    except Exception as exc:
+        build_failures = [f"baseline_observation_unresolved:{baseline_observation}:{exc}"]
+        contract = {
+            "contract_kind": "POST_R50_PRE_R75_FIRST_ORDER_OBSERVATION_CONTRACT",
+            "layer": "OUTER_MIDDLE_BOUNDARY_OBJECT",
+            "baseline": {
+                "observation_id": baseline_observation,
+            },
+            "next_scale_step": "RADIUS_75_SLOT_SEPARATED",
+            "execution_shape": "KEEP_9_SLOT_SEPARATED_RUNS",
+            "representative_subset_status": "NOT_LICENSED_AT_V0",
+            "target_metric": "first_order_curve_stability",
+            "secondary_metrics": [
+                "receipt_burden",
+                "runtime_burden_if_available",
+                "slot_consistency",
+                "identity_distinguishability",
+                "semantic_pressure",
+                "operator_burden_if_available",
+                "resource_boundary_if_observable",
+            ],
+            "required_r75_artifact": "domain_shift_slot_observation_v0 with radius=75",
+            "r50_r75_comparison_artifact": "radius_scale_observation_v0",
+            "required_r75_fields": [],
+            "delta_classes": [],
+            "failure_classes": [],
+            "non_failure_continuation_classes": [],
+            "r75_observation_gate": "RADIUS_SCALE_OBSERVATION_GATE_V0",
+            "r75_observation_gate_pass_requirements": [],
+            "r75_decision_rule": {},
+            "forbidden": {},
+            "baseline_linkage_check": {},
+            "verification_result": {
+                "gate": "FAIL",
+                "failures": build_failures,
+                "warnings": [],
+            },
+            "terminal": {
+                "type": "STOP",
+                "next_command_goal": None,
+                "stop_code": "STOP_CONTRACT_BUILD_FAIL",
+            },
+        }
+
+    contract["gate"] = "FAIL" if build_failures else "PASS"
+    contract["failures"] = build_failures
+    contract["warnings"] = []
+
+    out_path, contract = write_content_addressed_receipt(
+        contract,
+        "data/scalability_contracts",
+        "contract_schema_version",
+        SCALABILITY_CONTRACT_SCHEMA,
+        "contract_id",
+        "contract_sig8",
+    )
+
+    typer.echo(json.dumps(contract, indent=2, sort_keys=True))
+    typer.echo(f"contract_path: {out_path}")
+
+    if contract.get("gate") != "PASS":
+        raise typer.Exit(code=1)
+
+
+@app.command("scalability-contract-verify")
+def scalability_contract_verify(
+    contract: str = typer.Argument(
+        ...,
+        help="Scalability contract id or JSON path.",
+    ),
+):
+    """Reload and verify a scalability contract from disk."""
+
+    failures = []
+    warnings = []
+
+    try:
+        contract_path = resolve_json_path(contract, "data/scalability_contracts")
+        contract_payload = json.loads(contract_path.read_text())
+    except Exception as exc:
+        contract_path = None
+        contract_payload = {
+            "contract_id": contract,
+        }
+        failures.append(f"contract_unresolved:{contract}:{exc}")
+
+    recomputed_sig = None
+    if contract_path is not None:
+        try:
+            recomputed_sig = stable_sig(contract_payload, "contract_id", "contract_sig8")
+            if contract_payload.get("contract_sig8") != recomputed_sig:
+                failures.append("contract_sig_mismatch")
+            if contract_path.stem != contract_payload.get("contract_id"):
+                failures.append("contract_filename_id_mismatch")
+        except Exception as exc:
+            failures.append(f"contract_sig_recompute_failed:{exc}")
+
+        core = _scalability_contract_verify_core(contract_payload)
+        failures.extend(core.get("failures") or [])
+        warnings.extend(core.get("warnings") or [])
+    else:
+        core = {
+            "baseline_linkage_check": {},
+            "baseline_observation_check": {},
+            "gate": "FAIL",
+            "failures": failures,
+            "warnings": warnings,
+        }
+
+    receipt = {
+        "input_contract": contract,
+        "contract_id": contract_payload.get("contract_id"),
+        "contract_path": str(contract_path) if contract_path else None,
+        "contract_sig8": contract_payload.get("contract_sig8"),
+        "contract_recomputed_sig8": recomputed_sig,
+        "baseline_observation_id": (contract_payload.get("baseline") or {}).get("observation_id"),
+        "baseline_linkage_check": core.get("baseline_linkage_check"),
+        "baseline_observation_check": core.get("baseline_observation_check"),
+        "verification_result": {
+            "gate": "FAIL" if failures else "PASS",
+            "failures": failures,
+            "warnings": warnings,
+        },
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": None if failures else "RUN_RADIUS_75_SLOT_SEPARATED_UNDER_SCALABILITY_CONTRACT_V0",
+            "stop_code": "STOP_GATE_FAIL" if failures else None,
+        },
+    }
+
+    out_path, receipt = write_content_addressed_receipt(
+        receipt,
+        "data/scalability_contract_verifications",
+        "verification_schema_version",
+        SCALABILITY_CONTRACT_VERIFICATION_SCHEMA,
+        "verification_id",
+        "verification_sig8",
+    )
+
+    typer.echo(json.dumps(receipt, indent=2, sort_keys=True))
+    typer.echo(f"verification_path: {out_path}")
+
+    if receipt.get("gate") != "PASS":
+        raise typer.Exit(code=1)
 
 
 
