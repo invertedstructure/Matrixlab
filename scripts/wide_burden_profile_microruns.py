@@ -656,6 +656,7 @@ def build_profile(*, execute: bool) -> tuple[dict[str, Any], dict[str, Any]]:
             "Only scale after the micro suite is boring.",
         ],
         "allowed_burden_classes": sorted(ALLOWED_BURDEN_CLASSES),
+        "cycle_period_compression": _build_cycle_period_compression_observation(rows),
         "repeated_slot_execution_plan_cache": {
             "status": "APPLIED_METADATA_ONLY",
             "cache_scope": "within_one_micro_profile_execution_only",
@@ -760,6 +761,114 @@ def build_profile(*, execute: bool) -> tuple[dict[str, Any], dict[str, Any]]:
     write_csv(profile_csv_path, profile["rows"])
 
     return profile, receipt
+
+
+@dataclass(frozen=True)
+class CyclePeriodCertificate:
+    probe_id: str
+    slot_id: str
+    family_compact: str
+    receipts: int
+    elapsed_ms: int
+    observed_periodic_halt_presence: bool
+    metadata_only_no_execution_substitution: bool
+
+
+EXPECTED_CYCLE_PERIOD_SLOT_IDS = (
+    "MICRO_02_CYCLE_PRESSURE_A",
+    "MICRO_02_CYCLE_PRESSURE_B",
+    "MICRO_02_CYCLE_PRESSURE_C",
+    "MICRO_02_CYCLE_PRESSURE_D",
+    "MICRO_02_CYCLE_PRESSURE_E",
+)
+
+
+def _cycle_row_halt_counts(row: dict[str, Any]) -> dict[str, int]:
+    raw = (
+        row.get("halt_counts")
+        or row.get("halt_reason_counts")
+        or row.get("halts")
+        or {}
+    )
+    if isinstance(raw, dict):
+        return {str(k): int(v) for k, v in raw.items() if isinstance(v, int) or str(v).isdigit()}
+
+    halt_reason = row.get("halt_reason")
+    if halt_reason:
+        return {str(halt_reason): 1}
+
+    return {}
+
+
+def _build_cycle_period_compression_observation(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    cycle_rows = [
+        row for row in rows
+        if row.get("probe_id") == "MICRO_02_CYCLE_PRESSURE"
+        and row.get("burden_class") == "BURDEN_CYCLE_SCAN"
+    ]
+
+    observed_slots = [str(row.get("slot_id")) for row in cycle_rows]
+    certificates: list[dict[str, Any]] = []
+
+    for row in cycle_rows:
+        halt_counts = _cycle_row_halt_counts(row)
+        observed_periodic = bool(
+            halt_counts.get("REPEATED_STATE_PERIODIC", 0)
+            or row.get("halt_reason") == "REPEATED_STATE_PERIODIC"
+        )
+        certificate = CyclePeriodCertificate(
+            probe_id=str(row.get("probe_id")),
+            slot_id=str(row.get("slot_id")),
+            family_compact=str(row.get("family_compact")),
+            receipts=int(row.get("receipts") or 0),
+            elapsed_ms=int(row.get("elapsed_ms") or 0),
+            observed_periodic_halt_presence=observed_periodic,
+            metadata_only_no_execution_substitution=True,
+        )
+        certificates.append({
+            "probe_id": certificate.probe_id,
+            "slot_id": certificate.slot_id,
+            "family_compact": certificate.family_compact,
+            "receipts": certificate.receipts,
+            "elapsed_ms": certificate.elapsed_ms,
+            "observed_periodic_halt_presence": certificate.observed_periodic_halt_presence,
+            "metadata_only_no_execution_substitution": certificate.metadata_only_no_execution_substitution,
+            "halt_counts_observed_after_execution": halt_counts,
+        })
+
+    return {
+        "status": "APPLIED_POST_EXECUTION_METADATA_ONLY",
+        "certificate_kind": "cycle_period_observation_certificate",
+        "certificate_scope": "post_execution_observation_metadata_only",
+        "certificate_count": len(certificates),
+        "expected_cycle_slot_ids": list(EXPECTED_CYCLE_PERIOD_SLOT_IDS),
+        "observed_cycle_slot_ids": observed_slots,
+        "slot_identity_matches_expected": tuple(observed_slots) == EXPECTED_CYCLE_PERIOD_SLOT_IDS,
+        "families_must_remain_A_E": ["A", "B", "C", "D", "E"],
+        "probe_must_remain": "MICRO_02_CYCLE_PRESSURE",
+        "certificates": certificates,
+        "does_not_certify_without_execution": True,
+        "does_not_change_cycles_per_case": True,
+        "does_not_change_halt_reason": True,
+        "does_not_skip_cycle_execution": True,
+        "does_not_early_halt_on_period_detection": True,
+        "does_not_emit_synthetic_receipts": True,
+        "does_not_reuse_prior_cycle_results_as_execution": True,
+        "semantics": {
+            "execution_skipping": False,
+            "cycle_execution_skipping": False,
+            "early_halt_on_period_detection": False,
+            "synthetic_cycle_receipts": False,
+            "reusing_prior_cycle_results_as_execution": False,
+            "halt_semantics_change": False,
+            "law_semantics_change": False,
+            "gate_semantics_change": False,
+            "run_semantics_change": False,
+            "receipt_deletion": False,
+            "receipt_compression": False,
+            "radius_expansion": False,
+        },
+    }
 
 
 def main() -> int:
