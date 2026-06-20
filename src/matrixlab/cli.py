@@ -97,6 +97,8 @@ ROLLUP_RECORD_SCHEMA = "rollup_record_v0"
 DECISION_RECORD_SCHEMA = "decision_record_v0"
 VERIFIED_R100_BURDEN_ROLLUP_SCHEMA = "verified_r100_burden_rollup_v0"
 VERIFIED_R100_BURDEN_ROLLUP_VERIFICATION_SCHEMA = "verified_r100_burden_rollup_verification_v0"
+R100_SCALE_DECISION_WITH_VERIFIED_ROLLUP_SCHEMA = "r100_scale_decision_with_verified_rollup_v0"
+R100_SCALE_DECISION_WITH_VERIFIED_ROLLUP_VERIFICATION_SCHEMA = "r100_scale_decision_with_verified_rollup_verification_v0"
 
 
 def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
@@ -9321,6 +9323,399 @@ def _verified_r100_burden_rollup_verify_core(payload):
         "failures": failures,
         "warnings": warnings,
     }
+
+
+
+def _r100_scale_decision_with_verified_rollup_payload(verified_rollup_id):
+    failures = []
+    warnings = []
+
+    rollup_path = resolve_json_path(verified_rollup_id, "data/verified_burden_rollups")
+    rollup = json.loads(rollup_path.read_text())
+    rollup_sig = stable_sig(
+        rollup,
+        "verified_r100_burden_rollup_id",
+        "verified_r100_burden_rollup_sig8",
+    )
+
+    if rollup.get("verified_r100_burden_rollup_sig8") != rollup_sig:
+        failures.append("verified_rollup_sig_mismatch")
+
+    core = _verified_r100_burden_rollup_verify_core(rollup)
+    if core.get("gate") != "PASS":
+        failures.append("verified_rollup_core_verify_not_PASS")
+        failures.extend(core.get("failures") or [])
+
+    metrics = rollup.get("verified_metrics") or {}
+    expected = metrics.get("expected") or {}
+    observed = metrics.get("observed") or {}
+
+    if expected != observed:
+        failures.append("verified_rollup_expected_observed_mismatch")
+
+    if rollup.get("trust_label") != "RAW_FULL_WITH_VERIFIED_ROLLUP":
+        failures.append("verified_rollup_trust_label_not_RAW_FULL_WITH_VERIFIED_ROLLUP")
+
+    if "execution_skipping" not in (rollup.get("not_sufficient_for") or []):
+        failures.append("verified_rollup_missing_execution_skipping_non_authority")
+
+    if "does_not_authorize_R125" not in (rollup.get("known_limits") or []):
+        failures.append("verified_rollup_missing_R125_non_authority")
+
+    r50_to_r100_burden = metrics.get("r50_to_r100_burden_class")
+    r75_to_r100_burden = metrics.get("r75_to_r100_burden_class")
+
+    if r50_to_r100_burden != "BURDEN_SUPERLINEAR_REQUIRES_GUARD":
+        failures.append(f"r50_to_r100_burden_not_guard:{r50_to_r100_burden}")
+
+    if r75_to_r100_burden != "BURDEN_SUPERLINEAR_WATCH":
+        warnings.append(f"r75_to_r100_burden_not_watch:{r75_to_r100_burden}")
+
+    if (
+        metrics.get("r50_coarse") == 9
+        and metrics.get("r75_coarse") == 9
+        and metrics.get("r100_coarse") == 9
+    ):
+        curve_class = "SHAPE_STABLE_R50_R75_R100"
+    else:
+        curve_class = "SHAPE_COUNT_CHANGED"
+
+    if (
+        metrics.get("r50_raw") == 451
+        and metrics.get("r75_raw") == 676
+        and metrics.get("r100_raw") == 902
+    ):
+        raw_class = "RAW_APPROX_RADIUS_LINEAR"
+    else:
+        raw_class = "RAW_REQUIRES_REVIEW"
+
+    if failures:
+        decision = "STOP_R100_DECISION_INPUT_FAILURE"
+        next_goal = None
+        terminal_type = "STOP"
+        stop_code = "STOP_R100_DECISION_INPUT_FAILURE"
+    else:
+        decision = "FREEZE_RADIUS_AT_R100_AND_BUILD_BURDEN_POLICY"
+        next_goal = "BUILD_RADIUS_EXPANSION_BURDEN_POLICY_V0"
+        terminal_type = "ADVANCE"
+        stop_code = None
+
+    payload = {
+        "decision_kind": "POST_R100_SCALE_DECISION_WITH_VERIFIED_ROLLUP",
+        "source_verified_r100_burden_rollup": {
+            "id": rollup.get("verified_r100_burden_rollup_id"),
+            "path": str(rollup_path),
+            "stored_sig": rollup.get("verified_r100_burden_rollup_sig8"),
+            "recomputed_sig": rollup_sig,
+            "gate": rollup.get("gate"),
+            "trust_label": rollup.get("trust_label"),
+        },
+        "consumed_objects": {
+            "raw_manifest_id": (rollup.get("raw_manifest") or {}).get("id"),
+            "trajectory_rollup_id": (rollup.get("rollup_hierarchy") or {}).get("trajectory_rollup_id"),
+            "decision_record_id": (rollup.get("decision_record") or {}).get("id"),
+            "source_receipt_rollup_contract_id": (rollup.get("source_receipt_rollup_contract") or {}).get("id"),
+        },
+        "input_summary": {
+            "total_receipt_rows": observed.get("total_receipt_rows"),
+            "r50_receipts": observed.get("r50_receipts"),
+            "r75_receipts": observed.get("r75_receipts"),
+            "r100_receipts": observed.get("r100_receipts"),
+            "r50_raw": metrics.get("r50_raw"),
+            "r75_raw": metrics.get("r75_raw"),
+            "r100_raw": metrics.get("r100_raw"),
+            "r50_coarse": metrics.get("r50_coarse"),
+            "r75_coarse": metrics.get("r75_coarse"),
+            "r100_coarse": metrics.get("r100_coarse"),
+            "r75_to_r100_burden_class": r75_to_r100_burden,
+            "r50_to_r100_burden_class": r50_to_r100_burden,
+        },
+        "first_order_classes": {
+            "curve_class": curve_class,
+            "raw_class": raw_class,
+            "burden_class": r50_to_r100_burden,
+            "rollup_trust_class": rollup.get("trust_label"),
+            "execution_cost_class": "NOT_REDUCED_BY_ROLLUP",
+            "raw_storage_class": "NOT_REDUCED_BY_ROLLUP",
+            "semantic_pressure_class": "NO_SEMANTIC_PRESSURE",
+            "measurement_class": "MEASUREMENT_CLEAN",
+            "identity_class": "IDENTITY_PRESERVED_BY_VERIFIED_ROLLUP",
+        },
+        "decision": decision,
+        "decision_authority": {
+            "may_use_rollup_for_operator_summary": True,
+            "may_use_rollup_for_coarse_profile_delta": True,
+            "may_use_rollup_for_burden_watch": True,
+            "may_use_rollup_for_radius_decision_support": True,
+            "may_authorize_R125": False,
+            "may_skip_execution": False,
+            "may_delete_receipts": False,
+            "may_replace_raw_replay": False,
+            "may_change_gate_semantics": False,
+            "may_change_run_semantics": False,
+        },
+        "r100_freeze_policy": {
+            "radius_expansion_frozen_at": 100,
+            "freeze_reason": "R50_TO_R100_RECEIPT_BURDEN_SUPERLINEAR_REQUIRES_GUARD",
+            "verified_rollup_mitigates": [
+                "operator_reading_burden",
+                "comparison_burden",
+                "decision_support_surface",
+            ],
+            "verified_rollup_does_not_mitigate": [
+                "execution_cost",
+                "raw_receipt_generation",
+                "raw_storage_growth",
+                "future_radius_burden",
+            ],
+            "required_before_any_future_radius": [
+                "explicit_radius_expansion_burden_policy",
+                "hard receipt budget or stop rule",
+                "operator/runtime budget rule",
+                "decision artifact licensing exact next radius",
+            ],
+        },
+        "recommended_next_object": "radius_expansion_burden_policy_v0",
+        "forbidden": {
+            "R125_execution": True,
+            "representative_subset": True,
+            "execution_skipping": True,
+            "receipt_deletion": True,
+            "raw_replay_replacement": True,
+            "gate_semantics_change": True,
+            "run_semantics_change": True,
+            "ontology_expansion": True,
+            "theorem_layer": True,
+            "hidden_trust_upgrade": True,
+        },
+        "known_limits": [
+            "verified_rollup_reduces_reading_burden_not_execution_burden",
+            "decision_freezes_radius_expansion_but_does_not_claim_global_scalability_solution",
+            "future_radius_requires_separate_policy_and_explicit_decision",
+            "R100_envelope_remains_empirical_not_theorem_content",
+        ],
+        "terminal": {
+            "type": terminal_type,
+            "next_command_goal": next_goal,
+            "stop_code": stop_code,
+        },
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+    }
+
+    return payload
+
+
+def _r100_scale_decision_with_verified_rollup_verify_core(payload):
+    failures = []
+    warnings = []
+
+    if payload.get("gate") != "PASS":
+        failures.append("r100_scale_decision_gate_not_PASS")
+
+    source = payload.get("source_verified_r100_burden_rollup") or {}
+    if source.get("trust_label") != "RAW_FULL_WITH_VERIFIED_ROLLUP":
+        failures.append("source_trust_label_invalid")
+
+    try:
+        rollup_path = resolve_json_path(source.get("id"), "data/verified_burden_rollups")
+        rollup = json.loads(rollup_path.read_text())
+        rollup_sig = stable_sig(
+            rollup,
+            "verified_r100_burden_rollup_id",
+            "verified_r100_burden_rollup_sig8",
+        )
+        if rollup.get("verified_r100_burden_rollup_sig8") != rollup_sig:
+            failures.append("source_rollup_sig_mismatch")
+        core = _verified_r100_burden_rollup_verify_core(rollup)
+        if core.get("gate") != "PASS":
+            failures.append("source_rollup_core_verify_not_PASS")
+            failures.extend(core.get("failures") or [])
+    except Exception as exc:
+        failures.append(f"source_rollup_unresolved:{source.get('id')}:{exc}")
+
+    summary = payload.get("input_summary") or {}
+    if summary.get("r50_to_r100_burden_class") != "BURDEN_SUPERLINEAR_REQUIRES_GUARD":
+        failures.append("r50_to_r100_burden_class_not_guard")
+
+    if summary.get("r100_receipts") != 87552:
+        warnings.append(f"unexpected_r100_receipts:{summary.get('r100_receipts')}")
+
+    classes = payload.get("first_order_classes") or {}
+    if classes.get("curve_class") != "SHAPE_STABLE_R50_R75_R100":
+        failures.append("curve_class_not_stable")
+
+    authority = payload.get("decision_authority") or {}
+    if authority.get("may_authorize_R125") is not False:
+        failures.append("decision_authority_illegally_authorizes_R125")
+    if authority.get("may_skip_execution") is not False:
+        failures.append("decision_authority_illegally_skips_execution")
+    if authority.get("may_delete_receipts") is not False:
+        failures.append("decision_authority_illegally_deletes_receipts")
+    if authority.get("may_replace_raw_replay") is not False:
+        failures.append("decision_authority_illegally_replaces_raw_replay")
+
+    freeze = payload.get("r100_freeze_policy") or {}
+    if freeze.get("radius_expansion_frozen_at") != 100:
+        failures.append("freeze_radius_not_100")
+    if "explicit_radius_expansion_burden_policy" not in (freeze.get("required_before_any_future_radius") or []):
+        failures.append("future_radius_policy_requirement_missing")
+
+    forbidden = payload.get("forbidden") or {}
+    for key in [
+        "R125_execution",
+        "representative_subset",
+        "execution_skipping",
+        "receipt_deletion",
+        "raw_replay_replacement",
+        "gate_semantics_change",
+        "run_semantics_change",
+        "ontology_expansion",
+        "theorem_layer",
+        "hidden_trust_upgrade",
+    ]:
+        if forbidden.get(key) is not True:
+            failures.append(f"forbidden_clause_missing:{key}")
+
+    if payload.get("decision") != "FREEZE_RADIUS_AT_R100_AND_BUILD_BURDEN_POLICY":
+        failures.append(f"decision_unexpected:{payload.get('decision')}")
+
+    terminal = payload.get("terminal") or {}
+    if terminal.get("next_command_goal") != "BUILD_RADIUS_EXPANSION_BURDEN_POLICY_V0":
+        failures.append("terminal_next_command_goal_mismatch")
+
+    if "future_radius_requires_separate_policy_and_explicit_decision" not in (payload.get("known_limits") or []):
+        failures.append("known_limit_future_radius_missing")
+
+    return {
+        "gate": "FAIL" if failures else "PASS",
+        "failures": failures,
+        "warnings": warnings,
+    }
+
+
+
+@app.command("r100-scale-decision-with-rollup")
+def r100_scale_decision_with_rollup(
+    verified_rollup: str = typer.Argument(
+        "279d289c",
+        help="Verified R100 burden rollup id or JSON path.",
+    ),
+):
+    """Decide R100 scale outcome using the verified burden rollup."""
+
+    try:
+        payload = _r100_scale_decision_with_verified_rollup_payload(verified_rollup)
+    except Exception as exc:
+        payload = {
+            "decision_kind": "POST_R100_SCALE_DECISION_WITH_VERIFIED_ROLLUP",
+            "source_verified_r100_burden_rollup": {
+                "id": verified_rollup,
+            },
+            "decision": "STOP_R100_DECISION_BUILD_FAIL",
+            "failures": [f"r100_scale_decision_build_failed:{exc}"],
+            "warnings": [],
+            "gate": "FAIL",
+            "terminal": {
+                "type": "STOP",
+                "next_command_goal": None,
+                "stop_code": "STOP_R100_DECISION_BUILD_FAIL",
+            },
+        }
+
+    out_path, payload = write_content_addressed_receipt(
+        payload,
+        "data/r100_scale_decisions",
+        "r100_scale_decision_schema_version",
+        R100_SCALE_DECISION_WITH_VERIFIED_ROLLUP_SCHEMA,
+        "r100_scale_decision_id",
+        "r100_scale_decision_sig8",
+    )
+
+    typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+    typer.echo(f"r100_scale_decision_path: {out_path}")
+
+    if payload.get("gate") != "PASS":
+        raise typer.Exit(code=1)
+
+
+@app.command("r100-scale-decision-with-rollup-verify")
+def r100_scale_decision_with_rollup_verify(
+    decision: str = typer.Argument(
+        ...,
+        help="R100 scale decision id or JSON path.",
+    ),
+):
+    """Reload and verify an R100 scale decision with verified rollup."""
+
+    failures = []
+    warnings = []
+
+    try:
+        path = resolve_json_path(decision, "data/r100_scale_decisions")
+        payload = json.loads(path.read_text())
+    except Exception as exc:
+        path = None
+        payload = {
+            "r100_scale_decision_id": decision,
+        }
+        failures.append(f"r100_scale_decision_unresolved:{decision}:{exc}")
+
+    recomputed_sig = None
+    if path is not None:
+        recomputed_sig = stable_sig(
+            payload,
+            "r100_scale_decision_id",
+            "r100_scale_decision_sig8",
+        )
+        if payload.get("r100_scale_decision_sig8") != recomputed_sig:
+            failures.append("r100_scale_decision_sig_mismatch")
+        if path.stem != payload.get("r100_scale_decision_id"):
+            failures.append("r100_scale_decision_filename_id_mismatch")
+
+        core = _r100_scale_decision_with_verified_rollup_verify_core(payload)
+        failures.extend(core.get("failures") or [])
+        warnings.extend(core.get("warnings") or [])
+
+    receipt = {
+        "input_decision": decision,
+        "r100_scale_decision_id": payload.get("r100_scale_decision_id"),
+        "r100_scale_decision_path": str(path) if path else None,
+        "r100_scale_decision_sig8": payload.get("r100_scale_decision_sig8"),
+        "r100_scale_decision_recomputed_sig8": recomputed_sig,
+        "source_verified_r100_burden_rollup_id": (payload.get("source_verified_r100_burden_rollup") or {}).get("id"),
+        "decision": payload.get("decision"),
+        "recommended_next_object": payload.get("recommended_next_object"),
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": None if failures else "BUILD_RADIUS_EXPANSION_BURDEN_POLICY_V0",
+            "stop_code": "STOP_GATE_FAIL" if failures else None,
+        },
+        "verification_result": {
+            "gate": "FAIL" if failures else "PASS",
+            "failures": failures,
+            "warnings": warnings,
+        },
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+    }
+
+    out_path, receipt = write_content_addressed_receipt(
+        receipt,
+        "data/r100_scale_decision_verifications",
+        "r100_scale_decision_verification_schema_version",
+        R100_SCALE_DECISION_WITH_VERIFIED_ROLLUP_VERIFICATION_SCHEMA,
+        "r100_scale_decision_verification_id",
+        "r100_scale_decision_verification_sig8",
+    )
+
+    typer.echo(json.dumps(receipt, indent=2, sort_keys=True))
+    typer.echo(f"r100_scale_decision_verification_path: {out_path}")
+
+    if receipt.get("gate") != "PASS":
+        raise typer.Exit(code=1)
 
 
 
