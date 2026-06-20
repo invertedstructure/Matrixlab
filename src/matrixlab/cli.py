@@ -84,6 +84,8 @@ DOMAIN_SHIFT_SLOT_RUNNER_SUPPORT_SCHEMA = "domain_shift_slot_runner_support_v0"
 DOMAIN_SHIFT_SLOT_OBSERVATION_SCHEMA = "domain_shift_slot_observation_v0"
 SCALABILITY_CONTRACT_SCHEMA = "scalability_contract_v0"
 SCALABILITY_CONTRACT_VERIFICATION_SCHEMA = "scalability_contract_verification_v0"
+RADIUS_SCALE_OBSERVATION_SCHEMA = "radius_scale_observation_v0"
+RADIUS_SCALE_OBSERVATION_VERIFICATION_SCHEMA = "radius_scale_observation_verification_v0"
 
 
 def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
@@ -7011,6 +7013,624 @@ def _scalability_contract_payload_from_observation(observation_id):
         }
 
     return contract, verification
+
+
+
+def _radius_scale_observation_metric_delta(r50_value, r75_value):
+    if r50_value is None or r75_value is None:
+        return {
+            "r50": r50_value,
+            "r75": r75_value,
+            "delta": None,
+            "ratio_vs_r50": None,
+            "per_radius_r50": None,
+            "per_radius_r75": None,
+            "per_radius_delta": None,
+        }
+
+    r50 = float(r50_value)
+    r75 = float(r75_value)
+    per50 = r50 / 50.0
+    per75 = r75 / 75.0
+
+    return {
+        "r50": r50_value,
+        "r75": r75_value,
+        "delta": r75_value - r50_value,
+        "ratio_vs_r50": None if r50 == 0 else round(r75 / r50, 6),
+        "per_radius_r50": round(per50, 6),
+        "per_radius_r75": round(per75, 6),
+        "per_radius_delta": round(per75 - per50, 6),
+    }
+
+
+def _radius_scale_observation_clean_measurement(obs_body):
+    clean = obs_body.get("measurement_cleanliness") or {}
+    return _scalability_contract_clean_measurement(clean)
+
+
+def _radius_scale_observation_clean_repeated(obs_body):
+    repeated = obs_body.get("repeated_family_consistency") or {}
+    return _scalability_contract_clean_repeated_family_consistency(repeated)
+
+
+def _radius_scale_observation_shape_delta(r50_profiles, r75_profiles):
+    r50_set = set((r50_profiles or {}).keys())
+    r75_set = set((r75_profiles or {}).keys())
+
+    added = sorted(r75_set - r50_set)
+    missing = sorted(r50_set - r75_set)
+    common = sorted(r50_set & r75_set)
+    shifted = []
+
+    for key in common:
+        if (r50_profiles or {}).get(key) != (r75_profiles or {}).get(key):
+            shifted.append({
+                "profile": key,
+                "r50": (r50_profiles or {}).get(key),
+                "r75": (r75_profiles or {}).get(key),
+                "delta": (r75_profiles or {}).get(key) - (r50_profiles or {}).get(key),
+            })
+
+    return {
+        "added_shapes": added,
+        "missing_shapes": missing,
+        "common_shapes": common,
+        "count_shifted_shapes": shifted,
+        "shape_set_same": not added and not missing,
+        "shape_counts_same": not shifted and not added and not missing,
+    }
+
+
+def _radius_scale_observation_delta_class(r50_obs, r75_obs):
+    r50_body = r50_obs.get("observation") or {}
+    r75_body = r75_obs.get("observation") or {}
+
+    if not _radius_scale_observation_clean_measurement(r75_body):
+        return "UNCLASSIFIED_DELTA"
+
+    if not _radius_scale_observation_clean_repeated(r75_body):
+        return "REPEATED_FAMILY_INCONSISTENT"
+
+    shape_delta = _radius_scale_observation_shape_delta(
+        r50_body.get("aggregate_coarse_profiles") or {},
+        r75_body.get("aggregate_coarse_profiles") or {},
+    )
+
+    if shape_delta["added_shapes"]:
+        return "NEW_SHAPE_OBSERVED"
+
+    if shape_delta["missing_shapes"]:
+        return "MISSING_SHAPE_OBSERVED"
+
+    if shape_delta["shape_counts_same"]:
+        return "SAME_SHAPES_SAME_COUNTS"
+
+    if shape_delta["shape_set_same"]:
+        return "SAME_SHAPES_COUNT_SHIFT"
+
+    return "UNCLASSIFIED_DELTA"
+
+
+def _radius_scale_observation_terminal_decision(delta_class, r75_obs, resource_envelope):
+    r75_body = r75_obs.get("observation") or {}
+
+    if r75_obs.get("gate") != "PASS":
+        return "STOP_MEASUREMENT_FAILURE"
+
+    if not _radius_scale_observation_clean_measurement(r75_body):
+        return "STOP_MEASUREMENT_FAILURE"
+
+    if not _radius_scale_observation_clean_repeated(r75_body):
+        return "STOP_IDENTITY_DISTINGUISHABILITY_DEFICIT"
+
+    if r75_body.get("semantic_pressure_detected") is not False:
+        return "STOP_ONTOLOGY_PRESSURE"
+
+    if resource_envelope.get("resource_boundary_observed") is True:
+        return "STOP_RESOURCE_BOUNDARY"
+
+    if delta_class == "UNCLASSIFIED_DELTA":
+        return "STOP_UNCLASSIFIED_DELTA"
+
+    if delta_class == "SAME_SHAPES_SAME_COUNTS":
+        return "CURVE_STABLE_CONTINUE"
+
+    if delta_class == "SAME_SHAPES_COUNT_SHIFT":
+        return "PROVISIONAL_R50_R75_ENVELOPE"
+
+    if delta_class in {"NEW_SHAPE_OBSERVED", "MISSING_SHAPE_OBSERVED"}:
+        return "CURVE_CHANGED_CONTINUE_MEASUREMENT"
+
+    if delta_class == "REPEATED_FAMILY_INCONSISTENT":
+        return "STOP_IDENTITY_DISTINGUISHABILITY_DEFICIT"
+
+    return "STOP_UNCLASSIFIED_DELTA"
+
+
+def _radius_scale_observation_payload(contract_id, r75_observation_id):
+    failures = []
+    warnings = []
+
+    contract_path = resolve_json_path(contract_id, "data/scalability_contracts")
+    contract = json.loads(contract_path.read_text())
+    contract_sig = stable_sig(contract, "contract_id", "contract_sig8")
+
+    if contract.get("contract_sig8") != contract_sig:
+        failures.append("contract_sig_mismatch")
+    if contract.get("gate") != "PASS":
+        failures.append("contract_gate_not_PASS")
+    if contract.get("next_scale_step") != "RADIUS_75_SLOT_SEPARATED":
+        failures.append("contract_next_scale_step_not_R75")
+
+    contract_verify = _scalability_contract_verify_core(contract)
+    if contract_verify.get("gate") != "PASS":
+        failures.append("contract_core_verification_not_PASS")
+        failures.extend(contract_verify.get("failures") or [])
+
+    baseline = contract.get("baseline") or {}
+    r50_observation_id = baseline.get("observation_id")
+
+    r50_path = resolve_json_path(r50_observation_id, "data/domain_shift_slot_observations")
+    r50_obs = json.loads(r50_path.read_text())
+    r50_sig = stable_sig(
+        r50_obs,
+        "domain_shift_slot_observation_id",
+        "domain_shift_slot_observation_payload_sig8",
+    )
+
+    r75_path = resolve_json_path(r75_observation_id, "data/domain_shift_slot_observations")
+    r75_obs = json.loads(r75_path.read_text())
+    r75_sig = stable_sig(
+        r75_obs,
+        "domain_shift_slot_observation_id",
+        "domain_shift_slot_observation_payload_sig8",
+    )
+
+    if r50_obs.get("domain_shift_slot_observation_payload_sig8") != r50_sig:
+        failures.append("r50_observation_sig_mismatch")
+    if r75_obs.get("domain_shift_slot_observation_payload_sig8") != r75_sig:
+        failures.append("r75_observation_sig_mismatch")
+
+    r50_body = r50_obs.get("observation") or {}
+    r75_body = r75_obs.get("observation") or {}
+
+    if r50_obs.get("gate") != "PASS":
+        failures.append("r50_observation_gate_not_PASS")
+    if r75_obs.get("gate") != "PASS":
+        failures.append("r75_observation_gate_not_PASS")
+
+    if r50_body.get("radius") != 50:
+        failures.append(f"r50_radius_not_50:{r50_body.get('radius')}")
+    if r75_body.get("radius") != 75:
+        failures.append(f"r75_radius_not_75:{r75_body.get('radius')}")
+
+    if r50_body.get("confidence_scope") != "RADIUS_50_SLOT_SEPARATED_PROBE_ONLY":
+        failures.append("r50_confidence_scope_mismatch")
+    if r75_body.get("confidence_scope") != "RADIUS_75_SLOT_SEPARATED_PROBE_ONLY":
+        failures.append("r75_confidence_scope_mismatch")
+
+    if r50_body.get("slot_count_expected") != 9 or r50_body.get("slot_count_observed") != 9:
+        failures.append("r50_slot_count_not_9")
+    if r75_body.get("slot_count_expected") != 9 or r75_body.get("slot_count_observed") != 9:
+        failures.append("r75_slot_count_not_9")
+
+    if not _radius_scale_observation_clean_measurement(r50_body):
+        failures.append("r50_measurement_cleanliness_not_clean")
+    if not _radius_scale_observation_clean_measurement(r75_body):
+        failures.append("r75_measurement_cleanliness_not_clean")
+
+    if not _radius_scale_observation_clean_repeated(r50_body):
+        failures.append("r50_repeated_family_consistency_not_clean")
+    if not _radius_scale_observation_clean_repeated(r75_body):
+        failures.append("r75_repeated_family_consistency_not_clean")
+
+    if r50_body.get("semantic_pressure_detected") is not False:
+        failures.append("r50_semantic_pressure_not_false")
+    if r75_body.get("semantic_pressure_detected") is not False:
+        failures.append("r75_semantic_pressure_not_false")
+
+    r50_execution = r50_body.get("slot_execution") or {}
+    r75_execution = r75_body.get("slot_execution") or {}
+    r50_support = r50_body.get("slot_support") or {}
+    r75_support = r75_body.get("slot_support") or {}
+    r50_generator = r50_body.get("domain_shift_generator") or {}
+    r75_generator = r75_body.get("domain_shift_generator") or {}
+    r50_transfer = r50_body.get("transfer_contract") or {}
+    r75_transfer = r75_body.get("transfer_contract") or {}
+
+    for label, row in [
+        ("r50_slot_execution", r50_execution),
+        ("r75_slot_execution", r75_execution),
+        ("r50_slot_support", r50_support),
+        ("r75_slot_support", r75_support),
+        ("r50_generator", r50_generator),
+        ("r75_generator", r75_generator),
+        ("r50_transfer_contract", r50_transfer),
+        ("r75_transfer_contract", r75_transfer),
+    ]:
+        if row.get("gate") != "PASS":
+            failures.append(f"{label}_gate_not_PASS")
+        if row.get("id") is None:
+            failures.append(f"{label}_id_missing")
+        if row.get("path") is None:
+            failures.append(f"{label}_path_missing")
+
+    r50_clean = r50_body.get("measurement_cleanliness") or {}
+    r75_clean = r75_body.get("measurement_cleanliness") or {}
+
+    receipt_burden = _radius_scale_observation_metric_delta(
+        sum(int(row.get("total_receipts") or 0) for row in (r50_body.get("aggregate_by_family") or {}).values()),
+        sum(int(row.get("total_receipts") or 0) for row in (r75_body.get("aggregate_by_family") or {}).values()),
+    )
+    receipt_rows_burden = _radius_scale_observation_metric_delta(
+        sum(int(row.get("receipt_rows") or 0) for row in (r50_body.get("aggregate_by_family") or {}).values()),
+        sum(int(row.get("receipt_rows") or 0) for row in (r75_body.get("aggregate_by_family") or {}).values()),
+    )
+
+    delta_vs_radius_50 = {
+        "radius": _radius_scale_observation_metric_delta(
+            r50_body.get("radius"),
+            r75_body.get("radius"),
+        ),
+        "aggregate_coarse_profiles_total": _radius_scale_observation_metric_delta(
+            r50_body.get("aggregate_coarse_profiles_total"),
+            r75_body.get("aggregate_coarse_profiles_total"),
+        ),
+        "aggregate_raw_total_by_slot_sum": _radius_scale_observation_metric_delta(
+            r50_body.get("aggregate_raw_total_by_slot_sum"),
+            r75_body.get("aggregate_raw_total_by_slot_sum"),
+        ),
+        "total_receipts_sum": receipt_burden,
+        "receipt_rows_sum": receipt_rows_burden,
+        "aggregate_by_move_delta": {
+            key: {
+                "r50": (r50_body.get("aggregate_by_move") or {}).get(key, 0),
+                "r75": (r75_body.get("aggregate_by_move") or {}).get(key, 0),
+                "delta": (r75_body.get("aggregate_by_move") or {}).get(key, 0)
+                - (r50_body.get("aggregate_by_move") or {}).get(key, 0),
+            }
+            for key in sorted(
+                set((r50_body.get("aggregate_by_move") or {}).keys())
+                | set((r75_body.get("aggregate_by_move") or {}).keys())
+            )
+        },
+        "shape_delta": _radius_scale_observation_shape_delta(
+            r50_body.get("aggregate_coarse_profiles") or {},
+            r75_body.get("aggregate_coarse_profiles") or {},
+        ),
+        "repeated_family_consistency_changed": (
+            r50_body.get("repeated_family_consistency")
+            != r75_body.get("repeated_family_consistency")
+        ),
+    }
+
+    resource_envelope = {
+        "resource_boundary_observed": bool((r75_clean.get("boundary_slots") or [])),
+        "boundary_slots": r75_clean.get("boundary_slots") or [],
+        "max_cells": r75_body.get("max_cells"),
+    }
+
+    delta_class = _radius_scale_observation_delta_class(r50_obs, r75_obs)
+    terminal_decision = _radius_scale_observation_terminal_decision(delta_class, r75_obs, resource_envelope)
+
+    gate_failures = []
+    if r75_obs.get("gate") != "PASS":
+        gate_failures.append("R75_observation_gate_not_PASS")
+    if r75_body.get("slot_count_expected") != 9 or r75_body.get("slot_count_observed") != 9:
+        gate_failures.append("R75_slot_count_not_9")
+    if r75_obs.get("domain_shift_slot_observation_payload_sig8") != r75_sig:
+        gate_failures.append("R75_sig_mismatch")
+    if not _radius_scale_observation_clean_measurement(r75_body):
+        gate_failures.append("R75_measurement_not_clean")
+    if r75_body.get("semantic_pressure_detected") is None:
+        gate_failures.append("R75_semantic_pressure_not_explicit")
+    if not delta_vs_radius_50:
+        gate_failures.append("delta_vs_radius_50_missing")
+    if not delta_class:
+        gate_failures.append("delta_class_missing")
+    if not terminal_decision:
+        gate_failures.append("terminal_decision_missing")
+
+    failures.extend(gate_failures)
+
+    normalized_deltas_if_available = {
+        "raw_profiles_per_radius": _radius_scale_observation_metric_delta(
+            (r50_body.get("aggregate_raw_total_by_slot_sum") or 0) / 50.0,
+            (r75_body.get("aggregate_raw_total_by_slot_sum") or 0) / 75.0,
+        ),
+        "receipts_per_radius": _radius_scale_observation_metric_delta(
+            receipt_burden["r50"] / 50.0 if receipt_burden["r50"] is not None else None,
+            receipt_burden["r75"] / 75.0 if receipt_burden["r75"] is not None else None,
+        ),
+        "coarse_profiles_per_radius": _radius_scale_observation_metric_delta(
+            (r50_body.get("aggregate_coarse_profiles_total") or 0) / 50.0,
+            (r75_body.get("aggregate_coarse_profiles_total") or 0) / 75.0,
+        ),
+    }
+
+    observation = {
+        "contract": {
+            "id": contract.get("contract_id"),
+            "path": str(contract_path),
+            "stored_sig": contract.get("contract_sig8"),
+            "recomputed_sig": contract_sig,
+            "gate": contract.get("gate"),
+        },
+        "radius_50_observation": {
+            "id": r50_obs.get("domain_shift_slot_observation_id"),
+            "path": str(r50_path),
+            "stored_sig": r50_obs.get("domain_shift_slot_observation_payload_sig8"),
+            "recomputed_sig": r50_sig,
+            "gate": r50_obs.get("gate"),
+        },
+        "radius_75_observation": {
+            "id": r75_obs.get("domain_shift_slot_observation_id"),
+            "path": str(r75_path),
+            "stored_sig": r75_obs.get("domain_shift_slot_observation_payload_sig8"),
+            "recomputed_sig": r75_sig,
+            "gate": r75_obs.get("gate"),
+        },
+        "target_metric": contract.get("target_metric"),
+        "execution_shape": contract.get("execution_shape"),
+        "representative_subset_status": contract.get("representative_subset_status"),
+        "r50": {
+            "radius": r50_body.get("radius"),
+            "confidence_scope": r50_body.get("confidence_scope"),
+            "slot_count_expected": r50_body.get("slot_count_expected"),
+            "slot_count_observed": r50_body.get("slot_count_observed"),
+            "aggregate_coarse_profiles_total": r50_body.get("aggregate_coarse_profiles_total"),
+            "aggregate_raw_total_by_slot_sum": r50_body.get("aggregate_raw_total_by_slot_sum"),
+            "measurement_cleanliness": r50_body.get("measurement_cleanliness"),
+            "repeated_family_consistency": r50_body.get("repeated_family_consistency"),
+            "semantic_pressure": r50_body.get("semantic_pressure"),
+            "semantic_pressure_detected": r50_body.get("semantic_pressure_detected"),
+        },
+        "r75": {
+            "radius": r75_body.get("radius"),
+            "confidence_scope": r75_body.get("confidence_scope"),
+            "slot_count_expected": r75_body.get("slot_count_expected"),
+            "slot_count_observed": r75_body.get("slot_count_observed"),
+            "aggregate_coarse_profiles_total": r75_body.get("aggregate_coarse_profiles_total"),
+            "aggregate_raw_total_by_slot_sum": r75_body.get("aggregate_raw_total_by_slot_sum"),
+            "measurement_cleanliness": r75_body.get("measurement_cleanliness"),
+            "repeated_family_consistency": r75_body.get("repeated_family_consistency"),
+            "semantic_pressure": r75_body.get("semantic_pressure"),
+            "semantic_pressure_detected": r75_body.get("semantic_pressure_detected"),
+        },
+        "delta_vs_radius_50": delta_vs_radius_50,
+        "delta_class": delta_class,
+        "normalized_deltas_if_available": normalized_deltas_if_available,
+        "operator_burden_v0_if_available": {
+            "available": False,
+            "reason": "runtime/operator burden is not yet canonicalized as a receipt field",
+        },
+        "resource_boundary_if_observable": resource_envelope,
+        "terminal_decision": terminal_decision,
+        "r75_observation_gate": {
+            "name": "RADIUS_SCALE_OBSERVATION_GATE_V0",
+            "failures": gate_failures,
+            "gate": "FAIL" if gate_failures else "PASS",
+        },
+    }
+
+    payload = {
+        "source_contract_id": contract.get("contract_id"),
+        "radius_50_observation_id": r50_obs.get("domain_shift_slot_observation_id"),
+        "radius_75_observation_id": r75_obs.get("domain_shift_slot_observation_id"),
+        "observation": observation,
+        "delta_class": delta_class,
+        "terminal_decision": terminal_decision,
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if terminal_decision.startswith("STOP_") else "ADVANCE",
+            "next_command_goal": None
+            if terminal_decision.startswith("STOP_")
+            else "DECIDE_R75_SCALE_OUTCOME_OR_NEXT_RADIUS_V0",
+            "stop_code": terminal_decision if terminal_decision.startswith("STOP_") else None,
+        },
+    }
+
+    return payload
+
+
+def _radius_scale_observation_verify_core(payload):
+    failures = []
+    warnings = []
+
+    if payload.get("gate") != "PASS":
+        failures.append("radius_scale_observation_gate_not_PASS")
+
+    obs = payload.get("observation") or {}
+    r50 = obs.get("r50") or {}
+    r75 = obs.get("r75") or {}
+
+    if payload.get("delta_class") not in {
+        "SAME_SHAPES_SAME_COUNTS",
+        "SAME_SHAPES_COUNT_SHIFT",
+        "NEW_SHAPE_OBSERVED",
+        "MISSING_SHAPE_OBSERVED",
+        "REPEATED_FAMILY_INCONSISTENT",
+        "UNCLASSIFIED_DELTA",
+    }:
+        failures.append("delta_class_invalid_or_missing")
+
+    if payload.get("terminal_decision") not in {
+        "STOP_MEASUREMENT_FAILURE",
+        "STOP_RESOURCE_BOUNDARY",
+        "STOP_IDENTITY_DISTINGUISHABILITY_DEFICIT",
+        "STOP_ONTOLOGY_PRESSURE",
+        "STOP_UNCLASSIFIED_DELTA",
+        "CURVE_STABLE_CONTINUE",
+        "CURVE_CHANGED_CONTINUE_MEASUREMENT",
+        "PROVISIONAL_R50_R75_ENVELOPE",
+    }:
+        failures.append("terminal_decision_invalid_or_missing")
+
+    if r50.get("radius") != 50:
+        failures.append("verify_r50_radius_not_50")
+    if r75.get("radius") != 75:
+        failures.append("verify_r75_radius_not_75")
+
+    if r50.get("slot_count_expected") != 9 or r50.get("slot_count_observed") != 9:
+        failures.append("verify_r50_slot_count_not_9")
+    if r75.get("slot_count_expected") != 9 or r75.get("slot_count_observed") != 9:
+        failures.append("verify_r75_slot_count_not_9")
+
+    if not payload.get("observation", {}).get("delta_vs_radius_50"):
+        failures.append("delta_vs_radius_50_missing")
+
+    if not payload.get("observation", {}).get("normalized_deltas_if_available"):
+        failures.append("normalized_deltas_missing")
+
+    r75_gate = obs.get("r75_observation_gate") or {}
+    if r75_gate.get("gate") != "PASS":
+        failures.append("radius_scale_observation_gate_v0_not_PASS")
+
+    return {
+        "gate": "FAIL" if failures else "PASS",
+        "failures": failures,
+        "warnings": warnings,
+    }
+
+
+
+@app.command("radius-scale-observation")
+def radius_scale_observation(
+    r75_observation: str = typer.Argument(
+        "601a7983",
+        help="R75 domain shift slot observation id or JSON path.",
+    ),
+    contract: str = typer.Option(
+        "ba39cd7b",
+        "--contract",
+        help="Scalability contract id or JSON path.",
+    ),
+):
+    """Compare R75 slot observation against the R50 baseline under the scalability contract."""
+
+    try:
+        payload = _radius_scale_observation_payload(contract, r75_observation)
+    except Exception as exc:
+        payload = {
+            "source_contract_id": contract,
+            "radius_50_observation_id": None,
+            "radius_75_observation_id": r75_observation,
+            "observation": {},
+            "delta_class": "UNCLASSIFIED_DELTA",
+            "terminal_decision": "STOP_MEASUREMENT_FAILURE",
+            "failures": [f"radius_scale_observation_build_failed:{exc}"],
+            "warnings": [],
+            "gate": "FAIL",
+            "terminal": {
+                "type": "STOP",
+                "next_command_goal": None,
+                "stop_code": "STOP_MEASUREMENT_FAILURE",
+            },
+        }
+
+    out_path, payload = write_content_addressed_receipt(
+        payload,
+        "data/radius_scale_observations",
+        "radius_scale_observation_schema_version",
+        RADIUS_SCALE_OBSERVATION_SCHEMA,
+        "radius_scale_observation_id",
+        "radius_scale_observation_sig8",
+    )
+
+    typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+    typer.echo(f"radius_scale_observation_path: {out_path}")
+
+    if payload.get("gate") != "PASS":
+        raise typer.Exit(code=1)
+
+
+@app.command("radius-scale-observation-verify")
+def radius_scale_observation_verify(
+    radius_scale_observation: str = typer.Argument(
+        ...,
+        help="Radius scale observation id or JSON path.",
+    ),
+):
+    """Reload and verify a radius scale observation from disk."""
+
+    failures = []
+    warnings = []
+
+    try:
+        path = resolve_json_path(radius_scale_observation, "data/radius_scale_observations")
+        payload = json.loads(path.read_text())
+    except Exception as exc:
+        path = None
+        payload = {
+            "radius_scale_observation_id": radius_scale_observation,
+        }
+        failures.append(f"radius_scale_observation_unresolved:{radius_scale_observation}:{exc}")
+
+    recomputed_sig = None
+    if path is not None:
+        recomputed_sig = stable_sig(
+            payload,
+            "radius_scale_observation_id",
+            "radius_scale_observation_sig8",
+        )
+        if payload.get("radius_scale_observation_sig8") != recomputed_sig:
+            failures.append("radius_scale_observation_sig_mismatch")
+        if path.stem != payload.get("radius_scale_observation_id"):
+            failures.append("radius_scale_observation_filename_id_mismatch")
+
+        core = _radius_scale_observation_verify_core(payload)
+        failures.extend(core.get("failures") or [])
+        warnings.extend(core.get("warnings") or [])
+    else:
+        core = {
+            "gate": "FAIL",
+            "failures": failures,
+            "warnings": warnings,
+        }
+
+    receipt = {
+        "input_radius_scale_observation": radius_scale_observation,
+        "radius_scale_observation_id": payload.get("radius_scale_observation_id"),
+        "radius_scale_observation_path": str(path) if path else None,
+        "radius_scale_observation_sig8": payload.get("radius_scale_observation_sig8"),
+        "radius_scale_observation_recomputed_sig8": recomputed_sig,
+        "source_contract_id": payload.get("source_contract_id"),
+        "radius_50_observation_id": payload.get("radius_50_observation_id"),
+        "radius_75_observation_id": payload.get("radius_75_observation_id"),
+        "delta_class": payload.get("delta_class"),
+        "terminal_decision": payload.get("terminal_decision"),
+        "verification_result": {
+            "gate": "FAIL" if failures else "PASS",
+            "failures": failures,
+            "warnings": warnings,
+        },
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": None if failures else "DECIDE_R75_SCALE_OUTCOME_OR_NEXT_RADIUS_V0",
+            "stop_code": "STOP_GATE_FAIL" if failures else None,
+        },
+    }
+
+    out_path, receipt = write_content_addressed_receipt(
+        receipt,
+        "data/radius_scale_observation_verifications",
+        "radius_scale_observation_verification_schema_version",
+        RADIUS_SCALE_OBSERVATION_VERIFICATION_SCHEMA,
+        "radius_scale_observation_verification_id",
+        "radius_scale_observation_verification_sig8",
+    )
+
+    typer.echo(json.dumps(receipt, indent=2, sort_keys=True))
+    typer.echo(f"radius_scale_observation_verification_path: {out_path}")
+
+    if receipt.get("gate") != "PASS":
+        raise typer.Exit(code=1)
 
 
 
