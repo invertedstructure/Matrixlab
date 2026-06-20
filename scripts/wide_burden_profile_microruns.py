@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+from dataclasses import dataclass
+from functools import lru_cache
 import argparse
 import csv
 import hashlib
@@ -45,6 +47,120 @@ FAMILY_NAMES = {
     "D": "projection_quotient",
     "E": "relabel_symmetry_stress",
 }
+
+EXPECTED_REPEATED_SLOT_IDS = (
+    "slot_01_E1",
+    "slot_02_E2",
+    "slot_03_E3",
+    "slot_04_D1",
+    "slot_05_D2",
+    "slot_06_B1",
+    "slot_07_B2",
+    "slot_08_C1",
+    "slot_09_A1",
+)
+
+
+@dataclass(frozen=True)
+class SlotExecutionPlan:
+    probe_id: str
+    slot_label: str
+    slot_id: str
+    family_compact: str
+    family: str
+    depth_max: int
+    cycles_per_case: int
+    max_cells: int
+    stress_cli_args: tuple[str, ...]
+    cache_key: tuple[str, str, str, int, int, int]
+
+
+def _slot_id_for(probe_id: str, slot_label: str, family_compact: str) -> str:
+    if slot_label.startswith("slot_"):
+        return slot_label
+    return f"{probe_id}_{family_compact}"
+
+
+@lru_cache(maxsize=None)
+def _build_slot_execution_plan(
+    probe_id: str,
+    slot_label: str,
+    family_compact: str,
+    depth_max: int,
+    cycles_per_case: int,
+    max_cells: int,
+) -> SlotExecutionPlan:
+    """Build immutable slot execution metadata only.
+
+    This cache is intentionally scoped to this Python process. It must never
+    cache run ids, receipt rows, receipt counts as substitutes for execution,
+    law results, gate results, halt results, stdout/stderr, or any prior
+    execution result.
+    """
+
+    slot_id = _slot_id_for(probe_id, slot_label, family_compact)
+    family = FAMILY_NAMES[family_compact]
+    cache_key = (
+        probe_id,
+        slot_id,
+        family_compact,
+        int(depth_max),
+        int(cycles_per_case),
+        int(max_cells),
+    )
+    stress_cli_args = (
+        sys.executable,
+        str(CLI),
+        "stress",
+        "--families",
+        family_compact,
+        "--depth-max",
+        str(depth_max),
+        "--cycles-per-case",
+        str(cycles_per_case),
+        "--max-cells",
+        str(max_cells),
+    )
+    return SlotExecutionPlan(
+        probe_id=probe_id,
+        slot_label=slot_label,
+        slot_id=slot_id,
+        family_compact=family_compact,
+        family=family,
+        depth_max=int(depth_max),
+        cycles_per_case=int(cycles_per_case),
+        max_cells=int(max_cells),
+        stress_cli_args=stress_cli_args,
+        cache_key=cache_key,
+    )
+
+
+def _build_probe_execution_plans(probe: dict[str, Any]) -> tuple[SlotExecutionPlan, ...]:
+    return tuple(
+        _build_slot_execution_plan(
+            str(probe["probe_id"]),
+            str(slot_label),
+            str(family_compact),
+            int(probe["depth_max"]),
+            int(probe["cycles_per_case"]),
+            int(probe["max_cells"]),
+        )
+        for slot_label, family_compact in probe["slots"]
+    )
+
+
+def _validate_repeated_slot_identity(plans: tuple[SlotExecutionPlan, ...]) -> None:
+    repeated = [
+        plan.slot_id
+        for plan in plans
+        if plan.probe_id == "MICRO_04_REPEATED_SLOT_PRESSURE"
+    ]
+    if repeated and tuple(repeated) != EXPECTED_REPEATED_SLOT_IDS:
+        raise RuntimeError(
+            "repeated slot identity changed: "
+            f"expected={EXPECTED_REPEATED_SLOT_IDS!r} observed={tuple(repeated)!r}"
+        )
+
 
 PROBES = [
     {
@@ -346,24 +462,16 @@ def build_profile(*, execute: bool) -> tuple[dict[str, Any], dict[str, Any]]:
         probe_id = probe["probe_id"]
         probe_failures_before = len(failures)
 
-        for slot_label, family_letter in probe["slots"]:
-            family_name = FAMILY_NAMES[family_letter]
-            slot_id = slot_label if slot_label.startswith("slot_") else f"{probe_id}_{family_letter}"
+        plans = _build_probe_execution_plans(probe)
+        _validate_repeated_slot_identity(plans)
+
+        for plan in plans:
+            family_letter = plan.family_compact
+            family_name = plan.family
+            slot_id = plan.slot_id
 
             log_path = LOG_DIR / f"{probe_id}_{slot_id}.log"
-            cmd = [
-                sys.executable,
-                str(CLI),
-                "stress",
-                "--families",
-                family_letter,
-                "--depth-max",
-                str(probe["depth_max"]),
-                "--cycles-per-case",
-                str(probe["cycles_per_case"]),
-                "--max-cells",
-                str(probe["max_cells"]),
-            ]
+            cmd = list(plan.stress_cli_args)
 
             if not execute:
                 failures.append("execute_flag_required")
@@ -548,6 +656,27 @@ def build_profile(*, execute: bool) -> tuple[dict[str, Any], dict[str, Any]]:
             "Only scale after the micro suite is boring.",
         ],
         "allowed_burden_classes": sorted(ALLOWED_BURDEN_CLASSES),
+        "repeated_slot_execution_plan_cache": {
+            "status": "APPLIED_METADATA_ONLY",
+            "cache_scope": "within_one_micro_profile_execution_only",
+            "cache_kind": "immutable_slot_execution_plan_metadata",
+            "does_not_cache": [
+                "run_id",
+                "receipt rows",
+                "receipt counts as substitutes for execution",
+                "law results",
+                "gate results",
+                "halt results",
+                "stdout/stderr from a prior run",
+                "any prior execution result",
+            ],
+            "expected_repeated_slot_ids": list(EXPECTED_REPEATED_SLOT_IDS),
+            "cache_info": {
+                "hits": _build_slot_execution_plan.cache_info().hits,
+                "misses": _build_slot_execution_plan.cache_info().misses,
+                "currsize": _build_slot_execution_plan.cache_info().currsize,
+            },
+        },
         "probe_specs": PROBES,
         "probe_completion": probe_completion,
         "rows": rows,
