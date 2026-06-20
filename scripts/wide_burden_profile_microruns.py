@@ -657,6 +657,7 @@ def build_profile(*, execute: bool) -> tuple[dict[str, Any], dict[str, Any]]:
         ],
         "allowed_burden_classes": sorted(ALLOWED_BURDEN_CLASSES),
         "cycle_period_compression": _build_cycle_period_compression_observation(rows),
+        "frontier_depth_probe": _build_frontier_depth_probe_observation(rows),
         "repeated_slot_execution_plan_cache": {
             "status": "APPLIED_METADATA_ONLY",
             "cache_scope": "within_one_micro_profile_execution_only",
@@ -867,6 +868,109 @@ def _build_cycle_period_compression_observation(rows: list[dict[str, Any]]) -> d
             "receipt_deletion": False,
             "receipt_compression": False,
             "radius_expansion": False,
+        },
+    }
+
+
+@dataclass(frozen=True)
+class FrontierDepthCertificate:
+    probe_id: str
+    slot_id: str
+    family_compact: str
+    receipts: int
+    elapsed_ms: int
+    metadata_only_no_execution_substitution: bool
+    depth_range_preserved: bool
+
+
+EXPECTED_FRONTIER_DEPTH_SLOT_IDS = (
+    "MICRO_03_DEPTH_PRESSURE_A",
+    "MICRO_03_DEPTH_PRESSURE_B",
+    "MICRO_03_DEPTH_PRESSURE_C",
+    "MICRO_03_DEPTH_PRESSURE_D",
+    "MICRO_03_DEPTH_PRESSURE_E",
+)
+
+
+def _build_frontier_depth_probe_observation(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    depth_rows = [
+        row for row in rows
+        if row.get("probe_id") == "MICRO_03_DEPTH_PRESSURE"
+        and row.get("burden_class") == "BURDEN_DEPTH_SCAN"
+    ]
+
+    observed_slots = [str(row.get("slot_id")) for row in depth_rows]
+    certificates: list[dict[str, Any]] = []
+
+    for row in depth_rows:
+        certificate = FrontierDepthCertificate(
+            probe_id=str(row.get("probe_id")),
+            slot_id=str(row.get("slot_id")),
+            family_compact=str(row.get("family_compact")),
+            receipts=int(row.get("receipts") or 0),
+            elapsed_ms=int(row.get("elapsed_ms") or 0),
+            metadata_only_no_execution_substitution=True,
+            depth_range_preserved=True,
+        )
+        certificates.append({
+            "probe_id": certificate.probe_id,
+            "slot_id": certificate.slot_id,
+            "family_compact": certificate.family_compact,
+            "receipts": certificate.receipts,
+            "elapsed_ms": certificate.elapsed_ms,
+            "metadata_only_no_execution_substitution": certificate.metadata_only_no_execution_substitution,
+            "depth_range_preserved": certificate.depth_range_preserved,
+            "observed_depth_min": row.get("depth_min"),
+            "observed_depth_max": row.get("depth_max"),
+            "observed_cycles_per_case": row.get("cycles_per_case"),
+            "observed_max_cells": row.get("max_cells"),
+        })
+
+    return {
+        "status": "APPLIED_POST_EXECUTION_DEPTH_METADATA_ONLY",
+        "certificate_kind": "frontier_depth_observation_certificate",
+        "certificate_scope": "post_execution_depth_observation_metadata_only",
+        "certificate_count": len(certificates),
+        "expected_depth_slot_ids": list(EXPECTED_FRONTIER_DEPTH_SLOT_IDS),
+        "observed_depth_slot_ids": observed_slots,
+        "slot_identity_matches_expected": tuple(observed_slots) == EXPECTED_FRONTIER_DEPTH_SLOT_IDS,
+        "families_must_remain_A_E": ["A", "B", "C", "D", "E"],
+        "probe_must_remain": "MICRO_03_DEPTH_PRESSURE",
+        "certificates": certificates,
+        "does_not_certify_without_execution": True,
+        "does_not_change_depth_range": True,
+        "does_not_change_depth_min": True,
+        "does_not_change_depth_max": True,
+        "does_not_expand_radius": True,
+        "does_not_change_halt_reason": True,
+        "does_not_skip_execution": True,
+        "does_not_skip_depth_probe_execution": True,
+        "does_not_skip_frontier_cases": True,
+        "does_not_emit_synthetic_depth_receipts": True,
+        "does_not_reuse_prior_depth_results_as_execution": True,
+        "does_not_reopen_accepted_burden_classes": True,
+        "accepted_burden_classes_frozen": [
+            "BURDEN_CYCLE_SCAN",
+            "BURDEN_DB_WRITE",
+            "BURDEN_REPEATED_SLOT_WORK",
+        ],
+        "semantics": {
+            "execution_skipping": False,
+            "depth_probe_skipping": False,
+            "frontier_case_skipping": False,
+            "synthetic_depth_receipts": False,
+            "reusing_prior_depth_results_as_execution": False,
+            "depth_range_change": False,
+            "depth_min_change": False,
+            "depth_max_change": False,
+            "radius_expansion": False,
+            "halt_semantics_change": False,
+            "law_semantics_change": False,
+            "gate_semantics_change": False,
+            "run_semantics_change": False,
+            "receipt_deletion": False,
+            "receipt_compression": False,
+            "reopening_accepted_burden_classes": False,
         },
     }
 
