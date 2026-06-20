@@ -90,6 +90,8 @@ R75_SCALE_DECISION_SCHEMA = "r75_scale_decision_v0"
 R75_SCALE_DECISION_VERIFICATION_SCHEMA = "r75_scale_decision_verification_v0"
 R100_RADIUS_SCALE_OBSERVATION_SCHEMA = "r100_radius_scale_observation_v0"
 R100_RADIUS_SCALE_OBSERVATION_VERIFICATION_SCHEMA = "r100_radius_scale_observation_verification_v0"
+RECEIPT_ROLLUP_CONTRACT_SCHEMA = "receipt_rollup_contract_v0"
+RECEIPT_ROLLUP_CONTRACT_VERIFICATION_SCHEMA = "receipt_rollup_contract_verification_v0"
 
 
 def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
@@ -8139,6 +8141,531 @@ def _r100_radius_scale_observation_verify_core(payload):
         "failures": failures,
         "warnings": warnings,
     }
+
+
+
+def _receipt_rollup_contract_resolve_r100_rso(r100_rso_id):
+    path = resolve_json_path(r100_rso_id, "data/r100_radius_scale_observations")
+    payload = json.loads(path.read_text())
+    sig = stable_sig(
+        payload,
+        "r100_radius_scale_observation_id",
+        "r100_radius_scale_observation_sig8",
+    )
+    return path, payload, sig
+
+
+def _receipt_rollup_contract_observation_refs(r100_rso):
+    return {
+        "r50": r100_rso.get("radius_50_observation_id"),
+        "r75": r100_rso.get("radius_75_observation_id"),
+        "r100": r100_rso.get("radius_100_observation_id"),
+    }
+
+
+def _receipt_rollup_contract_radius_obs_body(observation_id):
+    path = resolve_json_path(observation_id, "data/domain_shift_slot_observations")
+    payload = json.loads(path.read_text())
+    sig = stable_sig(
+        payload,
+        "domain_shift_slot_observation_id",
+        "domain_shift_slot_observation_payload_sig8",
+    )
+    body = payload.get("observation") or {}
+    return path, payload, sig, body
+
+
+def _receipt_rollup_contract_slot_runs_from_obs_body(body):
+    runs = []
+    for family, row in sorted((body.get("aggregate_by_family") or {}).items()):
+        for run_id in row.get("run_ids") or []:
+            runs.append({
+                "family": family,
+                "run_id": run_id,
+            })
+    return runs
+
+
+def _receipt_rollup_contract_count_raw_receipts_for_run(run_id):
+    con = sqlite3.connect("data/runs/registry.sqlite")
+    try:
+        row = con.execute(
+            "select count(*) from receipts where run_id=?",
+            (run_id,),
+        ).fetchone()
+        return int(row[0] or 0)
+    finally:
+        con.close()
+
+
+def _receipt_rollup_contract_payload(r100_rso_id):
+    failures = []
+    warnings = []
+
+    r100_rso_path, r100_rso, r100_rso_sig = _receipt_rollup_contract_resolve_r100_rso(r100_rso_id)
+
+    if r100_rso.get("r100_radius_scale_observation_sig8") != r100_rso_sig:
+        failures.append("r100_radius_scale_observation_sig_mismatch")
+
+    r100_core = _r100_radius_scale_observation_verify_core(r100_rso)
+    if r100_core.get("gate") != "PASS":
+        failures.append("r100_radius_scale_observation_core_verify_not_PASS")
+        failures.extend(r100_core.get("failures") or [])
+
+    terminal_decision = r100_rso.get("terminal_decision")
+    if terminal_decision != "STOP_R100_BURDEN_ENVELOPE_REQUIRES_DECISION":
+        failures.append(f"unexpected_r100_terminal_decision:{terminal_decision}")
+
+    obs_refs = _receipt_rollup_contract_observation_refs(r100_rso)
+    radius_observations = {}
+    raw_receipt_inventory = {
+        "total_receipt_rows": 0,
+        "by_radius": {},
+        "by_run": {},
+    }
+
+    for label, expected_radius in [("r50", 50), ("r75", 75), ("r100", 100)]:
+        observation_id = obs_refs.get(label)
+        path, payload, sig, body = _receipt_rollup_contract_radius_obs_body(observation_id)
+        clean = body.get("measurement_cleanliness") or {}
+        repeated = body.get("repeated_family_consistency") or {}
+
+        if payload.get("domain_shift_slot_observation_payload_sig8") != sig:
+            failures.append(f"{label}_observation_sig_mismatch")
+        if payload.get("gate") != "PASS":
+            failures.append(f"{label}_observation_gate_not_PASS")
+        if body.get("radius") != expected_radius:
+            failures.append(f"{label}_radius_mismatch:{body.get('radius')}:{expected_radius}")
+        if not _scalability_contract_clean_measurement(clean):
+            failures.append(f"{label}_measurement_not_clean")
+        if not _scalability_contract_clean_repeated_family_consistency(repeated):
+            failures.append(f"{label}_repeated_family_not_clean")
+        if body.get("semantic_pressure_detected") is not False:
+            failures.append(f"{label}_semantic_pressure_not_false")
+
+        slot_runs = _receipt_rollup_contract_slot_runs_from_obs_body(body)
+        receipt_rows_sum = 0
+        for row in slot_runs:
+            run_id = row["run_id"]
+            count = _receipt_rollup_contract_count_raw_receipts_for_run(run_id)
+            receipt_rows_sum += count
+            raw_receipt_inventory["by_run"][run_id] = {
+                "radius_label": label,
+                "family": row["family"],
+                "receipt_rows": count,
+            }
+            if count <= 0:
+                failures.append(f"{label}_raw_receipts_missing_for_run:{run_id}")
+
+        expected_sum = sum(int(x.get("receipt_rows") or 0) for x in (body.get("aggregate_by_family") or {}).values())
+        if receipt_rows_sum != expected_sum:
+            failures.append(f"{label}_raw_receipt_sum_mismatch:{receipt_rows_sum}:{expected_sum}")
+
+        raw_receipt_inventory["by_radius"][label] = {
+            "radius": expected_radius,
+            "observation_id": observation_id,
+            "slot_run_count": len(slot_runs),
+            "receipt_rows_sum": receipt_rows_sum,
+            "expected_receipt_rows_sum": expected_sum,
+        }
+        raw_receipt_inventory["total_receipt_rows"] += receipt_rows_sum
+
+        radius_observations[label] = {
+            "id": payload.get("domain_shift_slot_observation_id"),
+            "path": str(path),
+            "stored_sig": payload.get("domain_shift_slot_observation_payload_sig8"),
+            "recomputed_sig": sig,
+            "gate": payload.get("gate"),
+            "radius": body.get("radius"),
+            "slot_count_expected": body.get("slot_count_expected"),
+            "slot_count_observed": body.get("slot_count_observed"),
+            "aggregate_coarse_profiles_total": body.get("aggregate_coarse_profiles_total"),
+            "aggregate_raw_total_by_slot_sum": body.get("aggregate_raw_total_by_slot_sum"),
+            "receipt_rows_sum": expected_sum,
+        }
+
+    r100_obs = r100_rso.get("observation") or {}
+    burden_eval = r100_obs.get("burden_guard_eval") or {}
+    classes = r100_obs.get("first_order_classes") or {}
+
+    if classes.get("r50_to_r100_burden_class") != "BURDEN_SUPERLINEAR_REQUIRES_GUARD":
+        failures.append(f"r50_to_r100_burden_class_not_guard:{classes.get('r50_to_r100_burden_class')}")
+    if classes.get("r75_to_r100_burden_class") != "BURDEN_SUPERLINEAR_WATCH":
+        warnings.append(f"r75_to_r100_burden_class_not_watch:{classes.get('r75_to_r100_burden_class')}")
+
+    contract_scope = f"R100_BURDEN_ROLLUP_SCOPE::{r100_rso.get('r100_radius_scale_observation_id')}"
+
+    payload = {
+        "contract_kind": "POST_R100_RECEIPT_BURDEN_ROLLUP_CONTRACT",
+        "contract_scope": contract_scope,
+        "layer": "OUTER_MIDDLE_BOUNDARY_OBJECT",
+        "mode": "BUILD_AND_VERIFY",
+        "source_r100_radius_scale_observation": {
+            "id": r100_rso.get("r100_radius_scale_observation_id"),
+            "path": str(r100_rso_path),
+            "stored_sig": r100_rso.get("r100_radius_scale_observation_sig8"),
+            "recomputed_sig": r100_rso_sig,
+            "gate": r100_rso.get("gate"),
+            "terminal_decision": r100_rso.get("terminal_decision"),
+        },
+        "radius_observations": radius_observations,
+        "observed_burden_problem": {
+            "shape_curve_stable": (
+                classes.get("r50_to_r100_curve_class") == "SAME_SHAPES_COUNT_SHIFT"
+                and classes.get("r75_to_r100_curve_class") == "SAME_SHAPES_COUNT_SHIFT"
+            ),
+            "semantic_pressure": False,
+            "measurement_clean": True,
+            "resource_boundary": False,
+            "r75_to_r100_burden_class": classes.get("r75_to_r100_burden_class"),
+            "r50_to_r100_burden_class": classes.get("r50_to_r100_burden_class"),
+            "r75_to_r100_receipt_ratio": burden_eval.get("r75_to_r100_receipt_ratio"),
+            "r75_to_r100_radius_ratio": burden_eval.get("r75_to_r100_radius_ratio"),
+            "r50_to_r100_receipt_ratio": burden_eval.get("r50_to_r100_receipt_ratio"),
+            "r50_to_r100_radius_ratio": burden_eval.get("r50_to_r100_radius_ratio"),
+        },
+        "object_model": {
+            "raw_manifest_schema": "raw_manifest_v0",
+            "rollup_schema": "rollup_record_v0",
+            "decision_schema": "decision_record_v0",
+            "field_role_map_schema": "field_role_map_v0",
+            "manifest_flat_limit": 10000,
+            "chunked_manifest_required_above_receipt_count": 10000,
+        },
+        "licensed_rollup_hierarchy": [
+            "raw_receipts",
+            "slot_rollups",
+            "family_rollups",
+            "radius_rollups",
+            "trajectory_rollup",
+            "decision_record",
+        ],
+        "allowed_rollup_levels": [
+            "SLOT",
+            "FAMILY",
+            "RADIUS",
+            "TRAJECTORY",
+            "SESSION",
+        ],
+        "allowed_trust_labels": [
+            "RAW_FULL",
+            "RAW_FULL_WITH_VERIFIED_ROLLUP",
+            "SUMMARY_OBSERVATIONAL",
+            "COMPRESSED_UNVERIFIED",
+        ],
+        "max_trust_label_for_contract_output": "RAW_FULL_WITH_VERIFIED_ROLLUP",
+        "forbidden_trust_labels": [
+            "RAW_REPLACED_BY_ROLLUP",
+            "EXECUTION_SKIPPED_BY_ROLLUP",
+            "INDEPENDENT_GATE_PROOF",
+            "COMPRESSED_EQUIVALENT_PROOF",
+        ],
+        "sufficient_for": [
+            "operator_summary",
+            "coarse_profile_delta",
+            "burden_watch",
+            "radius_decision_support",
+        ],
+        "not_sufficient_for": [
+            "raw_replay_replacement",
+            "execution_skipping",
+            "independent_gate_proof",
+            "receipt_deletion",
+            "representative_subset_authorization",
+            "gate_semantics_change",
+            "run_semantics_change",
+            "theorem_claim",
+        ],
+        "known_limits": [
+            "does_not_reduce_execution_cost",
+            "does_not_reduce_raw_storage_cost",
+            "does_not_authorize_R125",
+            "does_not_replace_raw_receipts",
+            "does_not_create_independent_gate_proof",
+        ],
+        "required_invariants": [
+            "source_manifest_resolves",
+            "source_manifest_hash_recomputes",
+            "input_receipt_count_matches_manifest",
+            "rollup_hash_recomputes",
+            "aggregate_metrics_match_existing_R50_R75_R100_observations",
+            "failure_counts_recompute_from_manifest",
+            "first_failure_pointer_null_only_if_failure_counts_zero",
+            "replay_pointer_exists",
+            "slot_identity_preserved",
+            "family_identity_preserved",
+            "run_identity_preserved",
+            "eval_identity_preserved",
+            "radius_identity_preserved",
+            "trust_label_no_stronger_than_RAW_FULL_WITH_VERIFIED_ROLLUP",
+            "sufficient_for_explicit",
+            "not_sufficient_for_explicit",
+            "known_limits_explicit",
+        ],
+        "required_negative_controls": [
+            "missing_manifest_fails",
+            "manifest_hash_mismatch_fails",
+            "receipt_count_mismatch_fails",
+            "unresolved_receipt_ref_fails",
+            "rollup_aggregate_mismatch_fails",
+            "missing_replay_pointer_fails",
+            "illegal_trust_label_fails",
+            "identity_collapse_fails",
+        ],
+        "raw_receipt_inventory_precheck": raw_receipt_inventory,
+        "forbidden": {
+            "execution_skipping": True,
+            "receipt_deletion": True,
+            "representative_subset": True,
+            "gate_semantics_change": True,
+            "run_semantics_change": True,
+            "ontology_expansion": True,
+            "theorem_layer": True,
+            "raw_replay_replacement": True,
+            "trust_upgrade_hidden": True,
+        },
+        "terminal": {
+            "type": "ADVANCE" if not failures else "STOP",
+            "next_command_goal": "BUILD_VERIFIED_R100_BURDEN_ROLLUP_V0" if not failures else None,
+            "stop_code": None if not failures else "STOP_ROLLUP_CONTRACT_FAIL",
+        },
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+    }
+
+    return payload
+
+
+def _receipt_rollup_contract_verify_core(payload):
+    failures = []
+    warnings = []
+
+    if payload.get("gate") != "PASS":
+        failures.append("receipt_rollup_contract_gate_not_PASS")
+
+    if payload.get("contract_kind") != "POST_R100_RECEIPT_BURDEN_ROLLUP_CONTRACT":
+        failures.append("contract_kind_mismatch")
+
+    source = payload.get("source_r100_radius_scale_observation") or {}
+    if source.get("terminal_decision") != "STOP_R100_BURDEN_ENVELOPE_REQUIRES_DECISION":
+        failures.append("source_terminal_decision_not_burden_stop")
+
+    burden = payload.get("observed_burden_problem") or {}
+    if burden.get("r50_to_r100_burden_class") != "BURDEN_SUPERLINEAR_REQUIRES_GUARD":
+        failures.append("r50_to_r100_burden_class_not_guard")
+
+    if payload.get("max_trust_label_for_contract_output") != "RAW_FULL_WITH_VERIFIED_ROLLUP":
+        failures.append("max_trust_label_invalid")
+
+    illegal_labels = {
+        "RAW_REPLACED_BY_ROLLUP",
+        "EXECUTION_SKIPPED_BY_ROLLUP",
+        "INDEPENDENT_GATE_PROOF",
+        "COMPRESSED_EQUIVALENT_PROOF",
+    }
+    allowed = set(payload.get("allowed_trust_labels") or [])
+    if illegal_labels & allowed:
+        failures.append("illegal_trust_label_allowed")
+
+    sufficient_for = payload.get("sufficient_for")
+    not_sufficient_for = payload.get("not_sufficient_for")
+    known_limits = payload.get("known_limits")
+
+    if not sufficient_for:
+        failures.append("sufficient_for_missing")
+    if not not_sufficient_for:
+        failures.append("not_sufficient_for_missing")
+    if not known_limits:
+        failures.append("known_limits_missing")
+
+    forbidden = payload.get("forbidden") or {}
+    for key in [
+        "execution_skipping",
+        "receipt_deletion",
+        "representative_subset",
+        "gate_semantics_change",
+        "run_semantics_change",
+        "ontology_expansion",
+        "theorem_layer",
+        "raw_replay_replacement",
+        "trust_upgrade_hidden",
+    ]:
+        if forbidden.get(key) is not True:
+            failures.append(f"forbidden_clause_missing:{key}")
+
+    inv = set(payload.get("required_invariants") or [])
+    for key in [
+        "source_manifest_resolves",
+        "source_manifest_hash_recomputes",
+        "input_receipt_count_matches_manifest",
+        "rollup_hash_recomputes",
+        "aggregate_metrics_match_existing_R50_R75_R100_observations",
+        "replay_pointer_exists",
+        "slot_identity_preserved",
+        "family_identity_preserved",
+        "run_identity_preserved",
+        "eval_identity_preserved",
+        "radius_identity_preserved",
+    ]:
+        if key not in inv:
+            failures.append(f"required_invariant_missing:{key}")
+
+    neg = set(payload.get("required_negative_controls") or [])
+    for key in [
+        "missing_manifest_fails",
+        "manifest_hash_mismatch_fails",
+        "receipt_count_mismatch_fails",
+        "unresolved_receipt_ref_fails",
+        "rollup_aggregate_mismatch_fails",
+        "missing_replay_pointer_fails",
+        "illegal_trust_label_fails",
+        "identity_collapse_fails",
+    ]:
+        if key not in neg:
+            failures.append(f"required_negative_control_missing:{key}")
+
+    inventory = payload.get("raw_receipt_inventory_precheck") or {}
+    if int(inventory.get("total_receipt_rows") or 0) <= 0:
+        failures.append("raw_receipt_inventory_empty")
+
+    for label in ["r50", "r75", "r100"]:
+        row = (inventory.get("by_radius") or {}).get(label) or {}
+        if row.get("receipt_rows_sum") != row.get("expected_receipt_rows_sum"):
+            failures.append(f"{label}_inventory_count_mismatch")
+        if row.get("slot_run_count") != 9:
+            failures.append(f"{label}_slot_run_count_not_9")
+
+    terminal = payload.get("terminal") or {}
+    if terminal.get("next_command_goal") != "BUILD_VERIFIED_R100_BURDEN_ROLLUP_V0":
+        failures.append("terminal_next_command_goal_mismatch")
+
+    return {
+        "gate": "FAIL" if failures else "PASS",
+        "failures": failures,
+        "warnings": warnings,
+    }
+
+
+
+@app.command("receipt-rollup-contract")
+def receipt_rollup_contract(
+    r100_radius_scale_observation: str = typer.Argument(
+        "a5c79278",
+        help="R100 radius scale observation id or JSON path.",
+    ),
+):
+    """Build the post-R100 receipt rollup contract."""
+
+    try:
+        payload = _receipt_rollup_contract_payload(r100_radius_scale_observation)
+    except Exception as exc:
+        payload = {
+            "contract_kind": "POST_R100_RECEIPT_BURDEN_ROLLUP_CONTRACT",
+            "contract_scope": f"R100_BURDEN_ROLLUP_SCOPE::{r100_radius_scale_observation}",
+            "source_r100_radius_scale_observation": {
+                "id": r100_radius_scale_observation,
+            },
+            "failures": [f"receipt_rollup_contract_build_failed:{exc}"],
+            "warnings": [],
+            "gate": "FAIL",
+            "terminal": {
+                "type": "STOP",
+                "next_command_goal": None,
+                "stop_code": "STOP_ROLLUP_CONTRACT_FAIL",
+            },
+        }
+
+    out_path, payload = write_content_addressed_receipt(
+        payload,
+        "data/receipt_rollup_contracts",
+        "receipt_rollup_contract_schema_version",
+        RECEIPT_ROLLUP_CONTRACT_SCHEMA,
+        "receipt_rollup_contract_id",
+        "receipt_rollup_contract_sig8",
+    )
+
+    typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+    typer.echo(f"receipt_rollup_contract_path: {out_path}")
+
+    if payload.get("gate") != "PASS":
+        raise typer.Exit(code=1)
+
+
+@app.command("receipt-rollup-contract-verify")
+def receipt_rollup_contract_verify(
+    contract: str = typer.Argument(
+        ...,
+        help="Receipt rollup contract id or JSON path.",
+    ),
+):
+    """Reload and verify a receipt rollup contract."""
+
+    failures = []
+    warnings = []
+
+    try:
+        path = resolve_json_path(contract, "data/receipt_rollup_contracts")
+        payload = json.loads(path.read_text())
+    except Exception as exc:
+        path = None
+        payload = {
+            "receipt_rollup_contract_id": contract,
+        }
+        failures.append(f"receipt_rollup_contract_unresolved:{contract}:{exc}")
+
+    recomputed_sig = None
+    if path is not None:
+        recomputed_sig = stable_sig(
+            payload,
+            "receipt_rollup_contract_id",
+            "receipt_rollup_contract_sig8",
+        )
+        if payload.get("receipt_rollup_contract_sig8") != recomputed_sig:
+            failures.append("receipt_rollup_contract_sig_mismatch")
+        if path.stem != payload.get("receipt_rollup_contract_id"):
+            failures.append("receipt_rollup_contract_filename_id_mismatch")
+
+        core = _receipt_rollup_contract_verify_core(payload)
+        failures.extend(core.get("failures") or [])
+        warnings.extend(core.get("warnings") or [])
+
+    receipt = {
+        "input_contract": contract,
+        "receipt_rollup_contract_id": payload.get("receipt_rollup_contract_id"),
+        "receipt_rollup_contract_path": str(path) if path else None,
+        "receipt_rollup_contract_sig8": payload.get("receipt_rollup_contract_sig8"),
+        "receipt_rollup_contract_recomputed_sig8": recomputed_sig,
+        "source_r100_radius_scale_observation_id": (payload.get("source_r100_radius_scale_observation") or {}).get("id"),
+        "verification_result": {
+            "gate": "FAIL" if failures else "PASS",
+            "failures": failures,
+            "warnings": warnings,
+        },
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": None if failures else "BUILD_VERIFIED_R100_BURDEN_ROLLUP_V0",
+            "stop_code": "STOP_GATE_FAIL" if failures else None,
+        },
+    }
+
+    out_path, receipt = write_content_addressed_receipt(
+        receipt,
+        "data/receipt_rollup_contract_verifications",
+        "receipt_rollup_contract_verification_schema_version",
+        RECEIPT_ROLLUP_CONTRACT_VERIFICATION_SCHEMA,
+        "receipt_rollup_contract_verification_id",
+        "receipt_rollup_contract_verification_sig8",
+    )
+
+    typer.echo(json.dumps(receipt, indent=2, sort_keys=True))
+    typer.echo(f"receipt_rollup_contract_verification_path: {out_path}")
+
+    if receipt.get("gate") != "PASS":
+        raise typer.Exit(code=1)
 
 
 
