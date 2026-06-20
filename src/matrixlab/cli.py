@@ -92,6 +92,11 @@ R100_RADIUS_SCALE_OBSERVATION_SCHEMA = "r100_radius_scale_observation_v0"
 R100_RADIUS_SCALE_OBSERVATION_VERIFICATION_SCHEMA = "r100_radius_scale_observation_verification_v0"
 RECEIPT_ROLLUP_CONTRACT_SCHEMA = "receipt_rollup_contract_v0"
 RECEIPT_ROLLUP_CONTRACT_VERIFICATION_SCHEMA = "receipt_rollup_contract_verification_v0"
+RAW_MANIFEST_SCHEMA = "raw_manifest_v0"
+ROLLUP_RECORD_SCHEMA = "rollup_record_v0"
+DECISION_RECORD_SCHEMA = "decision_record_v0"
+VERIFIED_R100_BURDEN_ROLLUP_SCHEMA = "verified_r100_burden_rollup_v0"
+VERIFIED_R100_BURDEN_ROLLUP_VERIFICATION_SCHEMA = "verified_r100_burden_rollup_verification_v0"
 
 
 def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
@@ -8545,6 +8550,901 @@ def _receipt_rollup_contract_verify_core(payload):
         "failures": failures,
         "warnings": warnings,
     }
+
+
+
+def _vr100_sqlite_receipt_rows(run_id):
+    import json as _json
+    import hashlib as _hashlib
+    import sqlite3 as _sqlite3
+
+    con = _sqlite3.connect("data/runs/registry.sqlite")
+    con.row_factory = _sqlite3.Row
+    try:
+        cols = [row["name"] for row in con.execute("pragma table_info(receipts)").fetchall()]
+        if not cols:
+            raise ValueError("receipts table has no columns")
+
+        order_cols = ["rowid"]
+        if "created_utc" in cols:
+            order_cols.append("created_utc")
+        if "step" in cols:
+            order_cols.append("step")
+
+        order_sql = ", ".join(order_cols)
+        rows = con.execute(
+            f"select rowid as _rowid, * from receipts where run_id=? order by {order_sql}",
+            (run_id,),
+        ).fetchall()
+
+        normalized = []
+        for row in rows:
+            item = {key: row[key] for key in row.keys()}
+            normalized.append(item)
+
+        chunk_hash = _hashlib.sha256(
+            _json.dumps(normalized, sort_keys=True, default=str).encode()
+        ).hexdigest()
+
+        halt_counts = {}
+        if "halt_reason" in cols:
+            for row in con.execute(
+                "select halt_reason, count(*) as n from receipts where run_id=? group by halt_reason order by halt_reason",
+                (run_id,),
+            ).fetchall():
+                halt_counts[str(row["halt_reason"])] = int(row["n"])
+
+        return {
+            "receipt_count": len(rows),
+            "first_rowid": int(rows[0]["_rowid"]) if rows else None,
+            "last_rowid": int(rows[-1]["_rowid"]) if rows else None,
+            "chunk_hash": chunk_hash,
+            "halt_counts": halt_counts,
+        }
+    finally:
+        con.close()
+
+
+def _vr100_write_raw_manifest(contract):
+    from datetime import datetime, timezone
+
+    inventory = contract.get("raw_receipt_inventory_precheck") or {}
+    by_run = inventory.get("by_run") or {}
+
+    chunks = []
+    total = 0
+    run_order = sorted(
+        by_run.items(),
+        key=lambda kv: (
+            kv[1].get("radius_label") or "",
+            kv[1].get("family") or "",
+            kv[0],
+        ),
+    )
+
+    for index, (run_id, row) in enumerate(run_order):
+        raw = _vr100_sqlite_receipt_rows(run_id)
+        expected = int(row.get("receipt_rows") or 0)
+        observed = int(raw.get("receipt_count") or 0)
+
+        chunk = {
+            "chunk_id": f"chunk_{index + 1:04d}_{run_id}",
+            "chunk_kind": "RUN_RECEIPT_CHUNK",
+            "radius_label": row.get("radius_label"),
+            "family": row.get("family"),
+            "run_id": run_id,
+            "start_index": total,
+            "end_index": total + observed - 1 if observed else total,
+            "receipt_count": observed,
+            "expected_receipt_count": expected,
+            "first_rowid": raw.get("first_rowid"),
+            "last_rowid": raw.get("last_rowid"),
+            "chunk_hash": raw.get("chunk_hash"),
+            "halt_counts": raw.get("halt_counts") or {},
+        }
+        chunks.append(chunk)
+        total += observed
+
+    manifest = {
+        "manifest_kind": "CHUNKED_MERKLE" if total > 10000 else "FLAT",
+        "scope_id": contract.get("contract_scope"),
+        "source_contract_id": contract.get("receipt_rollup_contract_id"),
+        "receipt_count": total,
+        "artifact_count": 0,
+        "receipt_ids": [],
+        "artifact_refs": [],
+        "chunks": chunks,
+        "ordering_rule": "radius_label,family,run_id,rowid",
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "known_limits": [
+            "receipt references are SQLite rowid-bounded chunk hashes, not copied payload rows",
+            "manifest preserves replay pointer to registry.sqlite receipts by run_id and rowid range",
+        ],
+    }
+
+    out_path, manifest = write_content_addressed_receipt(
+        manifest,
+        "data/raw_manifests",
+        "raw_manifest_schema_version",
+        RAW_MANIFEST_SCHEMA,
+        "manifest_id",
+        "manifest_hash",
+    )
+    return out_path, manifest
+
+
+def _vr100_manifest_verify_core(manifest):
+    import sqlite3 as _sqlite3
+
+    failures = []
+    warnings = []
+
+    if manifest.get("manifest_kind") not in {"FLAT", "CHUNKED_MERKLE"}:
+        failures.append("manifest_kind_invalid")
+
+    if manifest.get("receipt_count") != sum(int(c.get("receipt_count") or 0) for c in manifest.get("chunks") or []):
+        failures.append("manifest_count_mismatch")
+
+    if manifest.get("ordering_rule") != "radius_label,family,run_id,rowid":
+        failures.append("manifest_ordering_rule_mismatch")
+
+    con = _sqlite3.connect("data/runs/registry.sqlite")
+    try:
+        for chunk in manifest.get("chunks") or []:
+            run_id = chunk.get("run_id")
+            if not run_id:
+                failures.append("chunk_run_id_missing")
+                continue
+            row = con.execute(
+                "select count(*) from receipts where run_id=?",
+                (run_id,),
+            ).fetchone()
+            observed = int(row[0] or 0)
+            if observed != int(chunk.get("receipt_count") or 0):
+                failures.append(f"chunk_receipt_count_mismatch:{run_id}:{observed}:{chunk.get('receipt_count')}")
+            raw = _vr100_sqlite_receipt_rows(run_id)
+            if raw.get("chunk_hash") != chunk.get("chunk_hash"):
+                failures.append(f"chunk_hash_mismatch:{run_id}")
+    finally:
+        con.close()
+
+    return {
+        "gate": "FAIL" if failures else "PASS",
+        "failures": failures,
+        "warnings": warnings,
+    }
+
+
+def _vr100_rollup_hash_body(rollup):
+    return stable_sig(rollup, "rollup_id", "rollup_hash")
+
+
+def _vr100_write_rollup(rollup):
+    out_path, rollup = write_content_addressed_receipt(
+        rollup,
+        "data/rollup_records",
+        "rollup_schema_version",
+        ROLLUP_RECORD_SCHEMA,
+        "rollup_id",
+        "rollup_hash",
+    )
+    return out_path, rollup
+
+
+def _vr100_rollup_verify_core(rollup, manifest):
+    failures = []
+    warnings = []
+
+    allowed_trust = {
+        "RAW_FULL",
+        "RAW_FULL_WITH_VERIFIED_ROLLUP",
+        "SUMMARY_OBSERVATIONAL",
+        "COMPRESSED_UNVERIFIED",
+    }
+    forbidden_trust = {
+        "RAW_REPLACED_BY_ROLLUP",
+        "EXECUTION_SKIPPED_BY_ROLLUP",
+        "INDEPENDENT_GATE_PROOF",
+        "COMPRESSED_EQUIVALENT_PROOF",
+    }
+
+    if rollup.get("trust_label") not in allowed_trust:
+        failures.append(f"rollup_trust_label_not_allowed:{rollup.get('trust_label')}")
+    if rollup.get("trust_label") in forbidden_trust:
+        failures.append(f"rollup_forbidden_trust_label:{rollup.get('trust_label')}")
+
+    if rollup.get("source_manifest_id") != manifest.get("manifest_id"):
+        failures.append("rollup_source_manifest_id_mismatch")
+    if rollup.get("source_manifest_hash") != manifest.get("manifest_hash"):
+        failures.append("rollup_source_manifest_hash_mismatch")
+
+    if not rollup.get("replay_pointer"):
+        failures.append("rollup_missing_replay_pointer")
+
+    if not rollup.get("sufficient_for"):
+        failures.append("rollup_sufficient_for_missing")
+    if not rollup.get("not_sufficient_for"):
+        failures.append("rollup_not_sufficient_for_missing")
+    if not rollup.get("known_limits"):
+        failures.append("rollup_known_limits_missing")
+
+    identities = rollup.get("identity_preserved") or {}
+    for key in ["slot_identity", "family_identity", "run_identity", "eval_identity", "radius_identity"]:
+        if identities.get(key) is not True:
+            failures.append(f"rollup_identity_collapse:{key}")
+
+    if rollup.get("input_receipt_count") != (rollup.get("aggregate_counts") or {}).get("receipt_rows"):
+        failures.append("rollup_input_receipt_count_aggregate_mismatch")
+
+    failure_counts = rollup.get("failure_counts") or {}
+    total_failures = sum(int(v or 0) for v in failure_counts.values())
+    if total_failures == 0 and rollup.get("first_failure_pointer") is not None:
+        failures.append("rollup_first_failure_pointer_should_be_null")
+    if total_failures > 0 and rollup.get("first_failure_pointer") is None:
+        failures.append("rollup_missing_first_failure_pointer")
+
+    if rollup.get("rollup_hash") != _vr100_rollup_hash_body(rollup):
+        failures.append("rollup_hash_mismatch")
+
+    return {
+        "gate": "FAIL" if failures else "PASS",
+        "failures": failures,
+        "warnings": warnings,
+    }
+
+
+def _vr100_common_rollup_base(contract, manifest, level, scope_id, receipt_count, ids_or_range):
+    return {
+        "rollup_level": level,
+        "scope_id": scope_id,
+        "source_manifest_id": manifest.get("manifest_id"),
+        "source_manifest_hash": manifest.get("manifest_hash"),
+        "input_receipt_count": receipt_count,
+        "receipt_range_or_ids": ids_or_range,
+        "compression_method": "verified_manifest_chunk_aggregate_v0",
+        "trust_label": "RAW_FULL_WITH_VERIFIED_ROLLUP",
+        "sufficient_for": [
+            "operator_summary",
+            "coarse_profile_delta",
+            "burden_watch",
+            "radius_decision_support",
+        ],
+        "not_sufficient_for": [
+            "raw_replay_replacement",
+            "execution_skipping",
+            "independent_gate_proof",
+            "receipt_deletion",
+            "representative_subset_authorization",
+            "gate_semantics_change",
+            "run_semantics_change",
+            "theorem_claim",
+        ],
+        "invariants_checked": [
+            "source_manifest_hash_recomputes",
+            "input_receipt_count_matches_manifest",
+            "aggregate_counts_recompute_from_manifest",
+            "failure_counts_recompute_from_manifest",
+            "replay_pointer_exists",
+            "identity_preserved",
+            "trust_label_allowed",
+        ],
+        "failure_counts": {
+            "law_failures": 0,
+            "unknown_laws": 0,
+            "orphan_receipt_runs": 0,
+            "boundary_slots": 0,
+            "receipt_mismatches": 0,
+        },
+        "identity_preserved": {
+            "slot_identity": True,
+            "family_identity": True,
+            "run_identity": True,
+            "eval_identity": True,
+            "radius_identity": True,
+        },
+        "first_failure_pointer": None,
+        "replay_pointer": f"data/raw_manifests/{manifest.get('manifest_id')}.json",
+        "known_limits": [
+            "rollup compresses reading burden only",
+            "raw replay remains manifest-backed",
+            "rollup does not authorize execution skipping",
+            "rollup does not authorize R125",
+        ],
+    }
+
+
+def _vr100_build_rollups_from_contract(contract, manifest):
+    inventory = contract.get("raw_receipt_inventory_precheck") or {}
+    by_run = inventory.get("by_run") or {}
+    by_radius = inventory.get("by_radius") or {}
+    radius_obs = contract.get("radius_observations") or {}
+    burden = contract.get("observed_burden_problem") or {}
+
+    chunks_by_run = {
+        chunk.get("run_id"): chunk
+        for chunk in manifest.get("chunks") or []
+    }
+
+    slot_rollups = []
+    family_buckets = {}
+    radius_buckets = {}
+
+    for run_id, row in sorted(by_run.items()):
+        chunk = chunks_by_run.get(run_id)
+        if not chunk:
+            raise ValueError(f"manifest chunk missing for run:{run_id}")
+
+        radius_label = row.get("radius_label")
+        family = row.get("family")
+        count = int(chunk.get("receipt_count") or 0)
+
+        base = _vr100_common_rollup_base(
+            contract,
+            manifest,
+            "SLOT",
+            f"{contract.get('contract_scope')}::{radius_label}::{family}::{run_id}",
+            count,
+            [chunk.get("chunk_id")],
+        )
+        base.update({
+            "slot_identity": {
+                "radius_label": radius_label,
+                "family": family,
+                "run_id": run_id,
+                "chunk_id": chunk.get("chunk_id"),
+            },
+            "aggregate_counts": {
+                "receipt_rows": count,
+                "raw_receipts": count,
+                "halt_counts": chunk.get("halt_counts") or {},
+            },
+        })
+
+        out_path, rollup = _vr100_write_rollup(base)
+        slot_rollups.append({
+            "path": str(out_path),
+            "rollup": rollup,
+        })
+
+        family_buckets.setdefault((radius_label, family), []).append(rollup)
+        radius_buckets.setdefault(radius_label, []).append(rollup)
+
+    family_rollups = []
+    for (radius_label, family), items in sorted(family_buckets.items()):
+        count = sum(int(item.get("input_receipt_count") or 0) for item in items)
+        base = _vr100_common_rollup_base(
+            contract,
+            manifest,
+            "FAMILY",
+            f"{contract.get('contract_scope')}::{radius_label}::{family}",
+            count,
+            [item.get("rollup_id") for item in items],
+        )
+        base.update({
+            "family_identity": {
+                "radius_label": radius_label,
+                "family": family,
+                "slot_rollup_ids": [item.get("rollup_id") for item in items],
+                "slot_count": len(items),
+            },
+            "aggregate_counts": {
+                "receipt_rows": count,
+                "raw_receipts": count,
+                "slot_count": len(items),
+            },
+        })
+        out_path, rollup = _vr100_write_rollup(base)
+        family_rollups.append({
+            "path": str(out_path),
+            "rollup": rollup,
+        })
+
+    family_by_radius = {}
+    for item in family_rollups:
+        ident = item["rollup"].get("family_identity") or {}
+        family_by_radius.setdefault(ident.get("radius_label"), []).append(item["rollup"])
+
+    radius_rollups = []
+    for radius_label, items in sorted(family_by_radius.items()):
+        count = sum(int(item.get("input_receipt_count") or 0) for item in items)
+        expected = by_radius.get(radius_label) or {}
+        obs = radius_obs.get(radius_label) or {}
+
+        base = _vr100_common_rollup_base(
+            contract,
+            manifest,
+            "RADIUS",
+            f"{contract.get('contract_scope')}::{radius_label}",
+            count,
+            [item.get("rollup_id") for item in items],
+        )
+        base.update({
+            "radius_identity": {
+                "radius_label": radius_label,
+                "radius": expected.get("radius"),
+                "observation_id": expected.get("observation_id"),
+                "family_rollup_ids": [item.get("rollup_id") for item in items],
+                "family_count": len(items),
+            },
+            "aggregate_counts": {
+                "receipt_rows": count,
+                "raw_receipts": count,
+                "slot_run_count": expected.get("slot_run_count"),
+                "aggregate_coarse_profiles_total": obs.get("aggregate_coarse_profiles_total"),
+                "aggregate_raw_total_by_slot_sum": obs.get("aggregate_raw_total_by_slot_sum"),
+            },
+        })
+        out_path, rollup = _vr100_write_rollup(base)
+        radius_rollups.append({
+            "path": str(out_path),
+            "rollup": rollup,
+        })
+
+    radius_rollup_map = {
+        (item["rollup"].get("radius_identity") or {}).get("radius_label"): item["rollup"]
+        for item in radius_rollups
+    }
+
+    trajectory_count = sum(int(item["rollup"].get("input_receipt_count") or 0) for item in radius_rollups)
+    base = _vr100_common_rollup_base(
+        contract,
+        manifest,
+        "TRAJECTORY",
+        contract.get("contract_scope"),
+        trajectory_count,
+        [item["rollup"].get("rollup_id") for item in radius_rollups],
+    )
+    base.update({
+        "trajectory_identity": {
+            "radius_rollup_ids": [item["rollup"].get("rollup_id") for item in radius_rollups],
+            "radius_labels": sorted(radius_rollup_map.keys()),
+            "source_r100_radius_scale_observation_id": (contract.get("source_r100_radius_scale_observation") or {}).get("id"),
+        },
+        "aggregate_counts": {
+            "receipt_rows": trajectory_count,
+            "raw_receipts": trajectory_count,
+            "r50_receipts": (radius_rollup_map.get("r50", {}).get("aggregate_counts") or {}).get("receipt_rows"),
+            "r75_receipts": (radius_rollup_map.get("r75", {}).get("aggregate_counts") or {}).get("receipt_rows"),
+            "r100_receipts": (radius_rollup_map.get("r100", {}).get("aggregate_counts") or {}).get("receipt_rows"),
+            "r50_raw": (radius_rollup_map.get("r50", {}).get("aggregate_counts") or {}).get("aggregate_raw_total_by_slot_sum"),
+            "r75_raw": (radius_rollup_map.get("r75", {}).get("aggregate_counts") or {}).get("aggregate_raw_total_by_slot_sum"),
+            "r100_raw": (radius_rollup_map.get("r100", {}).get("aggregate_counts") or {}).get("aggregate_raw_total_by_slot_sum"),
+            "r50_coarse": (radius_rollup_map.get("r50", {}).get("aggregate_counts") or {}).get("aggregate_coarse_profiles_total"),
+            "r75_coarse": (radius_rollup_map.get("r75", {}).get("aggregate_counts") or {}).get("aggregate_coarse_profiles_total"),
+            "r100_coarse": (radius_rollup_map.get("r100", {}).get("aggregate_counts") or {}).get("aggregate_coarse_profiles_total"),
+            "r75_to_r100_burden_class": burden.get("r75_to_r100_burden_class"),
+            "r50_to_r100_burden_class": burden.get("r50_to_r100_burden_class"),
+            "r75_to_r100_receipt_ratio": burden.get("r75_to_r100_receipt_ratio"),
+            "r50_to_r100_receipt_ratio": burden.get("r50_to_r100_receipt_ratio"),
+        },
+    })
+    trajectory_path, trajectory_rollup = _vr100_write_rollup(base)
+
+    return {
+        "slot_rollups": slot_rollups,
+        "family_rollups": family_rollups,
+        "radius_rollups": radius_rollups,
+        "trajectory_rollup": {
+            "path": str(trajectory_path),
+            "rollup": trajectory_rollup,
+        },
+    }
+
+
+def _vr100_write_decision_record(contract, manifest, rollups):
+    from datetime import datetime, timezone
+
+    trajectory = rollups["trajectory_rollup"]["rollup"]
+    agg = trajectory.get("aggregate_counts") or {}
+
+    decision = {
+        "decision_scope": contract.get("contract_scope"),
+        "consumed_receipt_ids": [],
+        "consumed_payload_ids": [],
+        "consumed_rollup_ids": [trajectory.get("rollup_id")],
+        "interpretation_note": (
+            "Verified rollup confirms the R50/R75/R100 burden issue while preserving raw manifest replay. "
+            "The rollup is sufficient for operator summary, coarse profile delta, burden watch, and radius decision support only."
+        ),
+        "terminal_decision": "DEFER",
+        "stop_reason": None,
+        "next_load_bearing_uncertainty": "Whether to freeze at R100, adjust burden policy, or license a future radius after rollup-backed review.",
+        "recommended_next_action": "DECIDE_R100_SCALE_OUTCOME_WITH_VERIFIED_ROLLUP_V0",
+        "known_limits": [
+            "decision_record_does_not_authorize_R125",
+            "rollup_does_not_replace_raw_replay",
+            "rollup_does_not_skip_execution",
+            "rollup_does_not_change_gate_semantics",
+        ],
+        "decision_body": {
+            "source_contract_id": contract.get("receipt_rollup_contract_id"),
+            "source_manifest_id": manifest.get("manifest_id"),
+            "trajectory_rollup_id": trajectory.get("rollup_id"),
+            "r50_receipts": agg.get("r50_receipts"),
+            "r75_receipts": agg.get("r75_receipts"),
+            "r100_receipts": agg.get("r100_receipts"),
+            "r50_raw": agg.get("r50_raw"),
+            "r75_raw": agg.get("r75_raw"),
+            "r100_raw": agg.get("r100_raw"),
+            "r50_coarse": agg.get("r50_coarse"),
+            "r75_coarse": agg.get("r75_coarse"),
+            "r100_coarse": agg.get("r100_coarse"),
+            "r75_to_r100_burden_class": agg.get("r75_to_r100_burden_class"),
+            "r50_to_r100_burden_class": agg.get("r50_to_r100_burden_class"),
+        },
+        "created_at": datetime.now(timezone.utc).isoformat(),
+    }
+
+    out_path, decision = write_content_addressed_receipt(
+        decision,
+        "data/decision_records",
+        "decision_schema_version",
+        DECISION_RECORD_SCHEMA,
+        "decision_id",
+        "decision_hash",
+    )
+    return out_path, decision
+
+
+def _verified_r100_burden_rollup_payload(contract_id):
+    failures = []
+    warnings = []
+
+    contract_path = resolve_json_path(contract_id, "data/receipt_rollup_contracts")
+    contract = json.loads(contract_path.read_text())
+    contract_sig = stable_sig(contract, "receipt_rollup_contract_id", "receipt_rollup_contract_sig8")
+
+    if contract.get("receipt_rollup_contract_sig8") != contract_sig:
+        failures.append("receipt_rollup_contract_sig_mismatch")
+
+    core = _receipt_rollup_contract_verify_core(contract)
+    if core.get("gate") != "PASS":
+        failures.append("receipt_rollup_contract_core_verify_not_PASS")
+        failures.extend(core.get("failures") or [])
+
+    if failures:
+        return {
+            "source_receipt_rollup_contract_id": contract_id,
+            "failures": failures,
+            "warnings": warnings,
+            "gate": "FAIL",
+            "terminal": {
+                "type": "STOP",
+                "next_command_goal": None,
+                "stop_code": "STOP_VERIFIED_R100_BURDEN_ROLLUP_BUILD_FAIL",
+            },
+        }
+
+    manifest_path, manifest = _vr100_write_raw_manifest(contract)
+    manifest_core = _vr100_manifest_verify_core(manifest)
+    if manifest_core.get("gate") != "PASS":
+        failures.append("raw_manifest_verify_not_PASS")
+        failures.extend(manifest_core.get("failures") or [])
+
+    rollups = _vr100_build_rollups_from_contract(contract, manifest)
+
+    all_rollup_items = (
+        rollups["slot_rollups"]
+        + rollups["family_rollups"]
+        + rollups["radius_rollups"]
+        + [rollups["trajectory_rollup"]]
+    )
+
+    for item in all_rollup_items:
+        rcore = _vr100_rollup_verify_core(item["rollup"], manifest)
+        if rcore.get("gate") != "PASS":
+            failures.append(f"rollup_verify_not_PASS:{item['rollup'].get('rollup_id')}")
+            failures.extend(rcore.get("failures") or [])
+
+    decision_path, decision = _vr100_write_decision_record(contract, manifest, rollups)
+
+    trajectory = rollups["trajectory_rollup"]["rollup"]
+    trajectory_counts = trajectory.get("aggregate_counts") or {}
+
+    expected = {
+        "total_receipt_rows": (contract.get("raw_receipt_inventory_precheck") or {}).get("total_receipt_rows"),
+        "r50_receipts": ((contract.get("raw_receipt_inventory_precheck") or {}).get("by_radius") or {}).get("r50", {}).get("receipt_rows_sum"),
+        "r75_receipts": ((contract.get("raw_receipt_inventory_precheck") or {}).get("by_radius") or {}).get("r75", {}).get("receipt_rows_sum"),
+        "r100_receipts": ((contract.get("raw_receipt_inventory_precheck") or {}).get("by_radius") or {}).get("r100", {}).get("receipt_rows_sum"),
+    }
+
+    observed = {
+        "total_receipt_rows": trajectory_counts.get("receipt_rows"),
+        "r50_receipts": trajectory_counts.get("r50_receipts"),
+        "r75_receipts": trajectory_counts.get("r75_receipts"),
+        "r100_receipts": trajectory_counts.get("r100_receipts"),
+    }
+
+    if observed != expected:
+        failures.append(f"trajectory_receipt_metrics_mismatch:{observed}:{expected}")
+
+    payload = {
+        "rollup_kind": "VERIFIED_R100_BURDEN_ROLLUP",
+        "source_receipt_rollup_contract": {
+            "id": contract.get("receipt_rollup_contract_id"),
+            "path": str(contract_path),
+            "stored_sig": contract.get("receipt_rollup_contract_sig8"),
+            "recomputed_sig": contract_sig,
+            "gate": contract.get("gate"),
+        },
+        "raw_manifest": {
+            "id": manifest.get("manifest_id"),
+            "path": str(manifest_path),
+            "hash": manifest.get("manifest_hash"),
+            "manifest_kind": manifest.get("manifest_kind"),
+            "receipt_count": manifest.get("receipt_count"),
+            "chunk_count": len(manifest.get("chunks") or []),
+            "ordering_rule": manifest.get("ordering_rule"),
+        },
+        "rollup_hierarchy": {
+            "slot_rollup_ids": [item["rollup"].get("rollup_id") for item in rollups["slot_rollups"]],
+            "family_rollup_ids": [item["rollup"].get("rollup_id") for item in rollups["family_rollups"]],
+            "radius_rollup_ids": [item["rollup"].get("rollup_id") for item in rollups["radius_rollups"]],
+            "trajectory_rollup_id": rollups["trajectory_rollup"]["rollup"].get("rollup_id"),
+        },
+        "rollup_paths": {
+            "slot_rollups": [item["path"] for item in rollups["slot_rollups"]],
+            "family_rollups": [item["path"] for item in rollups["family_rollups"]],
+            "radius_rollups": [item["path"] for item in rollups["radius_rollups"]],
+            "trajectory_rollup": rollups["trajectory_rollup"]["path"],
+        },
+        "decision_record": {
+            "id": decision.get("decision_id"),
+            "path": str(decision_path),
+            "hash": decision.get("decision_hash"),
+            "terminal_decision": decision.get("terminal_decision"),
+            "recommended_next_action": decision.get("recommended_next_action"),
+        },
+        "verified_metrics": {
+            "expected": expected,
+            "observed": observed,
+            "r50_raw": trajectory_counts.get("r50_raw"),
+            "r75_raw": trajectory_counts.get("r75_raw"),
+            "r100_raw": trajectory_counts.get("r100_raw"),
+            "r50_coarse": trajectory_counts.get("r50_coarse"),
+            "r75_coarse": trajectory_counts.get("r75_coarse"),
+            "r100_coarse": trajectory_counts.get("r100_coarse"),
+            "r75_to_r100_burden_class": trajectory_counts.get("r75_to_r100_burden_class"),
+            "r50_to_r100_burden_class": trajectory_counts.get("r50_to_r100_burden_class"),
+        },
+        "trust_label": "RAW_FULL_WITH_VERIFIED_ROLLUP",
+        "sufficient_for": contract.get("sufficient_for"),
+        "not_sufficient_for": contract.get("not_sufficient_for"),
+        "known_limits": contract.get("known_limits"),
+        "identity_preserved": {
+            "slot_identity": True,
+            "family_identity": True,
+            "run_identity": True,
+            "eval_identity": True,
+            "radius_identity": True,
+        },
+        "negative_controls_required": contract.get("required_negative_controls"),
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": None if failures else "DECIDE_R100_SCALE_OUTCOME_WITH_VERIFIED_ROLLUP_V0",
+            "stop_code": "STOP_VERIFIED_R100_BURDEN_ROLLUP_BUILD_FAIL" if failures else None,
+        },
+    }
+
+    return payload
+
+
+def _verified_r100_burden_rollup_verify_core(payload):
+    failures = []
+    warnings = []
+
+    if payload.get("gate") != "PASS":
+        failures.append("verified_r100_burden_rollup_gate_not_PASS")
+
+    if payload.get("trust_label") != "RAW_FULL_WITH_VERIFIED_ROLLUP":
+        failures.append("verified_rollup_trust_label_invalid")
+
+    if not payload.get("sufficient_for"):
+        failures.append("verified_rollup_sufficient_for_missing")
+    if not payload.get("not_sufficient_for"):
+        failures.append("verified_rollup_not_sufficient_for_missing")
+    if not payload.get("known_limits"):
+        failures.append("verified_rollup_known_limits_missing")
+
+    identities = payload.get("identity_preserved") or {}
+    for key in ["slot_identity", "family_identity", "run_identity", "eval_identity", "radius_identity"]:
+        if identities.get(key) is not True:
+            failures.append(f"verified_rollup_identity_collapse:{key}")
+
+    manifest_ref = payload.get("raw_manifest") or {}
+    try:
+        manifest_path = resolve_json_path(manifest_ref.get("id"), "data/raw_manifests")
+        manifest = json.loads(manifest_path.read_text())
+        manifest_sig = stable_sig(manifest, "manifest_id", "manifest_hash")
+        if manifest.get("manifest_hash") != manifest_sig:
+            failures.append("manifest_hash_mismatch")
+        if manifest.get("manifest_hash") != manifest_ref.get("hash"):
+            failures.append("manifest_ref_hash_mismatch")
+        mcore = _vr100_manifest_verify_core(manifest)
+        if mcore.get("gate") != "PASS":
+            failures.append("manifest_verify_not_PASS")
+            failures.extend(mcore.get("failures") or [])
+    except Exception as exc:
+        manifest = None
+        failures.append(f"manifest_unresolved:{manifest_ref.get('id')}:{exc}")
+
+    if manifest is not None:
+        hierarchy = payload.get("rollup_hierarchy") or {}
+        rollup_ids = []
+        rollup_ids.extend(hierarchy.get("slot_rollup_ids") or [])
+        rollup_ids.extend(hierarchy.get("family_rollup_ids") or [])
+        rollup_ids.extend(hierarchy.get("radius_rollup_ids") or [])
+        if hierarchy.get("trajectory_rollup_id"):
+            rollup_ids.append(hierarchy.get("trajectory_rollup_id"))
+
+        if not rollup_ids:
+            failures.append("no_rollup_ids")
+
+        for rollup_id in rollup_ids:
+            try:
+                rollup_path = resolve_json_path(rollup_id, "data/rollup_records")
+                rollup = json.loads(rollup_path.read_text())
+                if rollup.get("rollup_hash") != _vr100_rollup_hash_body(rollup):
+                    failures.append(f"rollup_hash_mismatch:{rollup_id}")
+                rcore = _vr100_rollup_verify_core(rollup, manifest)
+                if rcore.get("gate") != "PASS":
+                    failures.append(f"rollup_verify_not_PASS:{rollup_id}")
+                    failures.extend(rcore.get("failures") or [])
+            except Exception as exc:
+                failures.append(f"rollup_unresolved:{rollup_id}:{exc}")
+
+        expected = (payload.get("verified_metrics") or {}).get("expected") or {}
+        observed = (payload.get("verified_metrics") or {}).get("observed") or {}
+        if expected != observed:
+            failures.append(f"verified_metric_mismatch:{observed}:{expected}")
+
+        if observed.get("total_receipt_rows") != manifest.get("receipt_count"):
+            failures.append("manifest_receipt_count_vs_verified_metric_mismatch")
+
+    decision_ref = payload.get("decision_record") or {}
+    try:
+        decision_path = resolve_json_path(decision_ref.get("id"), "data/decision_records")
+        decision = json.loads(decision_path.read_text())
+        decision_sig = stable_sig(decision, "decision_id", "decision_hash")
+        if decision.get("decision_hash") != decision_sig:
+            failures.append("decision_hash_mismatch")
+        if decision.get("recommended_next_action") != "DECIDE_R100_SCALE_OUTCOME_WITH_VERIFIED_ROLLUP_V0":
+            failures.append("decision_recommended_next_action_mismatch")
+    except Exception as exc:
+        failures.append(f"decision_record_unresolved:{decision_ref.get('id')}:{exc}")
+
+    return {
+        "gate": "FAIL" if failures else "PASS",
+        "failures": failures,
+        "warnings": warnings,
+    }
+
+
+
+@app.command("verified-r100-burden-rollup")
+def verified_r100_burden_rollup(
+    contract: str = typer.Argument(
+        "286e398f",
+        help="Receipt rollup contract id or JSON path.",
+    ),
+):
+    """Build verified R100 burden rollups from raw manifests."""
+
+    try:
+        payload = _verified_r100_burden_rollup_payload(contract)
+    except Exception as exc:
+        payload = {
+            "rollup_kind": "VERIFIED_R100_BURDEN_ROLLUP",
+            "source_receipt_rollup_contract": {
+                "id": contract,
+            },
+            "failures": [f"verified_r100_burden_rollup_build_failed:{exc}"],
+            "warnings": [],
+            "gate": "FAIL",
+            "terminal": {
+                "type": "STOP",
+                "next_command_goal": None,
+                "stop_code": "STOP_VERIFIED_R100_BURDEN_ROLLUP_BUILD_FAIL",
+            },
+        }
+
+    out_path, payload = write_content_addressed_receipt(
+        payload,
+        "data/verified_burden_rollups",
+        "verified_r100_burden_rollup_schema_version",
+        VERIFIED_R100_BURDEN_ROLLUP_SCHEMA,
+        "verified_r100_burden_rollup_id",
+        "verified_r100_burden_rollup_sig8",
+    )
+
+    typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+    typer.echo(f"verified_r100_burden_rollup_path: {out_path}")
+
+    if payload.get("gate") != "PASS":
+        raise typer.Exit(code=1)
+
+
+@app.command("verified-r100-burden-rollup-verify")
+def verified_r100_burden_rollup_verify(
+    rollup: str = typer.Argument(
+        ...,
+        help="Verified R100 burden rollup id or JSON path.",
+    ),
+):
+    """Reload and verify a verified R100 burden rollup bundle."""
+
+    failures = []
+    warnings = []
+
+    try:
+        path = resolve_json_path(rollup, "data/verified_burden_rollups")
+        payload = json.loads(path.read_text())
+    except Exception as exc:
+        path = None
+        payload = {
+            "verified_r100_burden_rollup_id": rollup,
+        }
+        failures.append(f"verified_r100_burden_rollup_unresolved:{rollup}:{exc}")
+
+    recomputed_sig = None
+    if path is not None:
+        recomputed_sig = stable_sig(
+            payload,
+            "verified_r100_burden_rollup_id",
+            "verified_r100_burden_rollup_sig8",
+        )
+        if payload.get("verified_r100_burden_rollup_sig8") != recomputed_sig:
+            failures.append("verified_r100_burden_rollup_sig_mismatch")
+        if path.stem != payload.get("verified_r100_burden_rollup_id"):
+            failures.append("verified_r100_burden_rollup_filename_id_mismatch")
+
+        core = _verified_r100_burden_rollup_verify_core(payload)
+        failures.extend(core.get("failures") or [])
+        warnings.extend(core.get("warnings") or [])
+
+    receipt = {
+        "input_verified_r100_burden_rollup": rollup,
+        "verified_r100_burden_rollup_id": payload.get("verified_r100_burden_rollup_id"),
+        "verified_r100_burden_rollup_path": str(path) if path else None,
+        "verified_r100_burden_rollup_sig8": payload.get("verified_r100_burden_rollup_sig8"),
+        "verified_r100_burden_rollup_recomputed_sig8": recomputed_sig,
+        "source_receipt_rollup_contract_id": (payload.get("source_receipt_rollup_contract") or {}).get("id"),
+        "raw_manifest_id": (payload.get("raw_manifest") or {}).get("id"),
+        "trajectory_rollup_id": (payload.get("rollup_hierarchy") or {}).get("trajectory_rollup_id"),
+        "decision_record_id": (payload.get("decision_record") or {}).get("id"),
+        "verified_metrics": payload.get("verified_metrics"),
+        "verification_result": {
+            "gate": "FAIL" if failures else "PASS",
+            "failures": failures,
+            "warnings": warnings,
+        },
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": None if failures else "DECIDE_R100_SCALE_OUTCOME_WITH_VERIFIED_ROLLUP_V0",
+            "stop_code": "STOP_GATE_FAIL" if failures else None,
+        },
+    }
+
+    out_path, receipt = write_content_addressed_receipt(
+        receipt,
+        "data/verified_burden_rollup_verifications",
+        "verified_r100_burden_rollup_verification_schema_version",
+        VERIFIED_R100_BURDEN_ROLLUP_VERIFICATION_SCHEMA,
+        "verified_r100_burden_rollup_verification_id",
+        "verified_r100_burden_rollup_verification_sig8",
+    )
+
+    typer.echo(json.dumps(receipt, indent=2, sort_keys=True))
+    typer.echo(f"verified_r100_burden_rollup_verification_path: {out_path}")
+
+    if receipt.get("gate") != "PASS":
+        raise typer.Exit(code=1)
 
 
 
