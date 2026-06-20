@@ -30,6 +30,7 @@ EXPECTED_CANDIDATE_PROBE_ID = "a097b68f"
 EXPECTED_CANDIDATE_RECEIPT_ID = "08b4ac55"
 
 PROBE_KIND = "CANONICAL_TRANSITION_SURFACE_PROBE_V0"
+PROBE_PATCH_VERSION = "alias_patch_state_sig8_before_after_v0"
 MODE = "OUTER_OBSERVER_ONLY"
 
 FIELD_CANDIDATES = {
@@ -37,9 +38,9 @@ FIELD_CANDIDATES = {
     "case_id": ["case_id", "fixture_id", "case_key", "case", "fixture", "slot_id"],
     "occurrence_id": ["occurrence_id", "event_id", "step_id", "step", "step_index", "ordinal", "idx"],
     "transition_id": ["transition_id", "transition_key", "transition", "edge_id"],
-    "state_hash_before": ["state_hash_before", "before_state_hash", "state_before_hash", "state_before", "start_state_sig8", "state_before_sig8", "before_sig8"],
+    "state_hash_before": ["state_hash_before", "before_state_hash", "state_before_hash", "state_before", "start_state_sig8", "state_before_sig8", "state_sig8_before", "before_sig8"],
     "move_id": ["move_id", "selected_move", "move", "action_id", "action"],
-    "state_hash_after": ["state_hash_after", "after_state_hash", "state_after_hash", "state_after", "final_state_sig8", "state_after_sig8", "after_sig8"],
+    "state_hash_after": ["state_hash_after", "after_state_hash", "state_after_hash", "state_after", "final_state_sig8", "state_after_sig8", "state_sig8_after", "after_sig8"],
     "halt_reason": ["halt_reason", "halt_code", "stop_code"],
     "terminal_status": ["terminal_status", "terminal_decision", "status", "gate", "checkpoint_code", "law_status"],
     "family": ["family", "family_compact", "family_name"],
@@ -721,6 +722,7 @@ def build_probe(policy_id: str, run_id: str | None, max_runs: int, max_receipts:
     probe = {
         "schema_version": "canonical_transition_surface_probe_receipt_v0",
         "probe_kind": PROBE_KIND,
+        "probe_patch_version": PROBE_PATCH_VERSION,
         "mode": MODE,
         "source_policy_id": EXPECTED_POLICY_ID,
         "source_policy_receipt_id": EXPECTED_POLICY_RECEIPT_ID,
