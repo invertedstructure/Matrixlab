@@ -101,6 +101,8 @@ R100_SCALE_DECISION_WITH_VERIFIED_ROLLUP_SCHEMA = "r100_scale_decision_with_veri
 R100_SCALE_DECISION_WITH_VERIFIED_ROLLUP_VERIFICATION_SCHEMA = "r100_scale_decision_with_verified_rollup_verification_v0"
 RADIUS_EXPANSION_BURDEN_POLICY_SCHEMA = "radius_expansion_burden_policy_v0"
 RADIUS_EXPANSION_BURDEN_POLICY_VERIFICATION_SCHEMA = "radius_expansion_burden_policy_verification_v0"
+RADIUS_EXPANSION_CANDIDATE_DECISION_SCHEMA = "radius_expansion_candidate_decision_v0"
+RADIUS_EXPANSION_CANDIDATE_DECISION_VERIFICATION_SCHEMA = "radius_expansion_candidate_decision_verification_v0"
 
 
 def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
@@ -9931,6 +9933,579 @@ def _radius_expansion_burden_policy_verify_core(payload):
         "failures": failures,
         "warnings": warnings,
     }
+
+
+
+def _candidate_estimate_from_policy(policy, candidate_radius):
+    current = policy.get("current_state") or {}
+    budget = policy.get("budget_rules") or {}
+
+    r50_receipts = int(current.get("r50_receipts") or 0)
+    r75_receipts = int(current.get("r75_receipts") or 0)
+    r100_receipts = int(current.get("r100_receipts") or 0)
+
+    r50_raw = int(current.get("r50_raw") or 0)
+    r75_raw = int(current.get("r75_raw") or 0)
+    r100_raw = int(current.get("r100_raw") or 0)
+
+    r75_to_r100_delta_receipts = r100_receipts - r75_receipts
+    r50_to_r75_delta_receipts = r75_receipts - r50_receipts
+    delta_growth_receipts = r75_to_r100_delta_receipts - r50_to_r75_delta_receipts
+    projected_next_delta_receipts = r75_to_r100_delta_receipts + max(delta_growth_receipts, 0)
+    estimated_total_receipts = r100_receipts + projected_next_delta_receipts
+
+    r75_to_r100_delta_raw = r100_raw - r75_raw
+    r50_to_r75_delta_raw = r75_raw - r50_raw
+    delta_growth_raw = r75_to_r100_delta_raw - r50_to_r75_delta_raw
+    projected_next_delta_raw = r75_to_r100_delta_raw + max(delta_growth_raw, 0)
+    estimated_raw_total = r100_raw + projected_next_delta_raw
+
+    radius_ratio_vs_r100 = round(candidate_radius / 100, 6)
+    receipt_ratio_vs_r100 = round(estimated_total_receipts / r100_receipts, 6) if r100_receipts else None
+    raw_ratio_vs_r100 = round(estimated_raw_total / r100_raw, 6) if r100_raw else None
+    receipt_over_radius_ratio = (
+        round(receipt_ratio_vs_r100 / radius_ratio_vs_r100, 6)
+        if receipt_ratio_vs_r100 is not None and radius_ratio_vs_r100
+        else None
+    )
+
+    hard_stop_total = int(budget.get("hard_stop_total_receipts") or 0)
+    soft_watch_total = int(budget.get("soft_watch_total_receipts") or 0)
+    hard_stop_ratio = float(budget.get("hard_stop_receipt_ratio_vs_r100") or 0)
+    hard_stop_over_radius = float(budget.get("hard_stop_receipt_over_radius_ratio") or 0)
+
+    stop_reasons = []
+    watch_reasons = []
+
+    if estimated_total_receipts > hard_stop_total:
+        stop_reasons.append("ESTIMATED_TOTAL_RECEIPTS_GT_HARD_STOP_TOTAL_RECEIPTS")
+    if receipt_ratio_vs_r100 is not None and receipt_ratio_vs_r100 > hard_stop_ratio:
+        stop_reasons.append("ESTIMATED_RECEIPT_RATIO_GT_HARD_STOP_RATIO_VS_R100")
+    if receipt_over_radius_ratio is not None and receipt_over_radius_ratio > hard_stop_over_radius:
+        stop_reasons.append("ESTIMATED_RECEIPT_OVER_RADIUS_RATIO_GT_POLICY_LIMIT")
+
+    if estimated_total_receipts > soft_watch_total:
+        watch_reasons.append("ESTIMATED_TOTAL_RECEIPTS_GT_SOFT_WATCH_TOTAL_RECEIPTS")
+    if receipt_ratio_vs_r100 is not None and receipt_ratio_vs_r100 > radius_ratio_vs_r100:
+        watch_reasons.append("ESTIMATED_RECEIPT_RATIO_GT_RADIUS_RATIO")
+
+    return {
+        "estimate_method": "quadratic_delta_extrapolation_from_R50_R75_R100_v0",
+        "baseline": {
+            "r50_receipts": r50_receipts,
+            "r75_receipts": r75_receipts,
+            "r100_receipts": r100_receipts,
+            "r50_raw": r50_raw,
+            "r75_raw": r75_raw,
+            "r100_raw": r100_raw,
+        },
+        "receipt_delta_model": {
+            "r50_to_r75_delta": r50_to_r75_delta_receipts,
+            "r75_to_r100_delta": r75_to_r100_delta_receipts,
+            "delta_growth": delta_growth_receipts,
+            "projected_next_delta": projected_next_delta_receipts,
+        },
+        "raw_delta_model": {
+            "r50_to_r75_delta": r50_to_r75_delta_raw,
+            "r75_to_r100_delta": r75_to_r100_delta_raw,
+            "delta_growth": delta_growth_raw,
+            "projected_next_delta": projected_next_delta_raw,
+        },
+        "candidate_radius": candidate_radius,
+        "estimated_total_receipts": estimated_total_receipts,
+        "estimated_raw_total": estimated_raw_total,
+        "estimated_coarse_total": int(current.get("r100_coarse") or 0),
+        "radius_ratio_vs_r100": radius_ratio_vs_r100,
+        "receipt_ratio_vs_r100": receipt_ratio_vs_r100,
+        "raw_ratio_vs_r100": raw_ratio_vs_r100,
+        "receipt_over_radius_ratio": receipt_over_radius_ratio,
+        "hard_stop_total_receipts": hard_stop_total,
+        "soft_watch_total_receipts": soft_watch_total,
+        "hard_stop_receipt_ratio_vs_r100": hard_stop_ratio,
+        "hard_stop_receipt_over_radius_ratio": hard_stop_over_radius,
+        "stop_reasons": stop_reasons,
+        "watch_reasons": watch_reasons,
+    }
+
+
+def _radius_expansion_candidate_decision_payload(policy_id, candidate_radius):
+    failures = []
+    warnings = []
+
+    policy_path = resolve_json_path(policy_id, "data/radius_expansion_burden_policies")
+    policy = json.loads(policy_path.read_text())
+    policy_sig = stable_sig(
+        policy,
+        "radius_expansion_burden_policy_id",
+        "radius_expansion_burden_policy_sig8",
+    )
+
+    if policy.get("radius_expansion_burden_policy_sig8") != policy_sig:
+        failures.append("radius_expansion_burden_policy_sig_mismatch")
+
+    policy_core = _radius_expansion_burden_policy_verify_core(policy)
+    if policy_core.get("gate") != "PASS":
+        failures.append("radius_expansion_burden_policy_core_verify_not_PASS")
+        failures.extend(policy_core.get("failures") or [])
+
+    rules = policy.get("policy_rules") or {}
+    budget = policy.get("budget_rules") or {}
+
+    if rules.get("policy_authorizes_execution") is not False:
+        failures.append("source_policy_illegally_authorizes_execution")
+    if rules.get("policy_authorizes_R125") is not False:
+        failures.append("source_policy_illegally_authorizes_R125")
+    if rules.get("future_radius_requires_exact_decision_artifact") is not True:
+        failures.append("source_policy_does_not_require_exact_decision")
+    if rules.get("candidate_preflight_estimate_required") is not True:
+        failures.append("source_policy_does_not_require_preflight_estimate")
+    if rules.get("candidate_runtime_budget_required") is not True:
+        failures.append("source_policy_does_not_require_runtime_budget")
+    if rules.get("candidate_operator_budget_required") is not True:
+        failures.append("source_policy_does_not_require_operator_budget")
+
+    max_candidate = int(rules.get("max_candidate_radius_v0") or 0)
+    if candidate_radius != 125:
+        failures.append(f"candidate_radius_not_exact_R125_v0:{candidate_radius}")
+    if candidate_radius > max_candidate:
+        failures.append(f"candidate_radius_above_policy_max:{candidate_radius}:{max_candidate}")
+    if candidate_radius <= int((policy.get("current_state") or {}).get("current_radius_ceiling") or 0):
+        failures.append("candidate_radius_not_above_current_ceiling")
+
+    estimate = _candidate_estimate_from_policy(policy, candidate_radius)
+
+    if not estimate.get("estimate_method"):
+        failures.append("preflight_receipt_estimate_method_missing")
+    if int(estimate.get("estimated_total_receipts") or 0) <= 0:
+        failures.append("preflight_receipt_estimate_missing")
+
+    stop_reasons = list(estimate.get("stop_reasons") or [])
+    watch_reasons = list(estimate.get("watch_reasons") or [])
+
+    runtime_budget = {
+        "budget_kind": "OPERATOR_APPROVED_SINGLE_RADIUS_RUN_BUDGET",
+        "candidate_radius": candidate_radius,
+        "slot_count": 9,
+        "full_trace_required": True,
+        "progress_reporting_required": True,
+        "interruption_recovery_required": True,
+        "estimated_total_receipts": estimate.get("estimated_total_receipts"),
+        "hard_stop_total_receipts": estimate.get("hard_stop_total_receipts"),
+        "status": "DECLARED",
+    }
+
+    operator_budget = {
+        "budget_kind": "ROLLUP_BACKED_READING_BUDGET",
+        "requires_verified_rollup_after_run": True,
+        "requires_post_run_burden_comparison": True,
+        "manual_review_surface": [
+            "candidate execution receipt",
+            "R125 slot observation",
+            "R100_to_R125 burden comparison",
+            "verified R125 burden rollup",
+            "post R125 decision",
+        ],
+        "status": "DECLARED",
+    }
+
+    commitments = {
+        "slot_separated_full_trace": True,
+        "raw_receipts_required": True,
+        "no_execution_skipping": True,
+        "no_receipt_deletion": True,
+        "no_representative_subset": True,
+        "no_raw_replay_replacement": True,
+        "no_gate_semantics_change": True,
+        "no_run_semantics_change": True,
+        "post_run_burden_comparison": True,
+        "verified_rollup_after_run": True,
+    }
+
+    if runtime_budget.get("status") != "DECLARED":
+        failures.append("runtime_budget_missing")
+    if operator_budget.get("status") != "DECLARED":
+        failures.append("operator_budget_missing")
+
+    for key, value in commitments.items():
+        if value is not True:
+            failures.append(f"commitment_missing:{key}")
+
+    if stop_reasons:
+        decision = "DO_NOT_LICENSE_R125_CANDIDATE_BUDGET_STOP"
+        terminal_type = "STOP"
+        next_goal = None
+        stop_code = "STOP_R125_CANDIDATE_BUDGET_FAIL"
+    elif failures:
+        decision = "STOP_CANDIDATE_DECISION_BUILD_FAIL"
+        terminal_type = "STOP"
+        next_goal = None
+        stop_code = "STOP_CANDIDATE_DECISION_BUILD_FAIL"
+    elif watch_reasons:
+        decision = "LICENSE_R125_WITH_BURDEN_WATCH"
+        terminal_type = "ADVANCE"
+        next_goal = "RUN_RADIUS_125_SLOT_SEPARATED_WITH_BURDEN_POLICY_V0"
+        stop_code = None
+    else:
+        decision = "LICENSE_R125"
+        terminal_type = "ADVANCE"
+        next_goal = "RUN_RADIUS_125_SLOT_SEPARATED_WITH_BURDEN_POLICY_V0"
+        stop_code = None
+
+    payload = {
+        "decision_kind": "RADIUS_EXPANSION_CANDIDATE_DECISION",
+        "source_policy": {
+            "id": policy.get("radius_expansion_burden_policy_id"),
+            "path": str(policy_path),
+            "stored_sig": policy.get("radius_expansion_burden_policy_sig8"),
+            "recomputed_sig": policy_sig,
+            "gate": policy.get("gate"),
+        },
+        "exact_next_radius": candidate_radius,
+        "current_radius_ceiling": (policy.get("current_state") or {}).get("current_radius_ceiling"),
+        "candidate_radius_delta": candidate_radius - int((policy.get("current_state") or {}).get("current_radius_ceiling") or 0),
+        "preflight_receipt_estimate": estimate,
+        "runtime_budget_statement": runtime_budget,
+        "operator_budget_statement": operator_budget,
+        "commitments": commitments,
+        "policy_limits": {
+            "max_candidate_radius_v0": max_candidate,
+            "hard_stop_total_receipts": budget.get("hard_stop_total_receipts"),
+            "hard_stop_receipt_ratio_vs_r100": budget.get("hard_stop_receipt_ratio_vs_r100"),
+            "hard_stop_receipt_over_radius_ratio": budget.get("hard_stop_receipt_over_radius_ratio"),
+            "soft_watch_total_receipts": budget.get("soft_watch_total_receipts"),
+        },
+        "decision": decision,
+        "authorization": {
+            "authorizes_exact_radius": candidate_radius if decision in {"LICENSE_R125", "LICENSE_R125_WITH_BURDEN_WATCH"} else None,
+            "authorizes_R125_execution": decision in {"LICENSE_R125", "LICENSE_R125_WITH_BURDEN_WATCH"},
+            "authorizes_any_other_radius": False,
+            "authorizes_execution_skipping": False,
+            "authorizes_receipt_deletion": False,
+            "authorizes_representative_subset": False,
+            "authorizes_gate_semantics_change": False,
+            "authorizes_run_semantics_change": False,
+        },
+        "post_run_required_artifacts": [
+            "radius_125_slot_separated_execution_summary",
+            "domain_shift_slot_observation_v0 for radius 125",
+            "R100_to_R125_burden_comparison",
+            "verified_R125_burden_rollup",
+            "post_R125_scale_decision",
+        ],
+        "stop_reasons": stop_reasons,
+        "watch_reasons": watch_reasons,
+        "known_limits": [
+            "candidate_decision_licenses_only_exact_radius_125",
+            "candidate_decision_does_not_solve_global_scalability",
+            "candidate_decision_requires_full_raw_trace",
+            "candidate_decision_requires_post_run_burden_comparison",
+            "estimate_is_preflight_not_observation",
+        ],
+        "forbidden": {
+            "radius_above_125": True,
+            "execution_skipping": True,
+            "receipt_deletion": True,
+            "representative_subset": True,
+            "raw_replay_replacement": True,
+            "gate_semantics_change": True,
+            "run_semantics_change": True,
+            "ontology_expansion": True,
+            "theorem_layer": True,
+            "hidden_trust_upgrade": True,
+        },
+        "terminal": {
+            "type": terminal_type,
+            "next_command_goal": next_goal,
+            "stop_code": stop_code,
+        },
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+    }
+
+    return payload
+
+
+def _radius_expansion_candidate_decision_verify_core(payload):
+    failures = []
+    warnings = []
+
+    if payload.get("gate") != "PASS":
+        failures.append("candidate_decision_gate_not_PASS")
+
+    if payload.get("decision_kind") != "RADIUS_EXPANSION_CANDIDATE_DECISION":
+        failures.append("candidate_decision_kind_mismatch")
+
+    source = payload.get("source_policy") or {}
+    try:
+        policy_path = resolve_json_path(source.get("id"), "data/radius_expansion_burden_policies")
+        policy = json.loads(policy_path.read_text())
+        policy_sig = stable_sig(
+            policy,
+            "radius_expansion_burden_policy_id",
+            "radius_expansion_burden_policy_sig8",
+        )
+        if policy.get("radius_expansion_burden_policy_sig8") != policy_sig:
+            failures.append("source_policy_sig_mismatch")
+        policy_core = _radius_expansion_burden_policy_verify_core(policy)
+        if policy_core.get("gate") != "PASS":
+            failures.append("source_policy_core_not_PASS")
+            failures.extend(policy_core.get("failures") or [])
+    except Exception as exc:
+        policy = None
+        failures.append(f"source_policy_unresolved:{source.get('id')}:{exc}")
+
+    if payload.get("exact_next_radius") != 125:
+        failures.append(f"exact_next_radius_not_125:{payload.get('exact_next_radius')}")
+
+    if payload.get("candidate_radius_delta") != 25:
+        failures.append(f"candidate_radius_delta_not_25:{payload.get('candidate_radius_delta')}")
+
+    estimate = payload.get("preflight_receipt_estimate") or {}
+    if estimate.get("estimate_method") != "quadratic_delta_extrapolation_from_R50_R75_R100_v0":
+        failures.append("estimate_method_mismatch")
+    if int(estimate.get("estimated_total_receipts") or 0) <= 0:
+        failures.append("estimated_total_receipts_missing")
+    if int(estimate.get("estimated_total_receipts") or 0) > int(estimate.get("hard_stop_total_receipts") or 0):
+        failures.append("estimated_total_receipts_exceeds_hard_stop")
+    if float(estimate.get("receipt_ratio_vs_r100") or 0) > float(estimate.get("hard_stop_receipt_ratio_vs_r100") or 0):
+        failures.append("estimated_receipt_ratio_exceeds_hard_stop")
+    if float(estimate.get("receipt_over_radius_ratio") or 0) > float(estimate.get("hard_stop_receipt_over_radius_ratio") or 0):
+        failures.append("estimated_receipt_over_radius_exceeds_hard_stop")
+
+    runtime_budget = payload.get("runtime_budget_statement") or {}
+    operator_budget = payload.get("operator_budget_statement") or {}
+    if runtime_budget.get("status") != "DECLARED":
+        failures.append("runtime_budget_not_declared")
+    if operator_budget.get("status") != "DECLARED":
+        failures.append("operator_budget_not_declared")
+    if runtime_budget.get("full_trace_required") is not True:
+        failures.append("runtime_budget_full_trace_not_required")
+    if operator_budget.get("requires_verified_rollup_after_run") is not True:
+        failures.append("operator_budget_verified_rollup_not_required")
+
+    commitments = payload.get("commitments") or {}
+    for key in [
+        "slot_separated_full_trace",
+        "raw_receipts_required",
+        "no_execution_skipping",
+        "no_receipt_deletion",
+        "no_representative_subset",
+        "no_raw_replay_replacement",
+        "no_gate_semantics_change",
+        "no_run_semantics_change",
+        "post_run_burden_comparison",
+        "verified_rollup_after_run",
+    ]:
+        if commitments.get(key) is not True:
+            failures.append(f"commitment_missing:{key}")
+
+    decision = payload.get("decision")
+    auth = payload.get("authorization") or {}
+
+    if decision == "LICENSE_R125_WITH_BURDEN_WATCH":
+        if auth.get("authorizes_R125_execution") is not True:
+            failures.append("licensed_decision_does_not_authorize_R125")
+        if auth.get("authorizes_exact_radius") != 125:
+            failures.append("licensed_decision_exact_radius_mismatch")
+        if not payload.get("watch_reasons"):
+            failures.append("burden_watch_decision_without_watch_reasons")
+    elif decision == "LICENSE_R125":
+        if auth.get("authorizes_R125_execution") is not True:
+            failures.append("licensed_decision_does_not_authorize_R125")
+        if auth.get("authorizes_exact_radius") != 125:
+            failures.append("licensed_decision_exact_radius_mismatch")
+    elif decision == "DO_NOT_LICENSE_R125_CANDIDATE_BUDGET_STOP":
+        if auth.get("authorizes_R125_execution") is not False:
+            failures.append("budget_stop_illegally_authorizes_R125")
+    else:
+        failures.append(f"candidate_decision_unexpected:{decision}")
+
+    for key in [
+        "authorizes_any_other_radius",
+        "authorizes_execution_skipping",
+        "authorizes_receipt_deletion",
+        "authorizes_representative_subset",
+        "authorizes_gate_semantics_change",
+        "authorizes_run_semantics_change",
+    ]:
+        if auth.get(key) is not False:
+            failures.append(f"illegal_authorization:{key}")
+
+    forbidden = payload.get("forbidden") or {}
+    for key in [
+        "radius_above_125",
+        "execution_skipping",
+        "receipt_deletion",
+        "representative_subset",
+        "raw_replay_replacement",
+        "gate_semantics_change",
+        "run_semantics_change",
+        "ontology_expansion",
+        "theorem_layer",
+        "hidden_trust_upgrade",
+    ]:
+        if forbidden.get(key) is not True:
+            failures.append(f"forbidden_clause_missing:{key}")
+
+    required_artifacts = set(payload.get("post_run_required_artifacts") or [])
+    for item in [
+        "radius_125_slot_separated_execution_summary",
+        "domain_shift_slot_observation_v0 for radius 125",
+        "R100_to_R125_burden_comparison",
+        "verified_R125_burden_rollup",
+        "post_R125_scale_decision",
+    ]:
+        if item not in required_artifacts:
+            failures.append(f"post_run_required_artifact_missing:{item}")
+
+    if "estimate_is_preflight_not_observation" not in (payload.get("known_limits") or []):
+        failures.append("known_limit_estimate_is_preflight_missing")
+
+    terminal = payload.get("terminal") or {}
+    if decision in {"LICENSE_R125", "LICENSE_R125_WITH_BURDEN_WATCH"}:
+        if terminal.get("next_command_goal") != "RUN_RADIUS_125_SLOT_SEPARATED_WITH_BURDEN_POLICY_V0":
+            failures.append("terminal_next_command_goal_mismatch")
+    else:
+        if terminal.get("type") != "STOP":
+            failures.append("stop_decision_terminal_type_mismatch")
+
+    return {
+        "gate": "FAIL" if failures else "PASS",
+        "failures": failures,
+        "warnings": warnings,
+    }
+
+
+
+@app.command("radius-expansion-candidate-decision")
+def radius_expansion_candidate_decision(
+    policy: str = typer.Argument(
+        "534f967f",
+        help="Radius expansion burden policy id or JSON path.",
+    ),
+    candidate_radius: int = typer.Option(
+        125,
+        "--candidate-radius",
+        help="Exact candidate radius. v0 only permits 125.",
+    ),
+):
+    """Build exact-radius candidate decision under burden policy."""
+
+    try:
+        payload = _radius_expansion_candidate_decision_payload(policy, candidate_radius)
+    except Exception as exc:
+        payload = {
+            "decision_kind": "RADIUS_EXPANSION_CANDIDATE_DECISION",
+            "source_policy": {
+                "id": policy,
+            },
+            "exact_next_radius": candidate_radius,
+            "decision": "STOP_CANDIDATE_DECISION_BUILD_FAIL",
+            "failures": [f"radius_expansion_candidate_decision_build_failed:{exc}"],
+            "warnings": [],
+            "gate": "FAIL",
+            "terminal": {
+                "type": "STOP",
+                "next_command_goal": None,
+                "stop_code": "STOP_CANDIDATE_DECISION_BUILD_FAIL",
+            },
+        }
+
+    out_path, payload = write_content_addressed_receipt(
+        payload,
+        "data/radius_expansion_candidate_decisions",
+        "radius_expansion_candidate_decision_schema_version",
+        RADIUS_EXPANSION_CANDIDATE_DECISION_SCHEMA,
+        "radius_expansion_candidate_decision_id",
+        "radius_expansion_candidate_decision_sig8",
+    )
+
+    typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+    typer.echo(f"radius_expansion_candidate_decision_path: {out_path}")
+
+    if payload.get("gate") != "PASS":
+        raise typer.Exit(code=1)
+
+
+@app.command("radius-expansion-candidate-decision-verify")
+def radius_expansion_candidate_decision_verify(
+    decision: str = typer.Argument(
+        ...,
+        help="Radius expansion candidate decision id or JSON path.",
+    ),
+):
+    """Reload and verify an exact-radius candidate decision."""
+
+    failures = []
+    warnings = []
+
+    try:
+        path = resolve_json_path(decision, "data/radius_expansion_candidate_decisions")
+        payload = json.loads(path.read_text())
+    except Exception as exc:
+        path = None
+        payload = {
+            "radius_expansion_candidate_decision_id": decision,
+        }
+        failures.append(f"radius_expansion_candidate_decision_unresolved:{decision}:{exc}")
+
+    recomputed_sig = None
+    if path is not None:
+        recomputed_sig = stable_sig(
+            payload,
+            "radius_expansion_candidate_decision_id",
+            "radius_expansion_candidate_decision_sig8",
+        )
+        if payload.get("radius_expansion_candidate_decision_sig8") != recomputed_sig:
+            failures.append("radius_expansion_candidate_decision_sig_mismatch")
+        if path.stem != payload.get("radius_expansion_candidate_decision_id"):
+            failures.append("radius_expansion_candidate_decision_filename_id_mismatch")
+
+        core = _radius_expansion_candidate_decision_verify_core(payload)
+        failures.extend(core.get("failures") or [])
+        warnings.extend(core.get("warnings") or [])
+
+    receipt = {
+        "input_decision": decision,
+        "radius_expansion_candidate_decision_id": payload.get("radius_expansion_candidate_decision_id"),
+        "radius_expansion_candidate_decision_path": str(path) if path else None,
+        "radius_expansion_candidate_decision_sig8": payload.get("radius_expansion_candidate_decision_sig8"),
+        "radius_expansion_candidate_decision_recomputed_sig8": recomputed_sig,
+        "source_policy_id": (payload.get("source_policy") or {}).get("id"),
+        "exact_next_radius": payload.get("exact_next_radius"),
+        "decision": payload.get("decision"),
+        "authorization": payload.get("authorization"),
+        "preflight_receipt_estimate": payload.get("preflight_receipt_estimate"),
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": None if failures else (payload.get("terminal") or {}).get("next_command_goal"),
+            "stop_code": "STOP_GATE_FAIL" if failures else None,
+        },
+        "verification_result": {
+            "gate": "FAIL" if failures else "PASS",
+            "failures": failures,
+            "warnings": warnings,
+        },
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+    }
+
+    out_path, receipt = write_content_addressed_receipt(
+        receipt,
+        "data/radius_expansion_candidate_decision_verifications",
+        "radius_expansion_candidate_decision_verification_schema_version",
+        RADIUS_EXPANSION_CANDIDATE_DECISION_VERIFICATION_SCHEMA,
+        "radius_expansion_candidate_decision_verification_id",
+        "radius_expansion_candidate_decision_verification_sig8",
+    )
+
+    typer.echo(json.dumps(receipt, indent=2, sort_keys=True))
+    typer.echo(f"radius_expansion_candidate_decision_verification_path: {out_path}")
+
+    if receipt.get("gate") != "PASS":
+        raise typer.Exit(code=1)
 
 
 
