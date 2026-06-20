@@ -3,6 +3,41 @@ from __future__ import annotations
 import hashlib
 import json
 import sqlite3
+
+# MatrixLab DB write burden fix v0.
+#
+# Scope:
+# - Configure SQLite connections for WAL + NORMAL synchronous where supported.
+# - Keep receipt rows authoritative and uncompressed.
+# - Do not alter receipt schema, law semantics, gate semantics, halt semantics,
+#   run semantics, or execution coverage.
+#
+# This is an infrastructure write-path change only. The post-apply gate is the
+# same micro burden suite plus before/after comparison against profile c89790f0.
+_MATRIXLAB_SQLITE_WAL_WARNINGS: list[str] = []
+
+
+def _matrixlab_connect_sqlite(*args, **kwargs):
+    con = sqlite3.connect(*args, **kwargs)
+    _matrixlab_configure_sqlite_write_connection(con)
+    return con
+
+
+def _matrixlab_configure_sqlite_write_connection(con):
+    try:
+        con.execute("PRAGMA journal_mode=WAL")
+    except Exception as exc:  # pragma: no cover - best-effort DB configuration
+        _MATRIXLAB_SQLITE_WAL_WARNINGS.append(f"journal_mode_WAL_failed:{type(exc).__name__}")
+    try:
+        con.execute("PRAGMA synchronous=NORMAL")
+    except Exception as exc:  # pragma: no cover - best-effort DB configuration
+        _MATRIXLAB_SQLITE_WAL_WARNINGS.append(f"synchronous_NORMAL_failed:{type(exc).__name__}")
+    try:
+        con.execute("PRAGMA busy_timeout=5000")
+    except Exception as exc:  # pragma: no cover - best-effort DB configuration
+        _MATRIXLAB_SQLITE_WAL_WARNINGS.append(f"busy_timeout_failed:{type(exc).__name__}")
+    return con
+
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
@@ -370,7 +405,7 @@ def apply_move(a: np.ndarray, family: str, cycle_n: int) -> tuple[np.ndarray, st
 def init_db() -> None:
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 
-    with sqlite3.connect(DB_PATH) as con:
+    with _matrixlab_connect_sqlite(DB_PATH) as con:
         con.execute(
             """
             create table if not exists runs (
@@ -456,7 +491,7 @@ def insert_run_start(
 ) -> None:
     init_db()
 
-    with sqlite3.connect(DB_PATH) as con:
+    with _matrixlab_connect_sqlite(DB_PATH) as con:
         con.execute(
             """
             insert or replace into runs (
@@ -730,7 +765,7 @@ def _ml_progress_phase(phase, *, extra=None):
 
 def insert_receipt(receipt: dict) -> None:
     _ml_progress_after_receipt(receipt)
-    with sqlite3.connect(DB_PATH) as con:
+    with _matrixlab_connect_sqlite(DB_PATH) as con:
         con.execute(
             """
             insert or replace into receipts (
@@ -785,7 +820,7 @@ def insert_receipt(receipt: dict) -> None:
 
 
 def finish_run(run_id: str, status: str, total_cases: int, total_receipts: int) -> None:
-    with sqlite3.connect(DB_PATH) as con:
+    with _matrixlab_connect_sqlite(DB_PATH) as con:
         con.execute(
             """
             update runs
@@ -798,7 +833,7 @@ def finish_run(run_id: str, status: str, total_cases: int, total_receipts: int) 
 
 def latest_run_id() -> str:
     init_db()
-    with sqlite3.connect(DB_PATH) as con:
+    with _matrixlab_connect_sqlite(DB_PATH) as con:
         row = con.execute(
             """
             select run_id
@@ -836,7 +871,7 @@ def parse_families(families: str) -> list[str]:
 def run_id_exists(run_id: str) -> bool:
     init_db()
 
-    with sqlite3.connect(DB_PATH) as con:
+    with _matrixlab_connect_sqlite(DB_PATH) as con:
         found = con.execute(
             "select 1 from runs where run_id = ? limit 1",
             (run_id,),
@@ -1131,7 +1166,7 @@ def summarize(run_id: str = typer.Argument("latest")):
     if run_id == "latest":
         run_id = latest_run_id()
 
-    with sqlite3.connect(DB_PATH) as con:
+    with _matrixlab_connect_sqlite(DB_PATH) as con:
         run_row = con.execute(
             """
             select run_id, created_utc, status, families, depth_min, depth_max,
@@ -1215,7 +1250,7 @@ def inspect(
     if run_id == "latest":
         run_id = latest_run_id()
 
-    with sqlite3.connect(DB_PATH) as con:
+    with _matrixlab_connect_sqlite(DB_PATH) as con:
         if cycle is None:
             rows = con.execute(
                 """
@@ -1296,7 +1331,7 @@ def analyze(run_id: str = typer.Argument("latest")):
     if run_id == "latest":
         run_id = latest_run_id()
 
-    with sqlite3.connect(DB_PATH) as con:
+    with _matrixlab_connect_sqlite(DB_PATH) as con:
         halt_by_family = con.execute(
             """
             select family, halt_reason, count(*)
@@ -1428,7 +1463,7 @@ def profiles(
         family_clause = "and family = ?"
         params.append(family)
 
-    with sqlite3.connect(DB_PATH) as con:
+    with _matrixlab_connect_sqlite(DB_PATH) as con:
         rows = con.execute(
             f"""
             select
@@ -1488,7 +1523,7 @@ def coarse_profiles(
     if run_id == "latest":
         run_id = latest_run_id()
 
-    with sqlite3.connect(DB_PATH) as con:
+    with _matrixlab_connect_sqlite(DB_PATH) as con:
         family_counts = con.execute(
             """
             select
@@ -1598,7 +1633,7 @@ def laws(
     if run_id == "latest":
         run_id = latest_run_id()
 
-    with sqlite3.connect(DB_PATH) as con:
+    with _matrixlab_connect_sqlite(DB_PATH) as con:
         rows = con.execute(
             """
             select family, law_id, law_ok, count(*)
@@ -1664,7 +1699,7 @@ def recover_collision(run_id: str = typer.Argument("latest")):
     if run_id == "latest":
         run_id = latest_run_id()
 
-    with sqlite3.connect(DB_PATH) as con:
+    with _matrixlab_connect_sqlite(DB_PATH) as con:
         con.row_factory = sqlite3.Row
 
         run_row = con.execute(
@@ -1771,7 +1806,7 @@ def recover_collision(run_id: str = typer.Argument("latest")):
         )
         con.commit()
 
-    with sqlite3.connect(DB_PATH) as con:
+    with _matrixlab_connect_sqlite(DB_PATH) as con:
         con.row_factory = sqlite3.Row
 
         recovered_stats = con.execute(
@@ -1896,7 +1931,7 @@ def gate(run_id: str = typer.Argument("latest")):
     if run_id == "latest":
         run_id = latest_run_id()
 
-    with sqlite3.connect(DB_PATH) as con:
+    with _matrixlab_connect_sqlite(DB_PATH) as con:
         run_row = con.execute(
             "select status, total_cases, total_receipts from runs where run_id = ?",
             (run_id,),
@@ -2015,7 +2050,7 @@ def agent_eval(
         )
 
     def collect(run: str) -> dict:
-        with sqlite3.connect(DB_PATH) as con:
+        with _matrixlab_connect_sqlite(DB_PATH) as con:
             con.row_factory = sqlite3.Row
             cols = table_columns(con, "receipts")
 
@@ -4469,7 +4504,7 @@ def agent_cheat_check(
 
     independent_sql_summary = {}
     if db_path.exists() and baseline_run_id:
-        con = sqlite3.connect(db_path)
+        con = _matrixlab_connect_sqlite(db_path)
         con.row_factory = sqlite3.Row
 
         run_row = con.execute(
@@ -4968,7 +5003,7 @@ def agent_cheat_adversarial(
         failures.append("registry_db_missing")
 
     def summarize_db(sqlite_path, run_id):
-        con = sqlite3.connect(sqlite_path)
+        con = _matrixlab_connect_sqlite(sqlite_path)
         con.row_factory = sqlite3.Row
 
         run_row = con.execute(
@@ -5109,7 +5144,7 @@ def agent_cheat_adversarial(
             if temp_db_summary != baseline_sql_summary:
                 failures.append("temp_db_copy_summary_mismatch")
 
-            con = sqlite3.connect(temp_db)
+            con = _matrixlab_connect_sqlite(temp_db)
             con.row_factory = sqlite3.Row
 
             # 1. Real temp DB law failure mutation.
@@ -5140,7 +5175,7 @@ def agent_cheat_adversarial(
             )
             con.close()
             shutil.copy2(db_path, temp_db)
-            con = sqlite3.connect(temp_db)
+            con = _matrixlab_connect_sqlite(temp_db)
             con.row_factory = sqlite3.Row
 
             # 2. Real temp DB unknown law mutation.
@@ -5171,7 +5206,7 @@ def agent_cheat_adversarial(
             )
             con.close()
             shutil.copy2(db_path, temp_db)
-            con = sqlite3.connect(temp_db)
+            con = _matrixlab_connect_sqlite(temp_db)
             con.row_factory = sqlite3.Row
 
             # 3. Real temp DB receipt deletion mutation.
@@ -5202,7 +5237,7 @@ def agent_cheat_adversarial(
             )
             con.close()
             shutil.copy2(db_path, temp_db)
-            con = sqlite3.connect(temp_db)
+            con = _matrixlab_connect_sqlite(temp_db)
             con.row_factory = sqlite3.Row
 
             # 4. Real temp DB novelty insertion mutation.
@@ -5272,7 +5307,7 @@ def agent_cheat_adversarial(
             )
             con.close()
             shutil.copy2(db_path, temp_db)
-            con = sqlite3.connect(temp_db)
+            con = _matrixlab_connect_sqlite(temp_db)
             con.row_factory = sqlite3.Row
 
             # 5. Real in-memory ledger chain mutation.
@@ -8198,7 +8233,7 @@ def _receipt_rollup_contract_slot_runs_from_obs_body(body):
 
 
 def _receipt_rollup_contract_count_raw_receipts_for_run(run_id):
-    con = sqlite3.connect("data/runs/registry.sqlite")
+    con = _matrixlab_connect_sqlite("data/runs/registry.sqlite")
     try:
         row = con.execute(
             "select count(*) from receipts where run_id=?",
