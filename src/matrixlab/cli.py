@@ -7440,12 +7440,20 @@ def domain_shift_slot_observe(
         terminal_type = "STOP"
     elif aggregate_coarse_total == source_coarse_total:
         outcome = "MEASUREMENT_TRANSFER_STABLE_CURVE"
-        next_goal = "DECIDE_SCALE_RADIUS_OR_FREEZE_RADIUS_50_CELL1_OBSERVATION"
+        next_goal = (
+            "DECIDE_SCALE_RADIUS_OR_FREEZE_RADIUS_50_CELL1_OBSERVATION"
+            if execution.get("radius") == 50
+            else "BUILD_RADIUS_SCALE_OBSERVATION_V0"
+        )
         stop_code = None
         terminal_type = "ADVANCE"
     else:
         outcome = "MEASUREMENT_TRANSFER_DIFFERENT_CURVE"
-        next_goal = "DECIDE_SCALE_RADIUS_OR_FREEZE_RADIUS_50_CELL1_OBSERVATION"
+        next_goal = (
+            "DECIDE_SCALE_RADIUS_OR_FREEZE_RADIUS_50_CELL1_OBSERVATION"
+            if execution.get("radius") == 50
+            else "BUILD_RADIUS_SCALE_OBSERVATION_V0"
+        )
         stop_code = None
         terminal_type = "ADVANCE"
 
@@ -7502,7 +7510,7 @@ def domain_shift_slot_observe(
             "repeated_family_inconsistencies": repeated_family_inconsistencies,
         },
         "outcome": outcome,
-        "confidence_scope": "RADIUS_50_SLOT_SEPARATED_PROBE_ONLY",
+        "confidence_scope": f"RADIUS_{execution.get('radius')}_SLOT_SEPARATED_PROBE_ONLY",
     }
 
     payload = {
