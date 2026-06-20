@@ -88,6 +88,8 @@ RADIUS_SCALE_OBSERVATION_SCHEMA = "radius_scale_observation_v0"
 RADIUS_SCALE_OBSERVATION_VERIFICATION_SCHEMA = "radius_scale_observation_verification_v0"
 R75_SCALE_DECISION_SCHEMA = "r75_scale_decision_v0"
 R75_SCALE_DECISION_VERIFICATION_SCHEMA = "r75_scale_decision_verification_v0"
+R100_RADIUS_SCALE_OBSERVATION_SCHEMA = "r100_radius_scale_observation_v0"
+R100_RADIUS_SCALE_OBSERVATION_VERIFICATION_SCHEMA = "r100_radius_scale_observation_verification_v0"
 
 
 def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
@@ -7711,6 +7713,574 @@ def _r75_scale_decision_verify_core(payload):
         "failures": failures,
         "warnings": warnings,
     }
+
+
+
+def _r100_receipt_sum(obs_body):
+    return sum(int(row.get("total_receipts") or 0) for row in (obs_body.get("aggregate_by_family") or {}).values())
+
+
+def _r100_receipt_rows_sum(obs_body):
+    return sum(int(row.get("receipt_rows") or 0) for row in (obs_body.get("aggregate_by_family") or {}).values())
+
+
+def _r100_obs_brief(obs):
+    body = obs.get("observation") or {}
+    return {
+        "id": obs.get("domain_shift_slot_observation_id"),
+        "gate": obs.get("gate"),
+        "radius": body.get("radius"),
+        "confidence_scope": body.get("confidence_scope"),
+        "slot_count_expected": body.get("slot_count_expected"),
+        "slot_count_observed": body.get("slot_count_observed"),
+        "aggregate_coarse_profiles_total": body.get("aggregate_coarse_profiles_total"),
+        "aggregate_raw_total_by_slot_sum": body.get("aggregate_raw_total_by_slot_sum"),
+        "total_receipts_sum": _r100_receipt_sum(body),
+        "receipt_rows_sum": _r100_receipt_rows_sum(body),
+        "measurement_cleanliness": body.get("measurement_cleanliness"),
+        "repeated_family_consistency": body.get("repeated_family_consistency"),
+        "semantic_pressure": body.get("semantic_pressure"),
+        "semantic_pressure_detected": body.get("semantic_pressure_detected"),
+        "aggregate_coarse_profiles": body.get("aggregate_coarse_profiles") or {},
+        "aggregate_by_move": body.get("aggregate_by_move") or {},
+    }
+
+
+def _r100_pair_delta(left_brief, right_brief):
+    left_radius = left_brief.get("radius")
+    right_radius = right_brief.get("radius")
+
+    return {
+        "radius": _radius_scale_observation_metric_delta(left_radius, right_radius),
+        "aggregate_coarse_profiles_total": _radius_scale_observation_metric_delta(
+            left_brief.get("aggregate_coarse_profiles_total"),
+            right_brief.get("aggregate_coarse_profiles_total"),
+        ),
+        "aggregate_raw_total_by_slot_sum": _radius_scale_observation_metric_delta(
+            left_brief.get("aggregate_raw_total_by_slot_sum"),
+            right_brief.get("aggregate_raw_total_by_slot_sum"),
+        ),
+        "total_receipts_sum": _radius_scale_observation_metric_delta(
+            left_brief.get("total_receipts_sum"),
+            right_brief.get("total_receipts_sum"),
+        ),
+        "receipt_rows_sum": _radius_scale_observation_metric_delta(
+            left_brief.get("receipt_rows_sum"),
+            right_brief.get("receipt_rows_sum"),
+        ),
+        "shape_delta": _radius_scale_observation_shape_delta(
+            left_brief.get("aggregate_coarse_profiles") or {},
+            right_brief.get("aggregate_coarse_profiles") or {},
+        ),
+        "aggregate_by_move_delta": {
+            key: {
+                "left": (left_brief.get("aggregate_by_move") or {}).get(key, 0),
+                "right": (right_brief.get("aggregate_by_move") or {}).get(key, 0),
+                "delta": (right_brief.get("aggregate_by_move") or {}).get(key, 0)
+                - (left_brief.get("aggregate_by_move") or {}).get(key, 0),
+            }
+            for key in sorted(
+                set((left_brief.get("aggregate_by_move") or {}).keys())
+                | set((right_brief.get("aggregate_by_move") or {}).keys())
+            )
+        },
+    }
+
+
+def _r100_burden_class(pair_delta):
+    receipt_ratio = (pair_delta.get("total_receipts_sum") or {}).get("ratio_vs_r50")
+    radius_ratio = (pair_delta.get("radius") or {}).get("ratio_vs_r50")
+    raw_ratio = (pair_delta.get("aggregate_raw_total_by_slot_sum") or {}).get("ratio_vs_r50")
+
+    if receipt_ratio is None or radius_ratio is None or raw_ratio is None:
+        return "BURDEN_UNCLASSIFIED"
+
+    if receipt_ratio <= radius_ratio * 1.10:
+        return "BURDEN_APPROX_RADIUS_LINEAR"
+
+    if receipt_ratio <= radius_ratio * 1.75:
+        return "BURDEN_SUPERLINEAR_WATCH"
+
+    return "BURDEN_SUPERLINEAR_REQUIRES_GUARD"
+
+
+def _r100_curve_class(pair_delta):
+    coarse_delta = (pair_delta.get("aggregate_coarse_profiles_total") or {}).get("delta")
+    shape_delta = pair_delta.get("shape_delta") or {}
+
+    if shape_delta.get("added_shapes"):
+        return "NEW_SHAPE_OBSERVED"
+    if shape_delta.get("missing_shapes"):
+        return "MISSING_SHAPE_OBSERVED"
+    if shape_delta.get("shape_set_same") is True and coarse_delta == 0:
+        if shape_delta.get("shape_counts_same") is True:
+            return "SAME_SHAPES_SAME_COUNTS"
+        return "SAME_SHAPES_COUNT_SHIFT"
+    return "UNCLASSIFIED_CURVE"
+
+
+def _r100_terminal_decision(r50_75, r75_100, r50_100, r100_brief):
+    if r100_brief.get("gate") != "PASS":
+        return "STOP_R100_MEASUREMENT_FAILURE"
+
+    clean = r100_brief.get("measurement_cleanliness") or {}
+    if not _scalability_contract_clean_measurement(clean):
+        return "STOP_R100_MEASUREMENT_FAILURE"
+
+    if not _scalability_contract_clean_repeated_family_consistency(r100_brief.get("repeated_family_consistency") or {}):
+        return "STOP_R100_IDENTITY_DISTINGUISHABILITY_DEFICIT"
+
+    if r100_brief.get("semantic_pressure_detected") is not False:
+        return "STOP_R100_ONTOLOGY_PRESSURE"
+
+    curve_75_100 = _r100_curve_class(r75_100)
+    burden_75_100 = _r100_burden_class(r75_100)
+    burden_50_100 = _r100_burden_class(r50_100)
+
+    if curve_75_100 in {"NEW_SHAPE_OBSERVED", "MISSING_SHAPE_OBSERVED"}:
+        return "STOP_R100_CURVE_CHANGED_REQUIRES_DISCUSSION"
+
+    if burden_75_100 == "BURDEN_SUPERLINEAR_REQUIRES_GUARD":
+        return "STOP_R100_BURDEN_SUPERLINEAR_REQUIRES_DECISION"
+
+    if burden_50_100 == "BURDEN_SUPERLINEAR_REQUIRES_GUARD":
+        return "STOP_R100_BURDEN_ENVELOPE_REQUIRES_DECISION"
+
+    if burden_75_100 == "BURDEN_SUPERLINEAR_WATCH":
+        return "PROVISIONAL_R75_R100_ENVELOPE"
+
+    if burden_75_100 == "BURDEN_APPROX_RADIUS_LINEAR":
+        return "R100_STABLE_BUT_DISCUSS_BEFORE_R125"
+
+    return "STOP_R100_UNCLASSIFIED_BURDEN"
+
+
+def _r100_radius_scale_observation_payload(
+    r100_observation_id,
+    decision_id,
+    r75_radius_scale_observation_id,
+):
+    failures = []
+    warnings = []
+
+    decision_path = resolve_json_path(decision_id, "data/radius_scale_decisions")
+    decision = json.loads(decision_path.read_text())
+    decision_sig = stable_sig(decision, "r75_scale_decision_id", "r75_scale_decision_sig8")
+
+    if decision.get("r75_scale_decision_sig8") != decision_sig:
+        failures.append("r75_scale_decision_sig_mismatch")
+
+    decision_core = _r75_scale_decision_verify_core(decision)
+    if decision_core.get("gate") != "PASS":
+        failures.append("r75_scale_decision_core_verify_not_PASS")
+        failures.extend(decision_core.get("failures") or [])
+
+    r75_rso_path = resolve_json_path(r75_radius_scale_observation_id, "data/radius_scale_observations")
+    r75_rso = json.loads(r75_rso_path.read_text())
+    r75_rso_sig = stable_sig(r75_rso, "radius_scale_observation_id", "radius_scale_observation_sig8")
+
+    if r75_rso.get("radius_scale_observation_sig8") != r75_rso_sig:
+        failures.append("r75_radius_scale_observation_sig_mismatch")
+
+    r75_rso_core = _radius_scale_observation_verify_core(r75_rso)
+    if r75_rso_core.get("gate") != "PASS":
+        failures.append("r75_radius_scale_observation_core_verify_not_PASS")
+        failures.extend(r75_rso_core.get("failures") or [])
+
+    r50_id = r75_rso.get("radius_50_observation_id")
+    r75_id = r75_rso.get("radius_75_observation_id")
+
+    r50_path = resolve_json_path(r50_id, "data/domain_shift_slot_observations")
+    r75_path = resolve_json_path(r75_id, "data/domain_shift_slot_observations")
+    r100_path = resolve_json_path(r100_observation_id, "data/domain_shift_slot_observations")
+
+    r50_obs = json.loads(r50_path.read_text())
+    r75_obs = json.loads(r75_path.read_text())
+    r100_obs = json.loads(r100_path.read_text())
+
+    r50_sig = stable_sig(r50_obs, "domain_shift_slot_observation_id", "domain_shift_slot_observation_payload_sig8")
+    r75_sig = stable_sig(r75_obs, "domain_shift_slot_observation_id", "domain_shift_slot_observation_payload_sig8")
+    r100_sig = stable_sig(r100_obs, "domain_shift_slot_observation_id", "domain_shift_slot_observation_payload_sig8")
+
+    for label, obs, sig in [
+        ("r50", r50_obs, r50_sig),
+        ("r75", r75_obs, r75_sig),
+        ("r100", r100_obs, r100_sig),
+    ]:
+        if obs.get("domain_shift_slot_observation_payload_sig8") != sig:
+            failures.append(f"{label}_observation_sig_mismatch")
+        if obs.get("gate") != "PASS":
+            failures.append(f"{label}_observation_gate_not_PASS")
+
+    r50 = _r100_obs_brief(r50_obs)
+    r75 = _r100_obs_brief(r75_obs)
+    r100 = _r100_obs_brief(r100_obs)
+
+    if r50.get("radius") != 50:
+        failures.append(f"r50_radius_not_50:{r50.get('radius')}")
+    if r75.get("radius") != 75:
+        failures.append(f"r75_radius_not_75:{r75.get('radius')}")
+    if r100.get("radius") != 100:
+        failures.append(f"r100_radius_not_100:{r100.get('radius')}")
+
+    if r100.get("confidence_scope") != "RADIUS_100_SLOT_SEPARATED_PROBE_ONLY":
+        failures.append("r100_confidence_scope_mismatch")
+
+    for label, brief in [("r50", r50), ("r75", r75), ("r100", r100)]:
+        if brief.get("slot_count_expected") != 9 or brief.get("slot_count_observed") != 9:
+            failures.append(f"{label}_slot_count_not_9")
+        if not _scalability_contract_clean_measurement(brief.get("measurement_cleanliness") or {}):
+            failures.append(f"{label}_measurement_not_clean")
+        if not _scalability_contract_clean_repeated_family_consistency(brief.get("repeated_family_consistency") or {}):
+            failures.append(f"{label}_repeated_family_not_clean")
+        if brief.get("semantic_pressure_detected") is not False:
+            failures.append(f"{label}_semantic_pressure_not_false")
+        if brief.get("total_receipts_sum") != brief.get("receipt_rows_sum"):
+            failures.append(f"{label}_receipt_sum_rows_mismatch")
+
+    r50_75 = _r100_pair_delta(r50, r75)
+    r75_100 = _r100_pair_delta(r75, r100)
+    r50_100 = _r100_pair_delta(r50, r100)
+
+    classes = {
+        "r50_to_r75_curve_class": _r100_curve_class(r50_75),
+        "r75_to_r100_curve_class": _r100_curve_class(r75_100),
+        "r50_to_r100_curve_class": _r100_curve_class(r50_100),
+        "r50_to_r75_burden_class": _r100_burden_class(r50_75),
+        "r75_to_r100_burden_class": _r100_burden_class(r75_100),
+        "r50_to_r100_burden_class": _r100_burden_class(r50_100),
+        "measurement_class": "MEASUREMENT_CLEAN",
+        "semantic_pressure_class": "NO_SEMANTIC_PRESSURE",
+        "resource_class": "NO_RESOURCE_BOUNDARY",
+        "identity_class": "REPEATED_FAMILY_CONSISTENT",
+    }
+
+    terminal_decision = _r100_terminal_decision(r50_75, r75_100, r50_100, r100)
+
+    if failures:
+        terminal_decision = "STOP_R100_RADIUS_SCALE_OBSERVATION_GATE_FAIL"
+
+    observation = {
+        "source_decision": {
+            "id": decision.get("r75_scale_decision_id"),
+            "path": str(decision_path),
+            "stored_sig": decision.get("r75_scale_decision_sig8"),
+            "recomputed_sig": decision_sig,
+            "gate": decision.get("gate"),
+            "decision": decision.get("decision"),
+        },
+        "source_r75_radius_scale_observation": {
+            "id": r75_rso.get("radius_scale_observation_id"),
+            "path": str(r75_rso_path),
+            "stored_sig": r75_rso.get("radius_scale_observation_sig8"),
+            "recomputed_sig": r75_rso_sig,
+            "gate": r75_rso.get("gate"),
+            "terminal_decision": r75_rso.get("terminal_decision"),
+        },
+        "radius_observations": {
+            "r50": {
+                "id": r50_obs.get("domain_shift_slot_observation_id"),
+                "path": str(r50_path),
+                "stored_sig": r50_obs.get("domain_shift_slot_observation_payload_sig8"),
+                "recomputed_sig": r50_sig,
+                "gate": r50_obs.get("gate"),
+            },
+            "r75": {
+                "id": r75_obs.get("domain_shift_slot_observation_id"),
+                "path": str(r75_path),
+                "stored_sig": r75_obs.get("domain_shift_slot_observation_payload_sig8"),
+                "recomputed_sig": r75_sig,
+                "gate": r75_obs.get("gate"),
+            },
+            "r100": {
+                "id": r100_obs.get("domain_shift_slot_observation_id"),
+                "path": str(r100_path),
+                "stored_sig": r100_obs.get("domain_shift_slot_observation_payload_sig8"),
+                "recomputed_sig": r100_sig,
+                "gate": r100_obs.get("gate"),
+            },
+        },
+        "r50": {
+            k: v for k, v in r50.items()
+            if k not in {"aggregate_coarse_profiles", "aggregate_by_move"}
+        },
+        "r75": {
+            k: v for k, v in r75.items()
+            if k not in {"aggregate_coarse_profiles", "aggregate_by_move"}
+        },
+        "r100": {
+            k: v for k, v in r100.items()
+            if k not in {"aggregate_coarse_profiles", "aggregate_by_move"}
+        },
+        "trajectory": {
+            "r50_to_r75": r50_75,
+            "r75_to_r100": r75_100,
+            "r50_to_r100": r50_100,
+        },
+        "first_order_classes": classes,
+        "burden_guard_eval": {
+            "source_decision_id": decision.get("r75_scale_decision_id"),
+            "guard_was_enabled": (decision.get("burden_guard_v0") or {}).get("enabled"),
+            "r75_guard_reason": (decision.get("burden_guard_v0") or {}).get("reason"),
+            "r75_to_r100_receipt_ratio": (r75_100.get("total_receipts_sum") or {}).get("ratio_vs_r50"),
+            "r75_to_r100_radius_ratio": (r75_100.get("radius") or {}).get("ratio_vs_r50"),
+            "r75_to_r100_raw_ratio": (r75_100.get("aggregate_raw_total_by_slot_sum") or {}).get("ratio_vs_r50"),
+            "r75_to_r100_burden_class": classes["r75_to_r100_burden_class"],
+            "r50_to_r100_receipt_ratio": (r50_100.get("total_receipts_sum") or {}).get("ratio_vs_r50"),
+            "r50_to_r100_radius_ratio": (r50_100.get("radius") or {}).get("ratio_vs_r50"),
+            "r50_to_r100_raw_ratio": (r50_100.get("aggregate_raw_total_by_slot_sum") or {}).get("ratio_vs_r50"),
+            "r50_to_r100_burden_class": classes["r50_to_r100_burden_class"],
+        },
+        "forbidden": {
+            "compression": True,
+            "receipt_skipping": True,
+            "representative_subset": True,
+            "gate_semantics_change": True,
+            "run_semantics_change": True,
+            "ontology_expansion": True,
+            "theorem_layer": True,
+        },
+        "terminal_decision": terminal_decision,
+    }
+
+    payload = {
+        "source_r75_scale_decision_id": decision.get("r75_scale_decision_id"),
+        "source_r75_radius_scale_observation_id": r75_rso.get("radius_scale_observation_id"),
+        "radius_50_observation_id": r50_obs.get("domain_shift_slot_observation_id"),
+        "radius_75_observation_id": r75_obs.get("domain_shift_slot_observation_id"),
+        "radius_100_observation_id": r100_obs.get("domain_shift_slot_observation_id"),
+        "observation": observation,
+        "terminal_decision": terminal_decision,
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if terminal_decision.startswith("STOP_") else "ADVANCE",
+            "next_command_goal": None
+            if terminal_decision.startswith("STOP_")
+            else "DECIDE_R100_SCALE_OUTCOME_OR_NEXT_RADIUS_V0",
+            "stop_code": terminal_decision if terminal_decision.startswith("STOP_") else None,
+        },
+    }
+
+    return payload
+
+
+def _r100_radius_scale_observation_verify_core(payload):
+    failures = []
+    warnings = []
+
+    if payload.get("gate") != "PASS":
+        failures.append("r100_radius_scale_observation_gate_not_PASS")
+
+    obs = payload.get("observation") or {}
+    classes = obs.get("first_order_classes") or {}
+    burden_guard = obs.get("burden_guard_eval") or {}
+
+    if payload.get("radius_50_observation_id") != "566a342b":
+        warnings.append("r50_observation_id_not_canonical_current_baseline")
+
+    if (obs.get("r50") or {}).get("radius") != 50:
+        failures.append("r50_radius_not_50")
+    if (obs.get("r75") or {}).get("radius") != 75:
+        failures.append("r75_radius_not_75")
+    if (obs.get("r100") or {}).get("radius") != 100:
+        failures.append("r100_radius_not_100")
+
+    for label in ["r50", "r75", "r100"]:
+        brief = obs.get(label) or {}
+        if brief.get("slot_count_expected") != 9 or brief.get("slot_count_observed") != 9:
+            failures.append(f"{label}_slot_count_not_9")
+        if brief.get("total_receipts_sum") != brief.get("receipt_rows_sum"):
+            failures.append(f"{label}_receipt_sum_rows_mismatch")
+
+    if classes.get("r75_to_r100_curve_class") not in {
+        "SAME_SHAPES_SAME_COUNTS",
+        "SAME_SHAPES_COUNT_SHIFT",
+        "NEW_SHAPE_OBSERVED",
+        "MISSING_SHAPE_OBSERVED",
+    }:
+        failures.append("r75_to_r100_curve_class_invalid")
+
+    if classes.get("r75_to_r100_burden_class") not in {
+        "BURDEN_APPROX_RADIUS_LINEAR",
+        "BURDEN_SUPERLINEAR_WATCH",
+        "BURDEN_SUPERLINEAR_REQUIRES_GUARD",
+    }:
+        failures.append("r75_to_r100_burden_class_invalid")
+
+    if burden_guard.get("guard_was_enabled") is not True:
+        failures.append("burden_guard_was_not_enabled")
+
+    if payload.get("terminal_decision") not in {
+        "STOP_R100_MEASUREMENT_FAILURE",
+        "STOP_R100_IDENTITY_DISTINGUISHABILITY_DEFICIT",
+        "STOP_R100_ONTOLOGY_PRESSURE",
+        "STOP_R100_CURVE_CHANGED_REQUIRES_DISCUSSION",
+        "STOP_R100_BURDEN_SUPERLINEAR_REQUIRES_DECISION",
+        "STOP_R100_BURDEN_ENVELOPE_REQUIRES_DECISION",
+        "STOP_R100_UNCLASSIFIED_BURDEN",
+        "STOP_R100_RADIUS_SCALE_OBSERVATION_GATE_FAIL",
+        "PROVISIONAL_R75_R100_ENVELOPE",
+        "R100_STABLE_BUT_DISCUSS_BEFORE_R125",
+    }:
+        failures.append(f"terminal_decision_invalid:{payload.get('terminal_decision')}")
+
+    terminal = payload.get("terminal") or {}
+    if payload.get("terminal_decision", "").startswith("STOP_"):
+        if terminal.get("type") != "STOP":
+            failures.append("stop_terminal_type_mismatch")
+    else:
+        if terminal.get("next_command_goal") != "DECIDE_R100_SCALE_OUTCOME_OR_NEXT_RADIUS_V0":
+            failures.append("terminal_next_command_goal_mismatch")
+
+    return {
+        "gate": "FAIL" if failures else "PASS",
+        "failures": failures,
+        "warnings": warnings,
+    }
+
+
+
+@app.command("r100-radius-scale-observation")
+def r100_radius_scale_observation(
+    r100_observation: str = typer.Argument(
+        "5a442f0c",
+        help="R100 domain shift slot observation id or JSON path.",
+    ),
+    decision: str = typer.Option(
+        "0bbd1bbd",
+        "--decision",
+        help="R75 scale decision id or JSON path.",
+    ),
+    r75_radius_scale_observation: str = typer.Option(
+        "b9420863",
+        "--r75-rso",
+        help="R50-to-R75 radius scale observation id or JSON path.",
+    ),
+):
+    """Build the R50/R75/R100 scale observation with explicit burden evaluation."""
+
+    try:
+        payload = _r100_radius_scale_observation_payload(
+            r100_observation,
+            decision,
+            r75_radius_scale_observation,
+        )
+    except Exception as exc:
+        payload = {
+            "source_r75_scale_decision_id": decision,
+            "source_r75_radius_scale_observation_id": r75_radius_scale_observation,
+            "radius_50_observation_id": None,
+            "radius_75_observation_id": None,
+            "radius_100_observation_id": r100_observation,
+            "observation": {},
+            "terminal_decision": "STOP_R100_RADIUS_SCALE_OBSERVATION_BUILD_FAIL",
+            "failures": [f"r100_radius_scale_observation_build_failed:{exc}"],
+            "warnings": [],
+            "gate": "FAIL",
+            "terminal": {
+                "type": "STOP",
+                "next_command_goal": None,
+                "stop_code": "STOP_R100_RADIUS_SCALE_OBSERVATION_BUILD_FAIL",
+            },
+        }
+
+    out_path, payload = write_content_addressed_receipt(
+        payload,
+        "data/r100_radius_scale_observations",
+        "r100_radius_scale_observation_schema_version",
+        R100_RADIUS_SCALE_OBSERVATION_SCHEMA,
+        "r100_radius_scale_observation_id",
+        "r100_radius_scale_observation_sig8",
+    )
+
+    typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+    typer.echo(f"r100_radius_scale_observation_path: {out_path}")
+
+    if payload.get("gate") != "PASS":
+        raise typer.Exit(code=1)
+
+
+@app.command("r100-radius-scale-observation-verify")
+def r100_radius_scale_observation_verify(
+    r100_radius_scale_observation: str = typer.Argument(
+        ...,
+        help="R100 radius scale observation id or JSON path.",
+    ),
+):
+    """Reload and verify an R100 radius scale observation."""
+
+    failures = []
+    warnings = []
+
+    try:
+        path = resolve_json_path(r100_radius_scale_observation, "data/r100_radius_scale_observations")
+        payload = json.loads(path.read_text())
+    except Exception as exc:
+        path = None
+        payload = {
+            "r100_radius_scale_observation_id": r100_radius_scale_observation,
+        }
+        failures.append(f"r100_radius_scale_observation_unresolved:{r100_radius_scale_observation}:{exc}")
+
+    recomputed_sig = None
+    if path is not None:
+        recomputed_sig = stable_sig(
+            payload,
+            "r100_radius_scale_observation_id",
+            "r100_radius_scale_observation_sig8",
+        )
+        if payload.get("r100_radius_scale_observation_sig8") != recomputed_sig:
+            failures.append("r100_radius_scale_observation_sig_mismatch")
+        if path.stem != payload.get("r100_radius_scale_observation_id"):
+            failures.append("r100_radius_scale_observation_filename_id_mismatch")
+
+        core = _r100_radius_scale_observation_verify_core(payload)
+        failures.extend(core.get("failures") or [])
+        warnings.extend(core.get("warnings") or [])
+
+    receipt = {
+        "input_r100_radius_scale_observation": r100_radius_scale_observation,
+        "r100_radius_scale_observation_id": payload.get("r100_radius_scale_observation_id"),
+        "r100_radius_scale_observation_path": str(path) if path else None,
+        "r100_radius_scale_observation_sig8": payload.get("r100_radius_scale_observation_sig8"),
+        "r100_radius_scale_observation_recomputed_sig8": recomputed_sig,
+        "source_r75_scale_decision_id": payload.get("source_r75_scale_decision_id"),
+        "source_r75_radius_scale_observation_id": payload.get("source_r75_radius_scale_observation_id"),
+        "radius_50_observation_id": payload.get("radius_50_observation_id"),
+        "radius_75_observation_id": payload.get("radius_75_observation_id"),
+        "radius_100_observation_id": payload.get("radius_100_observation_id"),
+        "terminal_decision": payload.get("terminal_decision"),
+        "verification_result": {
+            "gate": "FAIL" if failures else "PASS",
+            "failures": failures,
+            "warnings": warnings,
+        },
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": None if failures else "DECIDE_R100_SCALE_OUTCOME_OR_NEXT_RADIUS_V0",
+            "stop_code": "STOP_GATE_FAIL" if failures else None,
+        },
+    }
+
+    out_path, receipt = write_content_addressed_receipt(
+        receipt,
+        "data/r100_radius_scale_observation_verifications",
+        "r100_radius_scale_observation_verification_schema_version",
+        R100_RADIUS_SCALE_OBSERVATION_VERIFICATION_SCHEMA,
+        "r100_radius_scale_observation_verification_id",
+        "r100_radius_scale_observation_verification_sig8",
+    )
+
+    typer.echo(json.dumps(receipt, indent=2, sort_keys=True))
+    typer.echo(f"r100_radius_scale_observation_verification_path: {out_path}")
+
+    if receipt.get("gate") != "PASS":
+        raise typer.Exit(code=1)
 
 
 
