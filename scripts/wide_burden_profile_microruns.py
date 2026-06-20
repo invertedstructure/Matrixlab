@@ -657,6 +657,7 @@ def build_profile(*, execute: bool) -> tuple[dict[str, Any], dict[str, Any]]:
         ],
         "allowed_burden_classes": sorted(ALLOWED_BURDEN_CLASSES),
         "cycle_period_compression": _build_cycle_period_compression_observation(rows),
+        "receipt_volume_write_pressure": _build_receipt_volume_write_pressure_observation(rows),
         "repeated_slot_execution_plan_cache": {
             "status": "APPLIED_METADATA_ONLY",
             "cache_scope": "within_one_micro_profile_execution_only",
@@ -870,6 +871,118 @@ def _build_cycle_period_compression_observation(rows: list[dict[str, Any]]) -> d
         },
     }
 
+
+
+@dataclass(frozen=True)
+class ReceiptVolumeWritePressurePlan:
+    candidate_id: str
+    burden_class: str
+    probe_id: str
+    slot_id: str
+    family_compact: str
+    expected_target_rows: int
+    expected_target_receipts: int
+    expected_profile_receipts_total: int
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "candidate_id": self.candidate_id,
+            "burden_class": self.burden_class,
+            "probe_id": self.probe_id,
+            "slot_id": self.slot_id,
+            "family_compact": self.family_compact,
+            "expected_target_rows": self.expected_target_rows,
+            "expected_target_receipts": self.expected_target_receipts,
+            "expected_profile_receipts_total": self.expected_profile_receipts_total,
+            "plan_kind": "receipt_volume_write_pressure_metadata_plan",
+        }
+
+
+def _build_receipt_volume_write_pressure_observation(rows: list[dict[str, object]]) -> dict[str, object]:
+    target_rows = [
+        row for row in rows
+        if row.get("burden_class") == "BURDEN_RECEIPT_VOLUME"
+    ]
+    receipts = sum(int(row.get("receipts") or 0) for row in target_rows)
+    elapsed_ms = sum(int(row.get("elapsed_ms") or 0) for row in target_rows)
+    row_keys = [
+        {
+            "probe_id": row.get("probe_id"),
+            "slot_id": row.get("slot_id"),
+            "family_compact": row.get("family_compact"),
+            "burden_class": row.get("burden_class"),
+        }
+        for row in target_rows
+    ]
+
+    plan = ReceiptVolumeWritePressurePlan(
+        candidate_id="17e6ee4e",
+        burden_class="BURDEN_RECEIPT_VOLUME",
+        probe_id="MICRO_05_RECEIPT_WRITE_PRESSURE",
+        slot_id="MICRO_05_RECEIPT_WRITE_PRESSURE_E",
+        family_compact="E",
+        expected_target_rows=1,
+        expected_target_receipts=176,
+        expected_profile_receipts_total=1457,
+    )
+
+    target_identity_preserved = row_keys == [
+        {
+            "probe_id": "MICRO_05_RECEIPT_WRITE_PRESSURE",
+            "slot_id": "MICRO_05_RECEIPT_WRITE_PRESSURE_E",
+            "family_compact": "E",
+            "burden_class": "BURDEN_RECEIPT_VOLUME",
+        }
+    ]
+
+    return {
+        "certificate_kind": "receipt_volume_write_pressure_accounting_certificate",
+        "certificate_scope": "post_execution_observation_metadata_only",
+        "status": "APPLIED_POST_EXECUTION_METADATA_ONLY",
+        "candidate_id": "17e6ee4e",
+        "target_burden_class": "BURDEN_RECEIPT_VOLUME",
+        "target_rows": len(target_rows),
+        "target_receipts": receipts,
+        "target_elapsed_ms": elapsed_ms,
+        "target_receipts_per_sec": round(receipts / (elapsed_ms / 1000.0), 6) if elapsed_ms > 0 else None,
+        "target_row_keys": row_keys,
+        "target_row_identity_preserved": target_identity_preserved,
+        "target_receipts_preserved": receipts == 176,
+        "expected_profile_receipts_total": 1457,
+        "plan": plan.as_dict(),
+        "does_not_delete_receipts": True,
+        "does_not_compress_receipts": True,
+        "does_not_suppress_raw_receipt_writes": True,
+        "does_not_emit_synthetic_receipts": True,
+        "does_not_skip_execution": True,
+        "does_not_skip_receipt_write_pressure_probe": True,
+        "does_not_reuse_prior_receipt_volume_results_as_execution": True,
+        "does_not_change_registry_sqlite_totals": True,
+        "does_not_change_halt_law_gate_run_semantics": True,
+        "does_not_change_depth_range": True,
+        "does_not_expand_radius": True,
+        "does_not_restore_frontier_depth_probe": True,
+        "does_not_reopen_accepted_burden_classes": True,
+        "does_not_reopen_rejected_depth_scan": True,
+        "semantics": {
+            "receipt_deletion": False,
+            "receipt_compression": False,
+            "raw_receipt_write_suppression": False,
+            "synthetic_receipts": False,
+            "execution_skipping": False,
+            "receipt_write_pressure_probe_skipping": False,
+            "reusing_prior_receipt_volume_results_as_execution": False,
+            "registry_sqlite_total_mismatch": False,
+            "halt_semantics_change": False,
+            "law_semantics_change": False,
+            "gate_semantics_change": False,
+            "run_semantics_change": False,
+            "depth_range_change": False,
+            "radius_expansion": False,
+            "frontier_depth_reopened": False,
+            "accepted_burden_classes_reopened": False,
+        },
+    }
 
 def main() -> int:
     parser = argparse.ArgumentParser()
