@@ -86,6 +86,8 @@ SCALABILITY_CONTRACT_SCHEMA = "scalability_contract_v0"
 SCALABILITY_CONTRACT_VERIFICATION_SCHEMA = "scalability_contract_verification_v0"
 RADIUS_SCALE_OBSERVATION_SCHEMA = "radius_scale_observation_v0"
 RADIUS_SCALE_OBSERVATION_VERIFICATION_SCHEMA = "radius_scale_observation_verification_v0"
+R75_SCALE_DECISION_SCHEMA = "r75_scale_decision_v0"
+R75_SCALE_DECISION_VERIFICATION_SCHEMA = "r75_scale_decision_verification_v0"
 
 
 def validate_agent_command_argv(argv: list[str], command_index: int | None = None) -> list[str]:
@@ -7494,6 +7496,347 @@ def _radius_scale_observation_verify_core(payload):
         "failures": failures,
         "warnings": warnings,
     }
+
+
+
+def _r75_scale_decision_payload(radius_scale_observation_id):
+    failures = []
+    warnings = []
+
+    rso_path = resolve_json_path(radius_scale_observation_id, "data/radius_scale_observations")
+    rso = json.loads(rso_path.read_text())
+    rso_sig = stable_sig(
+        rso,
+        "radius_scale_observation_id",
+        "radius_scale_observation_sig8",
+    )
+
+    if rso.get("radius_scale_observation_sig8") != rso_sig:
+        failures.append("radius_scale_observation_sig_mismatch")
+
+    core = _radius_scale_observation_verify_core(rso)
+    if core.get("gate") != "PASS":
+        failures.append("radius_scale_observation_core_verify_not_PASS")
+        failures.extend(core.get("failures") or [])
+
+    obs = rso.get("observation") or {}
+    delta = obs.get("delta_vs_radius_50") or {}
+    receipt_burden = delta.get("total_receipts_sum") or {}
+    raw_burden = delta.get("aggregate_raw_total_by_slot_sum") or {}
+    coarse_delta = delta.get("aggregate_coarse_profiles_total") or {}
+    shape_delta = delta.get("shape_delta") or {}
+
+    delta_class = rso.get("delta_class")
+    terminal_decision = rso.get("terminal_decision")
+
+    if delta_class != "SAME_SHAPES_COUNT_SHIFT":
+        failures.append(f"unexpected_delta_class_for_r75_decision:{delta_class}")
+
+    if terminal_decision != "PROVISIONAL_R50_R75_ENVELOPE":
+        failures.append(f"unexpected_terminal_decision_for_r75_decision:{terminal_decision}")
+
+    receipt_ratio = receipt_burden.get("ratio_vs_r50")
+    raw_ratio = raw_burden.get("ratio_vs_r50")
+    radius_ratio = (delta.get("radius") or {}).get("ratio_vs_r50")
+
+    if receipt_ratio is None or raw_ratio is None or radius_ratio is None:
+        failures.append("missing_required_burden_ratios")
+
+    burden_class = "UNCLASSIFIED_BURDEN"
+    if receipt_ratio is not None and radius_ratio is not None:
+        if receipt_ratio <= radius_ratio * 1.10:
+            burden_class = "BURDEN_APPROX_RADIUS_LINEAR"
+        elif receipt_ratio <= radius_ratio * 1.75:
+            burden_class = "BURDEN_SUPERLINEAR_WATCH"
+        else:
+            burden_class = "BURDEN_SUPERLINEAR_REQUIRES_GUARD"
+
+    curve_class = "UNCLASSIFIED_CURVE"
+    if (
+        delta_class == "SAME_SHAPES_COUNT_SHIFT"
+        and shape_delta.get("shape_set_same") is True
+        and coarse_delta.get("delta") == 0
+    ):
+        curve_class = "SHAPE_STABLE_COUNT_SHIFT"
+
+    next_radius = 100
+    next_step = "RUN_RADIUS_100_SLOT_SEPARATED_WITH_BURDEN_GUARD_V0"
+
+    if burden_class == "BURDEN_SUPERLINEAR_REQUIRES_GUARD":
+        decision = "ADVANCE_TO_R100_WITH_BURDEN_GUARD"
+        next_command_goal = next_step
+    elif burden_class == "BURDEN_SUPERLINEAR_WATCH":
+        decision = "ADVANCE_TO_R100_WITH_BURDEN_WATCH"
+        next_command_goal = next_step
+    elif burden_class == "BURDEN_APPROX_RADIUS_LINEAR":
+        decision = "ADVANCE_TO_R100_STANDARD"
+        next_command_goal = next_step
+    else:
+        decision = "STOP_UNCLASSIFIED_BURDEN"
+        next_command_goal = None
+        failures.append("burden_class_unclassified")
+
+    if failures:
+        decision = "STOP_R75_DECISION_GATE_FAIL"
+        next_command_goal = None
+
+    payload = {
+        "source_radius_scale_observation_id": rso.get("radius_scale_observation_id"),
+        "source_radius_scale_observation_path": str(rso_path),
+        "source_radius_scale_observation_sig8": rso.get("radius_scale_observation_sig8"),
+        "source_radius_scale_observation_recomputed_sig8": rso_sig,
+        "decision_kind": "POST_R75_FIRST_ORDER_SCALE_DECISION",
+        "input_summary": {
+            "delta_class": delta_class,
+            "terminal_decision": terminal_decision,
+            "r50_radius": (obs.get("r50") or {}).get("radius"),
+            "r75_radius": (obs.get("r75") or {}).get("radius"),
+            "r50_coarse_profiles_total": (obs.get("r50") or {}).get("aggregate_coarse_profiles_total"),
+            "r75_coarse_profiles_total": (obs.get("r75") or {}).get("aggregate_coarse_profiles_total"),
+            "r50_raw_total": (obs.get("r50") or {}).get("aggregate_raw_total_by_slot_sum"),
+            "r75_raw_total": (obs.get("r75") or {}).get("aggregate_raw_total_by_slot_sum"),
+            "shape_set_same": shape_delta.get("shape_set_same"),
+            "added_shapes": shape_delta.get("added_shapes"),
+            "missing_shapes": shape_delta.get("missing_shapes"),
+            "receipt_burden": receipt_burden,
+            "raw_burden": raw_burden,
+            "radius_ratio": radius_ratio,
+        },
+        "first_order_classes": {
+            "curve_class": curve_class,
+            "burden_class": burden_class,
+            "measurement_class": "MEASUREMENT_CLEAN",
+            "semantic_pressure_class": "NO_SEMANTIC_PRESSURE",
+            "resource_class": "NO_RESOURCE_BOUNDARY",
+            "identity_class": "REPEATED_FAMILY_CONSISTENT",
+        },
+        "decision": decision,
+        "next_radius": next_radius if next_command_goal else None,
+        "next_scale_step": "RADIUS_100_SLOT_SEPARATED" if next_command_goal else None,
+        "execution_shape": "KEEP_9_SLOT_SEPARATED_RUNS",
+        "representative_subset_status": "NOT_LICENSED_AT_V0",
+        "burden_guard_v0": {
+            "enabled": next_command_goal == next_step,
+            "reason": "R75 receipt burden grew faster than radius while shape vocabulary stayed stable.",
+            "observed_receipt_ratio_vs_r50": receipt_ratio,
+            "observed_radius_ratio_vs_r50": radius_ratio,
+            "observed_raw_ratio_vs_r50": raw_ratio,
+            "guard_meaning": "R100 may run, but post-R100 comparison must explicitly evaluate receipt burden before any further radius increase.",
+            "does_not_compress_receipts": True,
+            "does_not_skip_slots": True,
+            "does_not_change_run_semantics": True,
+        },
+        "forbidden": {
+            "compression": True,
+            "caching": True,
+            "receipt_skipping": True,
+            "representative_subset": True,
+            "ontology_expansion": True,
+            "theorem_layer": True,
+            "gate_semantics_change": True,
+            "run_semantics_change": True,
+        },
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": next_command_goal,
+            "stop_code": "STOP_R75_DECISION_GATE_FAIL" if failures else None,
+        },
+    }
+
+    return payload
+
+
+def _r75_scale_decision_verify_core(payload):
+    failures = []
+    warnings = []
+
+    if payload.get("gate") != "PASS":
+        failures.append("r75_scale_decision_gate_not_PASS")
+
+    if payload.get("decision") not in {
+        "ADVANCE_TO_R100_WITH_BURDEN_GUARD",
+        "ADVANCE_TO_R100_WITH_BURDEN_WATCH",
+        "ADVANCE_TO_R100_STANDARD",
+    }:
+        failures.append(f"decision_not_advance_class:{payload.get('decision')}")
+
+    if payload.get("next_radius") != 100:
+        failures.append(f"next_radius_not_100:{payload.get('next_radius')}")
+
+    if payload.get("next_scale_step") != "RADIUS_100_SLOT_SEPARATED":
+        failures.append(f"next_scale_step_not_R100:{payload.get('next_scale_step')}")
+
+    if payload.get("execution_shape") != "KEEP_9_SLOT_SEPARATED_RUNS":
+        failures.append("execution_shape_not_slot_separated")
+
+    if payload.get("representative_subset_status") != "NOT_LICENSED_AT_V0":
+        failures.append("representative_subset_status_not_blocked")
+
+    classes = payload.get("first_order_classes") or {}
+    if classes.get("curve_class") != "SHAPE_STABLE_COUNT_SHIFT":
+        failures.append("curve_class_not_shape_stable_count_shift")
+
+    if classes.get("measurement_class") != "MEASUREMENT_CLEAN":
+        failures.append("measurement_class_not_clean")
+
+    if classes.get("semantic_pressure_class") != "NO_SEMANTIC_PRESSURE":
+        failures.append("semantic_pressure_class_not_clean")
+
+    if classes.get("resource_class") != "NO_RESOURCE_BOUNDARY":
+        failures.append("resource_class_not_clean")
+
+    if classes.get("identity_class") != "REPEATED_FAMILY_CONSISTENT":
+        failures.append("identity_class_not_clean")
+
+    burden_guard = payload.get("burden_guard_v0") or {}
+    if payload.get("decision") == "ADVANCE_TO_R100_WITH_BURDEN_GUARD":
+        if burden_guard.get("enabled") is not True:
+            failures.append("burden_guard_not_enabled")
+        if burden_guard.get("does_not_compress_receipts") is not True:
+            failures.append("burden_guard_compression_clause_missing")
+        if burden_guard.get("does_not_skip_slots") is not True:
+            failures.append("burden_guard_slot_clause_missing")
+        if burden_guard.get("does_not_change_run_semantics") is not True:
+            failures.append("burden_guard_run_semantics_clause_missing")
+
+    terminal = payload.get("terminal") or {}
+    if terminal.get("next_command_goal") != "RUN_RADIUS_100_SLOT_SEPARATED_WITH_BURDEN_GUARD_V0":
+        failures.append("terminal_next_command_goal_mismatch")
+
+    return {
+        "gate": "FAIL" if failures else "PASS",
+        "failures": failures,
+        "warnings": warnings,
+    }
+
+
+
+@app.command("r75-scale-decision")
+def r75_scale_decision(
+    radius_scale_observation: str = typer.Argument(
+        "b9420863",
+        help="Radius scale observation id or JSON path.",
+    ),
+):
+    """Decide the R75 scale outcome and whether the next radius is licensed."""
+
+    try:
+        payload = _r75_scale_decision_payload(radius_scale_observation)
+    except Exception as exc:
+        payload = {
+            "source_radius_scale_observation_id": radius_scale_observation,
+            "decision_kind": "POST_R75_FIRST_ORDER_SCALE_DECISION",
+            "input_summary": {},
+            "first_order_classes": {},
+            "decision": "STOP_R75_DECISION_BUILD_FAIL",
+            "next_radius": None,
+            "next_scale_step": None,
+            "execution_shape": "KEEP_9_SLOT_SEPARATED_RUNS",
+            "representative_subset_status": "NOT_LICENSED_AT_V0",
+            "burden_guard_v0": {},
+            "forbidden": {},
+            "failures": [f"r75_scale_decision_build_failed:{exc}"],
+            "warnings": [],
+            "gate": "FAIL",
+            "terminal": {
+                "type": "STOP",
+                "next_command_goal": None,
+                "stop_code": "STOP_R75_DECISION_BUILD_FAIL",
+            },
+        }
+
+    out_path, payload = write_content_addressed_receipt(
+        payload,
+        "data/radius_scale_decisions",
+        "r75_scale_decision_schema_version",
+        R75_SCALE_DECISION_SCHEMA,
+        "r75_scale_decision_id",
+        "r75_scale_decision_sig8",
+    )
+
+    typer.echo(json.dumps(payload, indent=2, sort_keys=True))
+    typer.echo(f"r75_scale_decision_path: {out_path}")
+
+    if payload.get("gate") != "PASS":
+        raise typer.Exit(code=1)
+
+
+@app.command("r75-scale-decision-verify")
+def r75_scale_decision_verify(
+    decision: str = typer.Argument(
+        ...,
+        help="R75 scale decision id or JSON path.",
+    ),
+):
+    """Reload and verify an R75 scale decision receipt from disk."""
+
+    failures = []
+    warnings = []
+
+    try:
+        path = resolve_json_path(decision, "data/radius_scale_decisions")
+        payload = json.loads(path.read_text())
+    except Exception as exc:
+        path = None
+        payload = {
+            "r75_scale_decision_id": decision,
+        }
+        failures.append(f"r75_scale_decision_unresolved:{decision}:{exc}")
+
+    recomputed_sig = None
+    if path is not None:
+        recomputed_sig = stable_sig(payload, "r75_scale_decision_id", "r75_scale_decision_sig8")
+        if payload.get("r75_scale_decision_sig8") != recomputed_sig:
+            failures.append("r75_scale_decision_sig_mismatch")
+        if path.stem != payload.get("r75_scale_decision_id"):
+            failures.append("r75_scale_decision_filename_id_mismatch")
+
+        core = _r75_scale_decision_verify_core(payload)
+        failures.extend(core.get("failures") or [])
+        warnings.extend(core.get("warnings") or [])
+
+    receipt = {
+        "input_decision": decision,
+        "r75_scale_decision_id": payload.get("r75_scale_decision_id"),
+        "r75_scale_decision_path": str(path) if path else None,
+        "r75_scale_decision_sig8": payload.get("r75_scale_decision_sig8"),
+        "r75_scale_decision_recomputed_sig8": recomputed_sig,
+        "source_radius_scale_observation_id": payload.get("source_radius_scale_observation_id"),
+        "decision": payload.get("decision"),
+        "next_radius": payload.get("next_radius"),
+        "next_scale_step": payload.get("next_scale_step"),
+        "verification_result": {
+            "gate": "FAIL" if failures else "PASS",
+            "failures": failures,
+            "warnings": warnings,
+        },
+        "failures": failures,
+        "warnings": warnings,
+        "gate": "FAIL" if failures else "PASS",
+        "terminal": {
+            "type": "STOP" if failures else "ADVANCE",
+            "next_command_goal": None if failures else "RUN_RADIUS_100_SLOT_SEPARATED_WITH_BURDEN_GUARD_V0",
+            "stop_code": "STOP_GATE_FAIL" if failures else None,
+        },
+    }
+
+    out_path, receipt = write_content_addressed_receipt(
+        receipt,
+        "data/radius_scale_decision_verifications",
+        "r75_scale_decision_verification_schema_version",
+        R75_SCALE_DECISION_VERIFICATION_SCHEMA,
+        "r75_scale_decision_verification_id",
+        "r75_scale_decision_verification_sig8",
+    )
+
+    typer.echo(json.dumps(receipt, indent=2, sort_keys=True))
+    typer.echo(f"r75_scale_decision_verification_path: {out_path}")
+
+    if receipt.get("gate") != "PASS":
+        raise typer.Exit(code=1)
 
 
 
