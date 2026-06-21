@@ -22,10 +22,12 @@ OUT_MANIFEST_DIR = ROOT / "data" / "raw_delta_signature_candidate_approved_new_b
 OUT_RECEIPT_DIR = ROOT / "data" / "raw_delta_signature_candidate_approved_new_bounded_surface_receipts"
 OUT_RUN_LOG_DIR = ROOT / "data" / "raw_delta_signature_candidate_approved_new_bounded_surface_run_logs"
 
-EXPECTED_POLICY_ID = "c176d8d4"
-EXPECTED_POLICY_RECEIPT_ID = "3288057c"
+EXPECTED_POLICY_ID = "3b22a690"
+EXPECTED_POLICY_RECEIPT_ID = "36177050"
 
 IMPLEMENTATION_NAME = "IMPLEMENT_APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_V0"
+RUNNER_FAMILY_VOCABULARY_PATCH = "PATCH_APPROVED_RECIPE_RUNNER_COMMAND_FAMILY_VOCABULARY_V0"
+RUNNER_FAMILY_ARGUMENT = "A"
 CANDIDATE_DESIGN_ID = "RAW_DELTA_SIGNATURE_CANDIDATE_V0"
 SELECTED_OPTION_ID = "OPTION_A_NARROWED"
 RUNNER_COMMAND_ID = "EXISTING_MATRIXLAB_CLI_BOUNDED_RUN_V0"
@@ -230,7 +232,7 @@ def verify_policy(policy: dict[str, Any], receipt: dict[str, Any]) -> list[str]:
     if runner.get("runner_command_precheck_required") is not True:
         failures.append(f"runner_precheck_not_true:{runner.get('runner_command_precheck_required')}")
     if runner.get("bounded_parameters") != {
-        "families": ["projection_quotient"],
+        "families": ["A"],
         "depth_min": 3,
         "depth_max": 12,
         "case_count_expected_max": 10,

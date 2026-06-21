@@ -25,6 +25,8 @@ EXPECTED_PROPOSAL_ID = "71f1a3f0"
 EXPECTED_PROPOSAL_RECEIPT_ID = "d8a7686c"
 
 POLICY_NAME = "APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_POLICY_V0"
+RUNNER_FAMILY_VOCABULARY_PATCH = "PATCH_APPROVED_RECIPE_RUNNER_COMMAND_FAMILY_VOCABULARY_V0"
+RUNNER_FAMILY_ARGUMENT = "A"
 BUILDER_GOAL = "BUILD_APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_POLICY_V0"
 NEXT_COMMAND_GOAL = "IMPLEMENT_APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_V0"
 
@@ -321,7 +323,7 @@ def build_policy(decision_id: str, write_outputs: bool = True) -> tuple[dict[str
             "src/matrixlab/cli.py",
             "run",
             "--families",
-            "projection_quotient",
+            "A",
             "--depth-min",
             "3",
             "--depth-max",
@@ -333,7 +335,7 @@ def build_policy(decision_id: str, write_outputs: bool = True) -> tuple[dict[str
         ],
         "runner_command_string": (
             "uv run python src/matrixlab/cli.py run "
-            "--families projection_quotient "
+            "--families A "
             "--depth-min 3 --depth-max 12 "
             "--cycles-per-case 50 --max-cells 50000"
         ),
@@ -341,7 +343,7 @@ def build_policy(decision_id: str, write_outputs: bool = True) -> tuple[dict[str
         "runner_command_precheck_required": True,
         "if_runner_command_unavailable": "HOLD_APPROVED_RECIPE_RUNNER_COMMAND_UNAVAILABLE",
         "bounded_parameters": {
-            "families": ["projection_quotient"],
+            "families": ["A"],
             "depth_min": 3,
             "depth_max": 12,
             "case_count_expected_max": APPROVED_BOUNDS["max_new_cases_total"],
