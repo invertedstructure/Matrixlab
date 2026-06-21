@@ -28,6 +28,10 @@ EXPECTED_POLICY_RECEIPT_ID = "36177050"
 IMPLEMENTATION_NAME = "IMPLEMENT_APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_V0"
 RUNNER_FAMILY_VOCABULARY_PATCH = "PATCH_APPROVED_RECIPE_RUNNER_COMMAND_FAMILY_VOCABULARY_V0"
 RUNNER_FAMILY_ARGUMENT = "A"
+EXPLICIT_RUN_ARTIFACT_DISCOVERY_PATCH = "PATCH_APPROVED_RECIPE_EXPLICIT_RUN_ARTIFACT_DISCOVERY_V0"
+EXPLICIT_RUN_ARTIFACT_RESOLVER_ID = "EXPLICIT_RUN_ID_PATH_AND_RUN_LOG_RESOLVER_V0"
+EXPLICIT_RUN_ARTIFACT_SELECTION_BOUND_PATCH = "PATCH_APPROVED_RECIPE_EXPLICIT_RUN_ARTIFACT_SELECTION_BOUND_V0"
+EXPLICIT_RUN_ARTIFACT_SELECTOR_ID = "BOUNDED_CASE_CYCLE_RECEIPT_SELECTOR_V0"
 CANDIDATE_DESIGN_ID = "RAW_DELTA_SIGNATURE_CANDIDATE_V0"
 SELECTED_OPTION_ID = "OPTION_A_NARROWED"
 RUNNER_COMMAND_ID = "EXISTING_MATRIXLAB_CLI_BOUNDED_RUN_V0"
@@ -423,29 +427,154 @@ def allowed_file(path: Path) -> bool:
     return True
 
 
-def find_files_for_run_id(run_id: str) -> list[Path]:
-    found: list[Path] = []
-    for root in SAFE_SCAN_ROOTS:
+def extract_explicit_paths_from_runner_log(run_id: str, run_log_path: Path | None) -> list[Path]:
+    if run_log_path is None or not run_log_path.exists():
+        return []
+    try:
+        log = json.loads(run_log_path.read_text(errors="ignore"))
+    except Exception:
+        return []
+    raw_text = "\n".join(str(log.get(k, "")) for k in ["stdout", "stderr"])
+    paths: list[Path] = []
+    # Explicit only: use paths printed in the captured runner log, not workspace content grep.
+    pattern = re.compile(r"(?P<path>[A-Za-z0-9_./:-]*" + re.escape(run_id) + r"[A-Za-z0-9_./:-]*\.(?:json|jsonl))")
+    for match in pattern.finditer(raw_text):
+        candidate = Path(match.group("path"))
+        if not candidate.is_absolute():
+            candidate = ROOT / candidate
+        if allowed_file(candidate):
+            paths.append(candidate)
+    return paths
+
+
+def resolve_prior_runner_logs_for_run_id(run_id: str) -> list[Path]:
+    # Bounded resolver over this implementation's own run-log directory only.
+    # This is not a global artifact scan and does not select by latest/mtime.
+    if not OUT_RUN_LOG_DIR.exists():
+        return []
+    hits: list[Path] = []
+    for path in sorted(OUT_RUN_LOG_DIR.glob("*_runner.json"), key=lambda p: rel(p)):
+        if not allowed_file(path):
+            continue
+        try:
+            log = json.loads(path.read_text(errors="ignore"))
+        except Exception:
+            continue
+        text = "\n".join(str(log.get(k, "")) for k in ["stdout", "stderr"])
+        if run_id in text:
+            hits.append(path)
+    return hits
+
+
+def canonical_run_path_candidates(run_id: str) -> list[Path]:
+    # Explicit path-derived candidates only. No file-content grep.
+    patterns = [
+        ROOT / "logs" / run_id,
+        ROOT / "logs" / f"{run_id}.json",
+        ROOT / "logs" / f"{run_id}.jsonl",
+        ROOT / "logs" / "runs" / run_id,
+        ROOT / "logs" / "runs" / f"{run_id}.json",
+        ROOT / "logs" / "runs" / f"{run_id}.jsonl",
+        ROOT / "logs" / "receipts" / run_id,
+        ROOT / "logs" / "receipts" / f"{run_id}.json",
+        ROOT / "logs" / "receipts" / f"{run_id}.jsonl",
+        ROOT / "data" / run_id,
+        ROOT / "data" / f"{run_id}.json",
+        ROOT / "data" / f"{run_id}.jsonl",
+        ROOT / "data" / "runs" / run_id,
+        ROOT / "data" / "runs" / f"{run_id}.json",
+        ROOT / "data" / "runs" / f"{run_id}.jsonl",
+        ROOT / "data" / "receipts" / run_id,
+        ROOT / "data" / "receipts" / f"{run_id}.json",
+        ROOT / "data" / "receipts" / f"{run_id}.jsonl",
+    ]
+
+    candidates: list[Path] = []
+    for base in patterns:
+        if base.is_file() and allowed_file(base):
+            candidates.append(base)
+        elif base.is_dir():
+            for child in sorted(base.rglob("*"), key=lambda p: rel(p)):
+                if allowed_file(child):
+                    candidates.append(child)
+
+    # Path-name glob only, bounded to canonical roots. This does not read file contents.
+    for root in [ROOT / "logs", ROOT / "data"]:
         if not root.exists():
             continue
-        for path in root.rglob("*"):
-            if not allowed_file(path):
-                continue
-            try:
-                text = path.read_text(errors="ignore")
-            except Exception:
-                continue
-            if run_id in text:
-                found.append(path)
-    unique = []
-    seen = set()
-    for p in found:
-        rp = rel(p)
-        if rp not in seen:
-            unique.append(p)
-            seen.add(rp)
-    return sorted(unique, key=lambda p: rel(p))
+        for pattern in [
+            f"**/{run_id}.json",
+            f"**/{run_id}.jsonl",
+            f"**/{run_id}_*.json",
+            f"**/{run_id}_*.jsonl",
+            f"**/*{run_id}*.json",
+            f"**/*{run_id}*.jsonl",
+        ]:
+            for path in sorted(root.glob(pattern), key=lambda p: rel(p)):
+                if allowed_file(path):
+                    candidates.append(path)
 
+    return candidates
+
+
+def find_files_for_run_id(run_id: str, resolver_context: dict[str, Any] | None = None) -> tuple[list[Path], dict[str, Any]]:
+    resolver_context = resolver_context or {}
+    current_run_log_path = resolver_context.get("run_log_path")
+    if isinstance(current_run_log_path, str):
+        current_run_log_path = Path(current_run_log_path)
+
+    candidates: list[Path] = []
+    source_classes: dict[str, list[str]] = {
+        "current_runner_log_explicit_paths": [],
+        "prior_runner_log_explicit_paths": [],
+        "canonical_run_path_candidates": [],
+    }
+
+    for path in extract_explicit_paths_from_runner_log(run_id, current_run_log_path):
+        candidates.append(path)
+        source_classes["current_runner_log_explicit_paths"].append(rel(path))
+
+    prior_logs = resolve_prior_runner_logs_for_run_id(run_id)
+    for log_path in prior_logs:
+        for path in extract_explicit_paths_from_runner_log(run_id, log_path):
+            candidates.append(path)
+            source_classes["prior_runner_log_explicit_paths"].append(rel(path))
+
+    for path in canonical_run_path_candidates(run_id):
+        candidates.append(path)
+        source_classes["canonical_run_path_candidates"].append(rel(path))
+
+    unique: list[Path] = []
+    seen = set()
+    rejected: list[str] = []
+    for path in candidates:
+        rp = rel(path)
+        if rp in seen:
+            continue
+        seen.add(rp)
+        if allowed_file(path):
+            unique.append(path)
+        else:
+            rejected.append(rp)
+
+    unique = sorted(unique, key=lambda p: rel(p))
+    summary = {
+        "resolver_id": EXPLICIT_RUN_ARTIFACT_RESOLVER_ID,
+        "patch_id": EXPLICIT_RUN_ARTIFACT_DISCOVERY_PATCH,
+        "run_id": run_id,
+        "strategy": "explicit_run_id_paths_and_captured_runner_logs_only",
+        "used_broad_content_grep": False,
+        "used_latest_or_mtime": False,
+        "used_registry_sqlite": False,
+        "used_full_registry_scan": False,
+        "current_run_log_path": rel(current_run_log_path) if isinstance(current_run_log_path, Path) else None,
+        "prior_runner_logs_considered": [rel(p) for p in prior_logs],
+        "source_classes": source_classes,
+        "candidate_paths_total": len(unique),
+        "candidate_paths": [rel(p) for p in unique],
+        "rejected_paths": rejected,
+    }
+    return unique, summary
 
 def iter_json_objects_from_file(path: Path, run_id: str) -> Iterable[tuple[dict[str, Any], str]]:
     try:
@@ -600,8 +729,110 @@ def make_row(obj: dict[str, Any], run_id: str, source_ref: str, surface_id: str)
     return row, None
 
 
-def extract_rows(run_id: str, surface_id: str, max_files: int, max_rows: int) -> dict[str, Any]:
-    files = find_files_for_run_id(run_id)
+
+def receipt_case_cycle_key(path: Path) -> tuple[int, int] | None:
+    # Expected shape:
+    # data/receipts/<run_id>/n3_one_sided_suspension/cycle_0001.json
+    parts = path.parts
+    depth_n = None
+    cycle_n = None
+    for part in parts:
+        m = re.match(r"n(?P<n>\d+)_", part)
+        if m:
+            depth_n = int(m.group("n"))
+        m = re.match(r"cycle_(?P<c>\d+)\.json$", part)
+        if m:
+            cycle_n = int(m.group("c"))
+    if depth_n is None or cycle_n is None:
+        return None
+    return depth_n, cycle_n
+
+
+def select_bounded_receipt_surface(files: list[Path], bounds: dict[str, int]) -> tuple[list[Path], dict[str, Any]]:
+    # The approved surface is bounded by cases/depths and cycles, not by raw file count.
+    # max_output_files limits emitted MatrixLab artifacts, not input per-cycle receipts.
+    summary_files = [p for p in files if re.search(r"/data/runs/[^/]+/summary\.json$", "/" + rel(p))]
+    cycle_files: list[tuple[int, int, Path]] = []
+    other_files: list[str] = []
+
+    for path in files:
+        key = receipt_case_cycle_key(path)
+        if key is None:
+            if path not in summary_files:
+                other_files.append(rel(path))
+            continue
+        depth_n, cycle_n = key
+        cycle_files.append((depth_n, cycle_n, path))
+
+    cycle_files.sort(key=lambda t: (t[0], t[1], rel(t[2])))
+
+    depths = sorted({d for d, _c, _p in cycle_files})
+    selected_depths = depths[: bounds["max_new_cases_total"]]
+    selected_depth_set = set(selected_depths)
+
+    selected_cycles: list[tuple[int, int, Path]] = []
+    rejected_over_cycle_bound: list[str] = []
+    rejected_over_case_bound: list[str] = []
+
+    for depth_n, cycle_n, path in cycle_files:
+        if depth_n not in selected_depth_set:
+            rejected_over_case_bound.append(rel(path))
+            continue
+        if cycle_n > bounds["max_cycles_per_case"]:
+            rejected_over_cycle_bound.append(rel(path))
+            continue
+        selected_cycles.append((depth_n, cycle_n, path))
+
+    selected_files = [p for _d, _c, p in selected_cycles]
+    # Summary can support manifest audit but is not a candidate-row source unless compatible.
+    selected_files = sorted(summary_files, key=lambda p: rel(p)) + selected_files
+
+    expected_max_cycle_receipts = bounds["max_new_cases_total"] * bounds["max_cycles_per_case"]
+    selection_summary = {
+        "selector_id": EXPLICIT_RUN_ARTIFACT_SELECTOR_ID,
+        "patch_id": EXPLICIT_RUN_ARTIFACT_SELECTION_BOUND_PATCH,
+        "selection_basis": "bounded_cases_then_cycles",
+        "raw_candidate_paths_total": len(files),
+        "summary_files_total": len(summary_files),
+        "cycle_receipt_files_total": len(cycle_files),
+        "selected_input_files_total": len(selected_files),
+        "selected_cycle_receipt_files_total": len(selected_cycles),
+        "selected_depths": selected_depths,
+        "selected_depths_total": len(selected_depths),
+        "expected_max_cycle_receipts": expected_max_cycle_receipts,
+        "max_new_cases_total": bounds["max_new_cases_total"],
+        "max_cycles_per_case": bounds["max_cycles_per_case"],
+        "max_output_files_is_not_input_receipt_cap": True,
+        "used_latest_or_mtime": False,
+        "used_registry_sqlite": False,
+        "used_full_registry_scan": False,
+        "used_broad_content_grep": False,
+        "rejected_over_case_bound_total": len(rejected_over_case_bound),
+        "rejected_over_cycle_bound_total": len(rejected_over_cycle_bound),
+        "other_explicit_files_total": len(other_files),
+        "other_explicit_files_sample": other_files[:16],
+        "selected_files": [rel(p) for p in selected_files],
+    }
+
+    if len(selected_depths) > bounds["max_new_cases_total"]:
+        selection_summary["failure"] = "HOLD_APPROVED_RECIPE_CASES_EXCEED_BOUND"
+    elif len(selected_cycles) > expected_max_cycle_receipts:
+        selection_summary["failure"] = "HOLD_APPROVED_RECIPE_CYCLES_EXCEED_BOUND"
+    elif not selected_files:
+        selection_summary["failure"] = "HOLD_APPROVED_RECIPE_NO_FILE_BACKED_RECEIPTS"
+    else:
+        selection_summary["failure"] = None
+
+    return selected_files, selection_summary
+
+def extract_rows(
+    run_id: str,
+    surface_id: str,
+    max_files: int,
+    max_rows: int,
+    resolver_context: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    files, resolver_summary = find_files_for_run_id(run_id, resolver_context)
     result: dict[str, Any] = {
         "receipt_files_found": [rel(p) for p in files],
         "receipt_files_found_total": len(files),
@@ -611,6 +842,7 @@ def extract_rows(run_id: str, surface_id: str, max_files: int, max_rows: int) ->
         "rows_created": 0,
         "missing_field_counts": {},
         "objects_seen_for_run_id": 0,
+        "resolver_summary": resolver_summary,
         "failure": None,
     }
 
@@ -618,9 +850,18 @@ def extract_rows(run_id: str, surface_id: str, max_files: int, max_rows: int) ->
         result["failure"] = "HOLD_APPROVED_RECIPE_NO_FILE_BACKED_RECEIPTS"
         return result
 
-    if len(files) > max_files:
-        result["failure"] = "HOLD_APPROVED_RECIPE_AMBIGUOUS_SOURCE_SURFACE"
+    selected_files, selection_summary = select_bounded_receipt_surface(files, APPROVED_BOUNDS)
+    result["input_selection_summary"] = selection_summary
+    files = selected_files
+    result["receipt_files_found"] = [rel(p) for p in files]
+    result["receipt_files_found_total"] = len(files)
+
+    if selection_summary.get("failure"):
+        result["failure"] = selection_summary["failure"]
         return result
+
+    # max_files is an emitted-output artifact bound, not an input receipt bound.
+    # The input receipt bound is cases * cycles and is enforced by select_bounded_receipt_surface.
 
     used: list[str] = []
     rows_by_id: dict[str, dict[str, Any]] = {}
@@ -690,7 +931,7 @@ def build_terminal(failures: list[str], hold_code: str | None, rows_created: int
     }
 
 
-def implement(policy_id: str, execute_runner: bool = True, write_outputs: bool = True) -> tuple[dict[str, Any], dict[str, Any]]:
+def implement(policy_id: str, execute_runner: bool = True, write_outputs: bool = True, reuse_run_id: str | None = None) -> tuple[dict[str, Any], dict[str, Any]]:
     policy = load_json(POLICY_DIR / f"{policy_id}.json")
     policy_receipt = load_json(POLICY_RECEIPT_DIR / f"{policy_id}.json")
     failures = verify_policy(policy, policy_receipt)
@@ -706,6 +947,9 @@ def implement(policy_id: str, execute_runner: bool = True, write_outputs: bool =
         "policy_id": policy_id,
         "policy_receipt_id": EXPECTED_POLICY_RECEIPT_ID,
         "selected_option_id": SELECTED_OPTION_ID,
+        "artifact_resolver_id": EXPLICIT_RUN_ARTIFACT_RESOLVER_ID,
+        "artifact_selector_id": EXPLICIT_RUN_ARTIFACT_SELECTOR_ID,
+        "reuse_run_id": reuse_run_id or "",
         "created_at_day": datetime.now(timezone.utc).strftime("%Y%m%d"),
     }
     surface_id = sha8(surface_seed)
@@ -713,6 +957,13 @@ def implement(policy_id: str, execute_runner: bool = True, write_outputs: bool =
     runner = (policy.get("recipe_contract") or {}).get("runner_recipe") or {}
     command = runner.get("runner_command") or []
     run_log_path = OUT_RUN_LOG_DIR / f"{surface_id}_runner.json"
+    resolver_context = {
+        "run_log_path": run_log_path,
+        "policy_id": policy_id,
+        "policy_receipt_id": EXPECTED_POLICY_RECEIPT_ID,
+        "reuse_run_id": reuse_run_id,
+        "resolver_id": EXPLICIT_RUN_ARTIFACT_RESOLVER_ID,
+    }
 
     precheck = command_precheck(command)
     runner_result: dict[str, Any] = {
@@ -739,6 +990,26 @@ def implement(policy_id: str, execute_runner: bool = True, write_outputs: bool =
         hold_code = None
     elif not precheck.get("runner_command_available"):
         hold_code = precheck.get("failure") or "HOLD_APPROVED_RECIPE_RUNNER_COMMAND_UNAVAILABLE"
+    elif reuse_run_id:
+        runner_result = {
+            "runner_executed": False,
+            "runner_execution_reused_from_prior_authorized_run": True,
+            "runner_exit_code": None,
+            "captured_run_id": reuse_run_id,
+            "failure": None,
+            "reuse_source": "explicit_reuse_run_id_argument",
+            "runner_stdout_path": None,
+            "runner_stderr_path": None,
+        }
+        extraction = extract_rows(
+            run_id=reuse_run_id,
+            surface_id=surface_id,
+            max_files=APPROVED_BOUNDS["max_output_files"],
+            max_rows=APPROVED_BOUNDS["max_candidate_rows"],
+            resolver_context=resolver_context,
+        )
+        if extraction.get("failure"):
+            hold_code = extraction["failure"]
     elif not execute_runner:
         hold_code = "HOLD_APPROVED_RECIPE_EXECUTION_DISABLED"
     else:
@@ -752,6 +1023,7 @@ def implement(policy_id: str, execute_runner: bool = True, write_outputs: bool =
                 surface_id=surface_id,
                 max_files=APPROVED_BOUNDS["max_output_files"],
                 max_rows=APPROVED_BOUNDS["max_candidate_rows"],
+                resolver_context=resolver_context,
             )
             if extraction.get("failure"):
                 hold_code = extraction["failure"]
@@ -819,6 +1091,8 @@ def implement(policy_id: str, execute_runner: bool = True, write_outputs: bool =
         "runner_precheck": precheck,
         "runner_result": runner_result,
         "receipt_discovery": {
+            "resolver_summary": extraction.get("resolver_summary"),
+            "input_selection_summary": extraction.get("input_selection_summary"),
             "receipt_files_found": extraction.get("receipt_files_found"),
             "receipt_files_found_total": extraction.get("receipt_files_found_total"),
             "receipt_files_used": extraction.get("receipt_files_used"),
@@ -858,6 +1132,10 @@ def implement(policy_id: str, execute_runner: bool = True, write_outputs: bool =
         "runner_precheck": precheck,
         "runner_result": runner_result,
         "explicit_run_id": runner_result.get("captured_run_id"),
+        "artifact_resolver_id": EXPLICIT_RUN_ARTIFACT_RESOLVER_ID,
+        "artifact_resolver_patch": EXPLICIT_RUN_ARTIFACT_DISCOVERY_PATCH,
+        "resolver_summary": extraction.get("resolver_summary"),
+        "input_selection_summary": extraction.get("input_selection_summary"),
         "receipt_files_found_total": extraction.get("receipt_files_found_total"),
         "receipt_files_used_total": extraction.get("receipt_files_used_total"),
         "receipt_files_used": extraction.get("receipt_files_used"),
@@ -907,12 +1185,14 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--policy-id", default=EXPECTED_POLICY_ID)
     parser.add_argument("--no-execute", action="store_true")
+    parser.add_argument("--reuse-run-id", default=None)
     args = parser.parse_args()
 
     manifest, receipt = implement(
         policy_id=args.policy_id,
         execute_runner=not args.no_execute,
         write_outputs=True,
+        reuse_run_id=args.reuse_run_id,
     )
 
     print(json.dumps(receipt, indent=2, sort_keys=True))
