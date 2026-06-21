@@ -1,0 +1,140 @@
+{
+  "authority_guards": {
+    "ambient_workspace_inference_used": false,
+    "audit_or_debug_payload_in_signature_payload": false,
+    "candidate_acceptance_proposal_emitted": true,
+    "candidate_accepted": false,
+    "candidate_rows_created": false,
+    "case_id_or_cycle_n_identity_patch_used": false,
+    "full_occurrence_key_in_signature_payload": false,
+    "full_registry_scan_used": false,
+    "human_decision_boundary_emitted": true,
+    "latest_or_mtime_selection_used": false,
+    "microhash_as_proof_used": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_written": false,
+    "rowid_or_receipt_hash_truth_surface_used": false,
+    "runner_executed": false,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "runtime_semantic_changed": false,
+    "scale_mode_authorized": false,
+    "synthetic_fake_validation_rows_used": false,
+    "transition_compression_probe_run": false
+  },
+  "bounded_acceptance_claim_if_approved": {
+    "claim": "RAW_DELTA_SIGNATURE_CANDIDATE_V0 is provisionally bounded-accepted under the cited evidence stack.",
+    "not_claimed": [
+      "global correctness",
+      "runtime semantic correctness",
+      "mathematical finality",
+      "irreversibility",
+      "authority to change runtime"
+    ],
+    "reversible_by_later_failure_evidence": true,
+    "scope": "bounded_evidence_only"
+  },
+  "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+  "created_at": "2026-06-21T22:39:56.714030+00:00",
+  "evidence_stack": {
+    "bounded_scale_out_replay": {
+      "clean": true,
+      "scale_out_id": "2b44b1fd",
+      "scale_out_receipt_id": "f67b629b"
+    },
+    "current_approved_new_bounded_surface_probe": {
+      "burden_ratio_candidate_payload_to_source_rows": 0.20409546821492516,
+      "burden_ratio_payload_to_source_rows": 0.15107688563630992,
+      "clean": true,
+      "collision_count": 0,
+      "false_merge_count": 0,
+      "false_split_count": 0,
+      "probe_id": "87b4a010",
+      "probe_receipt_id": "812ae591",
+      "retention": 1.0,
+      "rows_total": 500,
+      "surface_id": "4427ba4b",
+      "surface_receipt_id": "e5022cd2"
+    },
+    "prior_raw_delta_candidate_bounded_probe": {
+      "clean": true,
+      "probe_id": "6a33c978",
+      "probe_receipt_id": "99c90fe3"
+    },
+    "source_review": {
+      "review_id": "2946b241",
+      "review_receipt_id": "79333614"
+    }
+  },
+  "failures": [],
+  "gate": "PASS",
+  "human_decision_boundary": {
+    "decision_required_from": "human_operator",
+    "default_if_no_decision": "NO_ACCEPTANCE_NO_REGISTRY_WRITE",
+    "reason": "Candidate acceptance and any registry write remain outside proposal authority.",
+    "required": true,
+    "valid_options": {
+      "OPTION_A_PROVISIONAL_BOUNDED_ACCEPT": {
+        "does_not_happen_in_this_proposal": true,
+        "meaning": "Approve provisional bounded acceptance of RAW_DELTA_SIGNATURE_CANDIDATE_V0 under the cited evidence stack.",
+        "would_allow_next": "Build a separate human-decision record, then a separate candidate-acceptance/registry policy."
+      },
+      "OPTION_B_MORE_SCALE_BEFORE_ACCEPTANCE": {
+        "does_not_happen_in_this_proposal": true,
+        "meaning": "Do not accept yet; request additional bounded scale or inventory before acceptance.",
+        "would_allow_next": "Build additional scale policy or proposal."
+      },
+      "OPTION_C_REJECT_OR_DIAGNOSE": {
+        "does_not_happen_in_this_proposal": true,
+        "meaning": "Do not accept; reject, revise, or diagnose the candidate/evidence stack.",
+        "would_allow_next": "Build diagnostic/revision policy."
+      }
+    }
+  },
+  "policy_id": "b420b784",
+  "policy_receipt_id": "aff60f48",
+  "proposal_id": "ab545dbf",
+  "proposal_name": "RAW_DELTA_SIGNATURE_CANDIDATE_ACCEPTANCE_PROPOSAL_V0",
+  "proposal_recommendation": {
+    "acceptance_scope": {
+      "bounded_surfaces": {
+        "approved_new_surface_probe": "87b4a010",
+        "bounded_scale_out_replay": "2b44b1fd",
+        "prior_bounded_probe": "6a33c978"
+      },
+      "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+      "evidence_limits": [
+        "bounded surface evidence only",
+        "no global correctness claim",
+        "no runtime semantic claim",
+        "no mathematical finality claim",
+        "acceptance would remain reversible by later failure evidence"
+      ]
+    },
+    "does_not_accept_candidate": true,
+    "does_not_change_runtime": true,
+    "does_not_write_registry": true,
+    "human_boundary_required": true,
+    "option_meaning": "Propose accepting RAW_DELTA_SIGNATURE_CANDIDATE_V0 as provisionally bounded accepted under the observed evidence stack.",
+    "recommended_option": "OPTION_A_PROVISIONAL_BOUNDED_ACCEPTANCE_PROPOSAL"
+  },
+  "proposal_status": "HUMAN_DECISION_REQUIRED",
+  "receipt_id": "ec67d9dc",
+  "recommended_option": "OPTION_A_PROVISIONAL_BOUNDED_ACCEPTANCE_PROPOSAL",
+  "safety_clauses": {
+    "candidate_accepted": false,
+    "human_decision_required_before_acceptance": true,
+    "proposal_only": true,
+    "registry_written": false,
+    "runner_executed": false,
+    "runtime_changed": false
+  },
+  "schema_version": "raw_delta_signature_candidate_acceptance_proposal_v0",
+  "terminal": {
+    "next_command_goal": "RECORD_RAW_DELTA_SIGNATURE_CANDIDATE_ACCEPTANCE_HUMAN_DECISION_V0",
+    "stop_code": "STOP_HUMAN_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "warnings": []
+}
