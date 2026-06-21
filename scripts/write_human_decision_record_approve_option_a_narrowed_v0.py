@@ -294,9 +294,10 @@ def verify_proposal_surface(
     return failures
 
 
-def build_decision(proposal_id: str, decision: str, option_id: str) -> tuple[dict[str, Any], dict[str, Any]]:
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    OUT_RECEIPT_DIR.mkdir(parents=True, exist_ok=True)
+def build_decision(proposal_id: str, decision: str, option_id: str, write_outputs: bool = True) -> tuple[dict[str, Any], dict[str, Any]]:
+    if write_outputs:
+        OUT_DIR.mkdir(parents=True, exist_ok=True)
+        OUT_RECEIPT_DIR.mkdir(parents=True, exist_ok=True)
 
     proposal = load_json(PROPOSAL_DIR / f"{proposal_id}.json")
     proposal_receipt = load_json(PROPOSAL_RECEIPT_DIR / f"{proposal_id}.json")
@@ -452,8 +453,9 @@ def build_decision(proposal_id: str, decision: str, option_id: str) -> tuple[dic
     receipt["receipt_id"] = receipt_id
     receipt["receipt_sig8"] = receipt_id
 
-    (OUT_DIR / f"{decision_id}.json").write_text(json.dumps(decision_record, indent=2, sort_keys=True))
-    (OUT_RECEIPT_DIR / f"{decision_id}.json").write_text(json.dumps(receipt, indent=2, sort_keys=True))
+    if write_outputs:
+        (OUT_DIR / f"{decision_id}.json").write_text(json.dumps(decision_record, indent=2, sort_keys=True))
+        (OUT_RECEIPT_DIR / f"{decision_id}.json").write_text(json.dumps(receipt, indent=2, sort_keys=True))
 
     return decision_record, receipt
 
@@ -465,7 +467,7 @@ def main() -> int:
     parser.add_argument("--option-id", default=SELECTED_OPTION_ID)
     args = parser.parse_args()
 
-    decision_record, receipt = build_decision(args.proposal_id, args.decision, args.option_id)
+    decision_record, receipt = build_decision(args.proposal_id, args.decision, args.option_id, write_outputs=True)
 
     print(json.dumps(receipt, indent=2, sort_keys=True))
     print(f"decision_id={decision_record['decision_id']}")
