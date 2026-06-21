@@ -32,6 +32,8 @@ EXPLICIT_RUN_ARTIFACT_DISCOVERY_PATCH = "PATCH_APPROVED_RECIPE_EXPLICIT_RUN_ARTI
 EXPLICIT_RUN_ARTIFACT_RESOLVER_ID = "EXPLICIT_RUN_ID_PATH_AND_RUN_LOG_RESOLVER_V0"
 EXPLICIT_RUN_ARTIFACT_SELECTION_BOUND_PATCH = "PATCH_APPROVED_RECIPE_EXPLICIT_RUN_ARTIFACT_SELECTION_BOUND_V0"
 EXPLICIT_RUN_ARTIFACT_SELECTOR_ID = "BOUNDED_CASE_CYCLE_RECEIPT_SELECTOR_V0"
+CANDIDATE_FIELD_ALIAS_EXTRACTOR_PATCH = "PATCH_APPROVED_RECIPE_CANDIDATE_FIELD_ALIAS_EXTRACTOR_V0"
+CV_FALLBACK_RULE_ID = "CV_EQUALS_CANDIDATE_DESIGN_ID_WHEN_NATIVE_CV_ABSENT_V0"
 CANDIDATE_DESIGN_ID = "RAW_DELTA_SIGNATURE_CANDIDATE_V0"
 SELECTED_OPTION_ID = "OPTION_A_NARROWED"
 RUNNER_COMMAND_ID = "EXISTING_MATRIXLAB_CLI_BOUNDED_RUN_V0"
@@ -658,7 +660,9 @@ def as_string(value: Any) -> str | None:
 
 
 def make_row(obj: dict[str, Any], run_id: str, source_ref: str, surface_id: str) -> tuple[dict[str, Any] | None, str | None]:
-    cv = as_string(deep_get_first(obj, CV_ALIASES))
+    cv_native = as_string(deep_get_first(obj, CV_ALIASES))
+    cv = cv_native if cv_native is not None else CANDIDATE_DESIGN_ID
+    cv_source = "native_cv" if cv_native is not None else CV_FALLBACK_RULE_ID
     state_before = as_string(deep_get_first(obj, STATE_BEFORE_ALIASES))
     state_after = as_string(deep_get_first(obj, STATE_AFTER_ALIASES))
     move_id = as_string(deep_get_first(obj, MOVE_ID_ALIASES))
@@ -723,6 +727,8 @@ def make_row(obj: dict[str, Any], run_id: str, source_ref: str, surface_id: str)
         "candidate_delta_signature": candidate_delta_signature,
         "signature_payload": signature_payload,
         "truth_surface": "full_occurrence_key_to_candidate_delta_signature",
+        "cv_source": cv_source,
+        "cv_fallback_rule_id": CV_FALLBACK_RULE_ID if cv_source == CV_FALLBACK_RULE_ID else None,
         "source_surface_id": surface_id,
         "created_by": IMPLEMENTATION_NAME,
     }
@@ -949,6 +955,8 @@ def implement(policy_id: str, execute_runner: bool = True, write_outputs: bool =
         "selected_option_id": SELECTED_OPTION_ID,
         "artifact_resolver_id": EXPLICIT_RUN_ARTIFACT_RESOLVER_ID,
         "artifact_selector_id": EXPLICIT_RUN_ARTIFACT_SELECTOR_ID,
+        "candidate_field_alias_patch_id": CANDIDATE_FIELD_ALIAS_EXTRACTOR_PATCH,
+        "cv_fallback_rule_id": CV_FALLBACK_RULE_ID,
         "reuse_run_id": reuse_run_id or "",
         "created_at_day": datetime.now(timezone.utc).strftime("%Y%m%d"),
     }
@@ -1107,6 +1115,15 @@ def implement(policy_id: str, execute_runner: bool = True, write_outputs: bool =
         "candidate_signature_distinct_count": bands_created,
         "truth_surface": "full_occurrence_key_to_candidate_delta_signature",
         "signature_payload_fields": PAYLOAD_FIELDS,
+        "candidate_field_alias_patch": CANDIDATE_FIELD_ALIAS_EXTRACTOR_PATCH,
+        "cv_fallback_rule_id": CV_FALLBACK_RULE_ID,
+        "cv_fallback_rule": {
+            "applies_when_native_cv_absent": True,
+            "cv_value": CANDIDATE_DESIGN_ID,
+            "cv_semantics": "candidate_version_identity_not_occurrence_identity",
+            "does_not_add_occurrence_identity": True,
+            "does_not_change_payload_schema": True,
+        },
         "hold_code": hold_code,
         "terminal": terminal,
         "gate": "PASS" if not failures else "FAIL",
@@ -1146,6 +1163,15 @@ def implement(policy_id: str, execute_runner: bool = True, write_outputs: bool =
         "surface_manifest_path": rel(manifest_path),
         "truth_surface": "full_occurrence_key_to_candidate_delta_signature",
         "signature_payload_fields": PAYLOAD_FIELDS,
+        "candidate_field_alias_patch": CANDIDATE_FIELD_ALIAS_EXTRACTOR_PATCH,
+        "cv_fallback_rule_id": CV_FALLBACK_RULE_ID,
+        "cv_fallback_rule": {
+            "applies_when_native_cv_absent": True,
+            "cv_value": CANDIDATE_DESIGN_ID,
+            "cv_semantics": "candidate_version_identity_not_occurrence_identity",
+            "does_not_add_occurrence_identity": True,
+            "does_not_change_payload_schema": True,
+        },
         "payload_forbidden_fields": [
             "case_id",
             "cycle_n",
