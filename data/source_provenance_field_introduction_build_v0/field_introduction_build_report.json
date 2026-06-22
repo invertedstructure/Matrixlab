@@ -1,0 +1,191 @@
+{
+  "audit": {
+    "absence_reason_counts": {
+      "current_label_space_ref": {
+        "SOURCE_PAYLOAD_DOES_NOT_EMIT_FIELD": 25
+      },
+      "expected_label_space_ref": {
+        "SOURCE_PAYLOAD_DOES_NOT_EMIT_FIELD": 25
+      },
+      "missing_label_identifier": {
+        "SOURCE_PAYLOAD_DOES_NOT_EMIT_FIELD": 25
+      },
+      "taxonomy_context_ref": {
+        "SOURCE_PAYLOAD_DOES_NOT_EMIT_FIELD": 25
+      }
+    },
+    "all_absence_reasons_present": true,
+    "all_introduced_field_keys_present": true,
+    "all_provenance_refs_present": true,
+    "all_value_statuses_present": true,
+    "contract_id": "adabc258",
+    "existing_receipt_mutation_count": 0,
+    "field_key_counts": {
+      "current_label_space_ref": 25,
+      "expected_label_space_ref": 25,
+      "missing_label_identifier": 25,
+      "taxonomy_context_ref": 25
+    },
+    "historical_source_overwrite_count": 0,
+    "introduced_field_count": 4,
+    "missing_label_value_guess_count": 0,
+    "no_introduced_values_invented": true,
+    "overlay_row_count": 25,
+    "provenance_ref_counts": {
+      "current_label_space_ref": 25,
+      "expected_label_space_ref": 25,
+      "missing_label_identifier": 25,
+      "taxonomy_context_ref": 25
+    },
+    "schema_id": "6c89d008",
+    "schema_version": "field_introduction_application_audit_v0",
+    "source_proposal_typing_receipt_id": "5b841942",
+    "source_semantics_mutation_count": 0,
+    "taxonomy_delta_proposal_emitted_count": 0,
+    "taxonomy_upgrade_authorized_count": 0,
+    "value_present_counts": {
+      "current_label_space_ref": 0,
+      "expected_label_space_ref": 0,
+      "missing_label_identifier": 0,
+      "taxonomy_context_ref": 0
+    },
+    "value_status_counts": {
+      "current_label_space_ref": {
+        "VALUE_ABSENT_SOURCE_PAYLOAD_DOES_NOT_EMIT": 25
+      },
+      "expected_label_space_ref": {
+        "VALUE_ABSENT_SOURCE_PAYLOAD_DOES_NOT_EMIT": 25
+      },
+      "missing_label_identifier": {
+        "VALUE_ABSENT_SOURCE_PAYLOAD_DOES_NOT_EMIT": 25
+      },
+      "taxonomy_context_ref": {
+        "VALUE_ABSENT_SOURCE_PAYLOAD_DOES_NOT_EMIT": 25
+      }
+    }
+  },
+  "build_command_emitted_count": 0,
+  "build_plan": {
+    "build_action": "BUILD_VERSIONED_SOURCE_PROVENANCE_FIELD_INTRODUCTION_ARTIFACTS",
+    "build_outputs": [
+      "data/source_provenance_field_introduction_build_v0/taxonomy_gap_source_payload_field_introduction_schema_v0.json",
+      "data/source_provenance_field_introduction_build_v0/taxonomy_gap_detector_field_emission_contract_v0.json",
+      "data/source_provenance_field_introduction_build_v0/r1000_taxonomy_gap_source_payload_field_introduction_overlay.jsonl",
+      "data/source_provenance_field_introduction_build_v0/top_group_taxonomy_gap_source_payload_field_introduction_overlay.jsonl",
+      "data/source_provenance_field_introduction_build_v0/field_introduction_application_audit.json",
+      "data/source_provenance_field_introduction_build_v0/post_field_introduction_rerun_instructions.json",
+      "data/source_provenance_field_introduction_build_v0/field_introduction_build_decision_packet.json",
+      "data/source_provenance_field_introduction_build_v0/field_introduction_build_report.json"
+    ],
+    "human_decision": {
+      "authorized": [
+        "emit versioned field-introduction schema artifact",
+        "emit taxonomy_gap_detector field-emission contract",
+        "emit source payload overlay with introduced fields, null values, explicit absence reasons, and provenance refs",
+        "emit rerun instructions"
+      ],
+      "decision": "ACCEPT_FIELD_INTRODUCTION",
+      "not_authorized": [
+        "inventing missing label values",
+        "creating taxonomy labels",
+        "upgrading taxonomy",
+        "mutating historical source rows",
+        "mutating existing receipts",
+        "changing source semantics",
+        "authority widening",
+        "burden optimization",
+        "protocol adoption",
+        "next group auto-open",
+        "hidden next command"
+      ],
+      "scope": "build versioned source-provenance field introduction artifacts from decision-ready proposal without inventing values or mutating historical sources",
+      "source_pressure_group_key_hash": "38c604a1",
+      "source_proposal_typing_receipt_id": "5b841942"
+    },
+    "introduced_fields": [
+      "missing_label_identifier",
+      "taxonomy_context_ref",
+      "current_label_space_ref",
+      "expected_label_space_ref"
+    ],
+    "mutation_policy": {
+      "existing_receipts_mutated": false,
+      "historical_source_rows_overwritten": false,
+      "new_versioned_schema_artifact_emitted": true,
+      "new_versioned_source_overlay_emitted": true,
+      "source_semantics_changed": false,
+      "taxonomy_changed": false
+    },
+    "pressure_group_key_hash": "38c604a1",
+    "schema_version": "source_provenance_field_introduction_build_plan_v0",
+    "source_decision_ready_proposal_id": "2bbd007c",
+    "source_proposal_typing_receipt_id": "5b841942",
+    "terminal_rule": "STOP_HUMAN_DECISION_REQUIRED_AFTER_BUILD_RECEIPT",
+    "unit_id": "BUILD_SOURCE_PROVENANCE_FIELD_INTRODUCTION_FOR_R1000_TAXONOMY_GAP_VALUES_V0",
+    "value_policy": {
+      "absence_reason_required": true,
+      "default_value_for_new_fields": null,
+      "invent_missing_label_values": false,
+      "provenance_ref_required": true
+    }
+  },
+  "contract_id": "adabc258",
+  "decision_packet_recommended_next_unit": "RERUN_EXTRACT_R1000_TOP_GROUP_TAXONOMY_GAP_MISSING_LABEL_EVIDENCE_ON_FIELD_INTRODUCED_SURFACE_V0",
+  "existing_receipt_mutation_count": 0,
+  "field_introduction_build_executed": true,
+  "field_value_invention_count": 0,
+  "hidden_next_command_count": 0,
+  "historical_source_overwrite_count": 0,
+  "introduced_field_count": 4,
+  "introduced_overlay_row_count": 25,
+  "next_command_emitted_count": 0,
+  "next_group_auto_opened_count": 0,
+  "producer_contract_emitted": true,
+  "repair_command_emitted_count": 0,
+  "rerun_instructions": {
+    "contract_id": "adabc258",
+    "introduced_overlay": "data/source_provenance_field_introduction_build_v0/top_group_taxonomy_gap_source_payload_field_introduction_overlay.jsonl",
+    "must_preserve": [
+      "do not invent missing label values",
+      "preserve explicit null absence reasons",
+      "preserve provenance refs",
+      "do not mutate historical source rows",
+      "do not emit taxonomy delta"
+    ],
+    "next_unit_command_emitted": false,
+    "recommended_next_unit": "RERUN_EXTRACT_R1000_TOP_GROUP_TAXONOMY_GAP_MISSING_LABEL_EVIDENCE_ON_FIELD_INTRODUCED_SURFACE_V0",
+    "rerun_goal": "observe whether introduced source payload fields make taxonomy-gap missing-label investigation classifiable without inventing values",
+    "schema_id": "6c89d008",
+    "schema_version": "post_field_introduction_rerun_instructions_v0",
+    "source_proposal_typing_receipt_id": "5b841942"
+  },
+  "review_only": true,
+  "schema_id": "6c89d008",
+  "schema_version": "field_introduction_build_report_v0",
+  "source_mutation_count": 0,
+  "source_receipts": {
+    "failed_repair_receipt_id": "1856cb99",
+    "failed_repaired_surface_rerun_receipt_id": "b113463f",
+    "source_comparison_gate_fix_receipt_id": "b554aace",
+    "source_evidence_surface_classification_receipt_id": "707dd84d",
+    "source_field_introduction_boundary_receipt_id": "9ea8fc6e",
+    "source_localization_audit_receipt_id": "bea59318",
+    "source_loop_application_receipt_id": "be19f438",
+    "source_null_limit_receipt_id": "9e2c2881",
+    "source_pressure_loop_protocol_receipt_id": "6148b4fa",
+    "source_proposal_typing_receipt_id": "5b841942",
+    "source_r1000_scale_stability_receipt_id": "a121ff40",
+    "source_repair_eligibility_receipt_id": "ecebcd27",
+    "source_structural_ref_fix_receipt_id": "d6d40d57",
+    "source_taxonomy_gap_evidence_extraction_receipt_id": "7ed31808",
+    "source_top_group_classification_receipt_id": "7c9718e0"
+  },
+  "source_semantics_mutation_count": 0,
+  "target_unit_id": "source_provenance_field_introduction_build.v0",
+  "taxonomy_delta_proposal_emitted_count": 0,
+  "taxonomy_label_creation_count": 0,
+  "taxonomy_upgrade_authorized_count": 0,
+  "unit_id": "BUILD_SOURCE_PROVENANCE_FIELD_INTRODUCTION_FOR_R1000_TAXONOMY_GAP_VALUES_V0",
+  "versioned_schema_artifact_emitted": true,
+  "versioned_source_overlay_emitted": true
+}

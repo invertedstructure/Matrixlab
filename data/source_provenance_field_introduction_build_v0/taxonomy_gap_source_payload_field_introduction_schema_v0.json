@@ -1,0 +1,92 @@
+{
+  "allowed_value_statuses": [
+    "VALUE_PRESENT",
+    "VALUE_ABSENT_SOURCE_PAYLOAD_DOES_NOT_EMIT",
+    "VALUE_ABSENT_UPSTREAM_EXISTENCE_UNKNOWN",
+    "VALUE_NOT_APPLICABLE_EXPECTED_LIMIT"
+  ],
+  "emitting_producer": "taxonomy_gap_detector",
+  "forbidden_actions": [
+    "do_not_invent_label_value",
+    "do_not_create_taxonomy_label",
+    "do_not_upgrade_taxonomy",
+    "do_not_mutate_source_semantics",
+    "do_not_overwrite_historical_source_rows",
+    "do_not_mutate_existing_receipts"
+  ],
+  "historical_source_overwrite": false,
+  "introduced_fields": [
+    {
+      "absence_reason_field": "missing_label_identifier_absence_reason",
+      "blocked_decision": "distinguish_one_missing_label_gap_from_another",
+      "blocked_loop": "taxonomy_gap_missing_label_investigation",
+      "emitting_producer": "taxonomy_gap_detector",
+      "field_name": "missing_label_identifier",
+      "field_role": "identifies the specific label that was missing",
+      "null_absence_reason_required": true,
+      "null_allowed": true,
+      "owning_surface": "taxonomy_gap_source_payload",
+      "provenance_ref_field": "missing_label_identifier_provenance_ref",
+      "provenance_requirement": "producer must attach source_trace_ref and source_receipt_ref for emitted value or explicit null reason",
+      "required_for": "distinguishing one missing-label gap from another",
+      "value_status_field": "missing_label_identifier_value_status"
+    },
+    {
+      "absence_reason_field": "taxonomy_context_ref_absence_reason",
+      "blocked_decision": "determine_taxonomy_context_for_missing_label_claim",
+      "blocked_loop": "taxonomy_gap_missing_label_investigation",
+      "emitting_producer": "taxonomy_gap_detector",
+      "field_name": "taxonomy_context_ref",
+      "field_role": "identifies the taxonomy context, namespace, or version where the missing-label claim is evaluated",
+      "null_absence_reason_required": true,
+      "null_allowed": true,
+      "owning_surface": "taxonomy_gap_source_payload",
+      "provenance_ref_field": "taxonomy_context_ref_provenance_ref",
+      "provenance_requirement": "producer must attach source_trace_ref and source_receipt_ref for emitted value or explicit null reason",
+      "required_for": "anchoring missing-label evidence to the correct taxonomy context",
+      "value_status_field": "taxonomy_context_ref_value_status"
+    },
+    {
+      "absence_reason_field": "current_label_space_ref_absence_reason",
+      "blocked_decision": "compare_current_label_space_against_expected_label_space",
+      "blocked_loop": "taxonomy_gap_missing_label_investigation",
+      "emitting_producer": "taxonomy_gap_detector",
+      "field_name": "current_label_space_ref",
+      "field_role": "identifies the current label space observed by the source payload",
+      "null_absence_reason_required": true,
+      "null_allowed": true,
+      "owning_surface": "taxonomy_gap_source_payload",
+      "provenance_ref_field": "current_label_space_ref_provenance_ref",
+      "provenance_requirement": "producer must attach source_trace_ref and source_receipt_ref for emitted value or explicit null reason",
+      "required_for": "distinguishing current-state absence from taxonomy expectation mismatch",
+      "value_status_field": "current_label_space_ref_value_status"
+    },
+    {
+      "absence_reason_field": "expected_label_space_ref_absence_reason",
+      "blocked_decision": "identify_expected_label_space_for_missing_label_claim",
+      "blocked_loop": "taxonomy_gap_missing_label_investigation",
+      "emitting_producer": "taxonomy_gap_detector",
+      "field_name": "expected_label_space_ref",
+      "field_role": "identifies the expected label space used as the comparison target",
+      "null_absence_reason_required": true,
+      "null_allowed": true,
+      "owning_surface": "taxonomy_gap_source_payload",
+      "provenance_ref_field": "expected_label_space_ref_provenance_ref",
+      "provenance_requirement": "producer must attach source_trace_ref and source_receipt_ref for emitted value or explicit null reason",
+      "required_for": "checking whether a label is genuinely missing relative to an expected surface",
+      "value_status_field": "expected_label_space_ref_value_status"
+    }
+  ],
+  "owning_surface": "taxonomy_gap_source_payload",
+  "required_support_fields_per_introduced_field": [
+    "value_status_field",
+    "absence_reason_field",
+    "provenance_ref_field"
+  ],
+  "schema_id": "6c89d008",
+  "schema_version": "taxonomy_gap_source_payload_field_introduction_schema_v0",
+  "source_decision_ready_proposal_id": "2bbd007c",
+  "taxonomy_delta_proposal_emitted": false,
+  "taxonomy_upgrade_authorized": false,
+  "versioned_artifact_only": true
+}

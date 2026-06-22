@@ -1,0 +1,56 @@
+{
+  "contract_id": "adabc258",
+  "emitting_producer": "taxonomy_gap_detector",
+  "forbidden_producer_behaviors": [
+    "invent missing label value",
+    "synthesize taxonomy label",
+    "reinterpret source semantics without separate authorization",
+    "upgrade taxonomy"
+  ],
+  "introduced_schema_id": "6c89d008",
+  "owning_surface": "taxonomy_gap_source_payload",
+  "per_field_contract": {
+    "current_label_space_ref": {
+      "absence_reason_field": "current_label_space_ref_absence_reason",
+      "null_absence_reason_required": true,
+      "null_allowed": true,
+      "provenance_ref_field": "current_label_space_ref_provenance_ref",
+      "value_field": "current_label_space_ref",
+      "value_status_field": "current_label_space_ref_value_status"
+    },
+    "expected_label_space_ref": {
+      "absence_reason_field": "expected_label_space_ref_absence_reason",
+      "null_absence_reason_required": true,
+      "null_allowed": true,
+      "provenance_ref_field": "expected_label_space_ref_provenance_ref",
+      "value_field": "expected_label_space_ref",
+      "value_status_field": "expected_label_space_ref_value_status"
+    },
+    "missing_label_identifier": {
+      "absence_reason_field": "missing_label_identifier_absence_reason",
+      "null_absence_reason_required": true,
+      "null_allowed": true,
+      "provenance_ref_field": "missing_label_identifier_provenance_ref",
+      "value_field": "missing_label_identifier",
+      "value_status_field": "missing_label_identifier_value_status"
+    },
+    "taxonomy_context_ref": {
+      "absence_reason_field": "taxonomy_context_ref_absence_reason",
+      "null_absence_reason_required": true,
+      "null_allowed": true,
+      "provenance_ref_field": "taxonomy_context_ref_provenance_ref",
+      "value_field": "taxonomy_context_ref",
+      "value_status_field": "taxonomy_context_ref_value_status"
+    }
+  },
+  "producer_obligations": [
+    "emit each introduced field when available",
+    "emit null when unavailable",
+    "emit explicit value status for each introduced field",
+    "emit explicit absence reason for each null value",
+    "emit provenance reference for each value or null reason",
+    "preserve source_receipt_ref and source_trace_ref"
+  ],
+  "schema_version": "taxonomy_gap_detector_field_emission_contract_v0",
+  "versioned_artifact_only": true
+}
