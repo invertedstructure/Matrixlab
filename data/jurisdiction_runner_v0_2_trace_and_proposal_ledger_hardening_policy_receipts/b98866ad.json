@@ -1,0 +1,291 @@
+{
+  "acceptance_gates": {
+    "H0_source_chain_verified": {
+      "description": "v0.2 implementation, local_regime.v1, v0.2 runner, upgrade policy, human decision, and delta proposal are tracked and path-addressed.",
+      "required": true
+    },
+    "H1_trace_schema_declared": {
+      "description": "Trace entry/file schema is declared as implementation artifact.",
+      "required": true
+    },
+    "H2_proposal_ledger_schema_declared": {
+      "description": "Path-addressed unresolved proposal ledger schema is declared.",
+      "required": true
+    },
+    "H3_trace_hardened_runner_implemented": {
+      "description": "Implement separate trace-ledger hardened runner module; do not modify jurisdiction_runner_v0_2.py.",
+      "required": true
+    },
+    "H4_trace_files_emitted_for_cases": {
+      "description": "Every hardening case emits trace file/object with required entries.",
+      "required": true
+    },
+    "H5_receipts_reference_traces": {
+      "description": "Every case receipt references its trace and agrees with final halt/state/proposal refs.",
+      "required": true
+    },
+    "H6_unresolved_proposal_ledger_artifact_used": {
+      "description": "Duplicate unresolved proposal guard uses explicit path-addressed ledger artifact, not only in-memory session state.",
+      "required": true
+    },
+    "H7_v0_2_regression_preserved": {
+      "description": "Proposal non-execution, non-promotion, no registry, no global taxonomy, no hidden continuation remain true.",
+      "required": true
+    }
+  },
+  "authority_guards": {
+    "final_schema_claimed": false,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "hardening_policy_built": true,
+    "hidden_continuation_authorized": false,
+    "ledger_schema_emitted_by_policy": false,
+    "local_regime_runtime_mutated": false,
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_ledger_emitted_by_policy": false,
+    "proposal_promoted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_executed_by_policy": false,
+    "runner_v0_2_modified_by_policy": false,
+    "source_local_regime_v1_consumed": true,
+    "source_runner_v0_2_read": true,
+    "source_v0_2_implementation_consumed": true,
+    "trace_files_emitted_by_policy": false,
+    "trace_ledger_runner_implemented_by_policy": false,
+    "trace_schema_emitted_by_policy": false
+  },
+  "authorized_operations_next": {
+    "emit_hardening_case_receipts": true,
+    "emit_hardening_implementation_receipt": true,
+    "emit_trace_files": true,
+    "emit_unresolved_proposal_ledger_artifacts": true,
+    "execute_trace_ledger_hardened_runner_against_fixtures": true,
+    "read_hardening_policy": true,
+    "read_hardening_policy_receipt": true,
+    "read_source_local_regime_v1": true,
+    "read_source_v0_2_runner": true,
+    "write_hardening_fixtures": true,
+    "write_proposal_ledger_schema_artifact": true,
+    "write_trace_ledger_hardened_runner_module": true,
+    "write_trace_schema_artifact": true
+  },
+  "created_at": "2026-06-22T12:03:12.263943+00:00",
+  "failures": [],
+  "forbidden_operations_next": {
+    "ambient_workspace_authority": true,
+    "execute_or_apply_proposal": true,
+    "final_schema_claim": true,
+    "full_registry_scan": true,
+    "global_taxonomy_design": true,
+    "hidden_continuation_after_stop": true,
+    "latest_or_mtime_selection": true,
+    "modify_jurisdiction_runner_v0_1": true,
+    "modify_jurisdiction_runner_v0_2": true,
+    "mutate_local_regime_at_runtime": true,
+    "promote_proposal_without_human_review": true,
+    "proof_claim": true,
+    "replace_local_regime_v0": true,
+    "replace_local_regime_v1": true,
+    "sqlite_registry_read": true,
+    "sqlite_registry_write": true
+  },
+  "gate": "PASS",
+  "hardening_summary": {
+    "hardening_reason": "v0.2 proposal surface works, but audit path should be first-class before expanding behavior.",
+    "non_goal": "new intelligence, broader move registry, global registry, final taxonomy, proof, or runtime self-authorization",
+    "target": "first-class trace files plus path-addressed unresolved proposal ledger"
+  },
+  "policy_id": "b98866ad",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "proposal_ledger_schema": {
+    "duplicate_match_keys": [
+      "proposal_type",
+      "source_halt_code",
+      "source_state_id",
+      "proposed_delta_kind"
+    ],
+    "entry_required_fields": [
+      "proposal_key",
+      "proposal_id",
+      "proposal_type",
+      "source_halt_code",
+      "source_state_id",
+      "source_fixture_id",
+      "proposed_delta_kind",
+      "status",
+      "created_by_case_receipt_id",
+      "created_by_proposal_receipt_id"
+    ],
+    "ledger_scope": "path-addressed local artifact only, no registry or sqlite authority",
+    "required_fields": [
+      "ledger_id",
+      "runner_unit_id",
+      "local_regime_hash",
+      "ledger_entries",
+      "created_by_receipt_id"
+    ],
+    "schema_version": "unresolved_proposal_ledger_v0",
+    "status_values": [
+      "UNRESOLVED",
+      "REVIEWED_ACCEPTED",
+      "REVIEWED_REJECTED",
+      "REVIEWED_REVISED"
+    ]
+  },
+  "receipt_id": "f28e04c1",
+  "receipt_type": "JURISDICTION_RUNNER_V0_2_TRACE_AND_PROPOSAL_LEDGER_HARDENING_POLICY_RECEIPT",
+  "required_hardening_cases": {
+    "LEDGER_RECORDS_FIRST_UNRESOLVED_PROPOSAL": {
+      "expected_ledger_status": "UNRESOLVED",
+      "expected_sqlite_registry_write": false,
+      "purpose": "First emitted review-required proposal is inserted into path-addressed unresolved proposal ledger."
+    },
+    "LEDGER_SUPPRESSES_DUPLICATE_UNRESOLVED_PROPOSAL": {
+      "expected_duplicate_unresolved_proposal_count": 1,
+      "expected_proposal_status": "WITHHELD_DUPLICATE_UNRESOLVED",
+      "purpose": "Second identical unresolved proposal pressure reads declared ledger artifact and withholds duplicate proposal by key."
+    },
+    "RECEIPT_TRACE_CONSISTENCY": {
+      "expected_receipt_trace_consistency": true,
+      "purpose": "Receipt final state, moves, halt code, proposal refs, and trace ref agree with trace file."
+    },
+    "REGRESSION_V0_2_NON_EXECUTION_AND_NO_REGISTRY": {
+      "expected_hidden_continuation": false,
+      "expected_proposal_executed": false,
+      "expected_proposal_promoted": false,
+      "expected_registry_written": false,
+      "purpose": "Hardening must preserve v0.2 non-execution, non-promotion, no registry, no global taxonomy, no hidden continuation."
+    },
+    "TRACE_PRESENT_FOR_HALT_WITH_PROPOSAL": {
+      "expected_proposal_status": "EMITTED_REVIEW_REQUIRED",
+      "expected_receipt_trace_consistency": true,
+      "expected_trace_required": true,
+      "purpose": "A halt-with-proposal run emits a first-class trace file whose entries explain applicable moves, selected move, state delta, halt, and proposal refs."
+    },
+    "TRACE_PRESENT_FOR_NO_PROPOSAL_INSUFFICIENT_EVIDENCE": {
+      "expected_no_proposal_reason": "INSUFFICIENT_EVIDENCE",
+      "expected_proposal_status": "NONE",
+      "expected_trace_required": true,
+      "purpose": "A no-proposal insufficient-evidence halt emits a trace that explains no proposal was emitted and preserves the typed no_proposal_reason."
+    }
+  },
+  "required_implementation_artifacts": {
+    "case_receipts": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/*.json",
+    "fixtures": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/*.json",
+    "implementation_receipt": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_implementation_receipts/<receipt_id>.json",
+    "proposal_ledger_schema": "data/jurisdiction_runner_v0_2_proposal_ledger_schemas/<ledger_schema_id>.json",
+    "proposal_ledgers": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/*.json",
+    "trace_ledger_runner_module": "src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py",
+    "trace_schema": "data/jurisdiction_runner_v0_2_trace_schemas/<trace_schema_id>.json",
+    "traces": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/*.json"
+  },
+  "required_receipt_trace_consistency": {
+    "receipt_final_halt_code_equals_trace_final_halt_code": true,
+    "receipt_proposal_ref_equals_trace_proposal_ref_when_present": true,
+    "receipt_state_sigs_match_trace_boundary_sigs": true,
+    "receipt_trace_ref_path_addressed": true,
+    "trace_receipt_ref_path_addressed": true
+  },
+  "safety_clauses": {
+    "does_not_apply_or_promote_proposal": true,
+    "does_not_claim_final_taxonomy": true,
+    "does_not_claim_global_correctness": true,
+    "does_not_claim_theorem_closure": true,
+    "does_not_emit_ledger_artifacts": true,
+    "does_not_emit_ledger_schema": true,
+    "does_not_emit_trace_files": true,
+    "does_not_emit_trace_schema": true,
+    "does_not_execute_runner": true,
+    "does_not_modify_runner": true,
+    "does_not_mutate_local_regime": true,
+    "does_not_write_registry": true,
+    "next_unit_required_for_implementation": true,
+    "policy_only": true
+  },
+  "schema_version": "jurisdiction_runner_v0_2_trace_and_proposal_ledger_hardening_policy_receipt_v0",
+  "source_local_regime_hash": "25802530",
+  "source_local_regime_version": "local_regime.v1",
+  "source_runner_unit_id": "jurisdiction_runner.v0.2",
+  "source_upgrade_policy_id": "d76f7ceb",
+  "source_upgrade_policy_receipt_id": "a3b2c208",
+  "source_v0_2_implementation_receipt_id": "6b90ca5e",
+  "target_runner_unit_id": "jurisdiction_runner.v0.2.trace_ledger_hardened",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_JURISDICTION_RUNNER_V0_2_TRACE_AND_PROPOSAL_LEDGER_HARDENING_WITH_FIXTURES_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "trace_entry_schema": {
+    "field_meanings": {
+      "action_result": "PASS, BLOCKED, HALT, or ERROR",
+      "applicable_moves": "registered move ids applicable before selection",
+      "halt_code": "typed halt code or null",
+      "proposal_ref": "proposal/proposal_receipt refs when emitted or withheld",
+      "selected_move": "selected move id or null if no move applies",
+      "selection_reason": "deterministic reason for selection",
+      "state_after_sig8": "hash of state after action or halt",
+      "state_before_sig8": "hash of state before selected action",
+      "state_delta": "minimal before/after changed fields",
+      "step_index": "integer order of runner step"
+    },
+    "required_fields": [
+      "step_index",
+      "state_before_sig8",
+      "applicable_moves",
+      "selected_move",
+      "selection_reason",
+      "action_result",
+      "state_delta",
+      "halt_code",
+      "proposal_ref",
+      "state_after_sig8"
+    ],
+    "schema_version": "jurisdiction_runner_trace_entry_v0"
+  },
+  "trace_file_schema": {
+    "entry_schema": {
+      "field_meanings": {
+        "action_result": "PASS, BLOCKED, HALT, or ERROR",
+        "applicable_moves": "registered move ids applicable before selection",
+        "halt_code": "typed halt code or null",
+        "proposal_ref": "proposal/proposal_receipt refs when emitted or withheld",
+        "selected_move": "selected move id or null if no move applies",
+        "selection_reason": "deterministic reason for selection",
+        "state_after_sig8": "hash of state after action or halt",
+        "state_before_sig8": "hash of state before selected action",
+        "state_delta": "minimal before/after changed fields",
+        "step_index": "integer order of runner step"
+      },
+      "required_fields": [
+        "step_index",
+        "state_before_sig8",
+        "applicable_moves",
+        "selected_move",
+        "selection_reason",
+        "action_result",
+        "state_delta",
+        "halt_code",
+        "proposal_ref",
+        "state_after_sig8"
+      ],
+      "schema_version": "jurisdiction_runner_trace_entry_v0"
+    },
+    "receipt_consistency_required": true,
+    "required_fields": [
+      "trace_id",
+      "run_id",
+      "runner_unit_id",
+      "local_regime_hash",
+      "source_fixture_id",
+      "entries",
+      "final_halt_code",
+      "receipt_ref"
+    ],
+    "schema_version": "jurisdiction_runner_trace_file_v0"
+  },
+  "unit_id": "BUILD_JURISDICTION_RUNNER_V0_2_TRACE_AND_PROPOSAL_LEDGER_HARDENING_POLICY_V0",
+  "warnings": []
+}
