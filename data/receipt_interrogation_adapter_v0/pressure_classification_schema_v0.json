@@ -1,0 +1,34 @@
+{
+  "classification_rules": {
+    "AMBIGUOUS_PRESSURE": "more than one live pressure class is plausible and no dominant evidence field resolves it",
+    "AUTHORITY_BOUNDARY": "receipt shows STOP_AUTHORITY_BOUNDARY, STOP_HUMAN_REVIEW_REQUIRED, STOP_PROPOSAL_REQUIRED, STOP_FORBIDDEN_MOVE, or unauthorized execution",
+    "BURDEN_PRESSURE": "receipt shows burden_pressure_count > 0, receipt burden expansion, or trace density pressure",
+    "EXTRACTION_PRESSURE": "receipt shows STOP_NEEDS_EXTRACTION or unresolved extraction dependency",
+    "FRONTIER_PRESSURE": "receipt shows STOP_FRONTIER or frontier boundary",
+    "INVALID_RECEIPT_SURFACE": "receipt missing gate, terminal, target unit, receipt id, or required source links",
+    "MISSING_MOVE_PRESSURE": "receipt shows STOP_NEEDS_NEW_MOVE, STOP_NO_APPLICABLE_MOVE, missing move delta, or move registry gap",
+    "NONE": "gate PASS, terminal STOP_DONE, next_command_goal null, no live pressure metrics, no missing evidence",
+    "REAL_BATCH_REQUIRED": "receipt gate PASS with demo-only metrics and no real batch receipts",
+    "RECEIPT_TRACE_PRESSURE": "receipt_trace_mismatch_count > 0 or missing/unlinked trace refs",
+    "TAXONOMY_PRESSURE": "receipt shows STOP_TAXONOMY_GAP, undertyped/untyped object or unresolved taxonomy pressure"
+  },
+  "law": [
+    "pressure class requires evidence fields",
+    "pressure can license a proposal or evidence wait, not necessarily a build command",
+    "dominant pressure must not hide secondary pressure"
+  ],
+  "pressure_classes": [
+    "NONE",
+    "MISSING_MOVE_PRESSURE",
+    "AUTHORITY_BOUNDARY",
+    "TAXONOMY_PRESSURE",
+    "BURDEN_PRESSURE",
+    "RECEIPT_TRACE_PRESSURE",
+    "EXTRACTION_PRESSURE",
+    "FRONTIER_PRESSURE",
+    "REAL_BATCH_REQUIRED",
+    "AMBIGUOUS_PRESSURE",
+    "INVALID_RECEIPT_SURFACE"
+  ],
+  "schema_version": "pressure_classification_schema_v0"
+}

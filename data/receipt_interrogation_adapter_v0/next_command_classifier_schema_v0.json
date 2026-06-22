@@ -1,0 +1,60 @@
+{
+  "law": [
+    "classifier emits command class, not creative roadmap",
+    "OPEN_OBJECTIVE_PROPOSAL_FROM_PRESSURE_CLASS is proposal-only and not an implementation command",
+    "AWAIT_REAL_BATCH_RECEIPTS is not a build command",
+    "STOP_LANE_CLOSED is terminal unless a new external objective is opened",
+    "classifier must not optimize, widen authority, or claim global planning"
+  ],
+  "next_command_classes": [
+    "REPAIR_COMMAND",
+    "RECEIPT_REPAIR_COMMAND",
+    "POLICY_REPAIR_COMMAND",
+    "EXECUTE_DECLARED_NEXT_COMMAND",
+    "STOP_LANE_CLOSED",
+    "AWAIT_REAL_BATCH_RECEIPTS",
+    "OPEN_OBJECTIVE_PROPOSAL_FROM_PRESSURE_CLASS",
+    "QUESTION_PACKET_NOT_COMMAND",
+    "INVALID_RECEIPT_SURFACE"
+  ],
+  "rules_ordered": [
+    {
+      "emit": "INVALID_RECEIPT_SURFACE",
+      "if": "receipt missing required gate/terminal/identity fields"
+    },
+    {
+      "emit": "REPAIR_COMMAND",
+      "if": "gate != PASS"
+    },
+    {
+      "emit": "RECEIPT_REPAIR_COMMAND",
+      "if": "receipt_trace_mismatch_count > 0 or missing trace links > 0"
+    },
+    {
+      "emit": "POLICY_REPAIR_COMMAND",
+      "if": "unauthorized movement counted as radius or authority integrity violated"
+    },
+    {
+      "emit": "EXECUTE_DECLARED_NEXT_COMMAND",
+      "guard": "only exact declared command after authority check",
+      "if": "next_command_goal is populated"
+    },
+    {
+      "emit": "STOP_LANE_CLOSED",
+      "if": "STOP_DONE and next_command_goal is null and no pressure remains"
+    },
+    {
+      "emit": "AWAIT_REAL_BATCH_RECEIPTS",
+      "if": "STOP_DONE and next_command_goal is null and metrics are demo-only"
+    },
+    {
+      "emit": "OPEN_OBJECTIVE_PROPOSAL_FROM_PRESSURE_CLASS",
+      "if": "dominant pressure exists"
+    },
+    {
+      "emit": "QUESTION_PACKET_NOT_COMMAND",
+      "if": "pressure ambiguous"
+    }
+  ],
+  "schema_version": "next_command_classifier_schema_v0"
+}

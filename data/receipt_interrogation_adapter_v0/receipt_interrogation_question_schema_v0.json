@@ -1,0 +1,86 @@
+{
+  "law": [
+    "questions classify receipt-licensed next-boundary state",
+    "questions do not invent objective details",
+    "questions do not authorize work by themselves"
+  ],
+  "question_set_id": "RECEIPT_INTERROGATION_QUESTIONS_V0",
+  "questions": [
+    {
+      "id": "RIQ01",
+      "question": "What unit/lane did this receipt close?",
+      "section": "identity"
+    },
+    {
+      "id": "RIQ02",
+      "question": "Did the declared gate pass?",
+      "section": "identity"
+    },
+    {
+      "id": "RIQ03",
+      "question": "What artifact IDs/paths were produced or accepted?",
+      "section": "identity"
+    },
+    {
+      "id": "RIQ04",
+      "question": "What distinction did this receipt preserve?",
+      "section": "boundary"
+    },
+    {
+      "id": "RIQ05",
+      "question": "What negative controls passed?",
+      "section": "boundary"
+    },
+    {
+      "id": "RIQ06",
+      "question": "What must not be counted as success?",
+      "section": "boundary"
+    },
+    {
+      "id": "RIQ07",
+      "question": "Did the receipt emit STOP_DONE, ADVANCE, or another STOP code?",
+      "section": "terminal"
+    },
+    {
+      "id": "RIQ08",
+      "question": "Is next_command_goal null or populated?",
+      "section": "terminal"
+    },
+    {
+      "id": "RIQ09",
+      "question": "If null, is the lane actually closed or merely waiting for external input?",
+      "section": "terminal"
+    },
+    {
+      "id": "RIQ10",
+      "question": "What pressure class remains, if any?",
+      "section": "pressure"
+    },
+    {
+      "id": "RIQ11",
+      "question": "Is there evidence for a dominant bottleneck?",
+      "section": "pressure"
+    },
+    {
+      "id": "RIQ12",
+      "question": "If yes, which receipt fields prove it?",
+      "section": "pressure"
+    },
+    {
+      "id": "RIQ13",
+      "question": "If no, what is the smallest lawful next evidence-gathering objective?",
+      "section": "pressure"
+    },
+    {
+      "id": "RIQ14",
+      "question": "Is optimization forbidden at this point?",
+      "section": "guard"
+    },
+    {
+      "id": "RIQ15",
+      "question": "Is a new objective allowed, or must the loop stop?",
+      "section": "classifier"
+    }
+  ],
+  "schema_version": "receipt_interrogation_question_schema_v0"
+}
