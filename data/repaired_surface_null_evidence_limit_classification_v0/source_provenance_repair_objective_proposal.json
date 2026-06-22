@@ -1,0 +1,71 @@
+{
+  "authority_widening_authorized": false,
+  "build_command_emitted": false,
+  "burden_optimization_authorized": false,
+  "candidate_artifacts_to_inspect": [
+    "producer_of_r1000_pressure_event_rows_jsonl",
+    "pressure_event_payload_schema",
+    "taxonomy pressure emitter",
+    "halt reason emitter for STOP_TAXONOMY_GAP"
+  ],
+  "current_absence_reason": "SOURCE_PAYLOAD_DOES_NOT_EMIT_FIELD",
+  "expected_acceptance_gates_if_accepted": [
+    "producer localized",
+    "available provenance fields identified",
+    "unavailable provenance fields explicitly classified with reason",
+    "no missing label values guessed",
+    "no taxonomy delta emitted",
+    "no taxonomy upgrade authorized",
+    "historical receipts not mutated"
+  ],
+  "forbidden_scope": [
+    "taxonomy repair",
+    "taxonomy upgrade",
+    "taxonomy delta proposal",
+    "guessing missing label values",
+    "mutating existing receipts",
+    "overwriting historical source rows",
+    "auto-opening next group",
+    "executing source provenance repair inside this unit"
+  ],
+  "missing_values_to_source": [
+    "missing_label_identifier",
+    "taxonomy_context_ref",
+    "current_label_space_ref",
+    "expected_label_space_ref"
+  ],
+  "proposal_emitted": true,
+  "proposal_type": "SOURCE_PROVENANCE_REPAIR_OBJECTIVE_PROPOSAL",
+  "repair_command_emitted": false,
+  "repair_executed": false,
+  "repair_objective_id": "f06c2f41",
+  "repair_objective_name": "REPAIR_SOURCE_PROVENANCE_FOR_R1000_TAXONOMY_GAP_VALUES_V0",
+  "repair_scope": "Identify and instrument the upstream producer or provenance layer that could emit real values for the taxonomy-gap evidence fields, or classify the absence as a healthy expected source limit if no such producer exists.",
+  "required_review_questions": [
+    "Which upstream producer creates the pressure event payload rows?",
+    "Does that producer have access to missing_label_identifier?",
+    "Does that producer have access to taxonomy_context_ref?",
+    "Does that producer have access to current_label_space_ref?",
+    "Does that producer have access to expected_label_space_ref?",
+    "If not available, is this a healthy expected source boundary?"
+  ],
+  "rerun_required_after_source_provenance_repair": [
+    "RERUN_EXTRACT_R1000_TOP_GROUP_TAXONOMY_GAP_MISSING_LABEL_EVIDENCE_ON_REPAIRED_SURFACE_V0",
+    "CLASSIFY_REPAIRED_SURFACE_NULL_EVIDENCE_LIMIT_V0",
+    "RECLASSIFY_R1000_TOP_GROUP_TAXONOMY_GAP_AFTER_REPAIRED_EVIDENCE_SURFACE_V0 if values become available"
+  ],
+  "review_only": true,
+  "schema_version": "source_provenance_repair_objective_proposal_v0",
+  "source_evidence_refs": [
+    "data/repaired_surface_rerun_comparison_gate_fix_v0_receipts/b554aace.json",
+    "data/repaired_surface_rerun_comparison_gate_fix_v0/corrected_repaired_surface_evidence_outcome.json",
+    "data/rerun_taxonomy_gap_missing_label_evidence_on_repaired_surface_v0/repaired_surface_taxonomy_gap_missing_label_field_rows.jsonl",
+    "data/rerun_taxonomy_gap_missing_label_evidence_on_repaired_surface_v0/repaired_surface_taxonomy_gap_context_refs.json",
+    "data/rerun_taxonomy_gap_missing_label_evidence_on_repaired_surface_v0/repaired_surface_field_presence_rollup.json"
+  ],
+  "source_mutation": false,
+  "source_pressure_group_key_hash": "38c604a1",
+  "taxonomy_delta_proposal_emitted": false,
+  "taxonomy_upgrade_authorized": false,
+  "terminal_rule": "STOP_HUMAN_DECISION_REQUIRED"
+}
