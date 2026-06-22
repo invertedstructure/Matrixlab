@@ -1,0 +1,122 @@
+{
+  "action_executed": false,
+  "authority_widening_authorized": false,
+  "context_refs_summary": {
+    "context_refs_sufficient_for_taxonomy_delta": false,
+    "current_label_space_ref_present_count": 0,
+    "current_label_space_refs": [],
+    "expected_label_space_ref_present_count": 0,
+    "expected_label_space_refs": [],
+    "missing_label_identifier_present_count": 0,
+    "missing_label_identifiers": [],
+    "pressure_group_key_hash": "38c604a1",
+    "review_only": true,
+    "row_count": 25,
+    "schema_version": "taxonomy_gap_context_refs_v0",
+    "taxonomy_context_ref_present_count": 0,
+    "taxonomy_context_refs": []
+  },
+  "extraction_repair_authorized": false,
+  "extraction_row_count": 25,
+  "field_extraction_assessment": {
+    "classification_after": "NOT_ENOUGH_EVIDENCE",
+    "classification_before": "NOT_ENOUGH_EVIDENCE",
+    "evidence_sufficiency_class_after": "EVIDENCE_INSUFFICIENT_NEEDS_FIELD_EXTRACTION",
+    "evidence_sufficiency_class_before": "EVIDENCE_INSUFFICIENT_NEEDS_FIELD_EXTRACTION",
+    "extraction_complete": true,
+    "extraction_repair_allowed": false,
+    "extraction_row_count": 25,
+    "fixable_pressure_supported": false,
+    "healthy_expected_pressure_supported": false,
+    "missing_evidence_remaining": [
+      "missing_label_identifier",
+      "taxonomy_context_ref",
+      "current_label_space_ref",
+      "expected_label_space_ref"
+    ],
+    "not_enough_evidence_supported": true,
+    "operational_cause_candidate": "FIELD_EXTRACTION_SURFACE_LACKS_TAXONOMY_GAP_DETAIL",
+    "operational_cause_support_level": "STRONG_FOR_EVIDENCE_GAP",
+    "pressure_group_key_hash": "38c604a1",
+    "repair_proposal_allowed": false,
+    "review_only": true,
+    "schema_version": "taxonomy_gap_field_extraction_assessment_v0",
+    "source_evidence_request_id": "52b0d484",
+    "taxonomy_delta_proposal_allowed": false,
+    "taxonomy_upgrade_allowed": false
+  },
+  "hidden_next_command": false,
+  "operational_cause_candidates_summary": {
+    "candidate_count": 1,
+    "candidates": [
+      {
+        "candidate_id": "FIELD_EXTRACTION_SURFACE_LACKS_TAXONOMY_GAP_DETAIL",
+        "candidate_type": "evidence_gap_not_repair",
+        "description": "All extracted rows preserve taxonomy-gap pressure identity but omit explicit missing_label_identifier and taxonomy_context_ref fields.",
+        "forbidden_inference": "do not treat absent fields as taxonomy delta or extraction repair authorization",
+        "may_support_fixable_pressure": false,
+        "may_support_healthy_expected_pressure": false,
+        "support_level": "STRONG_FOR_EVIDENCE_GAP",
+        "supports_not_enough_evidence": true
+      }
+    ],
+    "evidence_support_level_counts": {
+      "INSUFFICIENT": 25
+    },
+    "field_status_counts": {
+      "FIELD_VALUES_ABSENT": 25
+    },
+    "fixable_pressure_supported": false,
+    "healthy_expected_pressure_supported": false,
+    "not_enough_evidence_supported": true,
+    "pressure_group_key_hash": "38c604a1",
+    "repair_objective_proposal_emitted": false,
+    "review_only": true,
+    "schema_version": "taxonomy_gap_operational_cause_candidates_v0",
+    "selected_candidate_support_level": "STRONG_FOR_EVIDENCE_GAP",
+    "selected_operational_cause_candidate": "FIELD_EXTRACTION_SURFACE_LACKS_TAXONOMY_GAP_DETAIL",
+    "taxonomy_delta_proposal_emitted": false
+  },
+  "optimization_authorized": false,
+  "pressure_group_key_hash": "38c604a1",
+  "recommended_next_human_choice": "REQUEST_FIELD_INSTRUMENTATION_OR_MANUAL_FRAGMENT_REVIEW",
+  "reinspection_rollup": {
+    "all_core_refs_present": true,
+    "all_group_identity_preserved": true,
+    "classification_after_extraction": "NOT_ENOUGH_EVIDENCE",
+    "classification_reason": "Extracted source rows still lack explicit missing label identifiers and taxonomy context refs; taxonomy-gap pressure remains not enough evidence.",
+    "current_label_space_ref_present_count": 0,
+    "evidence_sufficiency_class_after_extraction": "EVIDENCE_INSUFFICIENT_NEEDS_FIELD_EXTRACTION",
+    "expected_label_space_ref_present_count": 0,
+    "expected_row_count": 25,
+    "field_status_counts": {
+      "FIELD_VALUES_ABSENT": 25
+    },
+    "missing_label_identifier_present_count": 0,
+    "pressure_group_key_hash": "38c604a1",
+    "repair_objective_proposal_emitted": false,
+    "review_only": true,
+    "row_count": 25,
+    "schema_version": "taxonomy_gap_reinspection_rollup_v0",
+    "selected_operational_cause_candidate": "FIELD_EXTRACTION_SURFACE_LACKS_TAXONOMY_GAP_DETAIL",
+    "taxonomy_context_ref_present_count": 0,
+    "taxonomy_delta_proposal_emitted": false,
+    "taxonomy_upgrade_authorized": false
+  },
+  "repair_command_emitted": false,
+  "repair_executed": false,
+  "repair_objective_proposal_emitted": false,
+  "review_only": true,
+  "schema_version": "taxonomy_gap_evidence_extraction_report_v0",
+  "source_mutation": false,
+  "source_receipts": {
+    "source_loop_application_receipt_id": "be19f438",
+    "source_pressure_loop_protocol_receipt_id": "6148b4fa",
+    "source_r1000_scale_stability_receipt_id": "a121ff40",
+    "source_top_group_classification_receipt_id": "7c9718e0"
+  },
+  "target_unit_id": "taxonomy_gap_missing_label_evidence_extraction.r1000_top_group.v0",
+  "taxonomy_delta_proposal_emitted": false,
+  "taxonomy_upgrade_authorized": false,
+  "unit_id": "EXTRACT_R1000_TOP_GROUP_TAXONOMY_GAP_MISSING_LABEL_EVIDENCE_V0"
+}
