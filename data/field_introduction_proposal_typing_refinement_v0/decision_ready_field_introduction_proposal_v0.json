@@ -1,0 +1,226 @@
+{
+  "authorization_boundary": {
+    "authorization_layer_options": [
+      "ACCEPT_FIELD_INTRODUCTION",
+      "DECLINE_FIELD_INTRODUCTION",
+      "REQUEST_UPSTREAM_EXISTENCE_AUDIT",
+      "MARK_EXPECTED_LIMIT",
+      "REJECT_PROPOSAL_AS_UNDECIDABLE"
+    ],
+    "reason": "introducing fields changes the source payload/schema contract and must be human-authorized",
+    "required": true,
+    "validator_may_reject_as_undecidable": true
+  },
+  "blocked_loop": "taxonomy_gap_missing_label_investigation",
+  "blocked_reason": "required values are absent from source payload and current evidence surface cannot classify missing-label pressure without them",
+  "build_command_emitted": false,
+  "decision_ready": true,
+  "decision_ready_reason": "each proposed field declares role, owner, producer, blocked loop, blocked decision, requirement, null behavior, provenance, allowed mutation scope, forbidden actions, and requested decision",
+  "decision_requested": [
+    "ACCEPT_FIELD_INTRODUCTION",
+    "DECLINE_FIELD_INTRODUCTION",
+    "REQUEST_UPSTREAM_EXISTENCE_AUDIT",
+    "MARK_EXPECTED_LIMIT",
+    "REJECT_PROPOSAL_AS_UNDECIDABLE"
+  ],
+  "field_creation_executed": false,
+  "forbidden_global_actions": [
+    "do_not_invent_label_value",
+    "do_not_create_taxonomy_label",
+    "do_not_upgrade_taxonomy",
+    "do_not_mutate_source_semantics",
+    "do_not_overwrite_historical_source_rows",
+    "do_not_mutate_existing_receipts",
+    "do_not_auto_open_next_group"
+  ],
+  "missing_label_values_guessed": false,
+  "mutation_executed": false,
+  "mutation_required_if_accepted": true,
+  "proposal_id": "2bbd007c",
+  "proposal_type": "FIELD_INTRODUCTION_PROPOSAL_V0",
+  "proposal_typing_deficiency_repaired": true,
+  "proposed_introductions": [
+    {
+      "allowed_mutation_scope": "add field emission and provenance only; no source semantic reinterpretation",
+      "blocked_decision": "distinguish_one_missing_label_gap_from_another",
+      "blocked_loop": "taxonomy_gap_missing_label_investigation",
+      "current_source_surface": "repaired evidence overlay exposes key and absence reason, but source payload does not emit value",
+      "emitting_producer": "taxonomy_gap_detector",
+      "expected_future_source_surface": "taxonomy_gap_source_payload emits this field or emits explicit non-applicable/null reason with provenance",
+      "field_name": "missing_label_identifier",
+      "field_role": "identifies the specific label that was missing",
+      "forbidden_inferred_actions": [
+        "do_not_invent_label_value",
+        "do_not_create_taxonomy_label",
+        "do_not_upgrade_taxonomy",
+        "do_not_mutate_source_semantics",
+        "do_not_overwrite_historical_source_rows",
+        "do_not_mutate_existing_receipts",
+        "do_not_auto_open_next_group"
+      ],
+      "null_absence_reason_required": true,
+      "null_allowed": true,
+      "observed_absence_reason_profile": {
+        "SOURCE_PAYLOAD_DOES_NOT_EMIT_FIELD": 25
+      },
+      "owning_surface": "taxonomy_gap_source_payload",
+      "provenance_requirement": "producer must attach source_trace_ref and source_receipt_ref for emitted value or explicit null reason",
+      "requested_authorization_decision": [
+        "ACCEPT_FIELD_INTRODUCTION",
+        "DECLINE_FIELD_INTRODUCTION",
+        "REQUEST_UPSTREAM_EXISTENCE_AUDIT",
+        "MARK_EXPECTED_LIMIT",
+        "REJECT_PROPOSAL_AS_UNDECIDABLE"
+      ],
+      "required_for": "distinguishing one missing-label gap from another",
+      "where_absence_was_observed": [
+        "data/rerun_taxonomy_gap_missing_label_evidence_on_repaired_surface_v0/repaired_surface_taxonomy_gap_missing_label_field_rows.jsonl",
+        "data/null_evidence_field_introduction_boundary_refinement_v0/field_existence_status_assessment.json",
+        "data/null_evidence_field_introduction_boundary_refinement_v0_receipts/9ea8fc6e.json"
+      ],
+      "why_required": "taxonomy-gap missing-label pressure cannot be classified without identifying which label is missing"
+    },
+    {
+      "allowed_mutation_scope": "add field emission and provenance only; no source semantic reinterpretation",
+      "blocked_decision": "determine_taxonomy_context_for_missing_label_claim",
+      "blocked_loop": "taxonomy_gap_missing_label_investigation",
+      "current_source_surface": "repaired evidence overlay exposes key and absence reason, but source payload does not emit value",
+      "emitting_producer": "taxonomy_gap_detector",
+      "expected_future_source_surface": "taxonomy_gap_source_payload emits this field or emits explicit non-applicable/null reason with provenance",
+      "field_name": "taxonomy_context_ref",
+      "field_role": "identifies the taxonomy context, namespace, or version where the missing-label claim is evaluated",
+      "forbidden_inferred_actions": [
+        "do_not_invent_label_value",
+        "do_not_create_taxonomy_label",
+        "do_not_upgrade_taxonomy",
+        "do_not_mutate_source_semantics",
+        "do_not_overwrite_historical_source_rows",
+        "do_not_mutate_existing_receipts",
+        "do_not_auto_open_next_group"
+      ],
+      "null_absence_reason_required": true,
+      "null_allowed": true,
+      "observed_absence_reason_profile": {
+        "SOURCE_PAYLOAD_DOES_NOT_EMIT_FIELD": 25
+      },
+      "owning_surface": "taxonomy_gap_source_payload",
+      "provenance_requirement": "producer must attach source_trace_ref and source_receipt_ref for emitted value or explicit null reason",
+      "requested_authorization_decision": [
+        "ACCEPT_FIELD_INTRODUCTION",
+        "DECLINE_FIELD_INTRODUCTION",
+        "REQUEST_UPSTREAM_EXISTENCE_AUDIT",
+        "MARK_EXPECTED_LIMIT",
+        "REJECT_PROPOSAL_AS_UNDECIDABLE"
+      ],
+      "required_for": "anchoring missing-label evidence to the correct taxonomy context",
+      "where_absence_was_observed": [
+        "data/rerun_taxonomy_gap_missing_label_evidence_on_repaired_surface_v0/repaired_surface_taxonomy_gap_missing_label_field_rows.jsonl",
+        "data/null_evidence_field_introduction_boundary_refinement_v0/field_existence_status_assessment.json",
+        "data/null_evidence_field_introduction_boundary_refinement_v0_receipts/9ea8fc6e.json"
+      ],
+      "why_required": "the same label string can mean different things across taxonomy contexts; classification requires a context reference"
+    },
+    {
+      "allowed_mutation_scope": "add field emission and provenance only; no source semantic reinterpretation",
+      "blocked_decision": "compare_current_label_space_against_expected_label_space",
+      "blocked_loop": "taxonomy_gap_missing_label_investigation",
+      "current_source_surface": "repaired evidence overlay exposes key and absence reason, but source payload does not emit value",
+      "emitting_producer": "taxonomy_gap_detector",
+      "expected_future_source_surface": "taxonomy_gap_source_payload emits this field or emits explicit non-applicable/null reason with provenance",
+      "field_name": "current_label_space_ref",
+      "field_role": "identifies the current label space observed by the source payload",
+      "forbidden_inferred_actions": [
+        "do_not_invent_label_value",
+        "do_not_create_taxonomy_label",
+        "do_not_upgrade_taxonomy",
+        "do_not_mutate_source_semantics",
+        "do_not_overwrite_historical_source_rows",
+        "do_not_mutate_existing_receipts",
+        "do_not_auto_open_next_group"
+      ],
+      "null_absence_reason_required": true,
+      "null_allowed": true,
+      "observed_absence_reason_profile": {
+        "SOURCE_PAYLOAD_DOES_NOT_EMIT_FIELD": 25
+      },
+      "owning_surface": "taxonomy_gap_source_payload",
+      "provenance_requirement": "producer must attach source_trace_ref and source_receipt_ref for emitted value or explicit null reason",
+      "requested_authorization_decision": [
+        "ACCEPT_FIELD_INTRODUCTION",
+        "DECLINE_FIELD_INTRODUCTION",
+        "REQUEST_UPSTREAM_EXISTENCE_AUDIT",
+        "MARK_EXPECTED_LIMIT",
+        "REJECT_PROPOSAL_AS_UNDECIDABLE"
+      ],
+      "required_for": "distinguishing current-state absence from taxonomy expectation mismatch",
+      "where_absence_was_observed": [
+        "data/rerun_taxonomy_gap_missing_label_evidence_on_repaired_surface_v0/repaired_surface_taxonomy_gap_missing_label_field_rows.jsonl",
+        "data/null_evidence_field_introduction_boundary_refinement_v0/field_existence_status_assessment.json",
+        "data/null_evidence_field_introduction_boundary_refinement_v0_receipts/9ea8fc6e.json"
+      ],
+      "why_required": "missing-label pressure requires knowing which label space was actually present before claiming something is absent"
+    },
+    {
+      "allowed_mutation_scope": "add field emission and provenance only; no source semantic reinterpretation",
+      "blocked_decision": "identify_expected_label_space_for_missing_label_claim",
+      "blocked_loop": "taxonomy_gap_missing_label_investigation",
+      "current_source_surface": "repaired evidence overlay exposes key and absence reason, but source payload does not emit value",
+      "emitting_producer": "taxonomy_gap_detector",
+      "expected_future_source_surface": "taxonomy_gap_source_payload emits this field or emits explicit non-applicable/null reason with provenance",
+      "field_name": "expected_label_space_ref",
+      "field_role": "identifies the expected label space used as the comparison target",
+      "forbidden_inferred_actions": [
+        "do_not_invent_label_value",
+        "do_not_create_taxonomy_label",
+        "do_not_upgrade_taxonomy",
+        "do_not_mutate_source_semantics",
+        "do_not_overwrite_historical_source_rows",
+        "do_not_mutate_existing_receipts",
+        "do_not_auto_open_next_group"
+      ],
+      "null_absence_reason_required": true,
+      "null_allowed": true,
+      "observed_absence_reason_profile": {
+        "SOURCE_PAYLOAD_DOES_NOT_EMIT_FIELD": 25
+      },
+      "owning_surface": "taxonomy_gap_source_payload",
+      "provenance_requirement": "producer must attach source_trace_ref and source_receipt_ref for emitted value or explicit null reason",
+      "requested_authorization_decision": [
+        "ACCEPT_FIELD_INTRODUCTION",
+        "DECLINE_FIELD_INTRODUCTION",
+        "REQUEST_UPSTREAM_EXISTENCE_AUDIT",
+        "MARK_EXPECTED_LIMIT",
+        "REJECT_PROPOSAL_AS_UNDECIDABLE"
+      ],
+      "required_for": "checking whether a label is genuinely missing relative to an expected surface",
+      "where_absence_was_observed": [
+        "data/rerun_taxonomy_gap_missing_label_evidence_on_repaired_surface_v0/repaired_surface_taxonomy_gap_missing_label_field_rows.jsonl",
+        "data/null_evidence_field_introduction_boundary_refinement_v0/field_existence_status_assessment.json",
+        "data/null_evidence_field_introduction_boundary_refinement_v0_receipts/9ea8fc6e.json"
+      ],
+      "why_required": "a missing label can only be assessed relative to an expected label space"
+    }
+  ],
+  "repair_command_emitted": false,
+  "review_only": true,
+  "schema_mutation_executed": false,
+  "schema_version": "field_introduction_proposal_v0",
+  "source_mutation": false,
+  "source_payload_mutation_executed": false,
+  "source_pressure_group_key_hash": "38c604a1",
+  "source_receipt_chain": {
+    "comparison_gate_fix_receipt_id": "b554aace",
+    "field_introduction_boundary_receipt_id": "9ea8fc6e",
+    "loop_application_receipt_id": "be19f438",
+    "null_limit_receipt_id": "9e2c2881",
+    "pressure_loop_protocol_receipt_id": "6148b4fa",
+    "r1000_scale_stability_receipt_id": "a121ff40",
+    "repaired_surface_rerun_receipt_id": "b113463f",
+    "structural_ref_fix_receipt_id": "d6d40d57",
+    "taxonomy_gap_evidence_extraction_receipt_id": "7ed31808",
+    "top_group_classification_receipt_id": "7c9718e0"
+  },
+  "taxonomy_delta_proposal_emitted": false,
+  "taxonomy_upgrade_authorized": false,
+  "triggering_failure_class": "NONEXISTENT_OR_UNREPRESENTED_FIELD_REQUIRED_FOR_CONTINUATION"
+}

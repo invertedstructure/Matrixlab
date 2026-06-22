@@ -1,0 +1,55 @@
+{
+  "allowed_decision_requested": [
+    "ACCEPT_FIELD_INTRODUCTION",
+    "DECLINE_FIELD_INTRODUCTION",
+    "REQUEST_UPSTREAM_EXISTENCE_AUDIT",
+    "MARK_EXPECTED_LIMIT",
+    "REJECT_PROPOSAL_AS_UNDECIDABLE"
+  ],
+  "must_not": [
+    "create field",
+    "mutate schema",
+    "mutate source payload",
+    "invent field value",
+    "create taxonomy label",
+    "upgrade taxonomy",
+    "mutate source semantics",
+    "auto-advance"
+  ],
+  "proposal_type": "FIELD_INTRODUCTION_PROPOSAL_V0",
+  "proposal_validity_rule": "Every proposed field must be specific enough for authorization to accept, decline, request upstream existence audit, mark expected limit, or reject as undecidable without a separate proposal-interpretation loop.",
+  "required_per_field_keys": [
+    "field_name",
+    "field_role",
+    "owning_surface",
+    "emitting_producer",
+    "blocked_loop",
+    "blocked_decision",
+    "why_required",
+    "required_for",
+    "where_absence_was_observed",
+    "current_source_surface",
+    "expected_future_source_surface",
+    "null_allowed",
+    "null_absence_reason_required",
+    "provenance_requirement",
+    "allowed_mutation_scope",
+    "forbidden_inferred_actions",
+    "requested_authorization_decision"
+  ],
+  "required_top_level_fields": [
+    "proposal_id",
+    "proposal_type",
+    "triggering_failure_class",
+    "blocked_loop",
+    "blocked_reason",
+    "source_pressure_group_key_hash",
+    "source_receipt_chain",
+    "proposed_introductions",
+    "decision_requested",
+    "authorization_boundary",
+    "forbidden_global_actions",
+    "mutation_executed"
+  ],
+  "schema_version": "field_introduction_proposal_v0_schema"
+}
