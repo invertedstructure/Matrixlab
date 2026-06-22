@@ -1,0 +1,652 @@
+{
+  "acceptance_gates": {
+    "CRP0_source_surface_verified": {
+      "description": "Consumes Day 6 taxonomy evolution, Day 5 jurisdiction gate, Day 4 move registry, Day 3 halt vocabulary, proceed adapter, trace ledger, and local regime.",
+      "required": true
+    },
+    "CRP10_distinguishability_preservation_declared": {
+      "description": "Ambiguous/unlinked events reduce distinguishability preservation.",
+      "required": true
+    },
+    "CRP11_rollup_compares_current_batch_to_previous_batch": {
+      "description": "Batch rollup includes deltas against prior batch.",
+      "required": true
+    },
+    "CRP12_readout_includes_must_not_impersonate": {
+      "description": "Reports carry anti-impersonation block.",
+      "required": true
+    },
+    "CRP13_higher_radius_not_treated_as_automatically_better": {
+      "description": "Radius interpretation preserves halt/authority/burden context.",
+      "required": true
+    },
+    "CRP14_no_optimization_tuning_performed_by_policy": {
+      "description": "Policy measures only; does not tune or optimize.",
+      "required": true
+    },
+    "CRP15_no_global_closure_final_intelligence_autonomy_claim": {
+      "description": "No global closure, final intelligence, or autonomy claims.",
+      "required": true
+    },
+    "CRP1_closure_radius_metric_schema_declared": {
+      "description": "Closure radius metric schema is declared as vector-first.",
+      "required": true
+    },
+    "CRP2_lawful_movement_counter_declared": {
+      "description": "Only registered, admissible, authorized, executed, traced, receipted movement counts.",
+      "required": true
+    },
+    "CRP3_proposal_only_movement_excluded_from_executed_radius": {
+      "description": "Proposal-only and blocked artifacts do not count as executed movement.",
+      "required": true
+    },
+    "CRP4_unauthorized_execution_zeroes_or_invalidates_radius_score": {
+      "description": "Illegal movement cannot increase radius score.",
+      "required": true
+    },
+    "CRP5_halt_distribution_by_code_family_class_declared": {
+      "description": "Halts are counted by code, family, and stop class.",
+      "required": true
+    },
+    "CRP6_expected_vs_unexpected_halt_split_declared": {
+      "description": "Expected and unexpected terminal halts are separated.",
+      "required": true
+    },
+    "CRP7_authority_boundary_metrics_declared": {
+      "description": "Authority verdicts, review requests, proposal-only blocks, forbidden moves, and unauthorized executions are visible.",
+      "required": true
+    },
+    "CRP8_taxonomy_pressure_metrics_declared_separately_from_accepted_patches": {
+      "description": "Taxonomy pressure and accepted local patches are distinct metrics.",
+      "required": true
+    },
+    "CRP9_receipt_burden_per_lawful_move_declared": {
+      "description": "Receipt/trace burden is measured per lawful executed move.",
+      "required": true
+    }
+  },
+  "authority_boundary_report_schema": {
+    "law": [
+      "unauthorized execution invalidates closure radius score",
+      "proposal-only blocks do not count as executed movement",
+      "human review requests are boundaries, not executed movement"
+    ],
+    "required_fields": [
+      "authority_boundary_report_id",
+      "schema_version",
+      "run_scope",
+      "authority_verdict_count",
+      "human_review_requests",
+      "proposal_packets_emitted",
+      "forbidden_move_attempts",
+      "authority_block_rate",
+      "unauthorized_execution_count",
+      "interpretation"
+    ],
+    "schema_version": "authority_boundary_report_schema_v0"
+  },
+  "authorized_operations_next": {
+    "emit_day7_demo_radius_report": true,
+    "emit_day7_demo_radius_rollup": true,
+    "emit_implementation_receipt": true,
+    "read_closure_radius_policy": true,
+    "read_closure_radius_policy_receipt": true,
+    "write_authority_boundary_report_schema": true,
+    "write_closure_radius_dashboard_readout": true,
+    "write_closure_radius_metric_schema": true,
+    "write_closure_radius_rollup_schema": true,
+    "write_closure_radius_score": true,
+    "write_distinguishability_metric_schema": true,
+    "write_expected_halt_policy_schema": true,
+    "write_halt_distribution_report_schema": true,
+    "write_receipt_burden_report_schema": true,
+    "write_run_metrics_schema": true,
+    "write_stop_class_mapping": true,
+    "write_taxonomy_pressure_report_schema": true
+  },
+  "closure_radius_dashboard_readout": {
+    "chips": {
+      "authority": [
+        "authorized_moves",
+        "human_review_requests",
+        "proposal_only_blocks",
+        "forbidden_moves",
+        "unauthorized_executions"
+      ],
+      "burden": [
+        "receipt_bytes_per_move",
+        "trace_density",
+        "unlinked_events",
+        "receipt_mismatches"
+      ],
+      "halts": [
+        "top_halt_code",
+        "unexpected_halt_count",
+        "repeat_halt_count",
+        "frontier_halt_count"
+      ],
+      "radius": [
+        "mean_moves_before_halt",
+        "median_moves_before_halt",
+        "completed_units_before_halt",
+        "advance_chain_length"
+      ],
+      "taxonomy": [
+        "taxonomy_pressures",
+        "proposals",
+        "accepted",
+        "deferred",
+        "repeat_gaps",
+        "ADD_bias"
+      ]
+    },
+    "must_not_impersonate": [
+      "global autonomy",
+      "proof closure",
+      "final engine correctness",
+      "permission to self-authorize future registry changes",
+      "proof that higher radius is always better"
+    ],
+    "schema_version": "closure_radius_dashboard_readout_v0"
+  },
+  "closure_radius_metric_schema": {
+    "core_law": "Closure radius counts only lawful, registered, admissible, authorized, traced, receipted movement.",
+    "excluded_from_executed_radius": [
+      "proposal_only_artifacts",
+      "blocked_moves",
+      "human_review_requests",
+      "taxonomy_proposals",
+      "unregistered_moves",
+      "unauthorized_moves",
+      "unreviewed_taxonomy_patches"
+    ],
+    "lawful_move_required_flags": [
+      "registered",
+      "admissible",
+      "authorized",
+      "executed",
+      "trace_emitted",
+      "receipt_emitted"
+    ],
+    "must_not_impersonate": [
+      "global autonomy",
+      "proof closure",
+      "final engine correctness",
+      "permission to widen jurisdiction",
+      "proof that higher radius is always better"
+    ],
+    "radius_vector": [
+      "executed_moves_before_halt",
+      "completed_units_before_halt",
+      "advance_chain_length",
+      "terminal_halt_code",
+      "terminal_halt_family",
+      "human_review_distance",
+      "authority_boundary_distance",
+      "taxonomy_gap_distance",
+      "missing_move_distance",
+      "frontier_distance",
+      "receipt_burden_per_move",
+      "distinguishability_preservation"
+    ],
+    "required_fields": [
+      "closure_radius_report_id",
+      "schema_version",
+      "run_scope",
+      "movement",
+      "closure_radius",
+      "terminal_halt",
+      "authority",
+      "taxonomy",
+      "burden",
+      "distinguishability",
+      "score",
+      "interpretation"
+    ],
+    "schema_version": "closure_radius_metric_schema_v0"
+  },
+  "closure_radius_rollup_schema": {
+    "law": [
+      "rollup must not hide bad halts under average progress",
+      "rollup must compare current batch against previous batch",
+      "radius improvement requires authority and receipt integrity"
+    ],
+    "required_fields": [
+      "closure_radius_rollup_id",
+      "schema_version",
+      "batch_scope",
+      "aggregate_radius",
+      "halt_distribution",
+      "authority_summary",
+      "taxonomy_summary",
+      "burden_summary",
+      "distinguishability_summary",
+      "radius_delta",
+      "interpretation"
+    ],
+    "schema_version": "closure_radius_rollup_schema_v0"
+  },
+  "closure_radius_score": {
+    "authority_integrity_factor": "0 if unauthorized_execution_count > 0 else 1",
+    "formula": "executed_moves_before_halt * distinguishability_preservation * authority_integrity_factor * receipt_integrity_factor",
+    "law": [
+      "score is dashboard convenience, not closure truth",
+      "unauthorized execution zeroes score",
+      "higher score is not automatically better",
+      "lower score caused by correct human review may be healthier than overreach"
+    ],
+    "receipt_integrity_factor": "1 - receipt_trace_mismatch_count / max(1, moves_executed)",
+    "schema_version": "closure_radius_score_v0"
+  },
+  "created_at": "2026-06-22T13:56:06.158705+00:00",
+  "day7_demo_radius_report_plan": {
+    "demo_reports": [
+      {
+        "demo_name": "DAY7_RADIUS_IMPROVES_CLEANLY",
+        "expected_result": "radius increases with authority_integrity_factor=1 and receipt_integrity_factor=1",
+        "purpose": "Accepted missing-move delta reduces missing-move pressure and allows longer lawful runs."
+      },
+      {
+        "demo_name": "DAY7_RADIUS_INCREASES_ILLEGALLY",
+        "expected_result": "closure_radius_score=0 and improvement is rejected",
+        "purpose": "Radius-looking movement includes unauthorized execution."
+      },
+      {
+        "demo_name": "DAY7_TAXONOMY_PRESSURE_PRODUCTIVE",
+        "expected_result": "taxonomy pressure is visible and not treated as failure if repeat pressure falls after review",
+        "purpose": "Short-term radius is low while taxonomy pressure exposes missing vocabulary; repeat pressure drops later."
+      },
+      {
+        "demo_name": "DAY7_RECEIPT_BURDEN_EXPLODES",
+        "expected_result": "instrumentation pressure is reported, not hidden by radius",
+        "purpose": "Receipt burden per move rises while distinguishability is unchanged."
+      }
+    ],
+    "schema_version": "day7_demo_radius_report_plan_v0"
+  },
+  "day7_demo_radius_rollup_plan": {
+    "batch_comparison": {
+      "current_batch": "day7_demo_batch_current",
+      "previous_batch": "day7_demo_batch_previous"
+    },
+    "required_rollup_checks": [
+      "mean radius delta",
+      "authority integrity",
+      "receipt burden per move",
+      "distinguishability preservation",
+      "unexpected halt count",
+      "taxonomy repeat pressure rate"
+    ],
+    "schema_version": "day7_demo_radius_rollup_plan_v0"
+  },
+  "distinguishability_metric_schema": {
+    "formula": "1 - ambiguous_or_unlinked_events / max(1, total_events)",
+    "law": [
+      "events that cannot be distinguished later do not support useful closure-radius measurement",
+      "receipt compression must preserve distinguishable transition references"
+    ],
+    "required_fields": [
+      "distinguishability_report_id",
+      "schema_version",
+      "run_scope",
+      "total_events",
+      "ambiguous_or_unlinked_events",
+      "unique_run_ids",
+      "unique_trace_refs",
+      "unique_receipt_refs",
+      "missing_trace_links",
+      "receipt_trace_mismatch_count",
+      "unlinked_proposal_count",
+      "unlinked_taxonomy_delta_count",
+      "distinguishability_preservation"
+    ],
+    "schema_version": "distinguishability_metric_schema_v0"
+  },
+  "expected_halt_policy_schema": {
+    "law": [
+      "expected halts are not automatically success",
+      "unexpected halts are not automatically fatal without interpretation",
+      "STOP_HUMAN_REVIEW_REQUIRED may be healthy under current jurisdiction",
+      "STOP_NEXT_MOVE_BOUNDARY may be clean boundary",
+      "STOP_NO_APPLICABLE_MOVE counts as clean only if expected_terminal flag says so"
+    ],
+    "required_fields": [
+      "unit_id",
+      "expected_terminal_halts",
+      "unexpected_terminal_halts"
+    ],
+    "schema_version": "expected_halt_policy_schema_v0"
+  },
+  "failures": [],
+  "forbidden_operations_next": {
+    "ambient_workspace_authority": true,
+    "claim_autonomy": true,
+    "claim_final_intelligence": true,
+    "claim_global_closure": true,
+    "claim_proof": true,
+    "count_blocked_move_as_execution": true,
+    "count_human_review_request_as_execution": true,
+    "count_proposal_only_as_execution": true,
+    "count_taxonomy_proposal_as_accepted_patch": true,
+    "count_unauthorized_move_as_radius": true,
+    "count_unregistered_move_as_radius": true,
+    "hidden_continuation_after_terminal": true,
+    "hide_halts_under_average_radius": true,
+    "latest_or_mtime_selection": true,
+    "modify_local_regime": true,
+    "modify_source_modules": true,
+    "mutate_existing_halt_vocabulary": true,
+    "mutate_existing_jurisdiction_gate": true,
+    "mutate_existing_move_registry": true,
+    "mutate_existing_taxonomy_registry": true,
+    "optimize_runner": true,
+    "report_higher_radius_as_always_better": true,
+    "sqlite_registry_write": true,
+    "treat_no_applicable_move_as_success_without_expected_terminal": true,
+    "tune_policy_from_metrics": true
+  },
+  "gate": "PASS",
+  "halt_distribution_report_schema": {
+    "law": [
+      "halt counts must not be hidden under average radius",
+      "all terminal halts require code, family, and class"
+    ],
+    "required_fields": [
+      "halt_distribution_report_id",
+      "schema_version",
+      "run_scope",
+      "halt_count_by_code",
+      "halt_count_by_family",
+      "halt_count_by_class",
+      "expected_halt_count",
+      "unexpected_halt_count",
+      "repeat_halt_count",
+      "interpretation"
+    ],
+    "schema_version": "halt_distribution_report_schema_v0"
+  },
+  "policy_id": "80f2b331",
+  "policy_receipt_id": "fc82cb0f",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "policy_summary": {
+    "core_law": "Closure radius counts only lawful, registered, admissible, authorized, traced, receipted movement.",
+    "interpretation": "Measured lawful distance before lawful interruption, not final intelligence or autonomy.",
+    "non_goal": "no optimization, no global closure, no magic score, no hiding halt pressure, no counting unauthorized/proposal-only movement as radius",
+    "purpose": "Measure how far the runner proceeds inside a bounded jurisdiction before lawful interruption."
+  },
+  "policy_type": "CLOSURE_RADIUS_METRICS_V0_POLICY",
+  "radius_guards": {
+    "autonomy_claimed": false,
+    "blocked_moves_counted_as_execution": false,
+    "closure_radius_policy_built": true,
+    "demo_reports_emitted_by_policy": false,
+    "final_intelligence_claimed": false,
+    "global_closure_claimed": false,
+    "halt_counts_hidden_under_average": false,
+    "hidden_continuation_authorized": false,
+    "higher_radius_treated_as_always_better": false,
+    "human_review_request_counted_as_execution": false,
+    "implementation_performed_by_policy": false,
+    "no_applicable_move_auto_success": false,
+    "optimization_performed_by_policy": false,
+    "proof_claimed": false,
+    "proposal_only_counted_as_execution": false,
+    "source_halt_vocabulary_consumed": true,
+    "source_halt_vocabulary_modified": false,
+    "source_jurisdiction_gate_consumed": true,
+    "source_jurisdiction_gate_modified": false,
+    "source_ledger_modified": false,
+    "source_local_regime_v1_modified": false,
+    "source_move_registry_consumed": true,
+    "source_move_registry_modified": false,
+    "source_proceed_adapter_consumed": true,
+    "source_proceed_adapter_modified": false,
+    "source_receipt_modified": false,
+    "source_taxonomy_evolution_consumed": true,
+    "source_taxonomy_evolution_modified": false,
+    "source_trace_ledger_runner_modified": false,
+    "source_trace_ledger_surface_consumed": true,
+    "source_trace_modified": false,
+    "sqlite_registry_read": false,
+    "sqlite_registry_written": false,
+    "taxonomy_proposal_counted_as_patch": false,
+    "unauthorized_moves_counted_as_radius": false
+  },
+  "receipt_burden_report_schema": {
+    "law": [
+      "high burden is not automatically bad",
+      "low burden is not automatically good",
+      "trace_density below 1 indicates lost observability",
+      "burden increase without distinguishability gain is instrumentation pressure"
+    ],
+    "required_fields": [
+      "receipt_burden_report_id",
+      "schema_version",
+      "run_scope",
+      "trace_entries",
+      "receipt_bytes",
+      "receipt_bytes_per_move",
+      "receipt_burden_per_lawful_move",
+      "trace_density",
+      "artifact_refs_per_receipt",
+      "receipt_trace_mismatch_count",
+      "interpretation"
+    ],
+    "schema_version": "receipt_burden_report_schema_v0"
+  },
+  "required_implementation_artifacts": {
+    "authority_boundary_report_schema": "data/closure_radius_metrics_v0/authority_boundary_report_schema_v0.json",
+    "closure_radius_dashboard_readout": "data/closure_radius_metrics_v0/closure_radius_dashboard_readout_v0.json",
+    "closure_radius_metric_schema": "data/closure_radius_metrics_v0/closure_radius_metric_schema_v0.json",
+    "closure_radius_rollup_schema": "data/closure_radius_metrics_v0/closure_radius_rollup_schema_v0.json",
+    "closure_radius_score": "data/closure_radius_metrics_v0/closure_radius_score_v0.json",
+    "day7_demo_radius_report": "data/closure_radius_metrics_v0_demo/day7_demo_radius_report.json",
+    "day7_demo_radius_rollup": "data/closure_radius_metrics_v0_demo/day7_demo_radius_rollup.json",
+    "distinguishability_metric_schema": "data/closure_radius_metrics_v0/distinguishability_metric_schema_v0.json",
+    "expected_halt_policy_schema": "data/closure_radius_metrics_v0/expected_halt_policy_schema_v0.json",
+    "halt_distribution_report_schema": "data/closure_radius_metrics_v0/halt_distribution_report_schema_v0.json",
+    "implementation_receipt": "data/closure_radius_metrics_v0_implementation_receipts/<receipt_id>.json",
+    "receipt_burden_report_schema": "data/closure_radius_metrics_v0/receipt_burden_report_schema_v0.json",
+    "run_metrics_schema": "data/closure_radius_metrics_v0/run_metrics_schema_v0.json",
+    "stop_class_mapping": "data/closure_radius_metrics_v0/stop_class_mapping_v0.json",
+    "taxonomy_pressure_report_schema": "data/closure_radius_metrics_v0/taxonomy_pressure_report_schema_v0.json"
+  },
+  "run_metrics_schema": {
+    "metric_families": {
+      "authority": [
+        "authority_verdict_count",
+        "human_review_requests",
+        "proposal_packets_emitted",
+        "forbidden_move_attempts",
+        "authority_boundary_halts",
+        "authorized_moves_per_run",
+        "review_required_per_100_moves",
+        "authority_block_rate"
+      ],
+      "burden": [
+        "trace_entries_per_run",
+        "receipt_bytes_per_run",
+        "receipt_bytes_per_move",
+        "halt_record_bytes",
+        "proposal_bytes",
+        "taxonomy_receipt_bytes",
+        "metrics_bytes",
+        "artifact_refs_per_receipt",
+        "receipt_burden_per_lawful_move",
+        "trace_density"
+      ],
+      "distinguishability": [
+        "unique_run_ids",
+        "unique_state_sig8s",
+        "unique_trace_refs",
+        "unique_receipt_refs",
+        "duplicate_state_sig8_count",
+        "ambiguous_halt_records",
+        "missing_trace_links",
+        "receipt_trace_mismatch_count",
+        "unlinked_proposal_count",
+        "unlinked_taxonomy_delta_count",
+        "distinguishability_preservation"
+      ],
+      "halt": [
+        "halt_count_by_code",
+        "halt_count_by_family",
+        "halt_count_by_class",
+        "terminal_halt_rate",
+        "repeat_halt_rate",
+        "first_halt_code_per_run",
+        "halts_per_unit",
+        "halts_per_100_moves",
+        "expected_halt_count",
+        "unexpected_halt_count"
+      ],
+      "movement": [
+        "runs_total",
+        "units_started",
+        "units_completed",
+        "moves_inspected",
+        "moves_applicable",
+        "moves_admissible",
+        "moves_authorized",
+        "moves_executed",
+        "moves_blocked",
+        "advance_transitions",
+        "stop_transitions",
+        "step_limit_hits",
+        "authorized_execution_rate",
+        "admissibility_to_authority_ratio"
+      ],
+      "taxonomy": [
+        "taxonomy_pressure_count",
+        "taxonomy_pressure_by_trigger_halt",
+        "existing_vocab_tests",
+        "taxonomy_deltas_proposed",
+        "taxonomy_deltas_accepted",
+        "taxonomy_deltas_rejected",
+        "taxonomy_deltas_deferred",
+        "withhold_count",
+        "split_count",
+        "refine_count",
+        "weaken_count",
+        "add_count",
+        "repeat_taxonomy_gap_rate",
+        "taxonomy_acceptance_rate",
+        "add_bias"
+      ],
+      "trend_delta": [
+        "delta_moves_executed",
+        "delta_units_completed",
+        "delta_human_review_rate",
+        "delta_taxonomy_gap_rate",
+        "delta_receipt_burden_per_move",
+        "delta_repeat_halt_rate",
+        "delta_authority_block_rate",
+        "delta_distinguishability_preservation"
+      ]
+    },
+    "schema_version": "run_metrics_schema_v0"
+  },
+  "safety_clauses": {
+    "does_not_claim_final_intelligence_or_autonomy": true,
+    "does_not_claim_global_closure": true,
+    "does_not_count_unauthorized_or_proposal_only_movement": true,
+    "does_not_emit_demo_reports": true,
+    "does_not_hide_halt_pressure": true,
+    "does_not_modify_source_modules": true,
+    "does_not_modify_source_regime": true,
+    "does_not_mutate_existing_artifacts": true,
+    "does_not_optimize_system": true,
+    "does_not_treat_radius_as_magic_score": true,
+    "next_unit_required_for_implementation": true,
+    "policy_only": true
+  },
+  "schema_version": "closure_radius_metrics_v0_policy_v0",
+  "source_halt_vocabulary_implementation_receipt_id": "75eabbe2",
+  "source_jurisdiction_gate_implementation_receipt_id": "6291b0d9",
+  "source_jurisdiction_gate_policy_id": "57838400",
+  "source_jurisdiction_gate_policy_receipt_id": "993751b4",
+  "source_local_regime_hash": "25802530",
+  "source_move_registry_implementation_receipt_id": "bef08570",
+  "source_proceed_adapter_implementation_receipt_id": "363d2f4a",
+  "source_proposal_ledger_schema_id": "eee2a318",
+  "source_taxonomy_evolution_implementation_receipt_id": "6d252e63",
+  "source_taxonomy_evolution_policy_id": "e84eb230",
+  "source_taxonomy_evolution_policy_receipt_id": "18da290a",
+  "source_trace_ledger_implementation_receipt_id": "cc24a11f",
+  "source_trace_schema_id": "b4887660",
+  "stop_class_mapping": {
+    "classes": [
+      "CLEAN_BOUNDARY",
+      "LOCAL_REPAIR_PRESSURE",
+      "MISSING_MOVE_PRESSURE",
+      "TAXONOMY_PRESSURE",
+      "AUTHORITY_BOUNDARY",
+      "EXTRACTION_BOUNDARY",
+      "FRONTIER_BOUNDARY",
+      "INVALID_RUN",
+      "LOOP_PRESSURE"
+    ],
+    "law": [
+      "halts are not automatically failures",
+      "clean boundaries may be healthy",
+      "authority boundaries may be expected",
+      "legacy NO_APPLICABLE_MOVE must not impersonate completed proof or successful closure"
+    ],
+    "mapping": {
+      "INVALID_REGIME": "INVALID_RUN",
+      "INVALID_STATE": "INVALID_RUN",
+      "NO_APPLICABLE_MOVE": "MISSING_MOVE_PRESSURE_LEGACY_ALIAS_ONLY",
+      "REGIME_MISMATCH": "INVALID_RUN",
+      "STEP_LIMIT_EXCEEDED": "LOOP_PRESSURE",
+      "STOP_AUTHORITY_BOUNDARY": "AUTHORITY_BOUNDARY",
+      "STOP_AUTHORITY_VIOLATION": "AUTHORITY_BOUNDARY",
+      "STOP_DONE": "CLEAN_BOUNDARY",
+      "STOP_FORBIDDEN_MOVE": "AUTHORITY_BOUNDARY",
+      "STOP_FRONTIER": "FRONTIER_BOUNDARY",
+      "STOP_HUMAN_REVIEW_REQUIRED": "AUTHORITY_BOUNDARY",
+      "STOP_LAYER_COLLAPSE": "TAXONOMY_PRESSURE",
+      "STOP_NEEDS_EXTRACTION": "EXTRACTION_BOUNDARY",
+      "STOP_NEEDS_NEW_MOVE": "MISSING_MOVE_PRESSURE",
+      "STOP_NEXT_MOVE_BOUNDARY": "CLEAN_BOUNDARY",
+      "STOP_NO_APPLICABLE_MOVE": "MISSING_MOVE_PRESSURE",
+      "STOP_PROJECTION_BUG": "LOCAL_REPAIR_PRESSURE",
+      "STOP_PROPOSAL_REQUIRED": "AUTHORITY_BOUNDARY",
+      "STOP_RECEIPT_MISMATCH": "LOCAL_REPAIR_PRESSURE",
+      "STOP_TAXONOMY_GAP": "TAXONOMY_PRESSURE",
+      "STOP_UNDERTYPED_OBJECT": "TAXONOMY_PRESSURE",
+      "STOP_UNTYPED_UNIT": "TAXONOMY_PRESSURE",
+      "STOP_VISIBLE_GOTCHA": "LOCAL_REPAIR_PRESSURE"
+    },
+    "schema_version": "stop_class_mapping_v0"
+  },
+  "target_unit_id": "closure_radius_metrics.v0",
+  "taxonomy_pressure_report_schema": {
+    "law": [
+      "taxonomy pressure is separate from accepted taxonomy patch",
+      "ADD_* bias must be visible",
+      "WITHHOLD is valid and not failure"
+    ],
+    "required_fields": [
+      "taxonomy_pressure_report_id",
+      "schema_version",
+      "run_scope",
+      "taxonomy_pressure_count",
+      "taxonomy_pressure_by_trigger_halt",
+      "taxonomy_deltas_proposed",
+      "taxonomy_deltas_accepted",
+      "taxonomy_deltas_deferred",
+      "withhold_count",
+      "add_bias",
+      "repeat_taxonomy_gap_rate",
+      "interpretation"
+    ],
+    "schema_version": "taxonomy_pressure_report_schema_v0"
+  },
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_CLOSURE_RADIUS_METRICS_V0_WITH_DEMO_REPORTS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "unit_id": "BUILD_CLOSURE_RADIUS_METRICS_V0_POLICY_V0",
+  "warnings": []
+}
