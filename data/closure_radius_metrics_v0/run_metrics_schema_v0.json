@@ -1,0 +1,95 @@
+{
+  "metric_families": {
+    "authority": [
+      "authority_verdict_count",
+      "human_review_requests",
+      "proposal_packets_emitted",
+      "forbidden_move_attempts",
+      "authority_boundary_halts",
+      "authorized_moves_per_run",
+      "review_required_per_100_moves",
+      "authority_block_rate"
+    ],
+    "burden": [
+      "trace_entries_per_run",
+      "receipt_bytes_per_run",
+      "receipt_bytes_per_move",
+      "halt_record_bytes",
+      "proposal_bytes",
+      "taxonomy_receipt_bytes",
+      "metrics_bytes",
+      "artifact_refs_per_receipt",
+      "receipt_burden_per_lawful_move",
+      "trace_density"
+    ],
+    "distinguishability": [
+      "unique_run_ids",
+      "unique_state_sig8s",
+      "unique_trace_refs",
+      "unique_receipt_refs",
+      "duplicate_state_sig8_count",
+      "ambiguous_halt_records",
+      "missing_trace_links",
+      "receipt_trace_mismatch_count",
+      "unlinked_proposal_count",
+      "unlinked_taxonomy_delta_count",
+      "distinguishability_preservation"
+    ],
+    "halt": [
+      "halt_count_by_code",
+      "halt_count_by_family",
+      "halt_count_by_class",
+      "terminal_halt_rate",
+      "repeat_halt_rate",
+      "first_halt_code_per_run",
+      "halts_per_unit",
+      "halts_per_100_moves",
+      "expected_halt_count",
+      "unexpected_halt_count"
+    ],
+    "movement": [
+      "runs_total",
+      "units_started",
+      "units_completed",
+      "moves_inspected",
+      "moves_applicable",
+      "moves_admissible",
+      "moves_authorized",
+      "moves_executed",
+      "moves_blocked",
+      "advance_transitions",
+      "stop_transitions",
+      "step_limit_hits",
+      "authorized_execution_rate",
+      "admissibility_to_authority_ratio"
+    ],
+    "taxonomy": [
+      "taxonomy_pressure_count",
+      "taxonomy_pressure_by_trigger_halt",
+      "existing_vocab_tests",
+      "taxonomy_deltas_proposed",
+      "taxonomy_deltas_accepted",
+      "taxonomy_deltas_rejected",
+      "taxonomy_deltas_deferred",
+      "withhold_count",
+      "split_count",
+      "refine_count",
+      "weaken_count",
+      "add_count",
+      "repeat_taxonomy_gap_rate",
+      "taxonomy_acceptance_rate",
+      "add_bias"
+    ],
+    "trend_delta": [
+      "delta_moves_executed",
+      "delta_units_completed",
+      "delta_human_review_rate",
+      "delta_taxonomy_gap_rate",
+      "delta_receipt_burden_per_move",
+      "delta_repeat_halt_rate",
+      "delta_authority_block_rate",
+      "delta_distinguishability_preservation"
+    ]
+  },
+  "schema_version": "run_metrics_schema_v0"
+}

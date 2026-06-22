@@ -1,0 +1,12 @@
+{
+  "authority_integrity_factor": "0 if unauthorized_execution_count > 0 else 1",
+  "formula": "executed_moves_before_halt * distinguishability_preservation * authority_integrity_factor * receipt_integrity_factor",
+  "law": [
+    "score is dashboard convenience, not closure truth",
+    "unauthorized execution zeroes score",
+    "higher score is not automatically better",
+    "lower score caused by correct human review may be healthier than overreach"
+  ],
+  "receipt_integrity_factor": "1 - receipt_trace_mismatch_count / max(1, moves_executed)",
+  "schema_version": "closure_radius_score_v0"
+}

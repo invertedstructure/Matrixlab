@@ -1,0 +1,112 @@
+{
+  "aggregate_radius": {
+    "max_executed_moves_before_halt": 18,
+    "mean_closure_radius_score": 6.0,
+    "mean_executed_moves_before_halt": 10.5,
+    "median_executed_moves_before_halt": 9.5,
+    "min_executed_moves_before_halt": 5
+  },
+  "authority_summary": {
+    "authority_block_rate": 0.081633,
+    "authorized_moves": 45,
+    "forbidden_moves": 2,
+    "human_review_requests": 1,
+    "proposal_packets": 1,
+    "unauthorized_executions": 2
+  },
+  "batch_scope": {
+    "batch_id": "day7_demo_batch_current",
+    "jurisdiction_profile_id": "jurisdiction_profile_v0",
+    "previous_batch_id": "day7_demo_batch_previous",
+    "runs_total": 4
+  },
+  "burden_summary": {
+    "burden_pressure_count": 1,
+    "max_receipt_burden_per_move": 6200.0,
+    "mean_receipt_burden_per_move": 2844.444444
+  },
+  "closure_radius_rollup_id": "closure_rollup_254c84e5",
+  "dashboard_readout": {
+    "authority": {
+      "authorized_moves": 45,
+      "forbidden_moves": 2,
+      "human_review_requests": 1,
+      "proposal_only_blocks": 1,
+      "unauthorized_executions": 2
+    },
+    "burden": {
+      "receipt_bytes_per_move": 2844.444444,
+      "receipt_mismatches": 0,
+      "trace_density": 1.0,
+      "unlinked_events": 0
+    },
+    "halts": {
+      "frontier_halt_count": 0,
+      "repeat_halt_count": 1,
+      "top_halt_code": "STOP_NEXT_MOVE_BOUNDARY",
+      "unexpected_halt_count": 1
+    },
+    "radius": {
+      "advance_chain_length": 11,
+      "completed_units_before_halt": 11,
+      "mean_moves_before_halt": 10.5,
+      "median_moves_before_halt": 9.5
+    },
+    "taxonomy": {
+      "ADD_bias": 0.166666,
+      "accepted": 2,
+      "deferred": 2,
+      "proposals": 4,
+      "repeat_gaps": 0,
+      "taxonomy_pressures": 4
+    }
+  },
+  "distinguishability_summary": {
+    "mean_distinguishability_preservation": 1.0,
+    "receipt_trace_mismatch_count": 0,
+    "unlinked_event_count": 0
+  },
+  "failures": [],
+  "gate": "PASS",
+  "halt_class_distribution": {
+    "AUTHORITY_BOUNDARY": 1,
+    "CLEAN_BOUNDARY": 2,
+    "TAXONOMY_PRESSURE": 1
+  },
+  "halt_distribution": {
+    "STOP_AUTHORITY_VIOLATION": 1,
+    "STOP_NEXT_MOVE_BOUNDARY": 2,
+    "STOP_TAXONOMY_GAP": 1
+  },
+  "interpretation": {
+    "allowed_next_handling": [
+      "review illegal-radius guard before any optimization",
+      "review burden pressure before increasing instrumentation",
+      "use taxonomy repeat-pressure trend before accepting new labels"
+    ],
+    "higher_radius_not_automatically_better": true,
+    "must_not_impersonate": [
+      "global autonomy",
+      "proof closure",
+      "final engine correctness",
+      "permission to widen jurisdiction",
+      "proof that higher radius is always better"
+    ],
+    "smallest_honest_reading": "The batch shows lawful radius improvement in one scenario, rejects illegal radius by score zeroing, exposes productive taxonomy pressure, and flags receipt-burden pressure."
+  },
+  "radius_delta": {
+    "current_batch_mean_radius": 10.5,
+    "delta_mean_radius": 4.4,
+    "interpretation": "Mean radius increased, but the illegal-radius demo is rejected by authority integrity and the burden demo is flagged as instrumentation pressure.",
+    "previous_batch_mean_radius": 6.1
+  },
+  "schema_version": "closure_radius_rollup_v0",
+  "taxonomy_summary": {
+    "accepted": 2,
+    "add_bias": 0.166666,
+    "deferred": 2,
+    "pressures": 4,
+    "proposals": 4,
+    "repeat_pressure_rate": 0.0
+  }
+}

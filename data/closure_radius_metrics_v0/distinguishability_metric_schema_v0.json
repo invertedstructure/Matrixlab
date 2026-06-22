@@ -1,0 +1,23 @@
+{
+  "formula": "1 - ambiguous_or_unlinked_events / max(1, total_events)",
+  "law": [
+    "events that cannot be distinguished later do not support useful closure-radius measurement",
+    "receipt compression must preserve distinguishable transition references"
+  ],
+  "required_fields": [
+    "distinguishability_report_id",
+    "schema_version",
+    "run_scope",
+    "total_events",
+    "ambiguous_or_unlinked_events",
+    "unique_run_ids",
+    "unique_trace_refs",
+    "unique_receipt_refs",
+    "missing_trace_links",
+    "receipt_trace_mismatch_count",
+    "unlinked_proposal_count",
+    "unlinked_taxonomy_delta_count",
+    "distinguishability_preservation"
+  ],
+  "schema_version": "distinguishability_metric_schema_v0"
+}
