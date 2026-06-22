@@ -1,0 +1,28 @@
+{
+  "description": "Typed state with value 0 should select and apply the registered increment transition, then stop done.",
+  "expected": {
+    "halt_code": "STOP_DONE",
+    "move_status": "APPLIED",
+    "no_proposal_reason": "PRESSURE_ALREADY_TYPED",
+    "proposal_status": "NONE",
+    "selected_move_id": "MOVE_APPLY_REGISTERED_TRANSITION",
+    "state_after": {
+      "state_id": "typed_counter_zero",
+      "typed": true,
+      "value": 1
+    },
+    "terminal": {
+      "next_command_goal": null,
+      "stop_code": "STOP_DONE",
+      "type": "STOP"
+    }
+  },
+  "fixture_id": "dry_run_apply_registered_transition_v0",
+  "fixture_type": "JURISDICTION_RUNNER_V0_1_DRY_RUN_FIXTURE",
+  "input_state": {
+    "state_id": "typed_counter_zero",
+    "typed": true,
+    "value": 0
+  },
+  "schema_version": "jurisdiction_runner_v0_1_dry_run_fixture_v0"
+}

@@ -1,0 +1,194 @@
+{
+  "artifact_packaging_rules": {
+    "input_artifacts_path_addressed": true,
+    "output_artifacts_receipt_referenced": true,
+    "required_dependencies_verified": true,
+    "tracked_when_permanence_required": true,
+    "unrelated_untracked_data_not_authority": true
+  },
+  "halt_vocabulary": [
+    "STOP_DONE",
+    "STOP_NO_APPLICABLE_MOVE",
+    "STOP_AUTHORITY_VIOLATION",
+    "STOP_GATE_FAIL",
+    "STOP_UNTYPED_OBJECT",
+    "STOP_DEPENDENCY_MISSING"
+  ],
+  "jurisdiction_envelope": {
+    "allowed_move_ids": [
+      "MOVE_APPLY_REGISTERED_TRANSITION"
+    ],
+    "forbidden_operations": {
+      "full_registry_scan": true,
+      "global_taxonomy_design": true,
+      "proof_claim": true,
+      "proposal_promotion_inside_run": true,
+      "registry_sqlite_read": true,
+      "registry_sqlite_write": true,
+      "runtime_regime_mutation": true
+    }
+  },
+  "local_regime_hash": "097d620c",
+  "local_regime_version": "local_regime.v0",
+  "metric_bundle": [
+    "move_count",
+    "applied_move_count",
+    "blocked_move_count",
+    "halt_count_by_code",
+    "typed_object_count",
+    "untyped_object_count",
+    "missing_dependency_count",
+    "receipt_count",
+    "authority_violation_count",
+    "gate_fail_count",
+    "proposal_emitted_count",
+    "proposal_withheld_count",
+    "proposal_count_by_type",
+    "duplicate_unresolved_proposal_count",
+    "halt_with_proposal_count",
+    "halt_without_proposal_count",
+    "local_closure_radius_observed",
+    "receipt_burden_bytes",
+    "metric_burden_bytes",
+    "artifact_burden_bytes"
+  ],
+  "move_registry": {
+    "MOVE_APPLY_REGISTERED_TRANSITION": {
+      "action": {
+        "by": 1,
+        "field": "value",
+        "op": "increment"
+      },
+      "applies_when": {
+        "field": "value",
+        "operator": "lt",
+        "value": 1
+      },
+      "expected_metric_delta": "applied_move_count increments",
+      "expected_receipt_delta": "transition field records before/after/delta",
+      "expected_state_delta": {
+        "value": "+1"
+      },
+      "forbidden_if": {
+        "field": "typed",
+        "operator": "ne",
+        "value": true
+      },
+      "move_priority": 10,
+      "move_type": "MOVE_APPLY_REGISTERED_TRANSITION",
+      "possible_halt_outputs": [
+        "STOP_DONE",
+        "STOP_AUTHORITY_VIOLATION",
+        "STOP_GATE_FAIL"
+      ]
+    },
+    "MOVE_EMIT_METRIC_RECEIPT": {
+      "action": {
+        "op": "emit_metric_receipt"
+      },
+      "applies_when": {
+        "always": true
+      },
+      "move_priority": 20,
+      "move_type": "MOVE_EMIT_METRIC_RECEIPT"
+    },
+    "MOVE_VALIDATE_STATE": {
+      "action": {
+        "op": "validate_state"
+      },
+      "applies_when": {
+        "always": true
+      },
+      "move_priority": 0,
+      "move_type": "MOVE_VALIDATE_STATE"
+    }
+  },
+  "promotion_rules": {
+    "must_not_apply_to_current_run": true,
+    "new_regime_version_required": true,
+    "review_receipt_required": true
+  },
+  "proposition_envelope": {
+    "allowed_proposal_classes": [
+      "MOVE_DELTA_PROPOSAL",
+      "TAXONOMY_DELTA_PROPOSAL",
+      "METRIC_DELTA_PROPOSAL",
+      "RECEIPT_DELTA_PROPOSAL",
+      "VALIDATION_DELTA_PROPOSAL",
+      "JURISDICTION_DELTA_PROPOSAL",
+      "DISTINGUISHABILITY_DELTA_PROPOSAL",
+      "ARTIFACT_PACKAGING_DELTA_PROPOSAL",
+      "TERMINAL_CONTRACT_DELTA_PROPOSAL"
+    ],
+    "duplicate_unresolved_proposal_guard": true,
+    "forbidden_proposal_classes": [
+      "GLOBAL_ARCHITECTURE_PROPOSAL",
+      "FINAL_TAXONOMY_PROPOSAL",
+      "UNBOUNDED_AUTONOMY_PROPOSAL",
+      "RUNTIME_MUTATION_PROPOSAL",
+      "REGISTRY_DATABASE_WRITE_PROPOSAL",
+      "SELF_ACCEPTING_PROPOSAL",
+      "PROOF_CLAIM_PROPOSAL"
+    ],
+    "non_executing": true,
+    "requires_review_before_promotion": true
+  },
+  "receipt_schema": {
+    "receipt_type": "JURISDICTION_RUNNER_RECEIPT",
+    "required_fields": [
+      "receipt_id",
+      "receipt_type",
+      "run_id",
+      "unit_id",
+      "local_regime_version",
+      "local_regime_hash",
+      "input_state_id",
+      "input_artifact_paths",
+      "state_before_hash",
+      "state_after_hash",
+      "selector_rule",
+      "selected_move_id",
+      "move_id",
+      "move_status",
+      "halt_code",
+      "proposal_status",
+      "proposal_id",
+      "no_proposal_reason",
+      "metrics",
+      "authority_guards",
+      "artifact_guards",
+      "terminal"
+    ]
+  },
+  "regime_status": "ACTIVE",
+  "runner_unit_id": "jurisdiction_runner.v0.1",
+  "schema_version": "local_regime_v0_declaration_v0",
+  "state_schema": {
+    "field_types": {
+      "state_id": "string",
+      "typed": "boolean",
+      "value": "integer"
+    },
+    "required_fields": [
+      "state_id",
+      "typed",
+      "value"
+    ],
+    "schema_id": "jurisdiction_runner_v0_1_state_schema"
+  },
+  "taxonomy_surface": {
+    "no_global_taxonomy_claim": true,
+    "status": "MINIMAL_V0"
+  },
+  "terminal_command_rules": {
+    "advance_authorizes_exact_next_command": true,
+    "recommendation_is_not_command_authority": true,
+    "stop_done_closes_lane": true,
+    "stop_forbids_automatic_command": true
+  },
+  "validation_gates": {
+    "state_must_be_typed": true,
+    "state_value_must_be_integer": true,
+    "state_value_must_be_non_negative": true
+  }
+}

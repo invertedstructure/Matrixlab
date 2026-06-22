@@ -1,0 +1,136 @@
+{
+  "artifact_guards": {
+    "ambient_workspace_authority_used": false,
+    "input_artifacts_path_addressed": true,
+    "latest_or_mtime_selection_used": false,
+    "output_artifacts_receipt_referenced": true,
+    "required_dependencies_verified": true,
+    "tracked_when_permanence_required": true,
+    "unrelated_untracked_data_not_authority": true
+  },
+  "authority_guards": {
+    "deterministic_selector_used": true,
+    "final_schema_claimed": false,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "local_regime_fixed": true,
+    "local_regime_runtime_mutated": false,
+    "proof_claimed": false,
+    "proposal_promoted": false,
+    "registered_moves_only": true,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runtime_registry_mutated": false,
+    "selector_tie_break_rule": "move_priority_then_lexical_move_id",
+    "typed_halts_only": true
+  },
+  "created_at": "2026-06-22T02:08:42.350340+00:00",
+  "expected_transcript": [
+    "LOAD_REGIME",
+    "LOAD_STATE",
+    "VALIDATE_STATE",
+    "SELECT_MOVE",
+    "CHECK_AUTHORITY",
+    "APPLY_OR_BLOCK_MOVE",
+    "EMIT_RECEIPT",
+    "EMIT_METRICS",
+    "EMIT_TERMINAL"
+  ],
+  "failures": [],
+  "fixture_id": "dry_run_apply_registered_transition_v0",
+  "gate": "PASS",
+  "halt_code": "STOP_DONE",
+  "halt_reason": "registered transition applied and dry-run complete",
+  "input_artifact_paths": [
+    "data/local_regime_v0_declarations/097d620c.json",
+    "data/jurisdiction_runner_v0_1_dry_run_fixtures/dry_run_apply_registered_transition_v0.json",
+    "data/jurisdiction_runner_v0_1_expected_transcripts/dry_run_apply_registered_transition_v0.json"
+  ],
+  "input_state_id": "typed_counter_zero",
+  "local_regime_hash": "097d620c",
+  "local_regime_version": "local_regime.v0",
+  "metrics": {
+    "applied_move_count": 1,
+    "artifact_burden_bytes": 231,
+    "authority_violation_count": 0,
+    "blocked_move_count": 0,
+    "duplicate_unresolved_proposal_count": 0,
+    "gate_fail_count": 0,
+    "halt_count_by_code": {
+      "STOP_DONE": 1
+    },
+    "halt_with_proposal_count": 0,
+    "halt_without_proposal_count": 1,
+    "local_closure_radius_observed": 1,
+    "metric_burden_bytes": 542,
+    "missing_dependency_count": 0,
+    "move_count": 1,
+    "proposal_count_by_type": {},
+    "proposal_emitted_count": 0,
+    "proposal_withheld_count": 1,
+    "receipt_burden_bytes": 3434,
+    "receipt_count": 1,
+    "typed_object_count": 1,
+    "untyped_object_count": 0
+  },
+  "move_id": "MOVE_APPLY_REGISTERED_TRANSITION",
+  "move_status": "APPLIED",
+  "no_proposal_reason": "PRESSURE_ALREADY_TYPED",
+  "proposal_id": null,
+  "proposal_status": "NONE",
+  "receipt_id": "a85e0cc4",
+  "receipt_type": "JURISDICTION_RUNNER_RECEIPT",
+  "run_id": "dry_run_dry_run_apply_registered_transition_v0_a85e0cc4",
+  "selected_move_id": "MOVE_APPLY_REGISTERED_TRANSITION",
+  "selector_rule": "move_priority_then_lexical_move_id",
+  "state_after": {
+    "state_id": "typed_counter_zero",
+    "typed": true,
+    "value": 1
+  },
+  "state_after_hash": "89b741b69098f8359e346881e999bd2c5a0e4d8e150d37ee292fd88e15726df2",
+  "state_before": {
+    "state_id": "typed_counter_zero",
+    "typed": true,
+    "value": 0
+  },
+  "state_before_hash": "f77ba9d3103248ceab9e6772828701b40497d5d0a0de687f418d937405e08bca",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  },
+  "transcript": [
+    "LOAD_REGIME",
+    "LOAD_STATE",
+    "VALIDATE_STATE",
+    "SELECT_MOVE",
+    "CHECK_AUTHORITY",
+    "APPLY_OR_BLOCK_MOVE",
+    "EMIT_RECEIPT",
+    "EMIT_METRICS",
+    "EMIT_TERMINAL"
+  ],
+  "transcript_matches_expected": true,
+  "transition": {
+    "action": {
+      "by": 1,
+      "field": "value",
+      "op": "increment"
+    },
+    "move_id": "MOVE_APPLY_REGISTERED_TRANSITION",
+    "move_type": "MOVE_APPLY_REGISTERED_TRANSITION",
+    "state_delta": {
+      "value": {
+        "after": 1,
+        "before": 0,
+        "delta": 1
+      }
+    }
+  },
+  "unit_id": "jurisdiction_runner.v0.1",
+  "warnings": []
+}
