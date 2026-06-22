@@ -1,0 +1,997 @@
+{
+  "acceptance_gates": {
+    "MRP0_source_surface_verified": {
+      "description": "Day 3 halt vocabulary, Day 2 proceed adapter, trace-ledger runner, and local regime sources are tracked and path-addressed.",
+      "required": true
+    },
+    "MRP10_no_taxonomy_or_registry_mutation_from_proposal": {
+      "description": "proposal-only move cannot promote taxonomy or register candidate move.",
+      "required": true
+    },
+    "MRP11_day5_authority_not_implemented": {
+      "description": "Day 4 records authorization_status=DEFERRED_TO_DAY5 and does not resolve jurisdiction.",
+      "required": true
+    },
+    "MRP12_patch_artifacts_only_no_old_schema_mutation": {
+      "description": "trace/receipt/readout move-context patches are future-schema patches only.",
+      "required": true
+    },
+    "MRP1_move_schema_required_fields_declared": {
+      "description": "move_schema_v0 declares all required move fields.",
+      "required": true
+    },
+    "MRP2_predicate_grammar_bounded": {
+      "description": "applies_when grammar uses only bounded predicate operators and no arbitrary code.",
+      "required": true
+    },
+    "MRP3_registry_contains_only_starter_moves": {
+      "description": "move_registry_v0 contains the seven starter moves only.",
+      "required": true
+    },
+    "MRP4_no_unregistered_move_may_fire": {
+      "description": "registry law forbids unregistered moves from firing.",
+      "required": true
+    },
+    "MRP5_applicable_admissible_selected_are_separate": {
+      "description": "inspection/admission/selection schemas separate registered, applicable, admissible_pre_auth, selected, and authorized.",
+      "required": true
+    },
+    "MRP6_blocked_moves_require_records": {
+      "description": "blocked_move_record_schema_v0 records every blocked move with reason and anti-impersonation.",
+      "required": true
+    },
+    "MRP7_selector_deterministic": {
+      "description": "selector_priority_v0 chooses deterministic lowest priority number.",
+      "required": true
+    },
+    "MRP8_missing_move_pressure_emits_stop_needs_new_move": {
+      "description": "visible missing move pressure routes to STOP_NEEDS_NEW_MOVE.",
+      "required": true
+    },
+    "MRP9_missing_move_proposal_is_proposed_only": {
+      "description": "missing move proposal stub is PROPOSED_ONLY and cannot mutate registry.",
+      "required": true
+    }
+  },
+  "applicable_move_inspection_schema": {
+    "audit_law": [
+      "registered candidates must be visible",
+      "blocked moves must have reasons",
+      "admissible_pre_auth must be distinct from applicable",
+      "selected move must be deterministic"
+    ],
+    "required_fields": [
+      "inspection_id",
+      "state_sig8",
+      "move_registry_id",
+      "registered_count",
+      "schema_valid_moves",
+      "applicable_moves",
+      "admissible_pre_auth_moves",
+      "blocked_moves",
+      "selected_move",
+      "selection_basis",
+      "authorization_status"
+    ],
+    "schema_version": "applicable_move_inspection_schema_v0"
+  },
+  "applies_when_predicate_schema": {
+    "allowed_operators": [
+      "eq",
+      "neq",
+      "exists",
+      "missing",
+      "in",
+      "not",
+      "all",
+      "any"
+    ],
+    "examples": [
+      {
+        "eq": [
+          "state.status",
+          "LOADED"
+        ]
+      },
+      {
+        "missing": "state.receipt_ref"
+      },
+      {
+        "all": [
+          {
+            "eq": [
+              "readout.verification_status",
+              "FAIL"
+            ]
+          },
+          {
+            "eq": [
+              "readout.failure_kind",
+              "PROJECTION_MISMATCH"
+            ]
+          }
+        ]
+      }
+    ],
+    "no_free_form_code": true,
+    "path_reference_style": "dot_path_against_declared_state_or_readout",
+    "schema_version": "applies_when_predicate_schema_v0"
+  },
+  "authority_guards": {
+    "day5_authority_implemented": false,
+    "demo_runs_emitted_by_policy": false,
+    "final_schema_claimed": false,
+    "global_taxonomy_claimed": false,
+    "halt_as_proof_claimed": false,
+    "hidden_continuation_authorized": false,
+    "implementation_performed_by_policy": false,
+    "jurisdiction_resolved": false,
+    "missing_move_proposal_executed": false,
+    "missing_move_proposal_registered": false,
+    "move_registry_policy_built": true,
+    "new_move_added": false,
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_promoted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "source_halt_vocabulary_consumed": true,
+    "source_halt_vocabulary_modified": false,
+    "source_ledger_modified": false,
+    "source_local_regime_v1_modified": false,
+    "source_proceed_adapter_consumed": true,
+    "source_proceed_adapter_modified": false,
+    "source_receipt_modified": false,
+    "source_trace_ledger_runner_modified": false,
+    "source_trace_ledger_surface_consumed": true,
+    "source_trace_modified": false,
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false,
+    "unregistered_move_fired": false
+  },
+  "authorized_operations_next": {
+    "emit_day4_demo_missing_move_run": true,
+    "emit_day4_demo_move_run_receipt": true,
+    "emit_day4_demo_positive_run": true,
+    "emit_implementation_receipt": true,
+    "read_move_registry_policy": true,
+    "read_move_registry_policy_receipt": true,
+    "write_applicable_move_inspection_schema_artifact": true,
+    "write_applies_when_predicate_schema_artifact": true,
+    "write_blocked_move_record_schema_artifact": true,
+    "write_missing_move_proposal_stub_artifact": true,
+    "write_move_admission_gate_artifact": true,
+    "write_move_kind_enum_artifact": true,
+    "write_move_lifecycle_artifact": true,
+    "write_move_registry_artifact": true,
+    "write_move_schema_artifact": true,
+    "write_proceed_readout_move_context_patch_artifact": true,
+    "write_receipt_move_registry_patch_artifact": true,
+    "write_selected_move_record_schema_artifact": true,
+    "write_trace_move_context_patch_artifact": true
+  },
+  "blocked_move_record_schema": {
+    "authority_deferred_law": {
+      "does_not_mean_STOP_AUTHORITY_VIOLATION": true,
+      "meaning": "move may require authority classification beyond Day 4; Day 5 resolves it"
+    },
+    "block_reasons": [
+      "SCHEMA_INVALID",
+      "APPLIES_WHEN_FALSE",
+      "ALLOWED_INPUT_MISSING",
+      "FORBIDDEN_INPUT_REQUIRED",
+      "HALT_MAP_INCOMPLETE",
+      "ACTION_UNBOUNDED",
+      "AUTHORITY_DEFERRED",
+      "NEEDS_EXTRACTION",
+      "UNKNOWN_BLOCK"
+    ],
+    "required_fields": [
+      "blocked_move_id",
+      "move_id",
+      "state_sig8",
+      "block_reason",
+      "details",
+      "halt_pressure",
+      "must_not_impersonate"
+    ],
+    "schema_version": "blocked_move_record_schema_v0"
+  },
+  "created_at": "2026-06-22T12:56:14.112413+00:00",
+  "day4_demo_missing_move_run_plan": {
+    "demo_name": "DAY4_MISSING_MOVE_PRESSURE",
+    "expected_missing_move_proposal": {
+      "candidate_move_id": "boundary.emit_next_unit.v0",
+      "must_not_execute": true,
+      "must_not_register": true,
+      "proposal_type": "MISSING_MOVE",
+      "status": "PROPOSED_ONLY"
+    },
+    "expected_terminal_result": {
+      "stop_code": "STOP_NEEDS_NEW_MOVE",
+      "type": "STOP"
+    },
+    "initial_state": {
+      "active_object": {
+        "completion_status": "COMPLETE",
+        "needs_next_boundary": true,
+        "object_id": "unit.demo_002",
+        "object_kind": "BUILD_UNIT"
+      },
+      "regime": {
+        "move_registry_id": "move_registry_v0",
+        "selector_id": "selector_priority_v0",
+        "validation_status": "PASS"
+      },
+      "registered_moves_do_not_include": [
+        "boundary.emit_next_unit.v0"
+      ],
+      "schema_version": "runner_state_v0",
+      "state_id": "state_demo_day4_missing_move",
+      "status": "VALID",
+      "terminal_result": null
+    },
+    "schema_version": "day4_demo_missing_move_run_plan_v0"
+  },
+  "day4_demo_positive_run_plan": {
+    "demo_name": "DAY4_POSITIVE_BUILD_UNIT_COMPLETION",
+    "expected_meaning": "current unit completed; next action is a separate unit; no implicit continuation",
+    "expected_move_sequence": [
+      "state.validate_shape.v0",
+      "regime.validate_shape.v0",
+      "moves.compute_applicable.v0",
+      "selector.choose_move.v0",
+      "unit.mark_complete.v0",
+      "receipt.emit_terminal.v0"
+    ],
+    "expected_terminal_result": {
+      "stop_code": "STOP_NEXT_MOVE_BOUNDARY",
+      "type": "STOP"
+    },
+    "initial_state": {
+      "active_object": {
+        "completion_status": "PENDING",
+        "object_id": "unit.demo_001",
+        "object_kind": "BUILD_UNIT"
+      },
+      "regime": {
+        "move_registry_id": "move_registry_v0",
+        "selector_id": "selector_priority_v0"
+      },
+      "schema_version": "runner_state_v0",
+      "state_id": "state_demo_day4_positive",
+      "status": "LOADED"
+    },
+    "schema_version": "day4_demo_positive_run_plan_v0"
+  },
+  "failures": [],
+  "forbidden_operations_next": {
+    "accept_missing_move_proposal": true,
+    "accept_taxonomy_delta": true,
+    "ambient_workspace_authority": true,
+    "execute_missing_move_candidate": true,
+    "final_schema_claim": true,
+    "fire_schema_invalid_move": true,
+    "fire_unregistered_move": true,
+    "global_move_catalog_claim": true,
+    "hidden_continuation_after_terminal": true,
+    "implement_day5_authority": true,
+    "latest_or_mtime_selection": true,
+    "modify_local_regime_v1": true,
+    "modify_proceed_adapter_module": true,
+    "modify_trace_ledger_runner_module": true,
+    "mutate_existing_halt_vocabulary": true,
+    "mutate_existing_proceed_adapter": true,
+    "mutate_existing_readout_files": true,
+    "mutate_existing_receipt_files": true,
+    "mutate_existing_trace_files": true,
+    "promote_taxonomy_delta": true,
+    "proof_claim": true,
+    "register_missing_move_from_proposal": true,
+    "resolve_jurisdiction": true,
+    "select_move_ambiguously": true,
+    "silently_drop_blocked_move": true,
+    "sqlite_registry_read": true,
+    "sqlite_registry_write": true
+  },
+  "gate": "PASS",
+  "missing_move_proposal_stub": {
+    "allowed_next_handling": [
+      "human review",
+      "accept into registry in later reviewed unit",
+      "reject",
+      "defer",
+      "weaken proposal"
+    ],
+    "candidate_move_required_fields": [
+      "move_id",
+      "move_kind",
+      "applies_when",
+      "action",
+      "emits",
+      "halt_behavior"
+    ],
+    "hard_rules": {
+      "may_not_execute_candidate_move": true,
+      "may_not_mark_candidate_accepted": true,
+      "may_not_promote_taxonomy_delta": true,
+      "may_not_register_candidate_move": true,
+      "may_not_write_move_registry": true
+    },
+    "must_not_impersonate": [
+      "registered move",
+      "accepted taxonomy delta",
+      "authorized execution"
+    ],
+    "proposal_type": "MISSING_MOVE",
+    "schema_version": "missing_move_proposal_stub_v0",
+    "status": "PROPOSED_ONLY",
+    "trigger_halt": "STOP_NEEDS_NEW_MOVE"
+  },
+  "move_admission_gate": {
+    "admissible_pre_auth_iff": [
+      "registered(move)",
+      "schema_valid(move)",
+      "applies_when_true(move,state)",
+      "allowed_inputs_available(move,state)",
+      "forbidden_inputs_absent(move,state)",
+      "halt_map_complete(move)",
+      "action_is_bounded(move)"
+    ],
+    "admission_status_name": "ADMISSIBLE_PRE_AUTH",
+    "authorization_status": "DEFERRED_TO_DAY5",
+    "day4_may_check": [
+      "declared inputs are present",
+      "forbidden inputs are absent",
+      "move does not require undeclared/ambient input",
+      "halt behavior is declared",
+      "action is bounded by schema"
+    ],
+    "day4_must_not_decide": [
+      "jurisdiction authority",
+      "human authorization",
+      "global permission to execute outside declared surface"
+    ],
+    "halt_on_failure_policy": {
+      "forbidden_input_required": "STOP_AUTHORITY_VIOLATION",
+      "gate_failure": "STOP_GATE_FAIL",
+      "missing_move_pressure": "STOP_NEEDS_NEW_MOVE",
+      "no_applicable": "STOP_NO_APPLICABLE_MOVE"
+    },
+    "schema_version": "move_admission_gate_v0"
+  },
+  "move_kind_enum": {
+    "allowed_move_kinds": [
+      "CONTROL_CHECK",
+      "CONTROL_INSPECT",
+      "CONTROL_SELECT",
+      "CONTROL_EMIT",
+      "LOCAL_REPAIR",
+      "DOMAIN_TRANSFORM",
+      "PROPOSAL_ONLY"
+    ],
+    "meanings": {
+      "CONTROL_CHECK": "validate state, regime, schema, or gate conditions",
+      "CONTROL_EMIT": "emit trace, receipt, readout, halt record, or terminal context",
+      "CONTROL_INSPECT": "compute applicable, admissible, and blocked move sets",
+      "CONTROL_SELECT": "select one admissible move deterministically",
+      "DOMAIN_TRANSFORM": "change the active object or state payload",
+      "LOCAL_REPAIR": "repair local projection or receipt gotcha only",
+      "PROPOSAL_ONLY": "emit proposal pressure only; never self-accept or mutate registry"
+    },
+    "schema_version": "move_kind_enum_v0"
+  },
+  "move_lifecycle": {
+    "execution_law": [
+      "Only REGISTERED + SCHEMA_VALID + APPLICABLE + ADMISSIBLE_PRE_AUTH + SELECTED moves may execute in Day 4.",
+      "Day 4 admissibility is pre-authorization only.",
+      "Day 5 resolves jurisdiction/authorization.",
+      "PROPOSAL_ONLY moves may emit proposal pressure but may not register, accept, or execute candidate moves."
+    ],
+    "ordered_states": [
+      "DRAFTED",
+      "REGISTERED",
+      "SCHEMA_VALID",
+      "APPLICABLE",
+      "ADMISSIBLE_PRE_AUTH",
+      "SELECTED",
+      "APPLIED",
+      "TRACED",
+      "RECEIPTED"
+    ],
+    "schema_version": "move_lifecycle_v0"
+  },
+  "move_registry": {
+    "move_registry_id": "move_registry_v0",
+    "moves": {
+      "moves.compute_applicable.v0": {
+        "action": {
+          "name": "compute_applicable_admissible_blocked_moves",
+          "type": "INSPECT"
+        },
+        "allowed_inputs": [
+          "current_state",
+          "move_registry_v0",
+          "halt_vocabulary_v0"
+        ],
+        "applies_when": {
+          "all": [
+            {
+              "eq": [
+                "state.status",
+                "VALID"
+              ]
+            },
+            {
+              "eq": [
+                "regime.validation_status",
+                "PASS"
+              ]
+            },
+            {
+              "missing": "state.move_inspection_ref"
+            }
+          ]
+        },
+        "emits": [
+          "applicable_move_inspection",
+          "blocked_move_records"
+        ],
+        "forbidden_inputs": [
+          "chat_memory_authority",
+          "latest_file_guessing",
+          "mtime_selection",
+          "ambient_workspace_inference",
+          "unregistered_code_behavior",
+          "architecture_widening",
+          "unreviewed_taxonomy_promotion",
+          "unreviewed_move_registration"
+        ],
+        "halt_map": {
+          "on_fail": "STOP_GATE_FAIL",
+          "on_missing_move_pressure": "STOP_NEEDS_NEW_MOVE",
+          "on_no_applicable_move": "STOP_NO_APPLICABLE_MOVE"
+        },
+        "layer": "MOVE_SPACE",
+        "may_halt": true,
+        "move_id": "moves.compute_applicable.v0",
+        "move_kind": "CONTROL_INSPECT",
+        "non_impersonation": [
+          "does not execute moves",
+          "does not authorize moves",
+          "does not register missing moves"
+        ],
+        "priority": 30,
+        "schema_version": "move_schema_v0",
+        "state_delta": {
+          "on_fail": {
+            "state.halt_code": "STOP_GATE_FAIL"
+          },
+          "on_pass": {
+            "state.move_inspection_ref": "<inspection_id>"
+          }
+        }
+      },
+      "proposal.missing_move.draft.v0": {
+        "action": {
+          "name": "draft_smallest_missing_move_candidate",
+          "type": "PROPOSE"
+        },
+        "allowed_inputs": [
+          "current_state",
+          "missing_move_pressure",
+          "halt_vocabulary_v0"
+        ],
+        "applies_when": {
+          "eq": [
+            "state.halt_code",
+            "STOP_NEEDS_NEW_MOVE"
+          ]
+        },
+        "emits": [
+          "missing_move_proposal_stub"
+        ],
+        "forbidden_inputs": [
+          "chat_memory_authority",
+          "latest_file_guessing",
+          "mtime_selection",
+          "ambient_workspace_inference",
+          "unregistered_code_behavior",
+          "architecture_widening",
+          "unreviewed_taxonomy_promotion",
+          "unreviewed_move_registration"
+        ],
+        "halt_map": {
+          "on_fail": "STOP_GATE_FAIL"
+        },
+        "layer": "MOVE_SPACE",
+        "may_halt": true,
+        "move_id": "proposal.missing_move.draft.v0",
+        "move_kind": "PROPOSAL_ONLY",
+        "non_impersonation": [
+          "does not register candidate move",
+          "does not accept taxonomy delta",
+          "does not authorize execution"
+        ],
+        "priority": 70,
+        "schema_version": "move_schema_v0",
+        "state_delta": {
+          "on_fail": {
+            "state.halt_code": "STOP_GATE_FAIL"
+          },
+          "on_pass": {
+            "state.missing_move_proposal_ref": "<proposal_id>"
+          }
+        }
+      },
+      "receipt.emit_terminal.v0": {
+        "action": {
+          "name": "emit_terminal_receipt_and_move_context",
+          "type": "EMIT"
+        },
+        "allowed_inputs": [
+          "current_state",
+          "trace_context",
+          "halt_vocabulary_v0"
+        ],
+        "applies_when": {
+          "any": [
+            {
+              "exists": "state.terminal_result"
+            },
+            {
+              "exists": "state.halt_code"
+            }
+          ]
+        },
+        "emits": [
+          "trace_entry",
+          "receipt",
+          "readout"
+        ],
+        "forbidden_inputs": [
+          "chat_memory_authority",
+          "latest_file_guessing",
+          "mtime_selection",
+          "ambient_workspace_inference",
+          "unregistered_code_behavior",
+          "architecture_widening",
+          "unreviewed_taxonomy_promotion",
+          "unreviewed_move_registration"
+        ],
+        "halt_map": {
+          "on_fail": "STOP_RECEIPT_MISMATCH"
+        },
+        "layer": "RECEIPT_TRACE",
+        "may_halt": true,
+        "move_id": "receipt.emit_terminal.v0",
+        "move_kind": "CONTROL_EMIT",
+        "non_impersonation": [
+          "receipt emission is not proof",
+          "terminal receipt is not implicit continuation"
+        ],
+        "priority": 60,
+        "schema_version": "move_schema_v0",
+        "state_delta": {
+          "on_fail": {
+            "state.halt_code": "STOP_RECEIPT_MISMATCH"
+          },
+          "on_pass": {
+            "state.receipt_ref": "<receipt_ref>"
+          }
+        }
+      },
+      "regime.validate_shape.v0": {
+        "action": {
+          "name": "validate_regime_and_registry_refs",
+          "type": "CHECK"
+        },
+        "allowed_inputs": [
+          "current_state",
+          "declared_regime",
+          "move_registry_ref"
+        ],
+        "applies_when": {
+          "all": [
+            {
+              "eq": [
+                "state.status",
+                "VALID"
+              ]
+            },
+            {
+              "missing": "regime.validation_status"
+            }
+          ]
+        },
+        "emits": [
+          "trace_entry"
+        ],
+        "forbidden_inputs": [
+          "chat_memory_authority",
+          "latest_file_guessing",
+          "mtime_selection",
+          "ambient_workspace_inference",
+          "unregistered_code_behavior",
+          "architecture_widening",
+          "unreviewed_taxonomy_promotion",
+          "unreviewed_move_registration"
+        ],
+        "halt_map": {
+          "on_fail": "INVALID_REGIME"
+        },
+        "layer": "OUTER",
+        "may_halt": true,
+        "move_id": "regime.validate_shape.v0",
+        "move_kind": "CONTROL_CHECK",
+        "non_impersonation": [
+          "does not replace regime",
+          "does not authorize registry mutation"
+        ],
+        "priority": 20,
+        "schema_version": "move_schema_v0",
+        "state_delta": {
+          "on_fail": {
+            "regime.validation_status": "FAIL"
+          },
+          "on_pass": {
+            "regime.validation_status": "PASS"
+          }
+        }
+      },
+      "selector.choose_move.v0": {
+        "action": {
+          "name": "select_lowest_priority_admissible_pre_auth_move",
+          "type": "SELECT"
+        },
+        "allowed_inputs": [
+          "applicable_move_inspection",
+          "selector_priority_v0"
+        ],
+        "applies_when": {
+          "all": [
+            {
+              "exists": "state.move_inspection_ref"
+            },
+            {
+              "missing": "state.selected_move"
+            }
+          ]
+        },
+        "emits": [
+          "selected_move_record",
+          "trace_entry"
+        ],
+        "forbidden_inputs": [
+          "chat_memory_authority",
+          "latest_file_guessing",
+          "mtime_selection",
+          "ambient_workspace_inference",
+          "unregistered_code_behavior",
+          "architecture_widening",
+          "unreviewed_taxonomy_promotion",
+          "unreviewed_move_registration"
+        ],
+        "halt_map": {
+          "on_ambiguous_selector": "STOP_GATE_FAIL",
+          "on_no_admissible_move": "STOP_NO_APPLICABLE_MOVE"
+        },
+        "layer": "MOVE_SPACE",
+        "may_halt": true,
+        "move_id": "selector.choose_move.v0",
+        "move_kind": "CONTROL_SELECT",
+        "non_impersonation": [
+          "selection is not authorization",
+          "selection is not execution"
+        ],
+        "priority": 40,
+        "schema_version": "move_schema_v0",
+        "state_delta": {
+          "on_fail": {
+            "state.halt_code": "STOP_GATE_FAIL"
+          },
+          "on_pass": {
+            "state.selected_move": "<move_id>"
+          }
+        }
+      },
+      "state.validate_shape.v0": {
+        "action": {
+          "name": "validate_required_state_fields",
+          "type": "CHECK"
+        },
+        "allowed_inputs": [
+          "current_state"
+        ],
+        "applies_when": {
+          "eq": [
+            "state.status",
+            "LOADED"
+          ]
+        },
+        "emits": [
+          "trace_entry"
+        ],
+        "forbidden_inputs": [
+          "chat_memory_authority",
+          "latest_file_guessing",
+          "mtime_selection",
+          "ambient_workspace_inference",
+          "unregistered_code_behavior",
+          "architecture_widening",
+          "unreviewed_taxonomy_promotion",
+          "unreviewed_move_registration"
+        ],
+        "halt_map": {
+          "on_fail": "INVALID_STATE"
+        },
+        "layer": "OUTER",
+        "may_halt": true,
+        "move_id": "state.validate_shape.v0",
+        "move_kind": "CONTROL_CHECK",
+        "non_impersonation": [
+          "does not prove theorem content",
+          "does not prove engine completion"
+        ],
+        "priority": 10,
+        "schema_version": "move_schema_v0",
+        "state_delta": {
+          "on_fail": {
+            "state.status": "INVALID"
+          },
+          "on_pass": {
+            "state.status": "VALID"
+          }
+        }
+      },
+      "unit.mark_complete.v0": {
+        "action": {
+          "name": "mark_current_build_unit_complete",
+          "type": "TRANSFORM"
+        },
+        "allowed_inputs": [
+          "current_state",
+          "selected_move_record"
+        ],
+        "applies_when": {
+          "all": [
+            {
+              "eq": [
+                "state.active_object.object_kind",
+                "BUILD_UNIT"
+              ]
+            },
+            {
+              "eq": [
+                "state.active_object.completion_status",
+                "PENDING"
+              ]
+            }
+          ]
+        },
+        "emits": [
+          "trace_entry"
+        ],
+        "forbidden_inputs": [
+          "chat_memory_authority",
+          "latest_file_guessing",
+          "mtime_selection",
+          "ambient_workspace_inference",
+          "unregistered_code_behavior",
+          "architecture_widening",
+          "unreviewed_taxonomy_promotion",
+          "unreviewed_move_registration"
+        ],
+        "halt_map": {
+          "on_fail": "STOP_GATE_FAIL",
+          "on_success": "STOP_NEXT_MOVE_BOUNDARY"
+        },
+        "layer": "OUTER",
+        "may_halt": true,
+        "move_id": "unit.mark_complete.v0",
+        "move_kind": "DOMAIN_TRANSFORM",
+        "non_impersonation": [
+          "does not imply global completion",
+          "does not authorize next unit implicitly"
+        ],
+        "priority": 50,
+        "schema_version": "move_schema_v0",
+        "state_delta": {
+          "on_fail": {
+            "state.halt_code": "STOP_GATE_FAIL"
+          },
+          "on_pass": {
+            "state.active_object.completion_status": "COMPLETE",
+            "state.terminal_result": {
+              "stop_code": "STOP_NEXT_MOVE_BOUNDARY",
+              "type": "STOP"
+            }
+          }
+        }
+      }
+    },
+    "registry_law": [
+      "no unregistered move may fire",
+      "no move with failed schema validation may fire",
+      "no move with forbidden input pressure may fire",
+      "proposal-only moves may not mutate registry",
+      "Day 4 admission is pre-authorization; Day 5 handles jurisdiction"
+    ],
+    "schema_version": "move_registry_schema_v0",
+    "selection_policy": "lowest_priority_number",
+    "selector_id": "selector_priority_v0"
+  },
+  "move_registry_sig8": "1d8595b9",
+  "move_schema": {
+    "core_law": "No unregistered move may fire. No schema-invalid move may fire.",
+    "field_meanings": {
+      "action": "bounded action declaration",
+      "allowed_inputs": "declared inputs the move may use",
+      "applies_when": "bounded predicate grammar, no arbitrary code",
+      "emits": "declared emitted artifacts",
+      "forbidden_inputs": "explicit forbidden inputs/authority patterns",
+      "halt_map": "declared halt behavior for failure/terminal cases",
+      "layer": "declared execution/inspection layer",
+      "may_halt": "whether the move may produce STOP(stop_code)",
+      "move_id": "stable unique identifier for the registered move",
+      "move_kind": "one of move_kind_enum_v0",
+      "non_impersonation": "what this move must not pretend to prove/authorize",
+      "priority": "integer; lower number selected first by selector_priority_v0",
+      "schema_version": "must equal move_schema_v0",
+      "state_delta": "declared state change on pass/fail"
+    },
+    "required_fields": [
+      "move_id",
+      "schema_version",
+      "move_kind",
+      "layer",
+      "priority",
+      "applies_when",
+      "allowed_inputs",
+      "forbidden_inputs",
+      "action",
+      "state_delta",
+      "emits",
+      "may_halt",
+      "halt_map",
+      "non_impersonation"
+    ],
+    "schema_version": "move_schema_v0"
+  },
+  "policy_id": "34863965",
+  "policy_receipt_id": "1264c091",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "policy_summary": {
+    "core_law": "No unregistered move may fire.",
+    "day4_scope": "move exists, schema-valid, applies, admissible_pre_auth, selected",
+    "day5_boundary": "authorization_status is DEFERRED_TO_DAY5; Day 4 does not resolve jurisdiction",
+    "non_goal": "no final move catalog, no automatic move invention, no full jurisdiction, no taxonomy evolution, no proposal auto-acceptance",
+    "purpose": "Create a finite typed registry of moves the runner may inspect, block, select, or propose against."
+  },
+  "policy_type": "MOVE_REGISTRY_V0_POLICY",
+  "proceed_readout_move_context_patch": {
+    "add_fields": {
+      "authorization_status": "DEFERRED_TO_DAY5",
+      "missing_move_proposal_ref": "<proposal_id|null>",
+      "move_inspection_ref": "<inspection_id>",
+      "selected_move_record_ref": "<selected_move_record_id|null>"
+    },
+    "patch_mode": "future_schema_patch_only_do_not_mutate_existing_readouts",
+    "schema_version": "proceed_readout_move_context_patch_v0"
+  },
+  "receipt_move_registry_patch": {
+    "acceptance_invariant": {
+      "unregistered_attempts_must_equal_zero": true,
+      "violation_halt": "STOP_AUTHORITY_VIOLATION_OR_STOP_GATE_FAIL"
+    },
+    "add_fields": {
+      "move_registry": {
+        "move_registry_id": "move_registry_v0",
+        "move_registry_sig8": "<sig8>",
+        "registered_count": 7
+      },
+      "moves": {
+        "blocked_moves_count": "<int>",
+        "moves_applied": [
+          "<move_id>"
+        ],
+        "moves_inspected": 7,
+        "unregistered_attempts": 0
+      }
+    },
+    "patch_mode": "future_schema_patch_only_do_not_mutate_existing_receipts",
+    "schema_version": "receipt_move_registry_patch_v0"
+  },
+  "required_implementation_artifacts": {
+    "applicable_move_inspection_schema": "data/move_registry_v0/applicable_move_inspection_schema_v0.json",
+    "applies_when_predicate_schema": "data/move_registry_v0/applies_when_predicate_schema_v0.json",
+    "blocked_move_record_schema": "data/move_registry_v0/blocked_move_record_schema_v0.json",
+    "day4_demo_missing_move_run": "data/move_registry_v0_demo/day4_demo_missing_move_run.json",
+    "day4_demo_move_run_receipt": "data/move_registry_v0_demo/day4_demo_move_run_receipt.json",
+    "day4_demo_positive_run": "data/move_registry_v0_demo/day4_demo_positive_run.json",
+    "implementation_receipt": "data/move_registry_v0_implementation_receipts/<receipt_id>.json",
+    "missing_move_proposal_stub": "data/move_registry_v0/missing_move_proposal_stub_v0.json",
+    "move_admission_gate": "data/move_registry_v0/move_admission_gate_v0.json",
+    "move_kind_enum": "data/move_registry_v0/move_kind_enum_v0.json",
+    "move_lifecycle": "data/move_registry_v0/move_lifecycle_v0.json",
+    "move_registry": "data/move_registry_v0/move_registry_v0.json",
+    "move_schema": "data/move_registry_v0/move_schema_v0.json",
+    "proceed_readout_move_context_patch": "data/move_registry_v0_patches/proceed_readout_move_context_patch_v0.json",
+    "receipt_move_registry_patch": "data/move_registry_v0_patches/receipt_move_registry_patch_v0.json",
+    "selected_move_record_schema": "data/move_registry_v0/selected_move_record_schema_v0.json",
+    "trace_move_context_patch": "data/move_registry_v0_patches/trace_move_context_patch_v0.json"
+  },
+  "safety_clauses": {
+    "does_not_accept_or_execute_missing_move_proposal": true,
+    "does_not_accept_or_promote_taxonomy_delta": true,
+    "does_not_claim_final_move_catalog": true,
+    "does_not_claim_proof": true,
+    "does_not_emit_demo_runs": true,
+    "does_not_implement_day5_authority": true,
+    "does_not_modify_source_modules": true,
+    "does_not_modify_source_regime": true,
+    "does_not_mutate_existing_artifacts": true,
+    "does_not_register_new_moves": true,
+    "does_not_write_registry": true,
+    "next_unit_required_for_implementation": true,
+    "policy_only": true
+  },
+  "schema_version": "move_registry_v0_policy_v0",
+  "selected_move_record_schema": {
+    "required_fields": [
+      "selected_move_record_id",
+      "inspection_id",
+      "selected_move",
+      "selection_policy",
+      "selection_basis",
+      "candidate_count",
+      "tie_breaker",
+      "authorization_status"
+    ],
+    "schema_version": "selected_move_record_schema_v0",
+    "selection_law": {
+      "authorization_status": "DEFERRED_TO_DAY5",
+      "selected_does_not_mean_authorized": true,
+      "selector_is_deterministic": true
+    }
+  },
+  "source_halt_vocabulary_implementation_receipt_id": "75eabbe2",
+  "source_halt_vocabulary_policy_id": "0707a2d7",
+  "source_local_regime_hash": "25802530",
+  "source_proceed_adapter_implementation_receipt_id": "363d2f4a",
+  "source_proposal_ledger_schema_id": "eee2a318",
+  "source_trace_ledger_implementation_receipt_id": "cc24a11f",
+  "source_trace_schema_id": "b4887660",
+  "target_unit_id": "move_registry.v0",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_MOVE_REGISTRY_V0_WITH_DEMO_RUNS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "trace_move_context_patch": {
+    "add_fields": {
+      "admissible_pre_auth_moves": [
+        "<move_id>"
+      ],
+      "applicable_moves": [
+        "<move_id>"
+      ],
+      "authorization_status": "DEFERRED_TO_DAY5",
+      "blocked_moves": [
+        {
+          "move_id": "<move_id>",
+          "reason": "<block_reason>"
+        }
+      ],
+      "move_admission_status": "ADMISSIBLE_PRE_AUTH|BLOCKED|NONE",
+      "move_registry_id": "move_registry_v0",
+      "selected_move": "<move_id|null>",
+      "selection_reason": "<selection_basis|null>"
+    },
+    "patch_mode": "future_schema_patch_only_do_not_mutate_existing_traces",
+    "schema_version": "trace_move_context_patch_v0"
+  },
+  "unit_id": "BUILD_MOVE_REGISTRY_V0_POLICY_V0",
+  "warnings": []
+}
