@@ -1,0 +1,142 @@
+{
+  "acceptance_gate_results": {
+    "REPAIR_ELIGIBILITY_0_SOURCE_SURFACE_VERIFIED": true,
+    "REPAIR_ELIGIBILITY_1_HUMAN_DECISION_RECORDED": true,
+    "REPAIR_ELIGIBILITY_2_LOCALIZATION_CONSUMED": true,
+    "REPAIR_ELIGIBILITY_3_ELIGIBILITY_CLASSIFIED": true,
+    "REPAIR_ELIGIBILITY_4_REPAIR_OBJECTIVE_PROPOSAL_EMITTED": true,
+    "REPAIR_ELIGIBILITY_5_DECISION_PACKET_EMITTED": true,
+    "REPAIR_ELIGIBILITY_6_NO_REPAIR_OR_TAXONOMY_ACTION": true,
+    "REPAIR_ELIGIBILITY_7_NO_SOURCE_MUTATION": true
+  },
+  "aggregate_metrics": {
+    "authority_widening_authorized_count": 0,
+    "build_command_emitted_count": 0,
+    "burden_optimization_authorized_count": 0,
+    "classification": "ELIGIBLE_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "hidden_next_command_count": 0,
+    "localized_surface_refs": [
+      "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl"
+    ],
+    "missing_fields_to_expose": [
+      "missing_label_identifier",
+      "taxonomy_context_ref",
+      "current_label_space_ref",
+      "expected_label_space_ref"
+    ],
+    "next_group_auto_opened_count": 0,
+    "next_if_accepted": "BUILD_REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0",
+    "pressure_group_key_hash": "38c604a1",
+    "proposal_allowed": true,
+    "proposal_emitted": true,
+    "protocol_adoption_authorized_count": 0,
+    "recommended_next_handling": "ACCEPT_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "repair_command_emitted_count": 0,
+    "repair_executed_count": 0,
+    "repair_objective_id": "12d712af",
+    "repair_objective_name": "REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0",
+    "review_only": true,
+    "source_evidence_surface_classification_receipt_id": "707dd84d",
+    "source_localization_audit_receipt_id": "bea59318",
+    "source_mutation_count": 0,
+    "source_taxonomy_gap_evidence_extraction_receipt_id": "7ed31808",
+    "taxonomy_delta_proposal_emitted_count": 0,
+    "taxonomy_upgrade_authorized_count": 0
+  },
+  "created_at": "2026-06-22T21:51:32.518945+00:00",
+  "eligibility_summary": {
+    "classification": "ELIGIBLE_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "classification_reason": "Localized source-event payload surface lacks required evidence fields, while extractor logic and extracted row schema can carry them; a bounded evidence-surface repair objective can be proposed without taxonomy repair or guessing missing labels.",
+    "localized_repair_surface_refs": [
+      "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl"
+    ],
+    "missing_fields_to_expose": [
+      "missing_label_identifier",
+      "taxonomy_context_ref",
+      "current_label_space_ref",
+      "expected_label_space_ref"
+    ],
+    "next_if_accepted": "BUILD_REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0",
+    "pressure_group_key_hash": "38c604a1",
+    "proposal_emitted": true,
+    "recommended_next_handling": "ACCEPT_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "repair_objective_id": "12d712af",
+    "repair_objective_name": "REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0"
+  },
+  "failures": [],
+  "gate": "PASS",
+  "human_decision": {
+    "decision": "CLASSIFY_LOCALIZED_EVIDENCE_SURFACE_REPAIR_ELIGIBILITY",
+    "not_authorized": [
+      "repair_execution",
+      "taxonomy_repair",
+      "taxonomy_upgrade",
+      "taxonomy_delta_proposal",
+      "authority_widening",
+      "burden_optimization",
+      "source_mutation",
+      "protocol_adoption",
+      "next_group_auto_open",
+      "build_command"
+    ],
+    "scope": "classify and package human-reviewable evidence-surface repair objective only",
+    "source_localization_audit_receipt_id": "bea59318",
+    "source_pressure_group_key_hash": "38c604a1"
+  },
+  "must_not_infer": [
+    "repair eligibility is not repair execution",
+    "evidence-surface repair objective is not taxonomy repair",
+    "evidence-surface repair objective is not taxonomy delta proposal",
+    "do not guess missing label values",
+    "do not mutate source rows",
+    "do not widen authority",
+    "do not auto-open next group",
+    "do not emit build command"
+  ],
+  "output_artifacts": {
+    "implementation_receipt": "data/localized_evidence_surface_repair_eligibility_v0_receipts/ecebcd27.json",
+    "localized_evidence_surface_repair_objective_proposal": "data/localized_evidence_surface_repair_eligibility_v0/localized_evidence_surface_repair_objective_proposal.json",
+    "localized_repair_eligibility_classification": "data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_classification.json",
+    "localized_repair_eligibility_decision_packet": "data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_decision_packet.json",
+    "localized_repair_eligibility_input_rollup": "data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_input_rollup.json",
+    "localized_repair_eligibility_report": "data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_report.json"
+  },
+  "receipt_id": "ecebcd27",
+  "receipt_type": "LOCALIZED_EVIDENCE_SURFACE_REPAIR_ELIGIBILITY_RECEIPT",
+  "repair_eligibility_guards": {
+    "authority_widening_authorized": false,
+    "build_command_emitted": false,
+    "burden_optimization_authorized": false,
+    "decision_packet_emitted": true,
+    "eligibility_classified": true,
+    "hidden_next_command": false,
+    "human_decision_recorded": true,
+    "localization_consumed": true,
+    "next_group_auto_opened": false,
+    "protocol_adoption_authorized": false,
+    "repair_command_emitted": false,
+    "repair_executed": false,
+    "repair_objective_proposal_emitted": true,
+    "source_mutation": false,
+    "source_surface_verified": true,
+    "taxonomy_delta_proposal_emitted": false,
+    "taxonomy_upgrade_authorized": false
+  },
+  "schema_version": "localized_evidence_surface_repair_eligibility_receipt_v0",
+  "source_evidence_surface_classification_receipt_id": "707dd84d",
+  "source_localization_audit_receipt_id": "bea59318",
+  "source_loop_application_receipt_id": "be19f438",
+  "source_pressure_group_key_hash": "38c604a1",
+  "source_pressure_loop_protocol_receipt_id": "6148b4fa",
+  "source_r1000_scale_stability_receipt_id": "a121ff40",
+  "source_taxonomy_gap_evidence_extraction_receipt_id": "7ed31808",
+  "source_top_group_classification_receipt_id": "7c9718e0",
+  "target_unit_id": "localized_evidence_surface_repair_eligibility.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_HUMAN_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "unit_id": "CLASSIFY_LOCALIZED_EVIDENCE_SURFACE_REPAIR_ELIGIBILITY_V0",
+  "warnings": []
+}

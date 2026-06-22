@@ -1,0 +1,90 @@
+{
+  "authority_widening_authorized": false,
+  "build_command_emitted": false,
+  "burden_optimization_authorized": false,
+  "candidate_artifacts_to_update_or_verify": [
+    "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl",
+    "producer_of_r1000_pressure_event_rows_jsonl",
+    "pressure_event_row_schema_or_emitter"
+  ],
+  "candidate_scripts_to_inspect": [
+    "producer_of_r1000_pressure_event_rows_jsonl",
+    "scripts/audit_taxonomy_gap_evidence_surface_localization_v0.py",
+    "scripts/extract_r1000_top_group_taxonomy_gap_missing_label_evidence_v0.py"
+  ],
+  "expected_acceptance_gates": [
+    "source surface emits required field keys or explicit null-with-reason",
+    "existing structural refs preserved",
+    "25-row top group remains addressable",
+    "field extraction rerun consumes new surface",
+    "taxonomy gap reclassification reruns after evidence surface repair",
+    "no taxonomy delta proposed",
+    "no taxonomy upgrade authorized",
+    "no missing label value guessed",
+    "no source receipt mutation"
+  ],
+  "field_semantics": {
+    "current_label_space_ref": "Reference to the current emitted label space used by the pressure event.",
+    "expected_label_space_ref": "Reference to the expected or required label space, if available.",
+    "missing_label_identifier": "Opaque identifier/name for the label that the pressure event could not classify, if known by source payload.",
+    "taxonomy_context_ref": "Reference to the taxonomy/label-space context in which the missing label was detected."
+  },
+  "forbidden_scope": [
+    "taxonomy repair",
+    "taxonomy upgrade",
+    "taxonomy delta proposal",
+    "authority widening",
+    "burden optimization",
+    "guessing missing label values",
+    "mutating existing receipts",
+    "auto-opening next group",
+    "executing repair inside this unit"
+  ],
+  "localized_repair_surface_refs": [
+    "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl"
+  ],
+  "missing_fields_to_expose": [
+    "missing_label_identifier",
+    "taxonomy_context_ref",
+    "current_label_space_ref",
+    "expected_label_space_ref"
+  ],
+  "proposal_emitted": true,
+  "proposal_type": "EVIDENCE_SURFACE_REPAIR_OBJECTIVE_PROPOSAL",
+  "repair_command_emitted": false,
+  "repair_executed": false,
+  "repair_objective_id": "12d712af",
+  "repair_objective_name": "REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0",
+  "repair_scope": "Update the pressure-event source surface so future rows can expose explicit taxonomy-gap evidence fields when available, or explicit null-with-reason when unavailable.",
+  "required_output_behavior": [
+    "preserve existing pressure_event_id",
+    "preserve pressure_group_key_hash",
+    "preserve parent_pressure_class",
+    "preserve pressure_subtype",
+    "preserve halt_reason",
+    "preserve source_receipt_ref",
+    "preserve source_trace_ref",
+    "emit missing evidence fields when available",
+    "emit explicit null values with absence_reason when fields are unavailable",
+    "do not infer missing label values"
+  ],
+  "rerun_required_after_repair": [
+    "EXTRACT_R1000_TOP_GROUP_TAXONOMY_GAP_MISSING_LABEL_EVIDENCE_V0",
+    "CLASSIFY_TAXONOMY_GAP_EVIDENCE_SURFACE_DEFICIENCY_V0",
+    "reclassify original taxonomy-gap pressure group after evidence improves"
+  ],
+  "review_only": true,
+  "schema_version": "localized_evidence_surface_repair_objective_proposal_v0",
+  "source_evidence_refs": [
+    "data/taxonomy_gap_evidence_surface_localization_audit_v0_receipts/bea59318.json",
+    "data/taxonomy_gap_evidence_surface_localization_audit_v0/raw_source_field_audit.json",
+    "data/taxonomy_gap_evidence_surface_localization_audit_v0/schema_slot_audit.json",
+    "data/taxonomy_gap_evidence_surface_localization_audit_v0/extractor_logic_audit.json",
+    "data/pressure_loop_applications/r1000_top_group_taxonomy_gap_evidence_extraction_v0/taxonomy_gap_missing_label_field_rows.jsonl"
+  ],
+  "source_mutation": false,
+  "source_pressure_group_key_hash": "38c604a1",
+  "taxonomy_delta_proposal_emitted": false,
+  "taxonomy_upgrade_authorized": false,
+  "terminal_rule": "STOP_HUMAN_DECISION_REQUIRED"
+}

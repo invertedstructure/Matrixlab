@@ -1,0 +1,31 @@
+{
+  "build_command_emitted": false,
+  "classification": "ELIGIBLE_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+  "classification_classes": [
+    "ELIGIBLE_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "NOT_ELIGIBLE_HEALTHY_EXPECTED_LIMIT",
+    "NOT_ENOUGH_EVIDENCE_FOR_REPAIR_ELIGIBILITY"
+  ],
+  "classification_reason": "Localized source-event payload surface lacks required evidence fields, while extractor logic and extracted row schema can carry them; a bounded evidence-surface repair objective can be proposed without taxonomy repair or guessing missing labels.",
+  "classified_exactly_once": true,
+  "expected_effect": "Expose/preserve missing-label evidence fields in future pressure event rows so extraction can re-run and original taxonomy-gap pressure can be reclassified.",
+  "missing_fields_to_expose": [
+    "missing_label_identifier",
+    "taxonomy_context_ref",
+    "current_label_space_ref",
+    "expected_label_space_ref"
+  ],
+  "missing_label_value_guess_required": false,
+  "pressure_group_key_hash": "38c604a1",
+  "proposal_allowed": true,
+  "recommended_next_handling": "HUMAN_REVIEW_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+  "repair_executed": false,
+  "repair_surface": "source_event_payload_surface",
+  "repair_surface_artifact": "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl",
+  "review_only": true,
+  "schema_version": "localized_repair_eligibility_classification_v0",
+  "source_mutation": false,
+  "taxonomy_delta_proposal_required": false,
+  "taxonomy_repair_required": false,
+  "taxonomy_upgrade_required": false
+}
