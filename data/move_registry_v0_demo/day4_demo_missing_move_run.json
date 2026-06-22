@@ -1,0 +1,523 @@
+{
+  "authorization_status": "DEFERRED_TO_DAY5",
+  "blocked_move_records": [
+    {
+      "block_reason": "APPLIES_WHEN_FALSE",
+      "blocked_move_id": "blocked_93a04248",
+      "details": {
+        "observed_state_sig8": "0eb66480",
+        "predicate": {
+          "eq": [
+            "state.halt_code",
+            "STOP_NEEDS_NEW_MOVE"
+          ]
+        }
+      },
+      "halt_pressure": null,
+      "move_id": "proposal.missing_move.draft.v0",
+      "must_not_impersonate": [
+        "move invalidity",
+        "proof obstruction",
+        "missing move",
+        "authorization decision"
+      ],
+      "schema_version": "blocked_move_record_v0",
+      "state_sig8": "0eb66480"
+    },
+    {
+      "block_reason": "APPLIES_WHEN_FALSE",
+      "blocked_move_id": "blocked_299f39cc",
+      "details": {
+        "observed_state_sig8": "0eb66480",
+        "predicate": {
+          "any": [
+            {
+              "exists": "state.terminal_result"
+            },
+            {
+              "exists": "state.halt_code"
+            }
+          ]
+        }
+      },
+      "halt_pressure": null,
+      "move_id": "receipt.emit_terminal.v0",
+      "must_not_impersonate": [
+        "move invalidity",
+        "proof obstruction",
+        "missing move",
+        "authorization decision"
+      ],
+      "schema_version": "blocked_move_record_v0",
+      "state_sig8": "0eb66480"
+    },
+    {
+      "block_reason": "APPLIES_WHEN_FALSE",
+      "blocked_move_id": "blocked_8d5d4afe",
+      "details": {
+        "observed_state_sig8": "0eb66480",
+        "predicate": {
+          "all": [
+            {
+              "eq": [
+                "state.status",
+                "VALID"
+              ]
+            },
+            {
+              "missing": "regime.validation_status"
+            }
+          ]
+        }
+      },
+      "halt_pressure": null,
+      "move_id": "regime.validate_shape.v0",
+      "must_not_impersonate": [
+        "move invalidity",
+        "proof obstruction",
+        "missing move",
+        "authorization decision"
+      ],
+      "schema_version": "blocked_move_record_v0",
+      "state_sig8": "0eb66480"
+    },
+    {
+      "block_reason": "APPLIES_WHEN_FALSE",
+      "blocked_move_id": "blocked_ce0fad7c",
+      "details": {
+        "observed_state_sig8": "0eb66480",
+        "predicate": {
+          "all": [
+            {
+              "exists": "state.move_inspection_ref"
+            },
+            {
+              "missing": "state.selected_move"
+            }
+          ]
+        }
+      },
+      "halt_pressure": null,
+      "move_id": "selector.choose_move.v0",
+      "must_not_impersonate": [
+        "move invalidity",
+        "proof obstruction",
+        "missing move",
+        "authorization decision"
+      ],
+      "schema_version": "blocked_move_record_v0",
+      "state_sig8": "0eb66480"
+    },
+    {
+      "block_reason": "APPLIES_WHEN_FALSE",
+      "blocked_move_id": "blocked_c5ab2409",
+      "details": {
+        "observed_state_sig8": "0eb66480",
+        "predicate": {
+          "eq": [
+            "state.status",
+            "LOADED"
+          ]
+        }
+      },
+      "halt_pressure": null,
+      "move_id": "state.validate_shape.v0",
+      "must_not_impersonate": [
+        "move invalidity",
+        "proof obstruction",
+        "missing move",
+        "authorization decision"
+      ],
+      "schema_version": "blocked_move_record_v0",
+      "state_sig8": "0eb66480"
+    },
+    {
+      "block_reason": "APPLIES_WHEN_FALSE",
+      "blocked_move_id": "blocked_7e3e8272",
+      "details": {
+        "observed_state_sig8": "0eb66480",
+        "predicate": {
+          "all": [
+            {
+              "eq": [
+                "state.active_object.object_kind",
+                "BUILD_UNIT"
+              ]
+            },
+            {
+              "eq": [
+                "state.active_object.completion_status",
+                "PENDING"
+              ]
+            }
+          ]
+        }
+      },
+      "halt_pressure": null,
+      "move_id": "unit.mark_complete.v0",
+      "must_not_impersonate": [
+        "move invalidity",
+        "proof obstruction",
+        "missing move",
+        "authorization decision"
+      ],
+      "schema_version": "blocked_move_record_v0",
+      "state_sig8": "0eb66480"
+    }
+  ],
+  "blocked_moves_count": 6,
+  "candidate_move_executed": false,
+  "candidate_move_id": "boundary.emit_next_unit.v0",
+  "candidate_move_registered": false,
+  "demo_name": "DAY4_MISSING_MOVE_PRESSURE",
+  "failures": [],
+  "final_state": {
+    "active_object": {
+      "completion_status": "COMPLETE",
+      "needs_next_boundary": true,
+      "object_id": "unit.demo_002",
+      "object_kind": "BUILD_UNIT"
+    },
+    "halt_code": "STOP_NEEDS_NEW_MOVE",
+    "missing_move_proposal_ref": {
+      "proposal_id": "move_proposal_75e01d43",
+      "proposal_path": "<embedded_in_day4_demo_missing_move_run>"
+    },
+    "regime": {
+      "move_registry_id": "move_registry_v0",
+      "selector_id": "selector_priority_v0",
+      "validation_status": "PASS"
+    },
+    "registered_moves_do_not_include": [
+      "boundary.emit_next_unit.v0"
+    ],
+    "schema_version": "runner_state_v0",
+    "state_id": "state_demo_day4_missing_move",
+    "status": "VALID",
+    "terminal_result": {
+      "stop_code": "STOP_NEEDS_NEW_MOVE",
+      "type": "STOP"
+    }
+  },
+  "gate": "PASS",
+  "initial_state": {
+    "active_object": {
+      "completion_status": "COMPLETE",
+      "needs_next_boundary": true,
+      "object_id": "unit.demo_002",
+      "object_kind": "BUILD_UNIT"
+    },
+    "regime": {
+      "move_registry_id": "move_registry_v0",
+      "selector_id": "selector_priority_v0",
+      "validation_status": "PASS"
+    },
+    "registered_moves_do_not_include": [
+      "boundary.emit_next_unit.v0"
+    ],
+    "schema_version": "runner_state_v0",
+    "state_id": "state_demo_day4_missing_move",
+    "status": "VALID",
+    "terminal_result": null
+  },
+  "inspections": [
+    {
+      "admissible_pre_auth_moves": [
+        "moves.compute_applicable.v0"
+      ],
+      "applicable_moves": [
+        "moves.compute_applicable.v0"
+      ],
+      "authorization_status": "DEFERRED_TO_DAY5",
+      "blocked_moves": [
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_93a04248",
+          "halt_pressure": null,
+          "move_id": "proposal.missing_move.draft.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_299f39cc",
+          "halt_pressure": null,
+          "move_id": "receipt.emit_terminal.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_8d5d4afe",
+          "halt_pressure": null,
+          "move_id": "regime.validate_shape.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_ce0fad7c",
+          "halt_pressure": null,
+          "move_id": "selector.choose_move.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_c5ab2409",
+          "halt_pressure": null,
+          "move_id": "state.validate_shape.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_7e3e8272",
+          "halt_pressure": null,
+          "move_id": "unit.mark_complete.v0"
+        }
+      ],
+      "inspection_id": "move_inspection_ccb59492",
+      "missing_move_pressure": {
+        "candidate_move_id": "boundary.emit_next_unit.v0",
+        "must_not_impersonate": [
+          "registered move",
+          "authorized move",
+          "accepted taxonomy delta"
+        ],
+        "observed_pressure": "Current state has completed build unit requiring next boundary, but boundary.emit_next_unit.v0 is not registered.",
+        "registered": false,
+        "schema_version": "missing_move_pressure_v0",
+        "trigger_halt": "STOP_NEEDS_NEW_MOVE"
+      },
+      "move_registry_id": "move_registry_v0",
+      "move_registry_sig8": "1d8595b9",
+      "registered_count": 7,
+      "schema_valid_moves": [
+        "moves.compute_applicable.v0",
+        "proposal.missing_move.draft.v0",
+        "receipt.emit_terminal.v0",
+        "regime.validate_shape.v0",
+        "selector.choose_move.v0",
+        "state.validate_shape.v0",
+        "unit.mark_complete.v0"
+      ],
+      "schema_version": "applicable_move_inspection_v0",
+      "selected_move": "moves.compute_applicable.v0",
+      "selection_basis": "only_admissible_pre_auth_move",
+      "state_sig8": "0eb66480"
+    }
+  ],
+  "missing_move_pressure": {
+    "candidate_move_id": "boundary.emit_next_unit.v0",
+    "must_not_impersonate": [
+      "registered move",
+      "authorized move",
+      "accepted taxonomy delta"
+    ],
+    "observed_pressure": "Current state has completed build unit requiring next boundary, but boundary.emit_next_unit.v0 is not registered.",
+    "registered": false,
+    "schema_version": "missing_move_pressure_v0",
+    "trigger_halt": "STOP_NEEDS_NEW_MOVE"
+  },
+  "missing_move_proposal": {
+    "allowed_next_handling": [
+      "human review",
+      "accept into registry in later reviewed unit",
+      "reject",
+      "defer",
+      "weaken proposal"
+    ],
+    "candidate_executed": false,
+    "candidate_move": {
+      "action": {
+        "name": "emit_next_move_boundary",
+        "type": "EMIT"
+      },
+      "applies_when": {
+        "all": [
+          {
+            "eq": [
+              "state.active_object.completion_status",
+              "COMPLETE"
+            ]
+          },
+          {
+            "missing": "state.next_unit_id"
+          }
+        ]
+      },
+      "emits": [
+        "proceed_readout",
+        "halt_record"
+      ],
+      "halt_behavior": {
+        "on_fail": "STOP_GATE_FAIL",
+        "on_success": "STOP_NEXT_MOVE_BOUNDARY"
+      },
+      "move_id": "boundary.emit_next_unit.v0",
+      "move_kind": "CONTROL_EMIT"
+    },
+    "candidate_move_id": "boundary.emit_next_unit.v0",
+    "candidate_registered": false,
+    "must_not_impersonate": [
+      "registered move",
+      "accepted taxonomy delta",
+      "authorized execution"
+    ],
+    "observed_pressure": "Current state has completed build unit and needs next boundary, but boundary.emit_next_unit.v0 is not registered.",
+    "proposal_id": "move_proposal_75e01d43",
+    "proposal_type": "MISSING_MOVE",
+    "registry_mutated": false,
+    "schema_version": "missing_move_proposal_v0",
+    "status": "PROPOSED_ONLY",
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false,
+    "trigger_halt": "STOP_NEEDS_NEW_MOVE"
+  },
+  "move_registry_id": "move_registry_v0",
+  "move_registry_sig8": "1d8595b9",
+  "moves_applied": [
+    "proposal.missing_move.draft.v0"
+  ],
+  "proposal_executed": false,
+  "proposal_registered": false,
+  "proposal_status": "PROPOSED_ONLY",
+  "receipt": {
+    "authorization_status": "DEFERRED_TO_DAY5",
+    "demo_name": "DAY4_MISSING_MOVE_PRESSURE",
+    "failures": [],
+    "gate": "PASS",
+    "missing_move_proposal": {
+      "allowed_next_handling": [
+        "human review",
+        "accept into registry in later reviewed unit",
+        "reject",
+        "defer",
+        "weaken proposal"
+      ],
+      "candidate_executed": false,
+      "candidate_move": {
+        "action": {
+          "name": "emit_next_move_boundary",
+          "type": "EMIT"
+        },
+        "applies_when": {
+          "all": [
+            {
+              "eq": [
+                "state.active_object.completion_status",
+                "COMPLETE"
+              ]
+            },
+            {
+              "missing": "state.next_unit_id"
+            }
+          ]
+        },
+        "emits": [
+          "proceed_readout",
+          "halt_record"
+        ],
+        "halt_behavior": {
+          "on_fail": "STOP_GATE_FAIL",
+          "on_success": "STOP_NEXT_MOVE_BOUNDARY"
+        },
+        "move_id": "boundary.emit_next_unit.v0",
+        "move_kind": "CONTROL_EMIT"
+      },
+      "candidate_move_id": "boundary.emit_next_unit.v0",
+      "candidate_registered": false,
+      "must_not_impersonate": [
+        "registered move",
+        "accepted taxonomy delta",
+        "authorized execution"
+      ],
+      "observed_pressure": "Current state has completed build unit and needs next boundary, but boundary.emit_next_unit.v0 is not registered.",
+      "proposal_id": "move_proposal_75e01d43",
+      "proposal_type": "MISSING_MOVE",
+      "registry_mutated": false,
+      "schema_version": "missing_move_proposal_v0",
+      "status": "PROPOSED_ONLY",
+      "taxonomy_delta_applied": false,
+      "taxonomy_delta_promoted": false,
+      "trigger_halt": "STOP_NEEDS_NEW_MOVE"
+    },
+    "move_registry": {
+      "move_registry_id": "move_registry_v0",
+      "move_registry_sig8": "1d8595b9",
+      "registered_count": 7
+    },
+    "moves": {
+      "blocked_moves_count": 6,
+      "moves_applied": [
+        "proposal.missing_move.draft.v0"
+      ],
+      "moves_inspected": 7,
+      "unregistered_attempts": 0
+    },
+    "receipt_id": "day4_demo_receipt_6ebef642",
+    "schema_version": "day4_demo_move_run_receipt_v0",
+    "terminal_result": {
+      "stop_code": "STOP_NEEDS_NEW_MOVE",
+      "type": "STOP"
+    }
+  },
+  "registered_count": 7,
+  "registry_mutated_by_proposal": false,
+  "schema_invalid_move_attempts": 0,
+  "schema_version": "day4_demo_missing_move_run_v0",
+  "source_policy_id": "34863965",
+  "terminal_result": {
+    "stop_code": "STOP_NEEDS_NEW_MOVE",
+    "type": "STOP"
+  },
+  "trace_entries": [
+    {
+      "admissible_pre_auth_moves": [
+        "moves.compute_applicable.v0"
+      ],
+      "applicable_moves": [
+        "moves.compute_applicable.v0"
+      ],
+      "authorization_status": "DEFERRED_TO_DAY5",
+      "blocked_moves": [
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_93a04248",
+          "halt_pressure": null,
+          "move_id": "proposal.missing_move.draft.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_299f39cc",
+          "halt_pressure": null,
+          "move_id": "receipt.emit_terminal.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_8d5d4afe",
+          "halt_pressure": null,
+          "move_id": "regime.validate_shape.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_ce0fad7c",
+          "halt_pressure": null,
+          "move_id": "selector.choose_move.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_c5ab2409",
+          "halt_pressure": null,
+          "move_id": "state.validate_shape.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_7e3e8272",
+          "halt_pressure": null,
+          "move_id": "unit.mark_complete.v0"
+        }
+      ],
+      "move_admission_status": "ADMISSIBLE_PRE_AUTH",
+      "move_id": "proposal.missing_move.draft.v0",
+      "move_registry_id": "move_registry_v0",
+      "selected_move": null,
+      "selection_reason": null,
+      "state_after_sig8": "75574bc6",
+      "state_before_sig8": "3d83ea9c",
+      "trace_entry_id": "trace_move_375ecccf"
+    }
+  ],
+  "unregistered_attempts": 0
+}

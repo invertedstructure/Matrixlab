@@ -1,0 +1,23 @@
+{
+  "acceptance_invariant": {
+    "unregistered_attempts_must_equal_zero": true,
+    "violation_halt": "STOP_AUTHORITY_VIOLATION_OR_STOP_GATE_FAIL"
+  },
+  "add_fields": {
+    "move_registry": {
+      "move_registry_id": "move_registry_v0",
+      "move_registry_sig8": "<sig8>",
+      "registered_count": 7
+    },
+    "moves": {
+      "blocked_moves_count": "<int>",
+      "moves_applied": [
+        "<move_id>"
+      ],
+      "moves_inspected": 7,
+      "unregistered_attempts": 0
+    }
+  },
+  "patch_mode": "future_schema_patch_only_do_not_mutate_existing_receipts",
+  "schema_version": "receipt_move_registry_patch_v0"
+}

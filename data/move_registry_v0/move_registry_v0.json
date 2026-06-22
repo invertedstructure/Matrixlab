@@ -1,0 +1,420 @@
+{
+  "move_registry_id": "move_registry_v0",
+  "moves": {
+    "moves.compute_applicable.v0": {
+      "action": {
+        "name": "compute_applicable_admissible_blocked_moves",
+        "type": "INSPECT"
+      },
+      "allowed_inputs": [
+        "current_state",
+        "move_registry_v0",
+        "halt_vocabulary_v0"
+      ],
+      "applies_when": {
+        "all": [
+          {
+            "eq": [
+              "state.status",
+              "VALID"
+            ]
+          },
+          {
+            "eq": [
+              "regime.validation_status",
+              "PASS"
+            ]
+          },
+          {
+            "missing": "state.move_inspection_ref"
+          }
+        ]
+      },
+      "emits": [
+        "applicable_move_inspection",
+        "blocked_move_records"
+      ],
+      "forbidden_inputs": [
+        "chat_memory_authority",
+        "latest_file_guessing",
+        "mtime_selection",
+        "ambient_workspace_inference",
+        "unregistered_code_behavior",
+        "architecture_widening",
+        "unreviewed_taxonomy_promotion",
+        "unreviewed_move_registration"
+      ],
+      "halt_map": {
+        "on_fail": "STOP_GATE_FAIL",
+        "on_missing_move_pressure": "STOP_NEEDS_NEW_MOVE",
+        "on_no_applicable_move": "STOP_NO_APPLICABLE_MOVE"
+      },
+      "layer": "MOVE_SPACE",
+      "may_halt": true,
+      "move_id": "moves.compute_applicable.v0",
+      "move_kind": "CONTROL_INSPECT",
+      "non_impersonation": [
+        "does not execute moves",
+        "does not authorize moves",
+        "does not register missing moves"
+      ],
+      "priority": 30,
+      "schema_version": "move_schema_v0",
+      "state_delta": {
+        "on_fail": {
+          "state.halt_code": "STOP_GATE_FAIL"
+        },
+        "on_pass": {
+          "state.move_inspection_ref": "<inspection_id>"
+        }
+      }
+    },
+    "proposal.missing_move.draft.v0": {
+      "action": {
+        "name": "draft_smallest_missing_move_candidate",
+        "type": "PROPOSE"
+      },
+      "allowed_inputs": [
+        "current_state",
+        "missing_move_pressure",
+        "halt_vocabulary_v0"
+      ],
+      "applies_when": {
+        "eq": [
+          "state.halt_code",
+          "STOP_NEEDS_NEW_MOVE"
+        ]
+      },
+      "emits": [
+        "missing_move_proposal_stub"
+      ],
+      "forbidden_inputs": [
+        "chat_memory_authority",
+        "latest_file_guessing",
+        "mtime_selection",
+        "ambient_workspace_inference",
+        "unregistered_code_behavior",
+        "architecture_widening",
+        "unreviewed_taxonomy_promotion",
+        "unreviewed_move_registration"
+      ],
+      "halt_map": {
+        "on_fail": "STOP_GATE_FAIL"
+      },
+      "layer": "MOVE_SPACE",
+      "may_halt": true,
+      "move_id": "proposal.missing_move.draft.v0",
+      "move_kind": "PROPOSAL_ONLY",
+      "non_impersonation": [
+        "does not register candidate move",
+        "does not accept taxonomy delta",
+        "does not authorize execution"
+      ],
+      "priority": 70,
+      "schema_version": "move_schema_v0",
+      "state_delta": {
+        "on_fail": {
+          "state.halt_code": "STOP_GATE_FAIL"
+        },
+        "on_pass": {
+          "state.missing_move_proposal_ref": "<proposal_id>"
+        }
+      }
+    },
+    "receipt.emit_terminal.v0": {
+      "action": {
+        "name": "emit_terminal_receipt_and_move_context",
+        "type": "EMIT"
+      },
+      "allowed_inputs": [
+        "current_state",
+        "trace_context",
+        "halt_vocabulary_v0"
+      ],
+      "applies_when": {
+        "any": [
+          {
+            "exists": "state.terminal_result"
+          },
+          {
+            "exists": "state.halt_code"
+          }
+        ]
+      },
+      "emits": [
+        "trace_entry",
+        "receipt",
+        "readout"
+      ],
+      "forbidden_inputs": [
+        "chat_memory_authority",
+        "latest_file_guessing",
+        "mtime_selection",
+        "ambient_workspace_inference",
+        "unregistered_code_behavior",
+        "architecture_widening",
+        "unreviewed_taxonomy_promotion",
+        "unreviewed_move_registration"
+      ],
+      "halt_map": {
+        "on_fail": "STOP_RECEIPT_MISMATCH"
+      },
+      "layer": "RECEIPT_TRACE",
+      "may_halt": true,
+      "move_id": "receipt.emit_terminal.v0",
+      "move_kind": "CONTROL_EMIT",
+      "non_impersonation": [
+        "receipt emission is not proof",
+        "terminal receipt is not implicit continuation"
+      ],
+      "priority": 60,
+      "schema_version": "move_schema_v0",
+      "state_delta": {
+        "on_fail": {
+          "state.halt_code": "STOP_RECEIPT_MISMATCH"
+        },
+        "on_pass": {
+          "state.receipt_ref": "<receipt_ref>"
+        }
+      }
+    },
+    "regime.validate_shape.v0": {
+      "action": {
+        "name": "validate_regime_and_registry_refs",
+        "type": "CHECK"
+      },
+      "allowed_inputs": [
+        "current_state",
+        "declared_regime",
+        "move_registry_ref"
+      ],
+      "applies_when": {
+        "all": [
+          {
+            "eq": [
+              "state.status",
+              "VALID"
+            ]
+          },
+          {
+            "missing": "regime.validation_status"
+          }
+        ]
+      },
+      "emits": [
+        "trace_entry"
+      ],
+      "forbidden_inputs": [
+        "chat_memory_authority",
+        "latest_file_guessing",
+        "mtime_selection",
+        "ambient_workspace_inference",
+        "unregistered_code_behavior",
+        "architecture_widening",
+        "unreviewed_taxonomy_promotion",
+        "unreviewed_move_registration"
+      ],
+      "halt_map": {
+        "on_fail": "INVALID_REGIME"
+      },
+      "layer": "OUTER",
+      "may_halt": true,
+      "move_id": "regime.validate_shape.v0",
+      "move_kind": "CONTROL_CHECK",
+      "non_impersonation": [
+        "does not replace regime",
+        "does not authorize registry mutation"
+      ],
+      "priority": 20,
+      "schema_version": "move_schema_v0",
+      "state_delta": {
+        "on_fail": {
+          "regime.validation_status": "FAIL"
+        },
+        "on_pass": {
+          "regime.validation_status": "PASS"
+        }
+      }
+    },
+    "selector.choose_move.v0": {
+      "action": {
+        "name": "select_lowest_priority_admissible_pre_auth_move",
+        "type": "SELECT"
+      },
+      "allowed_inputs": [
+        "applicable_move_inspection",
+        "selector_priority_v0"
+      ],
+      "applies_when": {
+        "all": [
+          {
+            "exists": "state.move_inspection_ref"
+          },
+          {
+            "missing": "state.selected_move"
+          }
+        ]
+      },
+      "emits": [
+        "selected_move_record",
+        "trace_entry"
+      ],
+      "forbidden_inputs": [
+        "chat_memory_authority",
+        "latest_file_guessing",
+        "mtime_selection",
+        "ambient_workspace_inference",
+        "unregistered_code_behavior",
+        "architecture_widening",
+        "unreviewed_taxonomy_promotion",
+        "unreviewed_move_registration"
+      ],
+      "halt_map": {
+        "on_ambiguous_selector": "STOP_GATE_FAIL",
+        "on_no_admissible_move": "STOP_NO_APPLICABLE_MOVE"
+      },
+      "layer": "MOVE_SPACE",
+      "may_halt": true,
+      "move_id": "selector.choose_move.v0",
+      "move_kind": "CONTROL_SELECT",
+      "non_impersonation": [
+        "selection is not authorization",
+        "selection is not execution"
+      ],
+      "priority": 40,
+      "schema_version": "move_schema_v0",
+      "state_delta": {
+        "on_fail": {
+          "state.halt_code": "STOP_GATE_FAIL"
+        },
+        "on_pass": {
+          "state.selected_move": "<move_id>"
+        }
+      }
+    },
+    "state.validate_shape.v0": {
+      "action": {
+        "name": "validate_required_state_fields",
+        "type": "CHECK"
+      },
+      "allowed_inputs": [
+        "current_state"
+      ],
+      "applies_when": {
+        "eq": [
+          "state.status",
+          "LOADED"
+        ]
+      },
+      "emits": [
+        "trace_entry"
+      ],
+      "forbidden_inputs": [
+        "chat_memory_authority",
+        "latest_file_guessing",
+        "mtime_selection",
+        "ambient_workspace_inference",
+        "unregistered_code_behavior",
+        "architecture_widening",
+        "unreviewed_taxonomy_promotion",
+        "unreviewed_move_registration"
+      ],
+      "halt_map": {
+        "on_fail": "INVALID_STATE"
+      },
+      "layer": "OUTER",
+      "may_halt": true,
+      "move_id": "state.validate_shape.v0",
+      "move_kind": "CONTROL_CHECK",
+      "non_impersonation": [
+        "does not prove theorem content",
+        "does not prove engine completion"
+      ],
+      "priority": 10,
+      "schema_version": "move_schema_v0",
+      "state_delta": {
+        "on_fail": {
+          "state.status": "INVALID"
+        },
+        "on_pass": {
+          "state.status": "VALID"
+        }
+      }
+    },
+    "unit.mark_complete.v0": {
+      "action": {
+        "name": "mark_current_build_unit_complete",
+        "type": "TRANSFORM"
+      },
+      "allowed_inputs": [
+        "current_state",
+        "selected_move_record"
+      ],
+      "applies_when": {
+        "all": [
+          {
+            "eq": [
+              "state.active_object.object_kind",
+              "BUILD_UNIT"
+            ]
+          },
+          {
+            "eq": [
+              "state.active_object.completion_status",
+              "PENDING"
+            ]
+          }
+        ]
+      },
+      "emits": [
+        "trace_entry"
+      ],
+      "forbidden_inputs": [
+        "chat_memory_authority",
+        "latest_file_guessing",
+        "mtime_selection",
+        "ambient_workspace_inference",
+        "unregistered_code_behavior",
+        "architecture_widening",
+        "unreviewed_taxonomy_promotion",
+        "unreviewed_move_registration"
+      ],
+      "halt_map": {
+        "on_fail": "STOP_GATE_FAIL",
+        "on_success": "STOP_NEXT_MOVE_BOUNDARY"
+      },
+      "layer": "OUTER",
+      "may_halt": true,
+      "move_id": "unit.mark_complete.v0",
+      "move_kind": "DOMAIN_TRANSFORM",
+      "non_impersonation": [
+        "does not imply global completion",
+        "does not authorize next unit implicitly"
+      ],
+      "priority": 50,
+      "schema_version": "move_schema_v0",
+      "state_delta": {
+        "on_fail": {
+          "state.halt_code": "STOP_GATE_FAIL"
+        },
+        "on_pass": {
+          "state.active_object.completion_status": "COMPLETE",
+          "state.terminal_result": {
+            "stop_code": "STOP_NEXT_MOVE_BOUNDARY",
+            "type": "STOP"
+          }
+        }
+      }
+    }
+  },
+  "registry_law": [
+    "no unregistered move may fire",
+    "no move with failed schema validation may fire",
+    "no move with forbidden input pressure may fire",
+    "proposal-only moves may not mutate registry",
+    "Day 4 admission is pre-authorization; Day 5 handles jurisdiction"
+  ],
+  "schema_version": "move_registry_schema_v0",
+  "selection_policy": "lowest_priority_number",
+  "selector_id": "selector_priority_v0"
+}

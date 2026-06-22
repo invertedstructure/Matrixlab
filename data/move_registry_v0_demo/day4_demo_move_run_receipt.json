@@ -1,0 +1,120 @@
+{
+  "created_at": "2026-06-22T13:00:54.742554+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "missing_move_demo_receipt": {
+    "authorization_status": "DEFERRED_TO_DAY5",
+    "demo_name": "DAY4_MISSING_MOVE_PRESSURE",
+    "failures": [],
+    "gate": "PASS",
+    "missing_move_proposal": {
+      "allowed_next_handling": [
+        "human review",
+        "accept into registry in later reviewed unit",
+        "reject",
+        "defer",
+        "weaken proposal"
+      ],
+      "candidate_executed": false,
+      "candidate_move": {
+        "action": {
+          "name": "emit_next_move_boundary",
+          "type": "EMIT"
+        },
+        "applies_when": {
+          "all": [
+            {
+              "eq": [
+                "state.active_object.completion_status",
+                "COMPLETE"
+              ]
+            },
+            {
+              "missing": "state.next_unit_id"
+            }
+          ]
+        },
+        "emits": [
+          "proceed_readout",
+          "halt_record"
+        ],
+        "halt_behavior": {
+          "on_fail": "STOP_GATE_FAIL",
+          "on_success": "STOP_NEXT_MOVE_BOUNDARY"
+        },
+        "move_id": "boundary.emit_next_unit.v0",
+        "move_kind": "CONTROL_EMIT"
+      },
+      "candidate_move_id": "boundary.emit_next_unit.v0",
+      "candidate_registered": false,
+      "must_not_impersonate": [
+        "registered move",
+        "accepted taxonomy delta",
+        "authorized execution"
+      ],
+      "observed_pressure": "Current state has completed build unit and needs next boundary, but boundary.emit_next_unit.v0 is not registered.",
+      "proposal_id": "move_proposal_75e01d43",
+      "proposal_type": "MISSING_MOVE",
+      "registry_mutated": false,
+      "schema_version": "missing_move_proposal_v0",
+      "status": "PROPOSED_ONLY",
+      "taxonomy_delta_applied": false,
+      "taxonomy_delta_promoted": false,
+      "trigger_halt": "STOP_NEEDS_NEW_MOVE"
+    },
+    "move_registry": {
+      "move_registry_id": "move_registry_v0",
+      "move_registry_sig8": "1d8595b9",
+      "registered_count": 7
+    },
+    "moves": {
+      "blocked_moves_count": 6,
+      "moves_applied": [
+        "proposal.missing_move.draft.v0"
+      ],
+      "moves_inspected": 7,
+      "unregistered_attempts": 0
+    },
+    "receipt_id": "day4_demo_receipt_6ebef642",
+    "schema_version": "day4_demo_move_run_receipt_v0",
+    "terminal_result": {
+      "stop_code": "STOP_NEEDS_NEW_MOVE",
+      "type": "STOP"
+    }
+  },
+  "positive_demo_receipt": {
+    "authorization_status": "DEFERRED_TO_DAY5",
+    "demo_name": "DAY4_POSITIVE_BUILD_UNIT_COMPLETION",
+    "failures": [],
+    "gate": "PASS",
+    "missing_move_proposal": null,
+    "move_registry": {
+      "move_registry_id": "move_registry_v0",
+      "move_registry_sig8": "1d8595b9",
+      "registered_count": 7
+    },
+    "moves": {
+      "blocked_moves_count": 5,
+      "moves_applied": [
+        "state.validate_shape.v0",
+        "regime.validate_shape.v0",
+        "moves.compute_applicable.v0",
+        "selector.choose_move.v0",
+        "unit.mark_complete.v0",
+        "receipt.emit_terminal.v0"
+      ],
+      "moves_inspected": 7,
+      "unregistered_attempts": 0
+    },
+    "receipt_id": "day4_demo_receipt_8cc8d167",
+    "schema_version": "day4_demo_move_run_receipt_v0",
+    "terminal_result": {
+      "stop_code": "STOP_NEXT_MOVE_BOUNDARY",
+      "type": "STOP"
+    }
+  },
+  "receipt_bundle_id": "day4_demo_bundle_543f8f36",
+  "receipt_type": "DAY4_DEMO_MOVE_RUN_RECEIPT_BUNDLE",
+  "schema_version": "day4_demo_move_run_receipt_bundle_v0",
+  "source_policy_id": "34863965"
+}

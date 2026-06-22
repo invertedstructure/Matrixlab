@@ -1,0 +1,36 @@
+{
+  "core_law": "No unregistered move may fire. No schema-invalid move may fire.",
+  "field_meanings": {
+    "action": "bounded action declaration",
+    "allowed_inputs": "declared inputs the move may use",
+    "applies_when": "bounded predicate grammar, no arbitrary code",
+    "emits": "declared emitted artifacts",
+    "forbidden_inputs": "explicit forbidden inputs/authority patterns",
+    "halt_map": "declared halt behavior for failure/terminal cases",
+    "layer": "declared execution/inspection layer",
+    "may_halt": "whether the move may produce STOP(stop_code)",
+    "move_id": "stable unique identifier for the registered move",
+    "move_kind": "one of move_kind_enum_v0",
+    "non_impersonation": "what this move must not pretend to prove/authorize",
+    "priority": "integer; lower number selected first by selector_priority_v0",
+    "schema_version": "must equal move_schema_v0",
+    "state_delta": "declared state change on pass/fail"
+  },
+  "required_fields": [
+    "move_id",
+    "schema_version",
+    "move_kind",
+    "layer",
+    "priority",
+    "applies_when",
+    "allowed_inputs",
+    "forbidden_inputs",
+    "action",
+    "state_delta",
+    "emits",
+    "may_halt",
+    "halt_map",
+    "non_impersonation"
+  ],
+  "schema_version": "move_schema_v0"
+}

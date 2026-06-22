@@ -1,0 +1,418 @@
+{
+  "ambiguous_selection_count": 0,
+  "authorization_status": "DEFERRED_TO_DAY5",
+  "blocked_move_records": [
+    {
+      "block_reason": "APPLIES_WHEN_FALSE",
+      "blocked_move_id": "blocked_edf09a3d",
+      "details": {
+        "observed_state_sig8": "7e9af0de",
+        "predicate": {
+          "eq": [
+            "state.halt_code",
+            "STOP_NEEDS_NEW_MOVE"
+          ]
+        }
+      },
+      "halt_pressure": null,
+      "move_id": "proposal.missing_move.draft.v0",
+      "must_not_impersonate": [
+        "move invalidity",
+        "proof obstruction",
+        "missing move",
+        "authorization decision"
+      ],
+      "schema_version": "blocked_move_record_v0",
+      "state_sig8": "7e9af0de"
+    },
+    {
+      "block_reason": "APPLIES_WHEN_FALSE",
+      "blocked_move_id": "blocked_bf74cf4a",
+      "details": {
+        "observed_state_sig8": "7e9af0de",
+        "predicate": {
+          "any": [
+            {
+              "exists": "state.terminal_result"
+            },
+            {
+              "exists": "state.halt_code"
+            }
+          ]
+        }
+      },
+      "halt_pressure": null,
+      "move_id": "receipt.emit_terminal.v0",
+      "must_not_impersonate": [
+        "move invalidity",
+        "proof obstruction",
+        "missing move",
+        "authorization decision"
+      ],
+      "schema_version": "blocked_move_record_v0",
+      "state_sig8": "7e9af0de"
+    },
+    {
+      "block_reason": "APPLIES_WHEN_FALSE",
+      "blocked_move_id": "blocked_ab9d0219",
+      "details": {
+        "observed": "already_applied",
+        "reason": "move already applied in this demo run"
+      },
+      "halt_pressure": null,
+      "move_id": "regime.validate_shape.v0",
+      "must_not_impersonate": [
+        "move invalidity",
+        "proof obstruction",
+        "missing move",
+        "authorization decision"
+      ],
+      "schema_version": "blocked_move_record_v0",
+      "state_sig8": "7e9af0de"
+    },
+    {
+      "block_reason": "APPLIES_WHEN_FALSE",
+      "blocked_move_id": "blocked_3de4f79b",
+      "details": {
+        "observed_state_sig8": "7e9af0de",
+        "predicate": {
+          "all": [
+            {
+              "exists": "state.move_inspection_ref"
+            },
+            {
+              "missing": "state.selected_move"
+            }
+          ]
+        }
+      },
+      "halt_pressure": null,
+      "move_id": "selector.choose_move.v0",
+      "must_not_impersonate": [
+        "move invalidity",
+        "proof obstruction",
+        "missing move",
+        "authorization decision"
+      ],
+      "schema_version": "blocked_move_record_v0",
+      "state_sig8": "7e9af0de"
+    },
+    {
+      "block_reason": "APPLIES_WHEN_FALSE",
+      "blocked_move_id": "blocked_8f442b01",
+      "details": {
+        "observed": "already_applied",
+        "reason": "move already applied in this demo run"
+      },
+      "halt_pressure": null,
+      "move_id": "state.validate_shape.v0",
+      "must_not_impersonate": [
+        "move invalidity",
+        "proof obstruction",
+        "missing move",
+        "authorization decision"
+      ],
+      "schema_version": "blocked_move_record_v0",
+      "state_sig8": "7e9af0de"
+    }
+  ],
+  "blocked_moves_count": 5,
+  "demo_name": "DAY4_POSITIVE_BUILD_UNIT_COMPLETION",
+  "failures": [],
+  "final_state": {
+    "active_object": {
+      "completion_status": "COMPLETE",
+      "object_id": "unit.demo_001",
+      "object_kind": "BUILD_UNIT"
+    },
+    "move_inspection_ref": "move_inspection_8dbd16a9",
+    "receipt_ref": {
+      "receipt_id": "day4_receipt_0cd2bc1a",
+      "receipt_path": "<embedded_in_day4_demo_run>"
+    },
+    "regime": {
+      "move_registry_id": "move_registry_v0",
+      "selector_id": "selector_priority_v0",
+      "validation_status": "PASS"
+    },
+    "schema_version": "runner_state_v0",
+    "selected_move": "unit.mark_complete.v0",
+    "state_id": "state_demo_day4_positive",
+    "status": "VALID",
+    "terminal_result": {
+      "stop_code": "STOP_NEXT_MOVE_BOUNDARY",
+      "type": "STOP"
+    }
+  },
+  "gate": "PASS",
+  "initial_state": {
+    "active_object": {
+      "completion_status": "PENDING",
+      "object_id": "unit.demo_001",
+      "object_kind": "BUILD_UNIT"
+    },
+    "regime": {
+      "move_registry_id": "move_registry_v0",
+      "selector_id": "selector_priority_v0"
+    },
+    "schema_version": "runner_state_v0",
+    "state_id": "state_demo_day4_positive",
+    "status": "LOADED"
+  },
+  "inspections": [
+    {
+      "admissible_pre_auth_moves": [
+        "moves.compute_applicable.v0",
+        "unit.mark_complete.v0"
+      ],
+      "applicable_moves": [
+        "moves.compute_applicable.v0",
+        "unit.mark_complete.v0"
+      ],
+      "authorization_status": "DEFERRED_TO_DAY5",
+      "blocked_moves": [
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_edf09a3d",
+          "halt_pressure": null,
+          "move_id": "proposal.missing_move.draft.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_bf74cf4a",
+          "halt_pressure": null,
+          "move_id": "receipt.emit_terminal.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_ab9d0219",
+          "halt_pressure": null,
+          "move_id": "regime.validate_shape.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_3de4f79b",
+          "halt_pressure": null,
+          "move_id": "selector.choose_move.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_8f442b01",
+          "halt_pressure": null,
+          "move_id": "state.validate_shape.v0"
+        }
+      ],
+      "inspection_id": "move_inspection_8dbd16a9",
+      "missing_move_pressure": null,
+      "move_registry_id": "move_registry_v0",
+      "move_registry_sig8": "1d8595b9",
+      "registered_count": 7,
+      "schema_valid_moves": [
+        "moves.compute_applicable.v0",
+        "proposal.missing_move.draft.v0",
+        "receipt.emit_terminal.v0",
+        "selector.choose_move.v0",
+        "unit.mark_complete.v0"
+      ],
+      "schema_version": "applicable_move_inspection_v0",
+      "selected_move": "moves.compute_applicable.v0",
+      "selection_basis": "lowest_priority_number",
+      "state_sig8": "7e9af0de"
+    }
+  ],
+  "move_registry_id": "move_registry_v0",
+  "move_registry_sig8": "1d8595b9",
+  "move_sequence_expected": [
+    "state.validate_shape.v0",
+    "regime.validate_shape.v0",
+    "moves.compute_applicable.v0",
+    "selector.choose_move.v0",
+    "unit.mark_complete.v0",
+    "receipt.emit_terminal.v0"
+  ],
+  "move_sequence_matches_expected": true,
+  "moves_applied": [
+    "state.validate_shape.v0",
+    "regime.validate_shape.v0",
+    "moves.compute_applicable.v0",
+    "selector.choose_move.v0",
+    "unit.mark_complete.v0",
+    "receipt.emit_terminal.v0"
+  ],
+  "receipt": {
+    "authorization_status": "DEFERRED_TO_DAY5",
+    "demo_name": "DAY4_POSITIVE_BUILD_UNIT_COMPLETION",
+    "failures": [],
+    "gate": "PASS",
+    "missing_move_proposal": null,
+    "move_registry": {
+      "move_registry_id": "move_registry_v0",
+      "move_registry_sig8": "1d8595b9",
+      "registered_count": 7
+    },
+    "moves": {
+      "blocked_moves_count": 5,
+      "moves_applied": [
+        "state.validate_shape.v0",
+        "regime.validate_shape.v0",
+        "moves.compute_applicable.v0",
+        "selector.choose_move.v0",
+        "unit.mark_complete.v0",
+        "receipt.emit_terminal.v0"
+      ],
+      "moves_inspected": 7,
+      "unregistered_attempts": 0
+    },
+    "receipt_id": "day4_demo_receipt_8cc8d167",
+    "schema_version": "day4_demo_move_run_receipt_v0",
+    "terminal_result": {
+      "stop_code": "STOP_NEXT_MOVE_BOUNDARY",
+      "type": "STOP"
+    }
+  },
+  "registered_count": 7,
+  "schema_invalid_move_attempts": 0,
+  "schema_version": "day4_demo_positive_run_v0",
+  "selected_move_records": [
+    {
+      "authorization_status": "DEFERRED_TO_DAY5",
+      "candidate_count": 2,
+      "inspection_id": "move_inspection_8dbd16a9",
+      "schema_version": "selected_move_record_v0",
+      "selected_move": "unit.mark_complete.v0",
+      "selected_move_record_id": "selected_move_20456021",
+      "selection_basis": "lowest_priority_number",
+      "selection_policy": "lowest_priority_number",
+      "tie_breaker": "priority_then_move_id"
+    }
+  ],
+  "source_policy_id": "34863965",
+  "terminal_result": {
+    "stop_code": "STOP_NEXT_MOVE_BOUNDARY",
+    "type": "STOP"
+  },
+  "trace_entries": [
+    {
+      "admissible_pre_auth_moves": [],
+      "applicable_moves": [],
+      "authorization_status": "DEFERRED_TO_DAY5",
+      "blocked_moves": [],
+      "move_admission_status": "ADMISSIBLE_PRE_AUTH",
+      "move_id": "state.validate_shape.v0",
+      "move_registry_id": "move_registry_v0",
+      "selected_move": null,
+      "selection_reason": null,
+      "state_after_sig8": "f8f581a0",
+      "state_before_sig8": "7a7ec958",
+      "trace_entry_id": "trace_move_eb1ff7ec"
+    },
+    {
+      "admissible_pre_auth_moves": [],
+      "applicable_moves": [],
+      "authorization_status": "DEFERRED_TO_DAY5",
+      "blocked_moves": [],
+      "move_admission_status": "ADMISSIBLE_PRE_AUTH",
+      "move_id": "regime.validate_shape.v0",
+      "move_registry_id": "move_registry_v0",
+      "selected_move": null,
+      "selection_reason": null,
+      "state_after_sig8": "7e9af0de",
+      "state_before_sig8": "f8f581a0",
+      "trace_entry_id": "trace_move_91d5d114"
+    },
+    {
+      "admissible_pre_auth_moves": [
+        "moves.compute_applicable.v0",
+        "unit.mark_complete.v0"
+      ],
+      "applicable_moves": [
+        "moves.compute_applicable.v0",
+        "unit.mark_complete.v0"
+      ],
+      "authorization_status": "DEFERRED_TO_DAY5",
+      "blocked_moves": [
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_edf09a3d",
+          "halt_pressure": null,
+          "move_id": "proposal.missing_move.draft.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_bf74cf4a",
+          "halt_pressure": null,
+          "move_id": "receipt.emit_terminal.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_ab9d0219",
+          "halt_pressure": null,
+          "move_id": "regime.validate_shape.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_3de4f79b",
+          "halt_pressure": null,
+          "move_id": "selector.choose_move.v0"
+        },
+        {
+          "block_reason": "APPLIES_WHEN_FALSE",
+          "blocked_move_id": "blocked_8f442b01",
+          "halt_pressure": null,
+          "move_id": "state.validate_shape.v0"
+        }
+      ],
+      "move_admission_status": "ADMISSIBLE_PRE_AUTH",
+      "move_id": "moves.compute_applicable.v0",
+      "move_registry_id": "move_registry_v0",
+      "selected_move": null,
+      "selection_reason": null,
+      "state_after_sig8": "6b54e5c2",
+      "state_before_sig8": "7e9af0de",
+      "trace_entry_id": "trace_move_c6efcfce"
+    },
+    {
+      "admissible_pre_auth_moves": [],
+      "applicable_moves": [],
+      "authorization_status": "DEFERRED_TO_DAY5",
+      "blocked_moves": [],
+      "move_admission_status": "ADMISSIBLE_PRE_AUTH",
+      "move_id": "selector.choose_move.v0",
+      "move_registry_id": "move_registry_v0",
+      "selected_move": "unit.mark_complete.v0",
+      "selection_reason": "lowest_priority_number",
+      "state_after_sig8": "308078f1",
+      "state_before_sig8": "6b54e5c2",
+      "trace_entry_id": "trace_move_db47ed23"
+    },
+    {
+      "admissible_pre_auth_moves": [],
+      "applicable_moves": [],
+      "authorization_status": "DEFERRED_TO_DAY5",
+      "blocked_moves": [],
+      "move_admission_status": "ADMISSIBLE_PRE_AUTH",
+      "move_id": "unit.mark_complete.v0",
+      "move_registry_id": "move_registry_v0",
+      "selected_move": null,
+      "selection_reason": null,
+      "state_after_sig8": "4ef97a30",
+      "state_before_sig8": "308078f1",
+      "trace_entry_id": "trace_move_17a93678"
+    },
+    {
+      "admissible_pre_auth_moves": [],
+      "applicable_moves": [],
+      "authorization_status": "DEFERRED_TO_DAY5",
+      "blocked_moves": [],
+      "move_admission_status": "ADMISSIBLE_PRE_AUTH",
+      "move_id": "receipt.emit_terminal.v0",
+      "move_registry_id": "move_registry_v0",
+      "selected_move": null,
+      "selection_reason": null,
+      "state_after_sig8": "25807f3f",
+      "state_before_sig8": "4ef97a30",
+      "trace_entry_id": "trace_move_b416d46c"
+    }
+  ],
+  "unregistered_attempts": 0
+}

@@ -1,0 +1,32 @@
+{
+  "admissible_pre_auth_iff": [
+    "registered(move)",
+    "schema_valid(move)",
+    "applies_when_true(move,state)",
+    "allowed_inputs_available(move,state)",
+    "forbidden_inputs_absent(move,state)",
+    "halt_map_complete(move)",
+    "action_is_bounded(move)"
+  ],
+  "admission_status_name": "ADMISSIBLE_PRE_AUTH",
+  "authorization_status": "DEFERRED_TO_DAY5",
+  "day4_may_check": [
+    "declared inputs are present",
+    "forbidden inputs are absent",
+    "move does not require undeclared/ambient input",
+    "halt behavior is declared",
+    "action is bounded by schema"
+  ],
+  "day4_must_not_decide": [
+    "jurisdiction authority",
+    "human authorization",
+    "global permission to execute outside declared surface"
+  ],
+  "halt_on_failure_policy": {
+    "forbidden_input_required": "STOP_AUTHORITY_VIOLATION",
+    "gate_failure": "STOP_GATE_FAIL",
+    "missing_move_pressure": "STOP_NEEDS_NEW_MOVE",
+    "no_applicable": "STOP_NO_APPLICABLE_MOVE"
+  },
+  "schema_version": "move_admission_gate_v0"
+}

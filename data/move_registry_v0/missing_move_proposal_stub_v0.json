@@ -1,0 +1,33 @@
+{
+  "allowed_next_handling": [
+    "human review",
+    "accept into registry in later reviewed unit",
+    "reject",
+    "defer",
+    "weaken proposal"
+  ],
+  "candidate_move_required_fields": [
+    "move_id",
+    "move_kind",
+    "applies_when",
+    "action",
+    "emits",
+    "halt_behavior"
+  ],
+  "hard_rules": {
+    "may_not_execute_candidate_move": true,
+    "may_not_mark_candidate_accepted": true,
+    "may_not_promote_taxonomy_delta": true,
+    "may_not_register_candidate_move": true,
+    "may_not_write_move_registry": true
+  },
+  "must_not_impersonate": [
+    "registered move",
+    "accepted taxonomy delta",
+    "authorized execution"
+  ],
+  "proposal_type": "MISSING_MOVE",
+  "schema_version": "missing_move_proposal_stub_v0",
+  "status": "PROPOSED_ONLY",
+  "trigger_halt": "STOP_NEEDS_NEW_MOVE"
+}

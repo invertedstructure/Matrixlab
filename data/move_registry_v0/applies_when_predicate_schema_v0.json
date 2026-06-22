@@ -1,0 +1,42 @@
+{
+  "allowed_operators": [
+    "eq",
+    "neq",
+    "exists",
+    "missing",
+    "in",
+    "not",
+    "all",
+    "any"
+  ],
+  "examples": [
+    {
+      "eq": [
+        "state.status",
+        "LOADED"
+      ]
+    },
+    {
+      "missing": "state.receipt_ref"
+    },
+    {
+      "all": [
+        {
+          "eq": [
+            "readout.verification_status",
+            "FAIL"
+          ]
+        },
+        {
+          "eq": [
+            "readout.failure_kind",
+            "PROJECTION_MISMATCH"
+          ]
+        }
+      ]
+    }
+  ],
+  "no_free_form_code": true,
+  "path_reference_style": "dot_path_against_declared_state_or_readout",
+  "schema_version": "applies_when_predicate_schema_v0"
+}
