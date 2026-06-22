@@ -1,0 +1,38 @@
+{
+  "instance_signature_rule": "Instance signature may include work_item_id, slot_id, receipt_ref, and trace_ref.",
+  "metric_family": "PRESSURE_SIGNATURE_REPETITION_METRICS_V0",
+  "pattern_signature_excluded_fields": [
+    "work_item_id",
+    "slot_id",
+    "receipt_ref",
+    "trace_ref",
+    "timestamp",
+    "pressure_event_id"
+  ],
+  "pattern_signature_payload_fields": [
+    "parent_pressure_class",
+    "pressure_subtype",
+    "halt_reason",
+    "terminal_decision",
+    "evidence_field",
+    "evidence_value_shape",
+    "move_kind",
+    "normalized_pressure_payload"
+  ],
+  "pattern_signature_rule": "Pattern signature must exclude work_item_id, slot_id, receipt_ref, trace_ref, timestamp, and accidental file identity unless the value is the actual repeated pressure pattern.",
+  "required_rollup_fields": [
+    "total_pressure_event_count",
+    "unique_pressure_pattern_signature_count",
+    "unique_pressure_instance_signature_count",
+    "repeated_pressure_pattern_count",
+    "dominant_pressure_pattern_signature_hash",
+    "dominant_pressure_pattern_count",
+    "second_pressure_pattern_count",
+    "dominant_pressure_pattern_margin",
+    "dominant_pressure_pattern_share",
+    "pressure_fragmentation_ratio",
+    "per_parent_pressure_signature_counts",
+    "per_subtype_signature_counts"
+  ],
+  "schema_version": "pressure_signature_repetition_schema_v0"
+}

@@ -1,0 +1,51 @@
+{
+  "authority_boundary_rule": "STOP_AUTHORITY_BOUNDARY events are pressure events, not authority violations unless flags prove unauthorized execution or policy breach.",
+  "decomposition_rule": "Every pressure event receives a parent class, subtype, and evidence fields, or parent class with subtype unclassified and explicit unclassified_reason.",
+  "metric_family": "PRESSURE_DECOMPOSITION_METRICS_V0",
+  "observer_only": true,
+  "parent_pressure_classes": [
+    "TAXONOMY_PRESSURE",
+    "AUTHORITY_BOUNDARY",
+    "BURDEN_PRESSURE",
+    "EXTRACTION_PRESSURE",
+    "UNKNOWN_PRESSURE"
+  ],
+  "pressure_event_conservation_rule": "Every prior pressure count must be accounted for by pressure event rows; no pressure event may silently disappear.",
+  "schema_version": "pressure_decomposition_schema_v0",
+  "subtypes": {
+    "AUTHORITY_BOUNDARY": [
+      "healthy_boundary_stop",
+      "ambiguous_boundary_stop",
+      "blocked_lawful_progress",
+      "missing_authorization_context",
+      "unclassified"
+    ],
+    "BURDEN_PRESSURE": [
+      "runtime_burden",
+      "receipt_size_burden",
+      "trace_density_burden",
+      "compression_burden",
+      "observer_overhead_burden",
+      "closure_radius_burden",
+      "unclassified"
+    ],
+    "EXTRACTION_PRESSURE": [
+      "evidence_missing",
+      "evidence_ambiguous",
+      "evidence_unreachable",
+      "field_not_emitted",
+      "field_present_but_not_interpretable",
+      "unclassified"
+    ],
+    "TAXONOMY_PRESSURE": [
+      "missing_label",
+      "taxonomy_collision",
+      "taxonomy_too_coarse",
+      "expansion_candidate",
+      "unclassified"
+    ],
+    "UNKNOWN_PRESSURE": [
+      "unclassified"
+    ]
+  }
+}

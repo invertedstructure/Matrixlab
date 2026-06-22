@@ -1,0 +1,21 @@
+{
+  "metric_family": "OBSERVER_BURDEN_GUARD_METRICS_V0",
+  "observer_burden_pressure_rule": "If observer_overhead_ratio > 0.30 or pressure metrics dominate receipt burden, emit warning-level observer burden pressure.",
+  "observer_overhead_missing_rule": "If prior timing/size fields are not comparable, emit observer_overhead_comparable=false and explicit observer_overhead_missing_reason.",
+  "observer_overhead_warning_threshold": 0.3,
+  "required_fields": [
+    "receipt_bytes_total",
+    "pressure_metric_bytes_total",
+    "pressure_metric_bytes_per_event",
+    "wall_time_ms",
+    "observer_overhead_ms",
+    "observer_overhead_ratio",
+    "bytes_per_distinguishable_pressure_signature",
+    "observer_burden_pressure_emitted",
+    "observer_burden_reason",
+    "observer_overhead_comparable",
+    "observer_overhead_missing_reason"
+  ],
+  "schema_version": "observer_burden_guard_schema_v0",
+  "threshold_is_guard_not_proof": true
+}
