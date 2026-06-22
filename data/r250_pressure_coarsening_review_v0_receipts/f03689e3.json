@@ -1,0 +1,286 @@
+{
+  "acceptance_gate_results": {
+    "R250_COARSEN_0_SOURCE_SURFACE_VERIFIED": true,
+    "R250_COARSEN_10_NO_RUNTIME_BEHAVIOR_CHANGE": true,
+    "R250_COARSEN_11_NO_REPAIR_OR_UPGRADE_AUTHORIZED": true,
+    "R250_COARSEN_12_NO_COMMAND_OR_PROPOSAL_FROM_PRESSURE": true,
+    "R250_COARSEN_13_REVIEW_PACKET_EMITTED": true,
+    "R250_COARSEN_14_NO_SOURCE_MUTATION": true,
+    "R250_COARSEN_1_HUMAN_DECISION_RECORDED": true,
+    "R250_COARSEN_2_EXACT_SIGNATURES_PRESERVED": true,
+    "R250_COARSEN_3_FIXED_CANDIDATES_TESTED": true,
+    "R250_COARSEN_4_NO_INSTANCE_IDENTITY_IN_COARSENED_SIGNATURES": true,
+    "R250_COARSEN_5_COARSENING_LOSS_MEASURED": true,
+    "R250_COARSEN_6_CANDIDATE_STATUS_CLASSIFIED": true,
+    "R250_COARSEN_7_CANDIDATE_A_BASELINE_ONLY": true,
+    "R250_COARSEN_8_CANDIDATE_F_REQUIRES_EXPLICIT_FAMILY_RULES": true,
+    "R250_COARSEN_9_OBSERVER_BURDEN_MEASURED": true
+  },
+  "aggregate_metrics": {
+    "authority_widening_authorized_count": 0,
+    "best_candidate_id": "C",
+    "best_candidate_status": "PROMISING_REVIEW_LAYER",
+    "candidate_a_baseline_only": true,
+    "candidate_c_center_candidate": true,
+    "candidate_f_invalid_without_family_rules": true,
+    "candidate_status_counts": {
+      "INSUFFICIENT_EVIDENCE": 1,
+      "INVALID_COARSENING_RULE": 1,
+      "PROMISING_REVIEW_LAYER": 2,
+      "TOO_COARSE": 1,
+      "TOO_FINE": 1
+    },
+    "coarsened_event_row_count": 138,
+    "coarsening_candidate_count": 6,
+    "coarsening_produced_dominant_group": true,
+    "coarsening_produced_repeated_groups": true,
+    "coarsening_too_lossy": true,
+    "command_authorized_count": 0,
+    "exact_fragmentation_ratio": 1.0,
+    "exact_repeated_pattern_count": 0,
+    "exact_signature_overwrite_count": 0,
+    "exact_unique_pattern_signature_count": 23,
+    "instance_identity_in_coarsened_signature_count": 0,
+    "insufficient_evidence_count": 1,
+    "invalid_coarsening_rule_count": 1,
+    "observer_burden_warning": false,
+    "optimization_authorized_count": 0,
+    "promising_review_layer_count": 2,
+    "proof_claim_count": 0,
+    "proposal_authorized_count": 0,
+    "repair_authorized_count": 0,
+    "review_only": true,
+    "review_packet_emitted": true,
+    "roadmap_invented_count": 0,
+    "runtime_behavior_changed_count": 0,
+    "source_mutation_count": 0,
+    "source_pressure_event_count": 23,
+    "sqlite_registry_write_count": 0,
+    "taxonomy_upgrade_authorized_count": 0,
+    "too_coarse_count": 1,
+    "too_fine_count": 1
+  },
+  "candidate_set": [
+    {
+      "baseline_only": true,
+      "candidate_id": "A",
+      "candidate_name": "parent_only",
+      "center_candidate": false,
+      "coarsening_fields": [
+        "parent_pressure_class"
+      ],
+      "purpose": "baseline coarse grouping",
+      "requires_explicit_family_rules": false
+    },
+    {
+      "baseline_only": false,
+      "candidate_id": "B",
+      "candidate_name": "parent_plus_subtype",
+      "center_candidate": false,
+      "coarsening_fields": [
+        "parent_pressure_class",
+        "pressure_subtype"
+      ],
+      "purpose": "test whether subtype reveals meaningful pressure clusters",
+      "requires_explicit_family_rules": false
+    },
+    {
+      "baseline_only": false,
+      "candidate_id": "C",
+      "candidate_name": "parent_plus_subtype_plus_halt_reason",
+      "center_candidate": true,
+      "coarsening_fields": [
+        "parent_pressure_class",
+        "pressure_subtype",
+        "halt_reason"
+      ],
+      "purpose": "human-selected center candidate",
+      "requires_explicit_family_rules": false
+    },
+    {
+      "baseline_only": false,
+      "candidate_id": "D",
+      "candidate_name": "parent_plus_subtype_plus_halt_reason_plus_move_kind",
+      "center_candidate": false,
+      "coarsening_fields": [
+        "parent_pressure_class",
+        "pressure_subtype",
+        "halt_reason",
+        "move_kind"
+      ],
+      "purpose": "test whether move kind avoids over-coarsening",
+      "requires_explicit_family_rules": false
+    },
+    {
+      "baseline_only": false,
+      "candidate_id": "E",
+      "candidate_name": "parent_plus_subtype_plus_halt_reason_plus_evidence_field",
+      "center_candidate": false,
+      "coarsening_fields": [
+        "parent_pressure_class",
+        "pressure_subtype",
+        "halt_reason",
+        "evidence_field"
+      ],
+      "purpose": "test whether evidence-field grouping explains fragmentation",
+      "requires_explicit_family_rules": false
+    },
+    {
+      "baseline_only": false,
+      "candidate_id": "F",
+      "candidate_name": "parent_plus_subtype_plus_halt_reason_plus_normalized_payload_family",
+      "center_candidate": false,
+      "coarsening_fields": [
+        "parent_pressure_class",
+        "pressure_subtype",
+        "halt_reason",
+        "normalized_payload_family"
+      ],
+      "purpose": "test payload family grouping only if explicit family rules exist",
+      "requires_explicit_family_rules": true
+    }
+  ],
+  "coarsening_review_guards": {
+    "authority_widening_authorized": false,
+    "candidate_a_baseline_only": true,
+    "candidate_f_requires_explicit_family_rules": true,
+    "candidate_status_classified": true,
+    "coarsening_loss_measured": true,
+    "command_emitted": false,
+    "exact_signature_overwritten": false,
+    "exact_signatures_preserved": true,
+    "fixed_candidates_tested": true,
+    "hidden_next_command": false,
+    "human_decision_recorded": true,
+    "instance_identity_used_in_coarsened_signature": false,
+    "observer_burden_measured": true,
+    "optimization_authorized": false,
+    "proof_claimed": false,
+    "proposal_emitted": false,
+    "repair_authorized": false,
+    "review_only": true,
+    "review_packet_emitted": true,
+    "roadmap_invented": false,
+    "runtime_behavior_changed": false,
+    "runtime_rerun": false,
+    "source_mutation": false,
+    "sqlite_registry_written": false,
+    "taxonomy_upgrade_authorized": false
+  },
+  "created_at": "2026-06-22T19:34:06.296367+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "human_selected_answers": {
+    "Q1": "COARSEN_SIGNATURES",
+    "Q2": "GROUP_BY_SUBTYPE + GROUP_BY_HALT_REASON",
+    "Q3": "BLOCK_PROPOSAL_DUE_TO_FRAGMENTATION"
+  },
+  "must_not_infer": [
+    "do not infer coarsening acceptance",
+    "do not infer taxonomy upgrade",
+    "do not infer authority expansion",
+    "do not infer burden optimization",
+    "do not infer extraction repair",
+    "do not emit command from coarsening",
+    "do not emit proposal from coarsening",
+    "do not overwrite exact pressure signatures",
+    "do not claim fragmentation is false",
+    "do not claim parent pressure is dominant",
+    "do not claim proof",
+    "do not claim roadmap"
+  ],
+  "optional_failed_receipt_required": false,
+  "output_artifacts": {
+    "coarsened_pressure_event_rows": "data/r250_pressure_coarsening_review_v0/coarsened_pressure_event_rows.jsonl",
+    "coarsened_signature_schema": "data/r250_pressure_coarsening_review_v0/coarsened_signature_schema_v0.json",
+    "coarsening_candidate_rollups": "data/r250_pressure_coarsening_review_v0/coarsening_candidate_rollups.json",
+    "coarsening_candidate_schema": "data/r250_pressure_coarsening_review_v0/coarsening_candidate_schema_v0.json",
+    "coarsening_comparison_matrix": "data/r250_pressure_coarsening_review_v0/coarsening_comparison_matrix.json",
+    "coarsening_observer_burden_rollup": "data/r250_pressure_coarsening_review_v0/coarsening_observer_burden_rollup.json",
+    "coarsening_review_guard_schema": "data/r250_pressure_coarsening_review_v0/coarsening_review_guard_schema_v0.json",
+    "implementation_receipt": "data/r250_pressure_coarsening_review_v0_receipts/f03689e3.json",
+    "r250_pressure_coarsening_review_packet": "data/r250_pressure_coarsening_review_v0/r250_pressure_coarsening_review_packet.json",
+    "r250_pressure_coarsening_review_report": "data/r250_pressure_coarsening_review_v0/r250_pressure_coarsening_review_report.json"
+  },
+  "receipt_id": "f03689e3",
+  "receipt_type": "R250_PRESSURE_SIGNATURE_COARSENING_REVIEW_LAYER_RECEIPT",
+  "review_summary": {
+    "best_candidate": {
+      "baseline_only": false,
+      "build_command": null,
+      "candidate_available": true,
+      "candidate_id": "C",
+      "candidate_name": "parent_plus_subtype_plus_halt_reason",
+      "center_candidate": true,
+      "coarsened_fragmentation_ratio": 0.21739130434782608,
+      "coarsening_fields": [
+        "parent_pressure_class",
+        "pressure_subtype",
+        "halt_reason"
+      ],
+      "coarsening_loss": {
+        "evidence_fields_collapsed_count": 0,
+        "exact_pattern_signatures_collapsed_count": 18,
+        "halt_reasons_collapsed_count": 0,
+        "move_kinds_collapsed_count": 18,
+        "parent_classes_collapsed_count": 0,
+        "subtypes_collapsed_count": 0
+      },
+      "coarsening_loss_level": "bounded",
+      "coarsening_loss_score": 108,
+      "command_authorized": false,
+      "dominant_coarsened_signature_count": 7,
+      "dominant_coarsened_signature_hash": "0d01f885",
+      "dominant_coarsened_signature_margin": 1,
+      "dominant_coarsened_signature_share": 0.30434782608695654,
+      "groups_with_multiple_events_count": 4,
+      "over_coarsening_risk": "low",
+      "proposal_authorized": false,
+      "repeated_coarsened_signature_count": 4,
+      "review_only": true,
+      "review_status": "PROMISING_REVIEW_LAYER",
+      "review_status_reasons": [
+        "Repeated coarsened signatures appeared.",
+        "Dominant share is meaningfully above exact-signature share.",
+        "Coarsening loss level is bounded.",
+        "Review only; no command or proposal emitted."
+      ],
+      "second_coarsened_signature_count": 6,
+      "singletons_count": 1,
+      "total_pressure_event_count": 23,
+      "unavailable_reason": null,
+      "under_coarsening_risk": "low",
+      "unique_coarsened_signature_count": 5
+    },
+    "candidate_status_counts": {
+      "INSUFFICIENT_EVIDENCE": 1,
+      "INVALID_COARSENING_RULE": 1,
+      "PROMISING_REVIEW_LAYER": 2,
+      "TOO_COARSE": 1,
+      "TOO_FINE": 1
+    },
+    "coarsening_produced_dominant_group": true,
+    "coarsening_produced_repeated_groups": true,
+    "coarsening_too_lossy": true,
+    "recommended_next_handling": "ACCEPT_COARSENING_LAYER_FOR_NEXT_INTERROGATION"
+  },
+  "schema_version": "r250_pressure_signature_coarsening_review_layer_receipt_v0",
+  "source_failed_pressure_metrics_receipt_id_optional": "8b82d6a8",
+  "source_previous_r250_batch_id": "r250_batch_34f560c1",
+  "source_r250_implementation_receipt_id": "05723444",
+  "source_r250_interrogation_receipt_id": "41f65b9a",
+  "source_r250_policy_id": "44ee648b",
+  "source_r250_pressure_batch_id": "r250_pressure_metrics_batch_1095f5c6",
+  "source_r250_pressure_decomposed_interrogation_receipt_id": "1f934d51",
+  "source_r250_pressure_metrics_repair_receipt_id": "f09b8395",
+  "source_receipt_interrogation_adapter_receipt_id": "a785297c",
+  "source_receipt_interrogation_policy_id": "2aa2f2f3",
+  "target_unit_id": "r250_pressure_signature_coarsening_review_layer.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_HUMAN_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "unit_id": "BUILD_R250_PRESSURE_SIGNATURE_COARSENING_REVIEW_LAYER_V0",
+  "warnings": []
+}

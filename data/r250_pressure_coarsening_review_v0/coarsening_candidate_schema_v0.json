@@ -1,0 +1,95 @@
+{
+  "candidate_a_rule": "Candidate A is baseline-only and may not be selected as best candidate or PROMISING_REVIEW_LAYER.",
+  "candidate_c_rule": "Candidate C is the human-selected center candidate: parent + subtype + halt_reason.",
+  "candidate_f_rule": "Candidate F is INVALID_COARSENING_RULE unless explicit normalized payload family rules exist.",
+  "candidate_statuses": [
+    "INSUFFICIENT_EVIDENCE",
+    "INVALID_COARSENING_RULE",
+    "PROMISING_REVIEW_LAYER",
+    "TOO_COARSE",
+    "TOO_FINE"
+  ],
+  "candidates": [
+    {
+      "baseline_only": true,
+      "candidate_id": "A",
+      "candidate_name": "parent_only",
+      "center_candidate": false,
+      "coarsening_fields": [
+        "parent_pressure_class"
+      ],
+      "purpose": "baseline coarse grouping",
+      "requires_explicit_family_rules": false
+    },
+    {
+      "baseline_only": false,
+      "candidate_id": "B",
+      "candidate_name": "parent_plus_subtype",
+      "center_candidate": false,
+      "coarsening_fields": [
+        "parent_pressure_class",
+        "pressure_subtype"
+      ],
+      "purpose": "test whether subtype reveals meaningful pressure clusters",
+      "requires_explicit_family_rules": false
+    },
+    {
+      "baseline_only": false,
+      "candidate_id": "C",
+      "candidate_name": "parent_plus_subtype_plus_halt_reason",
+      "center_candidate": true,
+      "coarsening_fields": [
+        "parent_pressure_class",
+        "pressure_subtype",
+        "halt_reason"
+      ],
+      "purpose": "human-selected center candidate",
+      "requires_explicit_family_rules": false
+    },
+    {
+      "baseline_only": false,
+      "candidate_id": "D",
+      "candidate_name": "parent_plus_subtype_plus_halt_reason_plus_move_kind",
+      "center_candidate": false,
+      "coarsening_fields": [
+        "parent_pressure_class",
+        "pressure_subtype",
+        "halt_reason",
+        "move_kind"
+      ],
+      "purpose": "test whether move kind avoids over-coarsening",
+      "requires_explicit_family_rules": false
+    },
+    {
+      "baseline_only": false,
+      "candidate_id": "E",
+      "candidate_name": "parent_plus_subtype_plus_halt_reason_plus_evidence_field",
+      "center_candidate": false,
+      "coarsening_fields": [
+        "parent_pressure_class",
+        "pressure_subtype",
+        "halt_reason",
+        "evidence_field"
+      ],
+      "purpose": "test whether evidence-field grouping explains fragmentation",
+      "requires_explicit_family_rules": false
+    },
+    {
+      "baseline_only": false,
+      "candidate_id": "F",
+      "candidate_name": "parent_plus_subtype_plus_halt_reason_plus_normalized_payload_family",
+      "center_candidate": false,
+      "coarsening_fields": [
+        "parent_pressure_class",
+        "pressure_subtype",
+        "halt_reason",
+        "normalized_payload_family"
+      ],
+      "purpose": "test payload family grouping only if explicit family rules exist",
+      "requires_explicit_family_rules": true
+    }
+  ],
+  "review_only": true,
+  "schema_version": "coarsening_candidate_schema_v0",
+  "target_unit_id": "r250_pressure_signature_coarsening_review_layer.v0"
+}
