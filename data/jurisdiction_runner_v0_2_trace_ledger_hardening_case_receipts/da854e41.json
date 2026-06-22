@@ -1,0 +1,109 @@
+{
+  "artifact_guards": {
+    "ambient_workspace_authority_used": false,
+    "latest_or_mtime_selection_used": false,
+    "ledger_ref_path_addressed": true,
+    "trace_ref_path_addressed": true
+  },
+  "authority_guards": {
+    "final_schema_claimed": false,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "local_regime_runtime_mutated": false,
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_promoted": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_v0_2_modified": false
+  },
+  "created_at": "2026-06-22T12:07:41.231469+00:00",
+  "duplicate_unresolved_proposal": true,
+  "failures": [],
+  "final_state_sig8": "2176bbc1",
+  "fixture_id": "trace_ledger_ledger_suppresses_duplicate_unresolved_proposal",
+  "gate": "PASS",
+  "halt_code": "STOP_NO_APPLICABLE_MOVE",
+  "input_state": {
+    "proposal_evidence": {
+      "evidence_summary": "duplicate unresolved proposal must be withheld by ledger",
+      "proposed_delta_kind": "LOCAL_MOVE_ADMISSIBILITY_DELTA",
+      "sufficient": true
+    },
+    "state_id": "ledger_duplicate_pressure",
+    "typed": true,
+    "value": 3
+  },
+  "ledger_ref": {
+    "ledger_id": "33db614a",
+    "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/33db614a.json"
+  },
+  "local_regime_hash": "25802530",
+  "local_regime_version": "local_regime.v1",
+  "metrics": {
+    "duplicate_unresolved_proposal_count": 1,
+    "ledger_entry_count": 1,
+    "proposal_receipt_count": 0,
+    "proposal_withheld_count": 1,
+    "receipt_count": 1,
+    "runtime_proposal_emitted_count": 0,
+    "runtime_proposal_executed_count": 0,
+    "runtime_proposal_promoted_count": 0,
+    "trace_entry_count": 1
+  },
+  "moves_applied": [
+    "withhold_duplicate_unresolved_proposal.v0"
+  ],
+  "no_proposal_reason": "DUPLICATE_UNRESOLVED",
+  "proposal": {
+    "human_review_required": true,
+    "linked_unresolved_proposal_id": "025c05e3",
+    "proposal_id": "025c05e3",
+    "proposal_key": "6c20437e",
+    "proposal_status": "WITHHELD_DUPLICATE_UNRESOLVED",
+    "proposal_type": "LOCAL_MOVE_ADMISSIBILITY_DELTA_PROPOSAL",
+    "proposed_delta_kind": "LOCAL_MOVE_ADMISSIBILITY_DELTA",
+    "source_fixture_id": "trace_ledger_ledger_suppresses_duplicate_unresolved_proposal",
+    "source_halt_code": "STOP_NO_APPLICABLE_MOVE",
+    "source_state_id": "ledger_duplicate_pressure"
+  },
+  "proposal_executed": false,
+  "proposal_id": "025c05e3",
+  "proposal_promoted": false,
+  "proposal_receipt": null,
+  "proposal_receipt_id": null,
+  "proposal_status": "WITHHELD_DUPLICATE_UNRESOLVED",
+  "receipt_id": "da854e41",
+  "receipt_type": "JURISDICTION_RUNNER_V0_2_TRACE_LEDGER_CASE_RECEIPT",
+  "run_id": "6ce90340",
+  "runner_unit_id": "jurisdiction_runner.v0.2.trace_ledger_hardened",
+  "schema_version": "jurisdiction_runner_v0_2_trace_ledger_case_receipt_v0",
+  "selected_move": "withhold_duplicate_unresolved_proposal.v0",
+  "selection_reason": "declared unresolved proposal ledger contains matching unresolved proposal key",
+  "start_state_sig8": "2176bbc1",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_NO_APPLICABLE_MOVE",
+    "type": "STOP"
+  },
+  "terminal_result": "STOP",
+  "trace_ref": {
+    "trace_id": "28b45d4b",
+    "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/28b45d4b.json"
+  },
+  "transcript": [
+    "LOAD_REGIME",
+    "LOAD_STATE",
+    "VALIDATE_STATE",
+    "SELECT_MOVE",
+    "CHECK_AUTHORITY",
+    "APPLY_OR_BLOCK_MOVE",
+    "EMIT_RECEIPT",
+    "EMIT_METRICS",
+    "EMIT_TERMINAL"
+  ],
+  "warnings": []
+}

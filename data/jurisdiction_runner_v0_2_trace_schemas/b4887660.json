@@ -1,0 +1,41 @@
+{
+  "entry_schema": {
+    "field_meanings": {
+      "action_result": "PASS, BLOCKED, HALT, or ERROR",
+      "applicable_moves": "registered move ids applicable before selection",
+      "halt_code": "typed halt code or null",
+      "proposal_ref": "proposal/proposal_receipt refs when emitted or withheld",
+      "selected_move": "selected move id or null if no move applies",
+      "selection_reason": "deterministic reason for selection",
+      "state_after_sig8": "hash of state after action or halt",
+      "state_before_sig8": "hash of state before selected action",
+      "state_delta": "minimal before/after changed fields",
+      "step_index": "integer order of runner step"
+    },
+    "required_fields": [
+      "step_index",
+      "state_before_sig8",
+      "applicable_moves",
+      "selected_move",
+      "selection_reason",
+      "action_result",
+      "state_delta",
+      "halt_code",
+      "proposal_ref",
+      "state_after_sig8"
+    ],
+    "schema_version": "jurisdiction_runner_trace_entry_v0"
+  },
+  "receipt_consistency_required": true,
+  "required_fields": [
+    "trace_id",
+    "run_id",
+    "runner_unit_id",
+    "local_regime_hash",
+    "source_fixture_id",
+    "entries",
+    "final_halt_code",
+    "receipt_ref"
+  ],
+  "schema_version": "jurisdiction_runner_trace_file_v0"
+}

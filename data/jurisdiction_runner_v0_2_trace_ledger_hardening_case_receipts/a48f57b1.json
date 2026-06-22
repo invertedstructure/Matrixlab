@@ -1,0 +1,138 @@
+{
+  "artifact_guards": {
+    "ambient_workspace_authority_used": false,
+    "latest_or_mtime_selection_used": false,
+    "ledger_ref_path_addressed": true,
+    "trace_ref_path_addressed": true
+  },
+  "authority_guards": {
+    "final_schema_claimed": false,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "local_regime_runtime_mutated": false,
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_promoted": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_v0_2_modified": false
+  },
+  "created_at": "2026-06-22T12:07:41.232222+00:00",
+  "duplicate_unresolved_proposal": false,
+  "failures": [],
+  "final_state_sig8": "f1d2d96f",
+  "fixture_id": "trace_ledger_receipt_trace_consistency",
+  "gate": "PASS",
+  "halt_code": "STOP_NO_APPLICABLE_MOVE",
+  "input_state": {
+    "proposal_evidence": {
+      "evidence_summary": "receipt and trace refs must agree",
+      "proposed_delta_kind": "LOCAL_MOVE_ADMISSIBILITY_DELTA",
+      "sufficient": true
+    },
+    "state_id": "receipt_trace_consistency",
+    "typed": true,
+    "value": 4
+  },
+  "ledger_ref": {
+    "ledger_id": "70bd11df",
+    "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/70bd11df.json"
+  },
+  "local_regime_hash": "25802530",
+  "local_regime_version": "local_regime.v1",
+  "metrics": {
+    "duplicate_unresolved_proposal_count": 0,
+    "ledger_entry_count": 1,
+    "proposal_receipt_count": 1,
+    "proposal_withheld_count": 0,
+    "receipt_count": 1,
+    "runtime_proposal_emitted_count": 1,
+    "runtime_proposal_executed_count": 0,
+    "runtime_proposal_promoted_count": 0,
+    "trace_entry_count": 1
+  },
+  "moves_applied": [
+    "evaluate_no_applicable_move_proposal_surface.v0"
+  ],
+  "no_proposal_reason": null,
+  "proposal": {
+    "evidence_summary": "receipt and trace refs must agree",
+    "hidden_continuation_authorized": false,
+    "human_review_required": true,
+    "local_regime_runtime_mutated": false,
+    "proposal_executed": false,
+    "proposal_id": "2aafced6",
+    "proposal_key": "2e40ffff",
+    "proposal_promoted": false,
+    "proposal_status": "EMITTED_REVIEW_REQUIRED",
+    "proposal_type": "LOCAL_MOVE_ADMISSIBILITY_DELTA_PROPOSAL",
+    "proposed_delta_kind": "LOCAL_MOVE_ADMISSIBILITY_DELTA",
+    "registry_written": false,
+    "schema_version": "jurisdiction_runner_v0_2_trace_ledger_local_move_admissibility_delta_proposal_v0",
+    "source_fixture_id": "trace_ledger_receipt_trace_consistency",
+    "source_halt_code": "STOP_NO_APPLICABLE_MOVE",
+    "source_state_id": "receipt_trace_consistency"
+  },
+  "proposal_executed": false,
+  "proposal_id": "2aafced6",
+  "proposal_promoted": false,
+  "proposal_receipt": {
+    "created_at": "2026-06-22T12:07:41.232088+00:00",
+    "gate": "PASS",
+    "hidden_continuation_authorized": false,
+    "human_review_required": true,
+    "local_regime_hash": "25802530",
+    "local_regime_runtime_mutated": false,
+    "local_regime_version": "local_regime.v1",
+    "proposal_executed": false,
+    "proposal_id": "2aafced6",
+    "proposal_key": "2e40ffff",
+    "proposal_promoted": false,
+    "proposal_status": "EMITTED_REVIEW_REQUIRED",
+    "proposal_type": "LOCAL_MOVE_ADMISSIBILITY_DELTA_PROPOSAL",
+    "proposed_delta_kind": "LOCAL_MOVE_ADMISSIBILITY_DELTA",
+    "receipt_id": "3d4a03ad",
+    "receipt_type": "JURISDICTION_RUNNER_V0_2_TRACE_LEDGER_PROPOSAL_RECEIPT",
+    "registry_written": false,
+    "runner_unit_id": "jurisdiction_runner.v0.2.trace_ledger_hardened",
+    "schema_version": "jurisdiction_runner_v0_2_trace_ledger_proposal_receipt_v0",
+    "source_fixture_id": "trace_ledger_receipt_trace_consistency",
+    "source_halt_code": "STOP_NO_APPLICABLE_MOVE",
+    "source_state_id": "receipt_trace_consistency"
+  },
+  "proposal_receipt_id": "3d4a03ad",
+  "proposal_status": "EMITTED_REVIEW_REQUIRED",
+  "receipt_id": "a48f57b1",
+  "receipt_type": "JURISDICTION_RUNNER_V0_2_TRACE_LEDGER_CASE_RECEIPT",
+  "run_id": "a6c60621",
+  "runner_unit_id": "jurisdiction_runner.v0.2.trace_ledger_hardened",
+  "schema_version": "jurisdiction_runner_v0_2_trace_ledger_case_receipt_v0",
+  "selected_move": "evaluate_no_applicable_move_proposal_surface.v0",
+  "selection_reason": "only applicable move",
+  "start_state_sig8": "f1d2d96f",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_NO_APPLICABLE_MOVE",
+    "type": "STOP"
+  },
+  "terminal_result": "STOP",
+  "trace_ref": {
+    "trace_id": "844b453f",
+    "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/844b453f.json"
+  },
+  "transcript": [
+    "LOAD_REGIME",
+    "LOAD_STATE",
+    "VALIDATE_STATE",
+    "SELECT_MOVE",
+    "CHECK_AUTHORITY",
+    "APPLY_OR_BLOCK_MOVE",
+    "EMIT_RECEIPT",
+    "EMIT_METRICS",
+    "EMIT_TERMINAL"
+  ],
+  "warnings": []
+}

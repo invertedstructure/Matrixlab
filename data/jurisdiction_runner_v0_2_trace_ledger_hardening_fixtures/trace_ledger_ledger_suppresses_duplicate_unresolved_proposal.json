@@ -1,0 +1,22 @@
+{
+  "case_name": "LEDGER_SUPPRESSES_DUPLICATE_UNRESOLVED_PROPOSAL",
+  "expected": {
+    "halt_code": "STOP_NO_APPLICABLE_MOVE",
+    "ledger_duplicate_count": 1,
+    "no_proposal_reason": "DUPLICATE_UNRESOLVED",
+    "proposal_status": "WITHHELD_DUPLICATE_UNRESOLVED"
+  },
+  "fixture_id": "trace_ledger_ledger_suppresses_duplicate_unresolved_proposal",
+  "input_state": {
+    "proposal_evidence": {
+      "evidence_summary": "duplicate unresolved proposal must be withheld by ledger",
+      "proposed_delta_kind": "LOCAL_MOVE_ADMISSIBILITY_DELTA",
+      "sufficient": true
+    },
+    "state_id": "ledger_duplicate_pressure",
+    "typed": true,
+    "value": 3
+  },
+  "ledger_input_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/e183d74e.json",
+  "schema_version": "jurisdiction_runner_v0_2_trace_ledger_hardening_fixture_v0"
+}
