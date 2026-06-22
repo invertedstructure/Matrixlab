@@ -1,0 +1,147 @@
+{
+  "candidate_count": 6,
+  "candidates": [
+    {
+      "candidate_id": "SOURCE_PAYLOAD_DOES_NOT_EMIT_FIELDS",
+      "candidate_surface": "source_payload",
+      "forbidden_inference": "Do not infer or fill the missing label values; only localize the surface where fields are absent.",
+      "localization_class": "SOURCE_PAYLOAD_DOES_NOT_EMIT_FIELDS",
+      "localized_repair_target_refs": [
+        "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl"
+      ],
+      "may_support_fixable_surface_repair": true,
+      "may_support_healthy_expected_limit": false,
+      "missing_fields_explained": [
+        "missing_label_identifier",
+        "taxonomy_context_ref",
+        "current_label_space_ref",
+        "expected_label_space_ref"
+      ],
+      "support_level": "STRONG",
+      "supporting_evidence_refs": [
+        "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl",
+        "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_candidate_c_group_event_membership.jsonl",
+        "data/taxonomy_gap_evidence_surface_localization_audit_v0/raw_source_field_audit.json",
+        "data/taxonomy_gap_evidence_surface_localization_audit_v0/extractor_logic_audit.json"
+      ],
+      "supports_not_enough_evidence": false
+    },
+    {
+      "candidate_id": "SCHEMA_HAS_NO_SLOT_FOR_FIELDS",
+      "candidate_surface": "schema_surface",
+      "forbidden_inference": "Schema-slot absence may justify an evidence-surface objective, not taxonomy upgrade.",
+      "localization_class": "SCHEMA_HAS_NO_SLOT_FOR_FIELDS",
+      "localized_repair_target_refs": [
+        "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl"
+      ],
+      "may_support_fixable_surface_repair": true,
+      "may_support_healthy_expected_limit": false,
+      "missing_fields_explained": [
+        "missing_label_identifier",
+        "taxonomy_context_ref",
+        "current_label_space_ref",
+        "expected_label_space_ref"
+      ],
+      "support_level": "STRONG",
+      "supporting_evidence_refs": [
+        "data/taxonomy_gap_evidence_surface_localization_audit_v0/schema_slot_audit.json",
+        "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl",
+        "data/pressure_loop_applications/r1000_top_group_taxonomy_gap_evidence_extraction_v0/taxonomy_gap_missing_label_field_rows.jsonl"
+      ],
+      "supports_not_enough_evidence": false
+    },
+    {
+      "candidate_id": "EXTRACTOR_DID_NOT_READ_EXISTING_FIELDS",
+      "candidate_surface": "extractor_logic",
+      "forbidden_inference": "Do not repair extractor logic inside this audit unit.",
+      "localization_class": "EXTRACTOR_DID_NOT_READ_EXISTING_FIELDS",
+      "localized_repair_target_refs": [],
+      "may_support_fixable_surface_repair": false,
+      "may_support_healthy_expected_limit": false,
+      "missing_fields_explained": [],
+      "support_level": "NOT_SUPPORTED",
+      "supporting_evidence_refs": [
+        "scripts/extract_r1000_top_group_taxonomy_gap_missing_label_evidence_v0.py",
+        "data/taxonomy_gap_evidence_surface_localization_audit_v0/extractor_logic_audit.json",
+        "data/taxonomy_gap_evidence_surface_localization_audit_v0/raw_source_field_audit.json"
+      ],
+      "supports_not_enough_evidence": false
+    },
+    {
+      "candidate_id": "PRESSURE_LABEL_TOO_COARSE_FOR_FIELD_RECOVERY",
+      "candidate_surface": "pressure_label_coarseness",
+      "forbidden_inference": "Coarse pressure label is not taxonomy delta evidence.",
+      "localization_class": "PRESSURE_LABEL_TOO_COARSE_FOR_FIELD_RECOVERY",
+      "localized_repair_target_refs": [],
+      "may_support_fixable_surface_repair": false,
+      "may_support_healthy_expected_limit": false,
+      "missing_fields_explained": [
+        "missing_label_identifier",
+        "taxonomy_context_ref",
+        "current_label_space_ref",
+        "expected_label_space_ref"
+      ],
+      "support_level": "PARTIAL",
+      "supporting_evidence_refs": [
+        "data/taxonomy_gap_evidence_surface_deficiency_v0/evidence_surface_deficiency_candidates.json"
+      ],
+      "supports_not_enough_evidence": true
+    },
+    {
+      "candidate_id": "INTENTIONALLY_OPAQUE_HUMAN_BOUNDARY",
+      "candidate_surface": "intentional_opacity",
+      "forbidden_inference": "Do not mark healthy opacity without explicit boundary evidence.",
+      "localization_class": "INTENTIONALLY_OPAQUE_HUMAN_BOUNDARY",
+      "localized_repair_target_refs": [],
+      "may_support_fixable_surface_repair": false,
+      "may_support_healthy_expected_limit": false,
+      "missing_fields_explained": [
+        "missing_label_identifier",
+        "taxonomy_context_ref",
+        "current_label_space_ref",
+        "expected_label_space_ref"
+      ],
+      "support_level": "NOT_ESTABLISHED",
+      "supporting_evidence_refs": [
+        "data/taxonomy_gap_evidence_surface_deficiency_v0/evidence_surface_decision_packet.json"
+      ],
+      "supports_not_enough_evidence": true
+    },
+    {
+      "candidate_id": "UNKNOWN_SURFACE_DEFICIENCY",
+      "candidate_surface": "unknown",
+      "forbidden_inference": "Use only if no stronger localization candidate is selected.",
+      "localization_class": "UNKNOWN_SURFACE_DEFICIENCY",
+      "localized_repair_target_refs": [],
+      "may_support_fixable_surface_repair": false,
+      "may_support_healthy_expected_limit": false,
+      "missing_fields_explained": [
+        "missing_label_identifier",
+        "taxonomy_context_ref",
+        "current_label_space_ref",
+        "expected_label_space_ref"
+      ],
+      "support_level": "FALLBACK",
+      "supporting_evidence_refs": [
+        "data/taxonomy_gap_evidence_surface_deficiency_v0_receipts/707dd84d.json"
+      ],
+      "supports_not_enough_evidence": true
+    }
+  ],
+  "localized_surface_found": true,
+  "localized_surface_refs": [
+    "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl"
+  ],
+  "may_support_evidence_surface_repair_objective": true,
+  "may_support_healthy_expected_limit": false,
+  "pressure_group_key_hash": "38c604a1",
+  "repair_objective_proposal_emitted": false,
+  "review_only": true,
+  "schema_version": "surface_localization_candidates_v0",
+  "selected_localization_candidate": "SOURCE_PAYLOAD_DOES_NOT_EMIT_FIELDS",
+  "selected_localization_class": "SOURCE_PAYLOAD_DOES_NOT_EMIT_FIELDS",
+  "selected_localization_support_level": "STRONG",
+  "supports_not_enough_evidence": false,
+  "taxonomy_delta_proposal_emitted": false,
+  "taxonomy_upgrade_authorized": false
+}
