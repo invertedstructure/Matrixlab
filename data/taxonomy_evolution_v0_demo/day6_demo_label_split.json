@@ -1,0 +1,222 @@
+{
+  "add_used_before_existing_vocab_test": false,
+  "authority_widened": false,
+  "demo_name": "DAY6_LABEL_SPLIT",
+  "existing_vocab_test": {
+    "add_required": false,
+    "add_was_last": true,
+    "candidate_existing_terms": [
+      "RECEIPT",
+      "SHELL_SURFACE",
+      "TRACE"
+    ],
+    "existing_vocab_test_id": "vocab_test_35cb36e2",
+    "existing_vocabulary_tested_first": true,
+    "recommended_outcome": "SPLIT",
+    "schema_version": "existing_vocab_test_v0",
+    "taxonomy_pressure_ref": "tax_pressure_1049da4d",
+    "test_results": [
+      {
+        "reason": "Receipt alone carries both receipt body and projection view.",
+        "result": "TOO_COARSE",
+        "term": "RECEIPT"
+      },
+      {
+        "reason": "Shell surface covers the projection shape but loses receipt body.",
+        "result": "PARTIAL",
+        "term": "SHELL_SURFACE"
+      },
+      {
+        "reason": "Trace is not the object identity.",
+        "result": "OVERCLAIMS",
+        "term": "TRACE"
+      }
+    ]
+  },
+  "existing_vocab_tested_first": true,
+  "expected_delta_kind": "SPLIT",
+  "expected_patch_status": "APPLIED_LOCAL",
+  "expected_review_decision": "ACCEPTED_LOCAL",
+  "failures": [],
+  "final_closure_claimed": false,
+  "gate": "PASS",
+  "global_taxonomy_claimed": false,
+  "label_treated_as_truth": false,
+  "patch_without_review": false,
+  "proof_claimed": false,
+  "proposal_mutated_registry": false,
+  "proposal_treated_as_accepted": false,
+  "review_fabricated_by_runtime": false,
+  "runtime_accepted_own_delta": false,
+  "schema_version": "day6_taxonomy_evolution_demo_run_v0",
+  "source_policy_id": "e84eb230",
+  "taxonomy_delta": {
+    "allowed_next_handling": [
+      "review delta",
+      "accept locally",
+      "reject",
+      "defer",
+      "request narrower split"
+    ],
+    "current_term": "RECEIPT",
+    "delta_kind": "SPLIT",
+    "existing_vocab_test_ref": "vocab_test_35cb36e2",
+    "existing_vocab_tested_first": true,
+    "must_not_impersonate": [
+      "truth creation",
+      "authority widening",
+      "theorem promotion",
+      "proof of correctness",
+      "accepted registry mutation"
+    ],
+    "pressure_ref": "tax_pressure_1049da4d",
+    "proposal_mutated_registry": false,
+    "proposal_promoted_theorem_status": false,
+    "proposal_widened_authority": false,
+    "proposed_delta": {
+      "split_into": [
+        "RECEIPT",
+        "PROJECTION_VIEW"
+      ]
+    },
+    "schema_version": "taxonomy_delta_v0",
+    "smallest_honest_reading": "The object contains a receipt body and a separate read-only projection view.",
+    "status": "PROPOSED",
+    "target_registry": "object_kind",
+    "taxonomy_delta_id": "tax_delta_5c1b594a",
+    "trigger_halt": "STOP_UNDERTYPED_OBJECT"
+  },
+  "taxonomy_evolution_receipt": {
+    "existing_vocab_test_ref": "vocab_test_35cb36e2",
+    "must_not_impersonate": [
+      "truth creation",
+      "move authorization",
+      "theorem promotion",
+      "global closure"
+    ],
+    "next_allowed_handling": [
+      "rerun blocked unit with updated local taxonomy",
+      "verify no layer collapse remains"
+    ],
+    "outcome": "ACCEPTED_LOCAL",
+    "pressure_ref": "tax_pressure_1049da4d",
+    "proposal_ref": "tax_upgrade_eb1a2a89",
+    "receipt_does_not_authorize_moves": true,
+    "receipt_does_not_create_truth": true,
+    "receipt_does_not_prove_theorem_status": true,
+    "registry_changed": true,
+    "registry_patch_ref": "tax_patch_349a3dc3",
+    "review_ref": "tax_review_a38289be",
+    "schema_version": "taxonomy_evolution_receipt_v0",
+    "taxonomy_evolution_receipt_id": "tax_evo_receipt_a67fac8a",
+    "terms_added": [
+      "PROJECTION_VIEW"
+    ],
+    "terms_split": [
+      "RECEIPT"
+    ],
+    "terms_withheld": [],
+    "trigger_halt": "STOP_UNDERTYPED_OBJECT"
+  },
+  "taxonomy_pressure_record": {
+    "halt_record_ref": "halt_d785a536",
+    "must_not_impersonate": [
+      "proposal",
+      "accepted delta",
+      "registry mutation",
+      "proof of gap"
+    ],
+    "observed_pressure": "Object labeled RECEIPT is carrying receipt body plus projection view.",
+    "run_id": "run_03fec1c5",
+    "schema_version": "taxonomy_pressure_record_v0",
+    "status": "PRESSURE_RECORDED",
+    "target": {
+      "target_id": "target_f3a47549",
+      "target_kind": "receipt"
+    },
+    "taxonomy_family": "object_kind",
+    "taxonomy_pressure_id": "tax_pressure_1049da4d",
+    "trigger_halt": "STOP_UNDERTYPED_OBJECT",
+    "unit_id": "IMPLEMENT_TAXONOMY_EVOLUTION_V0_WITH_DEMO_DELTAS_V0",
+    "why_existing_handling_failed": "RECEIPT alone overclaims; SPLIT is smallest honest repair."
+  },
+  "taxonomy_registry_patch": {
+    "after": {
+      "terms": [
+        "RECEIPT",
+        "PROJECTION_VIEW"
+      ]
+    },
+    "before": {
+      "term": "RECEIPT"
+    },
+    "created_truth": false,
+    "local_only": true,
+    "must_not_impersonate": [
+      "proof",
+      "authority widening",
+      "global taxonomy finality",
+      "truth creation"
+    ],
+    "patch_kind": "SPLIT",
+    "promoted_theorem_status": false,
+    "registry_patch_id": "tax_patch_349a3dc3",
+    "review_ref": "tax_review_a38289be",
+    "schema_version": "taxonomy_registry_patch_v0",
+    "status": "APPLIED_LOCAL",
+    "target_registry": "object_kind",
+    "taxonomy_registry_id": "taxonomy_registry_v0",
+    "widened_authority": false
+  },
+  "taxonomy_review_record": {
+    "conditions": [
+      "does not promote theorem status",
+      "does not change authority profile",
+      "applies only to local taxonomy_registry_v0"
+    ],
+    "decision": "ACCEPTED_LOCAL",
+    "decision_scope": {
+      "registry_id": "taxonomy_registry_v0",
+      "scope": "local_runner_v0"
+    },
+    "reason": "SPLIT is smaller than ADD and prevents receipt/projection impersonation.",
+    "registry_patch_allowed": true,
+    "review_is_explicit": true,
+    "reviewer": "demo_human_review_fixture",
+    "runtime_fabricated_review": false,
+    "schema_version": "taxonomy_review_record_v0",
+    "taxonomy_review_id": "tax_review_a38289be",
+    "upgrade_proposal_ref": "tax_upgrade_eb1a2a89"
+  },
+  "taxonomy_upgrade_proposal": {
+    "accepted": false,
+    "allowed_next_handling": [
+      "APPROVE_LOCAL",
+      "REJECT",
+      "DEFER",
+      "NARROW",
+      "REQUEST_EXTRACTION"
+    ],
+    "current_label": "RECEIPT",
+    "executed": false,
+    "existing_vocab_test": "vocab_test_35cb36e2",
+    "must_not_impersonate": [
+      "theorem upgrade",
+      "authority upgrade",
+      "proof of correctness",
+      "truth creation"
+    ],
+    "observed_pressure": "Object labeled RECEIPT is carrying receipt body plus projection view.",
+    "outcome": "SPLIT",
+    "proposed_delta_ref": "tax_delta_5c1b594a",
+    "registry_mutated": false,
+    "schema_version": "taxonomy_upgrade_proposal_v0",
+    "smallest_honest_reading": "The object contains a receipt body and a separate read-only projection view.",
+    "status": "PROPOSED",
+    "target": "target_f3a47549",
+    "trigger_halt": "STOP_UNDERTYPED_OBJECT",
+    "upgrade_proposal_id": "tax_upgrade_eb1a2a89"
+  },
+  "theorem_status_promoted": false,
+  "trigger_halt": "STOP_UNDERTYPED_OBJECT"
+}

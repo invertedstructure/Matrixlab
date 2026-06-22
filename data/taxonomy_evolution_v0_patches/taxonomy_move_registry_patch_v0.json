@@ -1,0 +1,35 @@
+{
+  "candidate_moves": [
+    {
+      "action": "emit taxonomy_pressure_record",
+      "applies_when": "halt_code in eligible_taxonomy_halts",
+      "authority_required": "AUTHORIZED_LOCAL_FOR_RECORD_ONLY",
+      "may_mutate_registry": false,
+      "move_id": "taxonomy.pressure.record.v0",
+      "move_kind": "PROPOSAL_ONLY"
+    },
+    {
+      "action": "emit taxonomy_delta and taxonomy_upgrade_proposal",
+      "applies_when": "taxonomy_pressure_record exists and existing_vocab_test exists",
+      "authority_required": "AUTHORIZED_LOCAL_FOR_PROPOSAL_ONLY",
+      "may_mutate_registry": false,
+      "move_id": "taxonomy.delta.propose.v0",
+      "move_kind": "PROPOSAL_ONLY"
+    },
+    {
+      "action": "apply local registry patch and emit taxonomy_evolution_receipt",
+      "applies_when": "review.decision == ACCEPTED_LOCAL and review.registry_patch_allowed == true",
+      "authority_required": "REQUIRES_HUMAN_REVIEW_SATISFIED_BY_REVIEW_RECORD",
+      "may_mutate_registry": true,
+      "move_id": "taxonomy.registry.patch_after_review.v0",
+      "move_kind": "LOCAL_REGISTRY_PATCH"
+    }
+  ],
+  "law": [
+    "Candidate moves are not registered by this policy.",
+    "Move-registry changes are patch-only.",
+    "No move is added without applies_when/action/emits/halt behavior."
+  ],
+  "patch_mode": "future_move_registry_patch_only_do_not_mutate_existing_move_registry",
+  "schema_version": "taxonomy_move_registry_patch_v0"
+}

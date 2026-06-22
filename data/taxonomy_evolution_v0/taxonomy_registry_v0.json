@@ -1,0 +1,86 @@
+{
+  "registries": {
+    "allowed_consumers": [
+      "runner",
+      "reviewer",
+      "receipt_reader"
+    ],
+    "allowed_next_moves": [
+      "review_delta",
+      "reject",
+      "defer",
+      "narrow",
+      "request_extraction"
+    ],
+    "block_reasons": [
+      "TOO_COARSE",
+      "OVERCLAIMS",
+      "MISSING",
+      "UNRESOLVED"
+    ],
+    "content_scope": [
+      "LOCAL",
+      "RUN",
+      "UNIT",
+      "GLOBAL_UNCLAIMED"
+    ],
+    "extractability": [
+      "EXTRACTED",
+      "NEEDS_EXTRACTION",
+      "UNEXTRACTABLE"
+    ],
+    "halt_codes": [
+      "STOP_TAXONOMY_GAP",
+      "STOP_UNDERTYPED_OBJECT",
+      "STOP_UNTYPED_UNIT",
+      "STOP_LAYER_COLLAPSE",
+      "STOP_NEEDS_NEW_MOVE",
+      "STOP_NEEDS_EXTRACTION",
+      "STOP_VISIBLE_GOTCHA"
+    ],
+    "layer": [
+      "RUNTIME",
+      "MOVE_SPACE",
+      "AUTHORITY",
+      "TAXONOMY"
+    ],
+    "move_kinds": [
+      "CONTROL_CHECK",
+      "CONTROL_EMIT",
+      "PROPOSAL_ONLY",
+      "LOCAL_REGISTRY_PATCH"
+    ],
+    "object_kind": [
+      "RECEIPT",
+      "TRACE",
+      "POLICY",
+      "SHELL_SURFACE"
+    ],
+    "route_role": [
+      "SOURCE",
+      "PATCH",
+      "PROPOSAL",
+      "REVIEW"
+    ],
+    "stop_conditions": [
+      "taxonomy_pressure",
+      "review_required",
+      "withheld"
+    ],
+    "truth_status": [
+      "CLAIMED",
+      "OBSERVED",
+      "UNRESOLVED",
+      "WITHHELD"
+    ]
+  },
+  "registry_law": [
+    "labels carry no authority by themselves",
+    "new terms require accepted taxonomy delta",
+    "proposals do not mutate registry",
+    "accepted deltas must preserve non-impersonation",
+    "existing vocabulary must be tested before ADD"
+  ],
+  "schema_version": "taxonomy_registry_v0",
+  "taxonomy_registry_id": "taxonomy_registry_v0"
+}

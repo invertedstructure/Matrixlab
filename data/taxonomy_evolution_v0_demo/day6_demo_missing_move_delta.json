@@ -1,0 +1,225 @@
+{
+  "add_used_before_existing_vocab_test": false,
+  "authority_widened": false,
+  "demo_name": "DAY6_MISSING_MOVE_DELTA",
+  "existing_vocab_test": {
+    "add_required": true,
+    "add_was_last": true,
+    "candidate_existing_terms": [
+      "CONTROL_EMIT",
+      "PROPOSAL_ONLY",
+      "LOCAL_REGISTRY_PATCH"
+    ],
+    "existing_vocab_test_id": "vocab_test_9ee11170",
+    "existing_vocabulary_tested_first": true,
+    "recommended_outcome": "ADD_MOVE_KIND",
+    "schema_version": "existing_vocab_test_v0",
+    "taxonomy_pressure_ref": "tax_pressure_d3f1c7d7",
+    "test_results": [
+      {
+        "reason": "Generic emission does not specify boundary emission after completed unit.",
+        "result": "PARTIAL",
+        "term": "CONTROL_EMIT"
+      },
+      {
+        "reason": "Proposal-only records pressure but does not supply the missing move kind.",
+        "result": "TOO_NARROW",
+        "term": "PROPOSAL_ONLY"
+      },
+      {
+        "reason": "The move is not a registry patch.",
+        "result": "OVERCLAIMS",
+        "term": "LOCAL_REGISTRY_PATCH"
+      }
+    ]
+  },
+  "existing_vocab_tested_first": true,
+  "expected_delta_kind": "ADD_MOVE_KIND",
+  "expected_patch_status": "NOT_APPLIED",
+  "expected_review_decision": "DEFERRED",
+  "failures": [],
+  "final_closure_claimed": false,
+  "gate": "PASS",
+  "global_taxonomy_claimed": false,
+  "label_treated_as_truth": false,
+  "patch_without_review": false,
+  "proof_claimed": false,
+  "proposal_mutated_registry": false,
+  "proposal_treated_as_accepted": false,
+  "review_fabricated_by_runtime": false,
+  "runtime_accepted_own_delta": false,
+  "schema_version": "day6_taxonomy_evolution_demo_run_v0",
+  "source_policy_id": "e84eb230",
+  "taxonomy_delta": {
+    "allowed_next_handling": [
+      "review missing move delta",
+      "defer",
+      "request narrower move",
+      "reject"
+    ],
+    "current_term": "CONTROL_EMIT",
+    "delta_kind": "ADD_MOVE_KIND",
+    "existing_vocab_test_ref": "vocab_test_9ee11170",
+    "existing_vocab_tested_first": true,
+    "must_not_impersonate": [
+      "truth creation",
+      "authority widening",
+      "theorem promotion",
+      "proof of correctness",
+      "accepted registry mutation"
+    ],
+    "pressure_ref": "tax_pressure_d3f1c7d7",
+    "proposal_mutated_registry": false,
+    "proposal_promoted_theorem_status": false,
+    "proposal_widened_authority": false,
+    "proposed_delta": {
+      "add_move_kind": "boundary.emit_next_unit.v0",
+      "candidate_move": {
+        "action": "emit next unit boundary",
+        "applies_when": "state.active_object.completion_status == COMPLETE and state.next_unit_id missing",
+        "emits": [
+          "proceed_readout",
+          "halt_record"
+        ],
+        "halt_behavior": {
+          "on_fail": "STOP_GATE_FAIL",
+          "on_success": "STOP_NEXT_MOVE_BOUNDARY"
+        }
+      }
+    },
+    "schema_version": "taxonomy_delta_v0",
+    "smallest_honest_reading": "Boundary emission after completed unit is the smallest missing move shape.",
+    "status": "PROPOSED",
+    "target_registry": "move_kinds",
+    "taxonomy_delta_id": "tax_delta_82f898b5",
+    "trigger_halt": "STOP_NEEDS_NEW_MOVE"
+  },
+  "taxonomy_evolution_receipt": {
+    "existing_vocab_test_ref": "vocab_test_9ee11170",
+    "must_not_impersonate": [
+      "truth creation",
+      "move authorization",
+      "theorem promotion",
+      "global closure"
+    ],
+    "next_allowed_handling": [
+      "defer",
+      "collect more evidence",
+      "review later"
+    ],
+    "outcome": "DEFERRED",
+    "pressure_ref": "tax_pressure_d3f1c7d7",
+    "proposal_ref": "tax_upgrade_b60e646b",
+    "receipt_does_not_authorize_moves": true,
+    "receipt_does_not_create_truth": true,
+    "receipt_does_not_prove_theorem_status": true,
+    "registry_changed": false,
+    "registry_patch_ref": "tax_patch_83a6cd98",
+    "review_ref": "tax_review_ec489181",
+    "schema_version": "taxonomy_evolution_receipt_v0",
+    "taxonomy_evolution_receipt_id": "tax_evo_receipt_4afb9b76",
+    "terms_added": [],
+    "terms_split": [],
+    "terms_withheld": [],
+    "trigger_halt": "STOP_NEEDS_NEW_MOVE"
+  },
+  "taxonomy_pressure_record": {
+    "halt_record_ref": "halt_2395fbbc",
+    "must_not_impersonate": [
+      "proposal",
+      "accepted delta",
+      "registry mutation",
+      "proof of gap"
+    ],
+    "observed_pressure": "State is valid and next lawful operation is clear, but no registered move exists.",
+    "run_id": "run_f0245f23",
+    "schema_version": "taxonomy_pressure_record_v0",
+    "status": "PRESSURE_RECORDED",
+    "target": {
+      "target_id": "target_601d06b6",
+      "target_kind": "move_boundary"
+    },
+    "taxonomy_family": "move_kinds",
+    "taxonomy_pressure_id": "tax_pressure_d3f1c7d7",
+    "trigger_halt": "STOP_NEEDS_NEW_MOVE",
+    "unit_id": "IMPLEMENT_TAXONOMY_EVOLUTION_V0_WITH_DEMO_DELTAS_V0",
+    "why_existing_handling_failed": "Existing move kinds do not cover boundary emission after completed unit."
+  },
+  "taxonomy_registry_patch": {
+    "after": {
+      "not_applied_reason": "review_decision=DEFERRED",
+      "terms": []
+    },
+    "before": {
+      "term": "CONTROL_EMIT"
+    },
+    "created_truth": false,
+    "local_only": true,
+    "must_not_impersonate": [
+      "proof",
+      "authority widening",
+      "global taxonomy finality",
+      "truth creation"
+    ],
+    "patch_kind": "ADD_MOVE_KIND",
+    "promoted_theorem_status": false,
+    "registry_patch_id": "tax_patch_83a6cd98",
+    "review_ref": "tax_review_ec489181",
+    "schema_version": "taxonomy_registry_patch_v0",
+    "status": "NOT_APPLIED",
+    "target_registry": "move_kinds",
+    "taxonomy_registry_id": "taxonomy_registry_v0",
+    "widened_authority": false
+  },
+  "taxonomy_review_record": {
+    "conditions": [
+      "does not promote theorem status",
+      "does not change authority profile",
+      "applies only to local taxonomy_registry_v0"
+    ],
+    "decision": "DEFERRED",
+    "decision_scope": {
+      "registry_id": "taxonomy_registry_v0",
+      "scope": "local_runner_v0"
+    },
+    "reason": "Delta is plausible but not accepted into the local registry in this demo.",
+    "registry_patch_allowed": false,
+    "review_is_explicit": true,
+    "reviewer": "demo_human_review_fixture",
+    "runtime_fabricated_review": false,
+    "schema_version": "taxonomy_review_record_v0",
+    "taxonomy_review_id": "tax_review_ec489181",
+    "upgrade_proposal_ref": "tax_upgrade_b60e646b"
+  },
+  "taxonomy_upgrade_proposal": {
+    "accepted": false,
+    "allowed_next_handling": [
+      "APPROVE_LOCAL",
+      "REJECT",
+      "DEFER",
+      "NARROW",
+      "REQUEST_EXTRACTION"
+    ],
+    "current_label": "CONTROL_EMIT",
+    "executed": false,
+    "existing_vocab_test": "vocab_test_9ee11170",
+    "must_not_impersonate": [
+      "theorem upgrade",
+      "authority upgrade",
+      "proof of correctness",
+      "truth creation"
+    ],
+    "observed_pressure": "State is valid and next lawful operation is clear, but no registered move exists.",
+    "outcome": "ADD_MOVE_KIND",
+    "proposed_delta_ref": "tax_delta_82f898b5",
+    "registry_mutated": false,
+    "schema_version": "taxonomy_upgrade_proposal_v0",
+    "smallest_honest_reading": "Boundary emission after completed unit is the smallest missing move shape.",
+    "status": "PROPOSED",
+    "target": "target_601d06b6",
+    "trigger_halt": "STOP_NEEDS_NEW_MOVE",
+    "upgrade_proposal_id": "tax_upgrade_b60e646b"
+  },
+  "theorem_status_promoted": false,
+  "trigger_halt": "STOP_NEEDS_NEW_MOVE"
+}

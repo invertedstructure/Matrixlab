@@ -1,0 +1,213 @@
+{
+  "add_used_before_existing_vocab_test": false,
+  "authority_widened": false,
+  "demo_name": "DAY6_HALT_REFINE",
+  "existing_vocab_test": {
+    "add_required": false,
+    "add_was_last": true,
+    "candidate_existing_terms": [
+      "STOP_VISIBLE_GOTCHA",
+      "STOP_PROJECTION_BUG",
+      "STOP_GATE_FAIL"
+    ],
+    "existing_vocab_test_id": "vocab_test_dc192950",
+    "existing_vocabulary_tested_first": true,
+    "recommended_outcome": "REFINE",
+    "schema_version": "existing_vocab_test_v0",
+    "taxonomy_pressure_ref": "tax_pressure_bd9bbf3e",
+    "test_results": [
+      {
+        "reason": "Visible gotcha fits but does not isolate projection/readout mismatch.",
+        "result": "TOO_COARSE",
+        "term": "STOP_VISIBLE_GOTCHA"
+      },
+      {
+        "reason": "Projection bug is the smaller halt handling term.",
+        "result": "FITS",
+        "term": "STOP_PROJECTION_BUG"
+      },
+      {
+        "reason": "Gate did not fail.",
+        "result": "OVERCLAIMS",
+        "term": "STOP_GATE_FAIL"
+      }
+    ]
+  },
+  "existing_vocab_tested_first": true,
+  "expected_delta_kind": "REFINE",
+  "expected_patch_status": "NOT_APPLIED",
+  "expected_review_decision": "DEFERRED",
+  "failures": [],
+  "final_closure_claimed": false,
+  "gate": "PASS",
+  "global_taxonomy_claimed": false,
+  "label_treated_as_truth": false,
+  "patch_without_review": false,
+  "proof_claimed": false,
+  "proposal_mutated_registry": false,
+  "proposal_treated_as_accepted": false,
+  "review_fabricated_by_runtime": false,
+  "runtime_accepted_own_delta": false,
+  "schema_version": "day6_taxonomy_evolution_demo_run_v0",
+  "source_policy_id": "e84eb230",
+  "taxonomy_delta": {
+    "allowed_next_handling": [
+      "review halt refinement",
+      "defer",
+      "request narrower halt handling",
+      "reject"
+    ],
+    "current_term": "STOP_VISIBLE_GOTCHA",
+    "delta_kind": "REFINE",
+    "existing_vocab_test_ref": "vocab_test_dc192950",
+    "existing_vocab_tested_first": true,
+    "must_not_impersonate": [
+      "truth creation",
+      "authority widening",
+      "theorem promotion",
+      "proof of correctness",
+      "accepted registry mutation"
+    ],
+    "pressure_ref": "tax_pressure_bd9bbf3e",
+    "proposal_mutated_registry": false,
+    "proposal_promoted_theorem_status": false,
+    "proposal_widened_authority": false,
+    "proposed_delta": {
+      "refine_to": "STOP_PROJECTION_BUG"
+    },
+    "schema_version": "taxonomy_delta_v0",
+    "smallest_honest_reading": "Projection/readout mismatch is smaller than generic visible gotcha.",
+    "status": "PROPOSED",
+    "target_registry": "halt_codes",
+    "taxonomy_delta_id": "tax_delta_2e93922a",
+    "trigger_halt": "STOP_VISIBLE_GOTCHA"
+  },
+  "taxonomy_evolution_receipt": {
+    "existing_vocab_test_ref": "vocab_test_dc192950",
+    "must_not_impersonate": [
+      "truth creation",
+      "move authorization",
+      "theorem promotion",
+      "global closure"
+    ],
+    "next_allowed_handling": [
+      "defer",
+      "collect more evidence",
+      "review later"
+    ],
+    "outcome": "DEFERRED",
+    "pressure_ref": "tax_pressure_bd9bbf3e",
+    "proposal_ref": "tax_upgrade_a4f350bc",
+    "receipt_does_not_authorize_moves": true,
+    "receipt_does_not_create_truth": true,
+    "receipt_does_not_prove_theorem_status": true,
+    "registry_changed": false,
+    "registry_patch_ref": "tax_patch_a207df93",
+    "review_ref": "tax_review_67e58a59",
+    "schema_version": "taxonomy_evolution_receipt_v0",
+    "taxonomy_evolution_receipt_id": "tax_evo_receipt_25dc4ab1",
+    "terms_added": [],
+    "terms_split": [],
+    "terms_withheld": [],
+    "trigger_halt": "STOP_VISIBLE_GOTCHA"
+  },
+  "taxonomy_pressure_record": {
+    "halt_record_ref": "halt_b5b31046",
+    "must_not_impersonate": [
+      "proposal",
+      "accepted delta",
+      "registry mutation",
+      "proof of gap"
+    ],
+    "observed_pressure": "Readout reports repeated_states=true while trace state signatures are distinct.",
+    "run_id": "run_840a05a8",
+    "schema_version": "taxonomy_pressure_record_v0",
+    "status": "PRESSURE_RECORDED",
+    "target": {
+      "target_id": "target_1fc69caa",
+      "target_kind": "readout"
+    },
+    "taxonomy_family": "halt_codes",
+    "taxonomy_pressure_id": "tax_pressure_bd9bbf3e",
+    "trigger_halt": "STOP_VISIBLE_GOTCHA",
+    "unit_id": "IMPLEMENT_TAXONOMY_EVOLUTION_V0_WITH_DEMO_DELTAS_V0",
+    "why_existing_handling_failed": "STOP_VISIBLE_GOTCHA fits but is too coarse; STOP_PROJECTION_BUG is smaller."
+  },
+  "taxonomy_registry_patch": {
+    "after": {
+      "not_applied_reason": "review_decision=DEFERRED",
+      "terms": []
+    },
+    "before": {
+      "term": "STOP_VISIBLE_GOTCHA"
+    },
+    "created_truth": false,
+    "local_only": true,
+    "must_not_impersonate": [
+      "proof",
+      "authority widening",
+      "global taxonomy finality",
+      "truth creation"
+    ],
+    "patch_kind": "REFINE",
+    "promoted_theorem_status": false,
+    "registry_patch_id": "tax_patch_a207df93",
+    "review_ref": "tax_review_67e58a59",
+    "schema_version": "taxonomy_registry_patch_v0",
+    "status": "NOT_APPLIED",
+    "target_registry": "halt_codes",
+    "taxonomy_registry_id": "taxonomy_registry_v0",
+    "widened_authority": false
+  },
+  "taxonomy_review_record": {
+    "conditions": [
+      "does not promote theorem status",
+      "does not change authority profile",
+      "applies only to local taxonomy_registry_v0"
+    ],
+    "decision": "DEFERRED",
+    "decision_scope": {
+      "registry_id": "taxonomy_registry_v0",
+      "scope": "local_runner_v0"
+    },
+    "reason": "Delta is plausible but not accepted into the local registry in this demo.",
+    "registry_patch_allowed": false,
+    "review_is_explicit": true,
+    "reviewer": "demo_human_review_fixture",
+    "runtime_fabricated_review": false,
+    "schema_version": "taxonomy_review_record_v0",
+    "taxonomy_review_id": "tax_review_67e58a59",
+    "upgrade_proposal_ref": "tax_upgrade_a4f350bc"
+  },
+  "taxonomy_upgrade_proposal": {
+    "accepted": false,
+    "allowed_next_handling": [
+      "APPROVE_LOCAL",
+      "REJECT",
+      "DEFER",
+      "NARROW",
+      "REQUEST_EXTRACTION"
+    ],
+    "current_label": "STOP_VISIBLE_GOTCHA",
+    "executed": false,
+    "existing_vocab_test": "vocab_test_dc192950",
+    "must_not_impersonate": [
+      "theorem upgrade",
+      "authority upgrade",
+      "proof of correctness",
+      "truth creation"
+    ],
+    "observed_pressure": "Readout reports repeated_states=true while trace state signatures are distinct.",
+    "outcome": "REFINE",
+    "proposed_delta_ref": "tax_delta_2e93922a",
+    "registry_mutated": false,
+    "schema_version": "taxonomy_upgrade_proposal_v0",
+    "smallest_honest_reading": "Projection/readout mismatch is smaller than generic visible gotcha.",
+    "status": "PROPOSED",
+    "target": "target_1fc69caa",
+    "trigger_halt": "STOP_VISIBLE_GOTCHA",
+    "upgrade_proposal_id": "tax_upgrade_a4f350bc"
+  },
+  "theorem_status_promoted": false,
+  "trigger_halt": "STOP_VISIBLE_GOTCHA"
+}

@@ -1,0 +1,46 @@
+{
+  "delta_kinds": [
+    "ASSIGN",
+    "WITHHOLD",
+    "REFINE",
+    "WEAKEN",
+    "SPLIT",
+    "MERGE",
+    "DROP",
+    "ADD_LABEL",
+    "ADD_HALT",
+    "ADD_MOVE_KIND",
+    "ADD_BLOCK_REASON",
+    "ADD_STOP_CONDITION"
+  ],
+  "law": [
+    "Delta must cite pressure_ref.",
+    "Delta must cite existing_vocab_test_ref.",
+    "Delta must be the smallest honest repair.",
+    "Delta does not widen authority.",
+    "Delta does not promote theorem status.",
+    "Delta does not mutate registry."
+  ],
+  "required_fields": [
+    "taxonomy_delta_id",
+    "schema_version",
+    "delta_kind",
+    "target_registry",
+    "trigger_halt",
+    "pressure_ref",
+    "existing_vocab_test_ref",
+    "current_term",
+    "proposed_delta",
+    "smallest_honest_reading",
+    "must_not_impersonate",
+    "allowed_next_handling",
+    "status"
+  ],
+  "schema_version": "taxonomy_delta_schema_v0",
+  "status_enum": [
+    "PROPOSED",
+    "WITHHELD",
+    "NEEDS_NARROWING",
+    "NEEDS_EXTRACTION"
+  ]
+}

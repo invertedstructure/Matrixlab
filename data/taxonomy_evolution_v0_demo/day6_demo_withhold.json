@@ -1,0 +1,212 @@
+{
+  "add_used_before_existing_vocab_test": false,
+  "authority_widened": false,
+  "demo_name": "DAY6_WITHHOLD",
+  "existing_vocab_test": {
+    "add_required": false,
+    "add_was_last": true,
+    "candidate_existing_terms": [
+      "RECEIPT",
+      "PROJECTION_VIEW",
+      "POLICY"
+    ],
+    "existing_vocab_test_id": "vocab_test_ca0726f3",
+    "existing_vocabulary_tested_first": true,
+    "recommended_outcome": "WITHHOLD",
+    "schema_version": "existing_vocab_test_v0",
+    "taxonomy_pressure_ref": "tax_pressure_d895da59",
+    "test_results": [
+      {
+        "reason": "Receipt alone may erase policy/projection ambiguity.",
+        "result": "OVERCLAIMS",
+        "term": "RECEIPT"
+      },
+      {
+        "reason": "Evidence cannot distinguish projection from policy role.",
+        "result": "UNRESOLVED",
+        "term": "PROJECTION_VIEW"
+      },
+      {
+        "reason": "Evidence cannot establish policy role.",
+        "result": "UNRESOLVED",
+        "term": "POLICY"
+      }
+    ]
+  },
+  "existing_vocab_tested_first": true,
+  "expected_delta_kind": "WITHHOLD",
+  "expected_patch_status": "NOT_APPLIED",
+  "expected_review_decision": "WITHHELD",
+  "failures": [],
+  "final_closure_claimed": false,
+  "gate": "PASS",
+  "global_taxonomy_claimed": false,
+  "label_treated_as_truth": false,
+  "patch_without_review": false,
+  "proof_claimed": false,
+  "proposal_mutated_registry": false,
+  "proposal_treated_as_accepted": false,
+  "review_fabricated_by_runtime": false,
+  "runtime_accepted_own_delta": false,
+  "schema_version": "day6_taxonomy_evolution_demo_run_v0",
+  "source_policy_id": "e84eb230",
+  "taxonomy_delta": {
+    "allowed_next_handling": [
+      "collect more trace/receipt evidence",
+      "factor object if possible",
+      "do not classify yet"
+    ],
+    "current_term": "UNRESOLVED_OBJECT",
+    "delta_kind": "WITHHOLD",
+    "existing_vocab_test_ref": "vocab_test_ca0726f3",
+    "existing_vocab_tested_first": true,
+    "must_not_impersonate": [
+      "truth creation",
+      "authority widening",
+      "theorem promotion",
+      "proof of correctness",
+      "accepted registry mutation"
+    ],
+    "pressure_ref": "tax_pressure_d895da59",
+    "proposal_mutated_registry": false,
+    "proposal_promoted_theorem_status": false,
+    "proposal_widened_authority": false,
+    "proposed_delta": {
+      "withhold_reason": "Evidence cannot distinguish receipt+projection from receipt+policy."
+    },
+    "schema_version": "taxonomy_delta_v0",
+    "smallest_honest_reading": "Do not force a label where every candidate overstates current evidence.",
+    "status": "WITHHELD",
+    "target_registry": "object_kind",
+    "taxonomy_delta_id": "tax_delta_5bc3a329",
+    "trigger_halt": "STOP_TAXONOMY_GAP"
+  },
+  "taxonomy_evolution_receipt": {
+    "existing_vocab_test_ref": "vocab_test_ca0726f3",
+    "must_not_impersonate": [
+      "truth creation",
+      "move authorization",
+      "theorem promotion",
+      "global closure"
+    ],
+    "next_allowed_handling": [
+      "defer",
+      "collect more evidence",
+      "review later"
+    ],
+    "outcome": "WITHHELD",
+    "pressure_ref": "tax_pressure_d895da59",
+    "proposal_ref": "tax_upgrade_e97218d3",
+    "receipt_does_not_authorize_moves": true,
+    "receipt_does_not_create_truth": true,
+    "receipt_does_not_prove_theorem_status": true,
+    "registry_changed": false,
+    "registry_patch_ref": "tax_patch_38c0f2d4",
+    "review_ref": "tax_review_1f739d08",
+    "schema_version": "taxonomy_evolution_receipt_v0",
+    "taxonomy_evolution_receipt_id": "tax_evo_receipt_82693d77",
+    "terms_added": [],
+    "terms_split": [],
+    "terms_withheld": [
+      "UNRESOLVED_OBJECT"
+    ],
+    "trigger_halt": "STOP_TAXONOMY_GAP"
+  },
+  "taxonomy_pressure_record": {
+    "halt_record_ref": "halt_d6b5520a",
+    "must_not_impersonate": [
+      "proposal",
+      "accepted delta",
+      "registry mutation",
+      "proof of gap"
+    ],
+    "observed_pressure": "Object appears mixed, but evidence cannot distinguish receipt+projection from receipt+policy.",
+    "run_id": "run_67af5985",
+    "schema_version": "taxonomy_pressure_record_v0",
+    "status": "PRESSURE_RECORDED",
+    "target": {
+      "target_id": "target_333d56a9",
+      "target_kind": "mixed_object"
+    },
+    "taxonomy_family": "object_kind",
+    "taxonomy_pressure_id": "tax_pressure_d895da59",
+    "trigger_halt": "STOP_TAXONOMY_GAP",
+    "unit_id": "IMPLEMENT_TAXONOMY_EVOLUTION_V0_WITH_DEMO_DELTAS_V0",
+    "why_existing_handling_failed": "All candidate labels overstate."
+  },
+  "taxonomy_registry_patch": {
+    "after": {
+      "not_applied_reason": "review_decision=WITHHELD",
+      "terms": []
+    },
+    "before": {
+      "term": "UNRESOLVED_OBJECT"
+    },
+    "created_truth": false,
+    "local_only": true,
+    "must_not_impersonate": [
+      "proof",
+      "authority widening",
+      "global taxonomy finality",
+      "truth creation"
+    ],
+    "patch_kind": "WITHHOLD",
+    "promoted_theorem_status": false,
+    "registry_patch_id": "tax_patch_38c0f2d4",
+    "review_ref": "tax_review_1f739d08",
+    "schema_version": "taxonomy_registry_patch_v0",
+    "status": "NOT_APPLIED",
+    "target_registry": "object_kind",
+    "taxonomy_registry_id": "taxonomy_registry_v0",
+    "widened_authority": false
+  },
+  "taxonomy_review_record": {
+    "conditions": [
+      "does not promote theorem status",
+      "does not change authority profile",
+      "applies only to local taxonomy_registry_v0"
+    ],
+    "decision": "WITHHELD",
+    "decision_scope": {
+      "registry_id": "taxonomy_registry_v0",
+      "scope": "local_runner_v0"
+    },
+    "reason": "Every candidate label overstates available evidence.",
+    "registry_patch_allowed": false,
+    "review_is_explicit": true,
+    "reviewer": "demo_human_review_fixture",
+    "runtime_fabricated_review": false,
+    "schema_version": "taxonomy_review_record_v0",
+    "taxonomy_review_id": "tax_review_1f739d08",
+    "upgrade_proposal_ref": "tax_upgrade_e97218d3"
+  },
+  "taxonomy_upgrade_proposal": {
+    "accepted": false,
+    "allowed_next_handling": [
+      "collect more trace/receipt evidence",
+      "factor object if possible",
+      "do not classify yet"
+    ],
+    "current_label": "UNRESOLVED_OBJECT",
+    "executed": false,
+    "existing_vocab_test": "vocab_test_ca0726f3",
+    "must_not_impersonate": [
+      "theorem upgrade",
+      "authority upgrade",
+      "proof of correctness",
+      "truth creation"
+    ],
+    "observed_pressure": "Object appears mixed, but evidence cannot distinguish receipt+projection from receipt+policy.",
+    "outcome": "WITHHOLD",
+    "proposed_delta_ref": "tax_delta_5bc3a329",
+    "registry_mutated": false,
+    "schema_version": "taxonomy_upgrade_proposal_v0",
+    "smallest_honest_reading": "Do not force a label where every candidate overstates current evidence.",
+    "status": "WITHHELD",
+    "target": "target_333d56a9",
+    "trigger_halt": "STOP_TAXONOMY_GAP",
+    "upgrade_proposal_id": "tax_upgrade_e97218d3"
+  },
+  "theorem_status_promoted": false,
+  "trigger_halt": "STOP_TAXONOMY_GAP"
+}
