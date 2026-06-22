@@ -1,0 +1,453 @@
+{
+  "alias_policy": {
+    "canonical_stop_no_applicable_move": "STOP_NO_APPLICABLE_MOVE",
+    "legacy_aliases": {
+      "NO_APPLICABLE_MOVE": "STOP_NO_APPLICABLE_MOVE"
+    },
+    "typed_state_ready_is_status_not_halt": true
+  },
+  "canonical_entry_count": 21,
+  "entries": {
+    "FIXTURE_LOAD_ERROR": {
+      "allowed_next_handling": [
+        "repair fixture path or syntax",
+        "redeclare fixture input",
+        "halt until fixture is path-addressed"
+      ],
+      "canonical_halt_code": "FIXTURE_LOAD_ERROR",
+      "halt_code": "FIXTURE_LOAD_ERROR",
+      "halt_family": "BASE_RUNNER",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "bad theorem",
+        "invalid runner",
+        "authority to infer a replacement fixture"
+      ],
+      "smallest_honest_meaning": "A declared fixture could not be loaded or parsed.",
+      "source_layers_seen": [
+        "fixture"
+      ]
+    },
+    "INVALID_REGIME": {
+      "allowed_next_handling": [
+        "inspect regime schema mismatch",
+        "restore declared regime artifact",
+        "stop for regime correction if not local"
+      ],
+      "canonical_halt_code": "INVALID_REGIME",
+      "halt_code": "INVALID_REGIME",
+      "halt_family": "BASE_RUNNER",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "proof failure",
+        "runner impossibility",
+        "permission to silently repair the regime"
+      ],
+      "smallest_honest_meaning": "The declared regime is absent, malformed, or incompatible with the current unit.",
+      "source_layers_seen": [
+        "base_runner",
+        "local_regime"
+      ]
+    },
+    "INVALID_STATE": {
+      "allowed_next_handling": [
+        "inspect state validation error",
+        "repair fixture or state shape only if local",
+        "otherwise stop for state-schema correction"
+      ],
+      "canonical_halt_code": "INVALID_STATE",
+      "halt_code": "INVALID_STATE",
+      "halt_family": "BASE_RUNNER",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "mathematical contradiction",
+        "theorem failure",
+        "invalidity of the whole runner"
+      ],
+      "smallest_honest_meaning": "The state does not satisfy required local shape or validity checks.",
+      "source_layers_seen": [
+        "base_runner"
+      ]
+    },
+    "REGIME_MISMATCH": {
+      "allowed_next_handling": [
+        "verify declared regime hash",
+        "redeclare source surface",
+        "halt for regime compatibility decision"
+      ],
+      "canonical_halt_code": "REGIME_MISMATCH",
+      "halt_code": "REGIME_MISMATCH",
+      "halt_family": "BASE_RUNNER",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "global regime invalidity",
+        "permission to replace the regime",
+        "proof failure"
+      ],
+      "smallest_honest_meaning": "The current unit and declared local regime do not agree on required version/hash/scope.",
+      "source_layers_seen": [
+        "local_regime",
+        "runner"
+      ]
+    },
+    "STEP_LIMIT_EXCEEDED": {
+      "allowed_next_handling": [
+        "inspect trace prefix",
+        "lower or raise limit only by declared policy",
+        "halt for bounded-run design if limit is structural"
+      ],
+      "canonical_halt_code": "STEP_LIMIT_EXCEEDED",
+      "halt_code": "STEP_LIMIT_EXCEEDED",
+      "halt_family": "BASE_RUNNER",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "infinite loop proof",
+        "theorem obstruction",
+        "permission to continue without bound"
+      ],
+      "smallest_honest_meaning": "The runner hit the declared step limit before a clean terminal condition.",
+      "source_layers_seen": [
+        "base_runner"
+      ]
+    },
+    "STOP_AUTHORITY_VIOLATION": {
+      "allowed_next_handling": [
+        "return to declared source surface",
+        "use pointer or fixture discipline",
+        "redeclare allowed inputs"
+      ],
+      "canonical_halt_code": "STOP_AUTHORITY_VIOLATION",
+      "halt_code": "STOP_AUTHORITY_VIOLATION",
+      "halt_family": "AUTHORITY",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "ordinary uncertainty",
+        "local gotcha",
+        "missing implementation"
+      ],
+      "smallest_honest_meaning": "The next step would depend on memory, intent, latest files, ambient workspace state, UI state, or unregistered source material.",
+      "source_layers_seen": [
+        "proceed_adapter.v0",
+        "jurisdiction_runner"
+      ]
+    },
+    "STOP_DEPENDENCY_MISSING": {
+      "allowed_next_handling": [
+        "restore declared artifact",
+        "redeclare allowed input",
+        "stop until dependency is path-addressed"
+      ],
+      "canonical_halt_code": "STOP_DEPENDENCY_MISSING",
+      "halt_code": "STOP_DEPENDENCY_MISSING",
+      "halt_family": "EXTRACTION_PRESSURE",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "authority violation",
+        "proof failure",
+        "missing theory"
+      ],
+      "smallest_honest_meaning": "A declared required artifact or input was unavailable at its path-addressed location.",
+      "source_layers_seen": [
+        "mlblock",
+        "proceed_adapter.v0",
+        "jurisdiction_runner"
+      ]
+    },
+    "STOP_DONE": {
+      "allowed_next_handling": [
+        "freeze current artifact if useful",
+        "declare next unit explicitly",
+        "stop if no next objective is declared"
+      ],
+      "canonical_halt_code": "STOP_DONE",
+      "halt_code": "STOP_DONE",
+      "halt_family": "PROCEED_MODE",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "global completion",
+        "proof closure",
+        "permission to continue implicitly"
+      ],
+      "smallest_honest_meaning": "The current bounded unit completed cleanly.",
+      "source_layers_seen": [
+        "proceed_adapter.v0",
+        "jurisdiction_runner.v0.2.trace_ledger_hardened"
+      ]
+    },
+    "STOP_FRONTIER": {
+      "allowed_next_handling": [
+        "stop build movement",
+        "return to exploration, compression, or certification of frontier burden",
+        "do not encode as settled move"
+      ],
+      "canonical_halt_code": "STOP_FRONTIER",
+      "halt_code": "STOP_FRONTIER",
+      "halt_family": "FRONTIER",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "implementation blockage",
+        "failure of the runner",
+        "proof that the frontier claim is false"
+      ],
+      "smallest_honest_meaning": "The next step would require frontier material not yet promoted or encoded.",
+      "source_layers_seen": [
+        "frontier"
+      ]
+    },
+    "STOP_GATE_FAIL": {
+      "allowed_next_handling": [
+        "report exact gate and evidence",
+        "repair smallest local cause if allowed",
+        "fork or halt if gate failure is semantic"
+      ],
+      "canonical_halt_code": "STOP_GATE_FAIL",
+      "halt_code": "STOP_GATE_FAIL",
+      "halt_family": "GATE",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "global falsification",
+        "proof failure",
+        "permission to continue anyway"
+      ],
+      "smallest_honest_meaning": "A declared acceptance gate failed.",
+      "source_layers_seen": [
+        "proceed_adapter.v0",
+        "mlblock"
+      ]
+    },
+    "STOP_LAYER_COLLAPSE": {
+      "allowed_next_handling": [
+        "split object by layer",
+        "factor unit by layer",
+        "retry only after layer boundary is explicit"
+      ],
+      "canonical_halt_code": "STOP_LAYER_COLLAPSE",
+      "halt_code": "STOP_LAYER_COLLAPSE",
+      "halt_family": "LAYERING",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "useful compression",
+        "valid bridge",
+        "theorem-side result"
+      ],
+      "smallest_honest_meaning": "The step is mixing theorem, interface, outer engine, shell, receipt, authority, or frontier roles.",
+      "source_layers_seen": [
+        "typed_labeling",
+        "proceed_adapter.v0"
+      ]
+    },
+    "STOP_NEEDS_EXTRACTION": {
+      "allowed_next_handling": [
+        "run bounded extraction pass",
+        "declare extraction input/output surface",
+        "stop if extraction would require undeclared authority"
+      ],
+      "canonical_halt_code": "STOP_NEEDS_EXTRACTION",
+      "halt_code": "STOP_NEEDS_EXTRACTION",
+      "halt_family": "EXTRACTION_PRESSURE",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "authority violation by itself",
+        "frontier impossibility",
+        "permission to infer missing material"
+      ],
+      "smallest_honest_meaning": "The next lawful step requires bounded extraction material not currently available as declared input.",
+      "source_layers_seen": [
+        "extraction",
+        "proceed_adapter.v0"
+      ]
+    },
+    "STOP_NEEDS_NEW_MOVE": {
+      "allowed_next_handling": [
+        "draft smallest missing move",
+        "include applies_when, action, emitted readout, and halt behavior",
+        "submit for review before registry acceptance"
+      ],
+      "canonical_halt_code": "STOP_NEEDS_NEW_MOVE",
+      "halt_code": "STOP_NEEDS_NEW_MOVE",
+      "halt_family": "TAXONOMY_PRESSURE",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "permission to add a large subsystem",
+        "permission to self-authorize",
+        "proof that the missing move is valid"
+      ],
+      "smallest_honest_meaning": "Continuation requires a lawful move not currently present in the move registry.",
+      "source_layers_seen": [
+        "proceed_adapter.v0",
+        "move_registry"
+      ]
+    },
+    "STOP_NEXT_MOVE_BOUNDARY": {
+      "allowed_next_handling": [
+        "name the next unit explicitly",
+        "freeze current readout if useful",
+        "run proceed again only after the next unit is declared"
+      ],
+      "canonical_halt_code": "STOP_NEXT_MOVE_BOUNDARY",
+      "halt_code": "STOP_NEXT_MOVE_BOUNDARY",
+      "halt_family": "PROCEED_MODE",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "failure",
+        "uncertainty",
+        "blocked state",
+        "proof closure"
+      ],
+      "smallest_honest_meaning": "The current unit is complete, but the next action is a separate move or unit.",
+      "source_layers_seen": [
+        "proceed_adapter.v0"
+      ]
+    },
+    "STOP_NO_APPLICABLE_MOVE": {
+      "allowed_next_handling": [
+        "check whether this is a unit boundary",
+        "check whether the object is under-typed",
+        "record missing-move pressure only if forced",
+        "propose smallest missing move only in a later reviewed unit"
+      ],
+      "canonical_halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "halt_family": "BASE_RUNNER",
+      "legacy_aliases": [
+        "NO_APPLICABLE_MOVE"
+      ],
+      "must_not_impersonate": [
+        "proof closure",
+        "engine completion",
+        "success",
+        "permission to invent a move"
+      ],
+      "smallest_honest_meaning": "The state is valid enough to inspect, but no registered applicable move is available under the declared surface.",
+      "source_layers_seen": [
+        "jurisdiction_runner.v0.2",
+        "proceed_adapter.v0"
+      ]
+    },
+    "STOP_PROJECTION_BUG": {
+      "allowed_next_handling": [
+        "fix projection calculation",
+        "verify readout against trace",
+        "rerun projection check"
+      ],
+      "canonical_halt_code": "STOP_PROJECTION_BUG",
+      "halt_code": "STOP_PROJECTION_BUG",
+      "halt_family": "PROJECTION",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "bad runner logic",
+        "theorem failure",
+        "invalid state"
+      ],
+      "smallest_honest_meaning": "The underlying state, trace, or receipt appears coherent, but the read-only projection misreports it.",
+      "source_layers_seen": [
+        "proceed_adapter.v0",
+        "readout_projection"
+      ]
+    },
+    "STOP_RECEIPT_MISMATCH": {
+      "allowed_next_handling": [
+        "repair receipt construction",
+        "inspect trace delta",
+        "halt for verifier design if mismatch is not local"
+      ],
+      "canonical_halt_code": "STOP_RECEIPT_MISMATCH",
+      "halt_code": "STOP_RECEIPT_MISMATCH",
+      "halt_family": "RECEIPT_TRACE",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "theorem failure",
+        "frontier obstruction",
+        "invalidity of the whole run"
+      ],
+      "smallest_honest_meaning": "The emitted receipt disagrees with the trace, final state, move list, proposal/ledger refs, or declared halt.",
+      "source_layers_seen": [
+        "trace_ledger",
+        "proceed_adapter.v0"
+      ]
+    },
+    "STOP_TAXONOMY_GAP": {
+      "allowed_next_handling": [
+        "invoke taxonomy upgrade rule later",
+        "test existing vocabulary first",
+        "propose smallest honest delta only if needed"
+      ],
+      "canonical_halt_code": "STOP_TAXONOMY_GAP",
+      "halt_code": "STOP_TAXONOMY_GAP",
+      "halt_family": "TAXONOMY_PRESSURE",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "permission to invent broad taxonomy",
+        "proof of a new object",
+        "automatic vocabulary expansion"
+      ],
+      "smallest_honest_meaning": "The system encountered a real stop shape that existing labels or halt terms cannot honestly classify.",
+      "source_layers_seen": [
+        "proceed_adapter.v0"
+      ]
+    },
+    "STOP_UNDERTYPED_OBJECT": {
+      "allowed_next_handling": [
+        "label, withhold, split, or factor object",
+        "record taxonomy pressure if current vocabulary cannot classify it",
+        "do not promote new label without review"
+      ],
+      "canonical_halt_code": "STOP_UNDERTYPED_OBJECT",
+      "halt_code": "STOP_UNDERTYPED_OBJECT",
+      "halt_family": "TAXONOMY_PRESSURE",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "permission to guess object kind",
+        "proof of new taxonomy",
+        "authority to promote labels"
+      ],
+      "smallest_honest_meaning": "A blocking object lacks enough type information to move honestly.",
+      "source_layers_seen": [
+        "proceed_adapter.v0",
+        "typed_labeling"
+      ]
+    },
+    "STOP_UNTYPED_UNIT": {
+      "allowed_next_handling": [
+        "type the unit before movement",
+        "declare unit scope and inputs",
+        "halt until unit schema is satisfied"
+      ],
+      "canonical_halt_code": "STOP_UNTYPED_UNIT",
+      "halt_code": "STOP_UNTYPED_UNIT",
+      "halt_family": "PROCEED_MODE",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "bad runner",
+        "missing theorem",
+        "permission to infer unit semantics"
+      ],
+      "smallest_honest_meaning": "The selected unit lacks required proceed-unit typing.",
+      "source_layers_seen": [
+        "proceed_adapter.v0"
+      ]
+    },
+    "STOP_VISIBLE_GOTCHA": {
+      "allowed_next_handling": [
+        "repair only if local and non-semantic",
+        "record visible_gotchas_fixed",
+        "halt if repair would touch source trace/receipt/ledger/runner/regime"
+      ],
+      "canonical_halt_code": "STOP_VISIBLE_GOTCHA",
+      "halt_code": "STOP_VISIBLE_GOTCHA",
+      "halt_family": "PROCEED_MODE",
+      "legacy_aliases": [],
+      "must_not_impersonate": [
+        "semantic failure",
+        "authority to widen architecture",
+        "proof obstruction"
+      ],
+      "smallest_honest_meaning": "A visible local artifact/readout gotcha blocks honest continuation.",
+      "source_layers_seen": [
+        "proceed_adapter.v0"
+      ]
+    }
+  },
+  "schema_version": "halt_vocabulary_v0",
+  "vocabulary_id": "44cad95b"
+}

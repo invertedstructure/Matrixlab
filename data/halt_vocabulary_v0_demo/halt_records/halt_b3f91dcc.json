@@ -1,0 +1,75 @@
+{
+  "allowed_next_handling": [
+    "name the next unit explicitly",
+    "freeze current readout if useful",
+    "run proceed again only after the next unit is declared"
+  ],
+  "authority_guards": {
+    "halt_as_proof_claimed": false,
+    "halt_as_truth_claimed": false,
+    "hidden_continuation_authorized": false,
+    "new_move_added": false,
+    "proposal_executed": false,
+    "proposal_promoted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "source_ledger_modified": false,
+    "source_receipt_modified": false,
+    "source_regime_modified": false,
+    "source_runner_modified": false,
+    "source_trace_modified": false,
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false
+  },
+  "canonical_halt_code": "STOP_NEXT_MOVE_BOUNDARY",
+  "created_at": "2026-06-22T12:45:53.539717+00:00",
+  "halt_code": "STOP_NEXT_MOVE_BOUNDARY",
+  "halt_family": "PROCEED_MODE",
+  "halt_record_id": "halt_b3f91dcc",
+  "must_not_impersonate": [
+    "failure",
+    "uncertainty",
+    "blocked state",
+    "proof closure"
+  ],
+  "observed_pressure": {
+    "expected": "current unit has completed and no next unit has been declared inside the same unit",
+    "observed": "terminal boundary requires explicit next unit declaration"
+  },
+  "record_path": "data/halt_vocabulary_v0_demo/halt_records/halt_b3f91dcc.json",
+  "run_id": "day3_demo_demo_clean_next_boundary",
+  "schema_version": "halt_record_v0",
+  "smallest_honest_meaning": "The current unit is complete, but the next action is a separate move or unit.",
+  "source_ledger_ref": {
+    "ledger_id": "7fe12905",
+    "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/7fe12905.json"
+  },
+  "source_readout_ref": {
+    "readout_id": "8e700878",
+    "readout_path": "data/proceed_adapter_v0_demo_readouts/8e700878.json"
+  },
+  "source_receipt_ref": {
+    "receipt_id": "201f2d8f",
+    "receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/201f2d8f.json"
+  },
+  "source_trace_ref": {
+    "trace_id": "1c1e2bc9",
+    "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/1c1e2bc9.json"
+  },
+  "step_index": 0,
+  "taxonomy_pressure": {
+    "status": "NONE",
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false
+  },
+  "terminal_result": {
+    "halt_record_ref": {
+      "halt_record_id": "halt_b3f91dcc",
+      "halt_record_path": "data/halt_vocabulary_v0_demo/halt_records/halt_b3f91dcc.json"
+    },
+    "stop_code": "STOP_NEXT_MOVE_BOUNDARY",
+    "type": "STOP"
+  },
+  "unit_id": "halt_vocabulary.v0"
+}

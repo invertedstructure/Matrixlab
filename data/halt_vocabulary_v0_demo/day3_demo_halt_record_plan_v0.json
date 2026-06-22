@@ -1,0 +1,25 @@
+{
+  "demo_cases": {
+    "DEMO_CLEAN_NEXT_BOUNDARY": {
+      "halt_code": "STOP_NEXT_MOVE_BOUNDARY",
+      "meaning_check": "not failure; current unit complete; declare next unit"
+    },
+    "DEMO_NO_APPLICABLE_MOVE": {
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "legacy_aliases_tested": [
+        "NO_APPLICABLE_MOVE"
+      ],
+      "meaning_check": "valid state has no registered applicable move; not proof closure"
+    },
+    "DEMO_PROJECTION_BUG": {
+      "halt_code": "STOP_PROJECTION_BUG",
+      "meaning_check": "state/trace may be coherent; projection misreported it"
+    },
+    "DEMO_TAXONOMY_GAP": {
+      "halt_code": "STOP_TAXONOMY_GAP",
+      "meaning_check": "dictionary failed honestly; no runtime vocabulary promotion",
+      "taxonomy_pressure_status": "RECORDED_ONLY"
+    }
+  },
+  "schema_version": "day3_demo_halt_record_plan_v0"
+}

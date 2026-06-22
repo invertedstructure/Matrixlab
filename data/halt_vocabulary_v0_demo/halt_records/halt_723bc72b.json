@@ -1,0 +1,74 @@
+{
+  "allowed_next_handling": [
+    "fix projection calculation",
+    "verify readout against trace",
+    "rerun projection check"
+  ],
+  "authority_guards": {
+    "halt_as_proof_claimed": false,
+    "halt_as_truth_claimed": false,
+    "hidden_continuation_authorized": false,
+    "new_move_added": false,
+    "proposal_executed": false,
+    "proposal_promoted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "source_ledger_modified": false,
+    "source_receipt_modified": false,
+    "source_regime_modified": false,
+    "source_runner_modified": false,
+    "source_trace_modified": false,
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false
+  },
+  "canonical_halt_code": "STOP_PROJECTION_BUG",
+  "created_at": "2026-06-22T12:45:53.540079+00:00",
+  "halt_code": "STOP_PROJECTION_BUG",
+  "halt_family": "PROJECTION",
+  "halt_record_id": "halt_723bc72b",
+  "must_not_impersonate": [
+    "bad runner logic",
+    "theorem failure",
+    "invalid state"
+  ],
+  "observed_pressure": {
+    "expected": "projection/readout agrees with trace evidence",
+    "observed": "demo projection reports a read-only mismatch while source trace/receipt/ledger remain untouched"
+  },
+  "record_path": "data/halt_vocabulary_v0_demo/halt_records/halt_723bc72b.json",
+  "run_id": "day3_demo_demo_projection_bug",
+  "schema_version": "halt_record_v0",
+  "smallest_honest_meaning": "The underlying state, trace, or receipt appears coherent, but the read-only projection misreports it.",
+  "source_ledger_ref": {
+    "ledger_id": "7fe12905",
+    "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/7fe12905.json"
+  },
+  "source_readout_ref": {
+    "readout_id": "fc290951",
+    "readout_path": "data/proceed_adapter_v0_demo_readouts/fc290951.json"
+  },
+  "source_receipt_ref": {
+    "receipt_id": "201f2d8f",
+    "receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/201f2d8f.json"
+  },
+  "source_trace_ref": {
+    "trace_id": "1c1e2bc9",
+    "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/1c1e2bc9.json"
+  },
+  "step_index": 0,
+  "taxonomy_pressure": {
+    "status": "NONE",
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false
+  },
+  "terminal_result": {
+    "halt_record_ref": {
+      "halt_record_id": "halt_723bc72b",
+      "halt_record_path": "data/halt_vocabulary_v0_demo/halt_records/halt_723bc72b.json"
+    },
+    "stop_code": "STOP_PROJECTION_BUG",
+    "type": "STOP"
+  },
+  "unit_id": "halt_vocabulary.v0"
+}
