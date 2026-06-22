@@ -1,0 +1,40 @@
+{
+  "may_authorize_authority_widening": false,
+  "may_authorize_optimization": false,
+  "may_authorize_taxonomy_upgrade": false,
+  "may_emit_build_command": false,
+  "packet_type": "QUESTION_PACKET_NOT_COMMAND",
+  "question_packet_id": "r250_fragmentation_question_packet_49fd2893",
+  "questions": [
+    {
+      "allowed_answers": [
+        "COARSEN_SIGNATURES",
+        "KEEP_FRAGMENTATION_AS_SIGNAL",
+        "NEED_MORE_EVIDENCE"
+      ],
+      "id": "Q1",
+      "question": "Should the next move coarsen pressure pattern signatures, or is one-event-per-pattern meaningful signal?"
+    },
+    {
+      "allowed_answers": [
+        "GROUP_BY_PARENT",
+        "GROUP_BY_SUBTYPE",
+        "GROUP_BY_MOVE_KIND",
+        "GROUP_BY_HALT_REASON",
+        "PROPOSE_SIGNATURE_LAYER"
+      ],
+      "id": "Q2",
+      "question": "Should pressure be grouped by parent pressure class, subtype, move_kind, halt_reason, or another reviewed signature level?"
+    },
+    {
+      "allowed_answers": [
+        "OPEN_PROPOSAL_FROM_PARENT_PRESSURE",
+        "BLOCK_PROPOSAL_DUE_TO_FRAGMENTATION",
+        "RUN_MORE_BATCH_EVIDENCE"
+      ],
+      "id": "Q3",
+      "question": "Is the 7/6/6/4 parent-pressure surface enough to open a proposal lane, or does fragmentation block proposal?"
+    }
+  ],
+  "reason": "Pressure is conserved but every pressure event has a unique pattern signature; there is no repeated dominant pressure pattern."
+}
