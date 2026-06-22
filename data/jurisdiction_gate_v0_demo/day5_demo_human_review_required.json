@@ -1,0 +1,203 @@
+{
+  "admissible_pre_auth_moves": [
+    "move_registry.add_candidate.v0"
+  ],
+  "authority_blocked_move_record": {
+    "admissibility_status": "ADMISSIBLE_PRE_AUTH",
+    "authority_verdict": "REQUIRES_HUMAN_REVIEW",
+    "authority_verdict_ref": "authority_verdict_c95a3371",
+    "block_reason": "HUMAN_REVIEW_REQUIRED",
+    "blocked_move_id": "authority_blocked_2e2c3b9d",
+    "halt_pressure": "STOP_HUMAN_REVIEW_REQUIRED",
+    "move_id": "move_registry.add_candidate.v0",
+    "must_not_impersonate": [
+      "move invalidity",
+      "taxonomy rejection",
+      "runner failure",
+      "proof failure"
+    ],
+    "proposal_ref": "proposal_0f90d9e6",
+    "review_request_ref": "review_8d7790f2",
+    "schema_version": "authority_blocked_move_record_v0"
+  },
+  "authority_checked_moves": [
+    {
+      "authority_verdict": "REQUIRES_HUMAN_REVIEW",
+      "authority_verdict_ref": "authority_verdict_c95a3371",
+      "move_id": "move_registry.add_candidate.v0"
+    }
+  ],
+  "authority_verdict_record": {
+    "allowed_effects": [
+      "human review request emit",
+      "proposal packet emit if applicable"
+    ],
+    "authority_verdict": "REQUIRES_HUMAN_REVIEW",
+    "authority_verdict_id": "authority_verdict_c95a3371",
+    "extraction_request_ref": null,
+    "forbidden_effects_checked": [
+      "registry mutation",
+      "taxonomy mutation",
+      "jurisdiction profile mutation",
+      "frontier promotion",
+      "hidden authority import",
+      "proposal self-approval",
+      "human silence authorization"
+    ],
+    "jurisdiction_profile_id": "jurisdiction_profile_v0",
+    "move_admissibility_status": "ADMISSIBLE_PRE_AUTH",
+    "move_id": "move_registry.add_candidate.v0",
+    "must_not_impersonate": [
+      "global authorization",
+      "future move authorization",
+      "theorem status",
+      "human approval",
+      "proof of correctness"
+    ],
+    "proposal_ref": "proposal_0f90d9e6",
+    "reason": "Move would mutate registry/taxonomy/jurisdiction or requires Carlos/human decision.",
+    "review_request_ref": "review_8d7790f2",
+    "run_id": "run_d8b05170",
+    "schema_version": "authority_verdict_record_v0",
+    "state_sig8": "7b47cbd9",
+    "terminal_if_not_authorized": {
+      "next_unit_id": null,
+      "stop_code": "STOP_HUMAN_REVIEW_REQUIRED",
+      "type": "STOP"
+    },
+    "unit_id": "IMPLEMENT_JURISDICTION_GATE_V0_WITH_DEMO_VERDICTS_V0"
+  },
+  "authorized_executable_moves": [],
+  "candidate_executed": false,
+  "candidate_registered": false,
+  "day6_taxonomy_evolution_implemented": false,
+  "demo_name": "DAY5_HUMAN_REVIEW_REQUIRED",
+  "extraction_request": null,
+  "failures": [],
+  "forbidden_softened_to_proposal": false,
+  "gate": "PASS",
+  "human_review_request": {
+    "authority_verdict": "REQUIRES_HUMAN_REVIEW",
+    "authorized_by_silence": false,
+    "decision_options": [
+      {
+        "meaning": "Authorize this exact move once under the declared unit.",
+        "option": "APPROVE"
+      },
+      {
+        "meaning": "Do not authorize this move.",
+        "option": "REJECT"
+      },
+      {
+        "meaning": "Keep proposal open but do not execute.",
+        "option": "DEFER"
+      },
+      {
+        "meaning": "Request a smaller proposal.",
+        "option": "NARROW"
+      },
+      {
+        "meaning": "Require extraction before review.",
+        "option": "REQUEST_EXTRACTION"
+      }
+    ],
+    "default_without_response": "NO_EXECUTION",
+    "move_executed": false,
+    "move_id": "move_registry.add_candidate.v0",
+    "must_not_impersonate": [
+      "system decision",
+      "automatic authorization",
+      "approval by silence"
+    ],
+    "question": "Should move_registry.add_candidate.v0 be authorized exactly once under the declared unit?",
+    "registry_mutated": false,
+    "review_request_id": "review_8d7790f2",
+    "schema_version": "human_review_request_v0",
+    "trigger_halt": "STOP_HUMAN_REVIEW_REQUIRED"
+  },
+  "human_silence_authorized": false,
+  "jurisdiction_profile_id": "jurisdiction_profile_v0",
+  "jurisdiction_profile_mutated": false,
+  "move_executed": false,
+  "proposal_accepted": false,
+  "proposal_executed": false,
+  "proposal_packet": {
+    "accepted": false,
+    "candidate_executed": false,
+    "candidate_registered": false,
+    "if_approved": {
+      "allowed_next_unit": "separate_reviewed_unit_required"
+    },
+    "if_rejected": {
+      "allowed_next_unit": "record_rejection_only"
+    },
+    "jurisdiction_profile_mutated": false,
+    "must_not_impersonate": [
+      "accepted delta",
+      "authorized execution",
+      "proof of correctness",
+      "registry mutation"
+    ],
+    "proposal_id": "proposal_0f90d9e6",
+    "proposal_type": "AUTHORITY_ESCALATION",
+    "proposed_action": {
+      "effect": "proposal artifact only",
+      "summary": "Describe requested move move_registry.add_candidate.v0 without executing it.",
+      "target": "move_registry.add_candidate.v0"
+    },
+    "registry_mutated": false,
+    "requested_decision": {
+      "decision_type": "HUMAN_REVIEW",
+      "options": [
+        "APPROVE",
+        "REJECT",
+        "DEFER",
+        "NARROW",
+        "REQUEST_EXTRACTION"
+      ]
+    },
+    "schema_version": "proposal_packet_v0",
+    "status": "PROPOSED_ONLY",
+    "taxonomy_mutated": false,
+    "trigger": {
+      "halt_code": "STOP_HUMAN_REVIEW_REQUIRED",
+      "move_id": "move_registry.add_candidate.v0",
+      "run_id": "run_d8b05170",
+      "unit_id": "IMPLEMENT_JURISDICTION_GATE_V0_WITH_DEMO_VERDICTS_V0"
+    },
+    "why_move_is_admissible": [
+      "move has explicit candidate shape",
+      "trigger halt/verdict is typed",
+      "proposal packet is bounded and record-only"
+    ],
+    "why_not_authorized": [
+      "current jurisdiction does not authorize execution",
+      "proposal cannot mutate registry, taxonomy, or jurisdiction profile"
+    ]
+  },
+  "proposal_status": "PROPOSED_ONLY",
+  "registry_mutated": false,
+  "review_default_without_response": "NO_EXECUTION",
+  "schema_version": "day5_demo_authority_verdict_run_v0",
+  "selected_from_authorized_executable_only": true,
+  "selected_move": null,
+  "selector_input": "authorized_executable_moves_only",
+  "source_policy_id": "57838400",
+  "taxonomy_mutated": false,
+  "terminal_result": {
+    "next_unit_id": null,
+    "stop_code": "STOP_HUMAN_REVIEW_REQUIRED",
+    "type": "STOP"
+  },
+  "trace_authority_context": {
+    "authority_verdict": "REQUIRES_HUMAN_REVIEW",
+    "authority_verdict_ref": "authority_verdict_c95a3371",
+    "authorized_executable_moves": [],
+    "human_review_request_ref": "review_8d7790f2",
+    "jurisdiction_profile_id": "jurisdiction_profile_v0",
+    "move_id": "move_registry.add_candidate.v0",
+    "proposal_packet_ref": "proposal_0f90d9e6",
+    "selector_input": "authorized_executable_moves_only",
+    "trace_entry_id": "trace_authority_7b47cbd9"
+  }
+}

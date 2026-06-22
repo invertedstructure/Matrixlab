@@ -1,0 +1,30 @@
+{
+  "anti_laundering_law": [
+    "FORBIDDEN is checked before proposal.",
+    "REQUIRES_HUMAN_REVIEW is checked before proposal when registry/taxonomy/jurisdiction mutation is involved.",
+    "A registry mutation cannot be laundered through proposal-only wording.",
+    "A forbidden move cannot be softened into human review unless reformulated through a separate lawful unit."
+  ],
+  "core_law": "A move may be locally admissible and still not authorized.",
+  "execution_rule": "Only AUTHORIZED_LOCAL moves may execute.",
+  "pseudocode": [
+    "If move uses forbidden input: FORBIDDEN",
+    "If move action is forbidden: FORBIDDEN",
+    "If move depends on unextracted code/proto/history behavior: REQUIRES_EXTRACTION",
+    "If move mutates registry, taxonomy, jurisdiction, or authority profile: REQUIRES_HUMAN_REVIEW",
+    "If move is proposal-only: REQUIRES_PROPOSAL",
+    "If move kind/layer/effects are inside authorized_local: AUTHORIZED_LOCAL",
+    "Else: STOP_AUTHORITY_BOUNDARY fallback"
+  ],
+  "purpose": "Separate admissible_pre_auth moves from authorized executable moves.",
+  "schema_version": "jurisdiction_gate_v0",
+  "selector_rule": "Selector may only choose from authorized_executable_moves.",
+  "verdict_order": [
+    "FORBIDDEN",
+    "REQUIRES_EXTRACTION",
+    "REQUIRES_HUMAN_REVIEW",
+    "REQUIRES_PROPOSAL",
+    "AUTHORIZED_LOCAL",
+    "STOP_AUTHORITY_BOUNDARY_FALLBACK"
+  ]
+}

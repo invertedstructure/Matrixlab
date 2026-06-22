@@ -1,0 +1,24 @@
+{
+  "meanings": {
+    "AUTHORIZED_LOCAL": "runner may execute the move inside the current local jurisdiction profile",
+    "FORBIDDEN": "move is outside current regime or violates forbidden input/action rule",
+    "REQUIRES_EXTRACTION": "move depends on material that must be lawfully extracted first",
+    "REQUIRES_HUMAN_REVIEW": "move is understandable but requires human approval before execution",
+    "REQUIRES_PROPOSAL": "runner may describe the move and emit a proposal packet, but may not execute it"
+  },
+  "schema_version": "jurisdiction_verdict_enum_v0",
+  "verdict_to_halt": {
+    "AUTHORIZED_LOCAL": null,
+    "FORBIDDEN": "STOP_FORBIDDEN_MOVE",
+    "REQUIRES_EXTRACTION": "STOP_NEEDS_EXTRACTION",
+    "REQUIRES_HUMAN_REVIEW": "STOP_HUMAN_REVIEW_REQUIRED",
+    "REQUIRES_PROPOSAL": "STOP_PROPOSAL_REQUIRED"
+  },
+  "verdicts": [
+    "AUTHORIZED_LOCAL",
+    "REQUIRES_PROPOSAL",
+    "REQUIRES_EXTRACTION",
+    "REQUIRES_HUMAN_REVIEW",
+    "FORBIDDEN"
+  ]
+}

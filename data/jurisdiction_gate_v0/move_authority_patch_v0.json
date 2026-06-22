@@ -1,0 +1,54 @@
+{
+  "add_field": {
+    "authority": {
+      "authority_tags": [
+        "<tag>"
+      ],
+      "forbidden_if": [
+        "requires_unregistered_input",
+        "would_modify_registry_without_review"
+      ],
+      "may_emit_proposal_if_denied": false,
+      "required_verdict": "AUTHORIZED_LOCAL|REQUIRES_PROPOSAL|REQUIRES_HUMAN_REVIEW",
+      "requires_human_review_if": []
+    }
+  },
+  "examples": {
+    "authorized_local": {
+      "authority_tags": [
+        "state_update",
+        "trace_append"
+      ],
+      "forbidden_if": [
+        "requires_unregistered_input",
+        "would_modify_registry"
+      ],
+      "may_emit_proposal_if_denied": false,
+      "required_verdict": "AUTHORIZED_LOCAL",
+      "requires_human_review_if": []
+    },
+    "proposal_only": {
+      "authority_tags": [
+        "proposal_emit_only"
+      ],
+      "execution_forbidden": true,
+      "may_emit_proposal_if_denied": true,
+      "must_not_mutate": [
+        "move_registry",
+        "taxonomy_registry",
+        "jurisdiction_profile"
+      ],
+      "required_verdict": "REQUIRES_PROPOSAL"
+    },
+    "registry_changing": {
+      "authority_tags": [
+        "registry_mutation"
+      ],
+      "execution_forbidden_without_review": true,
+      "may_emit_proposal_if_denied": true,
+      "required_verdict": "REQUIRES_HUMAN_REVIEW"
+    }
+  },
+  "patch_mode": "future_move_schema_patch_only_do_not_mutate_existing_move_registry",
+  "schema_version": "move_authority_patch_v0"
+}

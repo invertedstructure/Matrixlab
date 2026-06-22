@@ -1,0 +1,113 @@
+{
+  "example_profile": {
+    "authorized_local": {
+      "explicitly_authorized_demo_moves": [
+        "state.validate_shape.v0",
+        "regime.validate_shape.v0",
+        "moves.compute_applicable.v0",
+        "selector.choose_move.v0",
+        "receipt.emit_terminal.v0"
+      ],
+      "layers": [
+        "OUTER",
+        "MOVE_SPACE",
+        "RECEIPT_TRACE"
+      ],
+      "max_effect": [
+        "state_status_update",
+        "trace_append",
+        "receipt_emit",
+        "readout_emit",
+        "local_projection_repair"
+      ],
+      "move_kinds": [
+        "CONTROL_CHECK",
+        "CONTROL_INSPECT",
+        "CONTROL_SELECT",
+        "CONTROL_EMIT",
+        "LOCAL_REPAIR"
+      ],
+      "pre_authorized_domain_transforms": [
+        "unit.mark_complete.v0"
+      ]
+    },
+    "forbidden": {
+      "actions": [
+        "self_authorize_taxonomy_delta",
+        "self_modify_jurisdiction_profile",
+        "execute_unregistered_move",
+        "promote_frontier_claim",
+        "collapse_theorem_and_witness_layers"
+      ],
+      "inputs": [
+        "chat_memory_authority",
+        "latest_file_guessing",
+        "mtime_selection",
+        "ambient_workspace_inference",
+        "ui_state_authority",
+        "unregistered_move_execution"
+      ]
+    },
+    "jurisdiction_profile_id": "jurisdiction_profile_v0",
+    "proposal_allowed": {
+      "conditions": [
+        "triggered_by_typed_halt",
+        "candidate_move_not_registered",
+        "proposal_does_not_mutate_registry"
+      ],
+      "move_kinds": [
+        "PROPOSAL_ONLY",
+        "DOMAIN_TRANSFORM"
+      ]
+    },
+    "requires_extraction": {
+      "conditions": [
+        "depends_on_unclassified_code_behavior",
+        "depends_on_proto_history",
+        "depends_on_non_imported_implementation_detail"
+      ]
+    },
+    "requires_human_review": {
+      "conditions": [
+        "changes_registry",
+        "accepts_taxonomy_delta",
+        "widens_jurisdiction",
+        "executes_domain_transform_not_pre_authorized",
+        "promotes_frontier_to_active_build"
+      ]
+    },
+    "schema_version": "jurisdiction_profile_schema_v0",
+    "scope": {
+      "active_object": "runner_surface_v0",
+      "layer": "OUTER",
+      "mode": "BUILD",
+      "unit_id": "proceed.unit.execute_declared_runner_unit.v0"
+    }
+  },
+  "must_not_impersonate": [
+    "global governance",
+    "final autonomy profile",
+    "human approval",
+    "future authorization"
+  ],
+  "profile_is_local": true,
+  "relative_to": [
+    "current_state",
+    "current_unit",
+    "current_layer",
+    "current_mode",
+    "current_active_object",
+    "current_source_surface"
+  ],
+  "required_fields": [
+    "jurisdiction_profile_id",
+    "schema_version",
+    "scope",
+    "authorized_local",
+    "proposal_allowed",
+    "requires_extraction",
+    "requires_human_review",
+    "forbidden"
+  ],
+  "schema_version": "jurisdiction_profile_schema_v0"
+}

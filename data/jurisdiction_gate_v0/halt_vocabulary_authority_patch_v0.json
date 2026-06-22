@@ -1,0 +1,83 @@
+{
+  "adds_canonical_entries": {
+    "STOP_AUTHORITY_BOUNDARY": {
+      "allowed_next_handling": [
+        "emit authority verdict",
+        "emit proposal if allowed",
+        "request human review if required",
+        "narrow the move or jurisdiction profile explicitly"
+      ],
+      "canonical_halt_code": "STOP_AUTHORITY_BOUNDARY",
+      "halt_code": "STOP_AUTHORITY_BOUNDARY",
+      "halt_family": "AUTHORITY",
+      "must_not_impersonate": [
+        "move invalidity",
+        "proof failure",
+        "runner error",
+        "human rejection"
+      ],
+      "smallest_honest_meaning": "A move is admissible, but the current jurisdiction profile does not authorize execution inside this unit."
+    },
+    "STOP_FORBIDDEN_MOVE": {
+      "allowed_next_handling": [
+        "record forbidden verdict",
+        "do not execute",
+        "do not propose as currently shaped",
+        "reformulate only through a separate lawful unit"
+      ],
+      "canonical_halt_code": "STOP_FORBIDDEN_MOVE",
+      "halt_code": "STOP_FORBIDDEN_MOVE",
+      "halt_family": "AUTHORITY",
+      "must_not_impersonate": [
+        "temporary lack of confidence",
+        "ordinary missing move",
+        "human review request"
+      ],
+      "smallest_honest_meaning": "The move is outside the current regime or violates a forbidden action/input rule."
+    },
+    "STOP_HUMAN_REVIEW_REQUIRED": {
+      "allowed_next_handling": [
+        "emit human review request",
+        "list approve/reject/defer/narrow/request-extraction options",
+        "do not execute until approved"
+      ],
+      "canonical_halt_code": "STOP_HUMAN_REVIEW_REQUIRED",
+      "halt_code": "STOP_HUMAN_REVIEW_REQUIRED",
+      "halt_family": "AUTHORITY",
+      "must_not_impersonate": [
+        "failure",
+        "forbidden move",
+        "completed decision",
+        "self-authorization"
+      ],
+      "smallest_honest_meaning": "The move is understandable but requires human approval before execution."
+    },
+    "STOP_PROPOSAL_REQUIRED": {
+      "allowed_next_handling": [
+        "emit proposal packet",
+        "await review",
+        "defer",
+        "narrow proposal"
+      ],
+      "canonical_halt_code": "STOP_PROPOSAL_REQUIRED",
+      "halt_code": "STOP_PROPOSAL_REQUIRED",
+      "halt_family": "AUTHORITY",
+      "must_not_impersonate": [
+        "accepted move",
+        "authorized execution",
+        "taxonomy upgrade",
+        "registry mutation"
+      ],
+      "smallest_honest_meaning": "The next move may be proposed but may not execute under the current jurisdiction."
+    }
+  },
+  "non_goal": "This is a patch declaration, not taxonomy evolution runtime and not in-place mutation.",
+  "patch_mode": "future_halt_vocabulary_patch_only_do_not_mutate_existing_halt_vocabulary",
+  "patch_reason": "Day 5 jurisdiction pressure requires distinguishing ordinary authority boundaries from authority violations.",
+  "reuses_existing_entries": {
+    "STOP_AUTHORITY_VIOLATION": "reserved for actual authority violation, not ordinary jurisdiction boundary",
+    "STOP_NEEDS_EXTRACTION": "used for REQUIRES_EXTRACTION verdict"
+  },
+  "schema_version": "halt_vocabulary_authority_patch_v0",
+  "source_halt_vocabulary_implementation_receipt_id": "75eabbe2"
+}

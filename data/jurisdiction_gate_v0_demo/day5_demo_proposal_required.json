@@ -1,0 +1,164 @@
+{
+  "admissible_pre_auth_moves": [
+    "boundary.emit_next_unit.v0"
+  ],
+  "authority_blocked_move_record": {
+    "admissibility_status": "ADMISSIBLE_PRE_AUTH",
+    "authority_verdict": "REQUIRES_PROPOSAL",
+    "authority_verdict_ref": "authority_verdict_f51d05a8",
+    "block_reason": "PROPOSAL_ONLY",
+    "blocked_move_id": "authority_blocked_a161b75d",
+    "halt_pressure": "STOP_PROPOSAL_REQUIRED",
+    "move_id": "boundary.emit_next_unit.v0",
+    "must_not_impersonate": [
+      "move invalidity",
+      "taxonomy rejection",
+      "runner failure",
+      "proof failure"
+    ],
+    "proposal_ref": "proposal_f9e61061",
+    "review_request_ref": null,
+    "schema_version": "authority_blocked_move_record_v0"
+  },
+  "authority_checked_moves": [
+    {
+      "authority_verdict": "REQUIRES_PROPOSAL",
+      "authority_verdict_ref": "authority_verdict_f51d05a8",
+      "move_id": "boundary.emit_next_unit.v0"
+    }
+  ],
+  "authority_verdict_record": {
+    "allowed_effects": [
+      "proposal packet emit only"
+    ],
+    "authority_verdict": "REQUIRES_PROPOSAL",
+    "authority_verdict_id": "authority_verdict_f51d05a8",
+    "extraction_request_ref": null,
+    "forbidden_effects_checked": [
+      "registry mutation",
+      "taxonomy mutation",
+      "jurisdiction profile mutation",
+      "frontier promotion",
+      "hidden authority import",
+      "proposal self-approval",
+      "human silence authorization"
+    ],
+    "jurisdiction_profile_id": "jurisdiction_profile_v0",
+    "move_admissibility_status": "ADMISSIBLE_PRE_AUTH",
+    "move_id": "boundary.emit_next_unit.v0",
+    "must_not_impersonate": [
+      "global authorization",
+      "future move authorization",
+      "theorem status",
+      "human approval",
+      "proof of correctness"
+    ],
+    "proposal_ref": "proposal_f9e61061",
+    "reason": "Move may be described as proposal pressure, but may not execute under the current jurisdiction.",
+    "review_request_ref": null,
+    "run_id": "run_9db28814",
+    "schema_version": "authority_verdict_record_v0",
+    "state_sig8": "bcbf0b81",
+    "terminal_if_not_authorized": {
+      "next_unit_id": null,
+      "stop_code": "STOP_PROPOSAL_REQUIRED",
+      "type": "STOP"
+    },
+    "unit_id": "IMPLEMENT_JURISDICTION_GATE_V0_WITH_DEMO_VERDICTS_V0"
+  },
+  "authorized_executable_moves": [],
+  "candidate_executed": false,
+  "candidate_registered": false,
+  "day6_taxonomy_evolution_implemented": false,
+  "demo_name": "DAY5_PROPOSAL_REQUIRED",
+  "extraction_request": null,
+  "failures": [],
+  "forbidden_softened_to_proposal": false,
+  "gate": "PASS",
+  "human_review_request": null,
+  "human_silence_authorized": false,
+  "jurisdiction_profile_id": "jurisdiction_profile_v0",
+  "jurisdiction_profile_mutated": false,
+  "move_executed": false,
+  "proposal_accepted": false,
+  "proposal_executed": false,
+  "proposal_packet": {
+    "accepted": false,
+    "candidate_executed": false,
+    "candidate_registered": false,
+    "if_approved": {
+      "allowed_next_unit": "separate_reviewed_unit_required"
+    },
+    "if_rejected": {
+      "allowed_next_unit": "record_rejection_only"
+    },
+    "jurisdiction_profile_mutated": false,
+    "must_not_impersonate": [
+      "accepted delta",
+      "authorized execution",
+      "proof of correctness",
+      "registry mutation"
+    ],
+    "proposal_id": "proposal_f9e61061",
+    "proposal_type": "AUTHORITY_ESCALATION",
+    "proposed_action": {
+      "effect": "proposal artifact only",
+      "summary": "Describe requested move boundary.emit_next_unit.v0 without executing it.",
+      "target": "boundary.emit_next_unit.v0"
+    },
+    "registry_mutated": false,
+    "requested_decision": {
+      "decision_type": "HUMAN_REVIEW",
+      "options": [
+        "APPROVE",
+        "REJECT",
+        "DEFER",
+        "NARROW",
+        "REQUEST_EXTRACTION"
+      ]
+    },
+    "schema_version": "proposal_packet_v0",
+    "status": "PROPOSED_ONLY",
+    "taxonomy_mutated": false,
+    "trigger": {
+      "halt_code": "STOP_PROPOSAL_REQUIRED",
+      "move_id": "boundary.emit_next_unit.v0",
+      "run_id": "run_9db28814",
+      "unit_id": "IMPLEMENT_JURISDICTION_GATE_V0_WITH_DEMO_VERDICTS_V0"
+    },
+    "why_move_is_admissible": [
+      "move has explicit candidate shape",
+      "trigger halt/verdict is typed",
+      "proposal packet is bounded and record-only"
+    ],
+    "why_not_authorized": [
+      "current jurisdiction does not authorize execution",
+      "proposal cannot mutate registry, taxonomy, or jurisdiction profile"
+    ]
+  },
+  "proposal_status": "PROPOSED_ONLY",
+  "registry_mutated": false,
+  "review_default_without_response": null,
+  "schema_version": "day5_demo_authority_verdict_run_v0",
+  "selected_from_authorized_executable_only": true,
+  "selected_move": null,
+  "selector_input": "authorized_executable_moves_only",
+  "source_policy_id": "57838400",
+  "taxonomy_mutated": false,
+  "terminal_result": {
+    "next_unit_id": null,
+    "stop_code": "STOP_PROPOSAL_REQUIRED",
+    "type": "STOP"
+  },
+  "trace_authority_context": {
+    "authority_verdict": "REQUIRES_PROPOSAL",
+    "authority_verdict_ref": "authority_verdict_f51d05a8",
+    "authorized_executable_moves": [],
+    "human_review_request_ref": null,
+    "jurisdiction_profile_id": "jurisdiction_profile_v0",
+    "move_id": "boundary.emit_next_unit.v0",
+    "proposal_packet_ref": "proposal_f9e61061",
+    "selector_input": "authorized_executable_moves_only",
+    "trace_entry_id": "trace_authority_bcbf0b81"
+  }
+}

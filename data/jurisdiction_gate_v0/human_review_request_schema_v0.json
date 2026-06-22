@@ -1,0 +1,38 @@
+{
+  "core_law": "No response means no execution.",
+  "decision_options": [
+    {
+      "meaning": "Authorize this exact move once under the declared unit.",
+      "option": "APPROVE"
+    },
+    {
+      "meaning": "Do not authorize this move.",
+      "option": "REJECT"
+    },
+    {
+      "meaning": "Keep proposal open but do not execute.",
+      "option": "DEFER"
+    },
+    {
+      "meaning": "Request a smaller proposal.",
+      "option": "NARROW"
+    },
+    {
+      "meaning": "Require extraction before review.",
+      "option": "REQUEST_EXTRACTION"
+    }
+  ],
+  "default_without_response": "NO_EXECUTION",
+  "required_fields": [
+    "review_request_id",
+    "schema_version",
+    "trigger_halt",
+    "move_id",
+    "authority_verdict",
+    "question",
+    "decision_options",
+    "default_without_response",
+    "must_not_impersonate"
+  ],
+  "schema_version": "human_review_request_schema_v0"
+}

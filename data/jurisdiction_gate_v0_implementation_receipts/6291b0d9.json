@@ -1,0 +1,237 @@
+{
+  "acceptance_gate_results": {
+    "JGI0_source_policy_verified": true,
+    "JGI10_no_source_artifact_mutation": true,
+    "JGI1_core_artifacts_emitted": true,
+    "JGI2_all_five_verdict_demos_passed": true,
+    "JGI3_every_admissible_move_verdict_recorded": true,
+    "JGI4_selector_authorized_only": true,
+    "JGI5_proposal_required_proposed_only": true,
+    "JGI6_extraction_required_not_executed": true,
+    "JGI7_human_review_no_silence_authorization": true,
+    "JGI8_forbidden_not_executed_or_proposed": true,
+    "JGI9_no_registry_taxonomy_jurisdiction_mutation": true
+  },
+  "aggregate_metrics": {
+    "authority_blocked_move_record_count": 4,
+    "authority_verdict_record_count": 5,
+    "authorized_executable_move_count": 1,
+    "authorized_local_count": 1,
+    "day6_taxonomy_evolution_count": 0,
+    "demo_run_count": 5,
+    "extraction_request_emitted_count": 1,
+    "final_authority_claim_count": 0,
+    "forbidden_count": 1,
+    "forbidden_move_execution_count": 0,
+    "forbidden_move_proposal_count": 0,
+    "global_governance_claim_count": 0,
+    "hidden_continuation_count": 0,
+    "human_review_request_emitted_count": 1,
+    "human_silence_authorized_count": 0,
+    "jurisdiction_profile_mutation_count": 0,
+    "non_authorized_move_execution_count": 0,
+    "proof_claim_count": 0,
+    "proposal_accepted_count": 0,
+    "proposal_executed_count": 0,
+    "proposal_packet_emitted_count": 2,
+    "registry_mutation_count": 0,
+    "requires_extraction_count": 1,
+    "requires_extraction_execution_count": 0,
+    "requires_human_review_count": 1,
+    "requires_human_review_execution_count": 0,
+    "requires_proposal_count": 1,
+    "requires_proposal_execution_count": 0,
+    "selector_from_admissible_without_authority_count": 0,
+    "source_ledger_modified_count": 0,
+    "source_receipt_modified_count": 0,
+    "source_regime_modified_count": 0,
+    "source_runner_modified_count": 0,
+    "source_trace_modified_count": 0,
+    "sqlite_registry_write_count": 0,
+    "taxonomy_mutation_count": 0
+  },
+  "artifact_guards": {
+    "ambient_workspace_authority_used": false,
+    "latest_or_mtime_selection_used": false,
+    "outputs_path_addressed": true,
+    "policy_receipt_tracked": true,
+    "policy_tracked": true,
+    "source_halt_vocabulary_tracked": true,
+    "source_local_regime_tracked": true,
+    "source_move_registry_implementation_receipt_tracked": true,
+    "source_move_registry_tracked": true,
+    "source_proceed_receipt_tracked": true,
+    "source_proposal_ledger_schema_tracked": true,
+    "source_trace_ledger_receipt_tracked": true,
+    "source_trace_schema_tracked": true
+  },
+  "authority_guards": {
+    "authority_receipt_emitted": true,
+    "core_artifacts_emitted": true,
+    "day6_taxonomy_evolution_implemented": false,
+    "demo_verdicts_emitted": true,
+    "final_authority_claimed": false,
+    "forbidden_move_softened_to_proposal": false,
+    "global_governance_claimed": false,
+    "halt_vocabulary_authority_patch_emitted": true,
+    "hidden_continuation_authorized": false,
+    "human_silence_authorized": false,
+    "implementation_receipt_emitted": true,
+    "jurisdiction_profile_modified": false,
+    "proof_claimed": false,
+    "proposal_accepted": false,
+    "proposal_executed": false,
+    "registry_mutated": false,
+    "source_halt_vocabulary_modified": false,
+    "source_ledger_modified": false,
+    "source_local_regime_v1_modified": false,
+    "source_move_registry_modified": false,
+    "source_proceed_adapter_modified": false,
+    "source_receipt_modified": false,
+    "source_trace_ledger_runner_modified": false,
+    "source_trace_modified": false,
+    "sqlite_registry_read": false,
+    "sqlite_registry_written": false,
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false
+  },
+  "authority_receipt_summary": {
+    "authority": {
+      "authorized_executable_moves": [
+        "unit.mark_complete.v0"
+      ],
+      "extraction_requests_emitted": 1,
+      "forbidden_moves_count": 1,
+      "human_review_requests_emitted": 1,
+      "proposal_packets_emitted": 2
+    },
+    "receipt_id": "day5_authority_receipt_e5a1a214",
+    "verdict_counts": {
+      "AUTHORIZED_LOCAL": 1,
+      "FORBIDDEN": 1,
+      "REQUIRES_EXTRACTION": 1,
+      "REQUIRES_HUMAN_REVIEW": 1,
+      "REQUIRES_PROPOSAL": 1
+    }
+  },
+  "created_at": "2026-06-22T13:22:35.481818+00:00",
+  "demo_summaries": [
+    {
+      "authority_verdict": "AUTHORIZED_LOCAL",
+      "authorized_executable_moves": [
+        "unit.mark_complete.v0"
+      ],
+      "demo_name": "DAY5_AUTHORIZED_LOCAL_MOVE",
+      "move_executed": true,
+      "move_id": "unit.mark_complete.v0",
+      "proposal_status": null,
+      "review_default_without_response": null,
+      "terminal_result": {
+        "next_unit_id": "receipt.emit_terminal.v0",
+        "stop_code": null,
+        "type": "ADVANCE"
+      }
+    },
+    {
+      "authority_verdict": "REQUIRES_PROPOSAL",
+      "authorized_executable_moves": [],
+      "demo_name": "DAY5_PROPOSAL_REQUIRED",
+      "move_executed": false,
+      "move_id": "boundary.emit_next_unit.v0",
+      "proposal_status": "PROPOSED_ONLY",
+      "review_default_without_response": null,
+      "terminal_result": {
+        "next_unit_id": null,
+        "stop_code": "STOP_PROPOSAL_REQUIRED",
+        "type": "STOP"
+      }
+    },
+    {
+      "authority_verdict": "REQUIRES_EXTRACTION",
+      "authorized_executable_moves": [],
+      "demo_name": "DAY5_EXTRACTION_REQUIRED",
+      "move_executed": false,
+      "move_id": "proto.import_behavior.v0",
+      "proposal_status": null,
+      "review_default_without_response": null,
+      "terminal_result": {
+        "next_unit_id": null,
+        "stop_code": "STOP_NEEDS_EXTRACTION",
+        "type": "STOP"
+      }
+    },
+    {
+      "authority_verdict": "REQUIRES_HUMAN_REVIEW",
+      "authorized_executable_moves": [],
+      "demo_name": "DAY5_HUMAN_REVIEW_REQUIRED",
+      "move_executed": false,
+      "move_id": "move_registry.add_candidate.v0",
+      "proposal_status": "PROPOSED_ONLY",
+      "review_default_without_response": "NO_EXECUTION",
+      "terminal_result": {
+        "next_unit_id": null,
+        "stop_code": "STOP_HUMAN_REVIEW_REQUIRED",
+        "type": "STOP"
+      }
+    },
+    {
+      "authority_verdict": "FORBIDDEN",
+      "authorized_executable_moves": [],
+      "demo_name": "DAY5_FORBIDDEN_MOVE",
+      "move_executed": false,
+      "move_id": "execute_unregistered_move.v0",
+      "proposal_status": null,
+      "review_default_without_response": null,
+      "terminal_result": {
+        "next_unit_id": null,
+        "stop_code": "STOP_FORBIDDEN_MOVE",
+        "type": "STOP"
+      }
+    }
+  ],
+  "failures": [],
+  "gate": "PASS",
+  "output_artifacts": {
+    "authority_blocked_move_record_schema": "data/jurisdiction_gate_v0/authority_blocked_move_record_schema_v0.json",
+    "authority_verdict_record_schema": "data/jurisdiction_gate_v0/authority_verdict_record_schema_v0.json",
+    "day5_demo_authority_receipt": "data/jurisdiction_gate_v0_demo/day5_demo_authority_receipt.json",
+    "day5_demo_authorized_move": "data/jurisdiction_gate_v0_demo/day5_demo_authorized_move.json",
+    "day5_demo_extraction_required": "data/jurisdiction_gate_v0_demo/day5_demo_extraction_required.json",
+    "day5_demo_forbidden_move": "data/jurisdiction_gate_v0_demo/day5_demo_forbidden_move.json",
+    "day5_demo_human_review_required": "data/jurisdiction_gate_v0_demo/day5_demo_human_review_required.json",
+    "day5_demo_proposal_required": "data/jurisdiction_gate_v0_demo/day5_demo_proposal_required.json",
+    "halt_vocabulary_authority_patch": "data/jurisdiction_gate_v0/halt_vocabulary_authority_patch_v0.json",
+    "human_review_request_schema": "data/jurisdiction_gate_v0/human_review_request_schema_v0.json",
+    "jurisdiction_gate": "data/jurisdiction_gate_v0/jurisdiction_gate_v0.json",
+    "jurisdiction_profile_schema": "data/jurisdiction_gate_v0/jurisdiction_profile_schema_v0.json",
+    "jurisdiction_verdict_enum": "data/jurisdiction_gate_v0/jurisdiction_verdict_enum_v0.json",
+    "move_authority_patch": "data/jurisdiction_gate_v0/move_authority_patch_v0.json",
+    "move_inspection_authority_patch": "data/jurisdiction_gate_v0_patches/move_inspection_authority_patch_v0.json",
+    "proceed_readout_authority_patch": "data/jurisdiction_gate_v0_patches/proceed_readout_authority_patch_v0.json",
+    "proposal_packet_schema": "data/jurisdiction_gate_v0/proposal_packet_schema_v0.json",
+    "receipt_authority_patch": "data/jurisdiction_gate_v0_patches/receipt_authority_patch_v0.json",
+    "trace_authority_patch": "data/jurisdiction_gate_v0_patches/trace_authority_patch_v0.json"
+  },
+  "receipt_id": "6291b0d9",
+  "receipt_type": "JURISDICTION_GATE_V0_IMPLEMENTATION_RECEIPT",
+  "schema_version": "jurisdiction_gate_v0_implementation_receipt_v0",
+  "source_halt_vocabulary_implementation_receipt_id": "75eabbe2",
+  "source_jurisdiction_gate_policy_id": "57838400",
+  "source_jurisdiction_gate_policy_receipt_id": "993751b4",
+  "source_local_regime_hash": "25802530",
+  "source_move_registry_implementation_receipt_id": "bef08570",
+  "source_move_registry_policy_id": "34863965",
+  "source_move_registry_policy_receipt_id": "1264c091",
+  "source_proceed_adapter_implementation_receipt_id": "363d2f4a",
+  "source_proposal_ledger_schema_id": "eee2a318",
+  "source_trace_ledger_implementation_receipt_id": "cc24a11f",
+  "source_trace_schema_id": "b4887660",
+  "target_unit_id": "jurisdiction_gate.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  },
+  "unit_id": "IMPLEMENT_JURISDICTION_GATE_V0_WITH_DEMO_VERDICTS_V0",
+  "warnings": []
+}

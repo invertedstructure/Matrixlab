@@ -1,0 +1,130 @@
+{
+  "admissible_pre_auth_moves": [
+    "proto.import_behavior.v0"
+  ],
+  "authority_blocked_move_record": {
+    "admissibility_status": "ADMISSIBLE_PRE_AUTH",
+    "authority_verdict": "REQUIRES_EXTRACTION",
+    "authority_verdict_ref": "authority_verdict_0d0ea8d2",
+    "block_reason": "EXTRACTION_REQUIRED",
+    "blocked_move_id": "authority_blocked_4e8ff2a4",
+    "halt_pressure": "STOP_NEEDS_EXTRACTION",
+    "move_id": "proto.import_behavior.v0",
+    "must_not_impersonate": [
+      "move invalidity",
+      "taxonomy rejection",
+      "runner failure",
+      "proof failure"
+    ],
+    "proposal_ref": null,
+    "review_request_ref": null,
+    "schema_version": "authority_blocked_move_record_v0"
+  },
+  "authority_checked_moves": [
+    {
+      "authority_verdict": "REQUIRES_EXTRACTION",
+      "authority_verdict_ref": "authority_verdict_0d0ea8d2",
+      "move_id": "proto.import_behavior.v0"
+    }
+  ],
+  "authority_verdict_record": {
+    "allowed_effects": [
+      "authority verdict emit",
+      "extraction halt record"
+    ],
+    "authority_verdict": "REQUIRES_EXTRACTION",
+    "authority_verdict_id": "authority_verdict_0d0ea8d2",
+    "extraction_request_ref": "extraction_f5624458",
+    "forbidden_effects_checked": [
+      "registry mutation",
+      "taxonomy mutation",
+      "jurisdiction profile mutation",
+      "frontier promotion",
+      "hidden authority import",
+      "proposal self-approval",
+      "human silence authorization"
+    ],
+    "jurisdiction_profile_id": "jurisdiction_profile_v0",
+    "move_admissibility_status": "ADMISSIBLE_PRE_AUTH",
+    "move_id": "proto.import_behavior.v0",
+    "must_not_impersonate": [
+      "global authorization",
+      "future move authorization",
+      "theorem status",
+      "human approval",
+      "proof of correctness"
+    ],
+    "proposal_ref": null,
+    "reason": "Move depends on unextracted or unclassified implementation/proto behavior.",
+    "review_request_ref": null,
+    "run_id": "run_47924eb8",
+    "schema_version": "authority_verdict_record_v0",
+    "state_sig8": "d7e2c9e4",
+    "terminal_if_not_authorized": {
+      "next_unit_id": null,
+      "stop_code": "STOP_NEEDS_EXTRACTION",
+      "type": "STOP"
+    },
+    "unit_id": "IMPLEMENT_JURISDICTION_GATE_V0_WITH_DEMO_VERDICTS_V0"
+  },
+  "authorized_executable_moves": [],
+  "candidate_executed": false,
+  "candidate_registered": false,
+  "day6_taxonomy_evolution_implemented": false,
+  "demo_name": "DAY5_EXTRACTION_REQUIRED",
+  "extraction_request": {
+    "allowed_next_handling": [
+      "extract bounded source behavior in a separate unit",
+      "defer",
+      "reject as unnecessary"
+    ],
+    "authority_verdict": "REQUIRES_EXTRACTION",
+    "extraction_request_id": "extraction_f5624458",
+    "move_executed": false,
+    "move_id": "proto.import_behavior.v0",
+    "must_not_impersonate": [
+      "move invalidity",
+      "authorization denial",
+      "human rejection"
+    ],
+    "reason": "Move depends on unclassified or non-imported implementation/proto behavior.",
+    "schema_version": "extraction_request_v0",
+    "trigger_halt": "STOP_NEEDS_EXTRACTION"
+  },
+  "failures": [],
+  "forbidden_softened_to_proposal": false,
+  "gate": "PASS",
+  "human_review_request": null,
+  "human_silence_authorized": false,
+  "jurisdiction_profile_id": "jurisdiction_profile_v0",
+  "jurisdiction_profile_mutated": false,
+  "move_executed": false,
+  "proposal_accepted": false,
+  "proposal_executed": false,
+  "proposal_packet": null,
+  "proposal_status": null,
+  "registry_mutated": false,
+  "review_default_without_response": null,
+  "schema_version": "day5_demo_authority_verdict_run_v0",
+  "selected_from_authorized_executable_only": true,
+  "selected_move": null,
+  "selector_input": "authorized_executable_moves_only",
+  "source_policy_id": "57838400",
+  "taxonomy_mutated": false,
+  "terminal_result": {
+    "next_unit_id": null,
+    "stop_code": "STOP_NEEDS_EXTRACTION",
+    "type": "STOP"
+  },
+  "trace_authority_context": {
+    "authority_verdict": "REQUIRES_EXTRACTION",
+    "authority_verdict_ref": "authority_verdict_0d0ea8d2",
+    "authorized_executable_moves": [],
+    "human_review_request_ref": null,
+    "jurisdiction_profile_id": "jurisdiction_profile_v0",
+    "move_id": "proto.import_behavior.v0",
+    "proposal_packet_ref": null,
+    "selector_input": "authorized_executable_moves_only",
+    "trace_entry_id": "trace_authority_d7e2c9e4"
+  }
+}
