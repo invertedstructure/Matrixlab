@@ -1,0 +1,51 @@
+{
+  "classes": [
+    "FIXABLE_PRESSURE",
+    "HEALTHY_EXPECTED_PRESSURE",
+    "NOT_ENOUGH_EVIDENCE"
+  ],
+  "fixable_may_emit": [
+    "repair objective proposal"
+  ],
+  "fixable_must_not_emit": [
+    "repair command",
+    "source mutation",
+    "taxonomy upgrade",
+    "authority widening",
+    "optimization"
+  ],
+  "fixable_required_conditions": [
+    "specific operational cause exists",
+    "bounded repair scope exists",
+    "source evidence supports repair direction",
+    "repair can be tested by explicit gates",
+    "repair does not require taxonomy upgrade unless separately proposed",
+    "repair does not widen authority",
+    "repair does not rely on pressure label alone"
+  ],
+  "healthy_expected_conditions": [
+    "pressure represents expected halt",
+    "lawful authority boundary",
+    "expected human decision point",
+    "expected evidence requirement",
+    "non-actionable diagnostic signal"
+  ],
+  "not_enough_evidence_conditions": [
+    "fragments are insufficient",
+    "group mixes causes",
+    "pressure subtype is too vague",
+    "repair would require guessing",
+    "classification would require taxonomy or authority change",
+    "evidence fields are missing",
+    "operational cause is not inspectable yet"
+  ],
+  "not_enough_must_not_emit": [
+    "repair proposal"
+  ],
+  "priority": [
+    "NOT_ENOUGH_EVIDENCE",
+    "HEALTHY_EXPECTED_PRESSURE",
+    "FIXABLE_PRESSURE"
+  ],
+  "schema_version": "pressure_classification_schema_v0"
+}

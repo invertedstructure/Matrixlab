@@ -1,0 +1,467 @@
+{
+  "authority_widening_authorized": false,
+  "classifications": [
+    "FIXABLE_PRESSURE",
+    "HEALTHY_EXPECTED_PRESSURE",
+    "NOT_ENOUGH_EVIDENCE"
+  ],
+  "core_law": [
+    "Pressure does not authorize action.",
+    "Pressure authorizes inspection.",
+    "Inspection plus enough evidence authorizes classification.",
+    "Stable rank authorizes inspection order.",
+    "Stable rank does not authorize repair.",
+    "No repair is executed without an explicit repair unit.",
+    "No taxonomy upgrade, authority widening, optimization, or extraction repair is allowed from pressure alone."
+  ],
+  "evidence_sufficiency_classes": [
+    "EVIDENCE_SUFFICIENT_FOR_FIXABLE_CLASSIFICATION",
+    "EVIDENCE_SUFFICIENT_FOR_HEALTHY_CLASSIFICATION",
+    "EVIDENCE_INSUFFICIENT_NEEDS_MORE_FRAGMENTS",
+    "EVIDENCE_INSUFFICIENT_NEEDS_DEEPER_MEMBERSHIP",
+    "EVIDENCE_INSUFFICIENT_NEEDS_FIELD_EXTRACTION",
+    "EVIDENCE_INSUFFICIENT_NEEDS_TOP_TWO_COMPARISON",
+    "EVIDENCE_INSUFFICIENT_NEEDS_SCALE_BAND",
+    "EVIDENCE_BLOCKED_BY_AUTHORITY"
+  ],
+  "extraction_repair_authorized": false,
+  "first_application_target": {
+    "classification": "NOT_ENOUGH_EVIDENCE",
+    "halt_reason": "STOP_TAXONOMY_GAP",
+    "handling_state": "HANDLE_NOT_ENOUGH_EVIDENCE",
+    "must_not_repair_taxonomy": true,
+    "next_handling": [
+      "request_or_gather_more_evidence",
+      "repeat_inspection",
+      "classify_when_evidence_is_sufficient"
+    ],
+    "next_unit_id": "APPLY_PRESSURE_HANDLING_LOOP_TO_R1000_TOP_GROUP_TAXONOMY_GAP_V0",
+    "parent_pressure_class": "TAXONOMY_PRESSURE",
+    "pressure_subtype": "missing_label",
+    "source_top_group_classification_receipt_id": "7c9718e0",
+    "top_group_count": 25,
+    "top_group_key_hash": "38c604a1"
+  },
+  "human_decision": {
+    "decision": "BUILD_FIXED_LOCAL_PRESSURE_HANDLING_LOOP_PROTOCOL",
+    "loop_rule": "pressure_authorizes_inspection_not_action",
+    "not_authorized": [
+      "repair_execution",
+      "taxonomy_upgrade",
+      "authority_widening",
+      "burden_optimization",
+      "extraction_repair",
+      "ranked_protocol_global_adoption",
+      "next_group_auto_open",
+      "next_objective_without_supplied_objective_id"
+    ],
+    "rank_rule": "stable_rank_authorizes_inspection_order_not_repair",
+    "scope": "protocol_construction_only"
+  },
+  "must_not_infer": [
+    "protocol construction is not pressure handling yet",
+    "pressure does not authorize action",
+    "pressure authorizes inspection",
+    "inspection plus enough evidence authorizes classification",
+    "classification may emit proposal, skip, evidence request, next group recommendation, or proceed recommendation",
+    "classification does not execute repair",
+    "stable rank authorizes inspection order only",
+    "stable rank does not authorize repair",
+    "no taxonomy upgrade from pressure alone",
+    "no authority widening from pressure alone",
+    "no optimization from pressure alone",
+    "no extraction repair from pressure alone",
+    "no next objective without supplied objective id"
+  ],
+  "next_group_auto_opened": false,
+  "optimization_authorized": false,
+  "pressure_group_fields": [
+    "pressure_group_key_hash",
+    "pressure_lens_id",
+    "pressure_lens_fields",
+    "parent_pressure_class",
+    "pressure_subtype",
+    "halt_reason",
+    "group_count",
+    "group_share",
+    "rank",
+    "second_group_count",
+    "dominant_margin",
+    "dominant_margin_share",
+    "low_margin_warning",
+    "source_event_ids",
+    "source_receipt_refs",
+    "source_trace_refs",
+    "representative_fragment_refs",
+    "classification",
+    "evidence_sufficiency_class",
+    "handling_status",
+    "resolution_status"
+  ],
+  "ranked_protocol_globally_adopted": false,
+  "repair_executed": false,
+  "resolution_classes": [
+    "PRESSURE_GONE",
+    "PRESSURE_REDUCED",
+    "PRESSURE_UNCHANGED",
+    "PRESSURE_WORSENED",
+    "PRESSURE_SHIFTED"
+  ],
+  "review_only": false,
+  "schema_version": "pressure_handling_loop_protocol_v0",
+  "schemas": {
+    "classification_schema": "data/pressure_handling_loop_protocol_v0/pressure_classification_schema_v0.json",
+    "evidence_sufficiency_schema": "data/pressure_handling_loop_protocol_v0/pressure_evidence_sufficiency_schema_v0.json",
+    "group_schema": "data/pressure_handling_loop_protocol_v0/pressure_group_schema_v0.json",
+    "resolution_schema": "data/pressure_handling_loop_protocol_v0/pressure_resolution_schema_v0.json",
+    "state_schema": "data/pressure_handling_loop_protocol_v0/pressure_handling_state_schema_v0.json",
+    "transition_schema": "data/pressure_handling_loop_protocol_v0/pressure_handling_transition_schema_v0.json"
+  },
+  "source_mutation": false,
+  "states": [
+    "RUN_OBJECTIVE",
+    "DETECT_PRESSURE",
+    "SELECT_PRESSURE_GROUP",
+    "INSPECT_PRESSURE_GROUP",
+    "CHECK_EVIDENCE_SUFFICIENCY",
+    "CLASSIFY_PRESSURE_GROUP",
+    "HANDLE_FIXABLE_PRESSURE",
+    "HANDLE_HEALTHY_EXPECTED_PRESSURE",
+    "HANDLE_NOT_ENOUGH_EVIDENCE",
+    "RERUN_AFTER_HANDLING",
+    "CHECK_PRESSURE_RESOLUTION",
+    "MOVE_TO_NEXT_PRESSURE_GROUP",
+    "PROCEED_TO_NEXT_OBJECTIVE",
+    "STOP_HUMAN_DECISION_REQUIRED",
+    "STOP_GATE_FAIL",
+    "STOP_AUTHORITY_VIOLATION",
+    "STOP_RECEIPT_MISMATCH"
+  ],
+  "target_unit_id": "pressure_handling_loop_protocol.v0",
+  "taxonomy_upgrade_authorized": false,
+  "transitions": [
+    {
+      "condition": "no pressure",
+      "forbidden_outputs": [
+        "repair_command",
+        "taxonomy_upgrade",
+        "authority_widening"
+      ],
+      "from_state": "RUN_OBJECTIVE",
+      "required_outputs": [
+        "run_receipt",
+        "pressure_summary",
+        "terminal_state"
+      ],
+      "terminal_rule": "advance only if parent objective supplies next objective id",
+      "to_state": "PROCEED_TO_NEXT_OBJECTIVE"
+    },
+    {
+      "condition": "pressure found",
+      "forbidden_outputs": [
+        "repair_command"
+      ],
+      "from_state": "RUN_OBJECTIVE",
+      "required_outputs": [
+        "run_receipt",
+        "pressure_summary",
+        "terminal_state"
+      ],
+      "terminal_rule": "continue loop",
+      "to_state": "DETECT_PRESSURE"
+    },
+    {
+      "condition": "pressure groups exist",
+      "forbidden_outputs": [
+        "repair_command",
+        "objective_command"
+      ],
+      "from_state": "DETECT_PRESSURE",
+      "required_outputs": [
+        "pressure_found",
+        "pressure_group_count",
+        "pressure_group_profile",
+        "pressure_group_lens",
+        "pressure_group_rank_order",
+        "pressure_group_stability_status"
+      ],
+      "terminal_rule": "continue loop",
+      "to_state": "SELECT_PRESSURE_GROUP"
+    },
+    {
+      "condition": "no pressure groups",
+      "forbidden_outputs": [
+        "repair_command"
+      ],
+      "from_state": "DETECT_PRESSURE",
+      "required_outputs": [
+        "pressure_found:false",
+        "pressure_group_count:0"
+      ],
+      "terminal_rule": "advance only if parent objective supplies next objective id",
+      "to_state": "PROCEED_TO_NEXT_OBJECTIVE"
+    },
+    {
+      "condition": "actionable group exists",
+      "forbidden_outputs": [
+        "repair_command",
+        "repair_proposal"
+      ],
+      "from_state": "SELECT_PRESSURE_GROUP",
+      "required_outputs": [
+        "selected_pressure_group_key_hash",
+        "selection_rule",
+        "rank_order"
+      ],
+      "terminal_rule": "stable rank authorizes inspection order only",
+      "to_state": "INSPECT_PRESSURE_GROUP"
+    },
+    {
+      "condition": "membership and fragments extracted",
+      "forbidden_outputs": [
+        "repair_command"
+      ],
+      "from_state": "INSPECT_PRESSURE_GROUP",
+      "required_outputs": [
+        "pressure_group_selection",
+        "pressure_group_membership",
+        "pressure_group_representative_fragments",
+        "pressure_group_evidence_rollup"
+      ],
+      "terminal_rule": "continue loop",
+      "to_state": "CHECK_EVIDENCE_SUFFICIENCY"
+    },
+    {
+      "condition": "evidence sufficient",
+      "forbidden_outputs": [
+        "repair_command"
+      ],
+      "from_state": "CHECK_EVIDENCE_SUFFICIENCY",
+      "required_outputs": [
+        "evidence_sufficiency_class"
+      ],
+      "terminal_rule": "continue loop",
+      "to_state": "CLASSIFY_PRESSURE_GROUP"
+    },
+    {
+      "condition": "evidence insufficient",
+      "forbidden_outputs": [
+        "repair_proposal",
+        "repair_command"
+      ],
+      "from_state": "CHECK_EVIDENCE_SUFFICIENCY",
+      "required_outputs": [
+        "evidence_sufficiency_class",
+        "missing_evidence_reason"
+      ],
+      "terminal_rule": "STOP_HUMAN_DECISION_REQUIRED",
+      "to_state": "HANDLE_NOT_ENOUGH_EVIDENCE"
+    },
+    {
+      "condition": "FIXABLE_PRESSURE",
+      "forbidden_outputs": [
+        "repair_command"
+      ],
+      "from_state": "CLASSIFY_PRESSURE_GROUP",
+      "required_outputs": [
+        "classification_exactly_once",
+        "classification_reason"
+      ],
+      "terminal_rule": "continue loop",
+      "to_state": "HANDLE_FIXABLE_PRESSURE"
+    },
+    {
+      "condition": "HEALTHY_EXPECTED_PRESSURE",
+      "forbidden_outputs": [
+        "repair_proposal",
+        "repair_command"
+      ],
+      "from_state": "CLASSIFY_PRESSURE_GROUP",
+      "required_outputs": [
+        "classification_exactly_once",
+        "classification_reason"
+      ],
+      "terminal_rule": "continue loop",
+      "to_state": "HANDLE_HEALTHY_EXPECTED_PRESSURE"
+    },
+    {
+      "condition": "NOT_ENOUGH_EVIDENCE",
+      "forbidden_outputs": [
+        "repair_proposal",
+        "repair_command"
+      ],
+      "from_state": "CLASSIFY_PRESSURE_GROUP",
+      "required_outputs": [
+        "classification_exactly_once",
+        "classification_reason"
+      ],
+      "terminal_rule": "STOP_HUMAN_DECISION_REQUIRED",
+      "to_state": "HANDLE_NOT_ENOUGH_EVIDENCE"
+    },
+    {
+      "condition": "concrete bounded repair objective exists",
+      "forbidden_outputs": [
+        "repair_command",
+        "source_mutation"
+      ],
+      "from_state": "HANDLE_FIXABLE_PRESSURE",
+      "required_outputs": [
+        "repair_objective_id",
+        "repair_scope",
+        "source_pressure_group_key_hash",
+        "source_evidence_refs",
+        "files_or_modules_to_inspect",
+        "expected_acceptance_gates",
+        "forbidden_scope",
+        "terminal_rule"
+      ],
+      "terminal_rule": "human may authorize repair unit",
+      "to_state": "STOP_HUMAN_DECISION_REQUIRED"
+    },
+    {
+      "condition": "group accepted as healthy expected pressure",
+      "forbidden_outputs": [
+        "next_group_auto_open_without_permission",
+        "repair_command"
+      ],
+      "from_state": "HANDLE_HEALTHY_EXPECTED_PRESSURE",
+      "required_outputs": [
+        "accepted_pressure_group_key_hash",
+        "acceptance_reason",
+        "skip_recommendation",
+        "next_group_rank_to_inspect"
+      ],
+      "terminal_rule": "default STOP_HUMAN_DECISION_REQUIRED unless loop continuation explicitly permitted",
+      "to_state": "MOVE_TO_NEXT_PRESSURE_GROUP"
+    },
+    {
+      "condition": "missing evidence class emitted",
+      "forbidden_outputs": [
+        "repair_proposal",
+        "repair_command"
+      ],
+      "from_state": "HANDLE_NOT_ENOUGH_EVIDENCE",
+      "required_outputs": [
+        "evidence_request_id",
+        "source_pressure_group_key_hash",
+        "evidence_sufficiency_class",
+        "missing_evidence_reason",
+        "requested_artifacts",
+        "forbidden_scope",
+        "terminal_rule"
+      ],
+      "terminal_rule": "human may authorize evidence unit",
+      "to_state": "STOP_HUMAN_DECISION_REQUIRED"
+    },
+    {
+      "condition": "accepted repair, accepted skip, or evidence update completed",
+      "forbidden_outputs": [
+        "skip_resolution_check"
+      ],
+      "from_state": "RERUN_AFTER_HANDLING",
+      "required_outputs": [
+        "source_handling_receipt_id",
+        "rerun_receipt_id",
+        "same_lens_or_changed_lens",
+        "pressure_group_before",
+        "pressure_group_after",
+        "pressure_delta"
+      ],
+      "terminal_rule": "continue loop",
+      "to_state": "CHECK_PRESSURE_RESOLUTION"
+    },
+    {
+      "condition": "PRESSURE_GONE",
+      "forbidden_outputs": [
+        "repair_command"
+      ],
+      "from_state": "CHECK_PRESSURE_RESOLUTION",
+      "required_outputs": [
+        "resolution_class",
+        "pressure_delta"
+      ],
+      "terminal_rule": "continue loop",
+      "to_state": "MOVE_TO_NEXT_PRESSURE_GROUP"
+    },
+    {
+      "condition": "PRESSURE_REDUCED",
+      "forbidden_outputs": [
+        "automatic_repair"
+      ],
+      "from_state": "CHECK_PRESSURE_RESOLUTION",
+      "required_outputs": [
+        "resolution_class",
+        "pressure_delta",
+        "human_rule"
+      ],
+      "terminal_rule": "human rule decides continuation",
+      "to_state": "MOVE_TO_NEXT_PRESSURE_GROUP_OR_STOP_HUMAN_DECISION_REQUIRED"
+    },
+    {
+      "condition": "PRESSURE_UNCHANGED",
+      "forbidden_outputs": [
+        "pretend_resolved"
+      ],
+      "from_state": "CHECK_PRESSURE_RESOLUTION",
+      "required_outputs": [
+        "resolution_class",
+        "pressure_delta"
+      ],
+      "terminal_rule": "continue investigation",
+      "to_state": "INSPECT_PRESSURE_GROUP"
+    },
+    {
+      "condition": "PRESSURE_WORSENED",
+      "forbidden_outputs": [
+        "auto_continue"
+      ],
+      "from_state": "CHECK_PRESSURE_RESOLUTION",
+      "required_outputs": [
+        "resolution_class",
+        "pressure_delta"
+      ],
+      "terminal_rule": "STOP_HUMAN_DECISION_REQUIRED",
+      "to_state": "STOP_HUMAN_DECISION_REQUIRED"
+    },
+    {
+      "condition": "PRESSURE_SHIFTED",
+      "forbidden_outputs": [
+        "stale_group_selection"
+      ],
+      "from_state": "CHECK_PRESSURE_RESOLUTION",
+      "required_outputs": [
+        "resolution_class",
+        "pressure_delta"
+      ],
+      "terminal_rule": "redetect pressure",
+      "to_state": "DETECT_PRESSURE"
+    },
+    {
+      "condition": "another actionable group exists",
+      "forbidden_outputs": [
+        "auto_repair"
+      ],
+      "from_state": "MOVE_TO_NEXT_PRESSURE_GROUP",
+      "required_outputs": [
+        "next_actionable_group_key_hash"
+      ],
+      "terminal_rule": "only if loop continuation explicitly permitted",
+      "to_state": "SELECT_PRESSURE_GROUP"
+    },
+    {
+      "condition": "no actionable group exists",
+      "forbidden_outputs": [
+        "advance_without_next_objective_id"
+      ],
+      "from_state": "MOVE_TO_NEXT_PRESSURE_GROUP",
+      "required_outputs": [
+        "pressure_handling_complete:true",
+        "remaining_actionable_pressure_groups:0",
+        "next_objective_allowed:true"
+      ],
+      "terminal_rule": "ADVANCE only if parent objective runner supplies next objective id else STOP_HUMAN_DECISION_REQUIRED",
+      "to_state": "PROCEED_TO_NEXT_OBJECTIVE"
+    }
+  ],
+  "unit_id": "BUILD_PRESSURE_HANDLING_LOOP_PROTOCOL_V0"
+}

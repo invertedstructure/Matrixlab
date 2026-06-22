@@ -1,0 +1,37 @@
+{
+  "allowed_human_choices": [
+    "ADVANCE_TO_FIRST_APPLICATION_UNIT",
+    "REVIEW_PROTOCOL_BEFORE_APPLICATION",
+    "REJECT_PRESSURE_HANDLING_LOOP_PROTOCOL"
+  ],
+  "decision": "advance_to_first_application_unit",
+  "first_application_target": {
+    "classification": "NOT_ENOUGH_EVIDENCE",
+    "halt_reason": "STOP_TAXONOMY_GAP",
+    "handling_state": "HANDLE_NOT_ENOUGH_EVIDENCE",
+    "must_not_repair_taxonomy": true,
+    "next_handling": [
+      "request_or_gather_more_evidence",
+      "repeat_inspection",
+      "classify_when_evidence_is_sufficient"
+    ],
+    "next_unit_id": "APPLY_PRESSURE_HANDLING_LOOP_TO_R1000_TOP_GROUP_TAXONOMY_GAP_V0",
+    "parent_pressure_class": "TAXONOMY_PRESSURE",
+    "pressure_subtype": "missing_label",
+    "source_top_group_classification_receipt_id": "7c9718e0",
+    "top_group_count": 25,
+    "top_group_key_hash": "38c604a1"
+  },
+  "may_advance_without_next_unit_id": false,
+  "may_authorize_authority_widening": false,
+  "may_authorize_extraction_repair": false,
+  "may_authorize_optimization": false,
+  "may_authorize_taxonomy_upgrade": false,
+  "may_auto_open_next_group": false,
+  "may_emit_repair_command": false,
+  "may_execute_repair": false,
+  "next_unit_id": "APPLY_PRESSURE_HANDLING_LOOP_TO_R1000_TOP_GROUP_TAXONOMY_GAP_V0",
+  "packet_type": "PROTOCOL_BUILD_ADVANCE_PACKET",
+  "schema_version": "pressure_handling_loop_decision_packet_v0",
+  "source_unit_id": "BUILD_PRESSURE_HANDLING_LOOP_PROTOCOL_V0"
+}
