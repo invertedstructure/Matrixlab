@@ -1,0 +1,878 @@
+{
+  "acceptance_gates": {
+    "HVP0_source_surface_verified": {
+      "description": "Proceed adapter implementation and hardened trace-ledger runner surface are tracked and path-addressed.",
+      "required": true
+    },
+    "HVP1_vocabulary_entries_have_four_field_rule": {
+      "description": "Every halt entry has halt_code, smallest_honest_meaning, must_not_impersonate, and allowed_next_handling.",
+      "required": true
+    },
+    "HVP2_halt_record_schema_declared": {
+      "description": "halt_record_schema_v0 declares receipt-compatible halt record fields and source refs.",
+      "required": true
+    },
+    "HVP3_classifier_priority_declared": {
+      "description": "halt_classifier_priority_v0 is deterministic and not a smart classifier.",
+      "required": true
+    },
+    "HVP4_next_handling_table_declared": {
+      "description": "Every halt routes to lawful next handling.",
+      "required": true
+    },
+    "HVP5_alias_and_no_applicable_move_discipline": {
+      "description": "STOP_NO_APPLICABLE_MOVE is canonical; NO_APPLICABLE_MOVE is legacy alias only; it must not impersonate proof closure.",
+      "required": true
+    },
+    "HVP6_patch_artifacts_only_no_source_mutation": {
+      "description": "Runner/readout/trace halt patches are future-schema patches only; existing artifacts are not mutated.",
+      "required": true
+    },
+    "HVP7_taxonomy_record_only": {
+      "description": "STOP_TAXONOMY_GAP records pressure only and cannot accept/promote taxonomy delta.",
+      "required": true
+    }
+  },
+  "authority_guards": {
+    "demo_records_emitted_by_policy": false,
+    "final_schema_claimed": false,
+    "global_taxonomy_claimed": false,
+    "halt_as_proof_claimed": false,
+    "halt_as_truth_claimed": false,
+    "halt_vocabulary_policy_built": true,
+    "hidden_continuation_authorized": false,
+    "implementation_performed_by_policy": false,
+    "new_move_added": false,
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_promoted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "source_jurisdiction_runner_v0_2_modified": false,
+    "source_ledger_modified": false,
+    "source_local_regime_v1_modified": false,
+    "source_proceed_adapter_consumed": true,
+    "source_proceed_adapter_modified": false,
+    "source_receipt_modified": false,
+    "source_trace_ledger_runner_modified": false,
+    "source_trace_ledger_surface_consumed": true,
+    "source_trace_modified": false,
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false
+  },
+  "authorized_operations_next": {
+    "emit_day3_demo_halt_receipts": true,
+    "emit_day3_demo_halt_records": true,
+    "emit_implementation_receipt": true,
+    "read_halt_vocabulary_policy": true,
+    "read_halt_vocabulary_policy_receipt": true,
+    "write_day3_demo_halt_record_plan_artifact": true,
+    "write_halt_classifier_priority_artifact": true,
+    "write_halt_family_table_artifact": true,
+    "write_halt_record_schema_artifact": true,
+    "write_halt_to_next_handling_table_artifact": true,
+    "write_halt_vocabulary_artifact": true,
+    "write_proceed_readout_halt_patch_artifact": true,
+    "write_runner_receipt_halt_patch_artifact": true,
+    "write_trace_entry_halt_patch_artifact": true
+  },
+  "created_at": "2026-06-22T12:32:57.481887+00:00",
+  "day3_demo_halt_record_plan": {
+    "demo_cases": {
+      "DEMO_CLEAN_NEXT_BOUNDARY": {
+        "halt_code": "STOP_NEXT_MOVE_BOUNDARY",
+        "meaning_check": "not failure; current unit complete; declare next unit"
+      },
+      "DEMO_NO_APPLICABLE_MOVE": {
+        "halt_code": "STOP_NO_APPLICABLE_MOVE",
+        "legacy_aliases_tested": [
+          "NO_APPLICABLE_MOVE"
+        ],
+        "meaning_check": "valid state has no registered applicable move; not proof closure"
+      },
+      "DEMO_PROJECTION_BUG": {
+        "halt_code": "STOP_PROJECTION_BUG",
+        "meaning_check": "state/trace may be coherent; projection misreported it"
+      },
+      "DEMO_TAXONOMY_GAP": {
+        "halt_code": "STOP_TAXONOMY_GAP",
+        "meaning_check": "dictionary failed honestly; no runtime vocabulary promotion",
+        "taxonomy_pressure_status": "RECORDED_ONLY"
+      }
+    },
+    "schema_version": "day3_demo_halt_record_plan_v0"
+  },
+  "failures": [],
+  "forbidden_operations_next": {
+    "accept_taxonomy_delta": true,
+    "add_new_move_automatically": true,
+    "ambient_workspace_authority": true,
+    "execute_or_apply_proposal": true,
+    "final_schema_claim": true,
+    "global_taxonomy_design": true,
+    "halt_as_proof_claim": true,
+    "halt_as_truth_claim": true,
+    "hidden_continuation_after_terminal": true,
+    "latest_or_mtime_selection": true,
+    "modify_local_regime_v1": true,
+    "modify_proceed_adapter_module": true,
+    "modify_trace_ledger_runner_module": true,
+    "mutate_existing_ledger_files": true,
+    "mutate_existing_proceed_readouts": true,
+    "mutate_existing_runner_receipts": true,
+    "mutate_existing_trace_files": true,
+    "promote_proposal_without_human_review": true,
+    "promote_taxonomy_delta": true,
+    "proof_claim": true,
+    "sqlite_registry_read": true,
+    "sqlite_registry_write": true
+  },
+  "gate": "PASS",
+  "halt_classifier_priority": {
+    "classifier_id": "halt_classifier.priority.v0",
+    "law": {
+      "advance_next_unit_id_is_not_a_halt": true,
+      "authority_and_layering_stop_before_local_repair": true,
+      "no_applicable_move_must_not_impersonate_closure": true,
+      "receipt_trace_mismatch_checked_before_projection_repair": true
+    },
+    "mode": "deterministic_priority_table_not_smart_classifier",
+    "priority_order": [
+      "INVALID_STATE",
+      "INVALID_REGIME",
+      "STOP_AUTHORITY_VIOLATION",
+      "STOP_LAYER_COLLAPSE",
+      "STOP_RECEIPT_MISMATCH",
+      "STOP_PROJECTION_BUG",
+      "STOP_GATE_FAIL",
+      "STOP_UNTYPED_UNIT",
+      "STOP_UNDERTYPED_OBJECT",
+      "STOP_NEEDS_EXTRACTION",
+      "STOP_DEPENDENCY_MISSING",
+      "STOP_NEEDS_NEW_MOVE",
+      "STOP_TAXONOMY_GAP",
+      "STOP_FRONTIER",
+      "STOP_NO_APPLICABLE_MOVE",
+      "STOP_NEXT_MOVE_BOUNDARY",
+      "STOP_DONE"
+    ],
+    "schema_version": "halt_classifier_priority_v0"
+  },
+  "halt_family_table": {
+    "families": {
+      "AUTHORITY": "Stop caused by forbidden authority or undeclared input dependency.",
+      "BASE_RUNNER": "Mechanical runner stop or shape failure.",
+      "EXTRACTION_PRESSURE": "Stop caused by missing bounded extraction/dependency material.",
+      "FRONTIER": "Stop caused by frontier material not encoded/promoted.",
+      "GATE": "Stop caused by declared acceptance gate failure.",
+      "LAYERING": "Stop caused by collapsing object, layer, consumer, or authority roles.",
+      "PROCEED_MODE": "Proceed adapter unit-control stop.",
+      "PROJECTION": "Stop caused by read-only projection/readout misreporting coherent underlying trace/receipt.",
+      "RECEIPT_TRACE": "Stop caused by trace/receipt/readout disagreement.",
+      "TAXONOMY_PRESSURE": "Stop caused by inadequate or missing typed vocabulary/move surface; record-only in v0."
+    },
+    "mapping": {
+      "FIXTURE_LOAD_ERROR": "BASE_RUNNER",
+      "INVALID_REGIME": "BASE_RUNNER",
+      "INVALID_STATE": "BASE_RUNNER",
+      "REGIME_MISMATCH": "BASE_RUNNER",
+      "STEP_LIMIT_EXCEEDED": "BASE_RUNNER",
+      "STOP_AUTHORITY_VIOLATION": "AUTHORITY",
+      "STOP_DEPENDENCY_MISSING": "EXTRACTION_PRESSURE",
+      "STOP_DONE": "PROCEED_MODE",
+      "STOP_FRONTIER": "FRONTIER",
+      "STOP_GATE_FAIL": "GATE",
+      "STOP_LAYER_COLLAPSE": "LAYERING",
+      "STOP_NEEDS_EXTRACTION": "EXTRACTION_PRESSURE",
+      "STOP_NEEDS_NEW_MOVE": "TAXONOMY_PRESSURE",
+      "STOP_NEXT_MOVE_BOUNDARY": "PROCEED_MODE",
+      "STOP_NO_APPLICABLE_MOVE": "BASE_RUNNER",
+      "STOP_PROJECTION_BUG": "PROJECTION",
+      "STOP_RECEIPT_MISMATCH": "RECEIPT_TRACE",
+      "STOP_TAXONOMY_GAP": "TAXONOMY_PRESSURE",
+      "STOP_UNDERTYPED_OBJECT": "TAXONOMY_PRESSURE",
+      "STOP_UNTYPED_UNIT": "PROCEED_MODE",
+      "STOP_VISIBLE_GOTCHA": "PROCEED_MODE"
+    },
+    "schema_version": "halt_family_table_v0"
+  },
+  "halt_record_schema": {
+    "required_fields": [
+      "halt_record_id",
+      "run_id",
+      "unit_id",
+      "step_index",
+      "halt_code",
+      "canonical_halt_code",
+      "halt_family",
+      "smallest_honest_meaning",
+      "must_not_impersonate",
+      "observed_pressure",
+      "allowed_next_handling",
+      "source_readout_ref",
+      "source_trace_ref",
+      "source_receipt_ref",
+      "source_ledger_ref",
+      "terminal_result"
+    ],
+    "schema_version": "halt_record_schema_v0",
+    "terminal_law": {
+      "advance_is_not_a_halt": true,
+      "halt_terminal_must_be_STOP": true,
+      "stop_code_must_equal_canonical_halt_code": true
+    }
+  },
+  "halt_to_next_handling_table": {
+    "routes": {
+      "FIXTURE_LOAD_ERROR": [
+        "repair fixture path or syntax",
+        "redeclare fixture input",
+        "halt until fixture is path-addressed"
+      ],
+      "INVALID_REGIME": [
+        "inspect regime schema mismatch",
+        "restore declared regime artifact",
+        "stop for regime correction if not local"
+      ],
+      "INVALID_STATE": [
+        "inspect state validation error",
+        "repair fixture or state shape only if local",
+        "otherwise stop for state-schema correction"
+      ],
+      "REGIME_MISMATCH": [
+        "verify declared regime hash",
+        "redeclare source surface",
+        "halt for regime compatibility decision"
+      ],
+      "STEP_LIMIT_EXCEEDED": [
+        "inspect trace prefix",
+        "lower or raise limit only by declared policy",
+        "halt for bounded-run design if limit is structural"
+      ],
+      "STOP_AUTHORITY_VIOLATION": [
+        "return to declared source surface",
+        "use pointer or fixture discipline",
+        "redeclare allowed inputs"
+      ],
+      "STOP_DEPENDENCY_MISSING": [
+        "restore declared artifact",
+        "redeclare allowed input",
+        "stop until dependency is path-addressed"
+      ],
+      "STOP_DONE": [
+        "freeze current artifact if useful",
+        "declare next unit explicitly",
+        "stop if no next objective is declared"
+      ],
+      "STOP_FRONTIER": [
+        "stop build movement",
+        "return to exploration, compression, or certification of frontier burden",
+        "do not encode as settled move"
+      ],
+      "STOP_GATE_FAIL": [
+        "report exact gate and evidence",
+        "repair smallest local cause if allowed",
+        "fork or halt if gate failure is semantic"
+      ],
+      "STOP_LAYER_COLLAPSE": [
+        "split object by layer",
+        "factor unit by layer",
+        "retry only after layer boundary is explicit"
+      ],
+      "STOP_NEEDS_EXTRACTION": [
+        "run bounded extraction pass",
+        "declare extraction input/output surface",
+        "stop if extraction would require undeclared authority"
+      ],
+      "STOP_NEEDS_NEW_MOVE": [
+        "draft smallest missing move",
+        "include applies_when, action, emitted readout, and halt behavior",
+        "submit for review before registry acceptance"
+      ],
+      "STOP_NEXT_MOVE_BOUNDARY": [
+        "name the next unit explicitly",
+        "freeze current readout if useful",
+        "run proceed again only after the next unit is declared"
+      ],
+      "STOP_NO_APPLICABLE_MOVE": [
+        "check whether this is a unit boundary",
+        "check whether the object is under-typed",
+        "record missing-move pressure only if forced",
+        "propose smallest missing move only in a later reviewed unit"
+      ],
+      "STOP_PROJECTION_BUG": [
+        "fix projection calculation",
+        "verify readout against trace",
+        "rerun projection check"
+      ],
+      "STOP_RECEIPT_MISMATCH": [
+        "repair receipt construction",
+        "inspect trace delta",
+        "halt for verifier design if mismatch is not local"
+      ],
+      "STOP_TAXONOMY_GAP": [
+        "invoke taxonomy upgrade rule later",
+        "test existing vocabulary first",
+        "propose smallest honest delta only if needed"
+      ],
+      "STOP_UNDERTYPED_OBJECT": [
+        "label, withhold, split, or factor object",
+        "record taxonomy pressure if current vocabulary cannot classify it",
+        "do not promote new label without review"
+      ],
+      "STOP_UNTYPED_UNIT": [
+        "type the unit before movement",
+        "declare unit scope and inputs",
+        "halt until unit schema is satisfied"
+      ],
+      "STOP_VISIBLE_GOTCHA": [
+        "repair only if local and non-semantic",
+        "record visible_gotchas_fixed",
+        "halt if repair would touch source trace/receipt/ledger/runner/regime"
+      ]
+    },
+    "schema_version": "halt_to_next_handling_table_v0"
+  },
+  "halt_vocabulary": {
+    "alias_policy": {
+      "canonical_stop_no_applicable_move": "STOP_NO_APPLICABLE_MOVE",
+      "legacy_aliases": {
+        "NO_APPLICABLE_MOVE": "STOP_NO_APPLICABLE_MOVE"
+      },
+      "typed_state_ready_is_status_not_halt": true
+    },
+    "canonical_entry_count": 21,
+    "entries": {
+      "FIXTURE_LOAD_ERROR": {
+        "allowed_next_handling": [
+          "repair fixture path or syntax",
+          "redeclare fixture input",
+          "halt until fixture is path-addressed"
+        ],
+        "canonical_halt_code": "FIXTURE_LOAD_ERROR",
+        "halt_code": "FIXTURE_LOAD_ERROR",
+        "halt_family": "BASE_RUNNER",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "bad theorem",
+          "invalid runner",
+          "authority to infer a replacement fixture"
+        ],
+        "smallest_honest_meaning": "A declared fixture could not be loaded or parsed.",
+        "source_layers_seen": [
+          "fixture"
+        ]
+      },
+      "INVALID_REGIME": {
+        "allowed_next_handling": [
+          "inspect regime schema mismatch",
+          "restore declared regime artifact",
+          "stop for regime correction if not local"
+        ],
+        "canonical_halt_code": "INVALID_REGIME",
+        "halt_code": "INVALID_REGIME",
+        "halt_family": "BASE_RUNNER",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "proof failure",
+          "runner impossibility",
+          "permission to silently repair the regime"
+        ],
+        "smallest_honest_meaning": "The declared regime is absent, malformed, or incompatible with the current unit.",
+        "source_layers_seen": [
+          "base_runner",
+          "local_regime"
+        ]
+      },
+      "INVALID_STATE": {
+        "allowed_next_handling": [
+          "inspect state validation error",
+          "repair fixture or state shape only if local",
+          "otherwise stop for state-schema correction"
+        ],
+        "canonical_halt_code": "INVALID_STATE",
+        "halt_code": "INVALID_STATE",
+        "halt_family": "BASE_RUNNER",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "mathematical contradiction",
+          "theorem failure",
+          "invalidity of the whole runner"
+        ],
+        "smallest_honest_meaning": "The state does not satisfy required local shape or validity checks.",
+        "source_layers_seen": [
+          "base_runner"
+        ]
+      },
+      "REGIME_MISMATCH": {
+        "allowed_next_handling": [
+          "verify declared regime hash",
+          "redeclare source surface",
+          "halt for regime compatibility decision"
+        ],
+        "canonical_halt_code": "REGIME_MISMATCH",
+        "halt_code": "REGIME_MISMATCH",
+        "halt_family": "BASE_RUNNER",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "global regime invalidity",
+          "permission to replace the regime",
+          "proof failure"
+        ],
+        "smallest_honest_meaning": "The current unit and declared local regime do not agree on required version/hash/scope.",
+        "source_layers_seen": [
+          "local_regime",
+          "runner"
+        ]
+      },
+      "STEP_LIMIT_EXCEEDED": {
+        "allowed_next_handling": [
+          "inspect trace prefix",
+          "lower or raise limit only by declared policy",
+          "halt for bounded-run design if limit is structural"
+        ],
+        "canonical_halt_code": "STEP_LIMIT_EXCEEDED",
+        "halt_code": "STEP_LIMIT_EXCEEDED",
+        "halt_family": "BASE_RUNNER",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "infinite loop proof",
+          "theorem obstruction",
+          "permission to continue without bound"
+        ],
+        "smallest_honest_meaning": "The runner hit the declared step limit before a clean terminal condition.",
+        "source_layers_seen": [
+          "base_runner"
+        ]
+      },
+      "STOP_AUTHORITY_VIOLATION": {
+        "allowed_next_handling": [
+          "return to declared source surface",
+          "use pointer or fixture discipline",
+          "redeclare allowed inputs"
+        ],
+        "canonical_halt_code": "STOP_AUTHORITY_VIOLATION",
+        "halt_code": "STOP_AUTHORITY_VIOLATION",
+        "halt_family": "AUTHORITY",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "ordinary uncertainty",
+          "local gotcha",
+          "missing implementation"
+        ],
+        "smallest_honest_meaning": "The next step would depend on memory, intent, latest files, ambient workspace state, UI state, or unregistered source material.",
+        "source_layers_seen": [
+          "proceed_adapter.v0",
+          "jurisdiction_runner"
+        ]
+      },
+      "STOP_DEPENDENCY_MISSING": {
+        "allowed_next_handling": [
+          "restore declared artifact",
+          "redeclare allowed input",
+          "stop until dependency is path-addressed"
+        ],
+        "canonical_halt_code": "STOP_DEPENDENCY_MISSING",
+        "halt_code": "STOP_DEPENDENCY_MISSING",
+        "halt_family": "EXTRACTION_PRESSURE",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "authority violation",
+          "proof failure",
+          "missing theory"
+        ],
+        "smallest_honest_meaning": "A declared required artifact or input was unavailable at its path-addressed location.",
+        "source_layers_seen": [
+          "mlblock",
+          "proceed_adapter.v0",
+          "jurisdiction_runner"
+        ]
+      },
+      "STOP_DONE": {
+        "allowed_next_handling": [
+          "freeze current artifact if useful",
+          "declare next unit explicitly",
+          "stop if no next objective is declared"
+        ],
+        "canonical_halt_code": "STOP_DONE",
+        "halt_code": "STOP_DONE",
+        "halt_family": "PROCEED_MODE",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "global completion",
+          "proof closure",
+          "permission to continue implicitly"
+        ],
+        "smallest_honest_meaning": "The current bounded unit completed cleanly.",
+        "source_layers_seen": [
+          "proceed_adapter.v0",
+          "jurisdiction_runner.v0.2.trace_ledger_hardened"
+        ]
+      },
+      "STOP_FRONTIER": {
+        "allowed_next_handling": [
+          "stop build movement",
+          "return to exploration, compression, or certification of frontier burden",
+          "do not encode as settled move"
+        ],
+        "canonical_halt_code": "STOP_FRONTIER",
+        "halt_code": "STOP_FRONTIER",
+        "halt_family": "FRONTIER",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "implementation blockage",
+          "failure of the runner",
+          "proof that the frontier claim is false"
+        ],
+        "smallest_honest_meaning": "The next step would require frontier material not yet promoted or encoded.",
+        "source_layers_seen": [
+          "frontier"
+        ]
+      },
+      "STOP_GATE_FAIL": {
+        "allowed_next_handling": [
+          "report exact gate and evidence",
+          "repair smallest local cause if allowed",
+          "fork or halt if gate failure is semantic"
+        ],
+        "canonical_halt_code": "STOP_GATE_FAIL",
+        "halt_code": "STOP_GATE_FAIL",
+        "halt_family": "GATE",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "global falsification",
+          "proof failure",
+          "permission to continue anyway"
+        ],
+        "smallest_honest_meaning": "A declared acceptance gate failed.",
+        "source_layers_seen": [
+          "proceed_adapter.v0",
+          "mlblock"
+        ]
+      },
+      "STOP_LAYER_COLLAPSE": {
+        "allowed_next_handling": [
+          "split object by layer",
+          "factor unit by layer",
+          "retry only after layer boundary is explicit"
+        ],
+        "canonical_halt_code": "STOP_LAYER_COLLAPSE",
+        "halt_code": "STOP_LAYER_COLLAPSE",
+        "halt_family": "LAYERING",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "useful compression",
+          "valid bridge",
+          "theorem-side result"
+        ],
+        "smallest_honest_meaning": "The step is mixing theorem, interface, outer engine, shell, receipt, authority, or frontier roles.",
+        "source_layers_seen": [
+          "typed_labeling",
+          "proceed_adapter.v0"
+        ]
+      },
+      "STOP_NEEDS_EXTRACTION": {
+        "allowed_next_handling": [
+          "run bounded extraction pass",
+          "declare extraction input/output surface",
+          "stop if extraction would require undeclared authority"
+        ],
+        "canonical_halt_code": "STOP_NEEDS_EXTRACTION",
+        "halt_code": "STOP_NEEDS_EXTRACTION",
+        "halt_family": "EXTRACTION_PRESSURE",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "authority violation by itself",
+          "frontier impossibility",
+          "permission to infer missing material"
+        ],
+        "smallest_honest_meaning": "The next lawful step requires bounded extraction material not currently available as declared input.",
+        "source_layers_seen": [
+          "extraction",
+          "proceed_adapter.v0"
+        ]
+      },
+      "STOP_NEEDS_NEW_MOVE": {
+        "allowed_next_handling": [
+          "draft smallest missing move",
+          "include applies_when, action, emitted readout, and halt behavior",
+          "submit for review before registry acceptance"
+        ],
+        "canonical_halt_code": "STOP_NEEDS_NEW_MOVE",
+        "halt_code": "STOP_NEEDS_NEW_MOVE",
+        "halt_family": "TAXONOMY_PRESSURE",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "permission to add a large subsystem",
+          "permission to self-authorize",
+          "proof that the missing move is valid"
+        ],
+        "smallest_honest_meaning": "Continuation requires a lawful move not currently present in the move registry.",
+        "source_layers_seen": [
+          "proceed_adapter.v0",
+          "move_registry"
+        ]
+      },
+      "STOP_NEXT_MOVE_BOUNDARY": {
+        "allowed_next_handling": [
+          "name the next unit explicitly",
+          "freeze current readout if useful",
+          "run proceed again only after the next unit is declared"
+        ],
+        "canonical_halt_code": "STOP_NEXT_MOVE_BOUNDARY",
+        "halt_code": "STOP_NEXT_MOVE_BOUNDARY",
+        "halt_family": "PROCEED_MODE",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "failure",
+          "uncertainty",
+          "blocked state",
+          "proof closure"
+        ],
+        "smallest_honest_meaning": "The current unit is complete, but the next action is a separate move or unit.",
+        "source_layers_seen": [
+          "proceed_adapter.v0"
+        ]
+      },
+      "STOP_NO_APPLICABLE_MOVE": {
+        "allowed_next_handling": [
+          "check whether this is a unit boundary",
+          "check whether the object is under-typed",
+          "record missing-move pressure only if forced",
+          "propose smallest missing move only in a later reviewed unit"
+        ],
+        "canonical_halt_code": "STOP_NO_APPLICABLE_MOVE",
+        "halt_code": "STOP_NO_APPLICABLE_MOVE",
+        "halt_family": "BASE_RUNNER",
+        "legacy_aliases": [
+          "NO_APPLICABLE_MOVE"
+        ],
+        "must_not_impersonate": [
+          "proof closure",
+          "engine completion",
+          "success",
+          "permission to invent a move"
+        ],
+        "smallest_honest_meaning": "The state is valid enough to inspect, but no registered applicable move is available under the declared surface.",
+        "source_layers_seen": [
+          "jurisdiction_runner.v0.2",
+          "proceed_adapter.v0"
+        ]
+      },
+      "STOP_PROJECTION_BUG": {
+        "allowed_next_handling": [
+          "fix projection calculation",
+          "verify readout against trace",
+          "rerun projection check"
+        ],
+        "canonical_halt_code": "STOP_PROJECTION_BUG",
+        "halt_code": "STOP_PROJECTION_BUG",
+        "halt_family": "PROJECTION",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "bad runner logic",
+          "theorem failure",
+          "invalid state"
+        ],
+        "smallest_honest_meaning": "The underlying state, trace, or receipt appears coherent, but the read-only projection misreports it.",
+        "source_layers_seen": [
+          "proceed_adapter.v0",
+          "readout_projection"
+        ]
+      },
+      "STOP_RECEIPT_MISMATCH": {
+        "allowed_next_handling": [
+          "repair receipt construction",
+          "inspect trace delta",
+          "halt for verifier design if mismatch is not local"
+        ],
+        "canonical_halt_code": "STOP_RECEIPT_MISMATCH",
+        "halt_code": "STOP_RECEIPT_MISMATCH",
+        "halt_family": "RECEIPT_TRACE",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "theorem failure",
+          "frontier obstruction",
+          "invalidity of the whole run"
+        ],
+        "smallest_honest_meaning": "The emitted receipt disagrees with the trace, final state, move list, proposal/ledger refs, or declared halt.",
+        "source_layers_seen": [
+          "trace_ledger",
+          "proceed_adapter.v0"
+        ]
+      },
+      "STOP_TAXONOMY_GAP": {
+        "allowed_next_handling": [
+          "invoke taxonomy upgrade rule later",
+          "test existing vocabulary first",
+          "propose smallest honest delta only if needed"
+        ],
+        "canonical_halt_code": "STOP_TAXONOMY_GAP",
+        "halt_code": "STOP_TAXONOMY_GAP",
+        "halt_family": "TAXONOMY_PRESSURE",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "permission to invent broad taxonomy",
+          "proof of a new object",
+          "automatic vocabulary expansion"
+        ],
+        "smallest_honest_meaning": "The system encountered a real stop shape that existing labels or halt terms cannot honestly classify.",
+        "source_layers_seen": [
+          "proceed_adapter.v0"
+        ]
+      },
+      "STOP_UNDERTYPED_OBJECT": {
+        "allowed_next_handling": [
+          "label, withhold, split, or factor object",
+          "record taxonomy pressure if current vocabulary cannot classify it",
+          "do not promote new label without review"
+        ],
+        "canonical_halt_code": "STOP_UNDERTYPED_OBJECT",
+        "halt_code": "STOP_UNDERTYPED_OBJECT",
+        "halt_family": "TAXONOMY_PRESSURE",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "permission to guess object kind",
+          "proof of new taxonomy",
+          "authority to promote labels"
+        ],
+        "smallest_honest_meaning": "A blocking object lacks enough type information to move honestly.",
+        "source_layers_seen": [
+          "proceed_adapter.v0",
+          "typed_labeling"
+        ]
+      },
+      "STOP_UNTYPED_UNIT": {
+        "allowed_next_handling": [
+          "type the unit before movement",
+          "declare unit scope and inputs",
+          "halt until unit schema is satisfied"
+        ],
+        "canonical_halt_code": "STOP_UNTYPED_UNIT",
+        "halt_code": "STOP_UNTYPED_UNIT",
+        "halt_family": "PROCEED_MODE",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "bad runner",
+          "missing theorem",
+          "permission to infer unit semantics"
+        ],
+        "smallest_honest_meaning": "The selected unit lacks required proceed-unit typing.",
+        "source_layers_seen": [
+          "proceed_adapter.v0"
+        ]
+      },
+      "STOP_VISIBLE_GOTCHA": {
+        "allowed_next_handling": [
+          "repair only if local and non-semantic",
+          "record visible_gotchas_fixed",
+          "halt if repair would touch source trace/receipt/ledger/runner/regime"
+        ],
+        "canonical_halt_code": "STOP_VISIBLE_GOTCHA",
+        "halt_code": "STOP_VISIBLE_GOTCHA",
+        "halt_family": "PROCEED_MODE",
+        "legacy_aliases": [],
+        "must_not_impersonate": [
+          "semantic failure",
+          "authority to widen architecture",
+          "proof obstruction"
+        ],
+        "smallest_honest_meaning": "A visible local artifact/readout gotcha blocks honest continuation.",
+        "source_layers_seen": [
+          "proceed_adapter.v0"
+        ]
+      }
+    },
+    "schema_version": "halt_vocabulary_v0",
+    "vocabulary_id": "44cad95b"
+  },
+  "policy_id": "0707a2d7",
+  "policy_receipt_id": "dc00a5cf",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "policy_summary": {
+    "core_law": "A halt is not failure by default, not proof by default, and not truth by default; it is typed control information.",
+    "four_field_rule": [
+      "halt_code",
+      "halt_family",
+      "smallest_honest_meaning",
+      "must_not_impersonate",
+      "allowed_next_handling"
+    ],
+    "non_goal": "no taxonomy evolution, no automatic move addition, no proof claim, no mutation of source artifacts",
+    "purpose": "Make every terminal stop typed, auditable, anti-impersonating, and next-handling-aware."
+  },
+  "policy_type": "HALT_VOCABULARY_V0_POLICY",
+  "proceed_readout_halt_patch": {
+    "patch_mode": "future_schema_patch_only_do_not_mutate_existing_readouts",
+    "schema_version": "proceed_readout_halt_patch_v0",
+    "terminal_result_extension": {
+      "halt_record_ref": "<path-addressed halt record ref>",
+      "stop_code": "<canonical_halt_code>",
+      "type": "STOP"
+    }
+  },
+  "required_implementation_artifacts": {
+    "day3_demo_halt_receipts": "data/halt_vocabulary_v0_demo/day3_demo_halt_receipts.json",
+    "day3_demo_halt_record_plan": "data/halt_vocabulary_v0_demo/day3_demo_halt_record_plan_v0.json",
+    "day3_demo_halt_records": "data/halt_vocabulary_v0_demo/day3_demo_halt_records.jsonl",
+    "halt_classifier_priority": "data/halt_classifier_priorities/halt_classifier_priority_v0.json",
+    "halt_family_table": "data/halt_family_tables/halt_family_table_v0.json",
+    "halt_record_schema": "data/halt_record_schemas/halt_record_schema_v0.json",
+    "halt_to_next_handling_table": "data/halt_to_next_handling_tables/halt_to_next_handling_table_v0.json",
+    "halt_vocabulary": "data/halt_vocabulary_v0/halt_vocabulary_v0.json",
+    "implementation_receipt": "data/halt_vocabulary_v0_implementation_receipts/<receipt_id>.json",
+    "proceed_readout_halt_patch": "data/halt_schema_patches/proceed_readout_halt_patch_v0.json",
+    "runner_receipt_halt_patch": "data/halt_schema_patches/runner_receipt_halt_patch_v0.json",
+    "trace_entry_halt_patch": "data/halt_schema_patches/trace_entry_halt_patch_v0.json"
+  },
+  "runner_receipt_halt_patch": {
+    "add_field": {
+      "halt": {
+        "halt_code": "<canonical_halt_code>",
+        "halt_family": "<halt_family>",
+        "halt_record_ref": "<path-addressed halt record ref>"
+      }
+    },
+    "patch_mode": "future_schema_patch_only_do_not_mutate_existing_receipts",
+    "schema_version": "runner_receipt_halt_patch_v0"
+  },
+  "safety_clauses": {
+    "does_not_accept_or_promote_taxonomy_delta": true,
+    "does_not_add_new_moves": true,
+    "does_not_apply_or_promote_proposal": true,
+    "does_not_claim_final_taxonomy": true,
+    "does_not_claim_global_correctness": true,
+    "does_not_claim_theorem_closure": true,
+    "does_not_emit_demo_records": true,
+    "does_not_modify_source_modules": true,
+    "does_not_modify_source_regime": true,
+    "does_not_mutate_existing_artifacts": true,
+    "does_not_write_registry": true,
+    "next_unit_required_for_implementation": true,
+    "policy_only": true
+  },
+  "schema_version": "halt_vocabulary_v0_policy_v0",
+  "source_local_regime_hash": "25802530",
+  "source_proceed_adapter_implementation_receipt_id": "363d2f4a",
+  "source_proceed_adapter_policy_id": "e6b3dcfc",
+  "source_proposal_ledger_schema_id": "eee2a318",
+  "source_trace_ledger_implementation_receipt_id": "cc24a11f",
+  "source_trace_schema_id": "b4887660",
+  "target_unit_id": "halt_vocabulary.v0",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_HALT_VOCABULARY_V0_WITH_DEMO_RECORDS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "trace_entry_halt_patch": {
+    "add_fields": {
+      "halt_code": "<canonical_halt_code>",
+      "halt_record_ref": "<path-addressed halt record ref>"
+    },
+    "patch_mode": "future_schema_patch_only_do_not_mutate_existing_traces",
+    "schema_version": "trace_entry_halt_patch_v0"
+  },
+  "unit_id": "BUILD_HALT_VOCABULARY_V0_POLICY_V0",
+  "warnings": []
+}
