@@ -1,0 +1,164 @@
+{
+  "acceptance_gate_results": {
+    "R250_INTERROGATE_0_SOURCE_SURFACE_VERIFIED": true,
+    "R250_INTERROGATE_1_INDEX_CONSUMED": true,
+    "R250_INTERROGATE_2_BATCH_COMPLETE_AND_REAL": true,
+    "R250_INTERROGATE_3_FIXED_QUESTIONS_ANSWERED": true,
+    "R250_INTERROGATE_4_PRESSURE_CLASSIFIED": true,
+    "R250_INTERROGATE_5_AMBIGUOUS_PRESSURE_TO_QUESTION_PACKET": true,
+    "R250_INTERROGATE_6_NO_COMMAND_AUTHORIZED": true,
+    "R250_INTERROGATE_7_NO_ROADMAP_OPTIMIZATION_TAXONOMY_OR_PROOF": true,
+    "R250_INTERROGATE_8_NO_SOURCE_MUTATION": true
+  },
+  "aggregate_metrics": {
+    "authority_violation_total": 0,
+    "batch_complete": true,
+    "burden_pressure_total": 6,
+    "classified_next_command_goal_count": 0,
+    "command_authorized_count": 0,
+    "completed_slot_count": 16,
+    "completed_work_item_count": 250,
+    "demo_receipt_total": 0,
+    "global_planner_claim_count": 0,
+    "interrogation_ready": true,
+    "optimization_instruction_count": 0,
+    "primary_class": "QUESTION_PACKET_NOT_COMMAND",
+    "primary_pressure_class": "AMBIGUOUS_PRESSURE",
+    "proof_claim_count": 0,
+    "real_batch_evidence": true,
+    "receipt_trace_mismatch_total": 0,
+    "resource_failure_total": 0,
+    "resource_pressure_total": 0,
+    "roadmap_invented_count": 0,
+    "source_mutation_count": 0,
+    "sqlite_registry_write_count": 0,
+    "taxonomy_pressure_total": 7,
+    "taxonomy_upgrade_count": 0,
+    "total_receipt_rows": 250,
+    "total_receipts": 250
+  },
+  "created_at": "2026-06-22T17:43:26.741669+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "interrogation_guards": {
+    "authority_widened": false,
+    "build_command_emitted": false,
+    "fixed_questions_answered": true,
+    "global_planner_claimed": false,
+    "hidden_continuation_authorized": false,
+    "interrogation_receipt_emitted": true,
+    "interrogation_report_emitted": true,
+    "next_command_classification_emitted": true,
+    "optimization_instruction_emitted": false,
+    "pressure_classification_emitted": true,
+    "proof_claimed": false,
+    "roadmap_invented": false,
+    "source_adapter_modified": false,
+    "source_batch_modified": false,
+    "source_batch_rollup_consumed": true,
+    "source_index_consumed": true,
+    "source_receipt_modified": false,
+    "sqlite_registry_written": false,
+    "taxonomy_upgrade_emitted": false
+  },
+  "must_not_impersonate": [
+    "roadmap invention",
+    "authority grant",
+    "optimization instruction",
+    "global planner",
+    "proof of correctness",
+    "permission to ignore STOP_DONE"
+  ],
+  "must_not_infer": [
+    "do not invent roadmap",
+    "do not emit build command from pressure",
+    "do not optimize from R250",
+    "do not upgrade taxonomy from R250",
+    "do not claim proof",
+    "do not claim global planner"
+  ],
+  "output_artifacts": {
+    "interrogation_receipt": "data/closure_radius_real_batch_interrogation_receipts/41f65b9a.json",
+    "r250_receipt_interrogation_report": "data/closure_radius_real_batch_interrogations/r250/r250_receipt_interrogation_report.json"
+  },
+  "pressure_classification": {
+    "ambiguous_pressure": true,
+    "dominant_pressure_class": null,
+    "evidence_fields": [
+      "r250_batch_rollup.halt_distribution",
+      "r250_batch_rollup.pressure_distribution",
+      "r250_batch_rollup.burden_pressure_total",
+      "r250_batch_rollup.taxonomy_pressure_total",
+      "r250_batch_rollup.authority_violation_total",
+      "r250_batch_rollup.receipt_trace_mismatch_total"
+    ],
+    "live_pressure_counts": {
+      "AUTHORITY_BOUNDARY": 6,
+      "BURDEN_PRESSURE": 6,
+      "EXTRACTION_PRESSURE": 4,
+      "TAXONOMY_PRESSURE": 7
+    },
+    "primary_pressure_class": "AMBIGUOUS_PRESSURE",
+    "sorted_live_pressure": [
+      {
+        "count": 7,
+        "pressure_class": "TAXONOMY_PRESSURE"
+      },
+      {
+        "count": 6,
+        "pressure_class": "AUTHORITY_BOUNDARY"
+      },
+      {
+        "count": 6,
+        "pressure_class": "BURDEN_PRESSURE"
+      },
+      {
+        "count": 4,
+        "pressure_class": "EXTRACTION_PRESSURE"
+      }
+    ]
+  },
+  "r250_interrogation_result": {
+    "allowed_next_handling": [
+      "open question packet to resolve dominant pressure",
+      "do not emit build command",
+      "do not optimize from ambiguous pressure"
+    ],
+    "classified_next_command_goal": null,
+    "command_authorized": false,
+    "primary_class": "QUESTION_PACKET_NOT_COMMAND",
+    "proposal_authorized": false,
+    "secondary_class": null
+  },
+  "receipt_id": "41f65b9a",
+  "receipt_type": "R250_REAL_BATCH_RECEIPT_INTERROGATION_RECEIPT",
+  "schema_version": "r250_real_batch_interrogation_receipt_v0",
+  "source_batch_id": "r250_batch_34f560c1",
+  "source_batch_integrity": {
+    "batch_complete": true,
+    "completed_slot_count": 16,
+    "completed_work_item_count": 250,
+    "demo_receipt_total": 0,
+    "interrogation_ready": true,
+    "real_batch_evidence": true,
+    "receipt_trace_mismatch_total": 0,
+    "total_receipt_rows": 250,
+    "total_receipts": 250
+  },
+  "source_closure_radius_implementation_receipt_id": "98ab6f11",
+  "source_interrogation_ready_index_path": "data/closure_radius_real_batches/r250/r250_interrogation_ready_index.json",
+  "source_r250_implementation_receipt_id": "05723444",
+  "source_r250_policy_id": "44ee648b",
+  "source_r250_policy_receipt_id": "e51f79cb",
+  "source_receipt_interrogation_adapter_receipt_id": "a785297c",
+  "source_receipt_interrogation_policy_id": "2aa2f2f3",
+  "source_receipt_interrogation_policy_receipt_id": "0ad557c8",
+  "target_unit_id": "receipt_interrogation_adapter.v0.r250_batch",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_HUMAN_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "unit_id": "INTERROGATE_R250_REAL_BATCH_RECEIPTS_V0",
+  "warnings": []
+}
