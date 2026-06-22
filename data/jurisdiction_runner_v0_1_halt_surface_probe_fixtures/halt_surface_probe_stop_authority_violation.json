@@ -1,0 +1,30 @@
+{
+  "case_name": "STOP_AUTHORITY_VIOLATION",
+  "expected": {
+    "halt_code": "STOP_AUTHORITY_VIOLATION",
+    "move_status": "BLOCKED",
+    "no_proposal_reason": "OUT_OF_SCOPE",
+    "proposal_status": "NONE",
+    "runner_executes": true
+  },
+  "expected_transcript": [
+    "LOAD_REGIME",
+    "LOAD_STATE",
+    "VALIDATE_STATE",
+    "SELECT_MOVE",
+    "CHECK_AUTHORITY",
+    "APPLY_OR_BLOCK_MOVE",
+    "EMIT_RECEIPT",
+    "EMIT_METRICS",
+    "EMIT_TERMINAL"
+  ],
+  "fixture_id": "halt_surface_probe_stop_authority_violation",
+  "fixture_kind": "controlled_probe_regime_variant",
+  "input_state": {
+    "state_id": "typed_counter_zero_authority_blocked",
+    "typed": true,
+    "value": 0
+  },
+  "missing_dependency_path": null,
+  "schema_version": "jurisdiction_runner_v0_1_halt_surface_probe_fixture_v0"
+}

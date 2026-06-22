@@ -1,0 +1,30 @@
+{
+  "case_name": "STOP_UNTYPED_OBJECT",
+  "expected": {
+    "halt_code": "STOP_UNTYPED_OBJECT",
+    "move_status": "BLOCKED",
+    "no_proposal_reason": "PRESSURE_ALREADY_TYPED",
+    "proposal_status": "NONE",
+    "runner_executes": true
+  },
+  "expected_transcript": [
+    "LOAD_REGIME",
+    "LOAD_STATE",
+    "VALIDATE_STATE",
+    "SELECT_MOVE",
+    "CHECK_AUTHORITY",
+    "APPLY_OR_BLOCK_MOVE",
+    "EMIT_RECEIPT",
+    "EMIT_METRICS",
+    "EMIT_TERMINAL"
+  ],
+  "fixture_id": "halt_surface_probe_stop_untyped_object",
+  "fixture_kind": "state_validation",
+  "input_state": {
+    "state_id": "untyped_counter_zero",
+    "typed": false,
+    "value": 0
+  },
+  "missing_dependency_path": null,
+  "schema_version": "jurisdiction_runner_v0_1_halt_surface_probe_fixture_v0"
+}
