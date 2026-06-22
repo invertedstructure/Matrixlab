@@ -1,0 +1,22 @@
+{
+  "schema_version": "proceed_selector_v0",
+  "selection_law": [
+    "if projection/readout mismatch exists select repair_projection_unit",
+    "else if receipt/trace mismatch exists select repair_receipt_unit",
+    "else if declared unit is incomplete select declared_unit",
+    "else if blocking object is under-typed STOP_UNDERTYPED_OBJECT",
+    "else if halt vocabulary cannot classify stop STOP_TAXONOMY_GAP",
+    "else if next move is missing STOP_NEEDS_NEW_MOVE",
+    "else STOP_NEXT_MOVE_BOUNDARY or STOP_DONE"
+  ],
+  "selection_order": [
+    "repair visible projection/readout mismatch",
+    "repair visible receipt/trace mismatch",
+    "complete already-declared unit",
+    "type under-typed object blocking movement",
+    "record smallest halt/taxonomy pressure forced by failure",
+    "stop if next move is missing",
+    "stop at next move boundary or done"
+  ],
+  "selector_id": "proceed_selector.smallest_lawful_unit.v0"
+}

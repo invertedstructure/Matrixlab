@@ -1,0 +1,51 @@
+{
+  "registry_id": "proceed_unit_registry.v0",
+  "schema_version": "proceed_unit_registry_v0",
+  "units": [
+    {
+      "advance_on_pass": "proceed.unit.execute_declared_runner_unit.v0",
+      "possible_stops": [
+        "STOP_UNTYPED_UNIT",
+        "STOP_DEPENDENCY_MISSING",
+        "STOP_AUTHORITY_VIOLATION"
+      ],
+      "priority": 10,
+      "purpose": "Check declared current surface manifest and source artifacts.",
+      "unit_id": "proceed.unit.validate_current_surface.v0"
+    },
+    {
+      "advance_on_pass": "proceed.unit.verify_readout_against_trace.v0",
+      "possible_stops": [
+        "STOP_GATE_FAIL",
+        "STOP_RECEIPT_MISMATCH",
+        "STOP_NEXT_MOVE_BOUNDARY"
+      ],
+      "priority": 20,
+      "purpose": "Execute exactly one declared runner/adapter unit using allowed inputs only.",
+      "unit_id": "proceed.unit.execute_declared_runner_unit.v0"
+    },
+    {
+      "advance_on_pass": "proceed.unit.emit_next_boundary.v0",
+      "possible_stops": [
+        "STOP_PROJECTION_BUG",
+        "STOP_RECEIPT_MISMATCH",
+        "STOP_VISIBLE_GOTCHA"
+      ],
+      "priority": 30,
+      "purpose": "Verify visible proceed readout agrees with trace, receipt, and ledger deltas.",
+      "unit_id": "proceed.unit.verify_readout_against_trace.v0"
+    },
+    {
+      "advance_on_pass": null,
+      "possible_stops": [
+        "STOP_DONE",
+        "STOP_NEXT_MOVE_BOUNDARY",
+        "STOP_TAXONOMY_GAP",
+        "STOP_NEEDS_NEW_MOVE"
+      ],
+      "priority": 40,
+      "purpose": "Emit terminal boundary and prevent implicit continuation.",
+      "unit_id": "proceed.unit.emit_next_boundary.v0"
+    }
+  ]
+}
