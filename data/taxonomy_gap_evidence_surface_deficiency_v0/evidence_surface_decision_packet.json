@@ -1,0 +1,40 @@
+{
+  "acceptance_recommendation": false,
+  "allowed_human_choices": [
+    "ACCEPT_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "MARK_EVIDENCE_LIMIT_HEALTHY_AND_SKIP_GROUP",
+    "REQUEST_DEEPER_EVIDENCE_SURFACE_AUDIT",
+    "COMPARE_EXTRACTION_LOGIC_WITH_RAW_SOURCE_ROWS",
+    "REJECT_EVIDENCE_SURFACE_CLASSIFICATION"
+  ],
+  "classification": "NOT_ENOUGH_EVIDENCE",
+  "classification_reason": "Missing fields are confirmed, but current receipts do not localize whether source payload, schema surface, extractor logic, label coarseness, or intentional opacity caused the absence.",
+  "evidence_request_emitted": true,
+  "evidence_request_id": "1b570e54",
+  "may_adopt_protocol": false,
+  "may_authorize_authority_widening": false,
+  "may_authorize_burden_optimization": false,
+  "may_authorize_taxonomy_delta": false,
+  "may_authorize_taxonomy_upgrade": false,
+  "may_auto_open_next_group": false,
+  "may_emit_build_command": false,
+  "may_emit_repair_command": false,
+  "may_execute_extraction_repair": false,
+  "next_group_rank_to_inspect": null,
+  "packet_type": "HUMAN_REVIEW_PACKET_NOT_COMMAND",
+  "pressure_group_key_hash": "38c604a1",
+  "recommended_next_evidence_unit": "AUDIT_TAXONOMY_GAP_EVIDENCE_SURFACE_LOCALIZATION_V0",
+  "recommended_next_handling": "REQUEST_DEEPER_EVIDENCE_SURFACE_AUDIT",
+  "repair_objective_proposal_emitted": false,
+  "required_next_evidence": [
+    "inspect extraction builder/source to distinguish missing source fields from missing extractor logic",
+    "inspect schema for whether taxonomy context fields are representable",
+    "inspect receipt rows for raw payload carrying hidden label context",
+    "compare top-group raw rows against source pressure events",
+    "manual audit of representative fragments"
+  ],
+  "review_only": true,
+  "schema_version": "evidence_surface_decision_packet_v0",
+  "skip_current_pressure_group": false,
+  "source_unit_id": "CLASSIFY_TAXONOMY_GAP_EVIDENCE_SURFACE_DEFICIENCY_V0"
+}
