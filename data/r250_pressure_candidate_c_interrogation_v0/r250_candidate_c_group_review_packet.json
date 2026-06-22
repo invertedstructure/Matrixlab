@@ -1,0 +1,56 @@
+{
+  "allowed_human_choices": [
+    "ACCEPT_CANDIDATE_C_AS_INTERROGATION_LENS_ONLY",
+    "INSPECT_DOMINANT_GROUP_MEMBERS",
+    "INSPECT_SINGLETON_RESIDUE",
+    "RUN_MORE_BATCH_EVIDENCE_WITH_CANDIDATE_C",
+    "REJECT_CANDIDATE_C_KEEP_FRAGMENTATION_SIGNAL"
+  ],
+  "human_decision_bound": {
+    "accepted_candidate_id": "C",
+    "accepted_candidate_name": "parent_plus_subtype_plus_halt_reason",
+    "accepted_review_packet_choice": "ACCEPT_COARSENING_LAYER_FOR_NEXT_INTERROGATION",
+    "not_authorized": [
+      "taxonomy_upgrade",
+      "authority_widening",
+      "burden_optimization",
+      "extraction_repair",
+      "objective_proposal",
+      "build_command"
+    ],
+    "scope": "interrogation_lens_only"
+  },
+  "may_authorize_authority_widening": false,
+  "may_authorize_optimization": false,
+  "may_authorize_repair": false,
+  "may_authorize_taxonomy_upgrade": false,
+  "may_emit_build_command": false,
+  "may_emit_objective_proposal": false,
+  "must_not_ask_for": [
+    "taxonomy_upgrade",
+    "authority_widening",
+    "burden_optimization",
+    "extraction_repair",
+    "direct_build_command",
+    "objective_proposal_from_pressure"
+  ],
+  "packet_type": "HUMAN_REVIEW_PACKET_NOT_COMMAND",
+  "recommended_next_handling": "INSPECT_DOMINANT_GROUP_MEMBERS",
+  "review_only": true,
+  "schema_version": "r250_candidate_c_group_review_packet_v0",
+  "source_candidate_c_interrogation": "r250_pressure_coarsened_candidate_c_interrogation.v0",
+  "summary": {
+    "dominant_group_low_margin_warning": true,
+    "dominant_group_margin": 1,
+    "dominant_group_share": 0.30434782608695654,
+    "group_count": 5,
+    "group_size_profile": [
+      7,
+      6,
+      5,
+      4,
+      1
+    ],
+    "singleton_group_count": 1
+  }
+}
