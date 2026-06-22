@@ -1,0 +1,287 @@
+{
+  "authority_widening_authorized": false,
+  "command_authorized": false,
+  "extraction_repair_authorized": false,
+  "human_decision": {
+    "accepted_candidate_fields": [
+      "parent_pressure_class",
+      "pressure_subtype",
+      "halt_reason"
+    ],
+    "accepted_candidate_id": "C",
+    "accepted_candidate_name": "parent_plus_subtype_plus_halt_reason",
+    "decision": "RUN_R1000_SCALE_STABILITY_WITH_CANDIDATE_C",
+    "not_authorized": [
+      "taxonomy_upgrade",
+      "authority_widening",
+      "burden_optimization",
+      "extraction_repair",
+      "objective_proposal",
+      "build_command",
+      "protocol_adoption",
+      "fix_all_burdens_automation"
+    ],
+    "radius": 1000,
+    "scope": "evidence_collection_and_comparison_only",
+    "slot_count": 16
+  },
+  "must_not_infer": [
+    "do not infer stable protocol acceptance",
+    "do not infer scale-first protocol acceptance",
+    "do not infer taxonomy upgrade",
+    "do not infer authority expansion",
+    "do not infer burden optimization",
+    "do not infer extraction repair",
+    "do not emit command from scale stability",
+    "do not emit proposal from scale stability",
+    "do not claim Candidate C is a taxonomy",
+    "do not claim count x4 is proof",
+    "do not synthesize R1000 evidence from R250 rows",
+    "do not overwrite R250 artifacts",
+    "do not mutate source surfaces",
+    "do not claim roadmap"
+  ],
+  "optimization_authorized": false,
+  "proposal_authorized": false,
+  "protocol_adoption_authorized": false,
+  "r1000_group_rollup": {
+    "batch_complete": true,
+    "candidate_c_coarsened_fragmentation_ratio": 0.056818181818181816,
+    "candidate_c_dominant_group_count": 25,
+    "candidate_c_dominant_group_key": "38c604a1",
+    "candidate_c_dominant_group_margin": 1,
+    "candidate_c_dominant_group_margin_share": 0.011363636363636364,
+    "candidate_c_dominant_group_share": 0.2840909090909091,
+    "candidate_c_group_count": 5,
+    "candidate_c_group_percent_profile": [
+      0.2840909090909091,
+      0.2727272727272727,
+      0.2159090909090909,
+      0.18181818181818182,
+      0.045454545454545456
+    ],
+    "candidate_c_group_size_profile": [
+      25,
+      24,
+      19,
+      16,
+      4
+    ],
+    "candidate_c_low_margin_warning": true,
+    "candidate_c_repeated_group_count": 5,
+    "candidate_c_second_group_count": 24,
+    "candidate_c_singleton_group_count": 0,
+    "completed_slot_count": 16,
+    "completed_work_item_count": 1000,
+    "demo_receipt_total": 0,
+    "expected_work_item_count": 1000,
+    "failed_work_item_count": 0,
+    "interrogation_ready": true,
+    "missing_r250_group_count": 0,
+    "new_group_count_vs_r250": 0,
+    "observer_burden_summary_ref": "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_observer_burden_rollup.json",
+    "r1000_batch_id": "r1000_candidate_c_batch_cdd7f676",
+    "radius": 1000,
+    "receipt_trace_mismatch_total": 0,
+    "review_only": true,
+    "runtime_behavior_changed_count": 0,
+    "schema_version": "r1000_candidate_c_group_rollup_v0",
+    "slot_count": 16,
+    "source_mutation_count": 0,
+    "total_pressure_event_count": 88,
+    "total_receipt_rows": 88,
+    "total_receipts": 16
+  },
+  "r250_baseline": {
+    "baseline_hardcoded_as_working_truth": false,
+    "baseline_read_from_source": true,
+    "baseline_source": "data/r250_pressure_candidate_c_interrogation_v0/candidate_c_group_interrogation_rollup.json",
+    "r250_coarsened_fragmentation_ratio": 0.21739130434782608,
+    "r250_dominant_group_count": 7,
+    "r250_dominant_group_margin": 1,
+    "r250_dominant_group_share": 0.30434782608695654,
+    "r250_group_count": 5,
+    "r250_group_size_profile": [
+      7,
+      6,
+      5,
+      4,
+      1
+    ],
+    "r250_groups": [
+      {
+        "group_key_hash": "38c604a1",
+        "halt_reason": "STOP_TAXONOMY_GAP",
+        "parent_pressure_class": "TAXONOMY_PRESSURE",
+        "pressure_subtype": "missing_label",
+        "r250_count": 7,
+        "r250_share": 0.30434782608695654,
+        "rank_r250": 1,
+        "representative_r250_event_refs": [
+          "pressure_event_986a7016",
+          "pressure_event_a0404233",
+          "pressure_event_a84bf534"
+        ]
+      },
+      {
+        "group_key_hash": "c3fa064d",
+        "halt_reason": "STOP_AUTHORITY_BOUNDARY",
+        "parent_pressure_class": "AUTHORITY_BOUNDARY",
+        "pressure_subtype": "healthy_boundary_stop",
+        "r250_count": 6,
+        "r250_share": 0.2608695652173913,
+        "rank_r250": 2,
+        "representative_r250_event_refs": [
+          "pressure_event_3f9f809b",
+          "pressure_event_43bfa274",
+          "pressure_event_4fcabc15"
+        ]
+      },
+      {
+        "group_key_hash": "bccd894b",
+        "halt_reason": "STOP_DONE",
+        "parent_pressure_class": "BURDEN_PRESSURE",
+        "pressure_subtype": "receipt_size_burden",
+        "r250_count": 5,
+        "r250_share": 0.21739130434782608,
+        "rank_r250": 3,
+        "representative_r250_event_refs": [
+          "pressure_event_1d7f8a2d",
+          "pressure_event_610c5553",
+          "pressure_event_6ce76771"
+        ]
+      },
+      {
+        "group_key_hash": "8c25f315",
+        "halt_reason": "STOP_NEEDS_EXTRACTION",
+        "parent_pressure_class": "EXTRACTION_PRESSURE",
+        "pressure_subtype": "evidence_missing",
+        "r250_count": 4,
+        "r250_share": 0.17391304347826086,
+        "rank_r250": 4,
+        "representative_r250_event_refs": [
+          "pressure_event_43fa13af",
+          "pressure_event_940cd90d",
+          "pressure_event_c4008568"
+        ]
+      },
+      {
+        "group_key_hash": "e6ff9a58",
+        "halt_reason": "STOP_TAXONOMY_GAP",
+        "parent_pressure_class": "BURDEN_PRESSURE",
+        "pressure_subtype": "receipt_size_burden",
+        "r250_count": 1,
+        "r250_share": 0.043478260869565216,
+        "rank_r250": 5,
+        "representative_r250_event_refs": [
+          "pressure_event_53add374"
+        ]
+      }
+    ],
+    "r250_low_margin_warning": true,
+    "r250_pressure_event_density": 0.092,
+    "r250_radius": 250,
+    "r250_second_group_count": 6,
+    "r250_total_pressure_event_count": 23
+  },
+  "ranked_pressure_protocol_hypothesis": {
+    "active_command": false,
+    "authorization_required": true,
+    "hypothesis_id": "RANKED_STABLE_PRESSURE_RESOLUTION_PROTOCOL_V0",
+    "shape": [
+      "Run pressure batch.",
+      "Apply accepted pressure lens.",
+      "Rank pressure groups by stable share and margin.",
+      "Human selects whether to open an objective for the highest group.",
+      "Resolve or classify that group.",
+      "Rerun pressure.",
+      "Move to next highest remaining pressure group.",
+      "Stop when pressure is gone, healthy, or no longer actionable."
+    ],
+    "status": "hypothesis_only"
+  },
+  "repair_authorized": false,
+  "review_only": true,
+  "scale_comparison_metrics": {
+    "comparison_heuristic_not_proof": true,
+    "count_x4_treated_as_proof": false,
+    "dominant_group_margin_delta": 0,
+    "dominant_group_preserved": true,
+    "dominant_group_share_delta": -0.020256916996047425,
+    "group_identity_preserved_count": 5,
+    "low_margin_persisted": true,
+    "max_group_share_delta": 0.020256916996047425,
+    "mean_group_share_delta": 0.00869565217391304,
+    "missing_r250_group_count": 0,
+    "new_r1000_group_count": 0,
+    "pressure_density_delta": -0.0040000000000000036,
+    "pressure_density_ratio": 0.9565217391304347,
+    "pressure_event_scale_ratio": 3.8260869565217392,
+    "r1000_pressure_event_density": 0.088,
+    "r1000_total_pressure_events": 88,
+    "r250_pressure_event_density": 0.092,
+    "r250_total_pressure_events": 23,
+    "rank_order_preserved": true,
+    "scale_stability_class": "LOW_MARGIN_PERSISTS",
+    "scale_stability_reason": "R1000 shape remains broadly comparable, but dominant-vs-second margin remains too low for ranked action.",
+    "total_distribution_l1_delta": 0.0434782608695652
+  },
+  "scale_first_protocol_hypothesis": {
+    "active_command": false,
+    "authorization_required": true,
+    "hypothesis_id": "SCALE_FIRST_AMBIGUOUS_PRESSURE_PROTOCOL_V0",
+    "shape": [
+      "If small-radius run finds ambiguous pressure, do not act.",
+      "Scale to larger radius.",
+      "Apply accepted pressure lens.",
+      "Choose pressure group only from larger-radius evidence.",
+      "Human decides whether to open objective.",
+      "Preserve smaller-radius evidence as local context, not command authority."
+    ],
+    "status": "hypothesis_only"
+  },
+  "scale_stability_classification": {
+    "authority_widening_authorized": false,
+    "batch_invalid": false,
+    "classification_priority": [
+      "BATCH_INVALID",
+      "OBSERVER_BURDEN_TOO_HIGH",
+      "SCALE_SHIFTED_PRESSURE_FIELD",
+      "LOW_MARGIN_PERSISTS",
+      "SCALE_STABLE_PRESSURE_FIELD",
+      "INSUFFICIENT_SCALE_EVIDENCE"
+    ],
+    "command_authorized": false,
+    "dominant_count_to_second_count_ratio": 1.0416666666666667,
+    "dominant_group_margin_share": 0.011363636363636364,
+    "dominant_group_preserved": true,
+    "low_margin_persisted": true,
+    "max_group_share_delta": 0.020256916996047425,
+    "missing_r250_group_count": 0,
+    "new_r1000_group_count": 0,
+    "observer_burden_too_high": false,
+    "optimization_authorized": false,
+    "proposal_authorized": false,
+    "rank_order_preserved": true,
+    "repair_authorized": false,
+    "review_only": true,
+    "scale_shifted": false,
+    "scale_stability_class": "LOW_MARGIN_PERSISTS",
+    "scale_stability_reason": "R1000 shape remains broadly comparable, but dominant-vs-second margin remains too low for ranked action.",
+    "scale_stable_candidate": false,
+    "schema_version": "r1000_scale_stability_classification_v0",
+    "taxonomy_upgrade_authorized": false,
+    "total_distribution_l1_delta": 0.0434782608695652
+  },
+  "schema_version": "r1000_pressure_scale_stability_report_v0",
+  "source_receipt_ids": {
+    "source_candidate_c_interrogation_receipt_id": "fabba052",
+    "source_coarsening_review_receipt_id": "f03689e3",
+    "source_failed_pressure_metrics_receipt_id_optional": "8b82d6a8",
+    "source_pressure_decomposed_interrogation_receipt_id": "1f934d51",
+    "source_pressure_metrics_repair_receipt_id": "f09b8395"
+  },
+  "target_unit_id": "r1000_pressure_scale_stability_candidate_c.v0",
+  "taxonomy_upgrade_authorized": false,
+  "unit_id": "BUILD_R1000_PRESSURE_SCALE_STABILITY_RUN_WITH_CANDIDATE_C_V0"
+}
