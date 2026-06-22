@@ -1,0 +1,652 @@
+{
+  "acceptance_gates": {
+    "TEP0_source_surface_verified": {
+      "description": "Consumes Day 5 jurisdiction gate, Day 4 move registry, Day 3 halt vocabulary, proceed adapter, trace ledger, and local regime.",
+      "required": true
+    },
+    "TEP10_review_required_before_ACCEPTED_LOCAL": {
+      "description": "ACCEPTED_LOCAL requires explicit review record.",
+      "required": true
+    },
+    "TEP11_only_ACCEPTED_LOCAL_review_may_create_APPLIED_LOCAL_patch": {
+      "description": "Local registry patch requires accepted review.",
+      "required": true
+    },
+    "TEP12_taxonomy_patch_local_and_receipt_linked": {
+      "description": "Patch is local and receipt-linked.",
+      "required": true
+    },
+    "TEP13_taxonomy_upgrade_does_not_widen_authority": {
+      "description": "Vocabulary does not create authority.",
+      "required": true
+    },
+    "TEP14_taxonomy_upgrade_does_not_promote_truth_theorem_proof_status": {
+      "description": "Vocabulary does not create truth/proof/theorem status.",
+      "required": true
+    },
+    "TEP15_WITHHOLD_valid_not_failure": {
+      "description": "Withholding is lawful when labels would overstate.",
+      "required": true
+    },
+    "TEP16_move_registry_changes_patch_only": {
+      "description": "Taxonomy-related moves are future patch entries only.",
+      "required": true
+    },
+    "TEP17_day7_global_taxonomy_final_closure_not_implemented": {
+      "description": "No global taxonomy, no final closure.",
+      "required": true
+    },
+    "TEP1_taxonomy_registry_schema_declared": {
+      "description": "Typed taxonomy registry schema is declared.",
+      "required": true
+    },
+    "TEP2_eligible_trigger_halt_set_declared": {
+      "description": "Taxonomy triggers are explicit; authority halts are context-only unless mapped.",
+      "required": true
+    },
+    "TEP3_taxonomy_pressure_record_schema_declared": {
+      "description": "Pressure record is separate from proposed delta.",
+      "required": true
+    },
+    "TEP4_existing_vocabulary_test_required_before_delta": {
+      "description": "No existing_vocab_test, no taxonomy_delta.",
+      "required": true
+    },
+    "TEP5_ADD_star_forbidden_before_existing_vocab_test": {
+      "description": "ADD_* is last and requires failed existing vocabulary test.",
+      "required": true
+    },
+    "TEP6_smallest_honest_repair_required": {
+      "description": "Deltas must carry smallest_honest_reading.",
+      "required": true
+    },
+    "TEP7_delta_includes_must_not_impersonate": {
+      "description": "Deltas must state what they do not mean.",
+      "required": true
+    },
+    "TEP8_delta_includes_allowed_next_handling": {
+      "description": "Deltas must specify lawful next handling.",
+      "required": true
+    },
+    "TEP9_proposal_does_not_mutate_registry": {
+      "description": "Upgrade proposal is record-only.",
+      "required": true
+    }
+  },
+  "authority_guards": {
+    "accepted_patch_without_review": false,
+    "add_used_before_existing_vocab_test": false,
+    "authority_halt_auto_triggered_taxonomy": false,
+    "day7_global_taxonomy_implemented": false,
+    "demo_deltas_emitted_by_policy": false,
+    "final_closure_claimed": false,
+    "global_taxonomy_claimed": false,
+    "halt_vocabulary_mutated_by_policy": false,
+    "hidden_continuation_authorized": false,
+    "implementation_performed_by_policy": false,
+    "label_treated_as_truth": false,
+    "move_registry_mutated_by_policy": false,
+    "proof_claimed": false,
+    "proposal_accepted_by_runtime": false,
+    "proposal_executed_by_runtime": false,
+    "review_fabricated_by_runtime": false,
+    "source_halt_vocabulary_consumed": true,
+    "source_halt_vocabulary_modified": false,
+    "source_jurisdiction_gate_consumed": true,
+    "source_jurisdiction_gate_modified": false,
+    "source_ledger_modified": false,
+    "source_local_regime_v1_modified": false,
+    "source_move_registry_consumed": true,
+    "source_move_registry_modified": false,
+    "source_proceed_adapter_consumed": true,
+    "source_proceed_adapter_modified": false,
+    "source_receipt_modified": false,
+    "source_trace_ledger_runner_modified": false,
+    "source_trace_ledger_surface_consumed": true,
+    "source_trace_modified": false,
+    "sqlite_registry_read": false,
+    "sqlite_registry_written": false,
+    "taxonomy_delta_promoted_theorem_status": false,
+    "taxonomy_delta_widened_authority": false,
+    "taxonomy_evolution_policy_built": true,
+    "taxonomy_registry_mutated_by_policy": false
+  },
+  "authorized_operations_next": {
+    "emit_day6_demo_halt_refine": true,
+    "emit_day6_demo_label_split": true,
+    "emit_day6_demo_missing_move_delta": true,
+    "emit_day6_demo_withhold": true,
+    "emit_implementation_receipt": true,
+    "emit_taxonomy_evolution_demo_receipt": true,
+    "read_taxonomy_evolution_policy": true,
+    "read_taxonomy_evolution_policy_receipt": true,
+    "write_existing_vocab_test_schema_artifact": true,
+    "write_taxonomy_authority_patch_artifact": true,
+    "write_taxonomy_delta_schema_artifact": true,
+    "write_taxonomy_evolution_receipt_schema_artifact": true,
+    "write_taxonomy_move_registry_patch_artifact": true,
+    "write_taxonomy_pressure_record_schema_artifact": true,
+    "write_taxonomy_registry_patch_schema_artifact": true,
+    "write_taxonomy_registry_schema_artifact": true,
+    "write_taxonomy_review_record_schema_artifact": true,
+    "write_taxonomy_trigger_policy_artifact": true,
+    "write_taxonomy_upgrade_proposal_schema_artifact": true
+  },
+  "created_at": "2026-06-22T13:32:01.432825+00:00",
+  "day6_demo_halt_refine_plan": {
+    "demo_name": "DAY6_HALT_REFINE",
+    "existing_vocab_test_expected": "STOP_VISIBLE_GOTCHA fits but is too coarse; STOP_PROJECTION_BUG is smaller.",
+    "expected_current_term": "STOP_VISIBLE_GOTCHA",
+    "expected_delta_kind": "REFINE",
+    "expected_refined_term": "STOP_PROJECTION_BUG",
+    "expected_status": "PROPOSED",
+    "observed_pressure": "Readout reports repeated_states=true while trace state signatures are distinct.",
+    "patch_status": "NOT_APPLIED",
+    "review_decision": "DEFERRED",
+    "schema_version": "day6_demo_halt_refine_plan_v0",
+    "trigger_halt": "STOP_VISIBLE_GOTCHA"
+  },
+  "day6_demo_label_split_plan": {
+    "demo_name": "DAY6_LABEL_SPLIT",
+    "existing_vocab_test_expected": "RECEIPT alone overclaims; SPLIT is smallest honest repair.",
+    "expected_delta_kind": "SPLIT",
+    "expected_status": "PROPOSED",
+    "must_not_impersonate": [
+      "truth creation",
+      "authority widening",
+      "proof of receipt correctness"
+    ],
+    "observed_pressure": "Object labeled RECEIPT is carrying receipt body plus projection view.",
+    "patch_status": "APPLIED_LOCAL",
+    "review_decision": "ACCEPTED_LOCAL",
+    "schema_version": "day6_demo_label_split_plan_v0",
+    "trigger_halt": "STOP_UNDERTYPED_OBJECT"
+  },
+  "day6_demo_missing_move_delta_plan": {
+    "candidate_move_id": "boundary.emit_next_unit.v0",
+    "candidate_move_required_fields": [
+      "applies_when",
+      "action",
+      "emits",
+      "halt_behavior"
+    ],
+    "demo_name": "DAY6_MISSING_MOVE_DELTA",
+    "existing_vocab_test_expected": "Existing move kinds do not cover boundary emission after completed unit.",
+    "expected_delta_kind": "ADD_MOVE_KIND",
+    "expected_status": "PROPOSED",
+    "observed_pressure": "State is valid and next lawful operation is clear, but no registered move exists.",
+    "patch_status": "NOT_APPLIED",
+    "review_decision": "DEFERRED",
+    "schema_version": "day6_demo_missing_move_delta_plan_v0",
+    "trigger_halt": "STOP_NEEDS_NEW_MOVE"
+  },
+  "day6_demo_withhold_plan": {
+    "allowed_next_handling": [
+      "collect more trace/receipt evidence",
+      "factor object if possible",
+      "do not classify yet"
+    ],
+    "demo_name": "DAY6_WITHHOLD",
+    "existing_vocab_test_expected": "All candidate labels overstate.",
+    "expected_delta_kind": "WITHHOLD",
+    "expected_status": "WITHHELD",
+    "observed_pressure": "Object appears mixed, but evidence cannot distinguish receipt+projection from receipt+policy.",
+    "patch_status": "NOT_APPLIED",
+    "review_decision": "WITHHELD",
+    "schema_version": "day6_demo_withhold_plan_v0",
+    "trigger_halt": "STOP_TAXONOMY_GAP"
+  },
+  "existing_vocab_test_schema": {
+    "law": [
+      "No existing_vocab_test, no taxonomy_delta.",
+      "ADD_* is last.",
+      "WITHHOLD is valid and does not count as failure.",
+      "Do not add terms because they sound cleaner."
+    ],
+    "recommended_outcomes": [
+      "ASSIGN",
+      "WITHHOLD",
+      "REFINE",
+      "WEAKEN",
+      "SPLIT",
+      "MERGE",
+      "DROP",
+      "ADD_LABEL",
+      "ADD_HALT",
+      "ADD_MOVE_KIND",
+      "ADD_BLOCK_REASON",
+      "ADD_STOP_CONDITION"
+    ],
+    "required_fields": [
+      "existing_vocab_test_id",
+      "schema_version",
+      "taxonomy_pressure_ref",
+      "candidate_existing_terms",
+      "test_results",
+      "recommended_outcome",
+      "add_required"
+    ],
+    "schema_version": "existing_vocab_test_schema_v0",
+    "test_result_values": [
+      "FITS",
+      "PARTIAL",
+      "TOO_COARSE",
+      "TOO_NARROW",
+      "OVERCLAIMS",
+      "MISSING",
+      "UNRESOLVED"
+    ]
+  },
+  "failures": [],
+  "forbidden_operations_next": {
+    "ADD_before_existing_vocab_test": true,
+    "ambient_workspace_authority": true,
+    "authority_halt_auto_triggers_taxonomy": true,
+    "day7_global_taxonomy_implemented": true,
+    "delta_without_existing_vocab_test": true,
+    "final_closure_claim": true,
+    "global_taxonomy_claim": true,
+    "hidden_continuation_after_terminal": true,
+    "label_treated_as_truth": true,
+    "latest_or_mtime_selection": true,
+    "modify_local_regime_v1": true,
+    "modify_proceed_adapter_module": true,
+    "modify_trace_ledger_runner_module": true,
+    "move_kind_added_without_required_fields": true,
+    "mutate_existing_halt_vocabulary": true,
+    "mutate_existing_jurisdiction_gate": true,
+    "mutate_existing_move_registry": true,
+    "mutate_existing_readout_files": true,
+    "mutate_existing_receipt_files": true,
+    "mutate_existing_trace_files": true,
+    "patch_without_ACCEPTED_LOCAL_review": true,
+    "proof_claim": true,
+    "proposal_mutates_registry": true,
+    "proposal_treated_as_acceptance": true,
+    "review_record_fabricated_by_runtime": true,
+    "runtime_accepts_own_delta": true,
+    "sqlite_registry_read": true,
+    "sqlite_registry_write": true,
+    "taxonomy_change_without_halt_pressure": true,
+    "taxonomy_patch_promotes_theorem_status": true,
+    "taxonomy_patch_widens_authority": true,
+    "under_typed_object_forced_into_fake_label": true
+  },
+  "gate": "PASS",
+  "policy_id": "e84eb230",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "policy_summary": {
+    "core_law": "No halt, no taxonomy upgrade. Existing vocabulary first. ADD last. No taxonomy change creates truth. No proposal mutates registry. No accepted patch without review.",
+    "interpretation": "Structured vocabulary pressure, not self-modification.",
+    "non_goal": "no final taxonomy, no runtime self-acceptance, no authority widening, no theorem/proof/truth promotion, no Day 7 global taxonomy",
+    "purpose": "Convert typed halt pressure into reviewable taxonomy deltas without self-authorized mutation."
+  },
+  "receipt_id": "18da290a",
+  "receipt_type": "TAXONOMY_EVOLUTION_V0_POLICY_RECEIPT",
+  "required_implementation_artifacts": {
+    "day6_demo_halt_refine": "data/taxonomy_evolution_v0_demo/day6_demo_halt_refine.json",
+    "day6_demo_label_split": "data/taxonomy_evolution_v0_demo/day6_demo_label_split.json",
+    "day6_demo_missing_move_delta": "data/taxonomy_evolution_v0_demo/day6_demo_missing_move_delta.json",
+    "day6_demo_withhold": "data/taxonomy_evolution_v0_demo/day6_demo_withhold.json",
+    "existing_vocab_test_schema": "data/taxonomy_evolution_v0/existing_vocab_test_schema_v0.json",
+    "implementation_receipt": "data/taxonomy_evolution_v0_implementation_receipts/<receipt_id>.json",
+    "taxonomy_authority_patch": "data/taxonomy_evolution_v0_patches/taxonomy_authority_patch_v0.json",
+    "taxonomy_delta_schema": "data/taxonomy_evolution_v0/taxonomy_delta_schema_v0.json",
+    "taxonomy_evolution_demo_receipt": "data/taxonomy_evolution_v0_demo/taxonomy_evolution_demo_receipt.json",
+    "taxonomy_evolution_receipt_schema": "data/taxonomy_evolution_v0/taxonomy_evolution_receipt_schema_v0.json",
+    "taxonomy_move_registry_patch": "data/taxonomy_evolution_v0_patches/taxonomy_move_registry_patch_v0.json",
+    "taxonomy_pressure_record_schema": "data/taxonomy_evolution_v0/taxonomy_pressure_record_schema_v0.json",
+    "taxonomy_registry_patch_schema": "data/taxonomy_evolution_v0/taxonomy_registry_patch_schema_v0.json",
+    "taxonomy_registry_schema": "data/taxonomy_evolution_v0/taxonomy_registry_schema_v0.json",
+    "taxonomy_review_record_schema": "data/taxonomy_evolution_v0/taxonomy_review_record_schema_v0.json",
+    "taxonomy_trigger_policy": "data/taxonomy_evolution_v0/taxonomy_trigger_policy_v0.json",
+    "taxonomy_upgrade_proposal_schema": "data/taxonomy_evolution_v0/taxonomy_upgrade_proposal_schema_v0.json"
+  },
+  "safety_clauses": {
+    "does_not_accept_or_execute_proposals": true,
+    "does_not_apply_registry_patch": true,
+    "does_not_emit_demo_deltas": true,
+    "does_not_fabricate_review": true,
+    "does_not_implement_day7_global_taxonomy": true,
+    "does_not_modify_halt_vocabulary": true,
+    "does_not_modify_jurisdiction_profile": true,
+    "does_not_modify_move_registry": true,
+    "does_not_modify_source_modules": true,
+    "does_not_modify_source_regime": true,
+    "does_not_mutate_existing_artifacts": true,
+    "does_not_promote_theorem_status": true,
+    "does_not_treat_label_as_truth": true,
+    "does_not_widen_authority": true,
+    "next_unit_required_for_implementation": true,
+    "policy_only": true
+  },
+  "schema_version": "taxonomy_evolution_v0_policy_receipt_v0",
+  "source_halt_vocabulary_implementation_receipt_id": "75eabbe2",
+  "source_halt_vocabulary_policy_id": "0707a2d7",
+  "source_jurisdiction_gate_implementation_receipt_id": "6291b0d9",
+  "source_jurisdiction_gate_policy_id": "57838400",
+  "source_jurisdiction_gate_policy_receipt_id": "993751b4",
+  "source_local_regime_hash": "25802530",
+  "source_move_registry_implementation_receipt_id": "bef08570",
+  "source_move_registry_policy_id": "34863965",
+  "source_move_registry_policy_receipt_id": "1264c091",
+  "source_proceed_adapter_implementation_receipt_id": "363d2f4a",
+  "source_proposal_ledger_schema_id": "eee2a318",
+  "source_trace_ledger_implementation_receipt_id": "cc24a11f",
+  "source_trace_schema_id": "b4887660",
+  "target_unit_id": "taxonomy_evolution.v0",
+  "taxonomy_authority_patch": {
+    "patch_mode": "future_jurisdiction_profile_patch_only_do_not_mutate_existing_profile",
+    "schema_version": "taxonomy_authority_patch_v0",
+    "taxonomy_authority": {
+      "forbidden": [
+        "self_accept_delta",
+        "self_authorize_registry_mutation",
+        "promote_label_to_truth",
+        "widen_authority_from_usefulness"
+      ],
+      "requires_human_review": [
+        "accept_taxonomy_delta",
+        "apply_registry_patch",
+        "add_halt_code",
+        "add_move_kind",
+        "change_promotion_rule",
+        "change_authority_class"
+      ],
+      "runtime_allowed": [
+        "record_taxonomy_pressure",
+        "test_existing_vocabulary",
+        "emit_taxonomy_delta_proposal",
+        "emit_upgrade_proposal",
+        "emit_withhold_record"
+      ]
+    }
+  },
+  "taxonomy_delta_schema": {
+    "delta_kinds": [
+      "ASSIGN",
+      "WITHHOLD",
+      "REFINE",
+      "WEAKEN",
+      "SPLIT",
+      "MERGE",
+      "DROP",
+      "ADD_LABEL",
+      "ADD_HALT",
+      "ADD_MOVE_KIND",
+      "ADD_BLOCK_REASON",
+      "ADD_STOP_CONDITION"
+    ],
+    "law": [
+      "Delta must cite pressure_ref.",
+      "Delta must cite existing_vocab_test_ref.",
+      "Delta must be the smallest honest repair.",
+      "Delta does not widen authority.",
+      "Delta does not promote theorem status.",
+      "Delta does not mutate registry."
+    ],
+    "required_fields": [
+      "taxonomy_delta_id",
+      "schema_version",
+      "delta_kind",
+      "target_registry",
+      "trigger_halt",
+      "pressure_ref",
+      "existing_vocab_test_ref",
+      "current_term",
+      "proposed_delta",
+      "smallest_honest_reading",
+      "must_not_impersonate",
+      "allowed_next_handling",
+      "status"
+    ],
+    "schema_version": "taxonomy_delta_schema_v0",
+    "status_enum": [
+      "PROPOSED",
+      "WITHHELD",
+      "NEEDS_NARROWING",
+      "NEEDS_EXTRACTION"
+    ]
+  },
+  "taxonomy_evolution_receipt_schema": {
+    "law": [
+      "Receipt records handling syntax improvement only.",
+      "Receipt does not create truth.",
+      "Receipt does not authorize moves.",
+      "Receipt does not prove theorem status.",
+      "Receipt does not claim global closure."
+    ],
+    "required_fields": [
+      "taxonomy_evolution_receipt_id",
+      "schema_version",
+      "trigger_halt",
+      "pressure_ref",
+      "existing_vocab_test_ref",
+      "proposal_ref",
+      "review_ref",
+      "registry_patch_ref",
+      "outcome",
+      "registry_changed",
+      "terms_added",
+      "terms_split",
+      "terms_withheld",
+      "must_not_impersonate",
+      "next_allowed_handling"
+    ],
+    "schema_version": "taxonomy_evolution_receipt_schema_v0"
+  },
+  "taxonomy_move_registry_patch": {
+    "candidate_moves": [
+      {
+        "action": "emit taxonomy_pressure_record",
+        "applies_when": "halt_code in eligible_taxonomy_halts",
+        "authority_required": "AUTHORIZED_LOCAL_FOR_RECORD_ONLY",
+        "may_mutate_registry": false,
+        "move_id": "taxonomy.pressure.record.v0",
+        "move_kind": "PROPOSAL_ONLY"
+      },
+      {
+        "action": "emit taxonomy_delta and taxonomy_upgrade_proposal",
+        "applies_when": "taxonomy_pressure_record exists and existing_vocab_test exists",
+        "authority_required": "AUTHORIZED_LOCAL_FOR_PROPOSAL_ONLY",
+        "may_mutate_registry": false,
+        "move_id": "taxonomy.delta.propose.v0",
+        "move_kind": "PROPOSAL_ONLY"
+      },
+      {
+        "action": "apply local registry patch and emit taxonomy_evolution_receipt",
+        "applies_when": "review.decision == ACCEPTED_LOCAL and review.registry_patch_allowed == true",
+        "authority_required": "REQUIRES_HUMAN_REVIEW_SATISFIED_BY_REVIEW_RECORD",
+        "may_mutate_registry": true,
+        "move_id": "taxonomy.registry.patch_after_review.v0",
+        "move_kind": "LOCAL_REGISTRY_PATCH"
+      }
+    ],
+    "law": [
+      "Candidate moves are not registered by this policy.",
+      "Move-registry changes are patch-only.",
+      "No move is added without applies_when/action/emits/halt behavior."
+    ],
+    "patch_mode": "future_move_registry_patch_only_do_not_mutate_existing_move_registry",
+    "schema_version": "taxonomy_move_registry_patch_v0"
+  },
+  "taxonomy_pressure_record_schema": {
+    "must_not_impersonate": [
+      "proposal",
+      "accepted delta",
+      "registry mutation",
+      "proof of gap"
+    ],
+    "pressure_is_not_delta": true,
+    "required_fields": [
+      "taxonomy_pressure_id",
+      "schema_version",
+      "trigger_halt",
+      "halt_record_ref",
+      "run_id",
+      "unit_id",
+      "target",
+      "observed_pressure",
+      "why_existing_handling_failed",
+      "taxonomy_family",
+      "status"
+    ],
+    "schema_version": "taxonomy_pressure_record_schema_v0",
+    "status_enum": [
+      "PRESSURE_RECORDED"
+    ]
+  },
+  "taxonomy_registry_patch_schema": {
+    "law": [
+      "Only accepted review may create APPLIED_LOCAL patch.",
+      "Patch is local, not global.",
+      "Patch does not widen authority.",
+      "Patch does not prove truth."
+    ],
+    "required_fields": [
+      "registry_patch_id",
+      "schema_version",
+      "taxonomy_registry_id",
+      "review_ref",
+      "patch_kind",
+      "target_registry",
+      "before",
+      "after",
+      "must_not_impersonate",
+      "status"
+    ],
+    "schema_version": "taxonomy_registry_patch_schema_v0",
+    "status_enum": [
+      "APPLIED_LOCAL",
+      "NOT_APPLIED"
+    ]
+  },
+  "taxonomy_registry_schema": {
+    "must_not_impersonate": [
+      "truth registry",
+      "authority source",
+      "proof system",
+      "global taxonomy",
+      "final ontology"
+    ],
+    "registry_law": [
+      "labels carry no authority by themselves",
+      "new terms require accepted taxonomy delta",
+      "proposals do not mutate registry",
+      "accepted deltas must preserve non-impersonation",
+      "existing vocabulary must be tested before ADD"
+    ],
+    "required_fields": [
+      "taxonomy_registry_id",
+      "schema_version",
+      "registries",
+      "registry_law"
+    ],
+    "schema_version": "taxonomy_registry_schema_v0",
+    "typed_registries": [
+      "object_kind",
+      "truth_status",
+      "layer",
+      "route_role",
+      "extractability",
+      "content_scope",
+      "allowed_consumers",
+      "allowed_next_moves",
+      "stop_conditions",
+      "halt_codes",
+      "move_kinds",
+      "block_reasons"
+    ]
+  },
+  "taxonomy_review_record_schema": {
+    "accepted_by_review_is_alias_only": true,
+    "canonical_accept_decision": "ACCEPTED_LOCAL",
+    "decision_enum": [
+      "PROPOSED",
+      "ACCEPTED_LOCAL",
+      "REJECTED",
+      "DEFERRED",
+      "WITHHELD",
+      "NEEDS_NARROWING",
+      "NEEDS_EXTRACTION"
+    ],
+    "law": [
+      "No review record, no registry patch.",
+      "Only ACCEPTED_LOCAL may allow APPLIED_LOCAL patch.",
+      "ACCEPTED_LOCAL is local to declared taxonomy registry.",
+      "Human/review layer must be explicit."
+    ],
+    "required_fields": [
+      "taxonomy_review_id",
+      "schema_version",
+      "upgrade_proposal_ref",
+      "reviewer",
+      "decision",
+      "decision_scope",
+      "reason",
+      "conditions",
+      "registry_patch_allowed"
+    ],
+    "schema_version": "taxonomy_review_record_schema_v0"
+  },
+  "taxonomy_trigger_policy": {
+    "authority_halts_context_only": [
+      "STOP_PROPOSAL_REQUIRED",
+      "STOP_HUMAN_REVIEW_REQUIRED",
+      "STOP_FORBIDDEN_MOVE",
+      "STOP_AUTHORITY_BOUNDARY"
+    ],
+    "core_law": [
+      "No halt, no taxonomy upgrade.",
+      "Authority boundary does not automatically imply vocabulary failure.",
+      "STOP_AUTHORITY_VIOLATION is not an ordinary taxonomy trigger."
+    ],
+    "eligible_trigger_halts": [
+      "STOP_TAXONOMY_GAP",
+      "STOP_UNDERTYPED_OBJECT",
+      "STOP_UNTYPED_UNIT",
+      "STOP_LAYER_COLLAPSE",
+      "STOP_NEEDS_NEW_MOVE",
+      "STOP_NEEDS_EXTRACTION",
+      "STOP_VISIBLE_GOTCHA"
+    ],
+    "schema_version": "taxonomy_trigger_policy_v0"
+  },
+  "taxonomy_upgrade_proposal_schema": {
+    "law": [
+      "Upgrade proposal is not acceptance.",
+      "Upgrade proposal is not registry mutation.",
+      "Upgrade proposal is not truth creation.",
+      "Upgrade proposal requires review before acceptance."
+    ],
+    "required_fields": [
+      "upgrade_proposal_id",
+      "schema_version",
+      "trigger_halt",
+      "target",
+      "current_label",
+      "observed_pressure",
+      "existing_vocab_test",
+      "outcome",
+      "proposed_delta_ref",
+      "smallest_honest_reading",
+      "must_not_impersonate",
+      "allowed_next_handling",
+      "status"
+    ],
+    "schema_version": "taxonomy_upgrade_proposal_schema_v0",
+    "status_enum": [
+      "PROPOSED",
+      "WITHHELD",
+      "NEEDS_NARROWING",
+      "NEEDS_EXTRACTION"
+    ]
+  },
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_TAXONOMY_EVOLUTION_V0_WITH_DEMO_DELTAS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "unit_id": "BUILD_TAXONOMY_EVOLUTION_V0_POLICY_V0",
+  "warnings": []
+}
