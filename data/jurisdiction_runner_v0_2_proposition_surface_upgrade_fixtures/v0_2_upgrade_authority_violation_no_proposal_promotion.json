@@ -1,0 +1,32 @@
+{
+  "case_name": "AUTHORITY_VIOLATION_NO_PROPOSAL_PROMOTION",
+  "expected": {
+    "halt_code": "STOP_AUTHORITY_VIOLATION",
+    "no_proposal_reason": "OUT_OF_SCOPE",
+    "proposal_status": "NONE"
+  },
+  "expected_transcript": [
+    "LOAD_REGIME",
+    "LOAD_STATE",
+    "VALIDATE_STATE",
+    "SELECT_MOVE",
+    "CHECK_AUTHORITY",
+    "APPLY_OR_BLOCK_MOVE",
+    "EMIT_RECEIPT",
+    "EMIT_METRICS",
+    "EMIT_TERMINAL"
+  ],
+  "fixture_id": "v0_2_upgrade_authority_violation_no_proposal_promotion",
+  "input_state": {
+    "force_authority_violation": true,
+    "proposal_evidence": {
+      "evidence_summary": "authority violation must not promote proposal",
+      "proposed_delta_kind": "LOCAL_MOVE_ADMISSIBILITY_DELTA",
+      "sufficient": true
+    },
+    "state_id": "v0_2_authority_violation",
+    "typed": true,
+    "value": 0
+  },
+  "schema_version": "jurisdiction_runner_v0_2_proposition_surface_upgrade_fixture_v0"
+}

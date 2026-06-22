@@ -1,0 +1,31 @@
+{
+  "case_name": "NO_PROPOSAL_WHEN_INSUFFICIENT_EVIDENCE",
+  "expected": {
+    "halt_code": "STOP_NO_APPLICABLE_MOVE",
+    "no_proposal_reason": "INSUFFICIENT_EVIDENCE",
+    "proposal_status": "NONE"
+  },
+  "expected_transcript": [
+    "LOAD_REGIME",
+    "LOAD_STATE",
+    "VALIDATE_STATE",
+    "SELECT_MOVE",
+    "CHECK_AUTHORITY",
+    "APPLY_OR_BLOCK_MOVE",
+    "EMIT_RECEIPT",
+    "EMIT_METRICS",
+    "EMIT_TERMINAL"
+  ],
+  "fixture_id": "v0_2_upgrade_no_proposal_when_insufficient_evidence",
+  "input_state": {
+    "proposal_evidence": {
+      "evidence_summary": "proposal pressure intentionally below threshold",
+      "proposed_delta_kind": "LOCAL_MOVE_ADMISSIBILITY_DELTA",
+      "sufficient": false
+    },
+    "state_id": "v0_2_insufficient_evidence",
+    "typed": true,
+    "value": 4
+  },
+  "schema_version": "jurisdiction_runner_v0_2_proposition_surface_upgrade_fixture_v0"
+}

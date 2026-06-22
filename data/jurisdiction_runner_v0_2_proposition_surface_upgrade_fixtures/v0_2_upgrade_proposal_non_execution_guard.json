@@ -1,0 +1,31 @@
+{
+  "case_name": "PROPOSAL_NON_EXECUTION_GUARD",
+  "expected": {
+    "halt_code": "STOP_NO_APPLICABLE_MOVE",
+    "proposal_status": "EMITTED_REVIEW_REQUIRED",
+    "proposal_type": "LOCAL_MOVE_ADMISSIBILITY_DELTA_PROPOSAL"
+  },
+  "expected_transcript": [
+    "LOAD_REGIME",
+    "LOAD_STATE",
+    "VALIDATE_STATE",
+    "SELECT_MOVE",
+    "CHECK_AUTHORITY",
+    "APPLY_OR_BLOCK_MOVE",
+    "EMIT_RECEIPT",
+    "EMIT_METRICS",
+    "EMIT_TERMINAL"
+  ],
+  "fixture_id": "v0_2_upgrade_proposal_non_execution_guard",
+  "input_state": {
+    "proposal_evidence": {
+      "evidence_summary": "proposal must remain review-only",
+      "proposed_delta_kind": "LOCAL_MOVE_ADMISSIBILITY_DELTA",
+      "sufficient": true
+    },
+    "state_id": "v0_2_non_execution_guard",
+    "typed": true,
+    "value": 2
+  },
+  "schema_version": "jurisdiction_runner_v0_2_proposition_surface_upgrade_fixture_v0"
+}
