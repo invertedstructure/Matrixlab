@@ -1,0 +1,205 @@
+{
+  "authority_guards": {
+    "controlled_probe_regime_variant_authorized_for_next_unit": true,
+    "controlled_probe_regime_variant_promoted": false,
+    "final_schema_claimed": false,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "halt_surface_probe_policy_built": true,
+    "hidden_continuation_authorized": false,
+    "implementation_receipt_consumed": true,
+    "local_regime_runtime_mutated": false,
+    "probe_fixtures_created_by_policy": false,
+    "probe_fixtures_executed_by_policy": false,
+    "proof_claimed": false,
+    "proposal_promoted": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_executed_by_policy": false,
+    "runner_module_changed": false,
+    "runner_module_read": true
+  },
+  "authorized_operations_next": {
+    "create_expected_probe_transcripts": true,
+    "create_halt_surface_probe_fixtures": true,
+    "emit_halt_surface_probe_receipt": true,
+    "execute_runner_against_probe_fixtures": true,
+    "execute_wrapper_dependency_missing_probe": true,
+    "read_halt_surface_probe_policy": true,
+    "read_halt_surface_probe_policy_receipt": true,
+    "read_local_regime_v0_declaration": true,
+    "read_runner_module": true
+  },
+  "created_at": "2026-06-22T02:15:11.195715+00:00",
+  "failures": [],
+  "forbidden_operations": {
+    "ambient_workspace_authority": true,
+    "final_schema_claim": true,
+    "full_registry_scan": true,
+    "global_taxonomy_design": true,
+    "hidden_continuation_after_stop": true,
+    "latest_or_mtime_selection": true,
+    "modify_runner_module": true,
+    "mutate_local_regime_at_runtime": true,
+    "promote_probe_regime_variant": true,
+    "promote_proposals": true,
+    "proof_claim": true,
+    "registry_sqlite_read": true,
+    "registry_sqlite_write": true,
+    "replace_local_regime_v0": true
+  },
+  "gate": "PASS",
+  "halt_surface_probe_plan": {
+    "already_covered": {
+      "STOP_DONE": {
+        "source_dry_run_receipt_id": "a85e0cc4",
+        "status": "COVERED"
+      }
+    },
+    "coverage_goal": [
+      "STOP_DONE",
+      "STOP_NO_APPLICABLE_MOVE",
+      "STOP_AUTHORITY_VIOLATION",
+      "STOP_GATE_FAIL",
+      "STOP_UNTYPED_OBJECT",
+      "STOP_DEPENDENCY_MISSING"
+    ],
+    "expected_transcript": [
+      "LOAD_REGIME",
+      "LOAD_STATE",
+      "VALIDATE_STATE",
+      "SELECT_MOVE",
+      "CHECK_AUTHORITY",
+      "APPLY_OR_BLOCK_MOVE",
+      "EMIT_RECEIPT",
+      "EMIT_METRICS",
+      "EMIT_TERMINAL"
+    ],
+    "required_probe_cases": {
+      "STOP_AUTHORITY_VIOLATION": {
+        "expected": {
+          "halt_code": "STOP_AUTHORITY_VIOLATION",
+          "move_status": "BLOCKED",
+          "no_proposal_reason": "OUT_OF_SCOPE",
+          "proposal_status": "NONE",
+          "runner_executes": true
+        },
+        "fixture_kind": "controlled_probe_regime_variant",
+        "input_state": {
+          "state_id": "typed_counter_zero_authority_blocked",
+          "typed": true,
+          "value": 0
+        },
+        "regime_variant_rule": "copy local_regime.v0, keep move registry unchanged, set jurisdiction_envelope.allowed_move_ids to empty list for this probe only",
+        "variant_is_not_promotion": true,
+        "variant_must_not_replace_local_regime_v0": true
+      },
+      "STOP_DEPENDENCY_MISSING": {
+        "expected": {
+          "halt_code": "STOP_DEPENDENCY_MISSING",
+          "move_status": "BLOCKED",
+          "no_proposal_reason": "PRESSURE_ALREADY_TYPED",
+          "proposal_status": "NONE",
+          "runner_executes": false
+        },
+        "fixture_kind": "wrapper_dependency_boundary",
+        "missing_dependency_path": "data/jurisdiction_runner_v0_1_missing_dependency_probe/MISSING.json"
+      },
+      "STOP_GATE_FAIL": {
+        "expected": {
+          "halt_code": "STOP_GATE_FAIL",
+          "move_status": "BLOCKED",
+          "no_proposal_reason": "PRESSURE_ALREADY_TYPED",
+          "proposal_status": "NONE",
+          "runner_executes": true
+        },
+        "fixture_kind": "state_validation",
+        "input_state": {
+          "state_id": "typed_counter_negative",
+          "typed": true,
+          "value": -1
+        }
+      },
+      "STOP_NO_APPLICABLE_MOVE": {
+        "expected": {
+          "halt_code": "STOP_NO_APPLICABLE_MOVE",
+          "move_status": "BLOCKED",
+          "no_proposal_reason": "INSUFFICIENT_EVIDENCE",
+          "proposal_status": "NONE",
+          "runner_executes": true
+        },
+        "fixture_kind": "selector_boundary",
+        "input_state": {
+          "state_id": "typed_counter_already_closed",
+          "typed": true,
+          "value": 1
+        }
+      },
+      "STOP_UNTYPED_OBJECT": {
+        "expected": {
+          "halt_code": "STOP_UNTYPED_OBJECT",
+          "move_status": "BLOCKED",
+          "no_proposal_reason": "PRESSURE_ALREADY_TYPED",
+          "proposal_status": "NONE",
+          "runner_executes": true
+        },
+        "fixture_kind": "state_validation",
+        "input_state": {
+          "state_id": "untyped_counter_zero",
+          "typed": false,
+          "value": 0
+        }
+      }
+    }
+  },
+  "local_regime_hash": "097d620c",
+  "local_regime_version": "local_regime.v0",
+  "policy_id": "cfe745b9",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_id": "7bb73d50",
+  "receipt_sig8": "7bb73d50",
+  "receipt_type": "JURISDICTION_RUNNER_V0_1_HALT_SURFACE_PROBE_POLICY_RECEIPT",
+  "review_summary": {
+    "covered_halt_codes": [
+      "STOP_DONE"
+    ],
+    "happy_path_covered": true,
+    "implementation_valid": true,
+    "reason_for_next_probe": "v0.1 declares six halt codes but implementation receipt covered only STOP_DONE",
+    "uncovered_halt_codes": [
+      "STOP_NO_APPLICABLE_MOVE",
+      "STOP_AUTHORITY_VIOLATION",
+      "STOP_GATE_FAIL",
+      "STOP_UNTYPED_OBJECT",
+      "STOP_DEPENDENCY_MISSING"
+    ]
+  },
+  "runner_unit_id": "jurisdiction_runner.v0.1",
+  "safety_clauses": {
+    "does_not_claim_global_correctness": true,
+    "does_not_claim_theorem_closure": true,
+    "does_not_create_probe_fixtures": true,
+    "does_not_execute_runner": true,
+    "does_not_modify_runner": true,
+    "does_not_mutate_local_regime": true,
+    "does_not_promote_any_proposal": true,
+    "does_not_promote_probe_regime_variant": true,
+    "does_not_write_registry": true,
+    "next_unit_required_for_probe_execution": true,
+    "policy_only": true
+  },
+  "schema_version": "jurisdiction_runner_v0_1_halt_surface_probe_policy_receipt_v0",
+  "source_bootstrap_policy_id": "0fe04fb5",
+  "source_bootstrap_policy_receipt_id": "bc448c6d",
+  "source_dry_run_receipt_id": "a85e0cc4",
+  "source_implementation_receipt_id": "04c0692d",
+  "terminal": {
+    "next_command_goal": "RUN_JURISDICTION_RUNNER_V0_1_HALT_SURFACE_PROBE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "unit_id": "BUILD_JURISDICTION_RUNNER_V0_1_HALT_SURFACE_PROBE_POLICY_V0",
+  "warnings": []
+}
