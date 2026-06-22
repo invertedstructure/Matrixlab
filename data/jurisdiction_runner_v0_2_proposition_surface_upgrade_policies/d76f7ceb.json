@@ -1,0 +1,276 @@
+{
+  "acceptance_gates": {
+    "S0_source_chain_verified": {
+      "description": "Human decision, delta proposal, probe run, halt-surface run, implementation receipt, local_regime.v0, and runner v0.1 are path-addressed and tracked.",
+      "required": true
+    },
+    "S1_local_regime_v1_declared": {
+      "description": "Emit local_regime.v1 declaration as a new artifact derived from v0, without replacing or mutating v0.",
+      "required": true
+    },
+    "S2_runner_v0_2_implemented": {
+      "description": "Implement jurisdiction_runner.v0.2 as a separate module; do not modify v0.1.",
+      "required": true
+    },
+    "S3_halt_with_proposal_fixture_passes": {
+      "description": "Under allowed proposal pressure, runner halts with proposal artifact and receipt.",
+      "required": true
+    },
+    "S4_proposal_non_execution_passes": {
+      "description": "Proposal is never executed, never applied, and never promoted by runner.",
+      "required": true
+    },
+    "S5_duplicate_unresolved_proposal_guard_passes": {
+      "description": "Repeated unresolved proposal pressure is blocked, counted, or linked to existing unresolved proposal without spam.",
+      "required": true
+    },
+    "S6_no_hidden_continuation": {
+      "description": "All proposal halts terminate with STOP and no next command unless human decision artifact authorizes later unit.",
+      "required": true
+    },
+    "S7_no_registry_or_global_taxonomy": {
+      "description": "No SQLite registry read/write, no global taxonomy claim, no final schema claim, no proof claim.",
+      "required": true
+    }
+  },
+  "accepted_minimum_shape": {
+    "duplicate_unresolved_proposal_guard": true,
+    "halt_with_proposal": true,
+    "human_review_required_before_promotion": true,
+    "proposal_non_execution": true,
+    "proposal_receipt_required": true
+  },
+  "authority_guards": {
+    "delta_proposal_applied": false,
+    "delta_proposal_consumed": true,
+    "final_schema_claimed": false,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "human_decision_consumed": true,
+    "implementation_not_performed_by_policy": true,
+    "local_regime_runtime_mutated": false,
+    "local_regime_v0_read": true,
+    "local_regime_v0_replaced": false,
+    "local_regime_v1_declared_by_policy": false,
+    "proof_claimed": false,
+    "proposal_promoted": false,
+    "proposal_surface_upgrade_authorized_for_next_unit": true,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_executed_by_policy": false,
+    "runner_module_changed": false,
+    "runner_module_read": true,
+    "upgrade_policy_built": true
+  },
+  "authorized_operations_next": {
+    "emit_v0_2_case_receipts": true,
+    "emit_v0_2_implementation_receipt": true,
+    "emit_v0_2_proposal_receipts": true,
+    "execute_runner_v0_2_against_fixtures": true,
+    "read_delta_proposal": true,
+    "read_delta_proposal_receipt": true,
+    "read_human_decision": true,
+    "read_source_local_regime_v0": true,
+    "read_source_runner_v0_1": true,
+    "read_upgrade_policy": true,
+    "read_upgrade_policy_receipt": true,
+    "write_local_regime_v1_declaration": true,
+    "write_runner_v0_2_module": true,
+    "write_v0_2_expected_transcripts": true,
+    "write_v0_2_upgrade_fixtures": true
+  },
+  "created_at": "2026-06-22T03:17:56.834464+00:00",
+  "failures": [],
+  "forbidden_operations_next": {
+    "ambient_workspace_authority": true,
+    "execute_or_apply_proposal": true,
+    "final_schema_claim": true,
+    "full_registry_scan": true,
+    "global_taxonomy_design": true,
+    "hidden_continuation_after_stop": true,
+    "latest_or_mtime_selection": true,
+    "modify_runner_v0_1_module": true,
+    "mutate_local_regime_at_runtime": true,
+    "promote_proposal_without_human_review": true,
+    "proof_claim": true,
+    "registry_sqlite_read": true,
+    "registry_sqlite_write": true,
+    "replace_local_regime_v0": true
+  },
+  "gate": "PASS",
+  "local_regime_v1_required_delta": {
+    "delta_kind": "ADD_REVIEWABLE_HALT_WITH_PROPOSAL_SURFACE",
+    "duplicate_unresolved_proposal_guard": {
+      "allowed_second_observation_results": [
+        "WITHHELD_DUPLICATE_UNRESOLVED",
+        "DUPLICATE_UNRESOLVED_PROPOSAL_COUNT_INCREMENTED"
+      ],
+      "enabled": true,
+      "match_keys": [
+        "proposal_type",
+        "source_halt_code",
+        "source_state_id",
+        "proposed_delta_kind"
+      ]
+    },
+    "non_execution_contract": {
+      "hidden_continuation_authorized": false,
+      "local_regime_runtime_mutated": false,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "registry_written": false
+    },
+    "proposal_surface": {
+      "eligible_halts": [
+        "STOP_NO_APPLICABLE_MOVE"
+      ],
+      "enabled": true,
+      "no_proposal_reasons_preserved": [
+        "INSUFFICIENT_EVIDENCE",
+        "PRESSURE_ALREADY_TYPED",
+        "OUT_OF_SCOPE"
+      ],
+      "proposal_must_reference": [
+        "source_halt_code",
+        "source_state_id",
+        "source_fixture_id",
+        "evidence_summary",
+        "proposed_delta_kind",
+        "human_review_required"
+      ],
+      "proposal_status_values": [
+        "NONE",
+        "EMITTED_REVIEW_REQUIRED",
+        "WITHHELD_DUPLICATE_UNRESOLVED"
+      ],
+      "proposal_types": [
+        "LOCAL_MOVE_ADMISSIBILITY_DELTA_PROPOSAL"
+      ],
+      "scope": "local only, bounded to jurisdiction_runner.v0.2 fixtures"
+    },
+    "schema_version": "local_regime_v1_required_delta_policy_v0",
+    "source_local_regime_hash": "097d620c",
+    "source_local_regime_version": "local_regime.v0",
+    "target_local_regime_version": "local_regime.v1"
+  },
+  "policy_id": "d76f7ceb",
+  "policy_receipt_id": "a3b2c208",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "policy_type": "JURISDICTION_RUNNER_V0_2_PROPOSITION_SURFACE_UPGRADE_POLICY",
+  "required_fixture_cases": {
+    "AUTHORITY_VIOLATION_NO_PROPOSAL_PROMOTION": {
+      "expected_halt_code": "STOP_AUTHORITY_VIOLATION",
+      "expected_proposal_promoted": false,
+      "purpose": "Authority-boundary halts may not promote proposal or mutate the local regime."
+    },
+    "DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_FIRST": {
+      "expected_duplicate_unresolved_proposal_count": 0,
+      "purpose": "First unresolved proposal pressure may emit one review-required proposal."
+    },
+    "DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_SECOND": {
+      "allowed_results": [
+        "SECOND_PROPOSAL_WITHHELD_LINKED_TO_EXISTING",
+        "DUPLICATE_UNRESOLVED_PROPOSAL_COUNT_INCREMENTED"
+      ],
+      "purpose": "Second identical unresolved pressure must not emit a duplicate proposal; it must withhold, link, or increment duplicate count."
+    },
+    "HALT_WITH_PROPOSAL_ON_NO_APPLICABLE_MOVE": {
+      "expected_halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "expected_proposal_status": "EMITTED_REVIEW_REQUIRED",
+      "expected_proposal_type": "LOCAL_MOVE_ADMISSIBILITY_DELTA_PROPOSAL",
+      "must_execute_proposal": false,
+      "must_promote_proposal": false,
+      "purpose": "When a typed object has no applicable move and enough bounded evidence exists, runner emits a proposal artifact and halts."
+    },
+    "NO_PROPOSAL_WHEN_INSUFFICIENT_EVIDENCE": {
+      "expected_no_proposal_reason": "INSUFFICIENT_EVIDENCE",
+      "expected_proposal_status": "NONE",
+      "purpose": "If proposal evidence is insufficient, preserve v0.1 no-proposal behavior."
+    },
+    "PROPOSAL_NON_EXECUTION_GUARD": {
+      "expected_local_regime_mutated": false,
+      "expected_proposal_executed": false,
+      "expected_proposal_promoted": false,
+      "expected_registry_written": false,
+      "purpose": "A proposal cannot cause runtime state transition, registry write, local regime mutation, or hidden continuation."
+    }
+  },
+  "required_implementation_artifacts": {
+    "case_receipts": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/*.json",
+    "expected_transcripts": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/*.json",
+    "implementation_receipt": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_implementation_receipts/<receipt_id>.json",
+    "local_regime_v1_declaration": "data/local_regime_v1_declarations/<local_regime_v1_hash>.json",
+    "proposal_fixtures": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/*.json",
+    "proposal_receipts": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/*.json",
+    "runner_v0_2_module": "src/matrixlab/jurisdiction_runner_v0_2.py"
+  },
+  "runner_v0_2_required_delta": {
+    "implementation_mode": "separate_module_not_patch_v0_1",
+    "required_metrics": {
+      "duplicate_unresolved_proposal_count": true,
+      "halt_with_proposal_count": true,
+      "halt_without_proposal_count": true,
+      "proposal_count_by_type": true,
+      "proposal_receipt_count": true,
+      "proposal_withheld_count": true,
+      "runtime_proposal_emitted_count": true,
+      "runtime_proposal_executed_count": true,
+      "runtime_proposal_promoted_count": true
+    },
+    "required_runtime_behavior": {
+      "add_proposal_evaluation_after_no_applicable_move": true,
+      "emit_proposal_receipt_when_evidence_sufficient": true,
+      "link_or_count_duplicate_unresolved_proposal": true,
+      "never_execute_or_apply_proposal": true,
+      "next_command_goal_remains_null_without_later_human_decision": true,
+      "preserve_v0_1_transcript_shape": true,
+      "terminal_remains_STOP": true,
+      "withhold_proposal_when_evidence_insufficient": true
+    },
+    "schema_version": "jurisdiction_runner_v0_2_required_delta_policy_v0",
+    "source_runner_unit_id": "jurisdiction_runner.v0.1",
+    "target_runner_unit_id": "jurisdiction_runner.v0.2"
+  },
+  "safety_clauses": {
+    "does_not_apply_delta": true,
+    "does_not_claim_final_taxonomy": true,
+    "does_not_claim_global_correctness": true,
+    "does_not_claim_theorem_closure": true,
+    "does_not_declare_local_regime_v1": true,
+    "does_not_execute_runner": true,
+    "does_not_modify_runner": true,
+    "does_not_mutate_local_regime": true,
+    "does_not_promote_delta": true,
+    "does_not_write_registry": true,
+    "next_unit_required_for_implementation": true,
+    "policy_only": true
+  },
+  "schema_version": "jurisdiction_runner_v0_2_proposition_surface_upgrade_policy_v0",
+  "source_delta_proposal_id": "6e4ee1ea",
+  "source_delta_proposal_receipt_id": "e919d594",
+  "source_halt_surface_probe_run_receipt_id": "5030948f",
+  "source_human_decision_id": "cef49876",
+  "source_human_decision_receipt_id": "b80f0f1f",
+  "source_local_regime_hash": "097d620c",
+  "source_local_regime_version": "local_regime.v0",
+  "source_proposition_surface_probe_run_receipt_id": "0d2f03d4",
+  "source_runner_unit_id": "jurisdiction_runner.v0.1",
+  "target_local_regime_version": "local_regime.v1",
+  "target_runner_unit_id": "jurisdiction_runner.v0.2",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_JURISDICTION_RUNNER_V0_2_PROPOSITION_SURFACE_UPGRADE_WITH_FIXTURES_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "unit_id": "BUILD_JURISDICTION_RUNNER_V0_2_PROPOSITION_SURFACE_UPGRADE_POLICY_V0",
+  "upgrade_summary": {
+    "human_decision": "accepted provisionally for policy build only",
+    "non_goal": "global autonomy, final taxonomy, proof, registry promotion, or mutation of v0.1/v0",
+    "target": "bounded local_regime.v1 plus jurisdiction_runner.v0.2",
+    "upgrade_reason": "v0.1 can halt but cannot lawfully halt-with-proposal through runtime behavior."
+  },
+  "warnings": []
+}
