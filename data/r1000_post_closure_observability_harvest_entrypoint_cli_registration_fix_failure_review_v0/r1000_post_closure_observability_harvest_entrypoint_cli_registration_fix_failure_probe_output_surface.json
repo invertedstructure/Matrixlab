@@ -1,0 +1,32 @@
+{
+  "likely_output_noise_markers": [
+    "Error:",
+    "Traceback",
+    "\u256d"
+  ],
+  "parsed_result": null,
+  "probe_command": [
+    "uv",
+    "run",
+    "python",
+    "src/matrixlab/cli.py",
+    "post-closure-observability-harvest",
+    "--radius",
+    "10",
+    "--source-closure-receipt-id",
+    "52d0ea8d",
+    "--label",
+    "cli-registration-fix-small-probe"
+  ],
+  "probe_observation_receipt_count": null,
+  "probe_passed": false,
+  "probe_rollup_path": null,
+  "probe_run_receipt_path": null,
+  "returncode": 1,
+  "schema_version": "r1000_post_closure_observability_harvest_entrypoint_cli_registration_fix_failure_probe_output_surface_v0",
+  "source_small_probe_result_ref": "data/r1000_post_closure_observability_harvest_entrypoint_cli_registration_fix_v0/r1000_post_closure_observability_harvest_entrypoint_cli_registration_small_probe_result.json",
+  "stderr_tail": "\u256d\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 Traceback (most recent call last) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 /home/asd/projects/matrixlab/src/matrixlab/cli.py:11982 in                   \u2502\n\u2502 post_closure_observability_harvest_command                                   \u2502\n\u2502                                                                              \u2502\n\u2502   11979 \u2502   label: str | None = typer.Option(None, \"--label\", help=\"Optional \u2502\n\u2502         run label.\"),                                                        \u2502\n\u2502   11980 ) -> None:                                                           \u2502\n\u2502   11981 \u2502   \"\"\"Emit bounded post-closure observability receipts without      \u2502\n\u2502         reopening the closed queue.\"\"\"                                       \u2502\n\u2502 \u2771 11982 \u2502   from matrixlab.r1000_post_closure_observability_harvest import   \u2502\n\u2502         run_bounded_harvest                                                  \u2502\n\u2502   11983 \u2502   result = run_bounded_harvest(                                    \u2502\n\u2502   11984 \u2502   \u2502   radius=radius,                                               \u2502\n\u2502   11985 \u2502   \u2502   source_closure_receipt_id=source_closure_receipt_id,         \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f\nModuleNotFoundError: No module named 'matrixlab'\n",
+  "stdout_json_parseable": false,
+  "stdout_parse_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "stdout_tail": ""
+}

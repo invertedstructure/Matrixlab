@@ -11971,14 +11971,24 @@ def domain_shift_slot_observe(
     typer.echo(json.dumps(payload, indent=2, sort_keys=True))
     typer.echo(f"domain_shift_slot_observation_path: {out_path}")
 
+# R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_ENTRYPOINT_V0_FIXED
+@app.command("post-closure-observability-harvest")
+def post_closure_observability_harvest_command(
+    radius: int = typer.Option(..., "--radius", "-r", min=1, help="Bounded number of observation receipts to emit."),
+    source_closure_receipt_id: str = typer.Option("52d0ea8d", "--source-closure-receipt-id", help="Accepted closure review receipt id."),
+    label: str | None = typer.Option(None, "--label", help="Optional run label."),
+) -> None:
+    """Emit bounded post-closure observability receipts without reopening the closed queue."""
+    from matrixlab.r1000_post_closure_observability_harvest import run_bounded_harvest
+    result = run_bounded_harvest(
+        radius=radius,
+        source_closure_receipt_id=source_closure_receipt_id,
+        label=label,
+    )
+    typer.echo(json.dumps(result, indent=2, sort_keys=True))
+    if result.get("gate") != "PASS":
+        raise typer.Exit(code=1)
 
 
 if __name__ == "__main__":
     app()
-
-# R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_ENTRYPOINT_V0
-try:
-    from matrixlab.r1000_post_closure_observability_harvest import app as _r1000_post_closure_observability_harvest_app
-    app.add_typer(_r1000_post_closure_observability_harvest_app)
-except Exception as _r1000_post_closure_observability_harvest_import_error:
-    pass
