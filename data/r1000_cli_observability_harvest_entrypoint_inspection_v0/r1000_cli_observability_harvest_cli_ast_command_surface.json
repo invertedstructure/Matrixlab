@@ -1,0 +1,2543 @@
+{
+  "cli_path": "src/matrixlab/cli.py",
+  "command_count": 47,
+  "commands": [
+    {
+      "args": [
+        "depth_min",
+        "depth_max",
+        "families",
+        "cycles_per_case",
+        "max_cells",
+        "strict_laws",
+        "run_id"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": null,
+      "is_command": true,
+      "lineno": 1115,
+      "name": "run"
+    },
+    {
+      "args": [
+        "depth_max",
+        "cycles_per_case",
+        "max_cells",
+        "strict_laws",
+        "families"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": "Deliberately push the runner until halt reasons appear.",
+      "is_command": true,
+      "lineno": 1136,
+      "name": "stress"
+    },
+    {
+      "args": [
+        "run_id"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": "Show run summary from SQLite.",
+      "is_command": true,
+      "lineno": 1160,
+      "name": "summarize"
+    },
+    {
+      "args": [
+        "case_id",
+        "run_id",
+        "cycle"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": "Inspect receipts for one case.",
+      "is_command": true,
+      "lineno": 1240,
+      "name": "inspect"
+    },
+    {
+      "args": [
+        "run_id"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": "Analyze where and how the latest run broke.",
+      "is_command": true,
+      "lineno": 1325,
+      "name": "analyze"
+    },
+    {
+      "args": [
+        "run_id",
+        "family",
+        "limit"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": "Show compact move-profile counts.",
+      "is_command": true,
+      "lineno": 1446,
+      "name": "profiles"
+    },
+    {
+      "args": [
+        "run_id",
+        "limit"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": "Compare raw move-profile counts against coarse normalized profile counts.",
+      "is_command": true,
+      "lineno": 1514,
+      "name": "coarse_profiles"
+    },
+    {
+      "args": [
+        "run_id",
+        "limit"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": "Summarize expected-law checks by family and move.",
+      "is_command": true,
+      "lineno": 1624,
+      "name": "laws"
+    },
+    {
+      "args": [
+        "run_id"
+      ],
+      "decorators": [
+        "app.command(\"recover-collision\")"
+      ],
+      "docstring": "Recover a run_id collision by splitting receipt rows whose family is not in the stored run family set.",
+      "is_command": true,
+      "lineno": 1691,
+      "name": "recover_collision"
+    },
+    {
+      "args": [
+        "run_id"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": "Exit nonzero if a run violates law checks or is incomplete.",
+      "is_command": true,
+      "lineno": 1925,
+      "name": "gate"
+    },
+    {
+      "args": [
+        "run_id",
+        "previous"
+      ],
+      "decorators": [
+        "app.command(\"agent-eval\")"
+      ],
+      "docstring": "Emit a machine-readable agent/eval report for one run, optionally compared to a previous run.",
+      "is_command": true,
+      "lineno": 2006,
+      "name": "agent_eval"
+    },
+    {
+      "args": [
+        "eval_report"
+      ],
+      "decorators": [
+        "app.command(\"agent-select\")"
+      ],
+      "docstring": "Select the next command from a fixed allowlist based on an explicit agent-eval JSON report.",
+      "is_command": true,
+      "lineno": 2430,
+      "name": "agent_select"
+    },
+    {
+      "args": [
+        "selector_receipt"
+      ],
+      "decorators": [
+        "app.command(\"agent-plan-check\")"
+      ],
+      "docstring": "Validate a content-addressed agent-select receipt before any execution layer exists.",
+      "is_command": true,
+      "lineno": 2603,
+      "name": "agent_plan_check"
+    },
+    {
+      "args": [
+        "plan_check_receipt"
+      ],
+      "decorators": [
+        "app.command(\"agent-exec-dry-run\")"
+      ],
+      "docstring": "Emit a dry-run executor receipt from a PASS agent-plan-check receipt. Does not execute subprocesses.",
+      "is_command": true,
+      "lineno": 2740,
+      "name": "agent_exec_dry_run"
+    },
+    {
+      "args": [
+        "exec_dry_run_receipt",
+        "observed_eval"
+      ],
+      "decorators": [
+        "app.command(\"agent-post-check\")"
+      ],
+      "docstring": "Verify that a manual execution result matches a prior PASS executor dry-run receipt.",
+      "is_command": true,
+      "lineno": 2908,
+      "name": "agent_post_check"
+    },
+    {
+      "args": [
+        "post_check_receipt"
+      ],
+      "decorators": [
+        "app.command(\"agent-loop-summary\")"
+      ],
+      "docstring": "Emit a compact receipt card for one complete operator-mediated agent loop.",
+      "is_command": true,
+      "lineno": 3077,
+      "name": "agent_loop_summary"
+    },
+    {
+      "args": [
+        "loop_summary_receipt",
+        "decision"
+      ],
+      "decorators": [
+        "app.command(\"agent-confirm-loop\")"
+      ],
+      "docstring": "Record explicit operator confirmation for a completed PASS loop summary.",
+      "is_command": true,
+      "lineno": 3247,
+      "name": "agent_confirm_loop"
+    },
+    {
+      "args": [
+        "confirmation_receipt"
+      ],
+      "decorators": [
+        "app.command(\"agent-next-from-confirmation\")"
+      ],
+      "docstring": "Consume a PASS continue confirmation and emit the next fixed selector receipt from its allowed eval source.",
+      "is_command": true,
+      "lineno": 3367,
+      "name": "agent_next_from_confirmation"
+    },
+    {
+      "args": [
+        "loop_summaries"
+      ],
+      "decorators": [
+        "app.command(\"agent-cycle-ledger\")"
+      ],
+      "docstring": "Build a machine-readable cycle ledger from explicit loop summary receipts.",
+      "is_command": true,
+      "lineno": 3637,
+      "name": "agent_cycle_ledger"
+    },
+    {
+      "args": [
+        "cycle_ledger",
+        "depth_step",
+        "families",
+        "max_cells",
+        "strict_laws"
+      ],
+      "decorators": [
+        "app.command(\"agent-cycle-next\")"
+      ],
+      "docstring": "Select the next controlled experiment from a cycle ledger.",
+      "is_command": true,
+      "lineno": 3801,
+      "name": "agent_cycle_next"
+    },
+    {
+      "args": [
+        "cycle_next",
+        "observed_eval"
+      ],
+      "decorators": [
+        "app.command(\"agent-cycle-observe\")"
+      ],
+      "docstring": "Validate and record the observed result of a cycle-next execution.",
+      "is_command": true,
+      "lineno": 3985,
+      "name": "agent_cycle_observe"
+    },
+    {
+      "args": [
+        "cycle_ledger",
+        "cycle_observation"
+      ],
+      "decorators": [
+        "app.command(\"agent-cycle-append-observation\")"
+      ],
+      "docstring": "Append a clean cycle observation to an existing cycle ledger.",
+      "is_command": true,
+      "lineno": 4149,
+      "name": "agent_cycle_append_observation"
+    },
+    {
+      "args": [
+        "cycle_ledger"
+      ],
+      "decorators": [
+        "app.command(\"agent-cheat-check\")"
+      ],
+      "docstring": "Read-only cheating detector for baseline stability claims.",
+      "is_command": true,
+      "lineno": 4402,
+      "name": "agent_cheat_check"
+    },
+    {
+      "args": [
+        "cycle_ledger"
+      ],
+      "decorators": [
+        "app.command(\"agent-cheat-adversarial\")"
+      ],
+      "docstring": "Adversarial cheating detector using real temp DB mutations only.",
+      "is_command": true,
+      "lineno": 4890,
+      "name": "agent_cheat_adversarial"
+    },
+    {
+      "args": [
+        "source_ledger",
+        "cheat_check",
+        "cheat_adversarial",
+        "source_cell",
+        "target_cell",
+        "target_probe_kind"
+      ],
+      "decorators": [
+        "app.command(\"cell-transfer-contract\")"
+      ],
+      "docstring": "Create a measurement-discipline-only transfer contract between cells.",
+      "is_command": true,
+      "lineno": 5402,
+      "name": "cell_transfer_contract"
+    },
+    {
+      "args": [
+        "transfer_contract",
+        "shift_kind",
+        "radius",
+        "max_cells"
+      ],
+      "decorators": [
+        "app.command(\"domain-shift-generator\")"
+      ],
+      "docstring": "Create a Cell 1 domain-shift generator manifest without running it.",
+      "is_command": true,
+      "lineno": 5729,
+      "name": "domain_shift_generator"
+    },
+    {
+      "args": [
+        "domain_shift_generator"
+      ],
+      "decorators": [
+        "app.command(\"domain-shift-runner-support\")"
+      ],
+      "docstring": "Validate executable runner support for a domain-shift generator manifest.",
+      "is_command": true,
+      "lineno": 5969,
+      "name": "domain_shift_runner_support"
+    },
+    {
+      "args": [
+        "domain_shift_generator"
+      ],
+      "decorators": [
+        "app.command(\"domain-shift-slot-runner-support\")"
+      ],
+      "docstring": "Create slot-separated runner support for repeated-family domain shifts.",
+      "is_command": true,
+      "lineno": 6247,
+      "name": "domain_shift_slot_runner_support"
+    },
+    {
+      "args": [
+        "policy",
+        "candidate_radius"
+      ],
+      "decorators": [
+        "app.command(\"radius-expansion-candidate-decision\")"
+      ],
+      "docstring": "Build exact-radius candidate decision under burden policy.",
+      "is_command": true,
+      "lineno": 10417,
+      "name": "radius_expansion_candidate_decision"
+    },
+    {
+      "args": [
+        "decision"
+      ],
+      "decorators": [
+        "app.command(\"radius-expansion-candidate-decision-verify\")"
+      ],
+      "docstring": "Reload and verify an exact-radius candidate decision.",
+      "is_command": true,
+      "lineno": 10467,
+      "name": "radius_expansion_candidate_decision_verify"
+    },
+    {
+      "args": [
+        "r100_decision"
+      ],
+      "decorators": [
+        "app.command(\"radius-expansion-burden-policy\")"
+      ],
+      "docstring": "Build radius expansion burden policy after the verified R100 decision.",
+      "is_command": true,
+      "lineno": 10548,
+      "name": "radius_expansion_burden_policy"
+    },
+    {
+      "args": [
+        "policy"
+      ],
+      "decorators": [
+        "app.command(\"radius-expansion-burden-policy-verify\")"
+      ],
+      "docstring": "Reload and verify a radius expansion burden policy.",
+      "is_command": true,
+      "lineno": 10591,
+      "name": "radius_expansion_burden_policy_verify"
+    },
+    {
+      "args": [
+        "verified_rollup"
+      ],
+      "decorators": [
+        "app.command(\"r100-scale-decision-with-rollup\")"
+      ],
+      "docstring": "Decide R100 scale outcome using the verified burden rollup.",
+      "is_command": true,
+      "lineno": 10671,
+      "name": "r100_scale_decision_with_rollup"
+    },
+    {
+      "args": [
+        "decision"
+      ],
+      "decorators": [
+        "app.command(\"r100-scale-decision-with-rollup-verify\")"
+      ],
+      "docstring": "Reload and verify an R100 scale decision with verified rollup.",
+      "is_command": true,
+      "lineno": 10715,
+      "name": "r100_scale_decision_with_rollup_verify"
+    },
+    {
+      "args": [
+        "contract"
+      ],
+      "decorators": [
+        "app.command(\"verified-r100-burden-rollup\")"
+      ],
+      "docstring": "Build verified R100 burden rollups from raw manifests.",
+      "is_command": true,
+      "lineno": 10794,
+      "name": "verified_r100_burden_rollup"
+    },
+    {
+      "args": [
+        "rollup"
+      ],
+      "decorators": [
+        "app.command(\"verified-r100-burden-rollup-verify\")"
+      ],
+      "docstring": "Reload and verify a verified R100 burden rollup bundle.",
+      "is_command": true,
+      "lineno": 10837,
+      "name": "verified_r100_burden_rollup_verify"
+    },
+    {
+      "args": [
+        "r100_radius_scale_observation"
+      ],
+      "decorators": [
+        "app.command(\"receipt-rollup-contract\")"
+      ],
+      "docstring": "Build the post-R100 receipt rollup contract.",
+      "is_command": true,
+      "lineno": 10918,
+      "name": "receipt_rollup_contract"
+    },
+    {
+      "args": [
+        "contract"
+      ],
+      "decorators": [
+        "app.command(\"receipt-rollup-contract-verify\")"
+      ],
+      "docstring": "Reload and verify a receipt rollup contract.",
+      "is_command": true,
+      "lineno": 10962,
+      "name": "receipt_rollup_contract_verify"
+    },
+    {
+      "args": [
+        "r100_observation",
+        "decision",
+        "r75_radius_scale_observation"
+      ],
+      "decorators": [
+        "app.command(\"r100-radius-scale-observation\")"
+      ],
+      "docstring": "Build the R50/R75/R100 scale observation with explicit burden evaluation.",
+      "is_command": true,
+      "lineno": 11039,
+      "name": "r100_radius_scale_observation"
+    },
+    {
+      "args": [
+        "r100_radius_scale_observation"
+      ],
+      "decorators": [
+        "app.command(\"r100-radius-scale-observation-verify\")"
+      ],
+      "docstring": "Reload and verify an R100 radius scale observation.",
+      "is_command": true,
+      "lineno": 11099,
+      "name": "r100_radius_scale_observation_verify"
+    },
+    {
+      "args": [
+        "radius_scale_observation"
+      ],
+      "decorators": [
+        "app.command(\"r75-scale-decision\")"
+      ],
+      "docstring": "Decide the R75 scale outcome and whether the next radius is licensed.",
+      "is_command": true,
+      "lineno": 11181,
+      "name": "r75_scale_decision"
+    },
+    {
+      "args": [
+        "decision"
+      ],
+      "decorators": [
+        "app.command(\"r75-scale-decision-verify\")"
+      ],
+      "docstring": "Reload and verify an R75 scale decision receipt from disk.",
+      "is_command": true,
+      "lineno": 11231,
+      "name": "r75_scale_decision_verify"
+    },
+    {
+      "args": [
+        "r75_observation",
+        "contract"
+      ],
+      "decorators": [
+        "app.command(\"radius-scale-observation\")"
+      ],
+      "docstring": "Compare R75 slot observation against the R50 baseline under the scalability contract.",
+      "is_command": true,
+      "lineno": 11307,
+      "name": "radius_scale_observation"
+    },
+    {
+      "args": [
+        "radius_scale_observation"
+      ],
+      "decorators": [
+        "app.command(\"radius-scale-observation-verify\")"
+      ],
+      "docstring": "Reload and verify a radius scale observation from disk.",
+      "is_command": true,
+      "lineno": 11357,
+      "name": "radius_scale_observation_verify"
+    },
+    {
+      "args": [
+        "baseline_observation"
+      ],
+      "decorators": [
+        "app.command(\"scalability-contract\")"
+      ],
+      "docstring": "Build the post-R50/pre-R75 first-order scalability contract.",
+      "is_command": true,
+      "lineno": 11444,
+      "name": "scalability_contract"
+    },
+    {
+      "args": [
+        "contract"
+      ],
+      "decorators": [
+        "app.command(\"scalability-contract-verify\")"
+      ],
+      "docstring": "Reload and verify a scalability contract from disk.",
+      "is_command": true,
+      "lineno": 11520,
+      "name": "scalability_contract_verify"
+    },
+    {
+      "args": [
+        "slot_execution"
+      ],
+      "decorators": [
+        "app.command(\"domain-shift-slot-observe\")"
+      ],
+      "docstring": "Observe a slot-separated domain-shift execution and classify transfer outcome.",
+      "is_command": true,
+      "lineno": 11606,
+      "name": "domain_shift_slot_observe"
+    }
+  ],
+  "function_count": 160,
+  "functions": [
+    {
+      "args": [],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 20,
+      "name": "_matrixlab_connect_sqlite"
+    },
+    {
+      "args": [
+        "con"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 26,
+      "name": "_matrixlab_configure_sqlite_write_connection"
+    },
+    {
+      "args": [],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 67,
+      "name": "utc_now"
+    },
+    {
+      "args": [
+        "obj"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 71,
+      "name": "sig8"
+    },
+    {
+      "args": [
+        "value",
+        "directory",
+        "suffix"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 76,
+      "name": "resolve_json_path"
+    },
+    {
+      "args": [
+        "payload",
+        "id_key",
+        "sig_key"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 88,
+      "name": "stable_sig"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 95,
+      "name": "selector_payload_sig"
+    },
+    {
+      "args": [
+        "argv",
+        "command_index"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 143,
+      "name": "validate_agent_command_argv"
+    },
+    {
+      "args": [
+        "payload",
+        "out_dir",
+        "schema_key",
+        "schema_value",
+        "id_key",
+        "sig_key"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 184,
+      "name": "write_content_addressed_receipt"
+    },
+    {
+      "args": [
+        "a"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 204,
+      "name": "matrix_sig8"
+    },
+    {
+      "args": [
+        "a"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 212,
+      "name": "column_type_set"
+    },
+    {
+      "args": [
+        "a"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 216,
+      "name": "support_size"
+    },
+    {
+      "args": [
+        "move_id",
+        "before",
+        "after",
+        "rank_before",
+        "rank_after"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 220,
+      "name": "move_profile_id"
+    },
+    {
+      "args": [
+        "family",
+        "move_id",
+        "profile"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 254,
+      "name": "expected_law"
+    },
+    {
+      "args": [
+        "a"
+      ],
+      "decorators": [],
+      "docstring": "Rank over F2 using basic Gaussian elimination.",
+      "is_command": false,
+      "lineno": 299,
+      "name": "gf2_rank"
+    },
+    {
+      "args": [
+        "n"
+      ],
+      "decorators": [],
+      "docstring": "Simple binary cycle incidence matrix.\nRows = vertices.\nColumns = edges.",
+      "is_command": false,
+      "lineno": 330,
+      "name": "base_cycle_matrix"
+    },
+    {
+      "args": [
+        "a",
+        "family",
+        "cycle_n"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 343,
+      "name": "apply_move"
+    },
+    {
+      "args": [],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 405,
+      "name": "init_db"
+    },
+    {
+      "args": [
+        "run_id",
+        "families",
+        "depth_min",
+        "depth_max",
+        "cycles_per_case",
+        "max_cells"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 484,
+      "name": "insert_run_start"
+    },
+    {
+      "args": [],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 551,
+      "name": "_ml_progress_enabled"
+    },
+    {
+      "args": [],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 558,
+      "name": "_ml_progress_interval_sec"
+    },
+    {
+      "args": [],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 567,
+      "name": "_ml_progress_every_receipts"
+    },
+    {
+      "args": [
+        "receipt",
+        "key",
+        "default"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 576,
+      "name": "_ml_progress_receipt_get"
+    },
+    {
+      "args": [
+        "phase",
+        "extra",
+        "force"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 582,
+      "name": "_ml_progress_emit"
+    },
+    {
+      "args": [
+        "signum",
+        "frame"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 654,
+      "name": "_ml_progress_signal_handler"
+    },
+    {
+      "args": [],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 659,
+      "name": "_ml_progress_install_handlers"
+    },
+    {
+      "args": [
+        "local_vars"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 675,
+      "name": "_ml_progress_run_config"
+    },
+    {
+      "args": [
+        "receipt"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 726,
+      "name": "_ml_progress_after_receipt"
+    },
+    {
+      "args": [
+        "phase",
+        "extra"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 762,
+      "name": "_ml_progress_phase"
+    },
+    {
+      "args": [
+        "receipt"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 766,
+      "name": "insert_receipt"
+    },
+    {
+      "args": [
+        "run_id",
+        "status",
+        "total_cases",
+        "total_receipts"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 822,
+      "name": "finish_run"
+    },
+    {
+      "args": [],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 834,
+      "name": "latest_run_id"
+    },
+    {
+      "args": [
+        "families"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 853,
+      "name": "parse_families"
+    },
+    {
+      "args": [
+        "run_id"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 871,
+      "name": "run_id_exists"
+    },
+    {
+      "args": [
+        "requested_run_id"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 894,
+      "name": "allocate_run_id"
+    },
+    {
+      "args": [
+        "depth_min",
+        "depth_max",
+        "families",
+        "cycles_per_case",
+        "max_cells",
+        "run_id",
+        "strict_laws"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 910,
+      "name": "execute_run"
+    },
+    {
+      "args": [
+        "depth_min",
+        "depth_max",
+        "families",
+        "cycles_per_case",
+        "max_cells",
+        "strict_laws",
+        "run_id"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": null,
+      "is_command": true,
+      "lineno": 1115,
+      "name": "run"
+    },
+    {
+      "args": [
+        "depth_max",
+        "cycles_per_case",
+        "max_cells",
+        "strict_laws",
+        "families"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": "Deliberately push the runner until halt reasons appear.",
+      "is_command": true,
+      "lineno": 1136,
+      "name": "stress"
+    },
+    {
+      "args": [
+        "run_id"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": "Show run summary from SQLite.",
+      "is_command": true,
+      "lineno": 1160,
+      "name": "summarize"
+    },
+    {
+      "args": [
+        "case_id",
+        "run_id",
+        "cycle"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": "Inspect receipts for one case.",
+      "is_command": true,
+      "lineno": 1240,
+      "name": "inspect"
+    },
+    {
+      "args": [
+        "run_id"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": "Analyze where and how the latest run broke.",
+      "is_command": true,
+      "lineno": 1325,
+      "name": "analyze"
+    },
+    {
+      "args": [
+        "run_id",
+        "family",
+        "limit"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": "Show compact move-profile counts.",
+      "is_command": true,
+      "lineno": 1446,
+      "name": "profiles"
+    },
+    {
+      "args": [
+        "run_id",
+        "limit"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": "Compare raw move-profile counts against coarse normalized profile counts.",
+      "is_command": true,
+      "lineno": 1514,
+      "name": "coarse_profiles"
+    },
+    {
+      "args": [
+        "run_id",
+        "limit"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": "Summarize expected-law checks by family and move.",
+      "is_command": true,
+      "lineno": 1624,
+      "name": "laws"
+    },
+    {
+      "args": [
+        "run_id"
+      ],
+      "decorators": [
+        "app.command(\"recover-collision\")"
+      ],
+      "docstring": "Recover a run_id collision by splitting receipt rows whose family is not in the stored run family set.",
+      "is_command": true,
+      "lineno": 1691,
+      "name": "recover_collision"
+    },
+    {
+      "args": [
+        "run_id"
+      ],
+      "decorators": [
+        "app.command()"
+      ],
+      "docstring": "Exit nonzero if a run violates law checks or is incomplete.",
+      "is_command": true,
+      "lineno": 1925,
+      "name": "gate"
+    },
+    {
+      "args": [
+        "run_id",
+        "previous"
+      ],
+      "decorators": [
+        "app.command(\"agent-eval\")"
+      ],
+      "docstring": "Emit a machine-readable agent/eval report for one run, optionally compared to a previous run.",
+      "is_command": true,
+      "lineno": 2006,
+      "name": "agent_eval"
+    },
+    {
+      "args": [
+        "eval_report"
+      ],
+      "decorators": [
+        "app.command(\"agent-select\")"
+      ],
+      "docstring": "Select the next command from a fixed allowlist based on an explicit agent-eval JSON report.",
+      "is_command": true,
+      "lineno": 2430,
+      "name": "agent_select"
+    },
+    {
+      "args": [
+        "selector_receipt"
+      ],
+      "decorators": [
+        "app.command(\"agent-plan-check\")"
+      ],
+      "docstring": "Validate a content-addressed agent-select receipt before any execution layer exists.",
+      "is_command": true,
+      "lineno": 2603,
+      "name": "agent_plan_check"
+    },
+    {
+      "args": [
+        "plan_check_receipt"
+      ],
+      "decorators": [
+        "app.command(\"agent-exec-dry-run\")"
+      ],
+      "docstring": "Emit a dry-run executor receipt from a PASS agent-plan-check receipt. Does not execute subprocesses.",
+      "is_command": true,
+      "lineno": 2740,
+      "name": "agent_exec_dry_run"
+    },
+    {
+      "args": [
+        "exec_dry_run_receipt",
+        "observed_eval"
+      ],
+      "decorators": [
+        "app.command(\"agent-post-check\")"
+      ],
+      "docstring": "Verify that a manual execution result matches a prior PASS executor dry-run receipt.",
+      "is_command": true,
+      "lineno": 2908,
+      "name": "agent_post_check"
+    },
+    {
+      "args": [
+        "post_check_receipt"
+      ],
+      "decorators": [
+        "app.command(\"agent-loop-summary\")"
+      ],
+      "docstring": "Emit a compact receipt card for one complete operator-mediated agent loop.",
+      "is_command": true,
+      "lineno": 3077,
+      "name": "agent_loop_summary"
+    },
+    {
+      "args": [
+        "loop_summary_receipt",
+        "decision"
+      ],
+      "decorators": [
+        "app.command(\"agent-confirm-loop\")"
+      ],
+      "docstring": "Record explicit operator confirmation for a completed PASS loop summary.",
+      "is_command": true,
+      "lineno": 3247,
+      "name": "agent_confirm_loop"
+    },
+    {
+      "args": [
+        "confirmation_receipt"
+      ],
+      "decorators": [
+        "app.command(\"agent-next-from-confirmation\")"
+      ],
+      "docstring": "Consume a PASS continue confirmation and emit the next fixed selector receipt from its allowed eval source.",
+      "is_command": true,
+      "lineno": 3367,
+      "name": "agent_next_from_confirmation"
+    },
+    {
+      "args": [
+        "loop_summaries"
+      ],
+      "decorators": [
+        "app.command(\"agent-cycle-ledger\")"
+      ],
+      "docstring": "Build a machine-readable cycle ledger from explicit loop summary receipts.",
+      "is_command": true,
+      "lineno": 3637,
+      "name": "agent_cycle_ledger"
+    },
+    {
+      "args": [
+        "cycle_ledger",
+        "depth_step",
+        "families",
+        "max_cells",
+        "strict_laws"
+      ],
+      "decorators": [
+        "app.command(\"agent-cycle-next\")"
+      ],
+      "docstring": "Select the next controlled experiment from a cycle ledger.",
+      "is_command": true,
+      "lineno": 3801,
+      "name": "agent_cycle_next"
+    },
+    {
+      "args": [
+        "cycle_next",
+        "observed_eval"
+      ],
+      "decorators": [
+        "app.command(\"agent-cycle-observe\")"
+      ],
+      "docstring": "Validate and record the observed result of a cycle-next execution.",
+      "is_command": true,
+      "lineno": 3985,
+      "name": "agent_cycle_observe"
+    },
+    {
+      "args": [
+        "cycle_ledger",
+        "cycle_observation"
+      ],
+      "decorators": [
+        "app.command(\"agent-cycle-append-observation\")"
+      ],
+      "docstring": "Append a clean cycle observation to an existing cycle ledger.",
+      "is_command": true,
+      "lineno": 4149,
+      "name": "agent_cycle_append_observation"
+    },
+    {
+      "args": [
+        "cycle_ledger"
+      ],
+      "decorators": [
+        "app.command(\"agent-cheat-check\")"
+      ],
+      "docstring": "Read-only cheating detector for baseline stability claims.",
+      "is_command": true,
+      "lineno": 4402,
+      "name": "agent_cheat_check"
+    },
+    {
+      "args": [
+        "cycle_ledger"
+      ],
+      "decorators": [
+        "app.command(\"agent-cheat-adversarial\")"
+      ],
+      "docstring": "Adversarial cheating detector using real temp DB mutations only.",
+      "is_command": true,
+      "lineno": 4890,
+      "name": "agent_cheat_adversarial"
+    },
+    {
+      "args": [
+        "source_ledger",
+        "cheat_check",
+        "cheat_adversarial",
+        "source_cell",
+        "target_cell",
+        "target_probe_kind"
+      ],
+      "decorators": [
+        "app.command(\"cell-transfer-contract\")"
+      ],
+      "docstring": "Create a measurement-discipline-only transfer contract between cells.",
+      "is_command": true,
+      "lineno": 5402,
+      "name": "cell_transfer_contract"
+    },
+    {
+      "args": [
+        "transfer_contract",
+        "shift_kind",
+        "radius",
+        "max_cells"
+      ],
+      "decorators": [
+        "app.command(\"domain-shift-generator\")"
+      ],
+      "docstring": "Create a Cell 1 domain-shift generator manifest without running it.",
+      "is_command": true,
+      "lineno": 5729,
+      "name": "domain_shift_generator"
+    },
+    {
+      "args": [
+        "domain_shift_generator"
+      ],
+      "decorators": [
+        "app.command(\"domain-shift-runner-support\")"
+      ],
+      "docstring": "Validate executable runner support for a domain-shift generator manifest.",
+      "is_command": true,
+      "lineno": 5969,
+      "name": "domain_shift_runner_support"
+    },
+    {
+      "args": [
+        "domain_shift_generator"
+      ],
+      "decorators": [
+        "app.command(\"domain-shift-slot-runner-support\")"
+      ],
+      "docstring": "Create slot-separated runner support for repeated-family domain shifts.",
+      "is_command": true,
+      "lineno": 6247,
+      "name": "domain_shift_slot_runner_support"
+    },
+    {
+      "args": [
+        "repeated_family_consistency"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 6547,
+      "name": "_scalability_contract_clean_repeated_family_consistency"
+    },
+    {
+      "args": [
+        "measurement_cleanliness"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 6564,
+      "name": "_scalability_contract_clean_measurement"
+    },
+    {
+      "args": [
+        "identifier",
+        "directory"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 6585,
+      "name": "_scalability_contract_resolve_json"
+    },
+    {
+      "args": [
+        "contract"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 6589,
+      "name": "_scalability_contract_verify_core"
+    },
+    {
+      "args": [
+        "observation_id"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 6914,
+      "name": "_scalability_contract_payload_from_observation"
+    },
+    {
+      "args": [
+        "r50_value",
+        "r75_value"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7071,
+      "name": "_radius_scale_observation_metric_delta"
+    },
+    {
+      "args": [
+        "obs_body"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7099,
+      "name": "_radius_scale_observation_clean_measurement"
+    },
+    {
+      "args": [
+        "obs_body"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7104,
+      "name": "_radius_scale_observation_clean_repeated"
+    },
+    {
+      "args": [
+        "r50_profiles",
+        "r75_profiles"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7109,
+      "name": "_radius_scale_observation_shape_delta"
+    },
+    {
+      "args": [
+        "r50_obs",
+        "r75_obs"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7137,
+      "name": "_radius_scale_observation_delta_class"
+    },
+    {
+      "args": [
+        "delta_class",
+        "r75_obs",
+        "resource_envelope"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7167,
+      "name": "_radius_scale_observation_terminal_decision"
+    },
+    {
+      "args": [
+        "contract_id",
+        "r75_observation_id"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7203,
+      "name": "_radius_scale_observation_payload"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7491,
+      "name": "_radius_scale_observation_verify_core"
+    },
+    {
+      "args": [
+        "radius_scale_observation_id"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7552,
+      "name": "_r75_scale_decision_payload"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7702,
+      "name": "_r75_scale_decision_verify_core"
+    },
+    {
+      "args": [
+        "obs_body"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7767,
+      "name": "_r100_receipt_sum"
+    },
+    {
+      "args": [
+        "obs_body"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7771,
+      "name": "_r100_receipt_rows_sum"
+    },
+    {
+      "args": [
+        "obs"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7775,
+      "name": "_r100_obs_brief"
+    },
+    {
+      "args": [
+        "left_brief",
+        "right_brief"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7797,
+      "name": "_r100_pair_delta"
+    },
+    {
+      "args": [
+        "pair_delta"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7838,
+      "name": "_r100_burden_class"
+    },
+    {
+      "args": [
+        "pair_delta"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7855,
+      "name": "_r100_curve_class"
+    },
+    {
+      "args": [
+        "r50_75",
+        "r75_100",
+        "r50_100",
+        "r100_brief"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7870,
+      "name": "_r100_terminal_decision"
+    },
+    {
+      "args": [
+        "r100_observation_id",
+        "decision_id",
+        "r75_radius_scale_observation_id"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 7906,
+      "name": "_r100_radius_scale_observation_payload"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 8117,
+      "name": "_r100_radius_scale_observation_verify_core"
+    },
+    {
+      "args": [
+        "r100_rso_id"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 8193,
+      "name": "_receipt_rollup_contract_resolve_r100_rso"
+    },
+    {
+      "args": [
+        "r100_rso"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 8204,
+      "name": "_receipt_rollup_contract_observation_refs"
+    },
+    {
+      "args": [
+        "observation_id"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 8212,
+      "name": "_receipt_rollup_contract_radius_obs_body"
+    },
+    {
+      "args": [
+        "body"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 8224,
+      "name": "_receipt_rollup_contract_slot_runs_from_obs_body"
+    },
+    {
+      "args": [
+        "run_id"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 8235,
+      "name": "_receipt_rollup_contract_count_raw_receipts_for_run"
+    },
+    {
+      "args": [
+        "r100_rso_id"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 8247,
+      "name": "_receipt_rollup_contract_payload"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 8486,
+      "name": "_receipt_rollup_contract_verify_core"
+    },
+    {
+      "args": [
+        "run_id"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 8597,
+      "name": "_vr100_sqlite_receipt_rows"
+    },
+    {
+      "args": [
+        "contract"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 8649,
+      "name": "_vr100_write_raw_manifest"
+    },
+    {
+      "args": [
+        "manifest"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 8717,
+      "name": "_vr100_manifest_verify_core"
+    },
+    {
+      "args": [
+        "rollup"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 8759,
+      "name": "_vr100_rollup_hash_body"
+    },
+    {
+      "args": [
+        "rollup"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 8763,
+      "name": "_vr100_write_rollup"
+    },
+    {
+      "args": [
+        "rollup",
+        "manifest"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 8775,
+      "name": "_vr100_rollup_verify_core"
+    },
+    {
+      "args": [
+        "contract",
+        "manifest",
+        "level",
+        "scope_id",
+        "receipt_count",
+        "ids_or_range"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 8837,
+      "name": "_vr100_common_rollup_base"
+    },
+    {
+      "args": [
+        "contract",
+        "manifest"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 8897,
+      "name": "_vr100_build_rollups_from_contract"
+    },
+    {
+      "args": [
+        "contract",
+        "manifest",
+        "rollups"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 9075,
+      "name": "_vr100_write_decision_record"
+    },
+    {
+      "args": [
+        "contract_id"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 9130,
+      "name": "_verified_r100_burden_rollup_payload"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 9276,
+      "name": "_verified_r100_burden_rollup_verify_core"
+    },
+    {
+      "args": [
+        "verified_rollup_id"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 9368,
+      "name": "_r100_scale_decision_with_verified_rollup_payload"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 9549,
+      "name": "_r100_scale_decision_with_verified_rollup_verify_core"
+    },
+    {
+      "args": [
+        "r100_decision_id"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 9638,
+      "name": "_radius_expansion_burden_policy_payload"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 9843,
+      "name": "_radius_expansion_burden_policy_verify_core"
+    },
+    {
+      "args": [
+        "policy",
+        "candidate_radius"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 9974,
+      "name": "_candidate_estimate_from_policy"
+    },
+    {
+      "args": [
+        "policy_id",
+        "candidate_radius"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 10066,
+      "name": "_radius_expansion_candidate_decision_payload"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 10264,
+      "name": "_radius_expansion_candidate_decision_verify_core"
+    },
+    {
+      "args": [
+        "policy",
+        "candidate_radius"
+      ],
+      "decorators": [
+        "app.command(\"radius-expansion-candidate-decision\")"
+      ],
+      "docstring": "Build exact-radius candidate decision under burden policy.",
+      "is_command": true,
+      "lineno": 10417,
+      "name": "radius_expansion_candidate_decision"
+    },
+    {
+      "args": [
+        "decision"
+      ],
+      "decorators": [
+        "app.command(\"radius-expansion-candidate-decision-verify\")"
+      ],
+      "docstring": "Reload and verify an exact-radius candidate decision.",
+      "is_command": true,
+      "lineno": 10467,
+      "name": "radius_expansion_candidate_decision_verify"
+    },
+    {
+      "args": [
+        "r100_decision"
+      ],
+      "decorators": [
+        "app.command(\"radius-expansion-burden-policy\")"
+      ],
+      "docstring": "Build radius expansion burden policy after the verified R100 decision.",
+      "is_command": true,
+      "lineno": 10548,
+      "name": "radius_expansion_burden_policy"
+    },
+    {
+      "args": [
+        "policy"
+      ],
+      "decorators": [
+        "app.command(\"radius-expansion-burden-policy-verify\")"
+      ],
+      "docstring": "Reload and verify a radius expansion burden policy.",
+      "is_command": true,
+      "lineno": 10591,
+      "name": "radius_expansion_burden_policy_verify"
+    },
+    {
+      "args": [
+        "verified_rollup"
+      ],
+      "decorators": [
+        "app.command(\"r100-scale-decision-with-rollup\")"
+      ],
+      "docstring": "Decide R100 scale outcome using the verified burden rollup.",
+      "is_command": true,
+      "lineno": 10671,
+      "name": "r100_scale_decision_with_rollup"
+    },
+    {
+      "args": [
+        "decision"
+      ],
+      "decorators": [
+        "app.command(\"r100-scale-decision-with-rollup-verify\")"
+      ],
+      "docstring": "Reload and verify an R100 scale decision with verified rollup.",
+      "is_command": true,
+      "lineno": 10715,
+      "name": "r100_scale_decision_with_rollup_verify"
+    },
+    {
+      "args": [
+        "contract"
+      ],
+      "decorators": [
+        "app.command(\"verified-r100-burden-rollup\")"
+      ],
+      "docstring": "Build verified R100 burden rollups from raw manifests.",
+      "is_command": true,
+      "lineno": 10794,
+      "name": "verified_r100_burden_rollup"
+    },
+    {
+      "args": [
+        "rollup"
+      ],
+      "decorators": [
+        "app.command(\"verified-r100-burden-rollup-verify\")"
+      ],
+      "docstring": "Reload and verify a verified R100 burden rollup bundle.",
+      "is_command": true,
+      "lineno": 10837,
+      "name": "verified_r100_burden_rollup_verify"
+    },
+    {
+      "args": [
+        "r100_radius_scale_observation"
+      ],
+      "decorators": [
+        "app.command(\"receipt-rollup-contract\")"
+      ],
+      "docstring": "Build the post-R100 receipt rollup contract.",
+      "is_command": true,
+      "lineno": 10918,
+      "name": "receipt_rollup_contract"
+    },
+    {
+      "args": [
+        "contract"
+      ],
+      "decorators": [
+        "app.command(\"receipt-rollup-contract-verify\")"
+      ],
+      "docstring": "Reload and verify a receipt rollup contract.",
+      "is_command": true,
+      "lineno": 10962,
+      "name": "receipt_rollup_contract_verify"
+    },
+    {
+      "args": [
+        "r100_observation",
+        "decision",
+        "r75_radius_scale_observation"
+      ],
+      "decorators": [
+        "app.command(\"r100-radius-scale-observation\")"
+      ],
+      "docstring": "Build the R50/R75/R100 scale observation with explicit burden evaluation.",
+      "is_command": true,
+      "lineno": 11039,
+      "name": "r100_radius_scale_observation"
+    },
+    {
+      "args": [
+        "r100_radius_scale_observation"
+      ],
+      "decorators": [
+        "app.command(\"r100-radius-scale-observation-verify\")"
+      ],
+      "docstring": "Reload and verify an R100 radius scale observation.",
+      "is_command": true,
+      "lineno": 11099,
+      "name": "r100_radius_scale_observation_verify"
+    },
+    {
+      "args": [
+        "radius_scale_observation"
+      ],
+      "decorators": [
+        "app.command(\"r75-scale-decision\")"
+      ],
+      "docstring": "Decide the R75 scale outcome and whether the next radius is licensed.",
+      "is_command": true,
+      "lineno": 11181,
+      "name": "r75_scale_decision"
+    },
+    {
+      "args": [
+        "decision"
+      ],
+      "decorators": [
+        "app.command(\"r75-scale-decision-verify\")"
+      ],
+      "docstring": "Reload and verify an R75 scale decision receipt from disk.",
+      "is_command": true,
+      "lineno": 11231,
+      "name": "r75_scale_decision_verify"
+    },
+    {
+      "args": [
+        "r75_observation",
+        "contract"
+      ],
+      "decorators": [
+        "app.command(\"radius-scale-observation\")"
+      ],
+      "docstring": "Compare R75 slot observation against the R50 baseline under the scalability contract.",
+      "is_command": true,
+      "lineno": 11307,
+      "name": "radius_scale_observation"
+    },
+    {
+      "args": [
+        "radius_scale_observation"
+      ],
+      "decorators": [
+        "app.command(\"radius-scale-observation-verify\")"
+      ],
+      "docstring": "Reload and verify a radius scale observation from disk.",
+      "is_command": true,
+      "lineno": 11357,
+      "name": "radius_scale_observation_verify"
+    },
+    {
+      "args": [
+        "baseline_observation"
+      ],
+      "decorators": [
+        "app.command(\"scalability-contract\")"
+      ],
+      "docstring": "Build the post-R50/pre-R75 first-order scalability contract.",
+      "is_command": true,
+      "lineno": 11444,
+      "name": "scalability_contract"
+    },
+    {
+      "args": [
+        "contract"
+      ],
+      "decorators": [
+        "app.command(\"scalability-contract-verify\")"
+      ],
+      "docstring": "Reload and verify a scalability contract from disk.",
+      "is_command": true,
+      "lineno": 11520,
+      "name": "scalability_contract_verify"
+    },
+    {
+      "args": [
+        "slot_execution"
+      ],
+      "decorators": [
+        "app.command(\"domain-shift-slot-observe\")"
+      ],
+      "docstring": "Observe a slot-separated domain-shift execution and classify transfer outcome.",
+      "is_command": true,
+      "lineno": 11606,
+      "name": "domain_shift_slot_observe"
+    },
+    {
+      "args": [
+        "value"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 2015,
+      "name": "resolve_run_id"
+    },
+    {
+      "args": [
+        "con",
+        "table_name"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 2022,
+      "name": "table_columns"
+    },
+    {
+      "args": [
+        "row"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 2025,
+      "name": "coarse_id"
+    },
+    {
+      "args": [
+        "run"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 2052,
+      "name": "collect"
+    },
+    {
+      "args": [
+        "num",
+        "den"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 2271,
+      "name": "safe_ratio"
+    },
+    {
+      "args": [
+        "metrics"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 2278,
+      "name": "vocabulary_scores"
+    },
+    {
+      "args": [
+        "current",
+        "previous",
+        "delta"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 2300,
+      "name": "classify_compression_signal"
+    },
+    {
+      "args": [
+        "value"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 2436,
+      "name": "resolve_eval_path"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 2449,
+      "name": "write_selection"
+    },
+    {
+      "args": [
+        "reason",
+        "stop_code"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 2492,
+      "name": "refuse"
+    },
+    {
+      "args": [
+        "value"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 2607,
+      "name": "resolve_selector_path"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 2620,
+      "name": "stable_selector_sig"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 2626,
+      "name": "write_plan_check"
+    },
+    {
+      "args": [
+        "value"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 2744,
+      "name": "resolve_plan_check_path"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 2757,
+      "name": "write_exec_dry_run"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 2916,
+      "name": "write_post_check"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 3082,
+      "name": "write_loop_summary"
+    },
+    {
+      "args": [
+        "path_value"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 3092,
+      "name": "load_optional"
+    },
+    {
+      "args": [
+        "data",
+        "id_key",
+        "gate_key"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 3144,
+      "name": "receipt_ref"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 3255,
+      "name": "write_confirmation"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 3373,
+      "name": "write_selector"
+    },
+    {
+      "args": [
+        "payload"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 3386,
+      "name": "write_next_receipt"
+    },
+    {
+      "args": [
+        "report",
+        "path"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 3462,
+      "name": "selector_base_for_eval"
+    },
+    {
+      "args": [
+        "base_payload",
+        "reason",
+        "stop_code"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 3494,
+      "name": "refuse_selector"
+    },
+    {
+      "args": [
+        "name",
+        "detected",
+        "detail"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 4691,
+      "name": "fake_result"
+    },
+    {
+      "args": [],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 4918,
+      "name": "production_snapshot"
+    },
+    {
+      "args": [
+        "sqlite_path",
+        "run_id"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 5005,
+      "name": "summarize_db"
+    },
+    {
+      "args": [
+        "name",
+        "detected",
+        "detail"
+      ],
+      "decorators": [],
+      "docstring": null,
+      "is_command": false,
+      "lineno": 5112,
+      "name": "add_adversarial_result"
+    }
+  ],
+  "imports": [
+    {
+      "lineno": 1,
+      "source": "from __future__ import annotations"
+    },
+    {
+      "lineno": 3,
+      "source": "import hashlib"
+    },
+    {
+      "lineno": 4,
+      "source": "import json"
+    },
+    {
+      "lineno": 5,
+      "source": "import sqlite3"
+    },
+    {
+      "lineno": 41,
+      "source": "from datetime import datetime, timezone"
+    },
+    {
+      "lineno": 42,
+      "source": "from pathlib import Path"
+    },
+    {
+      "lineno": 43,
+      "source": "from typing import Optional"
+    },
+    {
+      "lineno": 45,
+      "source": "import numpy as np"
+    },
+    {
+      "lineno": 46,
+      "source": "import typer"
+    },
+    {
+      "lineno": 47,
+      "source": "from rich import print"
+    },
+    {
+      "lineno": 48,
+      "source": "from rich.table import Table"
+    },
+    {
+      "lineno": 49,
+      "source": "from rich.console import Console"
+    },
+    {
+      "lineno": 552,
+      "source": "import os"
+    },
+    {
+      "lineno": 559,
+      "source": "import os"
+    },
+    {
+      "lineno": 568,
+      "source": "import os"
+    },
+    {
+      "lineno": 586,
+      "source": "import sys"
+    },
+    {
+      "lineno": 587,
+      "source": "import time"
+    },
+    {
+      "lineno": 679,
+      "source": "import time"
+    },
+    {
+      "lineno": 1695,
+      "source": "import shutil"
+    },
+    {
+      "lineno": 2434,
+      "source": "import shlex"
+    },
+    {
+      "lineno": 3371,
+      "source": "import shlex"
+    },
+    {
+      "lineno": 4410,
+      "source": "import sqlite3"
+    },
+    {
+      "lineno": 4411,
+      "source": "import tempfile"
+    },
+    {
+      "lineno": 4412,
+      "source": "import shutil"
+    },
+    {
+      "lineno": 4898,
+      "source": "import sqlite3"
+    },
+    {
+      "lineno": 4899,
+      "source": "import tempfile"
+    },
+    {
+      "lineno": 4900,
+      "source": "import shutil"
+    },
+    {
+      "lineno": 5421,
+      "source": "import hashlib"
+    },
+    {
+      "lineno": 8598,
+      "source": "import json as _json"
+    },
+    {
+      "lineno": 8599,
+      "source": "import hashlib as _hashlib"
+    },
+    {
+      "lineno": 8600,
+      "source": "import sqlite3 as _sqlite3"
+    },
+    {
+      "lineno": 8650,
+      "source": "from datetime import datetime, timezone"
+    },
+    {
+      "lineno": 8718,
+      "source": "import sqlite3 as _sqlite3"
+    },
+    {
+      "lineno": 9076,
+      "source": "from datetime import datetime, timezone"
+    },
+    {
+      "lineno": 665,
+      "source": "import signal"
+    }
+  ],
+  "schema_version": "r1000_cli_observability_harvest_cli_ast_command_surface_v0"
+}

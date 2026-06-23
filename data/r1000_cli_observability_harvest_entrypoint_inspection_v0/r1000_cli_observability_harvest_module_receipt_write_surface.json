@@ -1,0 +1,2566 @@
+{
+  "file_hit_count": 6,
+  "files": [
+    {
+      "hit_count": 2678,
+      "hits": [
+        {
+          "line": 11,
+          "text": "# - Keep receipt rows authoritative and uncompressed.",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 12,
+          "text": "# - Do not alter receipt schema, law semantics, gate semantics, halt semantics,",
+          "tokens": [
+            "receipt",
+            "gate"
+          ]
+        },
+        {
+          "line": 15,
+          "text": "# This is an infrastructure write-path change only. The post-apply gate is the",
+          "tokens": [
+            "gate"
+          ]
+        },
+        {
+          "line": 52,
+          "text": "app = typer.Typer(no_args_is_help=True, help=\"MatrixLab receipt runner v0.2\")",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 72,
+          "text": "    payload = json.dumps(obj, sort_keys=True, separators=(\",\", \":\"))",
+          "tokens": [
+            "json.dump"
+          ]
+        },
+        {
+          "line": 100,
+          "text": "ALLOWED_AGENT_SUBCOMMANDS = [\"agent-eval\", \"gate\", \"stress\"]",
+          "tokens": [
+            "gate"
+          ]
+        },
+        {
+          "line": 103,
+          "text": "AGENT_SELECT_SCHEMA = \"agent_select_receipt_v1\"",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 104,
+          "text": "AGENT_PLAN_CHECK_SCHEMA = \"agent_plan_check_receipt_v1\"",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 105,
+          "text": "AGENT_EXEC_DRY_RUN_SCHEMA = \"agent_exec_dry_run_receipt_v1\"",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 106,
+          "text": "AGENT_POST_CHECK_SCHEMA = \"agent_post_check_receipt_v1\"",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 107,
+          "text": "AGENT_LOOP_SUMMARY_SCHEMA = \"agent_loop_summary_receipt_v1\"",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 108,
+          "text": "AGENT_CONFIRMATION_SCHEMA = \"agent_operator_confirmation_receipt_v1\"",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 109,
+          "text": "AGENT_NEXT_FROM_CONFIRMATION_SCHEMA = \"agent_next_from_confirmation_receipt_v1\"",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 110,
+          "text": "AGENT_CYCLE_LEDGER_SCHEMA = \"agent_cycle_ledger_receipt_v1\"",
+          "tokens": [
+            "receipt",
+            "cycle"
+          ]
+        },
+        {
+          "line": 111,
+          "text": "AGENT_CYCLE_NEXT_SCHEMA = \"agent_cycle_next_receipt_v1\"",
+          "tokens": [
+            "receipt",
+            "cycle"
+          ]
+        },
+        {
+          "line": 112,
+          "text": "AGENT_CYCLE_OBSERVATION_SCHEMA = \"agent_cycle_observation_receipt_v1\"",
+          "tokens": [
+            "receipt",
+            "cycle"
+          ]
+        },
+        {
+          "line": 113,
+          "text": "AGENT_CHEAT_CHECK_SCHEMA = \"agent_cheat_check_receipt_v0\"",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 114,
+          "text": "AGENT_CHEAT_ADVERSARIAL_SCHEMA = \"agent_cheat_adversarial_receipt_v0\"",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 122,
+          "text": "RADIUS_SCALE_OBSERVATION_SCHEMA = \"radius_scale_observation_v0\"",
+          "tokens": [
+            "radius"
+          ]
+        },
+        {
+          "line": 123,
+          "text": "RADIUS_SCALE_OBSERVATION_VERIFICATION_SCHEMA = \"radius_scale_observation_verification_v0\"",
+          "tokens": [
+            "radius"
+          ]
+        },
+        {
+          "line": 126,
+          "text": "R100_RADIUS_SCALE_OBSERVATION_SCHEMA = \"r100_radius_scale_observation_v0\"",
+          "tokens": [
+            "radius"
+          ]
+        },
+        {
+          "line": 127,
+          "text": "R100_RADIUS_SCALE_OBSERVATION_VERIFICATION_SCHEMA = \"r100_radius_scale_observation_verification_v0\"",
+          "tokens": [
+            "radius"
+          ]
+        },
+        {
+          "line": 128,
+          "text": "RECEIPT_ROLLUP_CONTRACT_SCHEMA = \"receipt_rollup_contract_v0\"",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 129,
+          "text": "RECEIPT_ROLLUP_CONTRACT_VERIFICATION_SCHEMA = \"receipt_rollup_contract_verification_v0\"",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 137,
+          "text": "RADIUS_EXPANSION_BURDEN_POLICY_SCHEMA = \"radius_expansion_burden_policy_v0\"",
+          "tokens": [
+            "radius"
+          ]
+        },
+        {
+          "line": 138,
+          "text": "RADIUS_EXPANSION_BURDEN_POLICY_VERIFICATION_SCHEMA = \"radius_expansion_burden_policy_verification_v0\"",
+          "tokens": [
+            "radius"
+          ]
+        },
+        {
+          "line": 139,
+          "text": "RADIUS_EXPANSION_CANDIDATE_DECISION_SCHEMA = \"radius_expansion_candidate_decision_v0\"",
+          "tokens": [
+            "radius"
+          ]
+        },
+        {
+          "line": 140,
+          "text": "RADIUS_EXPANSION_CANDIDATE_DECISION_VERIFICATION_SCHEMA = \"radius_expansion_candidate_decision_verification_v0\"",
+          "tokens": [
+            "radius"
+          ]
+        },
+        {
+          "line": 184,
+          "text": "def write_content_addressed_receipt(",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 200,
+          "text": "    out_path.write_text(json.dumps(payload, indent=2, sort_keys=True))",
+          "tokens": [
+            "json.dump",
+            "write_text"
+          ]
+        },
+        {
+          "line": 330,
+          "text": "def base_cycle_matrix(n: int) -> np.ndarray:",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 332,
+          "text": "    Simple binary cycle incidence matrix.",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 343,
+          "text": "def apply_move(a: np.ndarray, family: str, cycle_n: int) -> tuple[np.ndarray, str]:",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 347,
+          "text": "        j = cycle_n % cols",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 359,
+          "text": "        j1 = cycle_n % cols",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 360,
+          "text": "        j2 = (cycle_n + 1) % cols",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 365,
+          "text": "        if rows > 2 and cycle_n % 2 == 0:",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 377,
+          "text": "        seed = rows * 1_000_003 + cols * 9_176 + cycle_n * 131_071",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 412,
+          "text": "                run_id text primary key,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 418,
+          "text": "                cycles_per_case integer not null,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 420,
+          "text": "                total_cases integer default 0,",
+          "tokens": [
+            "total_cases"
+          ]
+        },
+        {
+          "line": 421,
+          "text": "                total_receipts integer default 0",
+          "tokens": [
+            "receipt",
+            "total_receipts"
+          ]
+        },
+        {
+          "line": 428,
+          "text": "            create table if not exists receipts (",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 429,
+          "text": "                run_id text not null,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 433,
+          "text": "                cycle_n integer not null,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 459,
+          "text": "                receipt_path text not null,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 460,
+          "text": "                primary key (run_id, case_id, cycle_n)",
+          "tokens": [
+            "cycle",
+            "run_id"
+          ]
+        },
+        {
+          "line": 479,
+          "text": "                con.execute(f\"alter table receipts add column {col_name} {col_type}\")",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 485,
+          "text": "    run_id: str,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 489,
+          "text": "    cycles_per_case: int,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 498,
+          "text": "                run_id, created_utc, status, families,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 499,
+          "text": "                depth_min, depth_max, cycles_per_case, max_cells,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 500,
+          "text": "                total_cases, total_receipts",
+          "tokens": [
+            "receipt",
+            "total_cases",
+            "total_receipts"
+          ]
+        },
+        {
+          "line": 505,
+          "text": "                run_id,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 511,
+          "text": "                cycles_per_case,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 525,
+          "text": "# - visible liveness while receipts are being produced",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 528,
+          "text": "# - no semantic impact on receipts, laws, evaluator, or move ontology",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 535,
+          "text": "    \"run_id\": None,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 538,
+          "text": "    \"receipt_count\": 0,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 540,
+          "text": "    \"expected_receipts\": None,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 544,
+          "text": "    \"cycles_per_case\": None,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 547,
+          "text": "    \"last_cycle\": None,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 567,
+          "text": "def _ml_progress_every_receipts() -> int:",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 571,
+          "text": "        return max(1, int(os.environ.get(\"MATRIXLAB_PROGRESS_EVERY_RECEIPTS\", \"500\")))",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 576,
+          "text": "def _ml_progress_receipt_get(receipt, key, default=None):",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 577,
+          "text": "    if isinstance(receipt, dict):",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 578,
+          "text": "        return receipt.get(key, default)",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 579,
+          "text": "    return getattr(receipt, key, default)",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 607,
+          "text": "    receipt_count = state.get(\"receipt_count\") or 0",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 608,
+          "text": "    expected_receipts = state.get(\"expected_receipts\")",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 612,
+          "text": "    if expected_receipts:",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 613,
+          "text": "        pct = min(100.0, (receipt_count / expected_receipts) * 100.0)",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 618,
+          "text": "        f\"run_id={state.get('run_id') or '?'}\",",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 619,
+          "text": "        f\"receipts={receipt_count}\" + (f\"/~{expected_receipts}\" if expected_receipts else \"\"),",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 634,
+          "text": "    if state.get(\"cycles_per_case\") is not None:",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 635,
+          "text": "        parts.append(f\"cycles={state.get('cycles_per_case')}\")",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 643,
+          "text": "    if state.get(\"last_cycle\") is not None:",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 644,
+          "text": "        parts.append(f\"last_cycle={state.get('last_cycle')}\")",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 686,
+          "text": "    state[\"receipt_count\"] = 0",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 691,
+          "text": "    cycles_per_case = local_vars.get(\"cycles_per_case\")",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 692,
+          "text": "    run_id = local_vars.get(\"run_id\")",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 701,
+          "text": "    expected_receipts = None",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 705,
+          "text": "            if cycles_per_case is not None:",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 706,
+          "text": "                expected_receipts = expected_cases * int(cycles_per_case)",
+          "tokens": [
+            "receipt",
+            "cycle"
+          ]
+        },
+        {
+          "line": 709,
+          "text": "        expected_receipts = None",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 711,
+          "text": "    state[\"run_id\"] = run_id",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 715,
+          "text": "    state[\"cycles_per_case\"] = cycles_per_case",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 717,
+          "text": "    state[\"expected_receipts\"] = expected_receipts",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 720,
+          "text": "    state[\"last_cycle\"] = None",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 726,
+          "text": "def _ml_progress_after_receipt(receipt):",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 732,
+          "text": "    state[\"receipt_count\"] = (state.get(\"receipt_count\") or 0) + 1",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 734,
+          "text": "    run_id = _ml_progress_receipt_get(receipt, \"run_id\")",
+          "tokens": [
+            "receipt",
+            "run_id"
+          ]
+        },
+        {
+          "line": 735,
+          "text": "    if run_id is not None:",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 736,
+          "text": "        state[\"run_id\"] = run_id",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 738,
+          "text": "    family = _ml_progress_receipt_get(receipt, \"family\")",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 743,
+          "text": "        _ml_progress_receipt_get(receipt, \"depth\")",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 744,
+          "text": "        or _ml_progress_receipt_get(receipt, \"n\")",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 745,
+          "text": "        or _ml_progress_receipt_get(receipt, \"case_depth\")",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 750,
+          "text": "    cycle = (",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 751,
+          "text": "        _ml_progress_receipt_get(receipt, \"cycle\")",
+          "tokens": [
+            "receipt",
+            "cycle"
+          ]
+        },
+        {
+          "line": 752,
+          "text": "        or _ml_progress_receipt_get(receipt, \"cycle_n\")",
+          "tokens": [
+            "receipt",
+            "cycle"
+          ]
+        },
+        {
+          "line": 754,
+          "text": "    if cycle is not None:",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 755,
+          "text": "        state[\"last_cycle\"] = cycle",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 757,
+          "text": "    every = _ml_progress_every_receipts()",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 758,
+          "text": "    force = state[\"receipt_count\"] == 1 or state[\"receipt_count\"] % every == 0",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 766,
+          "text": "def insert_receipt(receipt: dict) -> None:",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 767,
+          "text": "    _ml_progress_after_receipt(receipt)",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 771,
+          "text": "            insert or replace into receipts (",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 772,
+          "text": "                run_id, case_id, family, depth, cycle_n,",
+          "tokens": [
+            "cycle",
+            "run_id"
+          ]
+        },
+        {
+          "line": 782,
+          "text": "                state_sig8_before, state_sig8_after, receipt_path",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 787,
+          "text": "                receipt[\"run_id\"],",
+          "tokens": [
+            "receipt",
+            "run_id"
+          ]
+        },
+        {
+          "line": 788,
+          "text": "                receipt[\"case_id\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 789,
+          "text": "                receipt[\"family\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 790,
+          "text": "                receipt[\"depth\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 791,
+          "text": "                receipt[\"cycle_n\"],",
+          "tokens": [
+            "receipt",
+            "cycle"
+          ]
+        },
+        {
+          "line": 792,
+          "text": "                receipt[\"move_id\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 793,
+          "text": "                receipt[\"move_profile_id\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 794,
+          "text": "                receipt[\"law_id\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 795,
+          "text": "                int(receipt[\"law_ok\"]),",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 796,
+          "text": "                receipt[\"law_fail_reason\"],",
+          "tokens": [
+            "receipt"
+          ]
+        }
+      ],
+      "path": "src/matrixlab/cli.py",
+      "truncated": true
+    },
+    {
+      "hit_count": 182,
+      "hits": [
+        {
+          "line": 17,
+          "text": "app = typer.Typer(no_args_is_help=True, help=\"MatrixLab receipt runner v0.2\")",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 36,
+          "text": "    payload = json.dumps(obj, sort_keys=True, separators=(\",\", \":\"))",
+          "tokens": [
+            "json.dump"
+          ]
+        },
+        {
+          "line": 79,
+          "text": "def base_cycle_matrix(n: int) -> np.ndarray:",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 81,
+          "text": "    Simple binary cycle incidence matrix.",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 92,
+          "text": "def apply_move(a: np.ndarray, family: str, cycle_n: int) -> tuple[np.ndarray, str]:",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 96,
+          "text": "        j = cycle_n % cols",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 108,
+          "text": "        j1 = cycle_n % cols",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 109,
+          "text": "        j2 = (cycle_n + 1) % cols",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 114,
+          "text": "        if rows > 2 and cycle_n % 2 == 0:",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 126,
+          "text": "        seed = rows * 1_000_003 + cols * 9_176 + cycle_n * 131_071",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 155,
+          "text": "                run_id text primary key,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 161,
+          "text": "                cycles_per_case integer not null,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 163,
+          "text": "                total_cases integer default 0,",
+          "tokens": [
+            "total_cases"
+          ]
+        },
+        {
+          "line": 164,
+          "text": "                total_receipts integer default 0",
+          "tokens": [
+            "receipt",
+            "total_receipts"
+          ]
+        },
+        {
+          "line": 171,
+          "text": "            create table if not exists receipts (",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 172,
+          "text": "                run_id text not null,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 176,
+          "text": "                cycle_n integer not null,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 191,
+          "text": "                receipt_path text not null,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 192,
+          "text": "                primary key (run_id, case_id, cycle_n)",
+          "tokens": [
+            "cycle",
+            "run_id"
+          ]
+        },
+        {
+          "line": 199,
+          "text": "    run_id: str,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 203,
+          "text": "    cycles_per_case: int,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 212,
+          "text": "                run_id, created_utc, status, families,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 213,
+          "text": "                depth_min, depth_max, cycles_per_case, max_cells,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 214,
+          "text": "                total_cases, total_receipts",
+          "tokens": [
+            "receipt",
+            "total_cases",
+            "total_receipts"
+          ]
+        },
+        {
+          "line": 219,
+          "text": "                run_id,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 225,
+          "text": "                cycles_per_case,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 233,
+          "text": "def insert_receipt(receipt: dict) -> None:",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 237,
+          "text": "            insert or replace into receipts (",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 238,
+          "text": "                run_id, case_id, family, depth, cycle_n,",
+          "tokens": [
+            "cycle",
+            "run_id"
+          ]
+        },
+        {
+          "line": 243,
+          "text": "                state_sig8_before, state_sig8_after, receipt_path",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 248,
+          "text": "                receipt[\"run_id\"],",
+          "tokens": [
+            "receipt",
+            "run_id"
+          ]
+        },
+        {
+          "line": 249,
+          "text": "                receipt[\"case_id\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 250,
+          "text": "                receipt[\"family\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 251,
+          "text": "                receipt[\"depth\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 252,
+          "text": "                receipt[\"cycle_n\"],",
+          "tokens": [
+            "receipt",
+            "cycle"
+          ]
+        },
+        {
+          "line": 253,
+          "text": "                receipt[\"move_id\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 254,
+          "text": "                receipt[\"registered_moves_total\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 255,
+          "text": "                receipt[\"moves_reused\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 256,
+          "text": "                int(receipt[\"new_move_required\"]),",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 257,
+          "text": "                receipt[\"matrix_shape\"][0],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 258,
+          "text": "                receipt[\"matrix_shape\"][1],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 259,
+          "text": "                receipt[\"matrix_cells\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 260,
+          "text": "                receipt[\"rank_before\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 261,
+          "text": "                receipt[\"rank_after\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 262,
+          "text": "                receipt[\"compression_ratio\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 263,
+          "text": "                receipt[\"trajectory_signature\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 264,
+          "text": "                receipt[\"halt_reason\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 265,
+          "text": "                receipt[\"state_sig8_before\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 266,
+          "text": "                receipt[\"state_sig8_after\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 267,
+          "text": "                receipt[\"receipt_path\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 272,
+          "text": "def finish_run(run_id: str, status: str, total_cases: int, total_receipts: int) -> None:",
+          "tokens": [
+            "receipt",
+            "run_id",
+            "total_cases",
+            "total_receipts"
+          ]
+        },
+        {
+          "line": 277,
+          "text": "            set status = ?, total_cases = ?, total_receipts = ?",
+          "tokens": [
+            "receipt",
+            "total_cases",
+            "total_receipts"
+          ]
+        },
+        {
+          "line": 278,
+          "text": "            where run_id = ?",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 280,
+          "text": "            (status, total_cases, total_receipts, run_id),",
+          "tokens": [
+            "receipt",
+            "run_id",
+            "total_cases",
+            "total_receipts"
+          ]
+        },
+        {
+          "line": 284,
+          "text": "def latest_run_id() -> str:",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 289,
+          "text": "            select run_id",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 316,
+          "text": "    cycles_per_case: int,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 318,
+          "text": "    run_id: Optional[str],",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 320,
+          "text": "    if run_id is None:",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 322,
+          "text": "        run_id = f\"run_{stamp}\"",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 326,
+          "text": "    run_dir = Path(\"data/runs\") / run_id",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 327,
+          "text": "    receipt_dir = Path(\"data/receipts\") / run_id",
+          "tokens": [
+            "receipt",
+            "run_id"
+          ]
+        },
+        {
+          "line": 328,
+          "text": "    trace_dir = Path(\"data/traces\") / run_id",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 329,
+          "text": "    artifact_dir = Path(\"data/artifacts\") / run_id",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 331,
+          "text": "    for p in [run_dir, receipt_dir, trace_dir, artifact_dir]:",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 334,
+          "text": "    if cycles_per_case <= 0:",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 335,
+          "text": "        cycles_per_case = depth_max",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 338,
+          "text": "        run_id=run_id,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 342,
+          "text": "        cycles_per_case=cycles_per_case,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 346,
+          "text": "    all_receipts = []",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 347,
+          "text": "    total_cases = 0",
+          "tokens": [
+            "total_cases"
+          ]
+        },
+        {
+          "line": 350,
+          "text": "    print(f\"[bold green]MatrixLab run started[/bold green]: {run_id}\")",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 353,
+          "text": "    print(f\"Cycles per case: {cycles_per_case}\")",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 358,
+          "text": "            total_cases += 1",
+          "tokens": [
+            "total_cases"
+          ]
+        },
+        {
+          "line": 365,
+          "text": "            a = base_cycle_matrix(n)",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 368,
+          "text": "            halt_reason = \"CYCLES_COMPLETE\"",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 370,
+          "text": "            for cycle_n in range(1, cycles_per_case + 1):",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 374,
+          "text": "                a, move_id = apply_move(a, family, cycle_n)",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 399,
+          "text": "                elif cycle_n == cycles_per_case:",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 400,
+          "text": "                    current_halt = \"CYCLES_COMPLETE\"",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 405,
+          "text": "                receipt = {",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 406,
+          "text": "                    \"run_id\": run_id,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 410,
+          "text": "                    \"cycle_n\": cycle_n,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 413,
+          "text": "                    \"moves_reused\": cycle_n - len(registered_moves),",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 421,
+          "text": "                    \"compression_ratio\": round(cycle_n / len(registered_moves), 4),",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 424,
+          "text": "                    \"receipt_path\": \"\",",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 427,
+          "text": "                case_path = receipt_dir / case_id",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 429,
+          "text": "                receipt_path = case_path / f\"cycle_{cycle_n:04d}.json\"",
+          "tokens": [
+            "receipt",
+            "cycle"
+          ]
+        },
+        {
+          "line": 430,
+          "text": "                receipt[\"receipt_path\"] = str(receipt_path)",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 432,
+          "text": "                with open(receipt_path, \"w\") as f:",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 433,
+          "text": "                    json.dump(receipt, f, indent=2, sort_keys=True)",
+          "tokens": [
+            "receipt",
+            "json.dump"
+          ]
+        },
+        {
+          "line": 435,
+          "text": "                insert_receipt(receipt)",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 436,
+          "text": "                all_receipts.append(receipt)",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 445,
+          "text": "                json.dump(",
+          "tokens": [
+            "json.dump"
+          ]
+        },
+        {
+          "line": 447,
+          "text": "                        \"run_id\": run_id,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 462,
+          "text": "        \"run_id\": run_id,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 467,
+          "text": "        \"cycles_per_case\": cycles_per_case,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 469,
+          "text": "        \"total_cases\": total_cases,",
+          "tokens": [
+            "total_cases"
+          ]
+        },
+        {
+          "line": 470,
+          "text": "        \"total_receipts\": len(all_receipts),",
+          "tokens": [
+            "receipt",
+            "total_receipts"
+          ]
+        },
+        {
+          "line": 472,
+          "text": "        \"max_registered_moves\": max(r[\"registered_moves_total\"] for r in all_receipts),",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 473,
+          "text": "        \"max_compression_ratio\": max(r[\"compression_ratio\"] for r in all_receipts),",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 474,
+          "text": "        \"max_matrix_cells\": max(r[\"matrix_cells\"] for r in all_receipts),",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 478,
+          "text": "        json.dump(summary, f, indent=2, sort_keys=True)",
+          "tokens": [
+            "json.dump"
+          ]
+        },
+        {
+          "line": 480,
+          "text": "    finish_run(run_id, \"DONE\", total_cases, len(all_receipts))",
+          "tokens": [
+            "receipt",
+            "run_id",
+            "total_cases"
+          ]
+        },
+        {
+          "line": 483,
+          "text": "    print(json.dumps(summary, indent=2))",
+          "tokens": [
+            "json.dump"
+          ]
+        },
+        {
+          "line": 490,
+          "text": "    depth_min: int = typer.Option(3, help=\"Smallest starting cycle size.\"),",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 491,
+          "text": "    depth_max: int = typer.Option(8, help=\"Largest starting cycle size.\"),",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 493,
+          "text": "    cycles_per_case: int = typer.Option(0, help=\"Cycles per case. 0 means depth_max.\"),",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 495,
+          "text": "    run_id: Optional[str] = typer.Option(None, help=\"Optional run id.\"),",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 501,
+          "text": "        cycles_per_case=cycles_per_case,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 503,
+          "text": "        run_id=run_id,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 510,
+          "text": "    cycles_per_case: int = typer.Option(100, help=\"Push cycles upward.\"),",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 521,
+          "text": "        cycles_per_case=cycles_per_case,",
+          "tokens": [
+            "cycle"
+          ]
+        },
+        {
+          "line": 523,
+          "text": "        run_id=None,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 528,
+          "text": "def summarize(run_id: str = typer.Argument(\"latest\")):",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 534,
+          "text": "    if run_id == \"latest\":",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 535,
+          "text": "        run_id = latest_run_id()",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 540,
+          "text": "            select run_id, created_utc, status, families, depth_min, depth_max,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 541,
+          "text": "                   cycles_per_case, max_cells, total_cases, total_receipts",
+          "tokens": [
+            "receipt",
+            "cycle",
+            "total_cases",
+            "total_receipts"
+          ]
+        },
+        {
+          "line": 543,
+          "text": "            where run_id = ?",
+          "tokens": [
+            "run_id"
+          ]
+        }
+      ],
+      "path": "src/matrixlab/cli_v02_backup.py",
+      "truncated": true
+    },
+    {
+      "hit_count": 27,
+      "hits": [
+        {
+          "line": 19,
+          "text": "    \"EMIT_RECEIPT\",",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 28,
+          "text": "    \"STOP_GATE_FAIL\",",
+          "tokens": [
+            "gate"
+          ]
+        },
+        {
+          "line": 36,
+          "text": "    \"MOVE_EMIT_METRIC_RECEIPT\",",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 47,
+          "text": "    \"receipt_count\",",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 49,
+          "text": "    \"gate_fail_count\",",
+          "tokens": [
+            "gate"
+          ]
+        },
+        {
+          "line": 56,
+          "text": "    \"local_closure_radius_observed\",",
+          "tokens": [
+            "radius"
+          ]
+        },
+        {
+          "line": 57,
+          "text": "    \"receipt_burden_bytes\",",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 75,
+          "text": "    return json.dumps(obj, sort_keys=True, separators=(\",\", \":\"), default=str).encode(\"utf-8\")",
+          "tokens": [
+            "json.dump"
+          ]
+        },
+        {
+          "line": 116,
+          "text": "            return False, \"STOP_GATE_FAIL\", \"state value must be integer\"",
+          "tokens": [
+            "gate"
+          ]
+        },
+        {
+          "line": 118,
+          "text": "            return False, \"STOP_GATE_FAIL\", \"state value must be non-negative\"",
+          "tokens": [
+            "gate"
+          ]
+        },
+        {
+          "line": 126,
+          "text": "            if move_id == \"MOVE_EMIT_METRIC_RECEIPT\":",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 242,
+          "text": "            \"receipt_count\": 1,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 244,
+          "text": "            \"gate_fail_count\": 1 if halt_code == \"STOP_GATE_FAIL\" else 0,",
+          "tokens": [
+            "gate"
+          ]
+        },
+        {
+          "line": 251,
+          "text": "            \"local_closure_radius_observed\": 1 if move_status == \"APPLIED\" else 0,",
+          "tokens": [
+            "radius"
+          ]
+        },
+        {
+          "line": 252,
+          "text": "            \"receipt_burden_bytes\": 0,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 259,
+          "text": "            \"output_artifacts_receipt_referenced\": True,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 287,
+          "text": "        transcript.append(\"EMIT_RECEIPT\")",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 291,
+          "text": "        receipt_seed = {",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 301,
+          "text": "        receipt_id = sha8(receipt_seed)",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 303,
+          "text": "        receipt: Dict[str, Any] = {",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 304,
+          "text": "            \"receipt_id\": receipt_id,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 305,
+          "text": "            \"receipt_type\": \"JURISDICTION_RUNNER_RECEIPT\",",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 306,
+          "text": "            \"run_id\": f\"dry_run_{fixture_id}_{receipt_id}\",",
+          "tokens": [
+            "receipt",
+            "run_id"
+          ]
+        },
+        {
+          "line": 334,
+          "text": "            \"gate\": \"PASS\" if transcript == REQUIRED_TRANSCRIPT and not failures else \"FAIL\",",
+          "tokens": [
+            "gate"
+          ]
+        },
+        {
+          "line": 340,
+          "text": "        receipt[\"metrics\"][\"receipt_burden_bytes\"] = burden_bytes(receipt)",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 341,
+          "text": "        receipt[\"metrics\"][\"metric_burden_bytes\"] = burden_bytes(receipt[\"metrics\"])",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 343,
+          "text": "        return receipt",
+          "tokens": [
+            "receipt"
+          ]
+        }
+      ],
+      "path": "src/matrixlab/jurisdiction_runner_v0_1.py",
+      "truncated": false
+    },
+    {
+      "hit_count": 34,
+      "hits": [
+        {
+          "line": 16,
+          "text": "    \"EMIT_RECEIPT\",",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 25,
+          "text": "    return json.dumps(obj, sort_keys=True, separators=(\",\", \":\"), default=str).encode(\"utf-8\")",
+          "tokens": [
+            "json.dump"
+          ]
+        },
+        {
+          "line": 50,
+          "text": "    def _proposal_receipt(self, proposal: Dict[str, Any]) -> Dict[str, Any]:",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 51,
+          "text": "        receipt = {",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 52,
+          "text": "            \"schema_version\": \"jurisdiction_runner_v0_2_proposal_receipt_v0\",",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 53,
+          "text": "            \"receipt_type\": \"JURISDICTION_RUNNER_V0_2_PROPOSAL_RECEIPT\",",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 70,
+          "text": "            \"gate\": \"PASS\",",
+          "tokens": [
+            "gate"
+          ]
+        },
+        {
+          "line": 73,
+          "text": "        receipt[\"receipt_id\"] = _sha8({",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 75,
+          "text": "            \"receipt_type\": receipt[\"receipt_type\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 77,
+          "text": "        return receipt",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 91,
+          "text": "        proposal_receipt: Optional[Dict[str, Any]],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 113,
+          "text": "            \"proposal_receipt_count\": 1 if proposal_receipt else 0,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 114,
+          "text": "            \"receipt_count\": 1,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 135,
+          "text": "            \"output_artifacts_receipt_referenced\": True,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 140,
+          "text": "        receipt_seed = {",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 151,
+          "text": "        receipt = {",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 152,
+          "text": "            \"schema_version\": \"jurisdiction_runner_v0_2_receipt_v0\",",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 153,
+          "text": "            \"receipt_type\": \"JURISDICTION_RUNNER_V0_2_CASE_RECEIPT\",",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 154,
+          "text": "            \"receipt_id\": _sha8(receipt_seed),",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 168,
+          "text": "            \"proposal_receipt\": copy.deepcopy(proposal_receipt),",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 169,
+          "text": "            \"proposal_receipt_id\": proposal_receipt.get(\"receipt_id\") if proposal_receipt else None,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 185,
+          "text": "            \"gate\": \"PASS\",",
+          "tokens": [
+            "gate"
+          ]
+        },
+        {
+          "line": 190,
+          "text": "        receipt[\"metrics\"][\"receipt_burden_bytes\"] = _burden_bytes(receipt)",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 191,
+          "text": "        receipt[\"metrics\"][\"metric_burden_bytes\"] = _burden_bytes(metrics)",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 192,
+          "text": "        return receipt",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 214,
+          "text": "                proposal_receipt=None,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 223,
+          "text": "                halt_code=\"STOP_GATE_FAIL\",",
+          "tokens": [
+            "gate"
+          ]
+        },
+        {
+          "line": 229,
+          "text": "                proposal_receipt=None,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 243,
+          "text": "                proposal_receipt=None,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 259,
+          "text": "                proposal_receipt=None,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 293,
+          "text": "                    proposal_receipt=None,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 319,
+          "text": "            proposal_receipt = self._proposal_receipt(proposal)",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 331,
+          "text": "                proposal_receipt=proposal_receipt,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 344,
+          "text": "            proposal_receipt=None,",
+          "tokens": [
+            "receipt"
+          ]
+        }
+      ],
+      "path": "src/matrixlab/jurisdiction_runner_v0_2.py",
+      "truncated": false
+    },
+    {
+      "hit_count": 42,
+      "hits": [
+        {
+          "line": 16,
+          "text": "    \"EMIT_RECEIPT\",",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 25,
+          "text": "    return json.dumps(obj, sort_keys=True, separators=(\",\", \":\"), default=str).encode(\"utf-8\")",
+          "tokens": [
+            "json.dump"
+          ]
+        },
+        {
+          "line": 62,
+          "text": "    def _proposal_receipt(self, proposal: Dict[str, Any]) -> Dict[str, Any]:",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 63,
+          "text": "        receipt = {",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 64,
+          "text": "            \"schema_version\": \"jurisdiction_runner_v0_2_trace_ledger_proposal_receipt_v0\",",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 65,
+          "text": "            \"receipt_type\": \"JURISDICTION_RUNNER_V0_2_TRACE_LEDGER_PROPOSAL_RECEIPT\",",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 83,
+          "text": "            \"gate\": \"PASS\",",
+          "tokens": [
+            "gate"
+          ]
+        },
+        {
+          "line": 86,
+          "text": "        receipt[\"receipt_id\"] = _sha8({\"proposal_id\": proposal[\"proposal_id\"], \"proposal_key\": proposal[\"proposal_key\"]})",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 87,
+          "text": "        return receipt",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 92,
+          "text": "        run_id: str,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 117,
+          "text": "            \"trace_id\": _sha8({\"run_id\": run_id, \"entry\": entry}),",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 118,
+          "text": "            \"run_id\": run_id,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 124,
+          "text": "            \"receipt_ref\": None,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 146,
+          "text": "            \"created_by_receipt_id\": None,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 150,
+          "text": "        proposal_receipt = None",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 167,
+          "text": "            halt_code = \"STOP_GATE_FAIL\"",
+          "tokens": [
+            "gate"
+          ]
+        },
+        {
+          "line": 217,
+          "text": "                        \"proposal_receipt_id\": None,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 245,
+          "text": "                    proposal_receipt = self._proposal_receipt(proposal)",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 255,
+          "text": "                        \"created_by_case_receipt_id\": None,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 256,
+          "text": "                        \"created_by_proposal_receipt_id\": proposal_receipt[\"receipt_id\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 262,
+          "text": "                        \"proposal_receipt_id\": proposal_receipt[\"receipt_id\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 271,
+          "text": "        run_id = _sha8({\"fixture_id\": fixture_id, \"state\": state, \"ledger_path\": ledger_path, \"runner\": self.runner_unit_id})",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 273,
+          "text": "            run_id=run_id,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 286,
+          "text": "        receipt_seed = {",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 287,
+          "text": "            \"run_id\": run_id,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 294,
+          "text": "        receipt_id = _sha8(receipt_seed)",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 295,
+          "text": "        receipt_ref = {\"receipt_id\": receipt_id, \"receipt_path\": None}",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 299,
+          "text": "                entry[\"created_by_case_receipt_id\"] = receipt_id",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 301,
+          "text": "        ledger_after[\"created_by_receipt_id\"] = receipt_id",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 306,
+          "text": "            \"created_by_receipt_id\": ledger_after.get(\"created_by_receipt_id\"),",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 315,
+          "text": "            \"proposal_receipt_count\": 1 if proposal_receipt else 0,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 317,
+          "text": "            \"receipt_count\": 1,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 321,
+          "text": "        receipt = {",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 322,
+          "text": "            \"schema_version\": \"jurisdiction_runner_v0_2_trace_ledger_case_receipt_v0\",",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 323,
+          "text": "            \"receipt_type\": \"JURISDICTION_RUNNER_V0_2_TRACE_LEDGER_CASE_RECEIPT\",",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 324,
+          "text": "            \"receipt_id\": receipt_id,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 325,
+          "text": "            \"run_id\": run_id,",
+          "tokens": [
+            "run_id"
+          ]
+        },
+        {
+          "line": 341,
+          "text": "            \"proposal_receipt\": copy.deepcopy(proposal_receipt),",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 342,
+          "text": "            \"proposal_receipt_id\": proposal_receipt.get(\"receipt_id\") if proposal_receipt else None,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 373,
+          "text": "            \"gate\": \"PASS\",",
+          "tokens": [
+            "gate"
+          ]
+        },
+        {
+          "line": 379,
+          "text": "        trace[\"receipt_ref\"] = receipt_ref",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 380,
+          "text": "        return receipt, trace, ledger_after",
+          "tokens": [
+            "receipt"
+          ]
+        }
+      ],
+      "path": "src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py",
+      "truncated": false
+    },
+    {
+      "hit_count": 9,
+      "hits": [
+        {
+          "line": 13,
+          "text": "    return json.dumps(obj, sort_keys=True, separators=(\",\", \":\"), default=str).encode(\"utf-8\")",
+          "tokens": [
+            "json.dump"
+          ]
+        },
+        {
+          "line": 21,
+          "text": "    def __init__(self, proceed_policy_receipt: Dict[str, Any]):",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 22,
+          "text": "        self.policy = copy.deepcopy(proceed_policy_receipt)",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 43,
+          "text": "                \"declared_receipt_ref\",",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 73,
+          "text": "        receipt_delta = copy.deepcopy(fixture[\"receipt_or_projection_delta\"])",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 91,
+          "text": "                    \"source_receipt_modified\": False,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 136,
+          "text": "                \"source_implementation_receipt_id\": self.surface_manifest[\"source_implementation_receipt_id\"],",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 151,
+          "text": "            \"receipt_or_projection_delta\": receipt_delta,",
+          "tokens": [
+            "receipt"
+          ]
+        },
+        {
+          "line": 159,
+          "text": "                \"source_receipt_modified\": False,",
+          "tokens": [
+            "receipt"
+          ]
+        }
+      ],
+      "path": "src/matrixlab/proceed_adapter_v0.py",
+      "truncated": false
+    }
+  ],
+  "schema_version": "r1000_cli_observability_harvest_module_receipt_write_surface_v0",
+  "searched_tokens": [
+    "receipt",
+    "json.dump",
+    "write_json",
+    "write_text",
+    "jsonl",
+    "gate",
+    "cycle",
+    "radius",
+    "run_id",
+    "total_cases",
+    "total_receipts"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "application_authorized": false,
+  "evidence_basis": {
+    "command_resolver_fix_receipt_id": "b35e7989",
+    "entrypoint_candidate_classification": "CANDIDATE_EXECUTION_COMMANDS_EXIST_BUT_NONE_PROVEN_RECEIPT_PRODUCING",
+    "entrypoint_resolved": false,
+    "small_probe_new_receipt_count": 0
+  },
+  "implementation_authorized_in_this_unit": false,
+  "missing_object_type": "bounded_receipt_producing_observability_harvest_entrypoint",
+  "proposal_status": "CANDIDATE_MISSING_ENTRYPOINT_PROPOSAL",
+  "radius_10000_retry_authorized_in_this_unit": false,
+  "required_shape_if_accepted": {
+    "must_accept_radius_or_limit": true,
+    "must_be_bounded": true,
+    "must_emit_receipts_or_receipt_index": true,
+    "must_not_hide_next_command": true,
+    "must_not_mutate_prior_artifacts": true,
+    "must_not_reopen_closed_queue": true,
+    "must_support_small_probe": true
+  },
+  "schema_version": "r1000_cli_observability_harvest_missing_entrypoint_proposal_v0",
+  "target_surface": "src/matrixlab/cli.py and existing MatrixLab receipt execution modules"
+}

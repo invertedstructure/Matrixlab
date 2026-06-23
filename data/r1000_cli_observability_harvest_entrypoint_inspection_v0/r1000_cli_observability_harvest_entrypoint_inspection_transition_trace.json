@@ -1,0 +1,28 @@
+{
+  "schema_version": "r1000_cli_observability_harvest_entrypoint_inspection_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CLI_ENTRYPOINT_INSPECTION_COMPLETE_BUILD_ENTRYPOINT_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "previous resolver fix passed but entrypoint remained unresolved",
+      "step": "consume_unresolved_command_resolver_fix",
+      "taken": "inspect_cli_and_source_surfaces"
+    },
+    {
+      "answer": false,
+      "question": "proven bounded receipt-producing harvest entrypoint exists",
+      "step": "inspect_cli_and_source_surfaces",
+      "taken": "emit_missing_entrypoint_proposal"
+    },
+    {
+      "answer": false,
+      "question": "run radius 10000 now",
+      "step": "emit_next_authority_packet",
+      "taken": "STOP_CLI_ENTRYPOINT_INSPECTION_COMPLETE_BUILD_ENTRYPOINT_REQUIRED"
+    }
+  ]
+}
