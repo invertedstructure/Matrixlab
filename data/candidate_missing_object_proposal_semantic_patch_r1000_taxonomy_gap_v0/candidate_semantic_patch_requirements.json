@@ -1,0 +1,34 @@
+{
+  "candidate_object_id": "ce1fe7fc",
+  "must_not_add": [
+    "descriptor field values",
+    "taxonomy labels",
+    "taxonomy upgrade authorization",
+    "application authorization",
+    "correctness claims",
+    "global source absence claims"
+  ],
+  "must_preserve": [
+    "unknown_required_decision_fields",
+    "source_evidence_refs",
+    "application_authorized false",
+    "no descriptor value assignment",
+    "no taxonomy action",
+    "no source mutation"
+  ],
+  "patch_required": true,
+  "patch_requirement_status": "REQUIRED_BEFORE_APPLICATION_AUTHORIZATION",
+  "required_patch_fields": [
+    "semantic_status",
+    "descriptor_status",
+    "positive_claim",
+    "negative_claims",
+    "evidence_basis_strength",
+    "alternative_shapes_considered",
+    "risk_if_wrong",
+    "semantic_review_result",
+    "application_authorized"
+  ],
+  "schema_version": "candidate_semantic_patch_requirements_v0",
+  "semantic_classification": "ACCEPTABLE_ONLY_AFTER_EDITS"
+}

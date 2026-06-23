@@ -1,0 +1,39 @@
+{
+  "application_authorized": false,
+  "candidate_object_id": "ce1fe7fc",
+  "proposal_application_allowed": false,
+  "required_edits": [
+    "add semantic_status TYPED_UNRESOLVED_DESCRIPTOR_PROPOSAL",
+    "add descriptor_status CANDIDATE_UNRESOLVED_DESCRIPTOR_NOT_VALUE_DESCRIPTOR",
+    "add explicit positive claim that a descriptor object is needed",
+    "add explicit negative claims that the proposal does not identify descriptor values",
+    "add evidence_basis_strength limited to typed unresolved descriptor proposal only",
+    "add alternative_shapes_considered",
+    "add risk_if_wrong",
+    "keep application_authorized false"
+  ],
+  "schema_version": "in_chat_semantic_review_result_v0",
+  "semantic_acceptance": false,
+  "semantic_classification": "ACCEPTABLE_ONLY_AFTER_EDITS",
+  "semantic_issues": [
+    "missing_object_type taxonomy_gap_evidence_surface_descriptor sounds stronger than the evidence supports",
+    "target surface framing can be read as if a descriptor exists rather than as if a descriptor is required",
+    "all meaningful descriptor fields remain unresolved",
+    "evidence basis supports a typed unresolved descriptor proposal only, not descriptor value assignment"
+  ],
+  "semantic_rejection": false,
+  "semantic_review_completed": true,
+  "semantic_review_location": "chat",
+  "semantically_sound_parts": [
+    "represents missing descriptor fields as typed unresolved decision fields",
+    "does not fill missing_label_identifier",
+    "does not fill taxonomy_context_ref",
+    "does not fill current_label_space_ref",
+    "does not fill expected_label_space_ref",
+    "does not authorize application",
+    "does not create taxonomy labels",
+    "does not mutate source or receipts"
+  ],
+  "source_semantic_barrier_receipt_id": "4e6b09b2",
+  "summary": "Candidate is directionally valid because it replaces untyped null absence with typed unresolved decision fields, but it overstates the semantic status of the descriptor object unless patched."
+}

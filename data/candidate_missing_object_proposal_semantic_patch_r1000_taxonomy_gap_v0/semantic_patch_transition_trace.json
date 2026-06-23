@@ -1,0 +1,36 @@
+{
+  "patched_candidate_object_id": "a9ec669b",
+  "schema_version": "candidate_semantic_patch_transition_trace_v0",
+  "source_candidate_object_id": "ce1fe7fc",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_SEMANTICALLY_PATCHED_CANDIDATE_EMITTED_REQUIRES_REVIEW",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "is in-chat semantic review required",
+      "step": "consume_semantic_review_barrier",
+      "taken": "record_in_chat_semantic_review_result"
+    },
+    {
+      "answer": false,
+      "question": "is candidate acceptable for application without edits",
+      "step": "record_in_chat_semantic_review_result",
+      "taken": "emit_semantic_patch_requirements"
+    },
+    {
+      "answer": true,
+      "question": "can candidate be patched without filling descriptor values",
+      "step": "emit_semantic_patch_requirements",
+      "taken": "emit_semantically_patched_candidate"
+    },
+    {
+      "answer": false,
+      "question": "does patched candidate authorize application now",
+      "step": "emit_semantically_patched_candidate",
+      "taken": "STOP_SEMANTICALLY_PATCHED_CANDIDATE_EMITTED_REQUIRES_REVIEW"
+    }
+  ]
+}
