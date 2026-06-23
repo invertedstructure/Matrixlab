@@ -1,0 +1,41 @@
+{
+  "candidate_object_id": "ce1fe7fc",
+  "schema_version": "candidate_missing_object_proposal_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_REVIEW_DECISION_EMITTED_APPLICATION_REQUIRES_SEPARATE_UNIT",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "candidate_status_is_reviewable",
+      "step": "consume_candidate_proposal",
+      "taken": "inspect_candidate_shape"
+    },
+    {
+      "answer": true,
+      "question": "required_shape_and_fields_are_valid",
+      "step": "inspect_candidate_shape",
+      "taken": "inspect_decision_fields"
+    },
+    {
+      "answer": true,
+      "question": "unknown_fields_are_typed_not_null",
+      "step": "inspect_decision_fields",
+      "taken": "inspect_evidence_refs"
+    },
+    {
+      "answer": true,
+      "question": "evidence_refs_are_sufficient_for_candidate_shape",
+      "step": "inspect_evidence_refs",
+      "taken": "emit_review_decision"
+    },
+    {
+      "answer": false,
+      "question": "application_happens_in_this_unit",
+      "step": "emit_review_decision",
+      "taken": "STOP_REVIEW_DECISION_EMITTED_APPLICATION_REQUIRES_SEPARATE_UNIT"
+    }
+  ]
+}
