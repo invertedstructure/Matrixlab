@@ -1,0 +1,34 @@
+{
+  "schema_version": "r1000_post_closure_observability_harvest_radius_10000_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_POST_CLOSURE_HARVEST_REVIEW_COMPLETE_COMMAND_RESOLVER_FIX_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "failed harvest receipt exists and records command unresolved",
+      "step": "consume_failed_harvest_receipt",
+      "taken": "classify_command_interface_defect"
+    },
+    {
+      "answer": false,
+      "question": "failure was semantic queue closure failure",
+      "step": "classify_command_interface_defect",
+      "taken": "inspect_cli_help_surface"
+    },
+    {
+      "answer": false,
+      "question": "rerun radius 10000 in this unit",
+      "step": "inspect_cli_help_surface",
+      "taken": "emit_retry_authority_packet"
+    },
+    {
+      "answer": false,
+      "question": "hidden next command allowed",
+      "step": "emit_retry_authority_packet",
+      "taken": "STOP_POST_CLOSURE_HARVEST_REVIEW_COMPLETE_COMMAND_RESOLVER_FIX_REQUIRED"
+    }
+  ]
+}

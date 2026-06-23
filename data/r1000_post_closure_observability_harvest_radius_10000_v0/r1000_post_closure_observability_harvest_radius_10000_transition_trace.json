@@ -1,0 +1,34 @@
+{
+  "schema_version": "r1000_post_closure_observability_harvest_radius_10000_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_POST_CLOSURE_OBSERVABILITY_HARVEST_RADIUS_10000_COMPLETE",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "queue closed and no recommended next handling",
+      "step": "consume_pressure_queue_closure_review",
+      "taken": "run_bounded_observability_harvest"
+    },
+    {
+      "answer": false,
+      "question": "harvest command resolved",
+      "step": "run_bounded_observability_harvest",
+      "taken": "collect_receipt_index_and_rollup"
+    },
+    {
+      "answer": false,
+      "question": "failure gallery empty and gate latest pass",
+      "step": "collect_receipt_index_and_rollup",
+      "taken": "emit_review_required"
+    },
+    {
+      "answer": false,
+      "question": "hidden next command allowed",
+      "step": "emit_review_required",
+      "taken": "STOP_POST_CLOSURE_OBSERVABILITY_HARVEST_RADIUS_10000_COMPLETE"
+    }
+  ]
+}
