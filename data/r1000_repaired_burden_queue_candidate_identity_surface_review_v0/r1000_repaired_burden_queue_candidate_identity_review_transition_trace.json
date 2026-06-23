@@ -1,0 +1,35 @@
+{
+  "repaired_selected_pressure_group_id": "113fd48b",
+  "schema_version": "r1000_repaired_burden_queue_candidate_identity_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_REPAIRED_IDENTITY_SURFACE_REVIEW_COMPLETE_INSPECTION_ALLOWED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "identity preservation fix passed and emitted repaired artifacts",
+      "step": "consume_identity_preservation_fix",
+      "taken": "materialize_repaired_identity_surface"
+    },
+    {
+      "answer": true,
+      "question": "repaired identity is complete",
+      "step": "materialize_repaired_identity_surface",
+      "taken": "accept_for_separate_inspection"
+    },
+    {
+      "answer": false,
+      "question": "inspect selected group in this unit",
+      "step": "accept_for_separate_inspection",
+      "taken": "emit_separate_inspection_authority_packet"
+    },
+    {
+      "answer": false,
+      "question": "hidden next command allowed",
+      "step": "emit_separate_inspection_authority_packet",
+      "taken": "STOP_REPAIRED_IDENTITY_SURFACE_REVIEW_COMPLETE_INSPECTION_ALLOWED"
+    }
+  ]
+}
