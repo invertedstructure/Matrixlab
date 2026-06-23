@@ -1,0 +1,41 @@
+{
+  "repaired_selected_pressure_group_id": "113fd48b",
+  "schema_version": "r1000_repaired_selected_group_inspection_transition_trace_after_identity_review_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_REPAIRED_SELECTED_GROUP_INSPECTED_QUEUE_RECONCILIATION_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "repaired identity accepted for separate inspection",
+      "step": "consume_repaired_identity_review",
+      "taken": "consume_repaired_selected_group"
+    },
+    {
+      "answer": true,
+      "question": "selected group is identity-complete and not inspected",
+      "step": "consume_repaired_selected_group",
+      "taken": "materialize_metadata_inspection_surface"
+    },
+    {
+      "answer": false,
+      "question": "inspect row payloads in this unit",
+      "step": "materialize_metadata_inspection_surface",
+      "taken": "classify_metadata_surface"
+    },
+    {
+      "answer": true,
+      "question": "is repaired group receipt-size burden pressure",
+      "step": "classify_metadata_surface",
+      "taken": "emit_queue_return_packet"
+    },
+    {
+      "answer": false,
+      "question": "queue reconcile in this unit",
+      "step": "emit_queue_return_packet",
+      "taken": "STOP_REPAIRED_SELECTED_GROUP_INSPECTED_QUEUE_RECONCILIATION_REQUIRED"
+    }
+  ]
+}
