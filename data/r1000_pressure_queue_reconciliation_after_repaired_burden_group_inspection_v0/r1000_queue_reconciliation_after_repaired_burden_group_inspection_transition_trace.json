@@ -1,0 +1,35 @@
+{
+  "repaired_selected_pressure_group_id": "113fd48b",
+  "schema_version": "r1000_queue_reconciliation_after_repaired_burden_group_inspection_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_QUEUE_RECONCILED_AFTER_REPAIRED_BURDEN_GROUP_INSPECTION_NEXT_CANDIDATE_ONLY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "inspection completed and queue return packet emitted",
+      "step": "consume_repaired_burden_group_inspection",
+      "taken": "mark_repaired_group_resolved"
+    },
+    {
+      "answer": false,
+      "question": "mutate prior queue artifacts",
+      "step": "mark_repaired_group_resolved",
+      "taken": "emit_derived_queue_reconciliation_artifacts"
+    },
+    {
+      "answer": true,
+      "question": "remaining group exists",
+      "step": "emit_derived_queue_reconciliation_artifacts",
+      "taken": "emit_next_candidate_only"
+    },
+    {
+      "answer": false,
+      "question": "open or inspect next group in this unit",
+      "step": "emit_next_candidate_only",
+      "taken": "STOP_QUEUE_RECONCILED_AFTER_REPAIRED_BURDEN_GROUP_INSPECTION_NEXT_CANDIDATE_ONLY"
+    }
+  ]
+}
