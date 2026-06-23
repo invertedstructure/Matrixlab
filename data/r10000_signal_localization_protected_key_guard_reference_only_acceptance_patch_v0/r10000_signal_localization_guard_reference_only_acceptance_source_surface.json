@@ -1,0 +1,222 @@
+{
+  "failed_driver_profile": {
+    "aggressive_scrub_shape_count": 1,
+    "driver_class": "RECEIPT_VOLATILITY_ONLY_NO_STRUCTURAL_SIGNAL_LOCALIZED",
+    "nonvolatile_driver_count_top_50": 0,
+    "raw_shape_count": 10000,
+    "structure_only_shape_count": 1,
+    "volatile_driver_count_top_50": 5,
+    "volatile_scrub_shape_count": 10000
+  },
+  "failed_localization_failures": [
+    "protected_payload_key_hit_detected",
+    "acceptance_gate_failed:R10000_SIGNAL_LOCALIZATION_7_NO_PROTECTED_PAYLOAD_KEYS:False",
+    "receipt_gate_not_PASS:FAIL",
+    "acceptance_gate_not_true:R10000_SIGNAL_LOCALIZATION_7_NO_PROTECTED_PAYLOAD_KEYS:False",
+    "metric_protected_payload_key_hit_count_not_zero:30000"
+  ],
+  "failed_localization_gate": "FAIL",
+  "failed_localization_packet": {
+    "classification": "R10000_LOCALIZATION_VOLATILE_RECEIPT_METADATA_ONLY",
+    "driver_class": "RECEIPT_VOLATILITY_ONLY_NO_STRUCTURAL_SIGNAL_LOCALIZED",
+    "evidence": {
+      "aggressive_scrub_shape_count": 1,
+      "nonvolatile_driver_count_top_50": 0,
+      "raw_shape_count": 10000,
+      "structure_only_shape_count": 1,
+      "top_nonvolatile_drivers": [],
+      "top_volatile_drivers": [
+        {
+          "distinct_ratio": 1.0,
+          "distinct_value_count": 10000,
+          "driver_class": "VOLATILE_RECEIPT_METADATA_OR_INDEX",
+          "entropy_bits": 13.287712,
+          "key": "created_at",
+          "occurrence_count": 10000,
+          "sample_values": [
+            "2026-06-23T13:47:29.465379+00:00",
+            "2026-06-23T13:47:29.465730+00:00",
+            "2026-06-23T13:47:29.465998+00:00",
+            "2026-06-23T13:47:29.466285+00:00",
+            "2026-06-23T13:47:29.466534+00:00"
+          ],
+          "top_values": {
+            "2026-06-23T13:47:29.465379+00:00": 1,
+            "2026-06-23T13:47:29.465730+00:00": 1,
+            "2026-06-23T13:47:29.465998+00:00": 1,
+            "2026-06-23T13:47:29.466285+00:00": 1,
+            "2026-06-23T13:47:29.466534+00:00": 1,
+            "2026-06-23T13:47:29.466830+00:00": 1,
+            "2026-06-23T13:47:29.467075+00:00": 1,
+            "2026-06-23T13:47:29.467337+00:00": 1
+          },
+          "volatile_key_rule_match": true
+        },
+        {
+          "distinct_ratio": 1.0,
+          "distinct_value_count": 10000,
+          "driver_class": "VOLATILE_RECEIPT_METADATA_OR_INDEX",
+          "entropy_bits": 13.287712,
+          "key": "observation_index",
+          "occurrence_count": 10000,
+          "sample_values": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "top_values": {
+            "0": 1,
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "5": 1,
+            "6": 1,
+            "7": 1
+          },
+          "volatile_key_rule_match": true
+        },
+        {
+          "distinct_ratio": 1.0,
+          "distinct_value_count": 10000,
+          "driver_class": "LIKELY_VOLATILE_ARTIFACT_REFERENCE",
+          "entropy_bits": 13.287712,
+          "key": "prior_state_hash",
+          "occurrence_count": 10000,
+          "sample_values": [
+            "6ecc1b92",
+            "04b31e53",
+            "27e5767f",
+            "f1298a26",
+            "b2e71ad4"
+          ],
+          "top_values": {
+            "04b31e53": 1,
+            "27e5767f": 1,
+            "48dbb5a8": 1,
+            "6ecc1b92": 1,
+            "ab516819": 1,
+            "b2e71ad4": 1,
+            "f1298a26": 1,
+            "f3648a87": 1
+          },
+          "volatile_key_rule_match": false
+        },
+        {
+          "distinct_ratio": 1.0,
+          "distinct_value_count": 10000,
+          "driver_class": "VOLATILE_RECEIPT_METADATA_OR_INDEX",
+          "entropy_bits": 13.287712,
+          "key": "receipt_id",
+          "occurrence_count": 10000,
+          "sample_values": [
+            "6b46871d",
+            "0e9aaaef",
+            "715b1cf1",
+            "566e7240",
+            "6775f7a2"
+          ],
+          "top_values": {
+            "0e9aaaef": 1,
+            "566e7240": 1,
+            "6775f7a2": 1,
+            "6b46871d": 1,
+            "715b1cf1": 1,
+            "8dd4d1ed": 1,
+            "9a9d3f62": 1,
+            "dd117305": 1
+          },
+          "volatile_key_rule_match": true
+        },
+        {
+          "distinct_ratio": 0.0001,
+          "distinct_value_count": 1,
+          "driver_class": "VOLATILE_RECEIPT_METADATA_OR_INDEX",
+          "entropy_bits": 0.0,
+          "key": "run_id",
+          "occurrence_count": 10000,
+          "sample_values": [
+            "run_6b1b2494"
+          ],
+          "top_values": {
+            "run_6b1b2494": 10000
+          },
+          "volatile_key_rule_match": true
+        }
+      ],
+      "volatile_driver_count_top_50": 5,
+      "volatile_scrub_shape_count": 10000
+    },
+    "recommended_next_handling": "DECIDE_CLOSE_OR_FREEZE_BOUNDED_OBSERVABILITY_PROTOCOL_AFTER_R10000_VOLATILE_ONLY_SIGNAL_V0",
+    "requires_further_localization": false,
+    "requires_human_strategy_selection": true,
+    "requires_repair": false,
+    "run_id": "run_6b1b2494",
+    "schema_version": "r10000_distinguishable_signal_localization_packet_v0",
+    "source_r10000_signal_inspection_receipt_id": "293faf9e"
+  },
+  "failed_localization_summary": {
+    "aggressive_scrub_shape_count": 1,
+    "driver_class": "RECEIPT_VOLATILITY_ONLY_NO_STRUCTURAL_SIGNAL_LOCALIZED",
+    "localization_classification": "R10000_LOCALIZATION_VOLATILE_RECEIPT_METADATA_ONLY",
+    "localization_only_no_rerun": true,
+    "localization_result": "R10000_DISTINGUISHABLE_SIGNAL_LOCALIZATION_COMPLETE",
+    "observation_receipt_files_analyzed_count": 10000,
+    "raw_shape_count": 10000,
+    "recommended_next_handling": "DECIDE_CLOSE_OR_FREEZE_BOUNDED_OBSERVABILITY_PROTOCOL_AFTER_R10000_VOLATILE_ONLY_SIGNAL_V0",
+    "requires_further_localization": false,
+    "requires_repair": false,
+    "run_id": "run_6b1b2494",
+    "structure_only_shape_count": 1,
+    "top_nonvolatile_driver_count": 0,
+    "top_volatile_driver_count": 5,
+    "volatile_scrub_shape_count": 10000
+  },
+  "failure_review_summary": {
+    "accepted_driver_class": "RECEIPT_VOLATILITY_ONLY_NO_STRUCTURAL_SIGNAL_LOCALIZED",
+    "accepted_localization_classification": "R10000_LOCALIZATION_VOLATILE_RECEIPT_METADATA_ONLY",
+    "boundary_clean": true,
+    "guard_classification": "OVERSTRICT_PROTECTED_KEY_GUARD_FALSE_POSITIVE_ACCEPT_FINDING_AFTER_REVIEW",
+    "protected_key_hit_classification": "PROTECTED_KEY_NAME_REFERENCE_ONLY_NO_PAYLOAD_BOUNDARY_CROSSING",
+    "protected_payload_key_hit_count": 30000,
+    "recommended_next_handling": "PATCH_R10000_SIGNAL_LOCALIZATION_PROTECTED_KEY_GUARD_TO_REFERENCE_ONLY_ACCEPTANCE_V0",
+    "review_only_no_rerun": true,
+    "review_result": "R10000_SIGNAL_LOCALIZATION_FAILURE_REVIEW_ACCEPTS_GUARD_FALSE_POSITIVE",
+    "substantive_localization_finding_supported": true,
+    "true_payload_boundary_violation": false
+  },
+  "fix_authority_packet": {
+    "authorized_next_unit": "PATCH_R10000_SIGNAL_LOCALIZATION_PROTECTED_KEY_GUARD_TO_REFERENCE_ONLY_ACCEPTANCE_V0",
+    "guard_classification": "OVERSTRICT_PROTECTED_KEY_GUARD_FALSE_POSITIVE_ACCEPT_FINDING_AFTER_REVIEW",
+    "packet_status": "PROTECTED_KEY_GUARD_FALSE_POSITIVE_REVIEWED_NARROW_PATCH_AUTHORIZED",
+    "radius_10000_rerun_authorized_now": false,
+    "recommended_next_handling": "PATCH_R10000_SIGNAL_LOCALIZATION_PROTECTED_KEY_GUARD_TO_REFERENCE_ONLY_ACCEPTANCE_V0",
+    "repair_authorized_in_this_review_unit": false,
+    "required_fix_shape": [
+      "do not rerun radius-10000",
+      "do not inspect or materialize row payloads",
+      "preserve existing failed localization artifacts",
+      "patch only the acceptance distinction between protected key-name references and actual protected payload boundary crossing",
+      "accept protected key-name hits only when row_payload_materialized_count, row_payload_inspected_count, closed_group_inspected_count, queue_reopened_count, identity_assignment_count, field_value_invention_count, source_mutation_count, and existing_receipt_mutation_count are all zero",
+      "carry forward substantive classification R10000_LOCALIZATION_VOLATILE_RECEIPT_METADATA_ONLY if unchanged",
+      "emit PASS review/patch receipt and next decision packet"
+    ],
+    "schema_version": "r10000_signal_localization_failure_fix_authority_packet_v0",
+    "source_failed_r10000_signal_localization_receipt_id": "bb9e4719"
+  },
+  "guard_classification_packet": {
+    "accept_substantive_localization_finding_after_review": true,
+    "classification": "OVERSTRICT_PROTECTED_KEY_GUARD_FALSE_POSITIVE_ACCEPT_FINDING_AFTER_REVIEW",
+    "finding_supported_despite_gate_fail": true,
+    "protected_key_hit_classification": "PROTECTED_KEY_NAME_REFERENCE_ONLY_NO_PAYLOAD_BOUNDARY_CROSSING",
+    "recommended_next_handling": "PATCH_R10000_SIGNAL_LOCALIZATION_PROTECTED_KEY_GUARD_TO_REFERENCE_ONLY_ACCEPTANCE_V0",
+    "schema_version": "r10000_signal_localization_failure_guard_classification_packet_v0",
+    "source_failed_r10000_signal_localization_receipt_id": "bb9e4719",
+    "true_payload_boundary_violation": false
+  },
+  "schema_version": "r10000_signal_localization_guard_reference_only_acceptance_source_surface_v0",
+  "source_failed_localization_receipt_id": "bb9e4719",
+  "source_failure_review_receipt_id": "e3fe49d3"
+}

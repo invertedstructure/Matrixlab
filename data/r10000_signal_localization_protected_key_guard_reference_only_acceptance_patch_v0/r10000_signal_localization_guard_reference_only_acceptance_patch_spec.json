@@ -1,0 +1,19 @@
+{
+  "new_guard": "protected_payload_key_hit_count may be nonzero if classified as key-name/reference-only and all boundary counters are zero",
+  "old_guard": "protected_payload_key_hit_count must be zero",
+  "patch_scope": "acceptance semantics only",
+  "radius_10000_rerun_required": false,
+  "required_prior_review_classification": "OVERSTRICT_PROTECTED_KEY_GUARD_FALSE_POSITIVE_ACCEPT_FINDING_AFTER_REVIEW",
+  "required_zero_boundary_counters": [
+    "row_payload_materialized_count",
+    "row_payload_inspected_count",
+    "closed_group_inspected_count",
+    "queue_reopened_count",
+    "identity_assignment_count",
+    "field_value_invention_count",
+    "source_mutation_count",
+    "existing_receipt_mutation_count"
+  ],
+  "row_payload_materialization_allowed": false,
+  "schema_version": "r10000_signal_localization_guard_reference_only_acceptance_patch_spec_v0"
+}
