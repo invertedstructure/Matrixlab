@@ -1,0 +1,35 @@
+{
+  "schema_version": "r1000_pressure_group_selection_after_repaired_burden_queue_transition_trace_v0",
+  "selected_pressure_group_id": "025fdd0c",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_R1000_PRESSURE_GROUP_SELECTED_AFTER_REPAIRED_BURDEN_QUEUE_RECONCILIATION_IDENTITY_REVIEW_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "queue reconciled and next candidate emitted",
+      "step": "consume_repaired_burden_queue_reconciliation",
+      "taken": "consume_next_candidate"
+    },
+    {
+      "answer": true,
+      "question": "candidate selectable and not opened",
+      "step": "consume_next_candidate",
+      "taken": "materialize_selected_group"
+    },
+    {
+      "answer": false,
+      "question": "inspect or identity-review selected group in this unit",
+      "step": "materialize_selected_group",
+      "taken": "emit_authority_packet"
+    },
+    {
+      "answer": false,
+      "question": "hidden next command allowed",
+      "step": "emit_authority_packet",
+      "taken": "STOP_R1000_PRESSURE_GROUP_SELECTED_AFTER_REPAIRED_BURDEN_QUEUE_RECONCILIATION_IDENTITY_REVIEW_REQUIRED"
+    }
+  ]
+}
