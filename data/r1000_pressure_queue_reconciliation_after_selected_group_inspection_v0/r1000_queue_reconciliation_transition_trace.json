@@ -1,0 +1,43 @@
+{
+  "schema_version": "r1000_queue_reconciliation_transition_trace_v0",
+  "source_group_inspection_receipt_id": "342e34bd",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_QUEUE_RECONCILED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "no": "STOP_QUEUE_RECONCILIATION_INPUT_MISSING",
+      "question": "closed_expected_limit_branch_present",
+      "step": "consume_closed_expected_limit_branch",
+      "taken": "consume_accepted_healthy_boundary_stop_branch",
+      "yes": "consume_accepted_healthy_boundary_stop_branch"
+    },
+    {
+      "answer": true,
+      "no": "STOP_QUEUE_RECONCILIATION_INPUT_MISSING",
+      "question": "accepted_healthy_boundary_stop_present",
+      "step": "consume_accepted_healthy_boundary_stop_branch",
+      "taken": "materialize_remaining_groups",
+      "yes": "materialize_remaining_groups"
+    },
+    {
+      "answer": true,
+      "no": "STOP_QUEUE_RECONCILED_EMPTY",
+      "question": "remaining_groups_exist",
+      "step": "materialize_remaining_groups",
+      "taken": "emit_next_candidate_without_opening",
+      "yes": "emit_next_candidate_without_opening"
+    },
+    {
+      "answer": false,
+      "no": "STOP_QUEUE_RECONCILED",
+      "question": "next_group_opened",
+      "step": "emit_next_candidate_without_opening",
+      "taken": "STOP_QUEUE_RECONCILED",
+      "yes": "STOP_AUTHORITY_VIOLATION"
+    }
+  ]
+}

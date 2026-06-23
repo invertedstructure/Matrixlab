@@ -1,0 +1,172 @@
+{
+  "acceptance_gate_results": {
+    "QUEUE_RECONCILE_0_GROUP_INSPECTION_CONSUMED": true,
+    "QUEUE_RECONCILE_10_NO_SOURCE_OR_RECEIPT_MUTATION": true,
+    "QUEUE_RECONCILE_11_NO_HIDDEN_NEXT_COMMAND": true,
+    "QUEUE_RECONCILE_1_CLOSED_EXPECTED_LIMIT_CONSUMED": true,
+    "QUEUE_RECONCILE_2_HEALTHY_BOUNDARY_STOP_CONSUMED": true,
+    "QUEUE_RECONCILE_3_RECONCILED_LEDGER_EMITTED": true,
+    "QUEUE_RECONCILE_4_REMAINING_GROUPS_EMITTED": true,
+    "QUEUE_RECONCILE_5_NEXT_CANDIDATE_EMITTED_NOT_OPENED": true,
+    "QUEUE_RECONCILE_6_NO_NEXT_GROUP_AUTO_OPEN": true,
+    "QUEUE_RECONCILE_7_NO_PROPOSAL_LAYER_BUILT": true,
+    "QUEUE_RECONCILE_8_NO_R1000_RUN_OR_OTHER_GROUP_INSPECTION": true,
+    "QUEUE_RECONCILE_9_NO_REPAIR_OR_VALUE_OR_TAXONOMY_ACTION": true
+  },
+  "aggregate_metrics": {
+    "accepted_healthy_boundary_stop_group_count": 1,
+    "accepted_healthy_boundary_stop_row_count": 24,
+    "closed_expected_limit_group_count": 1,
+    "closed_expected_limit_row_count": 25,
+    "existing_receipt_mutation_count": 0,
+    "field_value_invention_count": 0,
+    "hidden_next_command_count": 0,
+    "next_group_auto_opened_count": 0,
+    "next_selectable_group_candidate": {
+      "group_hash_candidates": {
+        "candidate_key_hash": "09e3844d",
+        "legacy_join_hash": "6a7910a8",
+        "raw_tuple_hash": "dfce7bfd"
+      },
+      "group_key": {
+        "halt_reason": "STOP_DONE",
+        "parent_pressure_class": "BURDEN_PRESSURE",
+        "pressure_subtype": "receipt_size_burden"
+      },
+      "row_count": 19,
+      "selection_status": "CANDIDATE_ONLY_NOT_OPENED",
+      "semantic_tuple": [
+        "BURDEN_PRESSURE",
+        "receipt_size_burden",
+        "STOP_DONE"
+      ]
+    },
+    "next_selectable_group_candidate_count": 1,
+    "other_group_inspection_count": 0,
+    "proposal_layer_built_count": 0,
+    "r1000_run_executed_count": 0,
+    "recommended_next_handling": "BUILD_CANDIDATE_MISSING_OBJECT_PROPOSAL_LAYER_FOR_EXPECTED_LIMITS_V0",
+    "remaining_open_group_count": 3,
+    "remaining_open_row_count": 39,
+    "repair_executed_count": 0,
+    "resolved_group_count": 2,
+    "resolved_row_count": 49,
+    "source_closed_branch_fix_receipt_id": "4a0cfc09",
+    "source_current_surface_protocol_receipt_id": "e3371951",
+    "source_fixed_application_receipt_id": "2a16f593",
+    "source_group_inspection_receipt_id": "342e34bd",
+    "source_mutation_count": 0,
+    "taxonomy_delta_proposal_emitted_count": 0,
+    "taxonomy_label_creation_count": 0,
+    "taxonomy_upgrade_authorized_count": 0,
+    "total_group_count": 5,
+    "total_pressure_row_count": 88
+  },
+  "created_at": "2026-06-23T01:32:41.977375+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "human_decision": {
+    "authorized": [
+      "read existing tracked R1000 pressure rows",
+      "consume closed expected-limit taxonomy branch",
+      "consume accepted healthy authority-boundary branch",
+      "emit reconciled queue ledger",
+      "emit remaining pressure groups",
+      "emit next selectable group candidate without opening it",
+      "stop with reconciled queue state"
+    ],
+    "decision": "RECONCILE_R1000_PRESSURE_QUEUE_AFTER_SELECTED_GROUP_INSPECTION",
+    "not_authorized": [
+      "running new R1000 pressure generation",
+      "inspecting another group",
+      "repairing any group",
+      "inventing values",
+      "creating labels",
+      "upgrading taxonomy",
+      "mutating source rows",
+      "mutating existing receipts",
+      "auto-opening next group",
+      "building proposal layer in this unit",
+      "hiding next command"
+    ],
+    "scope": "update the R1000 pressure queue ledger after the selected authority-boundary group was inspected and accepted, without opening another group or building the proposal layer yet",
+    "source_closed_branch_fix_receipt_id": "4a0cfc09",
+    "source_group_inspection_receipt_id": "342e34bd"
+  },
+  "output_artifacts": {
+    "implementation_receipt": "data/r1000_pressure_queue_reconciliation_after_selected_group_inspection_v0_receipts/087bf971.json",
+    "next_selectable_group_candidate": "data/r1000_pressure_queue_reconciliation_after_selected_group_inspection_v0/r1000_next_selectable_group_candidate.json",
+    "queue_reconciliation": "data/r1000_pressure_queue_reconciliation_after_selected_group_inspection_v0/r1000_pressure_queue_reconciliation.json",
+    "queue_reconciliation_report": "data/r1000_pressure_queue_reconciliation_after_selected_group_inspection_v0/r1000_pressure_queue_reconciliation_report.json",
+    "queue_reconciliation_transition_trace": "data/r1000_pressure_queue_reconciliation_after_selected_group_inspection_v0/r1000_queue_reconciliation_transition_trace.json",
+    "queue_state_records": "data/r1000_pressure_queue_reconciliation_after_selected_group_inspection_v0/r1000_queue_state_records.jsonl",
+    "remaining_pressure_groups": "data/r1000_pressure_queue_reconciliation_after_selected_group_inspection_v0/r1000_remaining_pressure_groups.json",
+    "resolved_group_ledger": "data/r1000_pressure_queue_reconciliation_after_selected_group_inspection_v0/r1000_resolved_pressure_group_ledger.json"
+  },
+  "queue_reconciliation_guards": {
+    "accepted_healthy_boundary_stop_consumed": true,
+    "closed_expected_limit_consumed": true,
+    "existing_receipts_mutated": false,
+    "group_inspection_consumed": true,
+    "hidden_next_command": false,
+    "next_candidate_emitted": true,
+    "next_group_auto_opened": false,
+    "other_group_inspection_executed": false,
+    "proposal_layer_built": false,
+    "queue_reconciled": true,
+    "r1000_run_executed": false,
+    "repair_executed": false,
+    "source_mutated": false,
+    "taxonomy_delta_proposal_emitted": false,
+    "taxonomy_label_created": false,
+    "taxonomy_upgrade_authorized": false,
+    "values_invented": false
+  },
+  "r1000_pressure_queue_reconciliation_summary": {
+    "accepted_healthy_boundary_stop_group_count": 1,
+    "accepted_healthy_boundary_stop_row_count": 24,
+    "closed_expected_limit_group_count": 1,
+    "closed_expected_limit_row_count": 25,
+    "next_selectable_group_candidate": {
+      "group_hash_candidates": {
+        "candidate_key_hash": "09e3844d",
+        "legacy_join_hash": "6a7910a8",
+        "raw_tuple_hash": "dfce7bfd"
+      },
+      "group_key": {
+        "halt_reason": "STOP_DONE",
+        "parent_pressure_class": "BURDEN_PRESSURE",
+        "pressure_subtype": "receipt_size_burden"
+      },
+      "row_count": 19,
+      "selection_status": "CANDIDATE_ONLY_NOT_OPENED",
+      "semantic_tuple": [
+        "BURDEN_PRESSURE",
+        "receipt_size_burden",
+        "STOP_DONE"
+      ]
+    },
+    "recommended_next_handling": "BUILD_CANDIDATE_MISSING_OBJECT_PROPOSAL_LAYER_FOR_EXPECTED_LIMITS_V0",
+    "remaining_open_group_count": 3,
+    "remaining_open_row_count": 39,
+    "resolved_group_count": 2,
+    "resolved_row_count": 49,
+    "total_group_count": 5,
+    "total_pressure_row_count": 88
+  },
+  "receipt_id": "087bf971",
+  "receipt_type": "R1000_PRESSURE_QUEUE_RECONCILIATION_AFTER_SELECTED_GROUP_INSPECTION_RECEIPT",
+  "schema_version": "r1000_pressure_queue_reconciliation_after_selected_group_inspection_receipt_v0",
+  "source_closed_branch_fix_receipt_id": "4a0cfc09",
+  "source_current_surface_protocol_receipt_id": "e3371951",
+  "source_fixed_application_receipt_id": "2a16f593",
+  "source_group_inspection_receipt_id": "342e34bd",
+  "target_unit_id": "r1000_pressure_queue_reconciliation_after_selected_group_inspection.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_QUEUE_RECONCILED",
+    "type": "STOP"
+  },
+  "unit_id": "RECONCILE_R1000_PRESSURE_QUEUE_AFTER_SELECTED_GROUP_INSPECTION_V0",
+  "warnings": []
+}
