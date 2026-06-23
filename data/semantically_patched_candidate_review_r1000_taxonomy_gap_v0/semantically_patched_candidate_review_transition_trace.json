@@ -1,0 +1,41 @@
+{
+  "patched_candidate_object_id": "a9ec669b",
+  "schema_version": "semantically_patched_candidate_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_PATCHED_CANDIDATE_ACCEPTED_FOR_SEPARATE_APPLICATION_UNIT",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "patched_candidate_exists_and_requires_review",
+      "step": "consume_semantic_patch",
+      "taken": "inspect_weakened_semantic_claims"
+    },
+    {
+      "answer": true,
+      "question": "semantic_status_and_descriptor_status_are_weakened",
+      "step": "inspect_weakened_semantic_claims",
+      "taken": "inspect_negative_claims"
+    },
+    {
+      "answer": true,
+      "question": "negative_claims_block_value_and_authorization_inference",
+      "step": "inspect_negative_claims",
+      "taken": "inspect_evidence_basis"
+    },
+    {
+      "answer": true,
+      "question": "evidence_basis_limited_to_unresolved_descriptor_proposal",
+      "step": "inspect_evidence_basis",
+      "taken": "emit_review_decision"
+    },
+    {
+      "answer": false,
+      "question": "application_happens_in_this_unit",
+      "step": "emit_review_decision",
+      "taken": "STOP_PATCHED_CANDIDATE_ACCEPTED_FOR_SEPARATE_APPLICATION_UNIT"
+    }
+  ]
+}
