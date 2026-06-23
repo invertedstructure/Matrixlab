@@ -1,0 +1,44 @@
+{
+  "queue_summary_ref": "data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_pressure_queue_summary.json",
+  "schema_version": "r1000_current_surface_transition_trace_fixed_v0",
+  "selected_group_ref": "data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_selected_pressure_group.json",
+  "source_closed_branch_identity_map_ref": "data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0/closed_branch_identity_map.json",
+  "source_protocol_receipt_id": "e3371951",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "tracked_r1000_pressure_queue_available",
+      "step": "materialize_pressure_queue",
+      "taken": "apply_closed_branch_exclusion"
+    },
+    {
+      "answer": true,
+      "no": "STOP_GATE_FAIL",
+      "question": "closed_branch_detected_by_semantic_identity",
+      "step": "apply_closed_branch_exclusion",
+      "taken": "select_remaining_pressure_group",
+      "yes": "select_remaining_pressure_group"
+    },
+    {
+      "answer": true,
+      "no": "STOP_NO_ACTIONABLE_PRESSURE",
+      "question": "open_pressure_group_exists",
+      "step": "select_remaining_pressure_group",
+      "taken": "capability_boundary_check",
+      "yes": "capability_boundary_check"
+    },
+    {
+      "answer": true,
+      "no": "continue_current_transition",
+      "question": "required_next_move_exceeds_current_capability",
+      "step": "capability_boundary_check",
+      "taken": "STOP_CAPABILITY_LAYER_REQUIRED",
+      "yes": "STOP_CAPABILITY_LAYER_REQUIRED"
+    }
+  ]
+}
