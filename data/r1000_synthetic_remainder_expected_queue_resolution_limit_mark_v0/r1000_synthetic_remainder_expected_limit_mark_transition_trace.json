@@ -1,0 +1,35 @@
+{
+  "schema_version": "r1000_synthetic_remainder_expected_limit_mark_transition_trace_v0",
+  "selected_pressure_group_id": "025fdd0c",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_SYNTHETIC_REMAINDER_MARKED_EXPECTED_QUEUE_RESOLUTION_LIMIT_QUEUE_CLOSED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "expected queue-resolution limit candidate exists and is not applied",
+      "step": "consume_source_audit_expected_limit_candidate",
+      "taken": "apply_derived_expected_limit_mark"
+    },
+    {
+      "answer": false,
+      "question": "mutate prior source artifacts or receipts",
+      "step": "apply_derived_expected_limit_mark",
+      "taken": "emit_final_queue_state"
+    },
+    {
+      "answer": 0,
+      "question": "remaining pressure rows after mark",
+      "step": "emit_final_queue_state",
+      "taken": "close_queue"
+    },
+    {
+      "answer": false,
+      "question": "hidden next command allowed",
+      "step": "close_queue",
+      "taken": "STOP_SYNTHETIC_REMAINDER_MARKED_EXPECTED_QUEUE_RESOLUTION_LIMIT_QUEUE_CLOSED"
+    }
+  ]
+}
