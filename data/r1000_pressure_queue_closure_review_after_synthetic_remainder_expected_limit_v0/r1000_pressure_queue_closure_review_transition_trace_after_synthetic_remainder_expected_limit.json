@@ -1,0 +1,34 @@
+{
+  "schema_version": "r1000_pressure_queue_closure_review_transition_trace_after_synthetic_remainder_expected_limit_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_R1000_PRESSURE_QUEUE_CLOSURE_REVIEW_COMPLETE_QUEUE_CLOSED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "mark receipt passed and expected-limit closure was applied",
+      "step": "consume_expected_limit_mark_receipt",
+      "taken": "consume_final_queue_state"
+    },
+    {
+      "answer": true,
+      "question": "queue is closed and remaining pressure is zero",
+      "step": "consume_final_queue_state",
+      "taken": "accept_queue_closure"
+    },
+    {
+      "answer": false,
+      "question": "any next group candidate remains",
+      "step": "accept_queue_closure",
+      "taken": "emit_closed_queue_handoff"
+    },
+    {
+      "answer": false,
+      "question": "hidden next command allowed",
+      "step": "emit_closed_queue_handoff",
+      "taken": "STOP_R1000_PRESSURE_QUEUE_CLOSURE_REVIEW_COMPLETE_QUEUE_CLOSED"
+    }
+  ]
+}
