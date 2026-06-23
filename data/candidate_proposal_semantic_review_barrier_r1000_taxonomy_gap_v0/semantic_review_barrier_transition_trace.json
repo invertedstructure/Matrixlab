@@ -1,0 +1,35 @@
+{
+  "candidate_object_id": "ce1fe7fc",
+  "schema_version": "candidate_proposal_semantic_review_barrier_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_IN_CHAT_SEMANTIC_REVIEW_REQUIRED_BEFORE_APPLICATION_AUTHORIZATION",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "did machine review structurally accept candidate",
+      "step": "consume_machine_review",
+      "taken": "reclassify_as_structural_only"
+    },
+    {
+      "answer": false,
+      "question": "does structural acceptance equal semantic acceptance",
+      "step": "reclassify_as_structural_only",
+      "taken": "emit_in_chat_semantic_review_request"
+    },
+    {
+      "answer": false,
+      "question": "can application proceed before semantic review",
+      "step": "emit_in_chat_semantic_review_request",
+      "taken": "emit_application_blocker_packet"
+    },
+    {
+      "answer": false,
+      "question": "hidden next command allowed",
+      "step": "emit_application_blocker_packet",
+      "taken": "STOP_IN_CHAT_SEMANTIC_REVIEW_REQUIRED_BEFORE_APPLICATION_AUTHORIZATION"
+    }
+  ]
+}

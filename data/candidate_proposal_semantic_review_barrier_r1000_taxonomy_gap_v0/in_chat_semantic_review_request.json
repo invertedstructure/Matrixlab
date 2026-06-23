@@ -1,0 +1,49 @@
+{
+  "candidate_object_id": "ce1fe7fc",
+  "candidate_object_ref": "data/candidate_missing_object_proposal_application_r1000_taxonomy_gap_v0/r1000_top_group_taxonomy_gap_candidate_missing_object_proposal.json",
+  "decision_rules": {
+    "acceptable_after_edits": "emit edit requirements before application",
+    "acceptable_for_separate_application": "requires explicit human/schema acceptance before application unit",
+    "clearly_unsound": "reject candidate or patch proposal capability before application",
+    "missing_evidence": "request or produce only the minimum separate receipt needed for semantic review without mutation",
+    "too_undertyped": "refine proposal capability to emit more reviewable information"
+  },
+  "expected_terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_IN_CHAT_SEMANTIC_REVIEW_REQUIRED_BEFORE_APPLICATION_AUTHORIZATION",
+    "type": "STOP"
+  },
+  "must_inspect": [
+    "proposed candidate values or fields",
+    "evidence basis",
+    "unresolved typed fields",
+    "assumptions",
+    "uncertainty reasons",
+    "alternatives",
+    "risk if wrong",
+    "whether it sneaks in correctness claims",
+    "whether it implies authorization",
+    "whether it crosses taxonomy/application/source-mutation boundaries"
+  ],
+  "request_id": "07d5c76a",
+  "schema_version": "in_chat_semantic_review_request_v0",
+  "semantic_review_classes": [
+    "STRUCTURALLY_VALID_SEMANTICALLY_SOUND",
+    "STRUCTURALLY_VALID_SEMANTICALLY_UNSOUND",
+    "TOO_UNDERTYPED_TO_REVIEW_STABLY",
+    "MISSING_EVIDENCE_FOR_SEMANTIC_REVIEW",
+    "ACCEPTABLE_ONLY_AFTER_EDITS",
+    "ACCEPTABLE_FOR_SEPARATE_APPLICATION"
+  ],
+  "semantic_review_location": "chat",
+  "semantic_review_must_not": [
+    "apply the proposal",
+    "fill descriptor fields",
+    "invent values",
+    "create taxonomy labels",
+    "mutate source rows",
+    "mutate existing receipts",
+    "hide next command"
+  ],
+  "semantic_review_required": true
+}
