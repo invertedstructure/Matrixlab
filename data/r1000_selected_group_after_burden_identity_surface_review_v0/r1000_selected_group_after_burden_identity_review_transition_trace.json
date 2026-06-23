@@ -1,0 +1,35 @@
+{
+  "schema_version": "r1000_selected_group_after_burden_identity_review_transition_trace_v0",
+  "selected_pressure_group_id": "f667fa03",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_SELECTED_GROUP_IDENTITY_SURFACE_REVIEW_COMPLETE_REPAIR_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "selected group exists and is not inspected",
+      "step": "consume_selected_group_after_burden",
+      "taken": "materialize_identity_surface"
+    },
+    {
+      "answer": false,
+      "question": "identity fields complete for inspection",
+      "step": "materialize_identity_surface",
+      "taken": "block_inspection_and_emit_repair_packet"
+    },
+    {
+      "answer": false,
+      "question": "repair identity in this unit",
+      "step": "block_inspection_and_emit_repair_packet",
+      "taken": "STOP_SELECTED_GROUP_IDENTITY_SURFACE_REVIEW_COMPLETE_REPAIR_REQUIRED"
+    },
+    {
+      "answer": false,
+      "question": "hidden next command allowed",
+      "step": "terminal",
+      "taken": "stop_with_null_next_command_goal"
+    }
+  ]
+}
