@@ -1,0 +1,34 @@
+{
+  "schema_version": "r1000_post_closure_harvest_command_resolver_fix_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_COMMAND_RESOLVER_FIX_INCOMPLETE_ENTRYPOINT_UNRESOLVED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "failure was command-interface resolver defect",
+      "step": "consume_failed_harvest_review",
+      "taken": "inspect_cli_help_and_source"
+    },
+    {
+      "answer": true,
+      "question": "candidate bounded entrypoints identified",
+      "step": "inspect_cli_help_and_source",
+      "taken": "run_small_probe"
+    },
+    {
+      "answer": false,
+      "question": "small probe resolved a receipt-producing entrypoint",
+      "step": "run_small_probe",
+      "taken": "emit_unresolved_packet"
+    },
+    {
+      "answer": false,
+      "question": "run radius 10000 in this unit",
+      "step": "emit_retry_packet",
+      "taken": "STOP_COMMAND_RESOLVER_FIX_INCOMPLETE_ENTRYPOINT_UNRESOLVED"
+    }
+  ]
+}
