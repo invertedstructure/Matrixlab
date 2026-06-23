@@ -1,0 +1,35 @@
+{
+  "schema_version": "r1000_synthetic_remainder_source_evidence_audit_transition_trace_after_repaired_burden_queue_v0",
+  "selected_pressure_group_id": "025fdd0c",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_SYNTHETIC_REMAINDER_SOURCE_AUDIT_COMPLETE_EXPECTED_LIMIT_CANDIDATE_REVIEW_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "inspection was blocked pending source audit",
+      "step": "consume_synthetic_remainder_identity_review",
+      "taken": "audit_fixed_source_surfaces"
+    },
+    {
+      "answer": false,
+      "question": "direct source-backed identity evidence found",
+      "step": "audit_fixed_source_surfaces",
+      "taken": "emit_expected_limit_candidate"
+    },
+    {
+      "answer": false,
+      "question": "apply closure in this unit",
+      "step": "emit_expected_limit_candidate",
+      "taken": "emit_queue_closure_candidate_packet"
+    },
+    {
+      "answer": false,
+      "question": "hidden next command allowed",
+      "step": "emit_queue_closure_candidate_packet",
+      "taken": "STOP_SYNTHETIC_REMAINDER_SOURCE_AUDIT_COMPLETE_EXPECTED_LIMIT_CANDIDATE_REVIEW_REQUIRED"
+    }
+  ]
+}
