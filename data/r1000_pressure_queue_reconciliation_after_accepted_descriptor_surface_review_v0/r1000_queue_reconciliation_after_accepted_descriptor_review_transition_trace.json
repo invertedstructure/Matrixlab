@@ -1,0 +1,34 @@
+{
+  "schema_version": "r1000_queue_reconciliation_after_accepted_descriptor_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_QUEUE_RECONCILED_NEXT_GROUP_CANDIDATE_EMITTED_ONLY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "surface review accepted and queue return packet emitted",
+      "step": "consume_derived_surface_review",
+      "taken": "record_accepted_descriptor_branch_extension"
+    },
+    {
+      "answer": false,
+      "question": "does branch reopen pressure rows",
+      "step": "record_accepted_descriptor_branch_extension",
+      "taken": "preserve_remaining_queue_counts"
+    },
+    {
+      "answer": false,
+      "question": "should next group be opened in this unit",
+      "step": "preserve_remaining_queue_counts",
+      "taken": "emit_next_group_candidate_only"
+    },
+    {
+      "answer": false,
+      "question": "hidden next command allowed",
+      "step": "emit_next_group_candidate_only",
+      "taken": "STOP_QUEUE_RECONCILED_NEXT_GROUP_CANDIDATE_EMITTED_ONLY"
+    }
+  ]
+}
