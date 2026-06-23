@@ -1,0 +1,53 @@
+{
+  "field_constraints": {
+    "authority_guards.hidden_next_command_count": 0,
+    "authority_guards.receipt_mutation_count": 0,
+    "authority_guards.source_mutation_count": 0,
+    "authority_guards.value_invention_count": 0,
+    "capability_available": false,
+    "missing_object_type": [
+      "missing_evidence",
+      "missing_surface",
+      "missing_field_representation",
+      "missing_value",
+      "missing_provenance",
+      "broken_reference",
+      "current_source_content_absent",
+      "upstream_existence_unresolved",
+      "expected_limit_candidate",
+      "capability_boundary_unknown",
+      "human_decision_required"
+    ],
+    "terminal.next_command_goal": null,
+    "terminal.stop_code": "STOP_CAPABILITY_LAYER_REQUIRED"
+  },
+  "non_goals": [
+    "does_not_build_the_missing_capability",
+    "does_not_guess_values",
+    "does_not_auto_open_next_group"
+  ],
+  "packet_type": "CAPABILITY_STOP_PACKET",
+  "required_fields": [
+    "stop_id",
+    "source_surface_id",
+    "source_receipt_id",
+    "pressure_group_key",
+    "surface_type",
+    "missing_object_type",
+    "required_capability",
+    "capability_available",
+    "why_current_capability_cannot_continue",
+    "evidence_already_collected",
+    "authority_guards",
+    "safe_human_choices",
+    "terminal"
+  ],
+  "safe_human_choices": [
+    "AUTHORIZE_CAPABILITY_BUILD",
+    "REQUEST_NARROWER_INSPECTION",
+    "MARK_EXPECTED_LIMIT_IF_EVIDENCE_SUPPORTS_IT",
+    "REJECT_CAPABILITY_STOP_AS_INSUFFICIENT",
+    "RETURN_TO_PRESSURE_QUEUE"
+  ],
+  "schema_version": "capability_stop_packet_schema_v0"
+}

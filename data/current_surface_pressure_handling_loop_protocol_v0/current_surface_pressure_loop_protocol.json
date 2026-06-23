@@ -1,0 +1,77 @@
+{
+  "authority_guards": {
+    "existing_receipt_mutation_authorized": false,
+    "hidden_next_command_authorized": false,
+    "next_group_auto_open_authorized": false,
+    "source_mutation_authorized": false,
+    "taxonomy_label_creation_authorized": false,
+    "taxonomy_upgrade_authorized": false,
+    "value_invention_authorized": false
+  },
+  "capability_stop_packet_schema_ref": "data/current_surface_pressure_handling_loop_protocol_v0/capability_stop_packet_schema.json",
+  "capability_stop_rule": {
+    "packet_schema_ref": "data/current_surface_pressure_handling_loop_protocol_v0/capability_stop_packet_schema.json",
+    "required_when": "next lawful move requires a capability not present in current runner",
+    "terminal_stop_code": "STOP_CAPABILITY_LAYER_REQUIRED"
+  },
+  "expected_limit_closure_rule": {
+    "allowed": true,
+    "must_not_authorize_value_or_taxonomy_repair": true,
+    "must_not_claim_universal_nonexistence": true,
+    "scope_required": "explicit_tracked_source_chain_or_other_explicit_audited_scope",
+    "terminal_stop_code": "STOP_BRANCH_CLOSED_EXPECTED_SOURCE_CONTENT_LIMIT"
+  },
+  "loop_shape": [
+    "select_pressure_group",
+    "inspect_current_surface",
+    "classify_evidence_sufficiency",
+    "identify_missing_object_when_blocked",
+    "check_current_capability",
+    "repair_or_introduce_surface_when_authorized",
+    "rerun_extraction",
+    "classify_value_or_null_limit",
+    "audit_upstream_when_authorized",
+    "mark_scoped_expected_limit_when_authorized",
+    "close_branch_or_stop_at_capability_layer"
+  ],
+  "missing_object_types": [
+    "missing_evidence",
+    "missing_surface",
+    "missing_field_representation",
+    "missing_value",
+    "missing_provenance",
+    "broken_reference",
+    "current_source_content_absent",
+    "upstream_existence_unresolved",
+    "expected_limit_candidate",
+    "capability_boundary_unknown",
+    "human_decision_required"
+  ],
+  "non_goals": [
+    "not_global",
+    "not_final",
+    "not_all_future_surfaces",
+    "not_a_taxonomy_upgrade",
+    "not_an_r1000_run",
+    "not_a_next_group_selector"
+  ],
+  "protocol_id": "741113ce",
+  "protocol_name": "CURRENT_SURFACE_PRESSURE_HANDLING_LOOP_PROTOCOL_V0",
+  "schema_version": "current_surface_pressure_handling_loop_protocol_v0",
+  "scope": "current_surface_pressure_loop_only",
+  "source_expected_limit_receipt_id": "cbde4b69",
+  "source_upstream_audit_receipt_id": "6b1ea913",
+  "surface_state_record_schema_ref": "data/current_surface_pressure_handling_loop_protocol_v0/surface_state_record_schema.json",
+  "surface_transition_decision_table_ref": "data/current_surface_pressure_handling_loop_protocol_v0/surface_transition_decision_table.json",
+  "surface_types": [
+    "pressure_queue_surface",
+    "pressure_group_surface",
+    "evidence_surface",
+    "repaired_evidence_surface",
+    "field_introduced_surface",
+    "null_evidence_limit_surface",
+    "upstream_audit_surface",
+    "expected_limit_closure_surface",
+    "capability_stop_surface"
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "field_definitions": {
+    "authority_state": {
+      "hidden_next_command_count": "int",
+      "next_group_auto_opened_count": "int",
+      "receipt_mutation_count": "int",
+      "source_mutation_count": "int",
+      "taxonomy_action_count": "int"
+    },
+    "capability_state": {
+      "capability_available": "bool|null",
+      "capability_stop_required": "bool",
+      "required_capability": "string|null"
+    },
+    "classification": {
+      "branch_resolution": "string|null",
+      "current_class": "string|null",
+      "limit_type": "string|null"
+    },
+    "key_visibility": {
+      "missing_keys": "list[str]",
+      "required_keys_visible": "bool"
+    },
+    "pressure_group_key": "pressure-group identity, if applicable",
+    "provenance_state": {
+      "absence_reasons_present": "bool",
+      "provenance_refs_present": "bool",
+      "structural_refs_preserved": "bool"
+    },
+    "row_count": "number of rows represented by the surface, if row-backed",
+    "source_receipt_id": "receipt that produced or justified the surface",
+    "surface_id": "stable identifier for the observed surface",
+    "surface_type": "one of current surface types",
+    "terminal": {
+      "next_command_goal": "string|null",
+      "stop_code": "string|null",
+      "terminal_type": "STOP|ADVANCE|PASS|null"
+    },
+    "value_state": {
+      "value_invention_count": "int",
+      "values_absent": "bool",
+      "values_present": "bool"
+    }
+  },
+  "non_goals": [
+    "does_not_define_all_future_surfaces",
+    "does_not_define_final_taxonomy",
+    "does_not_authorize_value_invention",
+    "does_not_authorize_automatic_next_group_open"
+  ],
+  "record_type": "CURRENT_SURFACE_STATE_RECORD",
+  "required_fields": [
+    "surface_id",
+    "surface_type",
+    "source_receipt_id",
+    "pressure_group_key",
+    "row_count",
+    "key_visibility",
+    "value_state",
+    "provenance_state",
+    "authority_state",
+    "classification",
+    "capability_state",
+    "terminal"
+  ],
+  "schema_version": "current_surface_state_record_schema_v0",
+  "scope": "current_surfaces_only",
+  "surface_types": [
+    "pressure_queue_surface",
+    "pressure_group_surface",
+    "evidence_surface",
+    "repaired_evidence_surface",
+    "field_introduced_surface",
+    "null_evidence_limit_surface",
+    "upstream_audit_surface",
+    "expected_limit_closure_surface",
+    "capability_stop_surface"
+  ]
+}

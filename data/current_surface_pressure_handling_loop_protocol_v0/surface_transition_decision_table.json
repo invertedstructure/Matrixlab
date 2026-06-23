@@ -1,0 +1,114 @@
+{
+  "schema_version": "current_surface_transition_decision_table_v0",
+  "scope": "current_surface_pressure_loop",
+  "table_type": "YES_NO_SURFACE_TRANSITION_TABLE",
+  "terminal_stop_codes": [
+    "STOP_NO_ACTIONABLE_PRESSURE",
+    "STOP_NEEDS_PRESSURE_CLASSIFICATION",
+    "STOP_SURFACE_DEFICIENCY_UNLOCALIZED",
+    "STOP_UNREPRESENTABLE_WITH_CURRENT_AUTHORITY",
+    "STOP_AUTHORITY_VIOLATION",
+    "STOP_HUMAN_DECISION_REQUIRED",
+    "STOP_CAPABILITY_LAYER_REQUIRED",
+    "STOP_AUDIT_SCOPE_INSUFFICIENT",
+    "STOP_BRANCH_CLOSED_EXPECTED_SOURCE_CONTENT_LIMIT"
+  ],
+  "transitions": [
+    {
+      "no": "STOP_NO_ACTIONABLE_PRESSURE",
+      "question": "pressure_group_selected",
+      "step": "select_pressure_group",
+      "yes": "inspect_pressure_group_surface"
+    },
+    {
+      "no": "STOP_NEEDS_PRESSURE_CLASSIFICATION",
+      "question": "pressure_class_understood_enough_to_choose_inspection",
+      "step": "inspect_pressure_group_surface",
+      "yes": "extract_evidence_surface"
+    },
+    {
+      "no": "classify_evidence_surface_deficiency",
+      "question": "required_evidence_values_visible",
+      "step": "extract_evidence_surface",
+      "yes": "classify_value_evidence"
+    },
+    {
+      "no": "localize_evidence_surface_deficiency",
+      "question": "deficiency_localized",
+      "step": "classify_evidence_surface_deficiency",
+      "yes": "inspect_localized_deficiency"
+    },
+    {
+      "no": "field_or_schema_representation_branch",
+      "question": "required_keys_or_fields_present",
+      "step": "inspect_localized_deficiency",
+      "yes": "inspect_value_and_provenance_state"
+    },
+    {
+      "no": "STOP_UNREPRESENTABLE_WITH_CURRENT_AUTHORITY",
+      "question": "missing_representation_can_be_introduced_without_inventing_values",
+      "step": "field_or_schema_representation_branch",
+      "yes": "propose_versioned_field_or_schema_introduction"
+    },
+    {
+      "no": "STOP_HUMAN_DECISION_REQUIRED",
+      "question": "human_accepts_introduction",
+      "step": "propose_versioned_field_or_schema_introduction",
+      "yes": "build_versioned_introduction"
+    },
+    {
+      "no": "rerun_extraction_on_introduced_surface",
+      "question": "build_invented_values_or_mutated_source",
+      "step": "build_versioned_introduction",
+      "yes": "STOP_AUTHORITY_VIOLATION"
+    },
+    {
+      "no": "repair_field_introduced_surface",
+      "question": "introduced_field_keys_visible",
+      "step": "rerun_extraction_on_introduced_surface",
+      "yes": "inspect_value_and_provenance_state"
+    },
+    {
+      "no": "classify_null_evidence_limit",
+      "question": "values_present",
+      "step": "inspect_value_and_provenance_state",
+      "yes": "classify_value_evidence"
+    },
+    {
+      "no": "human_decision_for_upstream_audit_or_limit",
+      "question": "current_evidence_resolves_upstream_existence",
+      "step": "classify_null_evidence_limit",
+      "yes": "classify_resolved_source_state"
+    },
+    {
+      "no": "STOP_HUMAN_DECISION_REQUIRED",
+      "question": "upstream_existence_audit_authorized",
+      "step": "human_decision_for_upstream_audit_or_limit",
+      "yes": "audit_upstream_existence"
+    },
+    {
+      "no": "expected_source_content_limit_candidate",
+      "question": "non_null_values_found_in_audited_chain",
+      "step": "audit_upstream_existence",
+      "yes": "classify_upstream_value_evidence"
+    },
+    {
+      "no": "STOP_HUMAN_DECISION_REQUIRED",
+      "question": "mark_expected_source_content_limit_authorized",
+      "step": "expected_source_content_limit_candidate",
+      "yes": "mark_expected_source_content_limit"
+    },
+    {
+      "no": "close_pressure_branch",
+      "question": "marker_overclaims_universal_absence_or_authorizes_value_taxonomy_repair",
+      "step": "mark_expected_source_content_limit",
+      "yes": "STOP_AUTHORITY_VIOLATION"
+    },
+    {
+      "no": "continue_current_transition",
+      "question": "required_next_move_exceeds_current_capability",
+      "step": "any_step",
+      "yes": "STOP_CAPABILITY_LAYER_REQUIRED"
+    }
+  ]
+}
