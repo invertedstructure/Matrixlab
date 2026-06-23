@@ -1,0 +1,34 @@
+{
+  "schema_version": "r1000_burden_queue_next_candidate_identity_preservation_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_IDENTITY_PRESERVATION_FIX_EMITTED_REVIEW_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "identity review found UNKNOWN fields and blocked inspection",
+      "step": "consume_identity_review",
+      "taken": "audit_source_identity_evidence"
+    },
+    {
+      "answer": true,
+      "question": "explicit typed identity evidence exists",
+      "step": "audit_source_identity_evidence",
+      "taken": "emit_repaired_candidate"
+    },
+    {
+      "answer": false,
+      "question": "mutate source candidate artifact",
+      "step": "emit_repaired_candidate",
+      "taken": "write_derived_identity_preservation_artifacts"
+    },
+    {
+      "answer": false,
+      "question": "inspect repaired group in this unit",
+      "step": "write_derived_identity_preservation_artifacts",
+      "taken": "STOP_IDENTITY_PRESERVATION_FIX_EMITTED_REVIEW_REQUIRED"
+    }
+  ]
+}
