@@ -1,0 +1,26 @@
+{
+  "likely_failure_markers": [
+    "Traceback",
+    "ModuleNotFoundError",
+    "Error:"
+  ],
+  "parsed_result": null,
+  "probe_command": [
+    "uv",
+    "run",
+    "python",
+    "-c",
+    "import json\nfrom matrixlab.r1000_post_closure_observability_harvest import run_bounded_harvest\nresult = run_bounded_harvest(radius=10, source_closure_receipt_id='52d0ea8d', label='runtime-output-fix-module-probe')\nprint(json.dumps(result, indent=2, sort_keys=True))"
+  ],
+  "probe_observation_receipt_count": null,
+  "probe_passed": false,
+  "probe_run_dir": null,
+  "probe_run_receipt_path": null,
+  "returncode": 1,
+  "schema_version": "r1000_post_closure_observability_harvest_entrypoint_runtime_output_fix_failure_module_probe_surface_v0",
+  "source_small_probe_result_ref": "data/r1000_post_closure_observability_harvest_entrypoint_runtime_output_fix_v0/r1000_post_closure_observability_harvest_entrypoint_runtime_output_small_probe_result.json",
+  "stderr_tail": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\n    from matrixlab.r1000_post_closure_observability_harvest import run_bounded_harvest\nModuleNotFoundError: No module named 'matrixlab'\n",
+  "stdout_json_parseable": false,
+  "stdout_parse_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "stdout_tail": ""
+}

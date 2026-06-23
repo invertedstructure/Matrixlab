@@ -11985,7 +11985,7 @@ def post_closure_observability_harvest_command(
         source_closure_receipt_id=source_closure_receipt_id,
         label=label,
     )
-    typer.echo(json.dumps(result, indent=2, sort_keys=True))
+    print(json.dumps(result, indent=2, sort_keys=True))
     if result.get("gate") != "PASS":
         raise typer.Exit(code=1)
 

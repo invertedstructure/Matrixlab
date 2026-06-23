@@ -1,0 +1,28 @@
+{
+  "schema_version": "r1000_post_closure_observability_harvest_entrypoint_runtime_output_fix_failure_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_RUNTIME_OUTPUT_FIX_FAILURE_REVIEW_COMPLETE_MODULE_PRECONDITION_FIX_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "help still passes but module and CLI probes fail",
+      "step": "consume_failed_runtime_output_fix",
+      "taken": "classify_module_runtime_failure"
+    },
+    {
+      "answer": false,
+      "question": "run repair in review unit",
+      "step": "classify_module_runtime_failure",
+      "taken": "emit_module_runtime_fix_authority_packet"
+    },
+    {
+      "answer": false,
+      "question": "run radius 10000 now",
+      "step": "emit_module_runtime_fix_authority_packet",
+      "taken": "STOP_RUNTIME_OUTPUT_FIX_FAILURE_REVIEW_COMPLETE_MODULE_PRECONDITION_FIX_REQUIRED"
+    }
+  ]
+}

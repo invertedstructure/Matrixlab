@@ -1,0 +1,14 @@
+{
+  "actions": [
+    "rewrite entrypoint module with deterministic run_bounded_harvest",
+    "make invalid-radius/precondition failures return JSON instead of raising before print",
+    "make command wrapper print exactly json.dumps(result)",
+    "replace typer.echo(json.dumps(...)) in CLI wrapper with print(json.dumps(...))",
+    "verify module-level probe and CLI-level probe both produce JSON",
+    "require CLI radius-10 probe to write exactly 10 observation receipts"
+  ],
+  "classification": "CLI_HELP_FIXED_RUNTIME_OUTPUT_NOT_JSON_AND_RECEIPT_WRITE_NOT_PROVEN",
+  "radius_10000_authorized_in_this_unit": false,
+  "schema_version": "r1000_post_closure_observability_harvest_entrypoint_runtime_output_patch_plan_v0",
+  "source_runtime_output_review_receipt_id": "15eaca49"
+}

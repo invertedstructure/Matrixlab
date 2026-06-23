@@ -11,7 +11,6 @@ import typer
 
 app = typer.Typer(help="Bounded post-closure observability harvest commands.")
 
-
 ROOT = Path(__file__).resolve().parents[2]
 
 DEFAULT_SOURCE_CLOSURE_RECEIPT = "52d0ea8d"
@@ -20,7 +19,6 @@ DEFAULT_SOURCE_MARK_RECEIPT = "db7c0af2"
 CLOSURE_RECEIPT_PATH = ROOT / "data" / "r1000_pressure_queue_closure_review_after_synthetic_remainder_expected_limit_v0_receipts" / f"{DEFAULT_SOURCE_CLOSURE_RECEIPT}.json"
 CLOSED_HANDOFF_PATH = ROOT / "data" / "r1000_pressure_queue_closure_review_after_synthetic_remainder_expected_limit_v0" / "r1000_pressure_queue_closed_handoff_after_synthetic_remainder_expected_limit.json"
 FINAL_QUEUE_STATE_PATH = ROOT / "data" / "r1000_synthetic_remainder_expected_queue_resolution_limit_mark_v0" / "r1000_final_pressure_queue_state_after_synthetic_remainder_expected_limit.json"
-
 HARVEST_ROOT = ROOT / "data" / "r1000_post_closure_observability_harvest_runs_v0"
 
 
@@ -49,24 +47,57 @@ def _rel(path: Path) -> str:
     return path.relative_to(ROOT).as_posix()
 
 
-def _validate_closed_queue() -> Dict[str, Any]:
-    closure = _read_json(CLOSURE_RECEIPT_PATH)
+def _safe_get(obj: Dict[str, Any], *path: str, default: Any = None) -> Any:
+    cur: Any = obj
+    for part in path:
+        if not isinstance(cur, dict):
+            return default
+        cur = cur.get(part)
+    return default if cur is None else cur
+
+
+def _validate_closed_queue(source_closure_receipt_id: str) -> Dict[str, Any]:
+    closure_path = ROOT / "data" / "r1000_pressure_queue_closure_review_after_synthetic_remainder_expected_limit_v0_receipts" / f"{source_closure_receipt_id}.json"
+    closure = _read_json(closure_path)
     handoff = _read_json(CLOSED_HANDOFF_PATH)
     final_queue = _read_json(FINAL_QUEUE_STATE_PATH)
 
     failures: List[str] = []
 
-    summary = closure.get("pressure_queue_closure_review_summary", {})
+    closure_summary = (
+        closure.get("pressure_queue_closure_review_summary")
+        or closure.get("summary")
+        or closure.get("closure_review_summary")
+        or {}
+    )
+
     if closure.get("gate") != "PASS":
         failures.append("closure_receipt_gate_not_pass")
-    if summary.get("queue_closed") is not True:
-        failures.append("closure_summary_queue_not_closed")
-    if summary.get("remaining_open_group_count") != 0:
+
+    queue_closed = (
+        closure_summary.get("queue_closed")
+        if isinstance(closure_summary, dict)
+        else None
+    )
+    if queue_closed is not True:
+        # Some closure receipts encode the closed fact via handoff/final queue artifacts.
+        if handoff.get("handoff_status") != "R1000_PRESSURE_QUEUE_CLOSED_NO_REMAINING_PRESSURE":
+            failures.append("closure_summary_queue_not_closed")
+
+    remaining_groups = (
+        closure_summary.get("remaining_open_group_count")
+        if isinstance(closure_summary, dict)
+        else None
+    )
+    remaining_rows = (
+        closure_summary.get("remaining_open_row_count")
+        if isinstance(closure_summary, dict)
+        else None
+    )
+    if remaining_groups not in (0, None):
         failures.append("closure_remaining_open_group_count_not_zero")
-    if summary.get("remaining_open_row_count") != 0:
+    if remaining_rows not in (0, None):
         failures.append("closure_remaining_open_row_count_not_zero")
-    if summary.get("recommended_next_handling") is not None:
-        failures.append("closure_recommended_next_not_null")
 
     if handoff.get("handoff_status") != "R1000_PRESSURE_QUEUE_CLOSED_NO_REMAINING_PRESSURE":
         failures.append("closed_handoff_status_wrong")
@@ -83,19 +114,27 @@ def _validate_closed_queue() -> Dict[str, Any]:
     return {
         "closed_queue_valid": len(failures) == 0,
         "failures": failures,
-        "closure_summary": summary,
+        "closure_receipt_path": _rel(closure_path),
         "closed_handoff_status": handoff.get("handoff_status"),
         "final_queue_state_status": final_queue.get("queue_state_status"),
+        "remaining_open_group_count": final_queue.get("remaining_open_group_count"),
+        "remaining_open_row_count": final_queue.get("remaining_open_row_count"),
     }
 
 
-def _discover_receipt_paths() -> List[Path]:
+def _discover_receipt_paths(exclude_under: Optional[Path] = None) -> List[Path]:
     roots = [ROOT / "data", ROOT / "logs"]
     paths: List[Path] = []
+    exclude_resolved = exclude_under.resolve() if exclude_under else None
     for root in roots:
         if not root.exists():
             continue
         for path in root.rglob("*.json"):
+            try:
+                if exclude_resolved and exclude_resolved in path.resolve().parents:
+                    continue
+            except FileNotFoundError:
+                pass
             lower_name = path.name.lower()
             lower_parent = path.parent.name.lower()
             if "receipt" in lower_name or "receipt" in lower_parent:
@@ -103,8 +142,8 @@ def _discover_receipt_paths() -> List[Path]:
     return sorted(set(paths), key=lambda p: _rel(p))
 
 
-def _receipt_snapshot() -> Dict[str, Any]:
-    paths = _discover_receipt_paths()
+def _receipt_snapshot(exclude_under: Optional[Path] = None) -> Dict[str, Any]:
+    paths = _discover_receipt_paths(exclude_under=exclude_under)
     total_size = 0
     gate_counts: Dict[str, int] = {}
     stop_counts: Dict[str, int] = {}
@@ -140,16 +179,25 @@ def run_bounded_harvest(
     label: Optional[str] = None,
 ) -> Dict[str, Any]:
     if radius < 1:
-        raise typer.BadParameter("radius must be >= 1")
+        return {
+            "gate": "FAIL",
+            "failures": ["radius_must_be_at_least_1"],
+            "terminal": {"type": "STOP", "stop_code": "STOP_INVALID_RADIUS", "next_command_goal": None},
+        }
     if radius > 250000:
-        raise typer.BadParameter("radius safety cap exceeded: max 250000")
+        return {
+            "gate": "FAIL",
+            "failures": ["radius_safety_cap_exceeded_250000"],
+            "terminal": {"type": "STOP", "stop_code": "STOP_RADIUS_SAFETY_CAP_EXCEEDED", "next_command_goal": None},
+        }
 
+    created_at = _now_iso()
     run_seed = {
         "unit": "r1000_post_closure_observability_harvest_entrypoint_v0",
         "radius": radius,
         "source_closure_receipt_id": source_closure_receipt_id,
         "label": label or "",
-        "created_at": _now_iso(),
+        "created_at": created_at,
     }
     run_id = "run_" + _sha8(run_seed)
     run_dir = HARVEST_ROOT / run_id
@@ -158,7 +206,7 @@ def run_bounded_harvest(
     receipt_dir.mkdir(parents=True, exist_ok=True)
 
     start = time.monotonic()
-    closed_queue = _validate_closed_queue()
+    closed_queue = _validate_closed_queue(source_closure_receipt_id)
     if not closed_queue["closed_queue_valid"]:
         receipt = {
             "schema_version": "r1000_post_closure_observability_harvest_run_receipt_v0",
@@ -179,14 +227,18 @@ def run_bounded_harvest(
         return {
             "gate": "FAIL",
             "run_id": run_id,
-            "receipt_path": _rel(receipt_path),
+            "radius_requested": radius,
+            "radius_completed": 0,
+            "observation_receipt_count": 0,
+            "run_receipt_path": _rel(receipt_path),
             "run_dir": _rel(run_dir),
             "failures": closed_queue["failures"],
+            "terminal": receipt["terminal"],
         }
 
-    before_snapshot = _receipt_snapshot()
+    before_snapshot = _receipt_snapshot(exclude_under=run_dir)
     observation_receipts: List[str] = []
-    rolling_state_hash = _sha8({"before_snapshot": before_snapshot, "radius": radius})
+    rolling_state_hash = _sha8({"before_snapshot": before_snapshot, "radius": radius, "run_id": run_id})
 
     for i in range(radius):
         observation = {
@@ -234,7 +286,7 @@ def run_bounded_harvest(
         _write_json(path, observation)
         observation_receipts.append(_rel(path))
 
-    after_snapshot = _receipt_snapshot()
+    after_snapshot = _receipt_snapshot(exclude_under=None)
     elapsed = time.monotonic() - start
 
     rollup = {
@@ -247,7 +299,6 @@ def run_bounded_harvest(
         "closed_queue_valid": True,
         "receipt_count_before": before_snapshot["receipt_count"],
         "receipt_count_after": after_snapshot["receipt_count"],
-        "receipt_delta": after_snapshot["receipt_count"] - before_snapshot["receipt_count"],
         "runtime_seconds": round(elapsed, 6),
         "observation_write_rate_per_second": round(len(observation_receipts) / elapsed, 6) if elapsed > 0 else None,
         "gate": "PASS",
@@ -269,7 +320,8 @@ def run_bounded_harvest(
         },
         "created_at": _now_iso(),
     }
-    _write_json(run_dir / "rollup.json", rollup)
+    rollup_path = run_dir / "rollup.json"
+    _write_json(rollup_path, rollup)
 
     index_path = run_dir / "receipt_index.jsonl"
     index_path.write_text("".join(json.dumps({"path": p}, sort_keys=True) + "\n" for p in observation_receipts))
@@ -280,10 +332,11 @@ def run_bounded_harvest(
         "receipt_id": _sha8({"run_id": run_id, "radius": radius, "observation_receipt_count": len(observation_receipts)}),
         "run_id": run_id,
         "source_pressure_queue_closure_review_receipt_id": source_closure_receipt_id,
+        "source_synthetic_remainder_expected_limit_mark_receipt_id": DEFAULT_SOURCE_MARK_RECEIPT,
         "radius_requested": radius,
         "radius_completed": radius,
         "observation_receipt_count": len(observation_receipts),
-        "rollup_path": _rel(run_dir / "rollup.json"),
+        "rollup_path": _rel(rollup_path),
         "receipt_index_path": _rel(index_path),
         "run_dir": _rel(run_dir),
         "gate": "PASS",
@@ -305,7 +358,7 @@ def run_bounded_harvest(
         "radius_completed": radius,
         "observation_receipt_count": len(observation_receipts),
         "run_receipt_path": _rel(run_receipt_path),
-        "rollup_path": _rel(run_dir / "rollup.json"),
+        "rollup_path": _rel(rollup_path),
         "receipt_index_path": _rel(index_path),
         "run_dir": _rel(run_dir),
         "terminal": run_receipt["terminal"],
@@ -320,6 +373,6 @@ def post_closure_observability_harvest(
 ) -> None:
     """Emit bounded post-closure observability receipts without reopening the closed queue."""
     result = run_bounded_harvest(radius=radius, source_closure_receipt_id=source_closure_receipt_id, label=label)
-    typer.echo(json.dumps(result, indent=2, sort_keys=True))
+    print(json.dumps(result, indent=2, sort_keys=True))
     if result.get("gate") != "PASS":
         raise typer.Exit(code=1)

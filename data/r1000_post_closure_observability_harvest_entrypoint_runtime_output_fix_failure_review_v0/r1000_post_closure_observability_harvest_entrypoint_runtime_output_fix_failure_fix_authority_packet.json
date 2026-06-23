@@ -1,0 +1,18 @@
+{
+  "authorized_next_unit": "FIX_R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_ENTRYPOINT_MODULE_RUNTIME_PRECONDITION_V0",
+  "failure_classification": "MODULE_RUNTIME_EXCEPTION_BEFORE_JSON_RESULT",
+  "fix_authorized_in_this_unit": false,
+  "packet_status": "FIX_ENTRYPOINT_MODULE_RUNTIME_PRECONDITION_AUTHORITY_PACKET",
+  "radius_10000_retry_authorized_now": false,
+  "recommended_next_handling": "FIX_R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_ENTRYPOINT_MODULE_RUNTIME_PRECONDITION_V0",
+  "required_fix_shape": [
+    "inspect actual module probe stdout/stderr",
+    "remove exception path or precondition failure causing no JSON result",
+    "ensure run_bounded_harvest returns exactly one JSON-serializable result",
+    "require module probe pass before CLI probe",
+    "require CLI radius-10 probe writes exactly 10 observation receipts",
+    "emit radius-10000 retry-ready packet only after probe pass"
+  ],
+  "schema_version": "r1000_post_closure_observability_harvest_entrypoint_runtime_output_fix_failure_fix_authority_packet_v0",
+  "source_failed_runtime_output_fix_receipt_id": "f03f9616"
+}
