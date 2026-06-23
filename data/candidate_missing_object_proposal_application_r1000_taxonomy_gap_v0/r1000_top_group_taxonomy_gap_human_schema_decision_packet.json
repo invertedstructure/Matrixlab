@@ -1,0 +1,56 @@
+{
+  "allowed_decisions": [
+    {
+      "decision_status": "ACCEPT_CANDIDATE_OBJECT",
+      "effect": "authorize a separate application unit to materialize typed unresolved descriptor fields"
+    },
+    {
+      "decision_status": "REJECT_CANDIDATE_OBJECT",
+      "effect": "record typed rejection codes and refine proposal schema"
+    },
+    {
+      "decision_status": "SPLIT_CANDIDATE_OBJECT",
+      "effect": "split proposal into narrower candidate objects"
+    },
+    {
+      "decision_status": "WEAKEN_CANDIDATE_OBJECT",
+      "effect": "reduce required object fields or scope"
+    },
+    {
+      "decision_status": "REQUEST_MORE_EVIDENCE",
+      "effect": "stop for additional evidence surface"
+    },
+    {
+      "decision_status": "MARK_EXPECTED_UNAVAILABLE_AT_THIS_LAYER",
+      "effect": "close proposal path as expected unavailable at this layer"
+    }
+  ],
+  "application_authorized": false,
+  "candidate_object_id": "ce1fe7fc",
+  "candidate_object_ref": "data/candidate_missing_object_proposal_application_r1000_taxonomy_gap_v0/r1000_top_group_taxonomy_gap_candidate_missing_object_proposal.json",
+  "decision_packet_id": "5edc66f0",
+  "decision_required": true,
+  "review_must_not": [
+    "apply candidate in this unit",
+    "fill unknown fields without source",
+    "authorize taxonomy label creation implicitly",
+    "mutate existing source/receipt artifacts"
+  ],
+  "schema_version": "candidate_missing_object_human_schema_decision_packet_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_HUMAN_SCHEMA_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "typed_rejection_codes_available": [
+    "WRONG_TARGET_FIELD",
+    "WRONG_MISSING_OBJECT_TYPE",
+    "WRONG_EVIDENCE_BASIS",
+    "WRONG_SOURCE_LAYER",
+    "WRONG_APPLICATION_SCOPE",
+    "WRONG_PROPOSED_SCHEMA_FIELD",
+    "WRONG_EXPECTED_LIMIT_CLASSIFICATION",
+    "INSUFFICIENT_HUMAN_DECISION_OPTIONS",
+    "FORBIDDEN_ASSUMPTION_PRESENT"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "candidate_object_id": "ce1fe7fc",
+  "schema_version": "candidate_missing_object_proposal_application_transition_trace_v0",
+  "source_expected_limit_receipt_id": "cbde4b69",
+  "source_proposal_layer_receipt_id": "6003c89c",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_HUMAN_SCHEMA_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "proposal_layer_available",
+      "step": "consume_proposal_layer",
+      "taken": "inspect_expected_limit_target"
+    },
+    {
+      "answer": true,
+      "question": "expected_limit_target_matches_r1000_taxonomy_gap",
+      "step": "inspect_expected_limit_target",
+      "taken": "emit_candidate_missing_object_proposal"
+    },
+    {
+      "answer": true,
+      "question": "unknown_required_fields_are_typed_decision_fields",
+      "step": "emit_candidate_missing_object_proposal",
+      "taken": "emit_human_schema_decision_packet"
+    },
+    {
+      "answer": false,
+      "question": "application_authorized_now",
+      "step": "emit_human_schema_decision_packet",
+      "taken": "STOP_HUMAN_SCHEMA_DECISION_REQUIRED"
+    }
+  ]
+}

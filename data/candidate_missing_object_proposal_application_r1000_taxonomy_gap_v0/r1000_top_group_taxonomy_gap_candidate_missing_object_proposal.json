@@ -1,0 +1,182 @@
+{
+  "application_authorized": false,
+  "candidate_object_id": "ce1fe7fc",
+  "candidate_payload": {
+    "proposed_object_family": "taxonomy_gap_evidence_surface_descriptor",
+    "proposed_scope": "r1000_top_group_38c604a1",
+    "required_human_decision": "accept, reject, split, weaken, request more evidence, or mark descriptor unavailable at this layer"
+  },
+  "expected_application_effect": "if accepted in a later unit, materialize a typed unresolved descriptor object while preserving target descriptor fields as decision fields rather than null or invented values",
+  "forbidden_assumptions": [
+    "do_not_fill_missing_label_identifier",
+    "do_not_fill_taxonomy_context_ref",
+    "do_not_fill_current_label_space_ref",
+    "do_not_fill_expected_label_space_ref",
+    "do_not_create_taxonomy_label",
+    "do_not_claim_upstream_universal_nonexistence",
+    "do_not_mutate_sources_or_receipts",
+    "do_not_apply_without_acceptance"
+  ],
+  "known_fields": {
+    "halt_reason": "STOP_TAXONOMY_GAP",
+    "pressure_class": "TAXONOMY_PRESSURE",
+    "pressure_group_key_hash": "38c604a1",
+    "pressure_subtype": "missing_label",
+    "source_expected_limit_receipt_id": "cbde4b69",
+    "source_proposal_layer_receipt_id": "6003c89c"
+  },
+  "missing_object_type": "taxonomy_gap_evidence_surface_descriptor",
+  "object_status": "CANDIDATE_MISSING_OBJECT_PROPOSAL",
+  "proposal_basis": "field extraction found taxonomy-gap pressure, but the field-introduced evidence surface lacks the descriptor values needed to distinguish missing label identity and label-space context",
+  "required_human_schema_decision": [
+    "ACCEPT_CANDIDATE_OBJECT",
+    "REJECT_CANDIDATE_OBJECT",
+    "SPLIT_CANDIDATE_OBJECT",
+    "WEAKEN_CANDIDATE_OBJECT",
+    "REQUEST_MORE_EVIDENCE",
+    "MARK_EXPECTED_UNAVAILABLE_AT_THIS_LAYER"
+  ],
+  "required_object_fields": [
+    "missing_label_identifier",
+    "taxonomy_context_ref",
+    "current_label_space_ref",
+    "expected_label_space_ref"
+  ],
+  "rerun_review_rule": "after accepted application, rerun or review the affected evidence surface and classify whether the taxonomy-gap pressure became more distinguishable",
+  "schema_version": "candidate_missing_object_proposal_instance_v0",
+  "source_evidence_refs": [
+    {
+      "artifact": "data/field_introduced_surface_expected_source_content_limit_v0/expected_source_content_limit_closure_record.json",
+      "receipt_id": "cbde4b69",
+      "role": "expected-limit closure source"
+    },
+    {
+      "artifact": "data/field_introduced_surface_expected_source_content_limit_v0/expected_source_content_limit_marker.json",
+      "receipt_id": "cbde4b69",
+      "role": "expected-limit marker source"
+    },
+    {
+      "artifact": "data/field_introduced_surface_null_evidence_limit_classification_v0_receipts/11d585b6.json",
+      "receipt_id": "11d585b6",
+      "role": "field-introduced null evidence limit classifier"
+    },
+    {
+      "artifact": "data/field_introduction_proposal_typing_refinement_v0_receipts/5b841942.json",
+      "receipt_id": "5b841942",
+      "role": "field-introduction proposal typing source"
+    },
+    {
+      "artifact": "data/candidate_missing_object_proposal_layer_for_expected_limits_v0/candidate_missing_object_proposal_layer_contract.json",
+      "receipt_id": "6003c89c",
+      "role": "candidate proposal layer contract"
+    }
+  ],
+  "source_pressure_group": {
+    "halt_reason": "STOP_TAXONOMY_GAP",
+    "parent_pressure_class": "TAXONOMY_PRESSURE",
+    "pressure_group_key_hash": "38c604a1",
+    "pressure_subtype": "missing_label"
+  },
+  "target_field_or_surface": "field_introduced_taxonomy_gap_evidence_surface",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_HUMAN_SCHEMA_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "unknown_required_decision_fields": [
+    {
+      "allowed_resolution": [
+        "provide_existing_source_reference",
+        "define_schema_field_source",
+        "mark_field_not_available_at_this_layer",
+        "split_candidate_object",
+        "weaken_candidate_object",
+        "reject_candidate_object"
+      ],
+      "decision_owner": "human_schema_layer",
+      "field": "missing_label_identifier",
+      "forbidden_resolution": [
+        "set_null_as_value",
+        "invent_value_without_source",
+        "apply_candidate_without_acceptance",
+        "create_taxonomy_label_without_authorization",
+        "mutate_source_surface",
+        "mutate_existing_receipt"
+      ],
+      "missing_object_type": "taxonomy_gap_evidence_surface_descriptor_field",
+      "target_field": "missing_label_identifier",
+      "value_state": "REQUIRES_SCHEMA_DECISION"
+    },
+    {
+      "allowed_resolution": [
+        "provide_existing_source_reference",
+        "define_schema_field_source",
+        "mark_field_not_available_at_this_layer",
+        "split_candidate_object",
+        "weaken_candidate_object",
+        "reject_candidate_object"
+      ],
+      "decision_owner": "human_schema_layer",
+      "field": "taxonomy_context_ref",
+      "forbidden_resolution": [
+        "set_null_as_value",
+        "invent_value_without_source",
+        "apply_candidate_without_acceptance",
+        "create_taxonomy_label_without_authorization",
+        "mutate_source_surface",
+        "mutate_existing_receipt"
+      ],
+      "missing_object_type": "taxonomy_gap_evidence_surface_descriptor_field",
+      "target_field": "taxonomy_context_ref",
+      "value_state": "REQUIRES_SCHEMA_DECISION"
+    },
+    {
+      "allowed_resolution": [
+        "provide_existing_source_reference",
+        "define_schema_field_source",
+        "mark_field_not_available_at_this_layer",
+        "split_candidate_object",
+        "weaken_candidate_object",
+        "reject_candidate_object"
+      ],
+      "decision_owner": "human_schema_layer",
+      "field": "current_label_space_ref",
+      "forbidden_resolution": [
+        "set_null_as_value",
+        "invent_value_without_source",
+        "apply_candidate_without_acceptance",
+        "create_taxonomy_label_without_authorization",
+        "mutate_source_surface",
+        "mutate_existing_receipt"
+      ],
+      "missing_object_type": "taxonomy_gap_evidence_surface_descriptor_field",
+      "target_field": "current_label_space_ref",
+      "value_state": "REQUIRES_SCHEMA_DECISION"
+    },
+    {
+      "allowed_resolution": [
+        "provide_existing_source_reference",
+        "define_schema_field_source",
+        "mark_field_not_available_at_this_layer",
+        "split_candidate_object",
+        "weaken_candidate_object",
+        "reject_candidate_object"
+      ],
+      "decision_owner": "human_schema_layer",
+      "field": "expected_label_space_ref",
+      "forbidden_resolution": [
+        "set_null_as_value",
+        "invent_value_without_source",
+        "apply_candidate_without_acceptance",
+        "create_taxonomy_label_without_authorization",
+        "mutate_source_surface",
+        "mutate_existing_receipt"
+      ],
+      "missing_object_type": "taxonomy_gap_evidence_surface_descriptor_field",
+      "target_field": "expected_label_space_ref",
+      "value_state": "REQUIRES_SCHEMA_DECISION"
+    }
+  ],
+  "what_object_is_missing": "a typed descriptor that identifies the missing label, taxonomy context, current label space, and expected label space for the R1000 top-group taxonomy-gap evidence surface",
+  "why_current_layer_stopped": "current source surface lacks required taxonomy-gap descriptor fields and upstream explicit tracked source chain did not supply non-null values"
+}
