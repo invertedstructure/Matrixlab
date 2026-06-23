@@ -1,0 +1,35 @@
+{
+  "schema_version": "r1000_queue_reconciliation_after_selected_burden_pressure_inspection_transition_trace_v0",
+  "selected_pressure_group_id": "b9a7575a",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_QUEUE_RECONCILED_AFTER_SELECTED_BURDEN_PRESSURE_GROUP_INSPECTION_NEXT_CANDIDATE_ONLY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "selected burden pressure inspection completed",
+      "step": "consume_selected_burden_inspection",
+      "taken": "mark_selected_group_metadata_reviewed"
+    },
+    {
+      "answer": false,
+      "question": "selected group requires policy rewrite here",
+      "step": "mark_selected_group_metadata_reviewed",
+      "taken": "update_queue_counts"
+    },
+    {
+      "answer": false,
+      "question": "open next group in this unit",
+      "step": "update_queue_counts",
+      "taken": "emit_next_candidate_only"
+    },
+    {
+      "answer": false,
+      "question": "hidden next command allowed",
+      "step": "emit_next_candidate_only",
+      "taken": "STOP_QUEUE_RECONCILED_AFTER_SELECTED_BURDEN_PRESSURE_GROUP_INSPECTION_NEXT_CANDIDATE_ONLY"
+    }
+  ]
+}
