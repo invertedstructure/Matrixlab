@@ -11989,6 +11989,56 @@ def post_closure_observability_harvest_command(
     if result.get("gate") != "PASS":
         raise typer.Exit(code=1)
 
+# R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_CLI_WRAPPER_RUNTIME_OUTPUT_FIX_V0_START
+def _r1000_post_closure_observability_harvest_cli_wrapper_runtime_output_fix_v0() -> None:
+    import argparse
+    import json as _json
+    import sys as _sys
+    from pathlib import Path as _Path
+
+    argv = list(_sys.argv)
+    if len(argv) < 2 or argv[1] != "post-closure-observability-harvest":
+        return
+
+    root = _Path(__file__).resolve().parents[2]
+    src_root = root / "src"
+    if str(src_root) not in _sys.path:
+        _sys.path.insert(0, str(src_root))
+
+    parser = argparse.ArgumentParser(prog=f"{argv[0]} post-closure-observability-harvest")
+    parser.add_argument("--radius", "-r", type=int, required=True)
+    parser.add_argument("--source-closure-receipt-id", default="52d0ea8d")
+    parser.add_argument("--label", default=None)
+
+    try:
+        ns = parser.parse_args(argv[2:])
+        from matrixlab.r1000_post_closure_observability_harvest import run_bounded_harvest
+        result = run_bounded_harvest(
+            radius=ns.radius,
+            source_closure_receipt_id=ns.source_closure_receipt_id,
+            label=ns.label,
+        )
+    except SystemExit:
+        raise
+    except Exception as exc:
+        result = {
+            "gate": "FAIL",
+            "failures": [f"cli_wrapper_runtime_exception:{type(exc).__name__}:{exc}"],
+            "observation_receipt_count": 0,
+            "radius_requested": None,
+            "terminal": {
+                "type": "STOP",
+                "stop_code": "STOP_CLI_WRAPPER_RUNTIME_EXCEPTION_CAPTURED",
+                "next_command_goal": None,
+            },
+        }
+
+    print(_json.dumps(result, indent=2, sort_keys=True))
+    raise SystemExit(0 if result.get("gate") == "PASS" else 1)
+
+
+_r1000_post_closure_observability_harvest_cli_wrapper_runtime_output_fix_v0()
+# R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_CLI_WRAPPER_RUNTIME_OUTPUT_FIX_V0_END
 
 if __name__ == "__main__":
     app()

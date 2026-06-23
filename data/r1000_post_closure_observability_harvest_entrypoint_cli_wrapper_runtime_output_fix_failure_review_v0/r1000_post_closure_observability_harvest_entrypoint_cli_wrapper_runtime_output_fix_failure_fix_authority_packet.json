@@ -1,0 +1,20 @@
+{
+  "authorized_next_unit": "FIX_R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_ENTRYPOINT_CLI_WRAPPER_INTERCEPT_PARSE_V0",
+  "failure_classification": "MODULE_PRESERVED_CLI_INTERCEPT_NOT_TRIGGERING_OR_STDOUT_STILL_NOISY",
+  "fix_authorized_in_this_unit": false,
+  "packet_status": "FIX_ENTRYPOINT_CLI_WRAPPER_INTERCEPT_PLACEMENT_OR_PARSE_AUTHORITY_PACKET",
+  "radius_10000_retry_authorized_now": false,
+  "recommended_next_handling": "FIX_R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_ENTRYPOINT_CLI_WRAPPER_INTERCEPT_PARSE_V0",
+  "required_fix_shape": [
+    "preserve passing module path unchanged",
+    "inspect actual CLI probe stdout/stderr and CLI intercept surface",
+    "fix only src/matrixlab/cli.py",
+    "ensure the post-closure-observability-harvest command path is intercepted before Typer/rich/noisy output",
+    "make --help still work for the command",
+    "make normal command invocation emit exactly one JSON object on stdout",
+    "require radius-10 CLI probe writes exactly 10 observation receipts",
+    "emit radius-10000 retry-ready packet only after CLI probe pass"
+  ],
+  "schema_version": "r1000_post_closure_observability_harvest_entrypoint_cli_wrapper_runtime_output_fix_failure_fix_authority_packet_v0",
+  "source_failed_cli_wrapper_fix_receipt_id": "c7204f69"
+}

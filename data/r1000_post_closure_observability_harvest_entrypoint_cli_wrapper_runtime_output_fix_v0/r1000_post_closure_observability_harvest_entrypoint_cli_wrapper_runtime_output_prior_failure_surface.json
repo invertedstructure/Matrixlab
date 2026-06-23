@@ -1,0 +1,409 @@
+{
+  "cli_probe_failure_surface": {
+    "likely_failure_markers": [
+      "Traceback",
+      "ModuleNotFoundError",
+      "Error:",
+      "\u256d"
+    ],
+    "parsed_result": null,
+    "probe_command": [
+      "uv",
+      "run",
+      "python",
+      "src/matrixlab/cli.py",
+      "post-closure-observability-harvest",
+      "--radius",
+      "10",
+      "--source-closure-receipt-id",
+      "52d0ea8d",
+      "--label",
+      "module-runtime-precondition-fix-cli-probe"
+    ],
+    "probe_observation_receipt_count": null,
+    "probe_passed": false,
+    "probe_rollup_path": null,
+    "probe_run_dir": null,
+    "probe_run_receipt_path": null,
+    "returncode": 1,
+    "schema_version": "r1000_post_closure_observability_harvest_entrypoint_module_runtime_precondition_fix_failure_cli_probe_surface_v0",
+    "source_cli_probe_result_ref": "data/r1000_post_closure_observability_harvest_entrypoint_module_runtime_precondition_fix_v0/r1000_post_closure_observability_harvest_entrypoint_module_runtime_precondition_cli_probe_result.json",
+    "stderr_tail": "\u256d\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 Traceback (most recent call last) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 /home/asd/projects/matrixlab/src/matrixlab/cli.py:11982 in                   \u2502\n\u2502 post_closure_observability_harvest_command                                   \u2502\n\u2502                                                                              \u2502\n\u2502   11979 \u2502   label: str | None = typer.Option(None, \"--label\", help=\"Optional \u2502\n\u2502         run label.\"),                                                        \u2502\n\u2502   11980 ) -> None:                                                           \u2502\n\u2502   11981 \u2502   \"\"\"Emit bounded post-closure observability receipts without      \u2502\n\u2502         reopening the closed queue.\"\"\"                                       \u2502\n\u2502 \u2771 11982 \u2502   from matrixlab.r1000_post_closure_observability_harvest import   \u2502\n\u2502         run_bounded_harvest                                                  \u2502\n\u2502   11983 \u2502   result = run_bounded_harvest(                                    \u2502\n\u2502   11984 \u2502   \u2502   radius=radius,                                               \u2502\n\u2502   11985 \u2502   \u2502   source_closure_receipt_id=source_closure_receipt_id,         \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f\nModuleNotFoundError: No module named 'matrixlab'\n",
+    "stdout_json_parseable": false,
+    "stdout_parse_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+    "stdout_tail": ""
+  },
+  "cli_wrapper_review_summary": {
+    "cli_probe_stdout_not_json": true,
+    "cli_receipt_write_not_proven": true,
+    "cli_wrapper_failed": true,
+    "failure_classification": "MODULE_FIXED_CLI_WRAPPER_INVOCATION_EXCEPTION_OR_TYPER_ROUTING_FAILURE",
+    "help_routing_fixed": true,
+    "module_path_fixed": true,
+    "module_probe_observation_receipt_count": 10,
+    "radius_10000_retry_authorized": false,
+    "radius_10000_retry_executed": false,
+    "radius_10000_retry_ready": false,
+    "recommended_next_handling": "FIX_R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_ENTRYPOINT_CLI_WRAPPER_RUNTIME_OUTPUT_V0",
+    "repair_executed": false,
+    "review_result": "ACCEPT_MODULE_PRECONDITION_FIX_FAILURE_AS_CLI_WRAPPER_REPAIR_REQUIRED"
+  },
+  "cli_wrapper_surface": {
+    "cli_path": "src/matrixlab/cli.py",
+    "cli_sha256": "9238721bdfaed615a51f9da7200cddb9ae503277dd8f7be60295962348674257",
+    "direct_command_count": 1,
+    "entrypoint_module_path": "src/matrixlab/r1000_post_closure_observability_harvest.py",
+    "entrypoint_module_sha256": "c131c9dc7bae5cb99ab47dbf8531f863c306714c8c65250578a3a392b9a0df14",
+    "imports_run_bounded_harvest": true,
+    "interesting_lines": [
+      {
+        "line": 1109,
+        "text": "    print(json.dumps(summary, indent=2))"
+      },
+      {
+        "line": 2421,
+        "text": "    print(json.dumps(eval_report, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 2512,
+        "text": "        print(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 2597,
+        "text": "    print(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 2730,
+        "text": "    print(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 2898,
+        "text": "    print(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 3067,
+        "text": "    print(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 3237,
+        "text": "    print(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 3357,
+        "text": "    print(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 3628,
+        "text": "    print(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 3795,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 3796,
+        "text": "    typer.echo(f\"cycle_ledger_path: {out_path}\")"
+      },
+      {
+        "line": 3979,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 3980,
+        "text": "    typer.echo(f\"cycle_next_path: {out_path}\")"
+      },
+      {
+        "line": 4143,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 4144,
+        "text": "    typer.echo(f\"cycle_observation_path: {out_path}\")"
+      },
+      {
+        "line": 4396,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 4397,
+        "text": "    typer.echo(f\"cycle_ledger_path: {out_path}\")"
+      },
+      {
+        "line": 4884,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 4885,
+        "text": "    typer.echo(f\"agent_cheat_check_path: {out_path}\")"
+      },
+      {
+        "line": 5396,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 5397,
+        "text": "    typer.echo(f\"agent_cheat_adversarial_path: {out_path}\")"
+      },
+      {
+        "line": 5723,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 5724,
+        "text": "    typer.echo(f\"cell_transfer_contract_path: {out_path}\")"
+      },
+      {
+        "line": 5963,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 5964,
+        "text": "    typer.echo(f\"domain_shift_generator_path: {out_path}\")"
+      },
+      {
+        "line": 6241,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 6242,
+        "text": "    typer.echo(f\"domain_shift_runner_support_path: {out_path}\")"
+      },
+      {
+        "line": 6542,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 6543,
+        "text": "    typer.echo(f\"domain_shift_slot_runner_support_path: {out_path}\")"
+      },
+      {
+        "line": 10459,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 10460,
+        "text": "    typer.echo(f\"radius_expansion_candidate_decision_path: {out_path}\")"
+      },
+      {
+        "line": 10539,
+        "text": "    typer.echo(json.dumps(receipt, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 10540,
+        "text": "    typer.echo(f\"radius_expansion_candidate_decision_verification_path: {out_path}\")"
+      },
+      {
+        "line": 10583,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 10584,
+        "text": "    typer.echo(f\"radius_expansion_burden_policy_path: {out_path}\")"
+      },
+      {
+        "line": 10662,
+        "text": "    typer.echo(json.dumps(receipt, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 10663,
+        "text": "    typer.echo(f\"radius_expansion_burden_policy_verification_path: {out_path}\")"
+      },
+      {
+        "line": 10707,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 10708,
+        "text": "    typer.echo(f\"r100_scale_decision_path: {out_path}\")"
+      },
+      {
+        "line": 10785,
+        "text": "    typer.echo(json.dumps(receipt, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 10786,
+        "text": "    typer.echo(f\"r100_scale_decision_verification_path: {out_path}\")"
+      },
+      {
+        "line": 10829,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 10830,
+        "text": "    typer.echo(f\"verified_r100_burden_rollup_path: {out_path}\")"
+      },
+      {
+        "line": 10909,
+        "text": "    typer.echo(json.dumps(receipt, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 10910,
+        "text": "    typer.echo(f\"verified_r100_burden_rollup_verification_path: {out_path}\")"
+      },
+      {
+        "line": 10954,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 10955,
+        "text": "    typer.echo(f\"receipt_rollup_contract_path: {out_path}\")"
+      },
+      {
+        "line": 11030,
+        "text": "    typer.echo(json.dumps(receipt, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 11031,
+        "text": "    typer.echo(f\"receipt_rollup_contract_verification_path: {out_path}\")"
+      },
+      {
+        "line": 11091,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 11092,
+        "text": "    typer.echo(f\"r100_radius_scale_observation_path: {out_path}\")"
+      },
+      {
+        "line": 11172,
+        "text": "    typer.echo(json.dumps(receipt, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 11173,
+        "text": "    typer.echo(f\"r100_radius_scale_observation_verification_path: {out_path}\")"
+      },
+      {
+        "line": 11223,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 11224,
+        "text": "    typer.echo(f\"r75_scale_decision_path: {out_path}\")"
+      },
+      {
+        "line": 11298,
+        "text": "    typer.echo(json.dumps(receipt, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 11299,
+        "text": "    typer.echo(f\"r75_scale_decision_verification_path: {out_path}\")"
+      },
+      {
+        "line": 11349,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 11350,
+        "text": "    typer.echo(f\"radius_scale_observation_path: {out_path}\")"
+      },
+      {
+        "line": 11435,
+        "text": "    typer.echo(json.dumps(receipt, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 11436,
+        "text": "    typer.echo(f\"radius_scale_observation_verification_path: {out_path}\")"
+      },
+      {
+        "line": 11512,
+        "text": "    typer.echo(json.dumps(contract, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 11513,
+        "text": "    typer.echo(f\"contract_path: {out_path}\")"
+      },
+      {
+        "line": 11597,
+        "text": "    typer.echo(json.dumps(receipt, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 11598,
+        "text": "    typer.echo(f\"verification_path: {out_path}\")"
+      },
+      {
+        "line": 11971,
+        "text": "    typer.echo(json.dumps(payload, indent=2, sort_keys=True))"
+      },
+      {
+        "line": 11972,
+        "text": "    typer.echo(f\"domain_shift_slot_observation_path: {out_path}\")"
+      },
+      {
+        "line": 11975,
+        "text": "@app.command(\"post-closure-observability-harvest\")"
+      },
+      {
+        "line": 11982,
+        "text": "    from matrixlab.r1000_post_closure_observability_harvest import run_bounded_harvest"
+      },
+      {
+        "line": 11983,
+        "text": "    result = run_bounded_harvest("
+      },
+      {
+        "line": 11988,
+        "text": "    print(json.dumps(result, indent=2, sort_keys=True))"
+      }
+    ],
+    "schema_version": "r1000_post_closure_observability_harvest_entrypoint_module_runtime_precondition_fix_failure_cli_wrapper_surface_v0",
+    "tail": "        terminal_type = \"ADVANCE\"\n    else:\n        outcome = \"MEASUREMENT_TRANSFER_DIFFERENT_CURVE\"\n        next_goal = (\n            \"DECIDE_SCALE_RADIUS_OR_FREEZE_RADIUS_50_CELL1_OBSERVATION\"\n            if execution.get(\"radius\") == 50\n            else \"BUILD_RADIUS_SCALE_OBSERVATION_V0\"\n        )\n        stop_code = None\n        terminal_type = \"ADVANCE\"\n\n    observation = {\n        \"slot_execution\": {\n            \"input\": slot_execution,\n            \"path\": str(slot_execution_path) if slot_execution_path else None,\n            \"id\": execution_id,\n            \"recomputed_id\": execution_sig,\n            \"gate\": execution.get(\"gate\"),\n        },\n        \"slot_support\": {\n            \"id\": source_support_id,\n            \"path\": str(support_path) if support_path else None,\n            \"stored_sig\": support.get(\"domain_shift_slot_runner_support_payload_sig8\"),\n            \"recomputed_sig\": support_sig,\n            \"gate\": support.get(\"gate\"),\n        },\n        \"domain_shift_generator\": {\n            \"id\": generator_id,\n            \"path\": str(generator_path) if generator_path else None,\n            \"stored_sig\": generator.get(\"domain_shift_generator_payload_sig8\"),\n            \"recomputed_sig\": generator_sig,\n            \"gate\": generator.get(\"gate\"),\n        },\n        \"transfer_contract\": {\n            \"id\": transfer_contract_id,\n            \"path\": str(transfer_path) if transfer_path else None,\n            \"stored_sig\": transfer.get(\"cell_transfer_contract_payload_sig8\"),\n            \"recomputed_sig\": transfer_sig,\n            \"gate\": transfer.get(\"gate\"),\n        },\n        \"radius\": execution.get(\"radius\"),\n        \"max_cells\": execution.get(\"max_cells\"),\n        \"slot_count_expected\": execution.get(\"slot_count_expected\"),\n        \"slot_count_observed\": execution.get(\"slot_count_observed\"),\n        \"slot_labels\": observed_labels,\n        \"run_ids\": run_ids,\n        \"eval_ids\": eval_ids,\n        \"aggregate_by_family\": aggregate_by_family,\n        \"repeated_family_consistency\": repeated_family_consistency,\n        \"aggregate_coarse_profiles_total\": aggregate_coarse_total,\n        \"source_coarse_profiles_total\": source_coarse_total,\n        \"aggregate_raw_total_by_slot_sum\": aggregate_raw_total_by_slot_sum,\n        \"aggregate_coarse_profiles\": aggregate_coarse_profiles,\n        \"aggregate_by_move\": aggregate_by_move,\n        \"semantic_pressure\": semantic_pressure,\n        \"semantic_pressure_detected\": semantic_pressure_detected,\n        \"measurement_cleanliness\": {\n            \"eval_gate_fail_slots\": eval_gate_fail_slots,\n            \"dirty_slots\": dirty_slots,\n            \"boundary_slots\": boundary_slots,\n            \"receipt_mismatch_slots\": receipt_mismatch_slots,\n            \"repeated_family_inconsistencies\": repeated_family_inconsistencies,\n        },\n        \"outcome\": outcome,\n        \"confidence_scope\": f\"RADIUS_{execution.get('radius')}_SLOT_SEPARATED_PROBE_ONLY\",\n    }\n\n    payload = {\n        \"input_slot_execution\": slot_execution,\n        \"slot_execution_id\": execution_id,\n        \"source_support_id\": source_support_id,\n        \"domain_shift_generator_id\": generator_id,\n        \"transfer_contract_id\": transfer_contract_id,\n        \"source_cell\": support.get(\"source_cell\"),\n        \"target_cell\": support.get(\"target_cell\"),\n        \"shift_kind\": support.get(\"shift_kind\"),\n        \"observation\": observation,\n        \"failures\": failures,\n        \"warnings\": warnings,\n        \"gate\": \"FAIL\" if failures else \"PASS\",\n        \"terminal\": {\n            \"type\": terminal_type,\n            \"next_command_goal\": next_goal,\n            \"stop_code\": stop_code,\n        },\n    }\n\n    out_path, payload = write_content_addressed_receipt(\n        payload,\n        \"data/domain_shift_slot_observations\",\n        \"domain_shift_slot_observation_schema_version\",\n        DOMAIN_SHIFT_SLOT_OBSERVATION_SCHEMA,\n        \"domain_shift_slot_observation_id\",\n        \"domain_shift_slot_observation_payload_sig8\",\n    )\n\n    typer.echo(json.dumps(payload, indent=2, sort_keys=True))\n    typer.echo(f\"domain_shift_slot_observation_path: {out_path}\")\n\n# R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_ENTRYPOINT_V0_FIXED\n@app.command(\"post-closure-observability-harvest\")\ndef post_closure_observability_harvest_command(\n    radius: int = typer.Option(..., \"--radius\", \"-r\", min=1, help=\"Bounded number of observation receipts to emit.\"),\n    source_closure_receipt_id: str = typer.Option(\"52d0ea8d\", \"--source-closure-receipt-id\", help=\"Accepted closure review receipt id.\"),\n    label: str | None = typer.Option(None, \"--label\", help=\"Optional run label.\"),\n) -> None:\n    \"\"\"Emit bounded post-closure observability receipts without reopening the closed queue.\"\"\"\n    from matrixlab.r1000_post_closure_observability_harvest import run_bounded_harvest\n    result = run_bounded_harvest(\n        radius=radius,\n        source_closure_receipt_id=source_closure_receipt_id,\n        label=label,\n    )\n    print(json.dumps(result, indent=2, sort_keys=True))\n    if result.get(\"gate\") != \"PASS\":\n        raise typer.Exit(code=1)\n\n\nif __name__ == \"__main__\":\n    app()",
+    "uses_print_json": true,
+    "uses_typer_echo_json": false
+  },
+  "module_success_surface": {
+    "module_import_surface": {
+      "import_probe_passed": true,
+      "probes": [
+        {
+          "command": [
+            "uv",
+            "run",
+            "python",
+            "src/matrixlab/r1000_post_closure_observability_harvest.py",
+            "--radius",
+            "1",
+            "--source-closure-receipt-id",
+            "52d0ea8d",
+            "--label",
+            "import-surface-file-exec"
+          ],
+          "elapsed_seconds": 166.390506,
+          "returncode": 0,
+          "stderr_tail": "",
+          "stdout_tail": "{\n  \"gate\": \"PASS\",\n  \"observation_receipt_count\": 1,\n  \"radius_completed\": 1,\n  \"radius_requested\": 1,\n  \"receipt_index_path\": \"data/r1000_post_closure_observability_harvest_runs_v0/run_1c6328fb/receipt_index.jsonl\",\n  \"rollup_path\": \"data/r1000_post_closure_observability_harvest_runs_v0/run_1c6328fb/rollup.json\",\n  \"run_dir\": \"data/r1000_post_closure_observability_harvest_runs_v0/run_1c6328fb\",\n  \"run_id\": \"run_1c6328fb\",\n  \"run_receipt_path\": \"data/r1000_post_closure_observability_harvest_runs_v0/run_1c6328fb/run_receipt.json\",\n  \"terminal\": {\n    \"next_command_goal\": null,\n    \"stop_code\": \"STOP_POST_CLOSURE_OBSERVABILITY_HARVEST_COMPLETE\",\n    \"type\": \"STOP\"\n  }\n}\n"
+        },
+        {
+          "command": [
+            "uv",
+            "run",
+            "python",
+            "-c",
+            "import sys; sys.path.insert(0, 'src'); import matrixlab.r1000_post_closure_observability_harvest as m; print(hasattr(m, 'run_bounded_harvest'))"
+          ],
+          "elapsed_seconds": 0.120953,
+          "returncode": 0,
+          "stderr_tail": "",
+          "stdout_tail": "True\n"
+        }
+      ],
+      "schema_version": "r1000_post_closure_observability_harvest_entrypoint_module_runtime_precondition_import_surface_v0"
+    },
+    "module_probe_file_checks": {
+      "files_valid": true,
+      "observation_receipt_files_count": 10,
+      "rollup_exists": true,
+      "run_dir_exists": true,
+      "run_receipt_exists": true
+    },
+    "module_probe_observation_receipt_count": 10,
+    "module_probe_passed": true,
+    "module_probe_returncode": 0,
+    "module_probe_run_dir": "data/r1000_post_closure_observability_harvest_runs_v0/run_e2ef96b3",
+    "module_probe_stdout_json_parseable": true,
+    "module_runtime_precondition_fixed_for_module_path": true,
+    "schema_version": "r1000_post_closure_observability_harvest_entrypoint_module_runtime_precondition_fix_failure_module_success_surface_v0",
+    "source_module_probe_result_ref": "data/r1000_post_closure_observability_harvest_entrypoint_module_runtime_precondition_fix_v0/r1000_post_closure_observability_harvest_entrypoint_module_runtime_precondition_module_probe_result.json"
+  },
+  "schema_version": "r1000_post_closure_observability_harvest_entrypoint_cli_wrapper_runtime_output_prior_failure_surface_v0",
+  "source_cli_wrapper_review_receipt_id": "6f7051cc"
+}
