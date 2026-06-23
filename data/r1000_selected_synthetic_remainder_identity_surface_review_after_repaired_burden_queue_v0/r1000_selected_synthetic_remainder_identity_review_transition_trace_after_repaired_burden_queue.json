@@ -1,0 +1,35 @@
+{
+  "schema_version": "r1000_selected_synthetic_remainder_identity_review_transition_trace_after_repaired_burden_queue_v0",
+  "selected_pressure_group_id": "025fdd0c",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_SELECTED_SYNTHETIC_REMAINDER_IDENTITY_REVIEW_COMPLETE_SOURCE_AUDIT_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "selected group exists and is not inspected",
+      "step": "consume_selection_after_repaired_burden_queue",
+      "taken": "materialize_identity_surface"
+    },
+    {
+      "answer": false,
+      "question": "identity is source-backed enough for inspection",
+      "step": "materialize_identity_surface",
+      "taken": "block_inspection_for_source_audit"
+    },
+    {
+      "answer": false,
+      "question": "assign identity in this unit",
+      "step": "block_inspection_for_source_audit",
+      "taken": "emit_source_audit_recommendation"
+    },
+    {
+      "answer": false,
+      "question": "hidden next command allowed",
+      "step": "emit_source_audit_recommendation",
+      "taken": "STOP_SELECTED_SYNTHETIC_REMAINDER_IDENTITY_REVIEW_COMPLETE_SOURCE_AUDIT_REQUIRED"
+    }
+  ]
+}

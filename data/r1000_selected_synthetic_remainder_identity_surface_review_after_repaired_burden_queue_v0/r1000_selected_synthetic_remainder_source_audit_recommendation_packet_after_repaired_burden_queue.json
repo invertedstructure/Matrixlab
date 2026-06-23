@@ -1,0 +1,40 @@
+{
+  "allowed_next_unit": "AUDIT_R1000_SYNTHETIC_REMAINDER_SOURCE_EVIDENCE_AFTER_REPAIRED_BURDEN_QUEUE_RECONCILIATION_V0",
+  "allowed_next_unit_scope": [
+    "consume selected synthetic remainder identity review receipt",
+    "audit source/reconciliation surfaces for explicit source-backed identity",
+    "if recoverable, emit repaired identity candidate only",
+    "if not recoverable, emit expected-limit packet",
+    "stop before inspection"
+  ],
+  "audit_target": "find explicit source evidence for the final 1-row synthetic remainder or mark it as expected source-content/queue-resolution limit",
+  "not_authorized_in_this_unit": [
+    "source audit execution",
+    "identity assignment",
+    "inspection",
+    "row payload materialization",
+    "R1000 execution",
+    "queue reconciliation",
+    "repair application",
+    "taxonomy action",
+    "source mutation",
+    "receipt mutation",
+    "hidden next command"
+  ],
+  "packet_status": "CANDIDATE_ONLY_NOT_EXECUTED",
+  "schema_version": "r1000_selected_synthetic_remainder_source_audit_recommendation_packet_after_repaired_burden_queue_v0",
+  "selected_group": {
+    "halt_reason": "STOP_REMAINING_PRESSURE",
+    "parent_pressure_class": "REMAINING_PRESSURE",
+    "pressure_subtype": "residual_pressure_after_repaired_burden_reconciliation",
+    "row_count": 1
+  },
+  "selected_pressure_group_id": "025fdd0c",
+  "source_refs_for_audit": [
+    "data/r1000_pressure_queue_reconciliation_after_repaired_burden_group_inspection_v0/r1000_remaining_pressure_groups_after_repaired_burden_group_inspection.json",
+    "data/r1000_pressure_queue_reconciliation_after_repaired_burden_group_inspection_v0/r1000_next_selectable_group_candidate_after_repaired_burden_group_inspection.json",
+    "data/r1000_pressure_queue_reconciliation_after_repaired_burden_group_inspection_v0/r1000_pressure_queue_reconciliation_after_repaired_burden_group_inspection.json",
+    "data/r1000_pressure_queue_reconciliation_after_repaired_burden_group_inspection_v0/r1000_queue_reconciliation_after_repaired_burden_group_inspection_report.json",
+    "data/r1000_pressure_group_selection_after_repaired_burden_group_queue_reconciliation_v0_receipts/46694b59.json"
+  ]
+}
