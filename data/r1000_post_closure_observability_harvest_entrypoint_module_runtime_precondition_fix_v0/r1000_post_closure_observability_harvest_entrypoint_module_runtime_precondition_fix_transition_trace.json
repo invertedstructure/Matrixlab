@@ -1,0 +1,40 @@
+{
+  "schema_version": "r1000_post_closure_observability_harvest_entrypoint_module_runtime_precondition_fix_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_MODULE_RUNTIME_PRECONDITION_FIX_INCOMPLETE_SMALL_PROBE_FAILED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "module runtime exception occurred before JSON result",
+      "step": "consume_module_runtime_failure_review",
+      "taken": "patch_module_runtime_precondition"
+    },
+    {
+      "answer": true,
+      "question": "module imports and compiles",
+      "step": "patch_module_runtime_precondition",
+      "taken": "run_module_probe"
+    },
+    {
+      "answer": true,
+      "question": "module probe emits JSON and writes 10 observation receipts",
+      "step": "run_module_probe",
+      "taken": "run_cli_probe"
+    },
+    {
+      "answer": false,
+      "question": "CLI probe emits JSON and writes 10 observation receipts",
+      "step": "run_cli_probe",
+      "taken": "emit_module_precondition_fix_failure_packet"
+    },
+    {
+      "answer": false,
+      "question": "run radius 10000 now",
+      "step": "emit_retry_ready_packet",
+      "taken": "STOP_MODULE_RUNTIME_PRECONDITION_FIX_INCOMPLETE_SMALL_PROBE_FAILED"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "r1000_post_closure_observability_harvest_entrypoint_module_runtime_precondition_fix_failure_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_MODULE_PRECONDITION_FIX_FAILURE_REVIEW_COMPLETE_CLI_WRAPPER_FIX_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "module path passed but CLI path failed",
+      "step": "consume_failed_module_precondition_fix",
+      "taken": "classify_cli_wrapper_failure"
+    },
+    {
+      "answer": false,
+      "question": "run repair in review unit",
+      "step": "classify_cli_wrapper_failure",
+      "taken": "emit_cli_wrapper_fix_authority_packet"
+    },
+    {
+      "answer": false,
+      "question": "run radius 10000 now",
+      "step": "emit_cli_wrapper_fix_authority_packet",
+      "taken": "STOP_MODULE_PRECONDITION_FIX_FAILURE_REVIEW_COMPLETE_CLI_WRAPPER_FIX_REQUIRED"
+    }
+  ]
+}

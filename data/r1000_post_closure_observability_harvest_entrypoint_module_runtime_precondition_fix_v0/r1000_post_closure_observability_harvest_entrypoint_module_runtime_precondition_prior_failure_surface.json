@@ -1,0 +1,79 @@
+{
+  "cli_probe_failure_surface": {
+    "likely_failure_markers": [
+      "Traceback",
+      "ModuleNotFoundError",
+      "Error:",
+      "\u256d"
+    ],
+    "parsed_result": null,
+    "probe_command": [
+      "uv",
+      "run",
+      "python",
+      "src/matrixlab/cli.py",
+      "post-closure-observability-harvest",
+      "--radius",
+      "10",
+      "--source-closure-receipt-id",
+      "52d0ea8d",
+      "--label",
+      "runtime-output-fix-cli-probe"
+    ],
+    "probe_observation_receipt_count": null,
+    "probe_passed": false,
+    "probe_rollup_path": null,
+    "probe_run_dir": null,
+    "probe_run_receipt_path": null,
+    "returncode": 1,
+    "schema_version": "r1000_post_closure_observability_harvest_entrypoint_runtime_output_fix_failure_cli_probe_surface_v0",
+    "source_small_probe_result_ref": "data/r1000_post_closure_observability_harvest_entrypoint_runtime_output_fix_v0/r1000_post_closure_observability_harvest_entrypoint_runtime_output_small_probe_result.json",
+    "stderr_tail": "\u256d\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 Traceback (most recent call last) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 /home/asd/projects/matrixlab/src/matrixlab/cli.py:11982 in                   \u2502\n\u2502 post_closure_observability_harvest_command                                   \u2502\n\u2502                                                                              \u2502\n\u2502   11979 \u2502   label: str | None = typer.Option(None, \"--label\", help=\"Optional \u2502\n\u2502         run label.\"),                                                        \u2502\n\u2502   11980 ) -> None:                                                           \u2502\n\u2502   11981 \u2502   \"\"\"Emit bounded post-closure observability receipts without      \u2502\n\u2502         reopening the closed queue.\"\"\"                                       \u2502\n\u2502 \u2771 11982 \u2502   from matrixlab.r1000_post_closure_observability_harvest import   \u2502\n\u2502         run_bounded_harvest                                                  \u2502\n\u2502   11983 \u2502   result = run_bounded_harvest(                                    \u2502\n\u2502   11984 \u2502   \u2502   radius=radius,                                               \u2502\n\u2502   11985 \u2502   \u2502   source_closure_receipt_id=source_closure_receipt_id,         \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f\nModuleNotFoundError: No module named 'matrixlab'\n",
+    "stdout_json_parseable": false,
+    "stdout_parse_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+    "stdout_tail": ""
+  },
+  "module_precondition_review_summary": {
+    "cli_probe_failed": true,
+    "cli_probe_stdout_not_json": true,
+    "failure_classification": "MODULE_RUNTIME_EXCEPTION_BEFORE_JSON_RESULT",
+    "help_routing_fixed": true,
+    "module_probe_failed": true,
+    "module_probe_stdout_not_json": true,
+    "radius_10000_retry_authorized": false,
+    "radius_10000_retry_executed": false,
+    "radius_10000_retry_ready": false,
+    "receipt_write_not_proven": true,
+    "recommended_next_handling": "FIX_R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_ENTRYPOINT_MODULE_RUNTIME_PRECONDITION_V0",
+    "repair_executed": false,
+    "review_result": "ACCEPT_RUNTIME_OUTPUT_FIX_FAILURE_AS_MODULE_RUNTIME_PRECONDITION_REPAIR_REQUIRED"
+  },
+  "module_probe_failure_surface": {
+    "likely_failure_markers": [
+      "Traceback",
+      "ModuleNotFoundError",
+      "Error:"
+    ],
+    "parsed_result": null,
+    "probe_command": [
+      "uv",
+      "run",
+      "python",
+      "-c",
+      "import json\nfrom matrixlab.r1000_post_closure_observability_harvest import run_bounded_harvest\nresult = run_bounded_harvest(radius=10, source_closure_receipt_id='52d0ea8d', label='runtime-output-fix-module-probe')\nprint(json.dumps(result, indent=2, sort_keys=True))"
+    ],
+    "probe_observation_receipt_count": null,
+    "probe_passed": false,
+    "probe_run_dir": null,
+    "probe_run_receipt_path": null,
+    "returncode": 1,
+    "schema_version": "r1000_post_closure_observability_harvest_entrypoint_runtime_output_fix_failure_module_probe_surface_v0",
+    "source_small_probe_result_ref": "data/r1000_post_closure_observability_harvest_entrypoint_runtime_output_fix_v0/r1000_post_closure_observability_harvest_entrypoint_runtime_output_small_probe_result.json",
+    "stderr_tail": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\n    from matrixlab.r1000_post_closure_observability_harvest import run_bounded_harvest\nModuleNotFoundError: No module named 'matrixlab'\n",
+    "stdout_json_parseable": false,
+    "stdout_parse_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+    "stdout_tail": ""
+  },
+  "schema_version": "r1000_post_closure_observability_harvest_entrypoint_module_runtime_precondition_prior_failure_surface_v0",
+  "source_module_precondition_review_receipt_id": "18ca1234"
+}

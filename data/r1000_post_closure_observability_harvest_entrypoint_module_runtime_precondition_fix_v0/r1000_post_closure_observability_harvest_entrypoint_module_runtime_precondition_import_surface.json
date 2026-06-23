@@ -1,0 +1,37 @@
+{
+  "import_probe_passed": true,
+  "probes": [
+    {
+      "command": [
+        "uv",
+        "run",
+        "python",
+        "src/matrixlab/r1000_post_closure_observability_harvest.py",
+        "--radius",
+        "1",
+        "--source-closure-receipt-id",
+        "52d0ea8d",
+        "--label",
+        "import-surface-file-exec"
+      ],
+      "elapsed_seconds": 166.390506,
+      "returncode": 0,
+      "stderr_tail": "",
+      "stdout_tail": "{\n  \"gate\": \"PASS\",\n  \"observation_receipt_count\": 1,\n  \"radius_completed\": 1,\n  \"radius_requested\": 1,\n  \"receipt_index_path\": \"data/r1000_post_closure_observability_harvest_runs_v0/run_1c6328fb/receipt_index.jsonl\",\n  \"rollup_path\": \"data/r1000_post_closure_observability_harvest_runs_v0/run_1c6328fb/rollup.json\",\n  \"run_dir\": \"data/r1000_post_closure_observability_harvest_runs_v0/run_1c6328fb\",\n  \"run_id\": \"run_1c6328fb\",\n  \"run_receipt_path\": \"data/r1000_post_closure_observability_harvest_runs_v0/run_1c6328fb/run_receipt.json\",\n  \"terminal\": {\n    \"next_command_goal\": null,\n    \"stop_code\": \"STOP_POST_CLOSURE_OBSERVABILITY_HARVEST_COMPLETE\",\n    \"type\": \"STOP\"\n  }\n}\n"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "python",
+        "-c",
+        "import sys; sys.path.insert(0, 'src'); import matrixlab.r1000_post_closure_observability_harvest as m; print(hasattr(m, 'run_bounded_harvest'))"
+      ],
+      "elapsed_seconds": 0.120953,
+      "returncode": 0,
+      "stderr_tail": "",
+      "stdout_tail": "True\n"
+    }
+  ],
+  "schema_version": "r1000_post_closure_observability_harvest_entrypoint_module_runtime_precondition_import_surface_v0"
+}

@@ -1,0 +1,45 @@
+{
+  "elapsed_seconds": 93.630233,
+  "parsed_result": {
+    "gate": "PASS",
+    "observation_receipt_count": 10,
+    "radius_completed": 10,
+    "radius_requested": 10,
+    "receipt_index_path": "data/r1000_post_closure_observability_harvest_runs_v0/run_e2ef96b3/receipt_index.jsonl",
+    "rollup_path": "data/r1000_post_closure_observability_harvest_runs_v0/run_e2ef96b3/rollup.json",
+    "run_dir": "data/r1000_post_closure_observability_harvest_runs_v0/run_e2ef96b3",
+    "run_id": "run_e2ef96b3",
+    "run_receipt_path": "data/r1000_post_closure_observability_harvest_runs_v0/run_e2ef96b3/run_receipt.json",
+    "terminal": {
+      "next_command_goal": null,
+      "stop_code": "STOP_POST_CLOSURE_OBSERVABILITY_HARVEST_COMPLETE",
+      "type": "STOP"
+    }
+  },
+  "probe_command": [
+    "uv",
+    "run",
+    "python",
+    "-c",
+    "import json\nfrom matrixlab.r1000_post_closure_observability_harvest import run_bounded_harvest\nresult = run_bounded_harvest(radius=10, source_closure_receipt_id='52d0ea8d', label='module-runtime-precondition-fix-module-probe')\nprint(json.dumps(result, indent=2, sort_keys=True))"
+  ],
+  "probe_file_checks": {
+    "files_valid": true,
+    "observation_receipt_files_count": 10,
+    "rollup_exists": true,
+    "run_dir_exists": true,
+    "run_receipt_exists": true
+  },
+  "probe_observation_receipt_count": 10,
+  "probe_passed": true,
+  "probe_radius": 10,
+  "probe_rollup_path": "data/r1000_post_closure_observability_harvest_runs_v0/run_e2ef96b3/rollup.json",
+  "probe_run_dir": "data/r1000_post_closure_observability_harvest_runs_v0/run_e2ef96b3",
+  "probe_run_receipt_path": "data/r1000_post_closure_observability_harvest_runs_v0/run_e2ef96b3/run_receipt.json",
+  "returncode": 0,
+  "schema_version": "r1000_post_closure_observability_harvest_entrypoint_module_runtime_precondition_module_probe_result_v0",
+  "stderr_tail": "",
+  "stdout_json_parseable": true,
+  "stdout_parse_error": null,
+  "stdout_tail": "{\n  \"gate\": \"PASS\",\n  \"observation_receipt_count\": 10,\n  \"radius_completed\": 10,\n  \"radius_requested\": 10,\n  \"receipt_index_path\": \"data/r1000_post_closure_observability_harvest_runs_v0/run_e2ef96b3/receipt_index.jsonl\",\n  \"rollup_path\": \"data/r1000_post_closure_observability_harvest_runs_v0/run_e2ef96b3/rollup.json\",\n  \"run_dir\": \"data/r1000_post_closure_observability_harvest_runs_v0/run_e2ef96b3\",\n  \"run_id\": \"run_e2ef96b3\",\n  \"run_receipt_path\": \"data/r1000_post_closure_observability_harvest_runs_v0/run_e2ef96b3/run_receipt.json\",\n  \"terminal\": {\n    \"next_command_goal\": null,\n    \"stop_code\": \"STOP_POST_CLOSURE_OBSERVABILITY_HARVEST_COMPLETE\",\n    \"type\": \"STOP\"\n  }\n}\n"
+}
