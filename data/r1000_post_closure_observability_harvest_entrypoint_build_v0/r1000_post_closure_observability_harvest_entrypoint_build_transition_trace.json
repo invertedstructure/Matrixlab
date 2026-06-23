@@ -1,0 +1,34 @@
+{
+  "schema_version": "r1000_post_closure_observability_harvest_entrypoint_build_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_OBSERVABILITY_HARVEST_ENTRYPOINT_BUILD_INCOMPLETE_SMALL_PROBE_FAILED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "bounded receipt-producing harvest entrypoint is missing",
+      "step": "consume_missing_entrypoint_proposal",
+      "taken": "write_entrypoint_module"
+    },
+    {
+      "answer": false,
+      "question": "source compiles and help surface exists",
+      "step": "write_entrypoint_module_and_patch_cli",
+      "taken": "run_small_probe"
+    },
+    {
+      "answer": false,
+      "question": "small probe writes requested observation receipts",
+      "step": "run_small_probe",
+      "taken": "emit_build_failure_packet"
+    },
+    {
+      "answer": false,
+      "question": "run radius 10000 now",
+      "step": "emit_retry_ready_packet",
+      "taken": "STOP_OBSERVABILITY_HARVEST_ENTRYPOINT_BUILD_INCOMPLETE_SMALL_PROBE_FAILED"
+    }
+  ]
+}

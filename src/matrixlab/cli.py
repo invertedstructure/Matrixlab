@@ -11975,3 +11975,10 @@ def domain_shift_slot_observe(
 
 if __name__ == "__main__":
     app()
+
+# R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_ENTRYPOINT_V0
+try:
+    from matrixlab.r1000_post_closure_observability_harvest import app as _r1000_post_closure_observability_harvest_app
+    app.add_typer(_r1000_post_closure_observability_harvest_app)
+except Exception as _r1000_post_closure_observability_harvest_import_error:
+    pass

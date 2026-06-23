@@ -1,0 +1,17 @@
+{
+  "authorized_next_unit": "FIX_R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_ENTRYPOINT_CLI_REGISTRATION_V0",
+  "failure_classification": "CLI_REGISTRATION_OR_HELP_ROUTING_FAILURE",
+  "fix_authorized_in_this_unit": false,
+  "packet_status": "FIX_ENTRYPOINT_CLI_REGISTRATION_AND_PROBE_OUTPUT_AUTHORITY_PACKET",
+  "radius_10000_retry_authorized_now": false,
+  "recommended_next_handling": "FIX_R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_ENTRYPOINT_CLI_REGISTRATION_V0",
+  "required_fix_shape": [
+    "inspect actual src/matrixlab/cli.py Typer app registration order",
+    "patch entrypoint registration so help command exposes --radius",
+    "ensure command stdout is pure JSON for probe parse",
+    "run radius-10 probe and require 10 observation receipts",
+    "emit radius-10000 retry-ready packet only after probe pass"
+  ],
+  "schema_version": "r1000_post_closure_observability_harvest_entrypoint_build_failure_fix_authority_packet_v0",
+  "source_failed_entrypoint_build_receipt_id": "9d834354"
+}

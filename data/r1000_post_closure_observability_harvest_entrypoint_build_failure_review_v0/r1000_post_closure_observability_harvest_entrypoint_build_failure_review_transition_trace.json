@@ -1,0 +1,28 @@
+{
+  "schema_version": "r1000_post_closure_observability_harvest_entrypoint_build_failure_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_ENTRYPOINT_BUILD_FAILURE_REVIEW_COMPLETE_CLI_REGISTRATION_FIX_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "failed build produced module and compile-clean source but no working help/probe",
+      "step": "consume_failed_build",
+      "taken": "classify_cli_registration_failure"
+    },
+    {
+      "answer": false,
+      "question": "run repair in review unit",
+      "step": "classify_cli_registration_failure",
+      "taken": "emit_fix_authority_packet"
+    },
+    {
+      "answer": false,
+      "question": "run radius 10000 now",
+      "step": "emit_fix_authority_packet",
+      "taken": "STOP_ENTRYPOINT_BUILD_FAILURE_REVIEW_COMPLETE_CLI_REGISTRATION_FIX_REQUIRED"
+    }
+  ]
+}
