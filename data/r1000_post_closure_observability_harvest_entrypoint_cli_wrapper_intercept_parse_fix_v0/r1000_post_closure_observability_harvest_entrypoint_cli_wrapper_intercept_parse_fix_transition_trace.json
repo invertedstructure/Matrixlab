@@ -1,0 +1,40 @@
+{
+  "schema_version": "r1000_post_closure_observability_harvest_entrypoint_cli_wrapper_intercept_parse_fix_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CLI_WRAPPER_INTERCEPT_PARSE_FIX_COMPLETE_SMALL_PROBE_PASSED_RETRY_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "module path preserved and CLI intercept not triggering or stdout noisy",
+      "step": "consume_cli_wrapper_fix_failure_review",
+      "taken": "patch_earliest_intercept_parse_dispatch"
+    },
+    {
+      "answer": true,
+      "question": "compile and help checks pass",
+      "step": "patch_earliest_intercept_parse_dispatch",
+      "taken": "run_module_preservation_probe"
+    },
+    {
+      "answer": true,
+      "question": "module path remains passing",
+      "step": "run_module_preservation_probe",
+      "taken": "run_cli_probe"
+    },
+    {
+      "answer": true,
+      "question": "CLI probe emits JSON and writes 10 observation receipts",
+      "step": "run_cli_probe",
+      "taken": "emit_retry_ready_packet"
+    },
+    {
+      "answer": false,
+      "question": "run radius 10000 now",
+      "step": "emit_retry_ready_packet",
+      "taken": "STOP_CLI_WRAPPER_INTERCEPT_PARSE_FIX_COMPLETE_SMALL_PROBE_PASSED_RETRY_READY"
+    }
+  ]
+}

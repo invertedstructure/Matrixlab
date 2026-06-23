@@ -1,0 +1,60 @@
+{
+  "alias_help_passed": true,
+  "checks": [
+    {
+      "elapsed_seconds": 0.172876,
+      "kind": "py_compile",
+      "returncode": 0,
+      "stderr_tail": "",
+      "stdout_tail": "",
+      "target": "src/matrixlab/cli.py"
+    },
+    {
+      "elapsed_seconds": 0.056271,
+      "kind": "py_compile",
+      "returncode": 0,
+      "stderr_tail": "",
+      "stdout_tail": "",
+      "target": "src/matrixlab/r1000_post_closure_observability_harvest.py"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "python",
+        "src/matrixlab/cli.py",
+        "post-closure-observability-harvest",
+        "--help"
+      ],
+      "contains_manual_usage": true,
+      "contains_radius": true,
+      "contains_source_closure_receipt_id": true,
+      "elapsed_seconds": 0.10721,
+      "kind": "entrypoint_help",
+      "returncode": 0,
+      "stderr_tail": "",
+      "stdout_tail": "Usage: cli.py post-closure-observability-harvest [OPTIONS]\n\nEmit bounded post-closure observability receipts without reopening the closed queue.\n\nOptions:\n  -r, --radius INTEGER              Bounded number of observation receipts to emit. [required]\n  --source-closure-receipt-id TEXT  Accepted closure review receipt id. [default: 52d0ea8d]\n  --label TEXT                      Optional run label.\n  -h, --help                        Show this message and exit.\n",
+      "target": "post-closure-observability-harvest --help"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "python",
+        "src/matrixlab/cli.py",
+        "post_closure_observability_harvest",
+        "--help"
+      ],
+      "contains_radius": true,
+      "elapsed_seconds": 0.120142,
+      "kind": "alias_entrypoint_help",
+      "returncode": 0,
+      "stderr_tail": "",
+      "stdout_tail": "Usage: cli.py post-closure-observability-harvest [OPTIONS]\n\nEmit bounded post-closure observability receipts without reopening the closed queue.\n\nOptions:\n  -r, --radius INTEGER              Bounded number of observation receipts to emit. [required]\n  --source-closure-receipt-id TEXT  Accepted closure review receipt id. [default: 52d0ea8d]\n  --label TEXT                      Optional run label.\n  -h, --help                        Show this message and exit.\n",
+      "target": "post_closure_observability_harvest --help"
+    }
+  ],
+  "compile_checks_passed": true,
+  "entrypoint_help_passed": true,
+  "schema_version": "r1000_post_closure_observability_harvest_entrypoint_cli_wrapper_intercept_parse_help_check_v0"
+}

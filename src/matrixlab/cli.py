@@ -4,6 +4,107 @@ import hashlib
 import json
 import sqlite3
 
+
+# R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_CLI_WRAPPER_INTERCEPT_PARSE_FIX_V0_START
+def _r1000_post_closure_observability_harvest_intercept_parse_fix_v0() -> None:
+    import argparse as _argparse
+    import json as _json
+    import os as _os
+    import sys as _sys
+    from pathlib import Path as _Path
+
+    argv = list(_sys.argv)
+    command_names = {
+        "post-closure-observability-harvest",
+        "post_closure_observability_harvest",
+    }
+
+    if len(argv) < 2 or argv[1] not in command_names:
+        return
+
+    root = _Path(__file__).resolve().parents[2]
+    src_root = root / "src"
+    existing_pp = _os.environ.get("PYTHONPATH", "")
+    _os.environ["PYTHONPATH"] = str(src_root) + (":" + existing_pp if existing_pp else "")
+    if str(src_root) not in _sys.path:
+        _sys.path.insert(0, str(src_root))
+
+    args = argv[2:]
+
+    if any(a in {"--help", "-h"} for a in args):
+        print("Usage: cli.py post-closure-observability-harvest [OPTIONS]")
+        print("")
+        print("Emit bounded post-closure observability receipts without reopening the closed queue.")
+        print("")
+        print("Options:")
+        print("  -r, --radius INTEGER              Bounded number of observation receipts to emit. [required]")
+        print("  --source-closure-receipt-id TEXT  Accepted closure review receipt id. [default: 52d0ea8d]")
+        print("  --label TEXT                      Optional run label.")
+        print("  -h, --help                        Show this message and exit.")
+        raise SystemExit(0)
+
+    parser = _argparse.ArgumentParser(
+        prog=f"{argv[0]} post-closure-observability-harvest",
+        add_help=False,
+    )
+    parser.add_argument("--radius", "-r", type=int, required=True)
+    parser.add_argument("--source-closure-receipt-id", default="52d0ea8d")
+    parser.add_argument("--label", default=None)
+
+    try:
+        ns, unknown = parser.parse_known_args(args)
+        if unknown:
+            result = {
+                "gate": "FAIL",
+                "failures": [f"unknown_cli_arguments:{unknown}"],
+                "observation_receipt_count": 0,
+                "radius_requested": getattr(ns, "radius", None),
+                "terminal": {
+                    "type": "STOP",
+                    "stop_code": "STOP_CLI_WRAPPER_UNKNOWN_ARGUMENTS",
+                    "next_command_goal": None,
+                },
+            }
+        else:
+            from matrixlab.r1000_post_closure_observability_harvest import run_bounded_harvest
+
+            result = run_bounded_harvest(
+                radius=ns.radius,
+                source_closure_receipt_id=ns.source_closure_receipt_id,
+                label=ns.label,
+            )
+    except SystemExit as exc:
+        result = {
+            "gate": "FAIL",
+            "failures": [f"cli_wrapper_argparse_system_exit:{exc.code}"],
+            "observation_receipt_count": 0,
+            "radius_requested": None,
+            "terminal": {
+                "type": "STOP",
+                "stop_code": "STOP_CLI_WRAPPER_ARGPARSE_SYSTEM_EXIT",
+                "next_command_goal": None,
+            },
+        }
+    except Exception as exc:
+        result = {
+            "gate": "FAIL",
+            "failures": [f"cli_wrapper_intercept_exception:{type(exc).__name__}:{exc}"],
+            "observation_receipt_count": 0,
+            "radius_requested": None,
+            "terminal": {
+                "type": "STOP",
+                "stop_code": "STOP_CLI_WRAPPER_INTERCEPT_EXCEPTION_CAPTURED",
+                "next_command_goal": None,
+            },
+        }
+
+    print(_json.dumps(result, indent=2, sort_keys=True))
+    raise SystemExit(0 if result.get("gate") == "PASS" else 1)
+
+
+_r1000_post_closure_observability_harvest_intercept_parse_fix_v0()
+# R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_CLI_WRAPPER_INTERCEPT_PARSE_FIX_V0_END
+
 # MatrixLab DB write burden fix v0.
 #
 # Scope:
@@ -11989,56 +12090,6 @@ def post_closure_observability_harvest_command(
     if result.get("gate") != "PASS":
         raise typer.Exit(code=1)
 
-# R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_CLI_WRAPPER_RUNTIME_OUTPUT_FIX_V0_START
-def _r1000_post_closure_observability_harvest_cli_wrapper_runtime_output_fix_v0() -> None:
-    import argparse
-    import json as _json
-    import sys as _sys
-    from pathlib import Path as _Path
-
-    argv = list(_sys.argv)
-    if len(argv) < 2 or argv[1] != "post-closure-observability-harvest":
-        return
-
-    root = _Path(__file__).resolve().parents[2]
-    src_root = root / "src"
-    if str(src_root) not in _sys.path:
-        _sys.path.insert(0, str(src_root))
-
-    parser = argparse.ArgumentParser(prog=f"{argv[0]} post-closure-observability-harvest")
-    parser.add_argument("--radius", "-r", type=int, required=True)
-    parser.add_argument("--source-closure-receipt-id", default="52d0ea8d")
-    parser.add_argument("--label", default=None)
-
-    try:
-        ns = parser.parse_args(argv[2:])
-        from matrixlab.r1000_post_closure_observability_harvest import run_bounded_harvest
-        result = run_bounded_harvest(
-            radius=ns.radius,
-            source_closure_receipt_id=ns.source_closure_receipt_id,
-            label=ns.label,
-        )
-    except SystemExit:
-        raise
-    except Exception as exc:
-        result = {
-            "gate": "FAIL",
-            "failures": [f"cli_wrapper_runtime_exception:{type(exc).__name__}:{exc}"],
-            "observation_receipt_count": 0,
-            "radius_requested": None,
-            "terminal": {
-                "type": "STOP",
-                "stop_code": "STOP_CLI_WRAPPER_RUNTIME_EXCEPTION_CAPTURED",
-                "next_command_goal": None,
-            },
-        }
-
-    print(_json.dumps(result, indent=2, sort_keys=True))
-    raise SystemExit(0 if result.get("gate") == "PASS" else 1)
-
-
-_r1000_post_closure_observability_harvest_cli_wrapper_runtime_output_fix_v0()
-# R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_CLI_WRAPPER_RUNTIME_OUTPUT_FIX_V0_END
 
 if __name__ == "__main__":
     app()
