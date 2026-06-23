@@ -1,0 +1,30 @@
+{
+  "application_allowed_only_if": [
+    "review_decision_status == ACCEPT_CANDIDATE_OBJECT",
+    "accepted_application_scope is explicit",
+    "application_authorized == true in review decision",
+    "proposal forbidden assumptions are all false"
+  ],
+  "application_effect_limit": "may materialize typed unresolved decision fields and proposal metadata; may not invent field values",
+  "application_forbidden_if": [
+    "proposal_status is not CANDIDATE_MISSING_OBJECT_PROPOSAL",
+    "review decision missing",
+    "review decision rejected/split/weakened/requested_more_evidence",
+    "target fields would be filled without source",
+    "taxonomy label would be created without separate authorization",
+    "source or receipt mutation would occur"
+  ],
+  "application_unit_must_consume": [
+    "candidate_missing_object_proposal",
+    "human_schema_review_decision",
+    "source_evidence_refs"
+  ],
+  "application_unit_required": true,
+  "contract_id": "58a04356",
+  "post_application_required": [
+    "rerun/review affected evidence surface",
+    "classify distinguishability change",
+    "emit accepted application receipt"
+  ],
+  "schema_version": "candidate_missing_object_proposal_application_contract_v0"
+}

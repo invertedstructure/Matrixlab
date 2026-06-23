@@ -1,0 +1,59 @@
+{
+  "allowed_resolution": [
+    "provide_existing_label_identifier",
+    "define_new_label_identifier",
+    "provide_taxonomy_context_ref",
+    "provide_current_label_space_ref",
+    "provide_expected_label_space_ref",
+    "mark_label_identifier_not_available_at_this_layer",
+    "split_pressure_group",
+    "reject_candidate_object",
+    "weaken_candidate_object",
+    "request_more_evidence"
+  ],
+  "example": {
+    "allowed_resolution": [
+      "provide_existing_label_identifier",
+      "define_new_label_identifier",
+      "mark_label_identifier_not_available_at_this_layer",
+      "split_pressure_group",
+      "reject_candidate_object"
+    ],
+    "decision_owner": "human_schema_layer",
+    "field": "missing_label_identifier",
+    "forbidden_resolution": [
+      "set_null_as_value",
+      "invent_value_without_source"
+    ],
+    "missing_object_type": "taxonomy_gap_label_identifier",
+    "target_field": "missing_label_identifier",
+    "value_state": "REQUIRES_SCHEMA_DECISION"
+  },
+  "field_object_status": "TYPED_UNRESOLVED_DECISION_FIELD",
+  "forbidden_resolution": [
+    "set_null_as_value",
+    "invent_value_without_source",
+    "apply_candidate_without_acceptance",
+    "create_taxonomy_label_without_authorization",
+    "mutate_source_surface",
+    "mutate_existing_receipt"
+  ],
+  "purpose": "represent unknown-but-required fields without emitting untyped nulls or fake values",
+  "required_keys": [
+    "field",
+    "value_state",
+    "missing_object_type",
+    "target_field",
+    "decision_owner",
+    "allowed_resolution",
+    "forbidden_resolution"
+  ],
+  "schema_version": "typed_unresolved_decision_field_schema_v0",
+  "value_state_allowed": [
+    "REQUIRES_SCHEMA_DECISION",
+    "REQUIRES_EXISTING_SOURCE_REFERENCE",
+    "REQUIRES_HUMAN_DECISION",
+    "EXPECTED_UNAVAILABLE_AT_THIS_LAYER",
+    "REJECTED_CANDIDATE_FIELD"
+  ]
+}

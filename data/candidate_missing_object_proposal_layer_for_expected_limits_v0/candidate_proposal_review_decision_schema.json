@@ -1,0 +1,23 @@
+{
+  "application_authority_rule": "only ACCEPT_CANDIDATE_OBJECT may authorize a later application unit; this layer never applies the proposal itself",
+  "rejection_feedback_rule": "each rejection must select at least one typed rejection code so proposal failures are refinable",
+  "required_review_keys": [
+    "review_decision_id",
+    "candidate_object_id",
+    "decision_status",
+    "decision_basis",
+    "typed_rejection_codes",
+    "accepted_application_scope",
+    "schema_delta_if_any",
+    "rerun_review_required"
+  ],
+  "review_decision_statuses": [
+    "ACCEPT_CANDIDATE_OBJECT",
+    "REJECT_CANDIDATE_OBJECT",
+    "SPLIT_CANDIDATE_OBJECT",
+    "WEAKEN_CANDIDATE_OBJECT",
+    "REQUEST_MORE_EVIDENCE",
+    "MARK_EXPECTED_UNAVAILABLE_AT_THIS_LAYER"
+  ],
+  "schema_version": "candidate_proposal_review_decision_schema_v0"
+}

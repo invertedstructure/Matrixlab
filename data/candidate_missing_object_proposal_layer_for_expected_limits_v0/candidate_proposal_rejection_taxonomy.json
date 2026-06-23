@@ -1,0 +1,50 @@
+{
+  "rejection_codes": [
+    {
+      "code": "WRONG_TARGET_FIELD",
+      "meaning": "proposal targeted the wrong field or surface",
+      "refinement_signal": "adjust target_field_or_surface selection rule"
+    },
+    {
+      "code": "WRONG_MISSING_OBJECT_TYPE",
+      "meaning": "proposal chose the wrong missing-object type",
+      "refinement_signal": "adjust missing_object_type taxonomy mapping"
+    },
+    {
+      "code": "WRONG_EVIDENCE_BASIS",
+      "meaning": "proposal relied on insufficient or wrong evidence refs",
+      "refinement_signal": "tighten required evidence_refs"
+    },
+    {
+      "code": "WRONG_SOURCE_LAYER",
+      "meaning": "proposal should have targeted a different source/provenance layer",
+      "refinement_signal": "adjust source layer selection"
+    },
+    {
+      "code": "WRONG_APPLICATION_SCOPE",
+      "meaning": "proposal scope was too broad or too narrow",
+      "refinement_signal": "adjust proposed_scope logic"
+    },
+    {
+      "code": "WRONG_PROPOSED_SCHEMA_FIELD",
+      "meaning": "one or more required fields do not belong in the proposed object",
+      "refinement_signal": "adjust required_object_fields"
+    },
+    {
+      "code": "WRONG_EXPECTED_LIMIT_CLASSIFICATION",
+      "meaning": "proposal should not have been generated from this expected-limit classification",
+      "refinement_signal": "adjust expected-limit eligibility rule"
+    },
+    {
+      "code": "INSUFFICIENT_HUMAN_DECISION_OPTIONS",
+      "meaning": "proposal did not expose enough review choices",
+      "refinement_signal": "expand required_human_schema_decision"
+    },
+    {
+      "code": "FORBIDDEN_ASSUMPTION_PRESENT",
+      "meaning": "proposal smuggled in value invention, taxonomy creation, source mutation, or self-application",
+      "refinement_signal": "tighten forbidden assumption guards"
+    }
+  ],
+  "schema_version": "candidate_missing_object_proposal_rejection_taxonomy_v0"
+}
