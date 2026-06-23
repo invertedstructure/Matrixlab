@@ -1,0 +1,185 @@
+{
+  "bounded_protocol_freeze": {
+    "bounded_protocol_steps": [
+      "select bounded radius",
+      "run bounded sample",
+      "produce receipts",
+      "inspect rollup/profile",
+      "classify signal",
+      "choose close, repair observability, localize signal, run larger bounded radius with explicit objective, or freeze protocol"
+    ],
+    "decision_graph": {
+      "BOUNDARY_OR_FAILURE_SIGNAL": "review failure, repair only if supported",
+      "DISTINGUISHABLE_CLEAN_SIGNAL": "localize signal before scaling",
+      "LARGER_RADIUS_CANDIDATE": "run only as separate bounded unit with explicit objective",
+      "NO_NEW_SIGNAL_OR_VOLATILE_ONLY_SIGNAL": "close branch or freeze protocol",
+      "OBSERVABILITY_HEALTH_CONFIRMED": "freeze protocol or choose explicit next objective",
+      "OBSERVABILITY_SURFACE_INSUFFICIENT": "repair observability before scaling"
+    },
+    "freeze_status": "FROZEN_REUSABLE_REFERENCE",
+    "frozen_at": "2026-06-23T23:21:32.097135+00:00",
+    "frozen_lessons": [
+      "Do not treat larger radius as number-go-up.",
+      "Inspect rollup/profile before scaling.",
+      "Clean PASS traffic can still contain distinguishable receipt structure.",
+      "Receipt/reference volatility must be distinguished from semantic or structural signal.",
+      "Protected key-name references are not boundary crossings when materialization/inspection/mutation counters remain zero.",
+      "Close/freeze is valid after accepted volatile-only localization."
+    ],
+    "hard_guards": [
+      "no unbounded run",
+      "no hidden next command",
+      "no queue reopening during observability review",
+      "no closed-group inspection unless explicitly authorized",
+      "no row payload materialization unless explicitly authorized",
+      "no identity/value invention",
+      "no source/prior receipt mutation"
+    ],
+    "protocol_id": "BOUNDED_OBSERVABILITY_PROTOCOL_V0",
+    "schema_version": "bounded_observability_protocol_freeze_v0",
+    "source_branch_id": "R10000_POST_CLOSURE_OBSERVABILITY_BRANCH"
+  },
+  "branch_closure_decision": {
+    "accepted_evidence": {
+      "accepted_driver_class": "RECEIPT_VOLATILITY_ONLY_NO_STRUCTURAL_SIGNAL_LOCALIZED",
+      "accepted_localization_classification": "R10000_LOCALIZATION_VOLATILE_RECEIPT_METADATA_ONLY",
+      "guard_patch_gate": "PASS",
+      "patched_classification": "R10000_LOCALIZATION_VOLATILE_RECEIPT_METADATA_ONLY_ACCEPTED_AFTER_REFERENCE_ONLY_GUARD_PATCH",
+      "radius_10000_result_review_gate": "PASS",
+      "radius_10000_run_gate": "PASS",
+      "requires_further_localization": false,
+      "requires_repair": false,
+      "signal_inspection_gate": "PASS"
+    },
+    "branch_id": "R10000_POST_CLOSURE_OBSERVABILITY_BRANCH",
+    "branch_status": "CLOSED",
+    "closed_at": "2026-06-23T23:21:32.097112+00:00",
+    "closure_reason": "Radius-10000 bounded observability harvest completed, reviewed, localized, and patched to accept reference-only protected-key hits; remaining distinguishability is receipt/reference volatility only.",
+    "not_closed_as": [
+      "semantic signal requiring repair",
+      "structural signal requiring further localization",
+      "queue reopening",
+      "larger radius authorization",
+      "unbounded run authorization"
+    ],
+    "schema_version": "r10000_observability_branch_closure_decision_v0"
+  },
+  "failed_close_freeze_summary": {
+    "accepted_driver_class": "RECEIPT_VOLATILITY_ONLY_NO_STRUCTURAL_SIGNAL_LOCALIZED",
+    "accepted_final_signal_class": "VOLATILE_RECEIPT_REFERENCE_METADATA_ONLY",
+    "branch_status": "CLOSED",
+    "close_and_freeze_only_no_rerun": true,
+    "close_freeze_result": "R10000_OBSERVABILITY_BRANCH_CLOSED_BOUNDED_PROTOCOL_FROZEN",
+    "larger_radius_authorized_now": false,
+    "protocol_freeze_status": "FROZEN_REUSABLE_REFERENCE",
+    "protocol_id": "BOUNDED_OBSERVABILITY_PROTOCOL_V0",
+    "recommended_next_handling": null,
+    "requires_further_localization": false,
+    "requires_repair": false
+  },
+  "failure_review_summary": {
+    "accepted_branch_status": "CLOSED",
+    "accepted_driver_class": "RECEIPT_VOLATILITY_ONLY_NO_STRUCTURAL_SIGNAL_LOCALIZED",
+    "accepted_final_signal_class": "VOLATILE_RECEIPT_REFERENCE_METADATA_ONLY",
+    "accepted_protocol_freeze_status": "FROZEN_REUSABLE_REFERENCE",
+    "authority_classification": "AUTHORITY_STRING_MISMATCH_ONLY_ACCEPT_CLOSE_AND_FREEZE_AFTER_REVIEW",
+    "authority_mismatch_classification": "CLOSE_OR_FREEZE_AUTHORITY_VALIDLY_COVERS_HUMAN_SELECTED_CLOSE_AND_FREEZE",
+    "executed_unit": "DECIDE_CLOSE_AND_FREEZE_BOUNDED_OBSERVABILITY_PROTOCOL_AFTER_R10000_VOLATILE_ONLY_SIGNAL_V0",
+    "human_decision": "CLOSE_AND_FREEZE",
+    "prior_recommended_next_handling": "DECIDE_CLOSE_OR_FREEZE_BOUNDED_OBSERVABILITY_PROTOCOL_AFTER_R10000_VOLATILE_ONLY_SIGNAL_V0",
+    "recommended_next_handling": "PATCH_CLOSE_AND_FREEZE_ACCEPTANCE_AFTER_AUTHORITY_STRING_MISMATCH_REVIEW_V0",
+    "review_only_no_rerun": true,
+    "review_result": "CLOSE_AND_FREEZE_FAILURE_REVIEW_ACCEPTS_AUTHORITY_STRING_MISMATCH_ONLY",
+    "substantive_close_freeze_supported": true,
+    "true_close_freeze_boundary_violation": false
+  },
+  "final_state_packet": {
+    "accepted_driver_class": "RECEIPT_VOLATILITY_ONLY_NO_STRUCTURAL_SIGNAL_LOCALIZED",
+    "accepted_final_signal_class": "VOLATILE_RECEIPT_REFERENCE_METADATA_ONLY",
+    "auto_next_command": null,
+    "branch_status": "CLOSED",
+    "larger_radius_authorized_now": false,
+    "packet_status": "R10000_OBSERVABILITY_BRANCH_CLOSED_BOUNDED_PROTOCOL_FROZEN",
+    "protocol_freeze_status": "FROZEN_REUSABLE_REFERENCE",
+    "requires_further_localization": false,
+    "requires_repair": false,
+    "safe_future_options": [
+      "move to next objective",
+      "reuse bounded observability protocol on another branch",
+      "run a larger bounded radius only as a separate explicit objective",
+      "begin domain shift or builder-cell communication work as a separate branch"
+    ],
+    "schema_version": "r10000_observability_branch_final_state_packet_v0"
+  },
+  "fix_authority_packet": {
+    "authority_classification": "AUTHORITY_STRING_MISMATCH_ONLY_ACCEPT_CLOSE_AND_FREEZE_AFTER_REVIEW",
+    "authorized_next_unit": "PATCH_CLOSE_AND_FREEZE_ACCEPTANCE_AFTER_AUTHORITY_STRING_MISMATCH_REVIEW_V0",
+    "larger_radius_authorized_now": false,
+    "packet_status": "AUTHORITY_STRING_MISMATCH_REVIEWED_NARROW_ACCEPTANCE_PATCH_AUTHORIZED",
+    "radius_10000_rerun_authorized_now": false,
+    "recommended_next_handling": "PATCH_CLOSE_AND_FREEZE_ACCEPTANCE_AFTER_AUTHORITY_STRING_MISMATCH_REVIEW_V0",
+    "repair_authorized_in_this_review_unit": false,
+    "required_fix_shape": [
+      "do not rerun radius-10000",
+      "do not inspect or materialize row payloads",
+      "do not mutate failed close/freeze artifacts",
+      "accept close-and-freeze as valid human-selected refinement of prior close-or-freeze authority",
+      "preserve branch_status CLOSED and protocol_freeze_status FROZEN_REUSABLE_REFERENCE",
+      "preserve terminal next_command_goal null",
+      "emit PASS acceptance receipt and final status packet"
+    ],
+    "schema_version": "r10000_close_and_freeze_authority_string_mismatch_fix_authority_packet_v0",
+    "source_failed_close_freeze_receipt_id": "be986ecf",
+    "source_guard_patch_receipt_id": "45f16008"
+  },
+  "patched_localization_packet": {
+    "accepted_driver_class": "RECEIPT_VOLATILITY_ONLY_NO_STRUCTURAL_SIGNAL_LOCALIZED",
+    "accepted_localization_classification": "R10000_LOCALIZATION_VOLATILE_RECEIPT_METADATA_ONLY",
+    "classification": "R10000_LOCALIZATION_VOLATILE_RECEIPT_METADATA_ONLY_ACCEPTED_AFTER_REFERENCE_ONLY_GUARD_PATCH",
+    "patch_authority_packet": {
+      "packet_status": "PROTECTED_KEY_GUARD_FALSE_POSITIVE_REVIEWED_NARROW_PATCH_AUTHORIZED",
+      "path": "data/r10000_distinguishable_signal_localization_failure_protected_key_hits_review_v0/r10000_signal_localization_failure_fix_authority_packet.json"
+    },
+    "recommended_next_handling": "DECIDE_CLOSE_OR_FREEZE_BOUNDED_OBSERVABILITY_PROTOCOL_AFTER_R10000_VOLATILE_ONLY_SIGNAL_V0",
+    "reference_only_acceptance_recheck": {
+      "accepted_driver_class": "RECEIPT_VOLATILITY_ONLY_NO_STRUCTURAL_SIGNAL_LOCALIZED",
+      "accepted_localization_classification": "R10000_LOCALIZATION_VOLATILE_RECEIPT_METADATA_ONLY",
+      "boundary_clean": true,
+      "boundary_counts": {
+        "closed_group_inspected_count": 0,
+        "existing_receipt_mutation_count": 0,
+        "field_value_invention_count": 0,
+        "identity_assignment_count": 0,
+        "queue_reopened_count": 0,
+        "row_payload_inspected_count": 0,
+        "row_payload_materialized_count": 0,
+        "source_mutation_count": 0
+      },
+      "protected_key_hit_classification": "PROTECTED_KEY_NAME_REFERENCE_ONLY_NO_PAYLOAD_BOUNDARY_CROSSING",
+      "protected_payload_key_hit_count": 30000,
+      "reference_only_acceptance_passed": true,
+      "schema_version": "r10000_signal_localization_reference_only_acceptance_recheck_v0",
+      "shape_reduction_evidence": {
+        "aggressive_scrub_shape_count": 1,
+        "raw_shape_count": 10000,
+        "reduction_class": "DISTINGUISHABILITY_COLLAPSES_AFTER_AGGRESSIVE_ID_PATH_HASH_SCRUB",
+        "structure_only_shape_count": 1,
+        "volatile_scrub_shape_count": 10000
+      },
+      "source_failed_localization_receipt_id": "bb9e4719",
+      "source_failure_review_receipt_id": "e3fe49d3",
+      "substantive_finding_supported": true
+    },
+    "requires_further_localization": false,
+    "requires_human_strategy_selection": true,
+    "requires_repair": false,
+    "run_id": "run_6b1b2494",
+    "schema_version": "r10000_signal_localization_patched_acceptance_packet_v0",
+    "source_failed_localization_receipt_id": "bb9e4719",
+    "source_failure_review_receipt_id": "e3fe49d3"
+  },
+  "schema_version": "r10000_close_and_freeze_acceptance_source_surface_v0",
+  "source_close_freeze_failure_review_receipt_id": "f39ceae9",
+  "source_failed_close_freeze_receipt_id": "be986ecf",
+  "source_guard_patch_receipt_id": "45f16008"
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "r10000_close_and_freeze_acceptance_patch_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_R10000_OBSERVABILITY_BRANCH_CLOSED_BOUNDED_PROTOCOL_FROZEN_FINAL_ACCEPTED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "was close-and-freeze accepted as human-selected refinement",
+      "step": "consume_authority_string_mismatch_review",
+      "taken": "authority_acceptance_recheck"
+    },
+    {
+      "answer": true,
+      "question": "are failed close/freeze artifacts substantively valid and boundary clean",
+      "step": "authority_acceptance_recheck",
+      "taken": "emit_final_accepted_state"
+    },
+    {
+      "answer": "R10000_OBSERVABILITY_BRANCH_CLOSED_BOUNDED_PROTOCOL_FROZEN_FINAL_ACCEPTED",
+      "question": "close/freeze accepted as final",
+      "step": "emit_final_accepted_state",
+      "taken": "emit_final_protocol_reference"
+    },
+    {
+      "answer": false,
+      "question": "emit hidden next command",
+      "step": "emit_final_protocol_reference",
+      "taken": "STOP_R10000_OBSERVABILITY_BRANCH_CLOSED_BOUNDED_PROTOCOL_FROZEN_FINAL_ACCEPTED"
+    }
+  ]
+}

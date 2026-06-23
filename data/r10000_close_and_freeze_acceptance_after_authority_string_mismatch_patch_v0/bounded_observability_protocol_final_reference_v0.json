@@ -1,0 +1,42 @@
+{
+  "bounded_protocol_steps": [
+    "select bounded radius",
+    "run bounded sample",
+    "produce receipts",
+    "inspect rollup/profile",
+    "classify signal",
+    "choose close, repair observability, localize signal, run larger bounded radius with explicit objective, or freeze protocol"
+  ],
+  "decision_graph": {
+    "BOUNDARY_OR_FAILURE_SIGNAL": "review failure, repair only if supported",
+    "DISTINGUISHABLE_CLEAN_SIGNAL": "localize signal before scaling",
+    "LARGER_RADIUS_CANDIDATE": "run only as separate bounded unit with explicit objective",
+    "NO_NEW_SIGNAL_OR_VOLATILE_ONLY_SIGNAL": "close branch or freeze protocol",
+    "OBSERVABILITY_HEALTH_CONFIRMED": "freeze protocol or choose explicit next objective",
+    "OBSERVABILITY_SURFACE_INSUFFICIENT": "repair observability before scaling"
+  },
+  "frozen_lessons": [
+    "Do not treat larger radius as number-go-up.",
+    "Inspect rollup/profile before scaling.",
+    "Clean PASS traffic can still contain distinguishable receipt structure.",
+    "Receipt/reference volatility must be distinguished from semantic or structural signal.",
+    "Protected key-name references are not boundary crossings when materialization/inspection/mutation counters remain zero.",
+    "Close/freeze is valid after accepted volatile-only localization."
+  ],
+  "hard_guards": [
+    "no unbounded run",
+    "no hidden next command",
+    "no queue reopening during observability review",
+    "no closed-group inspection unless explicitly authorized",
+    "no row payload materialization unless explicitly authorized",
+    "no identity/value invention",
+    "no source/prior receipt mutation"
+  ],
+  "protocol_id": "BOUNDED_OBSERVABILITY_PROTOCOL_V0",
+  "reference_status": "FINAL_ACCEPTED_REUSABLE_REFERENCE",
+  "reuse_rule": "Any future branch may reuse this protocol only by selecting a bounded radius and explicit objective; larger radius is not implicit progress.",
+  "schema_version": "bounded_observability_protocol_final_reference_v0",
+  "source_final_accepted_state_packet": "data/r10000_close_and_freeze_acceptance_after_authority_string_mismatch_patch_v0/r10000_close_and_freeze_final_accepted_state_packet.json",
+  "source_freeze_artifact": "data/r10000_observability_branch_close_and_bounded_protocol_freeze_v0/bounded_observability_protocol_freeze_v0.json",
+  "source_reusable_reference_artifact": "data/r10000_observability_branch_close_and_bounded_protocol_freeze_v0/bounded_observability_protocol_reusable_reference_v0.json"
+}
