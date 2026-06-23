@@ -1,0 +1,40 @@
+{
+  "schema_version": "r1000_post_closure_observability_harvest_radius_10000_result_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_RADIUS_10000_RESULT_REVIEW_COMPLETE",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "retry completed and requested result review",
+      "step": "consume_radius_10000_retry_receipt",
+      "taken": "audit_existing_run_artifacts"
+    },
+    {
+      "answer": true,
+      "question": "run artifacts show exactly 10000 observation receipts",
+      "step": "audit_existing_run_artifacts",
+      "taken": "review_boundary_guards"
+    },
+    {
+      "answer": true,
+      "question": "no boundary violations were recorded",
+      "step": "review_boundary_guards",
+      "taken": "classify_result"
+    },
+    {
+      "answer": true,
+      "question": "accept radius-10000 result",
+      "step": "classify_result",
+      "taken": "emit_next_status_packet"
+    },
+    {
+      "answer": false,
+      "question": "run another command now",
+      "step": "emit_next_status_packet",
+      "taken": "STOP_R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_RADIUS_10000_RESULT_REVIEW_COMPLETE"
+    }
+  ]
+}
