@@ -1,0 +1,21 @@
+{
+  "canonical_source_artifact": "data/r10000_observability_branch_close_and_bounded_protocol_freeze_v0/bounded_observability_protocol_freeze_v0.json",
+  "minimum_receipts_to_preserve": [
+    "run receipt",
+    "rollup/profile",
+    "receipt index",
+    "signal classification packet",
+    "localization packet when signal exists",
+    "final close/freeze receipt"
+  ],
+  "protocol_id": "BOUNDED_OBSERVABILITY_PROTOCOL_V0",
+  "reference_status": "READY_FOR_REUSE",
+  "reuse_rule": "Any future branch may reuse this protocol only by selecting a bounded radius and explicit objective; larger radius is not implicit progress.",
+  "schema_version": "bounded_observability_protocol_reusable_reference_v0",
+  "when_to_use": [
+    "after a branch closes and needs bounded post-closure observation",
+    "before escalating radius",
+    "when a clean run may still contain distinguishable receipt/profile signal",
+    "when deciding close versus repair versus localization versus explicit bounded scale"
+  ]
+}

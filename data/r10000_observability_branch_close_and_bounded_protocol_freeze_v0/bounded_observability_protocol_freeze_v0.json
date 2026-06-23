@@ -1,0 +1,40 @@
+{
+  "bounded_protocol_steps": [
+    "select bounded radius",
+    "run bounded sample",
+    "produce receipts",
+    "inspect rollup/profile",
+    "classify signal",
+    "choose close, repair observability, localize signal, run larger bounded radius with explicit objective, or freeze protocol"
+  ],
+  "decision_graph": {
+    "BOUNDARY_OR_FAILURE_SIGNAL": "review failure, repair only if supported",
+    "DISTINGUISHABLE_CLEAN_SIGNAL": "localize signal before scaling",
+    "LARGER_RADIUS_CANDIDATE": "run only as separate bounded unit with explicit objective",
+    "NO_NEW_SIGNAL_OR_VOLATILE_ONLY_SIGNAL": "close branch or freeze protocol",
+    "OBSERVABILITY_HEALTH_CONFIRMED": "freeze protocol or choose explicit next objective",
+    "OBSERVABILITY_SURFACE_INSUFFICIENT": "repair observability before scaling"
+  },
+  "freeze_status": "FROZEN_REUSABLE_REFERENCE",
+  "frozen_at": "2026-06-23T23:21:32.097135+00:00",
+  "frozen_lessons": [
+    "Do not treat larger radius as number-go-up.",
+    "Inspect rollup/profile before scaling.",
+    "Clean PASS traffic can still contain distinguishable receipt structure.",
+    "Receipt/reference volatility must be distinguished from semantic or structural signal.",
+    "Protected key-name references are not boundary crossings when materialization/inspection/mutation counters remain zero.",
+    "Close/freeze is valid after accepted volatile-only localization."
+  ],
+  "hard_guards": [
+    "no unbounded run",
+    "no hidden next command",
+    "no queue reopening during observability review",
+    "no closed-group inspection unless explicitly authorized",
+    "no row payload materialization unless explicitly authorized",
+    "no identity/value invention",
+    "no source/prior receipt mutation"
+  ],
+  "protocol_id": "BOUNDED_OBSERVABILITY_PROTOCOL_V0",
+  "schema_version": "bounded_observability_protocol_freeze_v0",
+  "source_branch_id": "R10000_POST_CLOSURE_OBSERVABILITY_BRANCH"
+}

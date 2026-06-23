@@ -1,0 +1,34 @@
+{
+  "schema_version": "r10000_close_and_freeze_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_R10000_OBSERVABILITY_BRANCH_CLOSED_BOUNDED_PROTOCOL_FROZEN",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "is volatile-only localization accepted after reference-only guard patch",
+      "step": "consume_guard_patch",
+      "taken": "close_branch"
+    },
+    {
+      "answer": false,
+      "question": "does branch require repair, further localization, or rerun",
+      "step": "close_branch",
+      "taken": "freeze_bounded_protocol"
+    },
+    {
+      "answer": true,
+      "question": "freeze reusable bounded observability protocol",
+      "step": "freeze_bounded_protocol",
+      "taken": "emit_final_state"
+    },
+    {
+      "answer": false,
+      "question": "emit hidden next command",
+      "step": "emit_final_state",
+      "taken": "STOP_R10000_OBSERVABILITY_BRANCH_CLOSED_BOUNDED_PROTOCOL_FROZEN"
+    }
+  ]
+}

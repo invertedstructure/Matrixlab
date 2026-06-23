@@ -1,0 +1,21 @@
+{
+  "authority_classification": "AUTHORITY_STRING_MISMATCH_ONLY_ACCEPT_CLOSE_AND_FREEZE_AFTER_REVIEW",
+  "authorized_next_unit": "PATCH_CLOSE_AND_FREEZE_ACCEPTANCE_AFTER_AUTHORITY_STRING_MISMATCH_REVIEW_V0",
+  "larger_radius_authorized_now": false,
+  "packet_status": "AUTHORITY_STRING_MISMATCH_REVIEWED_NARROW_ACCEPTANCE_PATCH_AUTHORIZED",
+  "radius_10000_rerun_authorized_now": false,
+  "recommended_next_handling": "PATCH_CLOSE_AND_FREEZE_ACCEPTANCE_AFTER_AUTHORITY_STRING_MISMATCH_REVIEW_V0",
+  "repair_authorized_in_this_review_unit": false,
+  "required_fix_shape": [
+    "do not rerun radius-10000",
+    "do not inspect or materialize row payloads",
+    "do not mutate failed close/freeze artifacts",
+    "accept close-and-freeze as valid human-selected refinement of prior close-or-freeze authority",
+    "preserve branch_status CLOSED and protocol_freeze_status FROZEN_REUSABLE_REFERENCE",
+    "preserve terminal next_command_goal null",
+    "emit PASS acceptance receipt and final status packet"
+  ],
+  "schema_version": "r10000_close_and_freeze_authority_string_mismatch_fix_authority_packet_v0",
+  "source_failed_close_freeze_receipt_id": "be986ecf",
+  "source_guard_patch_receipt_id": "45f16008"
+}

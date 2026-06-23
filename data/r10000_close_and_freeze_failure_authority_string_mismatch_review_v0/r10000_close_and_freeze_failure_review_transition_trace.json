@@ -1,0 +1,34 @@
+{
+  "schema_version": "r10000_close_and_freeze_failure_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CLOSE_AND_FREEZE_FAILURE_REVIEW_COMPLETE_AUTHORITY_STRING_MISMATCH_PATCH_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "failed only on authority recommendation string mismatch",
+      "step": "consume_failed_close_freeze_receipt",
+      "taken": "review_authority_string"
+    },
+    {
+      "answer": true,
+      "question": "does close-or-freeze authority cover human-selected close-and-freeze",
+      "step": "review_authority_string",
+      "taken": "review_substantive_close_freeze_artifacts"
+    },
+    {
+      "answer": true,
+      "question": "are close/freeze artifacts valid and boundary clean",
+      "step": "review_substantive_close_freeze_artifacts",
+      "taken": "emit_acceptance_patch_authority"
+    },
+    {
+      "answer": false,
+      "question": "patch now",
+      "step": "emit_acceptance_patch_authority",
+      "taken": "STOP_CLOSE_AND_FREEZE_FAILURE_REVIEW_COMPLETE_AUTHORITY_STRING_MISMATCH_PATCH_REQUIRED"
+    }
+  ]
+}
