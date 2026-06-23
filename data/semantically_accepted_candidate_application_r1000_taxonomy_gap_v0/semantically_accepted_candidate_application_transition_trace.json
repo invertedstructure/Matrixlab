@@ -1,0 +1,35 @@
+{
+  "accepted_descriptor_object_id": "86331324",
+  "schema_version": "semantically_accepted_candidate_application_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_SEMANTICALLY_ACCEPTED_CANDIDATE_APPLICATION_COMPLETE_REQUIRES_SURFACE_REVIEW",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "patched candidate accepted for separate application",
+      "step": "consume_semantic_acceptance",
+      "taken": "materialize_unresolved_descriptor_object"
+    },
+    {
+      "answer": false,
+      "question": "descriptor values assigned",
+      "step": "materialize_unresolved_descriptor_object",
+      "taken": "bind_object_to_derived_surface"
+    },
+    {
+      "answer": false,
+      "question": "taxonomy_or_source_mutation_required",
+      "step": "bind_object_to_derived_surface",
+      "taken": "emit_application_review_packet"
+    },
+    {
+      "answer": false,
+      "question": "run_R1000_or_open_group_now",
+      "step": "emit_application_review_packet",
+      "taken": "STOP_SEMANTICALLY_ACCEPTED_CANDIDATE_APPLICATION_COMPLETE_REQUIRES_SURFACE_REVIEW"
+    }
+  ]
+}
