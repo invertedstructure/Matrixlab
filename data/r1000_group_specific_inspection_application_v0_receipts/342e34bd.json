@@ -1,0 +1,142 @@
+{
+  "acceptance_gate_results": {
+    "GROUP_INSPECTION_0_CAPABILITY_AUTHORIZATION_CONSUMED": true,
+    "GROUP_INSPECTION_10_NO_SOURCE_OR_RECEIPT_MUTATION": true,
+    "GROUP_INSPECTION_11_NO_NEXT_GROUP_AUTO_OPEN": true,
+    "GROUP_INSPECTION_12_NO_HIDDEN_NEXT_COMMAND": true,
+    "GROUP_INSPECTION_1_SELECTED_GROUP_SCOPE_CONFIRMED": true,
+    "GROUP_INSPECTION_2_SELECTED_ROWS_MATERIALIZED": true,
+    "GROUP_INSPECTION_3_EVIDENCE_SURFACE_EMITTED": true,
+    "GROUP_INSPECTION_4_AUTHORITY_BASIS_VISIBLE": true,
+    "GROUP_INSPECTION_5_CLASSIFICATION_EMITTED": true,
+    "GROUP_INSPECTION_6_DECISION_PACKET_EMITTED": true,
+    "GROUP_INSPECTION_7_NO_R1000_RUN_OR_OTHER_GROUP_INSPECTION": true,
+    "GROUP_INSPECTION_8_NO_REPAIR_EXECUTED": true,
+    "GROUP_INSPECTION_9_NO_VALUE_OR_TAXONOMY_ACTION": true
+  },
+  "aggregate_metrics": {
+    "authority_basis_visible": true,
+    "branch_resolution": "HEALTHY_EXPECTED_AUTHORITY_BOUNDARY_STOP_ACCEPTED",
+    "classification": "HEALTHY_EXPECTED_AUTHORITY_BOUNDARY_STOP",
+    "classification_emitted_count": 1,
+    "decision_packet_emitted_count": 1,
+    "evidence_surface_emitted_count": 1,
+    "existing_receipt_mutation_count": 0,
+    "field_value_invention_count": 0,
+    "healthy_expected_boundary_stop_count": 1,
+    "hidden_next_command_count": 0,
+    "inspection_executed_count": 1,
+    "next_group_auto_opened_count": 0,
+    "other_group_inspection_count": 0,
+    "r1000_run_executed_count": 0,
+    "recommended_next_handling": "RETURN_TO_PRESSURE_QUEUE_OR_SELECT_NEXT_HUMAN_AUTHORIZED_OBJECTIVE",
+    "repair_executed_count": 0,
+    "scope_selected_group_only": true,
+    "selected_group": {
+      "halt_reason": "STOP_AUTHORITY_BOUNDARY",
+      "parent_pressure_class": "AUTHORITY_BOUNDARY",
+      "pressure_subtype": "healthy_boundary_stop"
+    },
+    "selected_group_row_count": 24,
+    "selected_rows_materialized_count": 1,
+    "source_current_surface_protocol_receipt_id": "e3371951",
+    "source_fixed_application_receipt_id": "2a16f593",
+    "source_group_capability_receipt_id": "73dfb849",
+    "source_mutation_count": 0,
+    "surface_state_records_emitted_count": 2,
+    "taxonomy_delta_proposal_emitted_count": 0,
+    "taxonomy_label_creation_count": 0,
+    "taxonomy_upgrade_authorized_count": 0,
+    "transition_trace_emitted_count": 1
+  },
+  "created_at": "2026-06-23T00:44:51.327033+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "group_specific_inspection_application_guards": {
+    "authority_basis_visible": true,
+    "capability_authorization_consumed": true,
+    "classification_emitted": true,
+    "decision_packet_emitted": true,
+    "evidence_surface_emitted": true,
+    "existing_receipts_mutated": false,
+    "hidden_next_command": false,
+    "next_group_auto_opened": false,
+    "other_group_inspection_executed": false,
+    "r1000_run_executed": false,
+    "repair_executed": false,
+    "selected_group_scope_confirmed": true,
+    "selected_rows_materialized": true,
+    "source_mutated": false,
+    "taxonomy_delta_proposal_emitted": false,
+    "taxonomy_label_created": false,
+    "taxonomy_upgrade_authorized": false,
+    "values_invented": false
+  },
+  "group_specific_inspection_application_summary": {
+    "authority_basis_visible": true,
+    "branch_resolution": "HEALTHY_EXPECTED_AUTHORITY_BOUNDARY_STOP_ACCEPTED",
+    "classification": "HEALTHY_EXPECTED_AUTHORITY_BOUNDARY_STOP",
+    "recommended_next_handling": "RETURN_TO_PRESSURE_QUEUE_OR_SELECT_NEXT_HUMAN_AUTHORIZED_OBJECTIVE",
+    "selected_group": {
+      "halt_reason": "STOP_AUTHORITY_BOUNDARY",
+      "parent_pressure_class": "AUTHORITY_BOUNDARY",
+      "pressure_subtype": "healthy_boundary_stop"
+    },
+    "selected_group_row_count": 24
+  },
+  "human_decision": {
+    "authorized": [
+      "read selected group rows from existing R1000 pressure rows",
+      "materialize selected group evidence surface",
+      "classify selected boundary-stop surface",
+      "emit surface-state records",
+      "emit transition trace",
+      "emit decision packet"
+    ],
+    "decision": "APPLY_GROUP_SPECIFIC_INSPECTION_CAPABILITY_TO_SELECTED_GROUP",
+    "not_authorized": [
+      "running new R1000 pressure generation",
+      "inspecting any other group",
+      "repairing selected group",
+      "inventing values",
+      "creating labels",
+      "upgrading taxonomy",
+      "mutating source rows",
+      "mutating existing receipts",
+      "auto-opening another pressure group",
+      "hiding next command"
+    ],
+    "scope": "inspect only the authorized selected R1000 pressure group and classify the boundary-stop surface without repair, R1000 rerun, taxonomy action, or next-group auto-open",
+    "selected_group": {
+      "halt_reason": "STOP_AUTHORITY_BOUNDARY",
+      "parent_pressure_class": "AUTHORITY_BOUNDARY",
+      "pressure_subtype": "healthy_boundary_stop"
+    },
+    "source_fixed_application_receipt_id": "2a16f593",
+    "source_group_capability_receipt_id": "73dfb849"
+  },
+  "output_artifacts": {
+    "implementation_receipt": "data/r1000_group_specific_inspection_application_v0_receipts/342e34bd.json",
+    "selected_group_boundary_stop_classification": "data/r1000_group_specific_inspection_application_v0/selected_group_boundary_stop_classification.json",
+    "selected_group_boundary_stop_decision_packet": "data/r1000_group_specific_inspection_application_v0/selected_group_boundary_stop_decision_packet.json",
+    "selected_group_evidence_surface": "data/r1000_group_specific_inspection_application_v0/selected_group_evidence_surface.json",
+    "selected_group_inspection_application_report": "data/r1000_group_specific_inspection_application_v0/selected_group_inspection_application_report.json",
+    "selected_group_inspection_transition_trace": "data/r1000_group_specific_inspection_application_v0/selected_group_inspection_transition_trace.json",
+    "selected_group_rows": "data/r1000_group_specific_inspection_application_v0/selected_group_rows.jsonl",
+    "selected_group_surface_state_records": "data/r1000_group_specific_inspection_application_v0/selected_group_surface_state_records.jsonl"
+  },
+  "receipt_id": "342e34bd",
+  "receipt_type": "R1000_GROUP_SPECIFIC_INSPECTION_APPLICATION_RECEIPT",
+  "schema_version": "r1000_group_specific_inspection_application_receipt_v0",
+  "source_current_surface_protocol_receipt_id": "e3371951",
+  "source_fixed_application_receipt_id": "2a16f593",
+  "source_group_capability_receipt_id": "73dfb849",
+  "target_unit_id": "r1000_group_specific_inspection_application.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_SELECTED_GROUP_INSPECTION_COMPLETE_HEALTHY_BOUNDARY_STOP",
+    "type": "STOP"
+  },
+  "unit_id": "APPLY_R1000_GROUP_SPECIFIC_INSPECTION_CAPABILITY_TO_SELECTED_GROUP_V0",
+  "warnings": []
+}

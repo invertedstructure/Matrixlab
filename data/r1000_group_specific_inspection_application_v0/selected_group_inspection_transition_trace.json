@@ -1,0 +1,40 @@
+{
+  "schema_version": "r1000_selected_group_inspection_transition_trace_v0",
+  "selected_group": {
+    "halt_reason": "STOP_AUTHORITY_BOUNDARY",
+    "parent_pressure_class": "AUTHORITY_BOUNDARY",
+    "pressure_subtype": "healthy_boundary_stop"
+  },
+  "source_group_capability_receipt_id": "73dfb849",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_SELECTED_GROUP_INSPECTION_COMPLETE_HEALTHY_BOUNDARY_STOP",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "no": "STOP_SELECTED_GROUP_ROWS_MISSING",
+      "question": "selected_group_rows_visible",
+      "step": "materialize_selected_group_surface",
+      "taken": "inspect_boundary_surface",
+      "yes": "inspect_boundary_surface"
+    },
+    {
+      "answer": true,
+      "no": "STOP_AUTHORITY_BASIS_MISSING",
+      "question": "boundary_stop_has_explicit_authority_basis",
+      "step": "inspect_boundary_surface",
+      "taken": "classify_boundary_stop",
+      "yes": "classify_boundary_stop"
+    },
+    {
+      "answer": true,
+      "no": "classify_boundary_deficiency",
+      "question": "boundary_stop_is_expected_and_healthy",
+      "step": "classify_boundary_stop",
+      "taken": "HEALTHY_EXPECTED_AUTHORITY_BOUNDARY_STOP",
+      "yes": "CLASSIFY_HEALTHY_EXPECTED_BOUNDARY_STOP"
+    }
+  ]
+}
