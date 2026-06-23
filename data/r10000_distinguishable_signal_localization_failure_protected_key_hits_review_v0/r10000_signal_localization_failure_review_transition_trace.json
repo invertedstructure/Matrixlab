@@ -1,0 +1,34 @@
+{
+  "schema_version": "r10000_signal_localization_failure_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_R10000_SIGNAL_LOCALIZATION_FAILURE_REVIEW_COMPLETE_GUARD_FALSE_POSITIVE_PATCH_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "failed receipt is gate-fail due protected key hits",
+      "step": "consume_failed_localization_receipt",
+      "taken": "review_protected_key_hits"
+    },
+    {
+      "answer": false,
+      "question": "did protected key hits cross payload/materialization boundary",
+      "step": "review_protected_key_hits",
+      "taken": "review_substantive_localization_finding"
+    },
+    {
+      "answer": true,
+      "question": "is volatile-only localization supported despite gate fail",
+      "step": "review_substantive_localization_finding",
+      "taken": "emit_guard_false_positive_fix_authority"
+    },
+    {
+      "answer": false,
+      "question": "repair now",
+      "step": "emit_guard_false_positive_fix_authority",
+      "taken": "STOP_R10000_SIGNAL_LOCALIZATION_FAILURE_REVIEW_COMPLETE_GUARD_FALSE_POSITIVE_PATCH_REQUIRED"
+    }
+  ]
+}

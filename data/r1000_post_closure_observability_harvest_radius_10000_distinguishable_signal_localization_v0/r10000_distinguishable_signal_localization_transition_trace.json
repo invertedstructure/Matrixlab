@@ -1,0 +1,34 @@
+{
+  "schema_version": "r10000_distinguishable_signal_localization_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_R10000_DISTINGUISHABLE_SIGNAL_LOCALIZATION_COMPLETE",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "clean distinguishable signal was detected",
+      "step": "consume_r10000_signal_inspection",
+      "taken": "load_existing_observation_receipts"
+    },
+    {
+      "answer": true,
+      "question": "analyze exactly 10000 existing receipts without rerun",
+      "step": "load_existing_observation_receipts",
+      "taken": "field_cardinality_and_shape_reduction"
+    },
+    {
+      "answer": "RECEIPT_VOLATILITY_ONLY_NO_STRUCTURAL_SIGNAL_LOCALIZED",
+      "question": "what driver class explains distinguishability",
+      "step": "field_cardinality_and_shape_reduction",
+      "taken": "emit_localization_packet"
+    },
+    {
+      "answer": false,
+      "question": "run repair/localization/scale now",
+      "step": "emit_localization_packet",
+      "taken": "STOP_R10000_DISTINGUISHABLE_SIGNAL_LOCALIZATION_COMPLETE"
+    }
+  ]
+}

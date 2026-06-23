@@ -1,0 +1,19 @@
+{
+  "authorized_next_unit": "PATCH_R10000_SIGNAL_LOCALIZATION_PROTECTED_KEY_GUARD_TO_REFERENCE_ONLY_ACCEPTANCE_V0",
+  "guard_classification": "OVERSTRICT_PROTECTED_KEY_GUARD_FALSE_POSITIVE_ACCEPT_FINDING_AFTER_REVIEW",
+  "packet_status": "PROTECTED_KEY_GUARD_FALSE_POSITIVE_REVIEWED_NARROW_PATCH_AUTHORIZED",
+  "radius_10000_rerun_authorized_now": false,
+  "recommended_next_handling": "PATCH_R10000_SIGNAL_LOCALIZATION_PROTECTED_KEY_GUARD_TO_REFERENCE_ONLY_ACCEPTANCE_V0",
+  "repair_authorized_in_this_review_unit": false,
+  "required_fix_shape": [
+    "do not rerun radius-10000",
+    "do not inspect or materialize row payloads",
+    "preserve existing failed localization artifacts",
+    "patch only the acceptance distinction between protected key-name references and actual protected payload boundary crossing",
+    "accept protected key-name hits only when row_payload_materialized_count, row_payload_inspected_count, closed_group_inspected_count, queue_reopened_count, identity_assignment_count, field_value_invention_count, source_mutation_count, and existing_receipt_mutation_count are all zero",
+    "carry forward substantive classification R10000_LOCALIZATION_VOLATILE_RECEIPT_METADATA_ONLY if unchanged",
+    "emit PASS review/patch receipt and next decision packet"
+  ],
+  "schema_version": "r10000_signal_localization_failure_fix_authority_packet_v0",
+  "source_failed_r10000_signal_localization_receipt_id": "bb9e4719"
+}
