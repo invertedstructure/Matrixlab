@@ -1,0 +1,34 @@
+{
+  "schema_version": "r1000_post_closure_observability_harvest_radius_10000_retry_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_RADIUS_10000_RETRY_COMPLETE",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "radius-10000 retry ready from fixed CLI wrapper intercept parse",
+      "step": "consume_retry_ready_packet",
+      "taken": "run_bounded_radius_10000_retry"
+    },
+    {
+      "answer": true,
+      "question": "stdout JSON and radius completed exactly 10000",
+      "step": "run_bounded_radius_10000_retry",
+      "taken": "audit_run_artifacts"
+    },
+    {
+      "answer": true,
+      "question": "run directory contains exactly 10000 observation receipt files and run/rollup pass",
+      "step": "audit_run_artifacts",
+      "taken": "emit_completion_receipt"
+    },
+    {
+      "answer": false,
+      "question": "run another retry now",
+      "step": "emit_completion_receipt",
+      "taken": "STOP_R1000_POST_CLOSURE_OBSERVABILITY_HARVEST_RADIUS_10000_RETRY_COMPLETE"
+    }
+  ]
+}
