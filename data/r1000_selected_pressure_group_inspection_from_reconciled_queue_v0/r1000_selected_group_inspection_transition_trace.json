@@ -1,0 +1,35 @@
+{
+  "schema_version": "r1000_selected_group_inspection_transition_trace_v0",
+  "selected_pressure_group_id": "b9a7575a",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_SELECTED_R1000_PRESSURE_GROUP_INSPECTED_QUEUE_RECONCILIATION_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "selected group exists and was not inspected",
+      "step": "consume_selected_group",
+      "taken": "materialize_metadata_surface"
+    },
+    {
+      "answer": false,
+      "question": "row payload inspection authorized",
+      "step": "materialize_metadata_surface",
+      "taken": "classify_metadata_surface"
+    },
+    {
+      "answer": true,
+      "question": "selected group is receipt-size burden pressure",
+      "step": "classify_metadata_surface",
+      "taken": "emit_burden_pressure_packet"
+    },
+    {
+      "answer": false,
+      "question": "queue reconciliation happens in this unit",
+      "step": "emit_burden_pressure_packet",
+      "taken": "STOP_SELECTED_R1000_PRESSURE_GROUP_INSPECTED_QUEUE_RECONCILIATION_REQUIRED"
+    }
+  ]
+}

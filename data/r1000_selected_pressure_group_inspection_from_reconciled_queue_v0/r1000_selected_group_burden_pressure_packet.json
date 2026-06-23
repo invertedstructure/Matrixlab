@@ -1,0 +1,25 @@
+{
+  "burden_pressure_type": "receipt_size_burden",
+  "classification_status": "BURDEN_PRESSURE_RECEIPT_SIZE_BURDEN_METADATA_REVIEWED",
+  "inspection_basis": "selected group metadata and queue-selection provenance only",
+  "local_interpretation": "selected group represents receipt-size burden pressure from completed rows; this inspection records it as metadata-reviewed and returns it for separate queue reconciliation or burden-policy handling",
+  "not_authorized_here": [
+    "policy rewrite",
+    "receipt-size metric redesign",
+    "individual row inspection",
+    "R1000 rerun",
+    "source mutation",
+    "queue reconciliation",
+    "next group opening"
+  ],
+  "observed_halt_reason": "STOP_DONE",
+  "packet_status": "BURDEN_PRESSURE_METADATA_INSPECTION_PACKET",
+  "row_count": 19,
+  "schema_version": "r1000_selected_group_burden_pressure_packet_v0",
+  "selected_pressure_group_id": "b9a7575a",
+  "suggested_handling_options": [
+    "mark selected burden group as metadata-reviewed and reconcile queue",
+    "introduce separate receipt-burden policy/metrics layer if burden pressure needs quantitative treatment",
+    "defer deeper burden analysis until individual row payloads are explicitly authorized"
+  ]
+}
