@@ -1,0 +1,52 @@
+{
+  "allowed_moves": [
+    "read_selected_group_rows_from_existing_r1000_pressure_rows",
+    "materialize_selected_group_evidence_surface",
+    "classify_boundary_stop_as_healthy_expected_or_needs_more_detail",
+    "emit_surface_state_records",
+    "emit_transition_trace",
+    "emit_typed_stop_or_decision_packet"
+  ],
+  "authority_guards": {
+    "existing_receipt_mutation_count": 0,
+    "field_value_invention_count": 0,
+    "hidden_next_command_count": 0,
+    "next_group_auto_opened_count": 0,
+    "other_group_inspection_count": 0,
+    "r1000_run_executed_count": 0,
+    "repair_executed_count": 0,
+    "source_mutation_count": 0,
+    "taxonomy_label_creation_count": 0,
+    "taxonomy_upgrade_authorized_count": 0
+  },
+  "capability_boundary": {
+    "may_classify_group_specific_surface": true,
+    "may_emit_proposals": true,
+    "may_execute_repairs": false,
+    "may_mark_expected_limit": false,
+    "must_stop_if_required_move_outside_contract": true,
+    "stop_code": "STOP_CAPABILITY_LAYER_REQUIRED"
+  },
+  "capability_name": "CURRENT_SURFACE_GROUP_SPECIFIC_INSPECTION_CAPABILITY",
+  "contract_id": "8b87c747",
+  "forbidden_moves": [
+    "run_new_r1000_generation",
+    "inspect_any_other_group",
+    "repair_selected_group",
+    "invent_values",
+    "create_labels",
+    "upgrade_taxonomy",
+    "mutate_source_rows",
+    "mutate_existing_receipts",
+    "auto_open_next_group",
+    "emit_hidden_next_command"
+  ],
+  "schema_version": "r1000_group_specific_inspection_capability_contract_v0",
+  "scope": "single_selected_r1000_pressure_group",
+  "selected_group": {
+    "halt_reason": "STOP_AUTHORITY_BOUNDARY",
+    "parent_pressure_class": "AUTHORITY_BOUNDARY",
+    "pressure_subtype": "healthy_boundary_stop"
+  },
+  "selected_group_row_count": 24
+}

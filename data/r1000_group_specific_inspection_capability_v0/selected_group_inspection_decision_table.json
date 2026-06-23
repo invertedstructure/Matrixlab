@@ -1,0 +1,47 @@
+{
+  "schema_version": "selected_group_inspection_decision_table_v0",
+  "selected_group": {
+    "halt_reason": "STOP_AUTHORITY_BOUNDARY",
+    "parent_pressure_class": "AUTHORITY_BOUNDARY",
+    "pressure_subtype": "healthy_boundary_stop"
+  },
+  "terminal_codes": [
+    "STOP_SELECTED_GROUP_ROWS_MISSING",
+    "STOP_AUTHORITY_BASIS_MISSING",
+    "CLASSIFY_HEALTHY_EXPECTED_BOUNDARY_STOP",
+    "STOP_REPAIR_NOT_AUTHORIZED_BY_THIS_CAPABILITY",
+    "STOP_CAPABILITY_LAYER_REQUIRED"
+  ],
+  "transitions": [
+    {
+      "no": "STOP_SELECTED_GROUP_ROWS_MISSING",
+      "question": "selected_group_rows_visible",
+      "step": "materialize_selected_group_surface",
+      "yes": "inspect_boundary_surface"
+    },
+    {
+      "no": "STOP_AUTHORITY_BASIS_MISSING",
+      "question": "boundary_stop_has_explicit_authority_basis",
+      "step": "inspect_boundary_surface",
+      "yes": "classify_boundary_stop"
+    },
+    {
+      "no": "classify_boundary_deficiency",
+      "question": "boundary_stop_is_expected_and_healthy",
+      "step": "classify_boundary_stop",
+      "yes": "CLASSIFY_HEALTHY_EXPECTED_BOUNDARY_STOP"
+    },
+    {
+      "no": "STOP_CAPABILITY_LAYER_REQUIRED",
+      "question": "deficiency_repairable_within_current_contract",
+      "step": "classify_boundary_deficiency",
+      "yes": "STOP_REPAIR_NOT_AUTHORIZED_BY_THIS_CAPABILITY"
+    },
+    {
+      "no": "continue_current_transition",
+      "question": "required_next_move_exceeds_current_contract",
+      "step": "any_step",
+      "yes": "STOP_CAPABILITY_LAYER_REQUIRED"
+    }
+  ]
+}

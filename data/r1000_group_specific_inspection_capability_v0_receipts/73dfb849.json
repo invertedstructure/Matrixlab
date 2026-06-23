@@ -1,0 +1,137 @@
+{
+  "acceptance_gate_results": {
+    "GROUP_CAPABILITY_0_FIXED_APPLICATION_CONSUMED": true,
+    "GROUP_CAPABILITY_10_NO_VALUE_OR_TAXONOMY_ACTION": true,
+    "GROUP_CAPABILITY_11_NO_SOURCE_OR_RECEIPT_MUTATION": true,
+    "GROUP_CAPABILITY_12_NO_NEXT_GROUP_AUTO_OPEN": true,
+    "GROUP_CAPABILITY_13_NO_HIDDEN_NEXT_COMMAND": true,
+    "GROUP_CAPABILITY_1_SELECTED_GROUP_CONFIRMED": true,
+    "GROUP_CAPABILITY_2_CAPABILITY_STOP_PACKET_CONSUMED": true,
+    "GROUP_CAPABILITY_3_AUTHORIZATION_PACKET_EMITTED": true,
+    "GROUP_CAPABILITY_4_CAPABILITY_CONTRACT_EMITTED": true,
+    "GROUP_CAPABILITY_5_SELECTED_GROUP_PROFILE_EMITTED": true,
+    "GROUP_CAPABILITY_6_DECISION_TABLE_EMITTED": true,
+    "GROUP_CAPABILITY_7_SCOPE_SELECTED_GROUP_ONLY": true,
+    "GROUP_CAPABILITY_8_NO_INSPECTION_EXECUTED": true,
+    "GROUP_CAPABILITY_9_NO_R1000_RUN_OR_REPAIR_EXECUTED": true
+  },
+  "aggregate_metrics": {
+    "authorization_packet_emitted_count": 1,
+    "capability_available_after_this_unit": true,
+    "capability_contract_emitted_count": 1,
+    "decision_table_emitted_count": 1,
+    "existing_receipt_mutation_count": 0,
+    "field_value_invention_count": 0,
+    "hidden_next_command_count": 0,
+    "inspection_executed_count": 0,
+    "next_group_auto_opened_count": 0,
+    "other_group_inspection_count": 0,
+    "r1000_run_executed_count": 0,
+    "recommended_next_handling": "APPLY_R1000_GROUP_SPECIFIC_INSPECTION_CAPABILITY_TO_SELECTED_GROUP_V0",
+    "repair_executed_count": 0,
+    "scope_selected_group_only": true,
+    "selected_group": {
+      "halt_reason": "STOP_AUTHORITY_BOUNDARY",
+      "parent_pressure_class": "AUTHORITY_BOUNDARY",
+      "pressure_subtype": "healthy_boundary_stop"
+    },
+    "selected_group_profile_emitted_count": 1,
+    "selected_group_row_count": 24,
+    "source_closed_branch_fix_receipt_id": "4a0cfc09",
+    "source_current_surface_protocol_receipt_id": "e3371951",
+    "source_fixed_application_receipt_id": "2a16f593",
+    "source_mutation_count": 0,
+    "taxonomy_delta_proposal_emitted_count": 0,
+    "taxonomy_label_creation_count": 0,
+    "taxonomy_upgrade_authorized_count": 0
+  },
+  "created_at": "2026-06-23T00:40:15.394257+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "group_specific_inspection_capability_guards": {
+    "capability_available_after_this_unit": true,
+    "capability_stop_packet_consumed": true,
+    "existing_receipts_mutated": false,
+    "fixed_application_consumed": true,
+    "hidden_next_command": false,
+    "inspection_executed": false,
+    "next_group_auto_opened": false,
+    "other_group_inspection_executed": false,
+    "r1000_run_executed": false,
+    "repair_executed": false,
+    "scope_selected_group_only": true,
+    "selected_group_confirmed": true,
+    "source_mutated": false,
+    "taxonomy_delta_proposal_emitted": false,
+    "taxonomy_label_created": false,
+    "taxonomy_upgrade_authorized": false,
+    "values_invented": false
+  },
+  "group_specific_inspection_capability_summary": {
+    "authorization_id": "2d944a51",
+    "capability_available_after_this_unit": true,
+    "contract_id": "8b87c747",
+    "recommended_next_handling": "APPLY_R1000_GROUP_SPECIFIC_INSPECTION_CAPABILITY_TO_SELECTED_GROUP_V0",
+    "scope": "selected_group_only",
+    "selected_group": {
+      "halt_reason": "STOP_AUTHORITY_BOUNDARY",
+      "parent_pressure_class": "AUTHORITY_BOUNDARY",
+      "pressure_subtype": "healthy_boundary_stop"
+    },
+    "selected_group_row_count": 24
+  },
+  "human_decision": {
+    "authorized": [
+      "define selected-group inspection capability contract",
+      "define selected-group inspection profile",
+      "define yes/no inspection decision table for the selected group",
+      "define acceptance gates for applying the selected-group inspection capability",
+      "authorize a later application unit to inspect this selected group within the contract"
+    ],
+    "decision": "AUTHORIZE_GROUP_SPECIFIC_INSPECTION_CAPABILITY",
+    "not_authorized": [
+      "executing selected-group inspection in this unit",
+      "running new R1000 pressure generation",
+      "repairing the selected group",
+      "inventing values",
+      "creating labels",
+      "upgrading taxonomy",
+      "mutating source rows",
+      "mutating existing receipts",
+      "auto-opening another pressure group",
+      "claiming general capability for all groups",
+      "hiding next command"
+    ],
+    "scope": "authorize a narrow inspection capability for the selected R1000 remaining pressure group only, without executing that inspection in this unit",
+    "selected_group": {
+      "halt_reason": "STOP_AUTHORITY_BOUNDARY",
+      "parent_pressure_class": "AUTHORITY_BOUNDARY",
+      "pressure_subtype": "healthy_boundary_stop"
+    },
+    "source_closed_branch_fix_receipt_id": "4a0cfc09",
+    "source_fixed_application_receipt_id": "2a16f593"
+  },
+  "output_artifacts": {
+    "acceptance_gates": "data/r1000_group_specific_inspection_capability_v0/group_specific_inspection_capability_acceptance_gates.json",
+    "authorization_packet": "data/r1000_group_specific_inspection_capability_v0/group_specific_inspection_capability_authorization_packet.json",
+    "capability_contract": "data/r1000_group_specific_inspection_capability_v0/group_specific_inspection_capability_contract.json",
+    "capability_report": "data/r1000_group_specific_inspection_capability_v0/group_specific_inspection_capability_report.json",
+    "implementation_receipt": "data/r1000_group_specific_inspection_capability_v0_receipts/73dfb849.json",
+    "selected_group_inspection_decision_table": "data/r1000_group_specific_inspection_capability_v0/selected_group_inspection_decision_table.json",
+    "selected_group_inspection_profile": "data/r1000_group_specific_inspection_capability_v0/selected_group_inspection_profile.json"
+  },
+  "receipt_id": "73dfb849",
+  "receipt_type": "R1000_GROUP_SPECIFIC_INSPECTION_CAPABILITY_AUTHORIZATION_RECEIPT",
+  "schema_version": "r1000_group_specific_inspection_capability_authorization_receipt_v0",
+  "source_closed_branch_fix_receipt_id": "4a0cfc09",
+  "source_current_surface_protocol_receipt_id": "e3371951",
+  "source_fixed_application_receipt_id": "2a16f593",
+  "target_unit_id": "r1000_group_specific_inspection_capability.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_GROUP_SPECIFIC_INSPECTION_CAPABILITY_AUTHORIZED",
+    "type": "STOP"
+  },
+  "unit_id": "AUTHORIZE_R1000_GROUP_SPECIFIC_INSPECTION_CAPABILITY_V0",
+  "warnings": []
+}
