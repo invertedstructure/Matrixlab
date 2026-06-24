@@ -1,0 +1,28 @@
+{
+  "schema_version": "cell1_runtime_patch_target_narrowing_surface_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_RUNTIME_PATCH_TARGET_NARROWING_SURFACE_COMPLETE",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "07bc35ea",
+      "question": "was a target-narrowing surface designed from the missing-target blocker",
+      "step": "consume_target_narrowing_design",
+      "taken": "scan_declared_sources"
+    },
+    {
+      "answer": "TARGET_CANDIDATE_WITHHELD_NO_SINGLE_TARGET",
+      "question": "is exactly one bounded target candidate visible without guessing",
+      "step": "scan_declared_sources",
+      "taken": "emit_candidate_record_or_withhold"
+    },
+    {
+      "answer": "REQUEST_NARROWER_RUNTIME_PATCH_TARGET_EVIDENCE_V0",
+      "question": "what is the honest next handling surface",
+      "step": "emit_candidate_record_or_withhold",
+      "taken": "stop"
+    }
+  ]
+}

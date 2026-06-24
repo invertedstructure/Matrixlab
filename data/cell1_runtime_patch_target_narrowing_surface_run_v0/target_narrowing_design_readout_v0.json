@@ -1,0 +1,25 @@
+{
+  "allowed_candidate_outcomes": [
+    "TARGET_CANDIDATE_DECLARED_FOR_REVIEW",
+    "TARGET_CANDIDATE_WITHHELD_NO_SINGLE_TARGET",
+    "TARGET_CANDIDATE_REPAIR_REQUIRED",
+    "TARGET_CANDIDATE_BLOCKED_AUTHORITY",
+    "REQUEST_NARROWER_EVIDENCE"
+  ],
+  "blocker": "MISSING_BOUNDED_RUNTIME_PATCH_TARGET",
+  "candidate_object_type": "BOUNDED_RUNTIME_PATCH_TARGET_CANDIDATE",
+  "candidate_rules": [
+    "exactly one target candidate may be declared",
+    "target_ref must be local and bounded",
+    "target_ref must not use latest-file or mtime inference",
+    "target_ref does not authorize writing",
+    "verification gate must be referenced",
+    "rollback-or-stop boundary must be referenced",
+    "classification is review-only"
+  ],
+  "contract_id": "target_candidate_contract_74112a60",
+  "design_id": "target_narrowing_design_42d96b06",
+  "future_target_narrowing_unit": "RUN_CELL1_RUNTIME_PATCH_TARGET_NARROWING_SURFACE_FROM_DESIGN_V0",
+  "schema_version": "cell1_runtime_patch_target_narrowing_design_readout_v0",
+  "source_blocker": "BLOCKED_MISSING_BOUNDED_TARGET"
+}
