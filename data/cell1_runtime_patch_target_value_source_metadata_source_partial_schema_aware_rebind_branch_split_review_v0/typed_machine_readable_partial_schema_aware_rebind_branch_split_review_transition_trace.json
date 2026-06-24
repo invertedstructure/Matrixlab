@@ -1,0 +1,28 @@
+{
+  "schema_version": "typed_machine_readable_partial_schema_aware_rebind_branch_split_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_PARTIAL_SCHEMA_AWARE_REBIND_BRANCH_SPLIT_REVIEWED_PROPOSAL_BRANCH_REVIEW_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "does routing object preserve 4/22/498 split",
+      "step": "consume_branch_split",
+      "taken": "review branch contracts and forbidden actions"
+    },
+    {
+      "answer": "no",
+      "question": "did any branch authorize rebind application",
+      "step": "review_forbidden_boundary",
+      "taken": "preserve proposal hold and no-application boundary"
+    },
+    {
+      "answer": "proposal_review_branch",
+      "question": "which branch is smallest lawful next review",
+      "step": "select_next_branch",
+      "taken": "REVIEW_PARTIAL_SCHEMA_AWARE_REBIND_PROPOSAL_BRANCH_V0"
+    }
+  ]
+}
