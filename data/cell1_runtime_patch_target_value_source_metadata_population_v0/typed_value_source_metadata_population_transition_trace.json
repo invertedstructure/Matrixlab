@@ -1,0 +1,29 @@
+{
+  "schema_version": "typed_value_source_metadata_population_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_VALUE_SOURCE_METADATA_PARTIALLY_POPULATED_STILL_INSUFFICIENT",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "typed value-source metadata surface existed but was not populated",
+      "question": "what was missing",
+      "step": "consume_metadata_surface",
+      "taken": "extract explicitly derivable row metadata only"
+    },
+    {
+      "answer": "TYPED_VALUE_SOURCE_METADATA_PARTIALLY_POPULATED_STILL_INSUFFICIENT",
+      "question": "is metadata now sufficient for lawful discriminator use",
+      "reason_codes": [
+        "EXPLICIT_ROW_IDENTITY_METADATA_POPULATED",
+        "REQUIRED_TYPED_METADATA_STILL_MISSING",
+        "SOME_METADATA_FIELDS_HAVE_NO_SOURCE",
+        "NO_DISCRIMINATOR_READY_FOR_RULE_REFINEMENT",
+        "SOURCE_BRIDGE_REQUIRED_FOR_TYPED_METADATA_COMPLETION"
+      ],
+      "step": "classify_population_coverage",
+      "taken": "BUILD_TYPED_VALUE_SOURCE_METADATA_SOURCE_BRIDGE_V0"
+    }
+  ]
+}
