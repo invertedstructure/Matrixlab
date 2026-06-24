@@ -1,0 +1,28 @@
+{
+  "schema_version": "typed_machine_readable_partial_schema_aware_rebind_proposal_branch_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_PARTIAL_SCHEMA_AWARE_REBIND_PROPOSAL_BRANCH_REVIEWED_AUTHORIZATION_CONTRACT_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "are 4 proposal bindings ready for branch review",
+      "step": "consume_proposal_branch",
+      "taken": "review proposal candidates"
+    },
+    {
+      "answer": "no",
+      "question": "can proposal hold be released now",
+      "step": "preserve_hold",
+      "taken": "emit hold preservation contract"
+    },
+    {
+      "answer": "bounded authorization contract",
+      "question": "what is required before application",
+      "step": "select_next_object",
+      "taken": "BUILD_PARTIAL_SCHEMA_AWARE_REBIND_PROPOSAL_BRANCH_AUTHORIZATION_CONTRACT_V0"
+    }
+  ]
+}
