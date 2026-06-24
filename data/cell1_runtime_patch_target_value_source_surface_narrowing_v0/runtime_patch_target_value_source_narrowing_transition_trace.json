@@ -1,0 +1,28 @@
+{
+  "schema_version": "runtime_patch_target_value_source_narrowing_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_VALUE_SOURCE_SURFACE_STILL_MULTIPLE_AMBIGUOUS",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "overbroad source surface with multiple typed rows",
+      "question": "is the source absent or overbroad",
+      "step": "consume_multiple_ambiguous_surface",
+      "taken": "classify rows by provenance and role"
+    },
+    {
+      "answer": "VALUE_SOURCE_SURFACE_STILL_MULTIPLE_AMBIGUOUS",
+      "question": "does exactly one selected-target-ref row survive bounded dominance filters",
+      "reason_codes": [
+        "MULTIPLE_ELIGIBLE_SELECTED_TARGET_VALUE_SOURCE_ROWS_WITH_EQUAL_DOMINANCE",
+        "NO_SINGLE_DOMINANT_VALUE_SOURCE",
+        "SUPPORTING_VERIFICATION_GATE_REF_NOT_UNIQUE",
+        "SUPPORTING_ROLLBACK_OR_STOP_BOUNDARY_REF_NOT_UNIQUE"
+      ],
+      "step": "dominance_check",
+      "taken": "ADD_EXPLICIT_VALUE_SOURCE_DOMINANCE_RULE_V0"
+    }
+  ]
+}
