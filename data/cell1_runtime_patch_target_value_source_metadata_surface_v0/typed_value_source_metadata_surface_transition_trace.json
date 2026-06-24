@@ -1,0 +1,28 @@
+{
+  "schema_version": "typed_value_source_metadata_surface_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_NARROWER_TYPED_VALUE_SOURCE_METADATA_SURFACE_BUILT_NEEDS_POPULATION",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "UNRESOLVED_DISTINGUISHABILITY_DUE_TO_MISSING_TYPED_METADATA",
+      "question": "is this a real tie or unresolved distinguishability",
+      "step": "consume_equivalence_class_diagnostic",
+      "taken": "build_typed_metadata_surface"
+    },
+    {
+      "answer": "NARROWER_TYPED_VALUE_SOURCE_METADATA_SURFACE_BUILT_NEEDS_POPULATION",
+      "question": "what metadata must exist before lawful tie refinement",
+      "reason_codes": [
+        "MISSING_TYPED_METADATA_FIELDS_EXPOSED",
+        "VISIBLE_IGNORED_DIFFERENTIATORS_REQUIRE_TYPING",
+        "ROW_METADATA_TEMPLATES_INCOMPLETE",
+        "ROWS_HAVE_DISTINCT_VALUES_BUT_NO_TYPED_DISCRIMINATOR"
+      ],
+      "step": "materialize_metadata_requirements",
+      "taken": "EXTRACT_OR_POPULATE_TYPED_VALUE_SOURCE_METADATA_SURFACE_V0"
+    }
+  ]
+}

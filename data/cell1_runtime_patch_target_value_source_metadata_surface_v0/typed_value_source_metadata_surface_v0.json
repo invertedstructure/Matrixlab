@@ -1,0 +1,1223 @@
+{
+  "acceptance_boundary": "human_or_prevalidated_schema_acceptance_required",
+  "candidate_discriminators": [
+    {
+      "candidate_discriminator": true,
+      "current_status": "VISIBLE_BUT_IGNORED_BY_CURRENT_RULE",
+      "field": "json_path",
+      "needs_typing_before_rule_use": true,
+      "notes": "Visible difference exists, but current dominance rule did not use it as a typed discriminator.",
+      "values_by_row": [
+        {
+          "row_index": 0,
+          "value": "rows[10].hint_ref"
+        },
+        {
+          "row_index": 1,
+          "value": "rows[8].hint_ref"
+        },
+        {
+          "row_index": 2,
+          "value": "rows[9].hint_ref"
+        }
+      ]
+    },
+    {
+      "candidate_discriminator": true,
+      "current_status": "VISIBLE_BUT_IGNORED_BY_CURRENT_RULE",
+      "field": "value",
+      "needs_typing_before_rule_use": true,
+      "notes": "Visible difference exists, but current dominance rule did not use it as a typed discriminator.",
+      "values_by_row": [
+        {
+          "row_index": 0,
+          "value": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/bounded_runtime_patch_target_candidate_scan_v0.json"
+        },
+        {
+          "row_index": 1,
+          "value": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/bounded_runtime_patch_target_candidate_scan_v0.json"
+        },
+        {
+          "row_index": 2,
+          "value": "data/cell1_runtime_patch_target_narrowing_surface_design_v0/bounded_target_candidate_contract_v0.json"
+        }
+      ]
+    },
+    {
+      "candidate_discriminator": true,
+      "current_status": "VISIBLE_IDENTITY_FIELD",
+      "field": "value",
+      "needs_typing_before_rule_use": true,
+      "notes": "Identity-level difference must be typed into scope/evidence/provenance before it can lawfully break a tie.",
+      "unique_value_count": 2,
+      "values_by_row": [
+        {
+          "row_index": 0,
+          "value": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/bounded_runtime_patch_target_candidate_scan_v0.json"
+        },
+        {
+          "row_index": 1,
+          "value": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/bounded_runtime_patch_target_candidate_scan_v0.json"
+        },
+        {
+          "row_index": 2,
+          "value": "data/cell1_runtime_patch_target_narrowing_surface_design_v0/bounded_target_candidate_contract_v0.json"
+        }
+      ]
+    },
+    {
+      "candidate_discriminator": true,
+      "current_status": "VISIBLE_IDENTITY_FIELD",
+      "field": "json_path",
+      "needs_typing_before_rule_use": true,
+      "notes": "Identity-level difference must be typed into scope/evidence/provenance before it can lawfully break a tie.",
+      "unique_value_count": 3,
+      "values_by_row": [
+        {
+          "row_index": 0,
+          "value": "rows[10].hint_ref"
+        },
+        {
+          "row_index": 1,
+          "value": "rows[8].hint_ref"
+        },
+        {
+          "row_index": 2,
+          "value": "rows[9].hint_ref"
+        }
+      ]
+    },
+    {
+      "candidate_discriminator": false,
+      "current_status": "VISIBLE_IDENTITY_FIELD",
+      "field": "source_ref",
+      "needs_typing_before_rule_use": true,
+      "notes": "Identity-level difference must be typed into scope/evidence/provenance before it can lawfully break a tie.",
+      "unique_value_count": 1,
+      "values_by_row": [
+        {
+          "row_index": 0,
+          "value": "data/cell1_runtime_patch_target_evidence_request_v0/target_hint_inventory_v0.json"
+        },
+        {
+          "row_index": 1,
+          "value": "data/cell1_runtime_patch_target_evidence_request_v0/target_hint_inventory_v0.json"
+        },
+        {
+          "row_index": 2,
+          "value": "data/cell1_runtime_patch_target_evidence_request_v0/target_hint_inventory_v0.json"
+        }
+      ]
+    }
+  ],
+  "completion_rule": {
+    "may_mark_field_complete_only_if": [
+      "field value appears in an explicit typed metadata artifact",
+      "field value is already present in source row",
+      "field value is supplied by prevalidated schema",
+      "field value is supplied by human/schema review packet"
+    ],
+    "must_not_complete_from": [
+      "latest-file guessing",
+      "mtime selection",
+      "first-seen order",
+      "alphabetical tie-break",
+      "untyped semantic inference",
+      "hidden preference"
+    ]
+  },
+  "metadata_surface_id": "metadata_surface_bf423662",
+  "missing_typed_metadata_count": 15,
+  "missing_typed_metadata_fields": [
+    "direct_evidence_ref",
+    "direct_evidence_strength",
+    "load_bearing_reason",
+    "target_scope",
+    "target_aspect",
+    "comparison_grain",
+    "source_authority",
+    "source_role",
+    "inference_strength",
+    "inference_chain_ref",
+    "provenance_depth",
+    "verification_gate_ref",
+    "rollback_or_stop_boundary_ref",
+    "schema_preference_key",
+    "human_preference_boundary_ref"
+  ],
+  "not_authorized": [
+    "tie break",
+    "rule refinement",
+    "candidate values fill",
+    "target candidate declared for review",
+    "selected for build",
+    "accepted for build",
+    "runtime patch",
+    "target file modification",
+    "C5",
+    "general Cell1 authority"
+  ],
+  "purpose": "Expose typed metadata required to distinguish whether the three top rows are a real tie, missing discriminator, wrong comparison grain, or review boundary.",
+  "receipt_backed_claim": "No row dominates under the current explicit dominance rule; real tie remains unproven.",
+  "recommended_next": "EXTRACT_OR_POPULATE_TYPED_VALUE_SOURCE_METADATA_SURFACE_V0",
+  "row_metadata_templates": [
+    {
+      "current_rank_features": {
+        "base_dominance_score": 16,
+        "container_role_rank": 50,
+        "eligible_selected_target_ref": true,
+        "explicit_rule_composite_rank": 17000050,
+        "field_exactness_rank": 0,
+        "provenance_rank": 100
+      },
+      "existing_metadata": {},
+      "json_path": "rows[10].hint_ref",
+      "metadata_completion_status": "MISSING_TYPED_METADATA",
+      "required_metadata_fields": [
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "direct_evidence_ref",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "evidence_anchor",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "direct_evidence_strength",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "evidence_strength",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "load_bearing_reason",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "load_bearingness",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "target_scope",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "scope",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "target_aspect",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "comparison_grain",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "comparison_grain",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "comparison_grain",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "source_authority",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "provenance",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "source_role",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "provenance",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "inference_strength",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "inference_strength",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "inference_chain_ref",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "inference_strength",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "provenance_depth",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "provenance",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "verification_gate_ref",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "supporting_ref",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "rollback_or_stop_boundary_ref",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "supporting_ref",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "schema_preference_key",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "schema_preference",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "human_preference_boundary_ref",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "review_boundary",
+          "value": null
+        }
+      ],
+      "role": "selected_target_ref_candidate",
+      "row_index": 0,
+      "row_uid": "top_row_0_766eed23",
+      "source_ref": "data/cell1_runtime_patch_target_evidence_request_v0/target_hint_inventory_v0.json",
+      "value": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/bounded_runtime_patch_target_candidate_scan_v0.json"
+    },
+    {
+      "current_rank_features": {
+        "base_dominance_score": 16,
+        "container_role_rank": 50,
+        "eligible_selected_target_ref": true,
+        "explicit_rule_composite_rank": 17000050,
+        "field_exactness_rank": 0,
+        "provenance_rank": 100
+      },
+      "existing_metadata": {},
+      "json_path": "rows[8].hint_ref",
+      "metadata_completion_status": "MISSING_TYPED_METADATA",
+      "required_metadata_fields": [
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "direct_evidence_ref",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "evidence_anchor",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "direct_evidence_strength",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "evidence_strength",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "load_bearing_reason",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "load_bearingness",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "target_scope",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "scope",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "target_aspect",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "comparison_grain",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "comparison_grain",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "comparison_grain",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "source_authority",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "provenance",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "source_role",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "provenance",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "inference_strength",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "inference_strength",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "inference_chain_ref",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "inference_strength",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "provenance_depth",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "provenance",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "verification_gate_ref",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "supporting_ref",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "rollback_or_stop_boundary_ref",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "supporting_ref",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "schema_preference_key",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "schema_preference",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "human_preference_boundary_ref",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "review_boundary",
+          "value": null
+        }
+      ],
+      "role": "selected_target_ref_candidate",
+      "row_index": 1,
+      "row_uid": "top_row_1_afd8e26d",
+      "source_ref": "data/cell1_runtime_patch_target_evidence_request_v0/target_hint_inventory_v0.json",
+      "value": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/bounded_runtime_patch_target_candidate_scan_v0.json"
+    },
+    {
+      "current_rank_features": {
+        "base_dominance_score": 16,
+        "container_role_rank": 50,
+        "eligible_selected_target_ref": true,
+        "explicit_rule_composite_rank": 17000050,
+        "field_exactness_rank": 0,
+        "provenance_rank": 100
+      },
+      "existing_metadata": {},
+      "json_path": "rows[9].hint_ref",
+      "metadata_completion_status": "MISSING_TYPED_METADATA",
+      "required_metadata_fields": [
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "direct_evidence_ref",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "evidence_anchor",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "direct_evidence_strength",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "evidence_strength",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "load_bearing_reason",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "load_bearingness",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "target_scope",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "scope",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "target_aspect",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "comparison_grain",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "comparison_grain",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "comparison_grain",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "source_authority",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "provenance",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "source_role",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "provenance",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "inference_strength",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "inference_strength",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "inference_chain_ref",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "inference_strength",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "provenance_depth",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "provenance",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "verification_gate_ref",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "supporting_ref",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "rollback_or_stop_boundary_ref",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "supporting_ref",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "schema_preference_key",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "schema_preference",
+          "value": null
+        },
+        {
+          "allowed_fill_sources": [
+            "explicit typed value-source metadata artifact",
+            "source row field if already present",
+            "prevalidated schema field",
+            "human/schema review packet"
+          ],
+          "field": "human_preference_boundary_ref",
+          "forbidden_fill_methods": [
+            "latest-file guessing",
+            "mtime selection",
+            "alphabetical preference",
+            "first-seen order",
+            "unstated human preference",
+            "semantic vibe inference"
+          ],
+          "missing_everywhere_in_current_surface": true,
+          "present_in_current_row": false,
+          "required_for_distinguishability": true,
+          "role": "review_boundary",
+          "value": null
+        }
+      ],
+      "role": "selected_target_ref_candidate",
+      "row_index": 2,
+      "row_uid": "top_row_2_52a71f81",
+      "source_ref": "data/cell1_runtime_patch_target_evidence_request_v0/target_hint_inventory_v0.json",
+      "value": "data/cell1_runtime_patch_target_narrowing_surface_design_v0/bounded_target_candidate_contract_v0.json"
+    }
+  ],
+  "same_rank_surface": true,
+  "same_value": false,
+  "schema_version": "typed_value_source_metadata_surface_v0",
+  "source_dominance_application_receipt_id": "3ebaf16f",
+  "source_equivalence_class_diagnostic_receipt_id": "100c866f",
+  "surface_status": "NARROWER_TYPED_VALUE_SOURCE_METADATA_SURFACE_BUILT",
+  "top_row_count": 3,
+  "unique_value_count": 2
+}

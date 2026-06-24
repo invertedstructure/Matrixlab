@@ -1,0 +1,153 @@
+{
+  "discriminator_status": "VISIBLE_DIFFERENCES_REQUIRE_TYPED_METADATA_BEFORE_RULE_USE",
+  "discriminator_surface_id": "discriminator_surface_276864e9",
+  "possible_future_cases": [
+    {
+      "case": "MISSING_DISCRIMINATOR",
+      "condition": "a visible ignored field receives a typed role that lawfully separates row load-bearingness or scope",
+      "next": "ADD_VALUE_SOURCE_EQUIVALENCE_CLASS_REFINEMENT_RULE_V0"
+    },
+    {
+      "case": "WRONG_COMPARISON_GRAIN",
+      "condition": "target_scope/target_aspect/comparison_grain differs across rows",
+      "next": "SPLIT_VALUE_SOURCE_COMPARISON_GRAIN_V0"
+    },
+    {
+      "case": "TRUE_EQUIVALENCE",
+      "condition": "all typed metadata is complete and no lawful discriminator emerges",
+      "next": "EMIT_VALUE_SOURCE_EQUIVALENCE_CLASS_REVIEW_PACKET_V0"
+    },
+    {
+      "case": "HUMAN_OR_SCHEMA_PREFERENCE_BOUNDARY",
+      "condition": "machine-visible metadata is complete but selection depends on schema preference/human boundary",
+      "next": "EMIT_VALUE_SOURCE_EQUIVALENCE_CLASS_REVIEW_PACKET_V0"
+    }
+  ],
+  "schema_version": "typed_value_source_discriminator_candidate_surface_v0",
+  "typed_metadata_roles_required": {
+    "comparison_grain": [
+      "target_aspect",
+      "comparison_grain"
+    ],
+    "evidence_anchor": [
+      "direct_evidence_ref"
+    ],
+    "evidence_strength": [
+      "direct_evidence_strength"
+    ],
+    "inference_strength": [
+      "inference_strength",
+      "inference_chain_ref"
+    ],
+    "load_bearingness": [
+      "load_bearing_reason"
+    ],
+    "provenance": [
+      "source_authority",
+      "source_role",
+      "provenance_depth"
+    ],
+    "review_boundary": [
+      "human_preference_boundary_ref"
+    ],
+    "schema_preference": [
+      "schema_preference_key"
+    ],
+    "scope": [
+      "target_scope"
+    ],
+    "supporting_ref": [
+      "verification_gate_ref",
+      "rollback_or_stop_boundary_ref"
+    ]
+  },
+  "visible_candidate_discriminator_count": 4,
+  "visible_candidate_discriminators": [
+    {
+      "candidate_discriminator": true,
+      "current_status": "VISIBLE_BUT_IGNORED_BY_CURRENT_RULE",
+      "field": "json_path",
+      "needs_typing_before_rule_use": true,
+      "notes": "Visible difference exists, but current dominance rule did not use it as a typed discriminator.",
+      "values_by_row": [
+        {
+          "row_index": 0,
+          "value": "rows[10].hint_ref"
+        },
+        {
+          "row_index": 1,
+          "value": "rows[8].hint_ref"
+        },
+        {
+          "row_index": 2,
+          "value": "rows[9].hint_ref"
+        }
+      ]
+    },
+    {
+      "candidate_discriminator": true,
+      "current_status": "VISIBLE_BUT_IGNORED_BY_CURRENT_RULE",
+      "field": "value",
+      "needs_typing_before_rule_use": true,
+      "notes": "Visible difference exists, but current dominance rule did not use it as a typed discriminator.",
+      "values_by_row": [
+        {
+          "row_index": 0,
+          "value": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/bounded_runtime_patch_target_candidate_scan_v0.json"
+        },
+        {
+          "row_index": 1,
+          "value": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/bounded_runtime_patch_target_candidate_scan_v0.json"
+        },
+        {
+          "row_index": 2,
+          "value": "data/cell1_runtime_patch_target_narrowing_surface_design_v0/bounded_target_candidate_contract_v0.json"
+        }
+      ]
+    },
+    {
+      "candidate_discriminator": true,
+      "current_status": "VISIBLE_IDENTITY_FIELD",
+      "field": "value",
+      "needs_typing_before_rule_use": true,
+      "notes": "Identity-level difference must be typed into scope/evidence/provenance before it can lawfully break a tie.",
+      "unique_value_count": 2,
+      "values_by_row": [
+        {
+          "row_index": 0,
+          "value": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/bounded_runtime_patch_target_candidate_scan_v0.json"
+        },
+        {
+          "row_index": 1,
+          "value": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/bounded_runtime_patch_target_candidate_scan_v0.json"
+        },
+        {
+          "row_index": 2,
+          "value": "data/cell1_runtime_patch_target_narrowing_surface_design_v0/bounded_target_candidate_contract_v0.json"
+        }
+      ]
+    },
+    {
+      "candidate_discriminator": true,
+      "current_status": "VISIBLE_IDENTITY_FIELD",
+      "field": "json_path",
+      "needs_typing_before_rule_use": true,
+      "notes": "Identity-level difference must be typed into scope/evidence/provenance before it can lawfully break a tie.",
+      "unique_value_count": 3,
+      "values_by_row": [
+        {
+          "row_index": 0,
+          "value": "rows[10].hint_ref"
+        },
+        {
+          "row_index": 1,
+          "value": "rows[8].hint_ref"
+        },
+        {
+          "row_index": 2,
+          "value": "rows[9].hint_ref"
+        }
+      ]
+    }
+  ]
+}
