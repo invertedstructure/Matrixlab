@@ -1,0 +1,22 @@
+{
+  "schema_version": "explicit_runtime_patch_target_evidence_provider_materialization_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_EXPLICIT_TARGET_EVIDENCE_PROVIDER_MATERIALIZED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "scripts/provide_explicit_runtime_patch_target_evidence_packet_v0.py missing",
+      "question": "what blocked env rerun",
+      "step": "consume_missing_runner_halt",
+      "taken": "materialize_provider_runner"
+    },
+    {
+      "answer": "PASS",
+      "question": "can explicit packet provider now exist without selecting target",
+      "step": "compile_provider_runner",
+      "taken": "stop_without_running_provider"
+    }
+  ]
+}
