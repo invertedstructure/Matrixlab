@@ -1,0 +1,28 @@
+{
+  "schema_version": "cell1_runtime_patch_target_narrowing_surface_design_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_RUNTIME_PATCH_TARGET_NARROWING_SURFACE_DESIGNED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "BLOCKED_MISSING_BOUNDED_TARGET",
+      "question": "what blocked runtime patch eligibility",
+      "step": "consume_runtime_patch_precheck",
+      "taken": "design_target_narrowing_surface"
+    },
+    {
+      "answer": "data/cell1_runtime_patch_target_narrowing_surface_design_v0/bounded_target_candidate_contract_v0.json",
+      "question": "what surface can expose exactly one bounded target without writing it",
+      "step": "design_target_narrowing_surface",
+      "taken": "emit_future_target_narrowing_plan"
+    },
+    {
+      "answer": "yes",
+      "question": "did the unit avoid patching, target writes, C5, and general authority",
+      "step": "emit_future_target_narrowing_plan",
+      "taken": "stop"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "acceptance_requirements": [
+    "source precheck blocker preserved",
+    "accepted proposal preserved",
+    "target candidate count is exactly one or explicitly withheld",
+    "target reference does not use latest-file guessing",
+    "target reference does not use mtime selection",
+    "no runtime patch applied",
+    "no target file modified",
+    "no C5 opened",
+    "no general Cell1 authority",
+    "no hidden next command"
+  ],
+  "design_record_ref": "data/cell1_runtime_patch_target_narrowing_surface_design_v0/target_narrowing_surface_design_record_v0.json",
+  "future_target_narrowing_unit": "RUN_CELL1_RUNTIME_PATCH_TARGET_NARROWING_SURFACE_FROM_DESIGN_V0",
+  "next_command_goal": null,
+  "recommended_next_after_design": "RUN_CELL1_RUNTIME_PATCH_TARGET_NARROWING_SURFACE_FROM_DESIGN_V0",
+  "schema_version": "cell1_runtime_patch_target_narrowing_surface_test_plan_v0",
+  "steps": [
+    "load design receipt and target candidate contract",
+    "load runtime patch precheck blocker evidence",
+    "load accepted proposal packet",
+    "load frozen schema-intake and handoff-return references",
+    "inspect declared surfaces for target candidate hints",
+    "emit one candidate or withhold with explicit reason",
+    "emit candidate classification request",
+    "emit rollup/profile/receipt",
+    "stop"
+  ],
+  "target_candidate_contract_ref": "data/cell1_runtime_patch_target_narrowing_surface_design_v0/bounded_target_candidate_contract_v0.json",
+  "test_mode": "BOUNDED_TARGET_NARROWING_SURFACE_ONLY",
+  "test_plan_id": "target_narrowing_plan_cf2055e9"
+}

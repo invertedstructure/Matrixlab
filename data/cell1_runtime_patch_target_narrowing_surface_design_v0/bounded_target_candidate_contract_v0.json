@@ -1,0 +1,61 @@
+{
+  "allowed_candidate_outcomes": [
+    "TARGET_CANDIDATE_DECLARED_FOR_REVIEW",
+    "TARGET_CANDIDATE_WITHHELD_NO_SINGLE_TARGET",
+    "TARGET_CANDIDATE_REPAIR_REQUIRED",
+    "TARGET_CANDIDATE_BLOCKED_AUTHORITY",
+    "REQUEST_NARROWER_EVIDENCE"
+  ],
+  "allowed_target_kinds": [
+    "SCRIPT_FILE",
+    "SOURCE_FILE",
+    "SCHEMA_FILE",
+    "CONFIG_FILE",
+    "TEST_FILE",
+    "REFERENCE_ARTIFACT"
+  ],
+  "authority_boundary": {
+    "may_apply_runtime_patch": false,
+    "may_declare_target_candidate_later": true,
+    "may_fabricate_accepted_proposal": false,
+    "may_grant_general_cell1_authority": false,
+    "may_modify_target_files": false,
+    "may_open_c5": false,
+    "may_promote_proposal_status": false,
+    "may_use_latest_file_guessing": false,
+    "may_use_mtime_selection": false
+  },
+  "candidate_object_type": "BOUNDED_RUNTIME_PATCH_TARGET_CANDIDATE",
+  "candidate_rules": [
+    "exactly one target candidate may be declared",
+    "target_ref must be local and bounded",
+    "target_ref must not use latest-file or mtime inference",
+    "target_ref does not authorize writing",
+    "verification gate must be referenced",
+    "rollback-or-stop boundary must be referenced",
+    "classification is review-only"
+  ],
+  "contract_id": "target_candidate_contract_74112a60",
+  "must_not_infer": [
+    "declared target equals write authority",
+    "target candidate equals runtime patch approval",
+    "runtime patch safety",
+    "C5 readiness",
+    "general Cell1 builder authority",
+    "accepted proposal implies target file"
+  ],
+  "required_fields": [
+    "target_candidate_id",
+    "target_ref",
+    "target_kind",
+    "why_this_target",
+    "source_evidence_refs",
+    "allowed_write_scope",
+    "verification_gate_ref",
+    "rollback_or_stop_boundary_ref",
+    "authority_boundary",
+    "negative_boundary_counters",
+    "classification_request"
+  ],
+  "schema_version": "cell1_runtime_patch_target_candidate_contract_v0"
+}
