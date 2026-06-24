@@ -1,0 +1,28 @@
+{
+  "branch_decision_status": "NEXT_BRANCH_DECIDED_WITHOUT_REBIND_APPLICATION",
+  "records": [
+    {
+      "branch": "DOMINANCE_RULE_AUTHORIZATION",
+      "safe_now": false,
+      "why": "A dominance-rule candidate exists, but it would need external/schema authority because no current machine evidence selects one candidate.",
+      "would_require": [
+        "explicit source role policy",
+        "accepted source preference",
+        "producer/lineage metadata"
+      ]
+    },
+    {
+      "branch": "SOURCE_ROW_LOCATOR_SURFACE",
+      "safe_now": true,
+      "why": "The machine can still inspect candidate artifacts for row identity and source-object structure without choosing a candidate.",
+      "would_require": [
+        "candidate artifact scan",
+        "row_uid/slot_id/field locator features",
+        "source packet lineage markers",
+        "field policy source-object matching"
+      ]
+    }
+  ],
+  "schema_version": "typed_machine_readable_source_ref_next_branch_decision_table_v0",
+  "selected_next_machine_surface": "BUILD_MACHINE_READABLE_SOURCE_ROW_LOCATOR_SURFACE_V0"
+}
