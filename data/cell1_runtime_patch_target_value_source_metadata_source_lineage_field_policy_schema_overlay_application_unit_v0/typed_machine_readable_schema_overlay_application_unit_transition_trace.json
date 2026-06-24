@@ -1,0 +1,34 @@
+{
+  "schema_version": "typed_machine_readable_schema_overlay_application_unit_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_APPLIED_AS_ONE_TIME_ACCEPTED_REFERENCE",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes, for this application contract only",
+      "question": "is a bounded application unit authorized",
+      "step": "consume_one_time_authorization",
+      "taken": "bind application frame"
+    },
+    {
+      "answer": "record accepted overlay reference for this contract only",
+      "question": "what does application mean in this unit",
+      "step": "apply_reference",
+      "taken": "emit applied reference and component bindings"
+    },
+    {
+      "answer": "no",
+      "question": "does this create reusable schema authority",
+      "step": "reaffirm_non_reuse",
+      "taken": "emit non-reuse boundary"
+    },
+    {
+      "answer": "TYPED_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_APPLIED_AS_ONE_TIME_ACCEPTED_REFERENCE",
+      "question": "what is next lawful object",
+      "step": "classify_application_unit",
+      "taken": "REVIEW_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_APPLICATION_UNIT_V0"
+    }
+  ]
+}
