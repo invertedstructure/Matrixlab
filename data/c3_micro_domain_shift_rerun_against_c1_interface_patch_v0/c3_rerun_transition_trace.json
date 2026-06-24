@@ -1,0 +1,28 @@
+{
+  "schema_version": "c3_rerun_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C3_RERUN_READY_FOR_C4_PREFLIGHT_RERUN",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "fffa3dd5",
+      "question": "is there a candidate C1 interface patch ready for C3 rerun",
+      "step": "consume_c1_interface_patch",
+      "taken": "rehearse_micro_domain_interface_against_patch"
+    },
+    {
+      "answer": "CELL1_READY_FOR_NARROW_ACCEPTED_PROPOSAL_TEST",
+      "question": "does candidate interface cover previous proposal/schema gaps",
+      "step": "rehearse_micro_domain_interface_against_patch",
+      "taken": "emit_updated_c3_verdict"
+    },
+    {
+      "answer": true,
+      "question": "does C3 now permit C4 preflight rerun",
+      "step": "emit_updated_c3_verdict",
+      "taken": "stop"
+    }
+  ]
+}
