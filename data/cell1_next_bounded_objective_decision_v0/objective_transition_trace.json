@@ -1,0 +1,34 @@
+{
+  "schema_version": "cell1_next_bounded_objective_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_NEXT_BOUNDED_OBJECTIVE_DECIDED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "e1bc0ed0",
+      "question": "is there a frozen bounded Cell1 reference",
+      "step": "consume_closed_reference",
+      "taken": "read_reference_evidence"
+    },
+    {
+      "answer": "schema intake proved; return loop not proved",
+      "question": "what did the reference prove and not prove",
+      "step": "read_reference_evidence",
+      "taken": "enumerate_closed_objective_classes"
+    },
+    {
+      "answer": "CELL1_OBJECTIVE_HANDOFF_RETURN_LOOP_TEST",
+      "question": "which bounded class covers the smallest missing Cell1 edge",
+      "step": "enumerate_closed_objective_classes",
+      "taken": "emit_authority_boundary"
+    },
+    {
+      "answer": "yes",
+      "question": "did the unit avoid execution/C5/authority widening",
+      "step": "emit_authority_boundary",
+      "taken": "stop"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "authority_boundary": {
+    "may_apply_runtime_patch": false,
+    "may_emit_executable_command": false,
+    "may_emit_next_objective_candidate": true,
+    "may_execute_next_unit": false,
+    "may_grant_general_cell1_authority": false,
+    "may_open_c5": false
+  },
+  "decision_id": "cell1_next_obj_0dd957ee",
+  "forbidden_inputs_for_next_unit": [
+    "ambient workspace inference",
+    "latest-file guessing",
+    "mtime selection",
+    "unreviewed proposal packet",
+    "PROPOSED_ONLY packet treated as accepted",
+    "runtime build target files",
+    "C5 planning treated as authorization",
+    "general Cell 1 builder authority"
+  ],
+  "must_not_infer": [
+    "C5 is authorized",
+    "Cell 1 is a general builder",
+    "schema-consumption success proves runtime build safety",
+    "one reference object proves transfer",
+    "next objective is already executed"
+  ],
+  "required_inputs_for_next_unit": [
+    "data/cell1_next_bounded_objective_decision_v0/objective_decision_record_v0.json",
+    "data/cell1_next_bounded_objective_decision_v0/objective_authority_boundary_v0.json",
+    "data/cell1_schema_consumption_test_review_or_close_v0/cell1_schema_test_frozen_reference_packet_v0.json",
+    "data/cell1_schema_consumption_test_review_or_close_v0_receipts/e1bc0ed0.json",
+    "data/cell1_schema_consumption_test_from_c4_handoff_v0_receipts/e6b0fd97.json",
+    "data/c4_consume_one_accepted_proposal_packet_v0_receipts/c56792b7.json",
+    "data/c2_cell0_label_taxonomy_lane_cleaning_v0/taxonomy_lane_registry_v0.json"
+  ],
+  "schema_version": "cell1_next_bounded_objective_decision_v0",
+  "selected_decision_class": "CELL1_OBJECTIVE_HANDOFF_RETURN_LOOP_TEST",
+  "source_reference_packet_ref": "data/cell1_schema_consumption_test_review_or_close_v0/cell1_schema_test_frozen_reference_packet_v0.json",
+  "source_review_receipt_ref": "data/cell1_schema_consumption_test_review_or_close_v0_receipts/e1bc0ed0.json",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_NEXT_BOUNDED_OBJECTIVE_DECIDED",
+    "type": "STOP"
+  },
+  "why_not_c5_yet": "C5 remains blocked because the current evidence is schema-consumption-only. No runtime patch, target modification, return-loop handling, or multi-family transfer evidence has been established.",
+  "why_not_general_cell1_authority": "One bounded schema-consumption reference proves a local path, not general builder competence. Authority remains limited to selected bounded objectives.",
+  "why_selected": "The frozen reference proves C4-to-Cell1 schema intake. The next smallest missing inter-cell edge is whether Cell1 can return a typed result object through review/Cell0 without ambiguity, authority leakage, hidden continuation, or label confusion."
+}
