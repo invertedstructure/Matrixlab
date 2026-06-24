@@ -1,0 +1,63 @@
+{
+  "branch_outcomes": {
+    "CAPABILITY_BOUNDARY": [
+      "stop",
+      "do not widen inside branch"
+    ],
+    "CLEAN": [
+      "close branch",
+      "freeze protocol"
+    ],
+    "PROTECTED_SEMANTIC_SIGNAL": [
+      "localize signal",
+      "classify repair or boundary"
+    ],
+    "RECEIPT_TRACE_MISMATCH": [
+      "repair observability",
+      "rerun same bounded objective only if explicitly authorized"
+    ],
+    "UNDER_TYPED_SIGNAL": [
+      "emit question packet",
+      "stop"
+    ],
+    "VOLATILE_METADATA_ONLY": [
+      "patch reference/readout if needed",
+      "close if no protected semantic signal remains"
+    ]
+  },
+  "decision_graph": [
+    "select bounded radius",
+    "run sample",
+    "produce receipts",
+    "inspect rollup/profile",
+    "classify signal",
+    "choose lawful branch outcome"
+  ],
+  "must_not_infer": [
+    "does not prove global closure",
+    "does not prove autonomy",
+    "does not prove higher radius safety",
+    "does not authorize Cell 1",
+    "does not authorize domain shift",
+    "does not authorize new R10000 run",
+    "does not open new objective",
+    "does not prove all future observability bugs are gone",
+    "does not convert volatile metadata signal into protected semantic signal",
+    "does not make R10000 a general progress metric",
+    "bounded protocol is not authorization to rerun",
+    "bounded protocol is not proof of scale",
+    "bounded protocol is not active pressure"
+  ],
+  "protocol_id": "BOUNDED_OBSERVABILITY_PROTOCOL_V0",
+  "schema_version": "bounded_observability_protocol_v0",
+  "signal_classes": [
+    "CLEAN",
+    "VOLATILE_METADATA_ONLY",
+    "RECEIPT_TRACE_MISMATCH",
+    "PROTECTED_SEMANTIC_SIGNAL",
+    "UNDER_TYPED_SIGNAL",
+    "CAPABILITY_BOUNDARY"
+  ],
+  "source_reference": "data/r10000_close_and_freeze_acceptance_after_authority_string_mismatch_patch_v0/bounded_observability_protocol_final_reference_v0.json",
+  "status": "FROZEN_REFERENCE"
+}

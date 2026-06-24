@@ -1,0 +1,34 @@
+{
+  "schema_version": "b0_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_B0_R10000_OBSERVABILITY_BRANCH_CLOSED_REFERENCE_ONLY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "was the final close/freeze basis explicitly supplied",
+      "step": "consume_explicit_final_basis",
+      "taken": "classify_branch_status"
+    },
+    {
+      "answer": "CLOSED_REFERENCE_ONLY",
+      "question": "what is the branch status",
+      "step": "classify_branch_status",
+      "taken": "extract_protocol"
+    },
+    {
+      "answer": "BOUNDED_OBSERVABILITY_PROTOCOL_V0",
+      "question": "what reusable protocol was extracted",
+      "step": "extract_protocol",
+      "taken": "emit_reference_only_update"
+    },
+    {
+      "answer": false,
+      "question": "does active-source update mutate registry",
+      "step": "emit_reference_only_update",
+      "taken": "stop_reference_only"
+    }
+  ]
+}
