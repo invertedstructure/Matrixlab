@@ -1,0 +1,34 @@
+{
+  "schema_version": "b1_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_B1_CELL0_LOCAL_LAWFUL_ACTOR_PROFILE_STABLE",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "7cbb85ee",
+      "question": "was B0 reference object explicit and accepted",
+      "step": "consume_b0_reference_object",
+      "taken": "emit_cell0_schemas"
+    },
+    {
+      "answer": true,
+      "question": "were surface/inspection/classification/move/stop schemas emitted",
+      "step": "emit_cell0_schemas",
+      "taken": "emit_local_demo_move_registry"
+    },
+    {
+      "answer": true,
+      "question": "is move registry local demo only",
+      "step": "emit_local_demo_move_registry",
+      "taken": "run_declared_demo_surfaces"
+    },
+    {
+      "answer": "STABLE_LOCAL_ACTOR_PROFILE",
+      "question": "were all outcomes typed and receipt-backed",
+      "step": "run_declared_demo_surfaces",
+      "taken": "stop"
+    }
+  ]
+}

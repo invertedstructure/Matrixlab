@@ -1,0 +1,60 @@
+{
+  "global_registry_mutation_authorized": false,
+  "moves": [
+    {
+      "applicable_pressure_class": "NO_PRESSURE",
+      "bounded": true,
+      "move_id": "NOOP_STOP_DONE",
+      "move_kind": "TYPED_STOP",
+      "registry_mutation_authorized": false,
+      "source_mutation_authorized": false
+    },
+    {
+      "applicable_pressure_class": "RECEIPT_TRACE_PRESSURE",
+      "bounded": true,
+      "move_id": "EMIT_TRACE_REPAIR_CANDIDATE",
+      "move_kind": "PROPOSAL_ONLY",
+      "registry_mutation_authorized": false,
+      "source_mutation_authorized": false
+    },
+    {
+      "applicable_pressure_class": "TAXONOMY_PRESSURE",
+      "bounded": true,
+      "move_id": "EMIT_TAXONOMY_GAP_PROPOSAL",
+      "move_kind": "PROPOSAL_ONLY",
+      "registry_mutation_authorized": false,
+      "source_mutation_authorized": false
+    },
+    {
+      "applicable_pressure_class": "MISSING_MOVE_PRESSURE",
+      "bounded": true,
+      "move_id": "EMIT_MISSING_MOVE_PROPOSAL",
+      "move_kind": "PROPOSAL_ONLY",
+      "registry_mutation_authorized": false,
+      "source_mutation_authorized": false
+    },
+    {
+      "applicable_pressure_class": "LABEL_AMBIGUITY_PRESSURE",
+      "bounded": true,
+      "move_id": "EMIT_LABEL_SPLIT_PROPOSAL",
+      "move_kind": "PROPOSAL_ONLY",
+      "registry_mutation_authorized": false,
+      "source_mutation_authorized": false
+    },
+    {
+      "applicable_pressure_class": "BURDEN_PRESSURE",
+      "bounded": true,
+      "move_id": "EMIT_BURDEN_INSTRUMENTATION_PROPOSAL",
+      "move_kind": "PROPOSAL_ONLY",
+      "registry_mutation_authorized": false,
+      "source_mutation_authorized": false
+    }
+  ],
+  "must_not_infer": [
+    "local demo move registry is not a global move registry mutation",
+    "proposal-only move is not accepted change",
+    "registered demo move does not widen authority"
+  ],
+  "registry_status": "LOCAL_DEMO_ONLY",
+  "schema_version": "cell0_local_demo_move_registry_v0"
+}

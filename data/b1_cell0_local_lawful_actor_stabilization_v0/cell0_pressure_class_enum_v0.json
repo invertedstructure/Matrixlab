@@ -1,0 +1,129 @@
+{
+  "closed": true,
+  "pressure_classes": [
+    {
+      "allowed_next_handling": [
+        "typed stop STOP_DONE"
+      ],
+      "must_not_impersonate": [
+        "success",
+        "proof"
+      ],
+      "pressure_class": "NO_PRESSURE",
+      "smallest_honest_meaning": "No local pressure requiring a move."
+    },
+    {
+      "allowed_next_handling": [
+        "emit bounded repair candidate",
+        "STOP_RECEIPT_TRACE_MISMATCH"
+      ],
+      "must_not_impersonate": [
+        "semantic payload bug"
+      ],
+      "pressure_class": "RECEIPT_TRACE_PRESSURE",
+      "smallest_honest_meaning": "Receipt or trace relation needs repair candidate or typed stop."
+    },
+    {
+      "allowed_next_handling": [
+        "emit observability question/proposal",
+        "typed stop"
+      ],
+      "must_not_impersonate": [
+        "scale proof"
+      ],
+      "pressure_class": "OBSERVABILITY_PRESSURE",
+      "smallest_honest_meaning": "Observed surface needs bounded observability handling."
+    },
+    {
+      "allowed_next_handling": [
+        "STOP_AUTHORITY_BOUNDARY"
+      ],
+      "must_not_impersonate": [
+        "missing data"
+      ],
+      "pressure_class": "AUTHORITY_PRESSURE",
+      "smallest_honest_meaning": "Requested inspection or action exceeds current authority."
+    },
+    {
+      "allowed_next_handling": [
+        "proposal packet",
+        "STOP_TAXONOMY_GAP"
+      ],
+      "must_not_impersonate": [
+        "registry mutation"
+      ],
+      "pressure_class": "TAXONOMY_PRESSURE",
+      "smallest_honest_meaning": "Current enum/schema cannot type pressure honestly."
+    },
+    {
+      "allowed_next_handling": [
+        "missing move proposal",
+        "STOP_NEEDS_NEW_MOVE"
+      ],
+      "must_not_impersonate": [
+        "authorization to invent move"
+      ],
+      "pressure_class": "MISSING_MOVE_PRESSURE",
+      "smallest_honest_meaning": "No registered move handles the pressure."
+    },
+    {
+      "allowed_next_handling": [
+        "withhold/split proposal",
+        "STOP_AMBIGUOUS_PRESSURE"
+      ],
+      "must_not_impersonate": [
+        "object identity"
+      ],
+      "pressure_class": "LABEL_AMBIGUITY_PRESSURE",
+      "smallest_honest_meaning": "Label is ambiguous and must be withheld/split."
+    },
+    {
+      "allowed_next_handling": [
+        "instrumentation/compression proposal",
+        "typed stop"
+      ],
+      "must_not_impersonate": [
+        "success"
+      ],
+      "pressure_class": "BURDEN_PRESSURE",
+      "smallest_honest_meaning": "Process burden suggests instrumentation/compression need."
+    },
+    {
+      "allowed_next_handling": [
+        "STOP_EXTRACTION_REQUIRED"
+      ],
+      "must_not_impersonate": [
+        "payload authority"
+      ],
+      "pressure_class": "EXTRACTION_PRESSURE",
+      "smallest_honest_meaning": "Information must be extracted before lawful move."
+    },
+    {
+      "allowed_next_handling": [
+        "STOP_FRONTIER",
+        "question packet"
+      ],
+      "must_not_impersonate": [
+        "next objective"
+      ],
+      "pressure_class": "FRONTIER_PRESSURE",
+      "smallest_honest_meaning": "A frontier needs packetization/review before move."
+    },
+    {
+      "allowed_next_handling": [
+        "STOP_AMBIGUOUS_PRESSURE"
+      ],
+      "must_not_impersonate": [
+        "permission to guess"
+      ],
+      "pressure_class": "AMBIGUOUS_PRESSURE",
+      "smallest_honest_meaning": "Evidence does not support a single pressure class."
+    }
+  ],
+  "rules": [
+    "Pressure labels are classifications only.",
+    "Pressure labels do not create identity.",
+    "Pressure labels do not authorize mutation."
+  ],
+  "schema_version": "cell0_pressure_class_enum_v0"
+}
