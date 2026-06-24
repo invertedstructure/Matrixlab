@@ -1,0 +1,29 @@
+{
+  "schema_version": "explicit_runtime_patch_target_value_source_dominance_rule_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_EXPLICIT_VALUE_SOURCE_DOMINANCE_RULE_ADDED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "VALUE_SOURCE_SURFACE_STILL_MULTIPLE_AMBIGUOUS",
+      "question": "why did narrowing halt",
+      "step": "consume_still_multiple_ambiguous_narrowing",
+      "taken": "add_explicit_value_source_dominance_rule"
+    },
+    {
+      "answer": "rule is an artifact; application and acceptance remain later boundaries",
+      "question": "where is the boundary",
+      "step": "materialize_rule_not_apply_rule",
+      "taken": "emit_rule_and_impact_preview_only"
+    },
+    {
+      "answer": "RULE_PREVIEW_STILL_MULTIPLE_TOP_ROWS",
+      "question": "would the rule likely narrow the current eligible rows",
+      "step": "preview_rule_impact",
+      "taken": "recommend_apply_rule_next_without accepting anything",
+      "top_row_count_under_rule_preview": 3
+    }
+  ]
+}

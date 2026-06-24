@@ -1,0 +1,135 @@
+{
+  "application_boundary": {
+    "acceptance_boundary": "human_or_prevalidated_schema_acceptance_required",
+    "next_unit_may_apply_rule": "APPLY_EXPLICIT_VALUE_SOURCE_DOMINANCE_RULE_V0",
+    "proposal_is_not_acceptance": true,
+    "this_rule_does_not_apply_itself": true
+  },
+  "dominance_rule": {
+    "application_mode": "deterministic_filter_then_rank",
+    "rule_version": "v0",
+    "selected_target_ref_row_filter": [
+      {
+        "name": "eligible_selected_target_ref_only",
+        "reject": [
+          "supporting_field_not_selected_target_ref",
+          "verification_gate_candidate",
+          "rollback_or_stop_boundary_candidate",
+          "metadata_or_receipt_output_path"
+        ],
+        "require": [
+          "row.eligible_selected_target_ref == true",
+          "row.role == selected_target_ref_candidate"
+        ],
+        "step": 1
+      },
+      {
+        "allowed_primary_sources": [
+          "data/cell1_runtime_patch_target_evidence_request_v0/target_hint_inventory_v0.json",
+          "data/cell1_runtime_patch_target_evidence_request_v0/narrower_runtime_patch_target_evidence_request_packet_v0.json"
+        ],
+        "name": "primary_origin_required",
+        "prefer_or_require": "require",
+        "require": [
+          "row.source_kind == primary_value_surface"
+        ],
+        "step": 2
+      },
+      {
+        "name": "field_exactness_priority",
+        "prefer_or_require": "rank",
+        "priority_order": [
+          "json_path_exactly_or_suffixes:selected_target_ref",
+          "json_path_exactly_or_suffixes:runtime_patch_target_ref",
+          "json_path_exactly_or_suffixes:target_ref",
+          "json_path_exactly_or_suffixes:candidate_target_ref",
+          "json_path_exactly_or_suffixes:candidate_ref",
+          "json_path_contains_target_and_ref",
+          "json_path_contains_candidate_and_ref"
+        ],
+        "step": 3
+      },
+      {
+        "name": "container_role_priority",
+        "prefer_or_require": "rank",
+        "priority_order": [
+          "parent_or_ancestor_has:explicit_target_candidate",
+          "parent_or_ancestor_has:single_target_candidate",
+          "parent_or_ancestor_has:dominant_target_candidate",
+          "parent_or_ancestor_has:load_bearing_target_candidate",
+          "parent_or_ancestor_has:target_candidate",
+          "parent_or_ancestor_has:hint"
+        ],
+        "step": 4
+      },
+      {
+        "name": "provenance_distance_priority",
+        "prefer_or_require": "rank",
+        "priority_order": [
+          "target_hint_inventory_row",
+          "request_packet_direct_field",
+          "derived_surface_map_row"
+        ],
+        "step": 5
+      },
+      {
+        "forbidden_tiebreakers": [
+          "latest_file",
+          "mtime",
+          "alphabetical_preference_without_schema_reason",
+          "first_seen_order",
+          "shortest_path_preference_without_schema_reason"
+        ],
+        "if_tie_after_all_rank_stages": "STOP_STILL_MULTIPLE_DOMINANT_VALUE_SOURCE_ROWS",
+        "name": "tie_policy",
+        "step": 6
+      }
+    ],
+    "supporting_ref_rule": [
+      {
+        "allowed_role": "verification_gate_candidate",
+        "field": "VERIFICATION_GATE_REF",
+        "if_not_unique": "STOP_SUPPORTING_VERIFICATION_GATE_REF_NOT_UNIQUE",
+        "require_unique_after_same_primary_source_or_same_container_filter": true
+      },
+      {
+        "allowed_role": "rollback_or_stop_boundary_candidate",
+        "field": "ROLLBACK_OR_STOP_BOUNDARY_REF",
+        "if_not_unique": "STOP_SUPPORTING_ROLLBACK_OR_STOP_BOUNDARY_REF_NOT_UNIQUE",
+        "require_unique_after_same_primary_source_or_same_container_filter": true
+      }
+    ]
+  },
+  "not_authorized": [
+    "declare target candidate for review",
+    "select target for build",
+    "accept for build",
+    "apply runtime patch",
+    "modify target files",
+    "open C5",
+    "grant general Cell1 authority",
+    "use latest-file guessing",
+    "use mtime selection",
+    "collapse remaining ambiguity by preference"
+  ],
+  "problem_being_repaired": {
+    "prior_eligible_selected_target_ref_row_count": 4,
+    "prior_reason_codes": [
+      "MULTIPLE_ELIGIBLE_SELECTED_TARGET_VALUE_SOURCE_ROWS_WITH_EQUAL_DOMINANCE",
+      "NO_SINGLE_DOMINANT_VALUE_SOURCE",
+      "SUPPORTING_VERIFICATION_GATE_REF_NOT_UNIQUE",
+      "SUPPORTING_ROLLBACK_OR_STOP_BOUNDARY_REF_NOT_UNIQUE"
+    ],
+    "prior_status": "VALUE_SOURCE_SURFACE_STILL_MULTIPLE_AMBIGUOUS",
+    "prior_top_dominant_row_count": 3,
+    "prior_typed_row_count": 67
+  },
+  "recommended_next": "APPLY_EXPLICIT_VALUE_SOURCE_DOMINANCE_RULE_V0",
+  "rule_id": "dominance_rule_bb9c8e51",
+  "rule_name": "explicit_runtime_patch_target_value_source_dominance_rule_v0",
+  "rule_status": "EXPLICIT_VALUE_SOURCE_DOMINANCE_RULE_ADDED",
+  "rule_type": "RUNTIME_PATCH_TARGET_VALUE_SOURCE_DOMINANCE_RULE",
+  "schema_version": "explicit_runtime_patch_target_value_source_dominance_rule_v0",
+  "source_surface_repair_receipt_id": "6ca7147e",
+  "source_value_source_narrowing_receipt_id": "e89512e0"
+}
