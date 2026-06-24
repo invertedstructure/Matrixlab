@@ -1,0 +1,32 @@
+{
+  "decision_options_status": "SOURCE_ROW_LOCATOR_DECISION_OPTIONS_EMITTED",
+  "forbidden_shortcuts": [
+    "apply source refs from locator score",
+    "extract values from located rows",
+    "populate metadata",
+    "mark discriminators ready",
+    "break tie",
+    "select build target"
+  ],
+  "safe_options": [
+    {
+      "meaning": "Use only if every binding has a unique row-locator proposal; still no automatic rebind.",
+      "next_unit": "REVIEW_MACHINE_READABLE_SOURCE_ROW_LOCATOR_PROPOSALS_V0",
+      "option": "REVIEW_UNIQUE_SOURCE_ROW_LOCATOR_PROPOSALS",
+      "recommended": false
+    },
+    {
+      "meaning": "Use if some bindings have row-location evidence but others remain ambiguous.",
+      "next_unit": "REVIEW_PARTIAL_SOURCE_ROW_LOCATOR_PROPOSALS_OR_NARROW_RESIDUAL_AMBIGUITY_V0",
+      "option": "REVIEW_PARTIAL_OR_NARROW_RESIDUAL_LOCATOR_AMBIGUITY",
+      "recommended": false
+    },
+    {
+      "meaning": "Use if row-locator evidence cannot make any binding uniquely reviewable.",
+      "next_unit": "BUILD_MACHINE_READABLE_SOURCE_LINEAGE_OR_FIELD_POLICY_TYPING_SURFACE_V0",
+      "option": "BUILD_SOURCE_LINEAGE_OR_FIELD_POLICY_TYPING_SURFACE",
+      "recommended": true
+    }
+  ],
+  "schema_version": "typed_machine_readable_source_row_locator_decision_options_v0"
+}
