@@ -1,0 +1,46 @@
+{
+  "allowed_packet_outcomes": [
+    "TARGET_EVIDENCE_PACKET_READY_FOR_REVIEW",
+    "TARGET_EVIDENCE_PACKET_INSUFFICIENT",
+    "TARGET_EVIDENCE_PACKET_REJECTED_AUTHORITY_LEAK",
+    "REQUEST_NARROWER_EVIDENCE"
+  ],
+  "authority_boundary": {
+    "may_apply_runtime_patch": false,
+    "may_fabricate_accepted_proposal": false,
+    "may_grant_general_cell1_authority": false,
+    "may_modify_target_files": false,
+    "may_name_one_candidate_target_for_review": true,
+    "may_open_c5": false,
+    "may_promote_proposal_status": false,
+    "may_use_latest_file_guessing": false,
+    "may_use_mtime_selection": false
+  },
+  "constraints": [
+    "selected_target_ref must be exactly one local bounded path",
+    "selected_target_ref must not be selected by latest-file guessing",
+    "selected_target_ref must not be selected by mtime ordering",
+    "source_evidence_refs must include at least one explicit source artifact",
+    "allowed_write_scope must remain NONE until separately authorized",
+    "review_request must be review-only",
+    "packet must not authorize runtime patch application",
+    "packet must not authorize target file modification",
+    "packet must not open C5"
+  ],
+  "packet_object_type": "NARROWER_RUNTIME_PATCH_TARGET_EVIDENCE_PACKET",
+  "required_fields": [
+    "evidence_packet_id",
+    "selected_target_ref",
+    "selected_target_kind",
+    "why_this_target_is_load_bearing",
+    "why_other_hints_are_not_targets",
+    "source_evidence_refs",
+    "accepted_proposal_ref",
+    "verification_gate_ref",
+    "rollback_or_stop_boundary_ref",
+    "allowed_write_scope",
+    "authority_boundary",
+    "review_request"
+  ],
+  "schema_version": "runtime_patch_target_evidence_packet_schema_v0"
+}

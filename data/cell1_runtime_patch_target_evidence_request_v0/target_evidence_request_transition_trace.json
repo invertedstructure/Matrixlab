@@ -1,0 +1,22 @@
+{
+  "schema_version": "cell1_runtime_patch_target_evidence_request_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_NARROWER_RUNTIME_PATCH_TARGET_EVIDENCE_REQUESTED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "13 bounded existing hints, no single honest target",
+      "question": "why was no target candidate declared",
+      "step": "consume_target_narrowing_surface",
+      "taken": "emit_narrower_evidence_request"
+    },
+    {
+      "answer": "data/cell1_runtime_patch_target_evidence_request_v0/narrower_runtime_patch_target_evidence_request_packet_v0.json",
+      "question": "what exact evidence is needed before target declaration",
+      "step": "emit_narrower_evidence_request",
+      "taken": "stop"
+    }
+  ]
+}
