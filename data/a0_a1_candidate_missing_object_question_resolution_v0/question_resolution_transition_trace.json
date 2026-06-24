@@ -1,0 +1,34 @@
+{
+  "schema_version": "question_resolution_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_QUESTION_PACKET_REQUIRES_NARROWER_EVIDENCE",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "b1348da5",
+      "question": "was the application receipt explicit and accepted",
+      "step": "consume_a0_a1_application_receipt",
+      "taken": "consume_selected_a0_and_a1_packets"
+    },
+    {
+      "answer": true,
+      "question": "did A0 and A1 both say QUESTION_PACKET_NOT_COMMAND",
+      "step": "consume_selected_a0_and_a1_packets",
+      "taken": "extract_unresolved_question"
+    },
+    {
+      "answer": true,
+      "question": "was unresolved question extracted",
+      "step": "extract_unresolved_question",
+      "taken": "classify_resolution"
+    },
+    {
+      "answer": "REQUEST_NARROWER_FRONTIER_EVIDENCE",
+      "question": "which closed resolution class applies",
+      "step": "classify_resolution",
+      "taken": "STOP_QUESTION_PACKET_REQUIRES_NARROWER_EVIDENCE"
+    }
+  ]
+}
