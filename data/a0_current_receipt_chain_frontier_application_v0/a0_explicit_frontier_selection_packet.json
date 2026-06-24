@@ -1,0 +1,76 @@
+{
+  "auto_selected_frontier": null,
+  "candidate_frontiers": [
+    {
+      "expected_a0_classification": "CLOSE_AND_FREEZE_ACCEPTANCE",
+      "frontier_id": "frontier_r10000_closed_frozen",
+      "frontier_label": "R10000 branch closed/frozen",
+      "selection_basis": "explicit_human_supplied",
+      "source_receipt_id": "454aa103",
+      "source_receipt_path": "data/r10000_close_and_freeze_acceptance_after_authority_string_mismatch_patch_v0_receipts/454aa103.json",
+      "why_included": "recently closed branch; verify no next command should be inferred"
+    },
+    {
+      "expected_a0_classification": "STOP_LANE_CLOSED",
+      "frontier_id": "frontier_r1000_pressure_queue_closed",
+      "frontier_label": "R1000 pressure queue closed after expected source-content limit",
+      "selection_basis": "explicit_human_supplied",
+      "source_receipt_id": "52d0ea8d",
+      "source_receipt_path": "data/r1000_pressure_queue_closure_review_after_synthetic_remainder_expected_limit_v0_receipts/52d0ea8d.json",
+      "why_included": "closed pressure queue; verify no repair or pressure execution is inferred"
+    },
+    {
+      "expected_a0_classification": "QUESTION_PACKET_NOT_COMMAND",
+      "frontier_id": "frontier_candidate_missing_object_layer_followup",
+      "frontier_label": "candidate missing-object layer / expected source-content limit follow-up",
+      "selection_basis": "explicit_human_supplied",
+      "source_receipt_id": "cbde4b69",
+      "source_receipt_path": null,
+      "why_included": "design-level next transition may exist, but must not be inferred without explicit receipt evidence"
+    }
+  ],
+  "forbidden_selection_rules": [
+    "latest",
+    "mtime",
+    "workspace_guess",
+    "strategic_vibes",
+    "hidden_builder_state"
+  ],
+  "human_decision": {
+    "authorized": [
+      "consume A0 final acceptance receipt and adapter",
+      "construct explicit frontier selection packet",
+      "construct explicit receipt bundles for named frontier candidates",
+      "run A0 classification on explicit bundles",
+      "emit frontier classification rollup",
+      "emit decision packet",
+      "emit operational spec candidate only if licensed by explicit frontier classification",
+      "emit question packet when evidence is missing or ambiguous",
+      "stop with no next command goal"
+    ],
+    "decision": "APPLY_A0_TO_CURRENT_RECEIPT_CHAIN_FRONTIER",
+    "not_authorized": [
+      "execute builder command",
+      "execute repair",
+      "mutate source artifacts",
+      "mutate prior receipts",
+      "select live frontier by latest-file guessing",
+      "select live frontier by mtime sorting",
+      "infer roadmap from strategic discussion",
+      "treat R10000 closure as next objective license",
+      "treat R1000 queue closure as repair authorization",
+      "treat missing optional frontier evidence as null value",
+      "apply taxonomy changes",
+      "run radius-10000 again",
+      "run radius above 10000",
+      "run unbounded/no-cap harvest",
+      "hide next command"
+    ],
+    "scope": "Apply the built A0 receipt-to-builder transition layer to an explicit frontier packet. Classify current frontier candidates from explicit receipt bundles only. Do not select by latest file, mtime, vibes, or hidden roadmap. Emit classifications, question packet or operational spec candidate if licensed, and stop without executing builder commands.",
+    "source_a0_final_acceptance_receipt_id": "6d14e637"
+  },
+  "packet_status": "EXPLICIT_FRONTIER_SELECTION_FOR_A0_APPLICATION",
+  "schema_version": "a0_explicit_frontier_selection_packet_v0",
+  "selection_rule": "explicit_human_supplied_frontier_packet",
+  "source_a0_final_acceptance_receipt_id": "6d14e637"
+}

@@ -1,0 +1,21 @@
+{
+  "a0_allowed_rules_observed_from_design": [
+    "explicit_human_supplied",
+    "explicit_receipt_id",
+    "explicit_receipt_path",
+    "explicit_bundle_manifest"
+  ],
+  "bad_rule": "explicit_frontier_packet",
+  "bad_rule_frontiers": [
+    "frontier_r10000_closed_frozen",
+    "frontier_r1000_pressure_queue_closed"
+  ],
+  "mismatch_only": true,
+  "r10000_expected_after_fix": "CLOSE_AND_FREEZE_ACCEPTANCE",
+  "r10000_observed_classification": "QUESTION_PACKET_NOT_COMMAND",
+  "r10000_source_selection_valid": false,
+  "recommended_fix": "use explicit_bundle_manifest for frontier receipt bundles; do not widen A0 source-selection enum in this patch",
+  "review_classification": "A0_FRONTIER_WRAPPER_USED_UNACCEPTED_SOURCE_SELECTION_RULE",
+  "schema_version": "a0_frontier_source_selection_rule_mismatch_review_v0",
+  "source_a0_frontier_failure_receipt_id": "c1d0f615"
+}

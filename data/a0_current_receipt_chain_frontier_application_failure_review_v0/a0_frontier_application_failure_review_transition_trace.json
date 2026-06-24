@@ -1,0 +1,43 @@
+{
+  "schema_version": "a0_frontier_application_failure_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_A0_FRONTIER_FAILURE_REVIEW_COMPLETE_SOURCE_SELECTION_PATCH_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "did application fail on R10000 close/freeze expectation",
+      "step": "consume_failed_frontier_application",
+      "taken": "review_source_selection_rule"
+    },
+    {
+      "answer": [
+        "frontier_r10000_closed_frozen",
+        "frontier_r1000_pressure_queue_closed"
+      ],
+      "question": "was unaccepted source_selection_rule observed",
+      "step": "review_source_selection_rule",
+      "taken": "review_optional_evidence"
+    },
+    {
+      "answer": true,
+      "question": "was missing optional evidence handled safely",
+      "step": "review_optional_evidence",
+      "taken": "review_substantive_behavior"
+    },
+    {
+      "answer": 0,
+      "question": "did any builder command execute",
+      "step": "review_substantive_behavior",
+      "taken": "emit_fix_authority"
+    },
+    {
+      "answer": false,
+      "question": "patch now",
+      "step": "emit_fix_authority",
+      "taken": "STOP_A0_FRONTIER_FAILURE_REVIEW_COMPLETE_SOURCE_SELECTION_PATCH_REQUIRED"
+    }
+  ]
+}

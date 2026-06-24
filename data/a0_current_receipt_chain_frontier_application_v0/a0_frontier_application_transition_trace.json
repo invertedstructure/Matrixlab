@@ -1,0 +1,34 @@
+{
+  "schema_version": "a0_frontier_application_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_A0_FRONTIER_APPLICATION_COMPLETE_HUMAN_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "is A0 built and final accepted",
+      "step": "consume_a0_final_acceptance",
+      "taken": "construct_explicit_frontier_packet"
+    },
+    {
+      "answer": "explicit_human_supplied_frontier_packet",
+      "question": "was frontier selected explicitly",
+      "step": "construct_explicit_frontier_packet",
+      "taken": "classify_frontier_bundles"
+    },
+    {
+      "answer": false,
+      "question": "did A0 allow any builder command",
+      "step": "classify_frontier_bundles",
+      "taken": "emit_decision_packet"
+    },
+    {
+      "answer": "QUESTION_PACKET_NOT_COMMAND_FOR_FRONTIER_EVIDENCE_OR_SELECTION_GAP",
+      "question": "what is the frontier decision",
+      "step": "emit_decision_packet",
+      "taken": "STOP_A0_FRONTIER_APPLICATION_COMPLETE_HUMAN_DECISION_REQUIRED"
+    }
+  ]
+}
