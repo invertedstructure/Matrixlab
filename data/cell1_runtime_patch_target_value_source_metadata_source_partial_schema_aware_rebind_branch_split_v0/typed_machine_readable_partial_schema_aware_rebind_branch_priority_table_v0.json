@@ -1,0 +1,26 @@
+{
+  "priority_order": [
+    {
+      "branch_id": "review_branch_split_surface",
+      "rank": 1,
+      "why": "the routing object itself must be reviewed before any branch execution"
+    },
+    {
+      "branch_id": "proposal_review_branch",
+      "rank": 2,
+      "why": "4 proposal-ready bindings can be reviewed cheaply but must stay held"
+    },
+    {
+      "branch_id": "ambiguity_tie_breaker_repair_branch",
+      "rank": 3,
+      "why": "22 tied bindings need better distinguishing evidence"
+    },
+    {
+      "branch_id": "requirement_gap_repair_branch",
+      "rank": 4,
+      "why": "498 bindings need missing schema-evidence materialization surfaces"
+    }
+  ],
+  "priority_status": "BRANCH_PRIORITY_EMITTED_REVIEW_REQUIRED",
+  "schema_version": "typed_machine_readable_partial_schema_aware_rebind_branch_priority_table_v0"
+}
