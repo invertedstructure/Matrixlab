@@ -1,0 +1,34 @@
+{
+  "schema_version": "cell1_minimal_runtime_patch_precheck_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_MINIMAL_RUNTIME_PATCH_PRECHECK_COMPLETE",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "a62d6ec2",
+      "question": "is a valid runtime-patch eligibility precheck design available",
+      "step": "consume_precheck_design",
+      "taken": "inspect_accepted_proposal"
+    },
+    {
+      "answer": "71bd1d92",
+      "question": "does an accepted proposal packet exist",
+      "step": "inspect_accepted_proposal",
+      "taken": "scan_bounded_target"
+    },
+    {
+      "answer": "BLOCKED_MISSING_BOUNDED_TARGET",
+      "question": "is exactly one bounded runtime patch target candidate visible in declared sources",
+      "step": "scan_bounded_target",
+      "taken": "classify_eligibility"
+    },
+    {
+      "answer": "DESIGN_CELL1_RUNTIME_PATCH_TARGET_NARROWING_SURFACE_V0",
+      "question": "what is the smallest honest next handling surface",
+      "step": "classify_eligibility",
+      "taken": "stop"
+    }
+  ]
+}

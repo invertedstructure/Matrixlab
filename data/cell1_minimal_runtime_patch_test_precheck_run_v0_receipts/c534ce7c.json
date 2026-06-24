@@ -1,0 +1,356 @@
+{
+  "acceptance_gate_results": {
+    "RUNTIME_PATCH_PRECHECK_0_DESIGN_RECEIPT_CONSUMED": true,
+    "RUNTIME_PATCH_PRECHECK_10_NO_RUNTIME_PATCH": true,
+    "RUNTIME_PATCH_PRECHECK_11_NO_TARGET_FILE_MODIFICATION": true,
+    "RUNTIME_PATCH_PRECHECK_12_NO_C5_OPENED": true,
+    "RUNTIME_PATCH_PRECHECK_13_NO_GENERAL_CELL1_AUTHORITY": true,
+    "RUNTIME_PATCH_PRECHECK_14_NO_PROPOSAL_PROMOTION": true,
+    "RUNTIME_PATCH_PRECHECK_15_NO_ACCEPTED_PROPOSAL_FABRICATION": true,
+    "RUNTIME_PATCH_PRECHECK_16_NO_UNBOUNDED_PAYLOAD_INSPECTION": true,
+    "RUNTIME_PATCH_PRECHECK_17_NO_HIDDEN_NEXT_COMMAND": true,
+    "RUNTIME_PATCH_PRECHECK_18_ROLLUP_PROFILE_REPORT_EMITTED": true,
+    "RUNTIME_PATCH_PRECHECK_1_CONTRACT_CONSUMED": true,
+    "RUNTIME_PATCH_PRECHECK_2_ACCEPTED_PROPOSAL_CONSUMED": true,
+    "RUNTIME_PATCH_PRECHECK_3_ELIGIBILITY_EVIDENCE_EMITTED": true,
+    "RUNTIME_PATCH_PRECHECK_4_TARGET_SCAN_EMITTED": true,
+    "RUNTIME_PATCH_PRECHECK_5_VERIFICATION_SCAN_EMITTED": true,
+    "RUNTIME_PATCH_PRECHECK_6_ROLLBACK_STOP_SCAN_EMITTED": true,
+    "RUNTIME_PATCH_PRECHECK_7_CLASSIFICATION_EMITTED": true,
+    "RUNTIME_PATCH_PRECHECK_8_OUTCOME_CLOSED_ENUM": true,
+    "RUNTIME_PATCH_PRECHECK_9_AUTHORITY_AUDIT_PASS": true
+  },
+  "active_object": "bounded Cell1 minimal runtime patch eligibility precheck",
+  "aggregate_metrics": {
+    "accepted_proposal_fabricated_count": 0,
+    "authority_audit_emitted_count": 1,
+    "build_mode": "BOUNDED_RUNTIME_PATCH_ELIGIBILITY_PRECHECK_ONLY",
+    "c5_opened_count": 0,
+    "eligibility_classification_emitted_count": 1,
+    "eligibility_evidence_emitted_count": 1,
+    "eligibility_outcome": "BLOCKED_MISSING_BOUNDED_TARGET",
+    "general_cell1_authority_granted_count": 0,
+    "hidden_next_command_count": 0,
+    "layer": "CELL_1 / RUNTIME_PATCH_TEST_PRECHECK",
+    "mode": "RUN / ELIGIBILITY_PRECHECK / NO_PATCH",
+    "prior_receipt_mutation_count": 0,
+    "profile_status": "CELL1_MINIMAL_RUNTIME_PATCH_PRECHECK_COMPLETE",
+    "proposal_status_promoted_count": 0,
+    "recommended_next_handling": "DESIGN_CELL1_RUNTIME_PATCH_TARGET_NARROWING_SURFACE_V0",
+    "rollback_or_stop_scan_emitted_count": 1,
+    "rollup": {
+      "accepted_proposal_fabricated_count": 0,
+      "accepted_proposal_present_count": 1,
+      "authority_audit_pass_count": 1,
+      "bounded_target_candidate_count": 0,
+      "build_mode": "BOUNDED_RUNTIME_PATCH_ELIGIBILITY_PRECHECK_ONLY",
+      "c5_opened_count": 0,
+      "eligibility_classification_count": 1,
+      "eligibility_outcome": "BLOCKED_MISSING_BOUNDED_TARGET",
+      "eligible_for_minimal_runtime_patch_test_design_count": 0,
+      "exactly_one_bounded_target_count": 0,
+      "general_cell1_authority_granted_count": 0,
+      "hidden_next_command_count": 0,
+      "prior_receipt_mutation_count": 0,
+      "proposal_status_promoted_count": 0,
+      "recommended_next": "DESIGN_CELL1_RUNTIME_PATCH_TARGET_NARROWING_SURFACE_V0",
+      "return_review_surface_available_count": 1,
+      "rollback_or_stop_boundary_declared_count": 1,
+      "runtime_patch_applied_count": 0,
+      "schema_version": "cell1_minimal_runtime_patch_precheck_rollup_v0",
+      "source_accepted_proposal_receipt_id": "71bd1d92",
+      "source_after_return_next_objective_receipt_id": "f595a9a6",
+      "source_c1_patch_receipt_id": "fffa3dd5",
+      "source_c2_receipt_id": "348dabde",
+      "source_handoff_return_close_receipt_id": "1d7c0a9b",
+      "source_mutation_count": 0,
+      "source_precheck_design_receipt_id": "a62d6ec2",
+      "source_schema_close_receipt_id": "e1bc0ed0",
+      "target_file_modified_count": 0,
+      "taxonomy_registry_mutation_count": 0,
+      "unbounded_payload_inspection_count": 0,
+      "verification_gate_declared_count": 1
+    },
+    "runtime_patch_applied_count": 0,
+    "source_mutation_count": 0,
+    "source_precheck_design_receipt_consumed_count": 1,
+    "target_candidate_scan_emitted_count": 1,
+    "target_file_modified_count": 0,
+    "taxonomy_registry_mutation_count": 0,
+    "verification_gate_scan_emitted_count": 1
+  },
+  "build_mode": "BOUNDED_RUNTIME_PATCH_ELIGIBILITY_PRECHECK_ONLY",
+  "created_at": "2026-06-24T18:12:21.362868+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "human_decision": {
+    "authorized": [
+      "consume precheck design receipt",
+      "consume eligibility contract",
+      "consume accepted proposal packet",
+      "inspect declared artifacts for bounded eligibility evidence",
+      "emit eligibility classification",
+      "emit authority audit",
+      "emit receipt",
+      "stop with no next command goal"
+    ],
+    "decision": "RUN_CELL1_MINIMAL_RUNTIME_PATCH_TEST_PRECHECK_FROM_DESIGN",
+    "not_authorized": [
+      "apply runtime patch",
+      "modify target files",
+      "open C5",
+      "grant general Cell1 authority",
+      "mutate taxonomy registry",
+      "promote proposal status",
+      "fabricate accepted proposal",
+      "inspect unbounded payload",
+      "emit hidden next command"
+    ],
+    "scope": "Run the bounded eligibility precheck from the accepted design. The precheck inspects only declared source artifacts for accepted proposal, bounded target candidate, verification gate, rollback-or-stop boundary, authority boundary, and return/review surface. It emits eligibility evidence, classification, audit, rollup, profile, report, transition trace, and receipt. It does not apply a runtime patch, modify target files, open C5, grant general Cell1 authority, promote proposals, fabricate accepted proposals, or emit hidden next command."
+  },
+  "layer": "CELL_1 / RUNTIME_PATCH_TEST_PRECHECK",
+  "minimal_runtime_patch_precheck_guards": {
+    "accepted_proposal_fabricated": false,
+    "build_mode_bounded_runtime_patch_eligibility_precheck_only": true,
+    "c5_authorized": false,
+    "eligibility_outcome": "BLOCKED_MISSING_BOUNDED_TARGET",
+    "general_cell1_authority_granted": false,
+    "hidden_next_command": false,
+    "prior_receipts_mutated": false,
+    "proposal_status_promoted": false,
+    "runtime_patch_applied": false,
+    "runtime_patch_authorized": false,
+    "source_mutated": false,
+    "target_file_modification_authorized": false,
+    "target_file_modified": false,
+    "unbounded_payload_inspection": false
+  },
+  "minimal_runtime_patch_precheck_summary": {
+    "accepted_proposal_present_count": 1,
+    "bad_counters_zero": true,
+    "bounded_target_candidate_count": 0,
+    "c5_opened": false,
+    "eligibility_outcome": "BLOCKED_MISSING_BOUNDED_TARGET",
+    "eligible_for_minimal_runtime_patch_test_design": false,
+    "exactly_one_bounded_target_count": 0,
+    "general_cell1_authority_granted": false,
+    "profile_status": "CELL1_MINIMAL_RUNTIME_PATCH_PRECHECK_COMPLETE",
+    "recommended_next": "DESIGN_CELL1_RUNTIME_PATCH_TARGET_NARROWING_SURFACE_V0",
+    "return_review_surface_available_count": 1,
+    "rollback_or_stop_boundary_declared_count": 1,
+    "runtime_patch_applied": false,
+    "target_file_modified": false,
+    "verification_gate_declared_count": 1
+  },
+  "mode": "RUN / ELIGIBILITY_PRECHECK / NO_PATCH",
+  "negative_controls": [
+    {
+      "case": "classification_outcome_not_allowed_fail",
+      "failures": [
+        "classification_outcome_not_allowed"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "classification_authorizes_runtime_patch_fail",
+      "failures": [
+        "classification_authorizes_runtime_patch"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "classification_authorizes_target_modification_fail",
+      "failures": [
+        "classification_authorizes_target_modification"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "classification_authorizes_c5_fail",
+      "failures": [
+        "classification_authorizes_c5"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "classification_hidden_next_command_fail",
+      "failures": [
+        "classification_hidden_next_command"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "audit_authority_allows_runtime_patch_fail",
+      "failures": [
+        "audit_authority_allows_runtime_patch"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "audit_authority_allows_target_modification_fail",
+      "failures": [
+        "audit_authority_allows_target_modification"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "evidence_unbounded_payload_inspection_fail",
+      "failures": [
+        "evidence_unbounded_payload_inspection"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "target_scan_unbounded_payload_inspection_fail",
+      "failures": [
+        "target_scan_unbounded_payload_inspection"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "runtime_patch_applied_fail",
+      "failures": [
+        "rollup_counter_nonzero:runtime_patch_applied_count:1",
+        "report_counter_nonzero:runtime_patch_applied_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "target_file_modified_fail",
+      "failures": [
+        "rollup_counter_nonzero:target_file_modified_count:1",
+        "report_counter_nonzero:target_file_modified_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "c5_opened_fail",
+      "failures": [
+        "rollup_counter_nonzero:c5_opened_count:1",
+        "report_counter_nonzero:c5_opened_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "general_cell1_authority_granted_fail",
+      "failures": [
+        "rollup_counter_nonzero:general_cell1_authority_granted_count:1",
+        "report_counter_nonzero:general_cell1_authority_granted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "taxonomy_registry_mutated_fail",
+      "failures": [
+        "rollup_counter_nonzero:taxonomy_registry_mutation_count:1",
+        "report_counter_nonzero:taxonomy_registry_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "proposal_status_promoted_fail",
+      "failures": [
+        "rollup_counter_nonzero:proposal_status_promoted_count:1",
+        "report_counter_nonzero:proposal_status_promoted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "accepted_proposal_fabricated_fail",
+      "failures": [
+        "rollup_counter_nonzero:accepted_proposal_fabricated_count:1",
+        "report_counter_nonzero:accepted_proposal_fabricated_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "source_mutation_fail",
+      "failures": [
+        "rollup_counter_nonzero:source_mutation_count:1",
+        "report_counter_nonzero:source_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "prior_receipt_mutation_fail",
+      "failures": [
+        "rollup_counter_nonzero:prior_receipt_mutation_count:1",
+        "report_counter_nonzero:prior_receipt_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "hidden_next_command_fail",
+      "failures": [
+        "rollup_counter_nonzero:hidden_next_command_count:1",
+        "report_counter_nonzero:hidden_next_command_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "unbounded_payload_inspection_fail",
+      "failures": [
+        "rollup_counter_nonzero:unbounded_payload_inspection_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    }
+  ],
+  "output_artifacts": {
+    "authority_audit": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/runtime_patch_precheck_authority_audit_v0.json",
+    "bounded_target_candidate_scan": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/bounded_runtime_patch_target_candidate_scan_v0.json",
+    "design_readout": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/precheck_design_readout_v0.json",
+    "eligibility_classification": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/runtime_patch_precheck_eligibility_classification_v0.json",
+    "eligibility_evidence": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/runtime_patch_precheck_eligibility_evidence_v0.json",
+    "implementation_receipt": "data/cell1_minimal_runtime_patch_test_precheck_run_v0_receipts/c534ce7c.json",
+    "profile": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/runtime_patch_precheck_profile_v0.json",
+    "report": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/runtime_patch_precheck_report.json",
+    "rollback_or_stop_boundary_scan": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/rollback_or_stop_boundary_scan_v0.json",
+    "rollup": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/runtime_patch_precheck_rollup_v0.json",
+    "source_accepted_proposal_packet": "data/accepted_proposal_packet_for_c4_consumption_v0/accepted_proposal_packet_v0.json",
+    "source_handoff_return_reference_packet": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_frozen_reference_packet_v0.json",
+    "source_precheck_contract": "data/cell1_minimal_runtime_patch_test_precheck_design_v0/runtime_patch_precheck_eligibility_contract_v0.json",
+    "source_precheck_design_receipt": "data/cell1_minimal_runtime_patch_test_precheck_design_v0_receipts/a62d6ec2.json",
+    "source_schema_reference_packet": "data/cell1_schema_consumption_test_review_or_close_v0/cell1_schema_test_frozen_reference_packet_v0.json",
+    "source_surface": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/source_surface_v0.json",
+    "transition_trace": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/runtime_patch_precheck_transition_trace.json",
+    "verification_gate_scan": "data/cell1_minimal_runtime_patch_test_precheck_run_v0/verification_gate_scan_v0.json"
+  },
+  "receipt_id": "c534ce7c",
+  "receipt_type": "CELL1_MINIMAL_RUNTIME_PATCH_PRECHECK_RECEIPT",
+  "schema_version": "cell1_minimal_runtime_patch_precheck_receipt_v0",
+  "source_accepted_proposal_receipt_id": "71bd1d92",
+  "source_after_return_next_objective_receipt_id": "f595a9a6",
+  "source_c1_patch_receipt_id": "fffa3dd5",
+  "source_c2_receipt_id": "348dabde",
+  "source_handoff_return_close_receipt_id": "1d7c0a9b",
+  "source_precheck_design_receipt_id": "a62d6ec2",
+  "source_schema_close_receipt_id": "e1bc0ed0",
+  "target_unit_id": "cell1.minimal_runtime_patch_test_precheck.run_from_design.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_MINIMAL_RUNTIME_PATCH_PRECHECK_COMPLETE",
+    "type": "STOP"
+  },
+  "unit_id": "RUN_CELL1_MINIMAL_RUNTIME_PATCH_TEST_PRECHECK_FROM_DESIGN_V0",
+  "warnings": []
+}
