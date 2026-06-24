@@ -1,0 +1,26 @@
+{
+  "schema_version": "typed_value_source_metadata_source_packet_values_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_VALUE_SOURCE_METADATA_SOURCE_PACKET_VALUES_INPUT_INVALID",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "source packet template exists but values packet was not provided",
+      "question": "what did the packet review prove",
+      "step": "consume_missing_packet_review",
+      "taken": "emit values input contract"
+    },
+    {
+      "answer": "TYPED_VALUE_SOURCE_METADATA_SOURCE_PACKET_VALUES_INPUT_INVALID",
+      "question": "were explicit source-packet values supplied",
+      "reason_codes": [
+        "SOURCE_PACKET_VALUES_INPUT_INVALID",
+        "values_payload_not_provided"
+      ],
+      "step": "check_values_input",
+      "taken": "REPAIR_TYPED_VALUE_SOURCE_METADATA_SOURCE_PACKET_VALUES_INPUTS_V0"
+    }
+  ]
+}
