@@ -1,0 +1,28 @@
+{
+  "schema_version": "cell1_schema_test_review_or_close_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_SCHEMA_CONSUMPTION_TEST_CLOSED_REFERENCE_ONLY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "e6b0fd97",
+      "question": "did the bounded Cell 1 schema-consumption test pass",
+      "step": "consume_cell1_schema_test_receipt",
+      "taken": "audit_boundary"
+    },
+    {
+      "answer": "NO",
+      "question": "did runtime patch, target modification, taxonomy mutation, C5, or hidden continuation occur",
+      "step": "audit_boundary",
+      "taken": "classify_for_closure"
+    },
+    {
+      "answer": "CLOSE_AND_FREEZE_REFERENCE",
+      "question": "should the branch close as a reference object",
+      "step": "classify_for_closure",
+      "taken": "freeze_reference_and_stop"
+    }
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "acceptance_gate_results": {
+    "CELL1_REVIEW_0_CELL1_SCHEMA_TEST_RECEIPT_CONSUMED": true,
+    "CELL1_REVIEW_10_NO_RUNTIME_PATCH": true,
+    "CELL1_REVIEW_11_NO_TARGET_FILE_MODIFIED": true,
+    "CELL1_REVIEW_12_NO_TAXONOMY_MUTATION": true,
+    "CELL1_REVIEW_13_NO_C5_OPENED": true,
+    "CELL1_REVIEW_14_NO_GENERAL_CELL1_AUTHORITY": true,
+    "CELL1_REVIEW_15_NO_HIDDEN_NEXT_COMMAND": true,
+    "CELL1_REVIEW_16_ROLLUP_PROFILE_REPORT_EMITTED": true,
+    "CELL1_REVIEW_1_CELL1_SCHEMA_TEST_RECEIPT_PASS": true,
+    "CELL1_REVIEW_2_VERIFICATION_SCHEMA_ONLY_PASS": true,
+    "CELL1_REVIEW_3_BOUNDARY_AUDIT_PASS": true,
+    "CELL1_REVIEW_4_CLASSIFIED_FOR_CLOSURE": true,
+    "CELL1_REVIEW_5_CLOSURE_DECISION_EMITTED": true,
+    "CELL1_REVIEW_6_REFERENCE_PACKET_FROZEN": true,
+    "CELL1_REVIEW_7_NEXT_DECISION_SURFACE_EMITTED": true,
+    "CELL1_REVIEW_8_NO_NEW_CELL1_EXECUTION": true,
+    "CELL1_REVIEW_9_NO_CELL1_RERUN": true
+  },
+  "active_object": "review and close completed bounded Cell 1 schema-consumption test",
+  "aggregate_metrics": {
+    "boundary_audit_emitted_count": 1,
+    "build_mode": "REVIEW_OR_CLOSE_ONLY",
+    "c5_opened_count": 0,
+    "closure_decision_emitted_count": 1,
+    "closure_status": "CLOSED_REFERENCE_ONLY",
+    "frozen_reference_packet_emitted_count": 1,
+    "hidden_next_command_count": 0,
+    "layer": "CELL_1 / REVIEW_OR_CLOSE",
+    "mode": "REVIEW / CLOSURE / REFERENCE_FREEZE",
+    "new_cell1_execution_count": 0,
+    "next_decision_surface_emitted_count": 1,
+    "prior_receipt_mutation_count": 0,
+    "profile_status": "CELL1_SCHEMA_CONSUMPTION_TEST_CLOSED_REFERENCE_ONLY",
+    "recommended_next_handling": "DECIDE_NEXT_BOUNDED_CELL1_OBJECTIVE",
+    "rerun_cell1_schema_test_count": 0,
+    "review_classification_emitted_count": 1,
+    "rollup": {
+      "accepted_proposal_fabricated_count": 0,
+      "boundary_status": "PASS",
+      "build_mode": "REVIEW_OR_CLOSE_ONLY",
+      "c5_opened_count": 0,
+      "closure_decision": "CLOSE_AND_FREEZE_REFERENCE",
+      "closure_status": "CLOSED_REFERENCE_ONLY",
+      "general_cell1_authority_granted_count": 0,
+      "hidden_next_command_count": 0,
+      "new_cell1_execution_count": 0,
+      "prior_receipt_mutation_count": 0,
+      "proposal_status_promoted_count": 0,
+      "proposed_only_consumed_as_accepted_count": 0,
+      "recommended_next": "DECIDE_NEXT_BOUNDED_CELL1_OBJECTIVE",
+      "reference_packets_emitted": 1,
+      "rerun_cell1_schema_test_count": 0,
+      "review_classification": "CLOSE_AS_BOUNDED_REFERENCE_OBJECT",
+      "runtime_build_artifact_emitted_count": 0,
+      "runtime_patch_applied_count": 0,
+      "schema_version": "cell1_schema_test_review_or_close_rollup_v0",
+      "source_accepted_proposal_receipt_id": "71bd1d92",
+      "source_c1_patch_receipt_id": "fffa3dd5",
+      "source_c2_receipt_id": "348dabde",
+      "source_c4_consumption_receipt_id": "c56792b7",
+      "source_cell1_schema_test_receipt_id": "e6b0fd97",
+      "source_mutation_count": 0,
+      "target_file_modified_count": 0,
+      "taxonomy_registry_mutation_count": 0,
+      "unbounded_payload_inspection_count": 0,
+      "unexpected_builder_command_count": 0
+    },
+    "runtime_patch_applied_count": 0,
+    "source_cell1_schema_test_consumed_count": 1,
+    "source_mutation_count": 0,
+    "target_file_modified_count": 0,
+    "taxonomy_registry_mutation_count": 0
+  },
+  "build_mode": "REVIEW_OR_CLOSE_ONLY",
+  "cell1_schema_review_guards": {
+    "build_mode_review_or_close_only": true,
+    "c5_opened": false,
+    "closed_as_reference_only": true,
+    "general_cell1_authority_granted": false,
+    "hidden_next_command": false,
+    "no_new_cell1_execution": true,
+    "no_rerun": true,
+    "prior_receipts_mutated": false,
+    "reference_packet_frozen": true,
+    "runtime_patch_applied": false,
+    "source_mutated": false,
+    "target_file_modified": false,
+    "taxonomy_registry_mutated": false
+  },
+  "cell1_schema_review_summary": {
+    "bad_counters_zero": true,
+    "boundary_status": "PASS",
+    "c5_opened": false,
+    "closure_decision": "CLOSE_AND_FREEZE_REFERENCE",
+    "closure_status": "CLOSED_REFERENCE_ONLY",
+    "new_cell1_execution_count": 0,
+    "profile_status": "CELL1_SCHEMA_CONSUMPTION_TEST_CLOSED_REFERENCE_ONLY",
+    "recommended_next": "DECIDE_NEXT_BOUNDED_CELL1_OBJECTIVE",
+    "reference_status": "FROZEN_REFERENCE_ONLY",
+    "rerun_cell1_schema_test_count": 0,
+    "review_classification": "CLOSE_AS_BOUNDED_REFERENCE_OBJECT",
+    "runtime_patch_applied": false,
+    "target_file_modified": false
+  },
+  "created_at": "2026-06-24T15:41:19.386099+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "human_decision": {
+    "authorized": [
+      "consume Cell 1 schema-consumption test receipt",
+      "audit boundary counters",
+      "classify schema-consumption test result",
+      "emit closure decision",
+      "freeze bounded Cell 1 schema-consumption test as reference",
+      "emit next decision surface",
+      "emit receipt",
+      "stop with no next command goal"
+    ],
+    "decision": "CELL1_SCHEMA_CONSUMPTION_TEST_REVIEW_OR_CLOSE",
+    "not_authorized": [
+      "rerun Cell 1",
+      "apply runtime patch",
+      "modify target files",
+      "open C5",
+      "grant general Cell 1 authority",
+      "mutate taxonomy registry",
+      "promote proposal status",
+      "fabricate accepted proposal",
+      "emit hidden next command"
+    ],
+    "scope": "Review the completed bounded Cell 1 schema-consumption test and either close it as a reference object or return a specific repair packet. This unit consumes the accepted Cell 1 schema-consumption test receipt and artifacts, audits the boundary counters, classifies the result, emits a closure decision, freezes the test as a reference packet, emits a next decision surface, and stops. It does not rerun Cell 1, does not apply runtime patches, does not modify targets, does not open C5, and does not emit a hidden next command."
+  },
+  "layer": "CELL_1 / REVIEW_OR_CLOSE",
+  "mode": "REVIEW / CLOSURE / REFERENCE_FREEZE",
+  "negative_controls": [
+    {
+      "case": "classification_not_close_fail",
+      "failures": [
+        "classification_not_close"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "boundary_audit_not_clean_fail",
+      "failures": [
+        "boundary_audit_not_clean"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "closure_decision_not_close_fail",
+      "failures": [
+        "closure_decision_not_close"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "reference_not_frozen_fail",
+      "failures": [
+        "reference_not_frozen"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "next_surface_hidden_command_fail",
+      "failures": [
+        "next_surface_hidden_command"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "next_surface_missing_c5_block_fail",
+      "failures": [
+        "next_surface_missing_c5_block"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "runtime_patch_applied_fail",
+      "failures": [
+        "rollup_counter_nonzero:runtime_patch_applied_count:1",
+        "report_counter_nonzero:runtime_patch_applied_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "target_file_modified_fail",
+      "failures": [
+        "rollup_counter_nonzero:target_file_modified_count:1",
+        "report_counter_nonzero:target_file_modified_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "taxonomy_registry_mutated_fail",
+      "failures": [
+        "rollup_counter_nonzero:taxonomy_registry_mutation_count:1",
+        "report_counter_nonzero:taxonomy_registry_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "c5_opened_fail",
+      "failures": [
+        "rollup_counter_nonzero:c5_opened_count:1",
+        "report_counter_nonzero:c5_opened_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "general_cell1_authority_granted_fail",
+      "failures": [
+        "rollup_counter_nonzero:general_cell1_authority_granted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "unbounded_payload_inspection_fail",
+      "failures": [
+        "rollup_counter_nonzero:unbounded_payload_inspection_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "proposal_status_promoted_fail",
+      "failures": [
+        "rollup_counter_nonzero:proposal_status_promoted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "accepted_proposal_fabricated_fail",
+      "failures": [
+        "rollup_counter_nonzero:accepted_proposal_fabricated_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "proposed_only_consumed_as_accepted_fail",
+      "failures": [
+        "rollup_counter_nonzero:proposed_only_consumed_as_accepted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "hidden_next_command_fail",
+      "failures": [
+        "rollup_counter_nonzero:hidden_next_command_count:1",
+        "report_counter_nonzero:hidden_next_command_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "source_mutation_fail",
+      "failures": [
+        "rollup_counter_nonzero:source_mutation_count:1",
+        "report_counter_nonzero:source_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "prior_receipt_mutation_fail",
+      "failures": [
+        "rollup_counter_nonzero:prior_receipt_mutation_count:1",
+        "report_counter_nonzero:prior_receipt_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "unexpected_builder_command_fail",
+      "failures": [
+        "rollup_counter_nonzero:unexpected_builder_command_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "runtime_build_artifact_emitted_fail",
+      "failures": [
+        "rollup_counter_nonzero:runtime_build_artifact_emitted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "new_cell1_execution_fail",
+      "failures": [
+        "rollup_counter_nonzero:new_cell1_execution_count:1",
+        "report_counter_nonzero:new_cell1_execution_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "rerun_cell1_schema_test_fail",
+      "failures": [
+        "rollup_counter_nonzero:rerun_cell1_schema_test_count:1",
+        "report_counter_nonzero:rerun_cell1_schema_test_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "reference_packet_count_not_one_fail",
+      "failures": [
+        "reference_packet_count_not_one"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    }
+  ],
+  "output_artifacts": {
+    "boundary_audit": "data/cell1_schema_consumption_test_review_or_close_v0/cell1_schema_test_boundary_audit_v0.json",
+    "closure_decision": "data/cell1_schema_consumption_test_review_or_close_v0/cell1_schema_test_closure_decision_v0.json",
+    "frozen_reference_packet": "data/cell1_schema_consumption_test_review_or_close_v0/cell1_schema_test_frozen_reference_packet_v0.json",
+    "implementation_receipt": "data/cell1_schema_consumption_test_review_or_close_v0_receipts/e1bc0ed0.json",
+    "next_decision_surface": "data/cell1_schema_consumption_test_review_or_close_v0/cell1_schema_test_next_decision_surface_v0.json",
+    "profile": "data/cell1_schema_consumption_test_review_or_close_v0/cell1_schema_test_review_or_close_profile_v0.json",
+    "report": "data/cell1_schema_consumption_test_review_or_close_v0/cell1_schema_test_review_or_close_report.json",
+    "review_classification": "data/cell1_schema_consumption_test_review_or_close_v0/cell1_schema_test_review_classification_v0.json",
+    "rollup": "data/cell1_schema_consumption_test_review_or_close_v0/cell1_schema_test_review_or_close_rollup_v0.json",
+    "source_accepted_proposal_packet": "data/accepted_proposal_packet_for_c4_consumption_v0/accepted_proposal_packet_v0.json",
+    "source_c1_patch_schema": "data/c1_proposal_interface_gap_patch_from_c3_v0/proposal_packet_schema_v0_1.json",
+    "source_c2_lane_registry": "data/c2_cell0_label_taxonomy_lane_cleaning_v0/taxonomy_lane_registry_v0.json",
+    "source_c4_consumption_receipt": "data/c4_consume_one_accepted_proposal_packet_v0_receipts/c56792b7.json",
+    "source_cell1_schema_test_receipt": "data/cell1_schema_consumption_test_from_c4_handoff_v0_receipts/e6b0fd97.json",
+    "source_cell1_schema_test_rollup": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_rollup_v0.json",
+    "source_cell1_schema_test_verification": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_verification_record_v0.json",
+    "source_surface": "data/cell1_schema_consumption_test_review_or_close_v0/cell1_schema_test_review_source_surface_v0.json",
+    "transition_trace": "data/cell1_schema_consumption_test_review_or_close_v0/cell1_schema_test_review_or_close_transition_trace.json"
+  },
+  "receipt_id": "e1bc0ed0",
+  "receipt_type": "CELL1_SCHEMA_TEST_REVIEW_OR_CLOSE_RECEIPT",
+  "schema_version": "cell1_schema_test_review_or_close_receipt_v0",
+  "source_accepted_proposal_receipt_id": "71bd1d92",
+  "source_c1_patch_receipt_id": "fffa3dd5",
+  "source_c2_receipt_id": "348dabde",
+  "source_c4_consumption_receipt_id": "c56792b7",
+  "source_cell1_schema_test_receipt_id": "e6b0fd97",
+  "target_unit_id": "cell1.schema_consumption_test.review_or_close.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_SCHEMA_CONSUMPTION_TEST_CLOSED_REFERENCE_ONLY",
+    "type": "STOP"
+  },
+  "unit_id": "CELL1_SCHEMA_CONSUMPTION_TEST_REVIEW_OR_CLOSE_V0",
+  "warnings": []
+}
