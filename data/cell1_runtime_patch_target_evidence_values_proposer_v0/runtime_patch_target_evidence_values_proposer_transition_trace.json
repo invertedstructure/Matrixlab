@@ -1,0 +1,25 @@
+{
+  "schema_version": "runtime_patch_target_evidence_values_proposer_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_NO_BOUNDED_TARGET_VALUE_SOURCE",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "checker exists; values are missing",
+      "question": "is the checker missing or are the values missing",
+      "step": "consume_missing_values_checker_halt",
+      "taken": "materialize_bounded_values_proposer"
+    },
+    {
+      "answer": "NO_BOUNDED_TARGET_VALUE_SOURCE",
+      "question": "can exactly one target-evidence value set be proposed without guessing",
+      "reason_codes": [
+        "NO_BOUNDED_TARGET_VALUE_SOURCE"
+      ],
+      "step": "inspect_allowed_evidence_surfaces",
+      "taken": "emit_proposal_or_typed_halt_without_acceptance"
+    }
+  ]
+}
