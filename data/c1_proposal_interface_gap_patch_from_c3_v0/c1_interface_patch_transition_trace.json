@@ -1,0 +1,28 @@
+{
+  "schema_version": "c1_interface_patch_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C1_PROPOSAL_INTERFACE_PATCH_READY_FOR_C3_RERUN",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "STOP_C4_BLOCKED_BY_C3_INTERFACE_VERDICT",
+      "question": "is Cell 1 still blocked by C3 interface verdict",
+      "step": "consume_c4_blocked_preflight",
+      "taken": "consume_c3_gap_report"
+    },
+    {
+      "answer": "data/c3_cell0_micro_domain_shift_rehearsal_v0/domain_shift_proposal_gap_reports_v0.jsonl",
+      "question": "are proposal/schema gaps concrete and extractable",
+      "step": "consume_c3_gap_report",
+      "taken": "emit_candidate_c1_interface_patch"
+    },
+    {
+      "answer": "proposal_packet_schema_v0_1",
+      "question": "were builder/review/verification interface fields emitted without acceptance or Cell 1 execution",
+      "step": "emit_candidate_c1_interface_patch",
+      "taken": "stop_for_c3_rerun"
+    }
+  ]
+}

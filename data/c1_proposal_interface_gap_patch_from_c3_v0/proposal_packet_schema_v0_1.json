@@ -1,0 +1,113 @@
+{
+  "builder_interface": {
+    "allowed_only_after_status": [
+      "ACCEPTED_FOR_BUILD",
+      "ACCEPTED_FOR_TAXONOMY_PATCH",
+      "ACCEPTED_FOR_EXTRACTION",
+      "ACCEPTED_FOR_OBSERVABILITY_PATCH",
+      "ACCEPTED_FOR_MOVE_REGISTRATION"
+    ],
+    "builder_allowed_inputs": [],
+    "builder_consumption_allowed": false,
+    "builder_forbidden_inputs": [],
+    "domain_kind": null,
+    "missing_input_stop_condition": "STOP_C4_ACCEPTED_PROPOSAL_UNDERTYPED",
+    "object_kind": null,
+    "object_scope": null,
+    "out_of_scope_objects": [],
+    "required_input_refs": [],
+    "review_receipt_required": true,
+    "target_surface": null
+  },
+  "canonical_c1_schema_replaced": false,
+  "claim_scope": {
+    "claim_kind": null,
+    "claim_nonclaims": [],
+    "claim_scope": null,
+    "verification_claim_boundary": null
+  },
+  "evidence_limitations": {
+    "evidence_limitations": [],
+    "evidence_refs": [],
+    "evidence_status": null,
+    "must_not_infer_from_evidence": []
+  },
+  "failure_or_reject_handling": {
+    "failure_handoff_target": "CELL_0_OR_REVIEW",
+    "park_condition": null,
+    "repair_condition": null,
+    "rollback_or_reject_handling": null,
+    "stop_condition": null
+  },
+  "historical_compatibility": {
+    "historical_parse_does_not_authorize_cell1": true,
+    "new_fields_required_for_cell1_consumption": true,
+    "old_c1_packet_parseable_as_historical": true
+  },
+  "interface_patch_status": "CANDIDATE_INTERFACE_PATCH",
+  "must_not_infer": [
+    "schema patch is proposal acceptance",
+    "candidate schema is canonical before C3 rerun",
+    "Cell 1 can consume PROPOSED_ONLY",
+    "review is optional",
+    "verification pass is global correctness"
+  ],
+  "payload_boundary": {
+    "allowed_payload_boundary": [],
+    "forbidden_payload_boundary": [],
+    "inspection_mode": "COUNT_ONLY | REF_ONLY | SUMMARY_ONLY | PAYLOAD_ALLOWED",
+    "scope_violation_stop": "STOP_BUILD_SCOPE_VIOLATION"
+  },
+  "requires_c3_rerun": true,
+  "review_authority": {
+    "accepted_status_output": [
+      "ACCEPTED_FOR_BUILD",
+      "ACCEPTED_FOR_TAXONOMY_PATCH",
+      "ACCEPTED_FOR_EXTRACTION",
+      "ACCEPTED_FOR_OBSERVABILITY_PATCH",
+      "ACCEPTED_FOR_MOVE_REGISTRATION"
+    ],
+    "cell1_may_accept": false,
+    "default_without_review": "NO_EXECUTION",
+    "required_review_receipt_shape": {
+      "authorizes_exact_proposal_id": true,
+      "gate": "PASS",
+      "proposal_id": null,
+      "review_decision": null,
+      "review_receipt_id": "review_<sig8>"
+    },
+    "review_decision_options": [
+      "ACCEPTED_FOR_BUILD",
+      "ACCEPTED_FOR_TAXONOMY_PATCH",
+      "ACCEPTED_FOR_EXTRACTION",
+      "ACCEPTED_FOR_OBSERVABILITY_PATCH",
+      "ACCEPTED_FOR_MOVE_REGISTRATION",
+      "REJECTED",
+      "PARKED",
+      "EVIDENCE_REQUIRED",
+      "NARROWING_REQUIRED"
+    ],
+    "review_required": true
+  },
+  "schema_version": "proposal_packet_schema_v0_1",
+  "source_schema_ref": "data/c1_cell0_proposal_layer_v0/proposal_packet_schema_v0.json",
+  "source_schema_snapshot_sig8": "6a625596",
+  "verification_contract": {
+    "expected_verification_receipt_shape": null,
+    "must_not_infer_after_verification": [
+      "global correctness",
+      "future failures impossible",
+      "proposal closure without review",
+      "Cell 1 general builder authority"
+    ],
+    "required_negative_controls": [],
+    "verification_requirement": null,
+    "verification_status_enum": [
+      "PASS",
+      "FAIL",
+      "NA_MISSING_FIXTURE",
+      "NA_MISSING_TARGET",
+      "NA_UNAUTHORIZED_TEST"
+    ]
+  }
+}
