@@ -1,0 +1,45 @@
+{
+  "accepted_output_if_filled": "provided_runtime_patch_target_evidence_packet_v0.json",
+  "contract_id": "explicit_target_evidence_inputs_1cb051f6",
+  "field_rules": {
+    "ROLLBACK_OR_STOP_BOUNDARY_REF": "local bounded ref to the exact rollback-or-stop boundary for this target",
+    "SELECTED_TARGET_KIND": "explicit target kind string",
+    "SELECTED_TARGET_REF": "exactly one local bounded path; no latest lookup; no mtime tie-break; no directory preference",
+    "SOURCE_EVIDENCE_REFS_JSON": "JSON array of explicit source artifact refs supporting the target",
+    "VERIFICATION_GATE_REF": "local bounded ref to the exact gate that would check this target",
+    "WHY_OTHER_HINTS_ARE_NOT_TARGETS_JSON": "JSON array explaining why other bounded hints are context rather than the selected target",
+    "WHY_THIS_TARGET_IS_LOAD_BEARING": "explicit reason the selected target is load-bearing for the runtime patch target question"
+  },
+  "not_authorized": [
+    "select target from 13 hints by preference",
+    "guess target from latest file",
+    "use mtime selection",
+    "apply runtime patch",
+    "modify target files",
+    "open C5",
+    "accept packet for build",
+    "grant general Cell1 authority",
+    "promote proposal status",
+    "fabricate accepted proposal"
+  ],
+  "recommended_next": "RERUN_PROVIDE_EXPLICIT_RUNTIME_PATCH_TARGET_EVIDENCE_PACKET_WITH_ENV_V0",
+  "required_env_fields": [
+    "SELECTED_TARGET_REF",
+    "SELECTED_TARGET_KIND",
+    "WHY_THIS_TARGET_IS_LOAD_BEARING",
+    "WHY_OTHER_HINTS_ARE_NOT_TARGETS_JSON",
+    "SOURCE_EVIDENCE_REFS_JSON",
+    "VERIFICATION_GATE_REF",
+    "ROLLBACK_OR_STOP_BOUNDARY_REF"
+  ],
+  "review_only": true,
+  "runtime_patch_authorized": false,
+  "schema_version": "explicit_runtime_patch_target_evidence_input_contract_v0",
+  "source_review_receipt_id": "76b44fed",
+  "source_review_receipt_ref": "data/cell1_runtime_patch_target_evidence_packet_review_v0_receipts/76b44fed.json",
+  "source_template_ref": "data/cell1_runtime_patch_target_evidence_packet_review_v0/proposed_runtime_patch_target_evidence_packet_template_v0.json",
+  "target_candidate_declared": false,
+  "target_selected_for_build": false,
+  "trigger_halt": "STOP_EXPLICIT_TARGET_REF_MISSING",
+  "trigger_meaning": "The provider cannot run until one explicit selected target reference and the remaining evidence fields are supplied by the operator."
+}

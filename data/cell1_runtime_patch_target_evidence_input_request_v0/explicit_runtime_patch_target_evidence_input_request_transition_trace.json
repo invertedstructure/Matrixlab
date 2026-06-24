@@ -1,0 +1,22 @@
+{
+  "schema_version": "explicit_runtime_patch_target_evidence_input_request_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_EXPLICIT_TARGET_EVIDENCE_INPUTS_REQUESTED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "STOP_EXPLICIT_TARGET_REF_MISSING",
+      "question": "what blocked provider execution",
+      "step": "consume_target_evidence_packet_missing_surface",
+      "taken": "emit_explicit_input_contract"
+    },
+    {
+      "answer": "no",
+      "question": "can a target be chosen without explicit inputs",
+      "step": "emit_env_template",
+      "taken": "stop_without_target_selection"
+    }
+  ]
+}
