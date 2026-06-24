@@ -1,0 +1,34 @@
+{
+  "schema_version": "typed_machine_readable_source_ref_rebind_schema_aware_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_SOURCE_REF_REBIND_CANDIDATES_WITH_ACCEPTED_SCHEMA_OVERLAY_REVIEWED_PARTIAL_PROPOSALS_REMAINING_AMBIGUITY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is branch-only downstream schema reference available",
+      "step": "consume_accepted_schema_overlay_reference",
+      "taken": "load accepted reference and return-to-rebind contract"
+    },
+    {
+      "answer": [
+        "c7a8616a",
+        "8edaaab8",
+        "7636e62c",
+        "e6281cfb",
+        "9539ff72"
+      ],
+      "question": "which prior receipt lineage bounds the rebind review",
+      "step": "consume_prior_rebind_candidate_receipts",
+      "taken": "extract candidate records from explicit receipt lineage only"
+    },
+    {
+      "answer": "TYPED_MACHINE_READABLE_SOURCE_REF_REBIND_CANDIDATES_WITH_ACCEPTED_SCHEMA_OVERLAY_REVIEWED_PARTIAL_PROPOSALS_REMAINING_AMBIGUITY",
+      "question": "does accepted schema overlay distinguish candidates",
+      "step": "schema_aware_candidate_review",
+      "taken": "REVIEW_PARTIAL_SCHEMA_AWARE_SOURCE_REF_REBIND_PROPOSALS_AND_AMBIGUITIES_V0"
+    }
+  ]
+}
