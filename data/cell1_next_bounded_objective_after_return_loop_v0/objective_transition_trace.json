@@ -1,0 +1,28 @@
+{
+  "schema_version": "cell1_next_objective_after_return_loop_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_NEXT_BOUNDED_OBJECTIVE_AFTER_RETURN_LOOP_DECIDED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "are schema intake and return-loop references both frozen",
+      "step": "consume_reference_stack",
+      "taken": "enumerate_next_objective_classes"
+    },
+    {
+      "answer": "CELL1_OBJECTIVE_MINIMAL_RUNTIME_PATCH_TEST_PRECHECK",
+      "question": "what is the smallest build-adjacent but non-executing objective",
+      "step": "enumerate_next_objective_classes",
+      "taken": "emit_authority_boundary"
+    },
+    {
+      "answer": "yes",
+      "question": "does the decision avoid runtime patch/C5/general authority",
+      "step": "emit_authority_boundary",
+      "taken": "stop"
+    }
+  ]
+}

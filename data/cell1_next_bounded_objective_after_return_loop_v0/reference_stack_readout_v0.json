@@ -1,0 +1,44 @@
+{
+  "handoff_return_reference": {
+    "proves": [
+      "Cell1 can emit a bounded typed return result packet.",
+      "The return packet can reference the frozen schema-consumption evidence.",
+      "The return packet can preserve lane-typed authority boundaries.",
+      "A Cell0/review classification request can classify the packet for review."
+    ],
+    "reference_id": "CELL1_HANDOFF_RETURN_LOOP_REFERENCE_V0",
+    "reference_status": "FROZEN_REFERENCE_ONLY",
+    "source_receipt_id": "1d7c0a9b"
+  },
+  "return_loop_observed": {
+    "accepted_for_build": false,
+    "accepted_for_review": true,
+    "classification": "RETURN_PACKET_ACCEPTED_FOR_REVIEW",
+    "return_packet_emitted_count": 0,
+    "return_packet_validated": true
+  },
+  "schema_consumption_reference": {
+    "proves": [
+      "C4 to Cell1 schema intake can consume an accepted proposal packet.",
+      "A bounded schema-consumption execution can complete without runtime patch or target modification."
+    ],
+    "reference_id": "CELL1_SCHEMA_CONSUMPTION_TEST_REFERENCE_V0",
+    "reference_status": "FROZEN_REFERENCE_ONLY",
+    "source_receipt_id": "e1bc0ed0"
+  },
+  "schema_version": "cell1_reference_stack_readout_after_return_loop_v0",
+  "stack_does_not_prove": [
+    "runtime patch safety",
+    "target file modification safety",
+    "C5 authorization",
+    "general Cell1 authority",
+    "multi-family proposal transfer",
+    "the next objective has executed"
+  ],
+  "stack_now_proves": [
+    "C4 to Cell1 schema intake works under one bounded accepted proposal path.",
+    "Cell1 can return a typed result packet to review/Cell0 classification surface.",
+    "The returned packet can be accepted for review without becoming accepted for build.",
+    "The reference stack remained boundary-clean across intake and return edges."
+  ]
+}
