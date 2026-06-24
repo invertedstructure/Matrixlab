@@ -1,0 +1,198 @@
+{
+  "allowed_inputs": [
+    "data/accepted_proposal_packet_for_c4_consumption_v0/accepted_proposal_packet_v0.json",
+    "data/accepted_proposal_packet_for_c4_consumption_v0/review_decision_record_v0.json",
+    "data/c4_cell1_receipt_native_builder_v0/cell1_accepted_proposal_input_schema_v0.json",
+    "data/c1_proposal_interface_gap_patch_from_c3_v0/proposal_packet_schema_v0_1.json",
+    "data/c2_cell0_label_taxonomy_lane_cleaning_v0/taxonomy_lane_registry_v0.json"
+  ],
+  "bounded_objective": "Run one future C4/Cell1 receipt-native builder consumption test against this accepted artifact-review interface proposal, limited to schema/receipt validation and no unrelated scope.",
+  "builder_interface": {
+    "allowed_only_after_status": [
+      "ACCEPTED_FOR_BUILD",
+      "ACCEPTED_FOR_TAXONOMY_PATCH",
+      "ACCEPTED_FOR_EXTRACTION",
+      "ACCEPTED_FOR_OBSERVABILITY_PATCH",
+      "ACCEPTED_FOR_MOVE_REGISTRATION"
+    ],
+    "builder_allowed_inputs": [
+      "data/accepted_proposal_packet_for_c4_consumption_v0/accepted_proposal_packet_v0.json",
+      "data/accepted_proposal_packet_for_c4_consumption_v0/review_decision_record_v0.json",
+      "data/c4_cell1_receipt_native_builder_v0/cell1_accepted_proposal_input_schema_v0.json",
+      "data/c1_proposal_interface_gap_patch_from_c3_v0/proposal_packet_schema_v0_1.json"
+    ],
+    "builder_consumption_allowed": true,
+    "builder_forbidden_inputs": [
+      "unbounded_payload",
+      "runtime_patch_targets",
+      "taxonomy_registry_mutation",
+      "C5_artifacts"
+    ],
+    "domain_kind": "artifact_review",
+    "missing_input_stop_condition": "STOP_C4_ACCEPTED_PROPOSAL_UNDERTYPED",
+    "object_kind": "accepted_proposal_packet",
+    "object_scope": "one review-backed accepted proposal packet for future C4 consumption",
+    "out_of_scope_objects": [
+      "general Cell 1 builder authority",
+      "runtime patching",
+      "C5 domain shift"
+    ],
+    "required_input_refs": [
+      "data/accepted_proposal_packet_for_c4_consumption_v0/accepted_proposal_packet_v0.json",
+      "data/accepted_proposal_packet_for_c4_consumption_v0/review_decision_record_v0.json"
+    ],
+    "review_receipt_required": true,
+    "target_surface": "accepted_proposal_packet_for_c4_consumption_v0"
+  },
+  "claim_scope": {
+    "claim_kind": "local_builder_intake_claim",
+    "claim_nonclaims": [
+      "Cell 1 executed",
+      "build occurred",
+      "runtime patch applied",
+      "C5 authorized"
+    ],
+    "claim_scope": "this packet is structurally acceptable for future C4 consumption",
+    "verification_claim_boundary": "future verification checks only this proposal packet and review receipt contract"
+  },
+  "evidence_limitations": {
+    "evidence_limitations": [
+      "does not prove Cell 1 execution correctness",
+      "does not prove runtime patch correctness",
+      "does not authorize C5"
+    ],
+    "evidence_refs": [
+      "a17b6786",
+      "fffa3dd5",
+      "d554701a",
+      "348dabde"
+    ],
+    "evidence_status": "SUFFICIENT_FOR_C4_CONSUMPTION_TEST",
+    "must_not_infer_from_evidence": [
+      "global correctness",
+      "Cell 1 already executed",
+      "build verified"
+    ]
+  },
+  "expected_patch_shape": {
+    "files_expected_to_change": [],
+    "files_forbidden_to_change": [
+      "src/matrixlab/cli.py",
+      "data/c2_cell0_label_taxonomy_lane_cleaning_v0/taxonomy_lane_registry_v0.json"
+    ],
+    "patch_application_expected": false,
+    "patch_kind": "NO_RUNTIME_PATCH_SCHEMA_CONSUMPTION_TEST"
+  },
+  "failure_or_reject_handling": {
+    "failure_handoff_target": "CELL_0_OR_REVIEW",
+    "park_condition": "missing_review_receipt_or_schema_gap",
+    "repair_condition": "accepted_proposal_contract_missing_field",
+    "rollback_or_reject_handling": "return_to_review_without_cell1_continuation",
+    "stop_condition": "STOP_C4_ACCEPTED_PROPOSAL_UNDERTYPED"
+  },
+  "forbidden_inputs": [
+    "unbounded_payload",
+    "ambient_workspace_inference",
+    "latest_file_guessing",
+    "runtime_patch_targets",
+    "taxonomy_registry_mutation",
+    "C5_artifacts"
+  ],
+  "must_not_infer": [
+    "Cell 1 executed",
+    "build occurred",
+    "verification passed",
+    "runtime patch is authorized",
+    "C5 is authorized"
+  ],
+  "payload_boundary": {
+    "allowed_payload_boundary": [
+      "accepted proposal packet fields",
+      "review decision record fields",
+      "declared schema refs"
+    ],
+    "forbidden_payload_boundary": [
+      "unbounded payload",
+      "arbitrary repository scan",
+      "runtime build targets"
+    ],
+    "inspection_mode": "REF_ONLY",
+    "scope_violation_stop": "STOP_BUILD_SCOPE_VIOLATION"
+  },
+  "proposal_id": "accepted_artifact_review_interface_probe_v0",
+  "proposal_type": "BUILDER_OBJECTIVE_PROPOSAL",
+  "review_authority": {
+    "accepted_status_output": [
+      "ACCEPTED_FOR_BUILD",
+      "ACCEPTED_FOR_TAXONOMY_PATCH",
+      "ACCEPTED_FOR_EXTRACTION",
+      "ACCEPTED_FOR_OBSERVABILITY_PATCH",
+      "ACCEPTED_FOR_MOVE_REGISTRATION"
+    ],
+    "cell1_may_accept": false,
+    "default_without_review": "NO_EXECUTION",
+    "required_review_receipt_shape": {
+      "authorizes_exact_proposal_id": true,
+      "gate": "PASS",
+      "proposal_id": null,
+      "review_decision": null,
+      "review_receipt_id": "review_<sig8>"
+    },
+    "review_decision_options": [
+      "ACCEPTED_FOR_BUILD",
+      "ACCEPTED_FOR_TAXONOMY_PATCH",
+      "ACCEPTED_FOR_EXTRACTION",
+      "ACCEPTED_FOR_OBSERVABILITY_PATCH",
+      "ACCEPTED_FOR_MOVE_REGISTRATION",
+      "REJECTED",
+      "PARKED",
+      "EVIDENCE_REQUIRED",
+      "NARROWING_REQUIRED"
+    ],
+    "review_required": true
+  },
+  "review_receipt_id": "review_145813eb",
+  "review_receipt_ref": "data/accepted_proposal_packet_for_c4_consumption_v0/review_decision_record_v0.json",
+  "schema_version": "accepted_proposal_packet_v0",
+  "source_candidate_interface_schema_ref": "data/c1_proposal_interface_gap_patch_from_c3_v0/proposal_packet_schema_v0_1.json",
+  "status": "ACCEPTED_FOR_BUILD",
+  "stop_conditions": [
+    "STOP_C4_ACCEPTED_PROPOSAL_UNDERTYPED",
+    "STOP_C4_REVIEW_RECEIPT_MISSING",
+    "STOP_BUILD_SCOPE_VIOLATION",
+    "STOP_CELL1_NO_RUNTIME_PATCH_REQUIRED"
+  ],
+  "target_surface": "accepted_proposal_packet_for_c4_consumption_v0",
+  "verification_contract": {
+    "expected_verification_receipt_shape": "cell1_verification_record_v0",
+    "must_not_infer_after_verification": [
+      "global correctness",
+      "future failures impossible",
+      "proposal closure without review",
+      "Cell 1 general builder authority"
+    ],
+    "required_negative_controls": [
+      "proposed_only_packet_consumed_count == 0",
+      "proposal_status_promoted_count == 0",
+      "runtime_patch_applied_count == 0"
+    ],
+    "verification_requirement": "future C4 consumption must verify schema/receipt contract only",
+    "verification_status_enum": [
+      "PASS",
+      "FAIL",
+      "NA_MISSING_FIXTURE",
+      "NA_MISSING_TARGET",
+      "NA_UNAUTHORIZED_TEST"
+    ]
+  },
+  "verification_requirement": {
+    "expected_verification_receipt_shape": "cell1_verification_record_v0",
+    "required_checks": [
+      "accepted proposal status is accepted by review",
+      "review receipt authorizes exact proposal id",
+      "PROPOSED_ONLY is not consumed",
+      "no Cell 1 execution unless C4 consumes packet in later unit",
+      "no runtime patch for no-op schema-consumption test"
+    ]
+  }
+}

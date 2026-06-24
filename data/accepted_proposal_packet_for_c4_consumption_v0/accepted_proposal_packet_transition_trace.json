@@ -1,0 +1,28 @@
+{
+  "schema_version": "accepted_proposal_packet_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_ACCEPTED_PROPOSAL_PACKET_READY_FOR_C4_CONSUMPTION",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "OPEN_FOR_NARROW_ACCEPTED_PROPOSAL_TEST",
+      "question": "is C4 ready for one accepted proposal packet",
+      "step": "consume_c4_preflight_rerun_gate",
+      "taken": "emit_review_decision"
+    },
+    {
+      "answer": "review_145813eb",
+      "question": "does review accept exactly one proposal id",
+      "step": "emit_review_decision",
+      "taken": "emit_accepted_proposal_packet"
+    },
+    {
+      "answer": true,
+      "question": "was Cell 1 execution avoided",
+      "step": "emit_accepted_proposal_packet",
+      "taken": "stop_for_future_c4_consumption"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "accepted_proposal_packet_ref": "data/accepted_proposal_packet_for_c4_consumption_v0/accepted_proposal_packet_v0.json",
+  "contract_id": "c4_contract_c18dc70a",
+  "future_c4_may_consume_if": [
+    "packet.status is accepted",
+    "review receipt exists and authorizes exact proposal id",
+    "C4 opening gate remains open",
+    "packet validates against accepted proposal input schema"
+  ],
+  "future_c4_must_not_infer": [
+    "Cell 1 may accept proposal",
+    "runtime patch is automatically required",
+    "C5 is authorized",
+    "review of this packet accepts future packets"
+  ],
+  "future_c4_unit": "CONSUME_ONE_ACCEPTED_PROPOSAL_PACKET_WITH_C4_V0",
+  "future_cell1_execution_allowed_by_this_unit": false,
+  "review_decision_record_ref": "data/accepted_proposal_packet_for_c4_consumption_v0/review_decision_record_v0.json",
+  "schema_version": "c4_consumption_contract_record_v0"
+}
