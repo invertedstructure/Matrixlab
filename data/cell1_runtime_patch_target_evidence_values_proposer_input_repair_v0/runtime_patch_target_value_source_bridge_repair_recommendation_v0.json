@@ -1,0 +1,30 @@
+{
+  "acceptance_boundary": "human_or_prevalidated_schema_acceptance_required",
+  "not_authorized": [
+    "select target for build",
+    "declare target candidate for review",
+    "accept proposal",
+    "apply runtime patch",
+    "modify target files",
+    "open C5",
+    "grant general Cell1 authority",
+    "use latest-file guessing",
+    "use mtime selection",
+    "collapse ambiguity by preference"
+  ],
+  "reason_codes": [
+    "MULTIPLE_TYPED_TARGET_VALUE_SOURCE_ROWS",
+    "NO_SINGLE_DOMINANT_VALUE_SOURCE"
+  ],
+  "recommendation_status": "VALUE_SOURCE_SURFACE_MULTIPLE_AMBIGUOUS",
+  "recommended_next": "NARROW_RUNTIME_PATCH_TARGET_VALUE_SOURCE_SURFACE_V0",
+  "repair_instruction": "Multiple typed target-value-source rows exist. Next repair must narrow or rank by explicit schema rule, not preference.",
+  "schema_version": "runtime_patch_target_value_source_bridge_repair_recommendation_v0",
+  "surface_counts": {
+    "allowed_surface_count": 12,
+    "hint_inventory_row_count": 14,
+    "path_like_value_count": 74,
+    "semantic_hit_count": 485,
+    "typed_value_source_row_count": 67
+  }
+}

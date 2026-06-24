@@ -1,0 +1,26 @@
+{
+  "schema_version": "runtime_patch_target_value_source_surface_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_VALUE_SOURCE_SURFACE_MULTIPLE_AMBIGUOUS",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "proposer ran and halted with NO_BOUNDED_TARGET_VALUE_SOURCE",
+      "question": "did the proposer fail structurally or lack a typed value source",
+      "step": "consume_values_proposer_no_source_halt",
+      "taken": "inspect_allowed_source_surface"
+    },
+    {
+      "answer": "VALUE_SOURCE_SURFACE_MULTIPLE_AMBIGUOUS",
+      "question": "is source absent, present-but-untyped, bridge-ready, or multiple",
+      "reason_codes": [
+        "MULTIPLE_TYPED_TARGET_VALUE_SOURCE_ROWS",
+        "NO_SINGLE_DOMINANT_VALUE_SOURCE"
+      ],
+      "step": "classify_source_surface",
+      "taken": "NARROW_RUNTIME_PATCH_TARGET_VALUE_SOURCE_SURFACE_V0"
+    }
+  ]
+}
