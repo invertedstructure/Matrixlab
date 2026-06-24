@@ -1,0 +1,31 @@
+{
+  "schema_version": "typed_value_source_value_proposition_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_VALUE_SOURCE_VALUE_PROPOSITIONS_PARTIAL_WITH_ABSENCE_CLASSIFICATION",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "no; machine must classify, propose, and stop at authorization",
+      "question": "should the operator supply raw values",
+      "step": "consume_slot_repair_surface",
+      "taken": "build value proposition surface"
+    },
+    {
+      "answer": "TYPED_VALUE_SOURCE_VALUE_PROPOSITIONS_PARTIAL_WITH_ABSENCE_CLASSIFICATION",
+      "question": "why is each value missing",
+      "reason_codes": [
+        "VALUE_SLOT_ABSENCE_CLASSIFICATION_EMITTED",
+        "MACHINE_READABLE_SLOTS_PROBED_WITHOUT_UNTYPED_INFERENCE",
+        "HUMAN_SCHEMA_BOUNDARY_DIAGNOSTIC_EMITTED",
+        "VALUE_PROPOSITION_PACKET_EMITTED",
+        "AUTHORIZATION_REQUIRED_BEFORE_SOURCE_PACKET_MATERIALIZATION",
+        "SOME_VALUES_REMAIN_NULL_WITH_ABSENCE_REASONS",
+        "HUMAN_OR_SCHEMA_BOUNDARY_SLOTS_REQUIRE_AUTHORIZATION"
+      ],
+      "step": "classify_each_slot_absence",
+      "taken": "AUTHORIZE_OR_REVIEW_TYPED_VALUE_SOURCE_VALUE_PROPOSITIONS_V0"
+    }
+  ]
+}

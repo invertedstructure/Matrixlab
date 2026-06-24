@@ -1,0 +1,606 @@
+{
+  "classification_status": "VALUE_SLOT_ABSENCES_CLASSIFIED",
+  "records": [
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "enum: STRONG | MEDIUM | WEAK | ABSENT | UNKNOWN, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "source dominance / discriminator readiness",
+      "field": "direct_evidence_strength",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "How strong is the direct evidence for this row as a source of the required value?",
+      "required_source_object": "source_packet_required",
+      "row_index": 0,
+      "row_uid": "top_row_0_766eed23",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "SOURCE_EVIDENCE_GRADING_BOUNDARY",
+      "slot_id": "slot_1e1e46d1"
+    },
+    {
+      "absence_reason": "HUMAN_DECISION_REQUIRED",
+      "acceptable_answer_shape": "short justification, accepted by human or prevalidated schema",
+      "allowed_sources": [
+        "human review packet",
+        "prevalidated schema preference packet",
+        "explicit acceptance-boundary packet"
+      ],
+      "downstream_consumer": "authorization/proposal acceptance",
+      "field": "load_bearing_reason",
+      "human_schema_only": true,
+      "policy_source_class": "requires_human_or_prevalidated_schema_boundary",
+      "question_being_asked": "Why is this value source load-bearing enough to affect the next decision?",
+      "required_source_object": "human_or_prevalidated_schema_source_required",
+      "row_index": 0,
+      "row_uid": "top_row_0_766eed23",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "LOAD_BEARING_JUDGMENT_BOUNDARY",
+      "slot_id": "slot_2f8ee418"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "string or enum scope label, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "same-scope comparison and target candidate formation",
+      "field": "target_scope",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "What exact target scope does this row speak for?",
+      "required_source_object": "source_packet_required",
+      "row_index": 0,
+      "row_uid": "top_row_0_766eed23",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "TARGET_SCOPE_BOUNDARY",
+      "slot_id": "slot_16653b17"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "string or enum aspect label, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "split rows that are not competing on the same aspect",
+      "field": "target_aspect",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "Which aspect of the target does this row describe?",
+      "required_source_object": "source_packet_required",
+      "row_index": 0,
+      "row_uid": "top_row_0_766eed23",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "TARGET_ASPECT_BOUNDARY",
+      "slot_id": "slot_1ebffeba"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "enum or string grain label, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "dominance comparison and tie diagnosis",
+      "field": "comparison_grain",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "At what grain should this row be compared to the others?",
+      "required_source_object": "source_packet_required",
+      "row_index": 0,
+      "row_uid": "top_row_0_766eed23",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "COMPARISON_GRAIN_BOUNDARY",
+      "slot_id": "slot_b39f723a"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "enum: DIRECT | LOW_INFERENCE | MEDIUM_INFERENCE | HIGH_INFERENCE | UNKNOWN, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "source ranking / discriminator readiness",
+      "field": "inference_strength",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "How much inference is needed to use this row as a value source?",
+      "required_source_object": "source_packet_required",
+      "row_index": 0,
+      "row_uid": "top_row_0_766eed23",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "INFERENCE_STRENGTH_BOUNDARY",
+      "slot_id": "slot_7ac4328d"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "artifact/ref id/path, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "proposal review and acceptance gate",
+      "field": "verification_gate_ref",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "Which verification gate would validate this row/value before use?",
+      "required_source_object": "source_packet_required",
+      "row_index": 0,
+      "row_uid": "top_row_0_766eed23",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "VERIFICATION_GATE_BOUNDARY",
+      "slot_id": "slot_f2d0c0cb"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "artifact/ref id/path, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "safe commit boundary",
+      "field": "rollback_or_stop_boundary_ref",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "Which rollback/stop boundary applies if this row/value is wrong or unauthorized?",
+      "required_source_object": "source_packet_required",
+      "row_index": 0,
+      "row_uid": "top_row_0_766eed23",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "ROLLBACK_OR_STOP_BOUNDARY",
+      "slot_id": "slot_5e202388"
+    },
+    {
+      "absence_reason": "SCHEMA_AUTHORIZATION_REQUIRED",
+      "acceptable_answer_shape": "prevalidated schema key/ref or null-with-reason",
+      "allowed_sources": [
+        "human review packet",
+        "prevalidated schema preference packet",
+        "explicit acceptance-boundary packet"
+      ],
+      "downstream_consumer": "schema-authorized selection",
+      "field": "schema_preference_key",
+      "human_schema_only": true,
+      "policy_source_class": "requires_human_or_prevalidated_schema_boundary",
+      "question_being_asked": "Which accepted schema preference, if any, authorizes this row/value over alternatives?",
+      "required_source_object": "human_or_prevalidated_schema_source_required",
+      "row_index": 0,
+      "row_uid": "top_row_0_766eed23",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "SCHEMA_POLICY_BOUNDARY",
+      "slot_id": "slot_4e60e76d"
+    },
+    {
+      "absence_reason": "HUMAN_DECISION_REQUIRED",
+      "acceptable_answer_shape": "human decision/ref/review id or null-with-reason",
+      "allowed_sources": [
+        "human review packet",
+        "prevalidated schema preference packet",
+        "explicit acceptance-boundary packet"
+      ],
+      "downstream_consumer": "human authorization",
+      "field": "human_preference_boundary_ref",
+      "human_schema_only": true,
+      "policy_source_class": "requires_human_or_prevalidated_schema_boundary",
+      "question_being_asked": "What human review boundary authorizes choosing or rejecting this row/value?",
+      "required_source_object": "human_or_prevalidated_schema_source_required",
+      "row_index": 0,
+      "row_uid": "top_row_0_766eed23",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "HUMAN_REVIEW_BOUNDARY",
+      "slot_id": "slot_4a41f374"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "enum: STRONG | MEDIUM | WEAK | ABSENT | UNKNOWN, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "source dominance / discriminator readiness",
+      "field": "direct_evidence_strength",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "How strong is the direct evidence for this row as a source of the required value?",
+      "required_source_object": "source_packet_required",
+      "row_index": 1,
+      "row_uid": "top_row_1_afd8e26d",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "SOURCE_EVIDENCE_GRADING_BOUNDARY",
+      "slot_id": "slot_89762e18"
+    },
+    {
+      "absence_reason": "HUMAN_DECISION_REQUIRED",
+      "acceptable_answer_shape": "short justification, accepted by human or prevalidated schema",
+      "allowed_sources": [
+        "human review packet",
+        "prevalidated schema preference packet",
+        "explicit acceptance-boundary packet"
+      ],
+      "downstream_consumer": "authorization/proposal acceptance",
+      "field": "load_bearing_reason",
+      "human_schema_only": true,
+      "policy_source_class": "requires_human_or_prevalidated_schema_boundary",
+      "question_being_asked": "Why is this value source load-bearing enough to affect the next decision?",
+      "required_source_object": "human_or_prevalidated_schema_source_required",
+      "row_index": 1,
+      "row_uid": "top_row_1_afd8e26d",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "LOAD_BEARING_JUDGMENT_BOUNDARY",
+      "slot_id": "slot_b2239839"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "string or enum scope label, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "same-scope comparison and target candidate formation",
+      "field": "target_scope",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "What exact target scope does this row speak for?",
+      "required_source_object": "source_packet_required",
+      "row_index": 1,
+      "row_uid": "top_row_1_afd8e26d",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "TARGET_SCOPE_BOUNDARY",
+      "slot_id": "slot_578ba7e5"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "string or enum aspect label, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "split rows that are not competing on the same aspect",
+      "field": "target_aspect",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "Which aspect of the target does this row describe?",
+      "required_source_object": "source_packet_required",
+      "row_index": 1,
+      "row_uid": "top_row_1_afd8e26d",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "TARGET_ASPECT_BOUNDARY",
+      "slot_id": "slot_701d1c44"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "enum or string grain label, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "dominance comparison and tie diagnosis",
+      "field": "comparison_grain",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "At what grain should this row be compared to the others?",
+      "required_source_object": "source_packet_required",
+      "row_index": 1,
+      "row_uid": "top_row_1_afd8e26d",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "COMPARISON_GRAIN_BOUNDARY",
+      "slot_id": "slot_b7b73721"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "enum: DIRECT | LOW_INFERENCE | MEDIUM_INFERENCE | HIGH_INFERENCE | UNKNOWN, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "source ranking / discriminator readiness",
+      "field": "inference_strength",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "How much inference is needed to use this row as a value source?",
+      "required_source_object": "source_packet_required",
+      "row_index": 1,
+      "row_uid": "top_row_1_afd8e26d",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "INFERENCE_STRENGTH_BOUNDARY",
+      "slot_id": "slot_9ee72be1"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "artifact/ref id/path, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "proposal review and acceptance gate",
+      "field": "verification_gate_ref",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "Which verification gate would validate this row/value before use?",
+      "required_source_object": "source_packet_required",
+      "row_index": 1,
+      "row_uid": "top_row_1_afd8e26d",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "VERIFICATION_GATE_BOUNDARY",
+      "slot_id": "slot_910e812d"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "artifact/ref id/path, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "safe commit boundary",
+      "field": "rollback_or_stop_boundary_ref",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "Which rollback/stop boundary applies if this row/value is wrong or unauthorized?",
+      "required_source_object": "source_packet_required",
+      "row_index": 1,
+      "row_uid": "top_row_1_afd8e26d",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "ROLLBACK_OR_STOP_BOUNDARY",
+      "slot_id": "slot_79bab594"
+    },
+    {
+      "absence_reason": "SCHEMA_AUTHORIZATION_REQUIRED",
+      "acceptable_answer_shape": "prevalidated schema key/ref or null-with-reason",
+      "allowed_sources": [
+        "human review packet",
+        "prevalidated schema preference packet",
+        "explicit acceptance-boundary packet"
+      ],
+      "downstream_consumer": "schema-authorized selection",
+      "field": "schema_preference_key",
+      "human_schema_only": true,
+      "policy_source_class": "requires_human_or_prevalidated_schema_boundary",
+      "question_being_asked": "Which accepted schema preference, if any, authorizes this row/value over alternatives?",
+      "required_source_object": "human_or_prevalidated_schema_source_required",
+      "row_index": 1,
+      "row_uid": "top_row_1_afd8e26d",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "SCHEMA_POLICY_BOUNDARY",
+      "slot_id": "slot_ad371a9c"
+    },
+    {
+      "absence_reason": "HUMAN_DECISION_REQUIRED",
+      "acceptable_answer_shape": "human decision/ref/review id or null-with-reason",
+      "allowed_sources": [
+        "human review packet",
+        "prevalidated schema preference packet",
+        "explicit acceptance-boundary packet"
+      ],
+      "downstream_consumer": "human authorization",
+      "field": "human_preference_boundary_ref",
+      "human_schema_only": true,
+      "policy_source_class": "requires_human_or_prevalidated_schema_boundary",
+      "question_being_asked": "What human review boundary authorizes choosing or rejecting this row/value?",
+      "required_source_object": "human_or_prevalidated_schema_source_required",
+      "row_index": 1,
+      "row_uid": "top_row_1_afd8e26d",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "HUMAN_REVIEW_BOUNDARY",
+      "slot_id": "slot_b788f6fb"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "enum: STRONG | MEDIUM | WEAK | ABSENT | UNKNOWN, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "source dominance / discriminator readiness",
+      "field": "direct_evidence_strength",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "How strong is the direct evidence for this row as a source of the required value?",
+      "required_source_object": "source_packet_required",
+      "row_index": 2,
+      "row_uid": "top_row_2_52a71f81",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "SOURCE_EVIDENCE_GRADING_BOUNDARY",
+      "slot_id": "slot_b422430d"
+    },
+    {
+      "absence_reason": "HUMAN_DECISION_REQUIRED",
+      "acceptable_answer_shape": "short justification, accepted by human or prevalidated schema",
+      "allowed_sources": [
+        "human review packet",
+        "prevalidated schema preference packet",
+        "explicit acceptance-boundary packet"
+      ],
+      "downstream_consumer": "authorization/proposal acceptance",
+      "field": "load_bearing_reason",
+      "human_schema_only": true,
+      "policy_source_class": "requires_human_or_prevalidated_schema_boundary",
+      "question_being_asked": "Why is this value source load-bearing enough to affect the next decision?",
+      "required_source_object": "human_or_prevalidated_schema_source_required",
+      "row_index": 2,
+      "row_uid": "top_row_2_52a71f81",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "LOAD_BEARING_JUDGMENT_BOUNDARY",
+      "slot_id": "slot_24a7898d"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "string or enum scope label, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "same-scope comparison and target candidate formation",
+      "field": "target_scope",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "What exact target scope does this row speak for?",
+      "required_source_object": "source_packet_required",
+      "row_index": 2,
+      "row_uid": "top_row_2_52a71f81",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "TARGET_SCOPE_BOUNDARY",
+      "slot_id": "slot_13390941"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "string or enum aspect label, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "split rows that are not competing on the same aspect",
+      "field": "target_aspect",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "Which aspect of the target does this row describe?",
+      "required_source_object": "source_packet_required",
+      "row_index": 2,
+      "row_uid": "top_row_2_52a71f81",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "TARGET_ASPECT_BOUNDARY",
+      "slot_id": "slot_eeec6b4c"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "enum or string grain label, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "dominance comparison and tie diagnosis",
+      "field": "comparison_grain",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "At what grain should this row be compared to the others?",
+      "required_source_object": "source_packet_required",
+      "row_index": 2,
+      "row_uid": "top_row_2_52a71f81",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "COMPARISON_GRAIN_BOUNDARY",
+      "slot_id": "slot_b8e7ff1c"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "enum: DIRECT | LOW_INFERENCE | MEDIUM_INFERENCE | HIGH_INFERENCE | UNKNOWN, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "source ranking / discriminator readiness",
+      "field": "inference_strength",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "How much inference is needed to use this row as a value source?",
+      "required_source_object": "source_packet_required",
+      "row_index": 2,
+      "row_uid": "top_row_2_52a71f81",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "INFERENCE_STRENGTH_BOUNDARY",
+      "slot_id": "slot_712c33f0"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "artifact/ref id/path, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "proposal review and acceptance gate",
+      "field": "verification_gate_ref",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "Which verification gate would validate this row/value before use?",
+      "required_source_object": "source_packet_required",
+      "row_index": 2,
+      "row_uid": "top_row_2_52a71f81",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "VERIFICATION_GATE_BOUNDARY",
+      "slot_id": "slot_f002dd6c"
+    },
+    {
+      "absence_reason": "SOURCE_FIELD_NOT_TYPED",
+      "acceptable_answer_shape": "artifact/ref id/path, with source_ref",
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "downstream_consumer": "safe commit boundary",
+      "field": "rollback_or_stop_boundary_ref",
+      "human_schema_only": false,
+      "policy_source_class": "requires_typed_source_bridge",
+      "question_being_asked": "Which rollback/stop boundary applies if this row/value is wrong or unauthorized?",
+      "required_source_object": "source_packet_required",
+      "row_index": 2,
+      "row_uid": "top_row_2_52a71f81",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "ROLLBACK_OR_STOP_BOUNDARY",
+      "slot_id": "slot_c73f4477"
+    },
+    {
+      "absence_reason": "SCHEMA_AUTHORIZATION_REQUIRED",
+      "acceptable_answer_shape": "prevalidated schema key/ref or null-with-reason",
+      "allowed_sources": [
+        "human review packet",
+        "prevalidated schema preference packet",
+        "explicit acceptance-boundary packet"
+      ],
+      "downstream_consumer": "schema-authorized selection",
+      "field": "schema_preference_key",
+      "human_schema_only": true,
+      "policy_source_class": "requires_human_or_prevalidated_schema_boundary",
+      "question_being_asked": "Which accepted schema preference, if any, authorizes this row/value over alternatives?",
+      "required_source_object": "human_or_prevalidated_schema_source_required",
+      "row_index": 2,
+      "row_uid": "top_row_2_52a71f81",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "SCHEMA_POLICY_BOUNDARY",
+      "slot_id": "slot_f2244fce"
+    },
+    {
+      "absence_reason": "HUMAN_DECISION_REQUIRED",
+      "acceptable_answer_shape": "human decision/ref/review id or null-with-reason",
+      "allowed_sources": [
+        "human review packet",
+        "prevalidated schema preference packet",
+        "explicit acceptance-boundary packet"
+      ],
+      "downstream_consumer": "human authorization",
+      "field": "human_preference_boundary_ref",
+      "human_schema_only": true,
+      "policy_source_class": "requires_human_or_prevalidated_schema_boundary",
+      "question_being_asked": "What human review boundary authorizes choosing or rejecting this row/value?",
+      "required_source_object": "human_or_prevalidated_schema_source_required",
+      "row_index": 2,
+      "row_uid": "top_row_2_52a71f81",
+      "safe_null_behavior": "leave null; do not mark discriminator ready",
+      "slot_category": "HUMAN_REVIEW_BOUNDARY",
+      "slot_id": "slot_0a9cba22"
+    }
+  ],
+  "schema_version": "typed_value_source_value_absence_classification_v0"
+}
