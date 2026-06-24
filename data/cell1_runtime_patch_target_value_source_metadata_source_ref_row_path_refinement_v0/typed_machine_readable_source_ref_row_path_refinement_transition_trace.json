@@ -1,0 +1,32 @@
+{
+  "schema_version": "typed_machine_readable_source_ref_row_path_refinement_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_SOURCE_REF_REBIND_CANDIDATES_FOUND_ROW_PATH_STILL_BLOCKED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "21 row_source_ref / row_json_path bindings do not resolve",
+      "question": "what exactly is broken",
+      "step": "consume_row_path_gap_review",
+      "taken": "search candidate row paths and source-ref rebinds"
+    },
+    {
+      "answer": "TYPED_MACHINE_READABLE_SOURCE_REF_REBIND_CANDIDATES_FOUND_ROW_PATH_STILL_BLOCKED",
+      "question": "can the existing source refs yield lawful row-path candidates",
+      "reason_codes": [
+        "SOURCE_REF_ROW_PATH_REFINEMENT_SURFACE_EMITTED",
+        "BROKEN_ROW_BINDINGS_REVIEWED",
+        "ROW_PATH_CANDIDATES_SEARCHED",
+        "SOURCE_REF_REBIND_CANDIDATES_SEARCHED",
+        "NO_BINDINGS_APPLIED",
+        "NO_VALUES_AUTHORIZED_OR_APPLIED",
+        "NO_METADATA_POPULATION",
+        "SOURCE_REF_REBIND_CANDIDATES_FOUND"
+      ],
+      "step": "emit_refinement_surface",
+      "taken": "REVIEW_MACHINE_READABLE_SOURCE_REF_REBIND_CANDIDATES_V0"
+    }
+  ]
+}
