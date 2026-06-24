@@ -1,0 +1,24 @@
+{
+  "decision_status": "SCHEMA_OVERLAY_REVIEW_DECISION_EMITTED",
+  "records": [
+    {
+      "decision": "REVIEW_APPLICATION_CONTRACT",
+      "next_unit": "REVIEW_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_APPLICATION_CONTRACT_V0",
+      "selected": true,
+      "why": "overlay review passed and emitted an application contract; application still requires later review and acceptance"
+    },
+    {
+      "decision": "REPAIR_SCHEMA_OVERLAY",
+      "next_unit": "REPAIR_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_V0",
+      "selected": false,
+      "why": "use if completeness, consistency, or boundary review fails"
+    },
+    {
+      "decision": "FREEZE_SCHEMA_OVERLAY_REVIEW",
+      "next_unit": "FREEZE_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_REVIEW_V0",
+      "selected": false,
+      "why": "preserve review object without application path"
+    }
+  ],
+  "schema_version": "typed_machine_readable_schema_overlay_review_decision_table_v0"
+}

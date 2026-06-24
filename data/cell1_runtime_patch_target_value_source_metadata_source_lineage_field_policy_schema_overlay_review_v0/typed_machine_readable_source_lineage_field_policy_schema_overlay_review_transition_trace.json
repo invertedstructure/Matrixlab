@@ -1,0 +1,37 @@
+{
+  "schema_version": "typed_machine_readable_source_lineage_field_policy_schema_overlay_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_REVIEWED_APPLICATION_CONTRACT_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "review completeness, consistency, and non-application boundary",
+      "question": "is the non-applicative overlay coherent and complete",
+      "step": "consume_schema_overlay",
+      "taken": "emit overlay review assessment"
+    },
+    {
+      "answer": "TYPED_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_REVIEWED_APPLICATION_CONTRACT_READY",
+      "question": "can an application contract be emitted for later review",
+      "reason_codes": [
+        "SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_REVIEWED",
+        "SCHEMA_OVERLAY_COMPLETENESS_REVIEWED",
+        "SCHEMA_OVERLAY_CONSISTENCY_REVIEWED",
+        "SCHEMA_OVERLAY_NONAPPLICATION_BOUNDARY_REVIEWED",
+        "SCHEMA_OVERLAY_COMPONENTS_REVIEWED",
+        "NO_SCHEMA_OVERLAY_APPLIED",
+        "NO_TYPING_RULE_APPLIED",
+        "NO_FIELD_POLICY_MODIFIED",
+        "NO_CANDIDATE_ARTIFACT_MODIFIED",
+        "NO_REBINDS_APPLIED",
+        "NO_VALUES_AUTHORIZED_OR_APPLIED",
+        "NO_METADATA_POPULATION",
+        "SCHEMA_OVERLAY_APPLICATION_CONTRACT_READY"
+      ],
+      "step": "classify_review_result",
+      "taken": "REVIEW_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_APPLICATION_CONTRACT_V0"
+    }
+  ]
+}
