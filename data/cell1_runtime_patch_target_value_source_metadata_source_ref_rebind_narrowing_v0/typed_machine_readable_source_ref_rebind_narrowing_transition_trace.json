@@ -1,0 +1,32 @@
+{
+  "schema_version": "typed_machine_readable_source_ref_rebind_narrowing_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_SOURCE_REF_REBIND_NARROWING_STILL_AMBIGUOUS",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "compute semantic dominance features without stable arbitrary tie-breakers",
+      "question": "can stronger dominance features narrow tied source-ref candidates",
+      "step": "consume_tied_rebind_review",
+      "taken": "build narrowing surface"
+    },
+    {
+      "answer": "TYPED_MACHINE_READABLE_SOURCE_REF_REBIND_NARROWING_STILL_AMBIGUOUS",
+      "question": "are unique source-ref rebind proposals available",
+      "reason_codes": [
+        "SOURCE_REF_REBIND_NARROWING_SURFACE_EMITTED",
+        "DOMINANCE_FEATURE_MATRIX_EMITTED",
+        "PER_BINDING_NARROWING_EMITTED",
+        "NO_REBINDS_APPLIED",
+        "NO_VALUES_AUTHORIZED_OR_APPLIED",
+        "NO_METADATA_POPULATION",
+        "NO_UNIQUE_NARROWED_REBIND_PROPOSALS",
+        "RESIDUAL_REBIND_TIES_REQUIRE_STRONGER_DOMINANCE_OR_SOURCE_ROW_LOCATOR"
+      ],
+      "step": "classify_narrowing_result",
+      "taken": "BUILD_MACHINE_READABLE_SOURCE_REF_REBIND_DOMINANCE_RULE_OR_ROW_LOCATOR_SURFACE_V0"
+    }
+  ]
+}
