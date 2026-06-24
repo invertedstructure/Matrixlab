@@ -1,0 +1,40 @@
+{
+  "builder_command_allowed_count": 0,
+  "candidate_missing_object_proposal_allowed_count": 0,
+  "classification_counts": {
+    "CLOSE_AND_FREEZE_ACCEPTANCE": 1,
+    "QUESTION_PACKET_NOT_COMMAND": 1,
+    "STOP_LANE_CLOSED": 1
+  },
+  "frontier_count": 3,
+  "frontiers": [
+    {
+      "a0_classification": "CLOSE_AND_FREEZE_ACCEPTANCE",
+      "builder_command_allowed": false,
+      "bundle_status": "EXPLICIT_BUNDLE_READY",
+      "frontier_id": "frontier_r10000_closed_frozen",
+      "reason": "branch closure and protocol freeze accepted; terminal next remains null",
+      "source_selection_rule": "explicit_bundle_manifest"
+    },
+    {
+      "a0_classification": "STOP_LANE_CLOSED",
+      "builder_command_allowed": false,
+      "bundle_status": "EXPLICIT_BUNDLE_READY",
+      "frontier_id": "frontier_r1000_pressure_queue_closed",
+      "reason": "PASS + STOP + null next + no live actionable pressure",
+      "source_selection_rule": "explicit_bundle_manifest"
+    },
+    {
+      "a0_classification": "QUESTION_PACKET_NOT_COMMAND",
+      "builder_command_allowed": false,
+      "bundle_status": "EXPLICIT_BUNDLE_EVIDENCE_MISSING",
+      "frontier_id": "frontier_candidate_missing_object_layer_followup",
+      "reason": "receipt surface or explicit source selection is incomplete",
+      "source_selection_rule": "explicit_bundle_manifest"
+    }
+  ],
+  "operational_spec_candidate_allowed_count": 0,
+  "schema_version": "a0_frontier_source_selection_patched_rollup_v0",
+  "source_a0_frontier_failure_receipt_id": "c1d0f615",
+  "source_a0_frontier_failure_review_receipt_id": "85e16aee"
+}

@@ -1,0 +1,51 @@
+{
+  "failure_summary": {
+    "application_result": "A0_FRONTIER_APPLICATION_COMPLETE",
+    "builder_command_allowed_count": 0,
+    "candidate_missing_object_frontier_classification": "QUESTION_PACKET_NOT_COMMAND",
+    "candidate_missing_object_proposal_allowed_count": 0,
+    "decision_status": "QUESTION_PACKET_NOT_COMMAND_FOR_FRONTIER_EVIDENCE_OR_SELECTION_GAP",
+    "frontier_count": 3,
+    "operational_spec_candidate_allowed_count": 0,
+    "question_packet_required": true,
+    "r10000_frontier_classification": "QUESTION_PACKET_NOT_COMMAND",
+    "r1000_frontier_classification": "QUESTION_PACKET_NOT_COMMAND",
+    "recommended_next_handling": null
+  },
+  "fix_authority_packet": {
+    "a0_classifier_law_mutation_authorized": false,
+    "a0_source_selection_enum_widening_authorized": false,
+    "authorized_next_unit": "PATCH_A0_FRONTIER_APPLICATION_SOURCE_SELECTION_RULE_TO_EXPLICIT_BUNDLE_MANIFEST_V0",
+    "builder_command_execution_authorized_now": false,
+    "live_frontier_execution_authorized_now": false,
+    "packet_status": "A0_FRONTIER_SOURCE_SELECTION_RULE_REVIEWED_NARROW_PATCH_AUTHORIZED",
+    "recommended_next_handling": "PATCH_A0_FRONTIER_APPLICATION_SOURCE_SELECTION_RULE_TO_EXPLICIT_BUNDLE_MANIFEST_V0",
+    "required_fix_shape": [
+      "change frontier receipt bundle source_selection_rule from explicit_frontier_packet to explicit_bundle_manifest",
+      "do not widen A0 source-selection enum",
+      "do not mutate A0 classifier law",
+      "preserve optional evidence gap as QUESTION_PACKET_NOT_COMMAND unless explicit receipt path is supplied",
+      "prove R10000 frontier classifies as CLOSE_AND_FREEZE_ACCEPTANCE after source-selection fix",
+      "stop with next_command_goal null"
+    ],
+    "schema_version": "a0_frontier_application_source_selection_fix_authority_packet_v0",
+    "source_a0_frontier_failure_receipt_id": "c1d0f615"
+  },
+  "review_summary": {
+    "failure_class": "SOURCE_SELECTION_RULE_CONTRACT_MISMATCH_PLUS_OPTIONAL_EVIDENCE_GAP",
+    "observed_bad_source_selection_rule": "explicit_frontier_packet",
+    "optional_evidence_handled_safely": true,
+    "optional_evidence_review_classification": "OPTIONAL_FRONTIER_EVIDENCE_MISSING_HANDLED_AS_QUESTION_PACKET_NOT_COMMAND",
+    "recommended_fix": "use explicit_bundle_manifest for frontier receipt bundles; do not widen A0 source-selection enum in this patch",
+    "recommended_next_handling": "PATCH_A0_FRONTIER_APPLICATION_SOURCE_SELECTION_RULE_TO_EXPLICIT_BUNDLE_MANIFEST_V0",
+    "review_only_no_patch": true,
+    "review_result": "A0_FRONTIER_FAILURE_REVIEW_ACCEPTS_SOURCE_SELECTION_RULE_MISMATCH_ONLY_FOR_CLOSED_FRONTIERS",
+    "source_selection_review_classification": "A0_FRONTIER_WRAPPER_USED_UNACCEPTED_SOURCE_SELECTION_RULE",
+    "substantive_behavior_safe": true,
+    "true_a0_classifier_failure": false,
+    "true_semantic_frontier_failure": false
+  },
+  "schema_version": "a0_frontier_source_selection_patch_source_surface_v0",
+  "source_a0_frontier_failure_receipt_id": "c1d0f615",
+  "source_a0_frontier_failure_review_receipt_id": "85e16aee"
+}
