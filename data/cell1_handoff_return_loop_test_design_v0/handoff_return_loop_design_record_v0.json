@@ -1,0 +1,38 @@
+{
+  "design_goal": "Design one bounded test that checks whether Cell1 can return a typed result packet to review/Cell0 and whether that returned object is classifiable without authority leakage.",
+  "design_id": "cell1_return_loop_design_30fff534",
+  "failure_classes_to_detect": [
+    "RETURN_PACKET_MISSING_SOURCE_REFERENCE",
+    "RETURN_PACKET_LABEL_LANE_AMBIGUITY",
+    "RETURN_PACKET_AUTHORITY_LEAK",
+    "RETURN_PACKET_HIDDEN_NEXT_COMMAND",
+    "RETURN_PACKET_CLAIMS_RUNTIME_PATCH",
+    "RETURN_PACKET_CLAIMS_C5_AUTHORITY",
+    "RETURN_PACKET_UNCLASSIFIABLE_BY_CELL0"
+  ],
+  "future_test_unit": "RUN_CELL1_HANDOFF_RETURN_LOOP_TEST_FROM_DESIGN_V0",
+  "input_surface": {
+    "source_c2_lane_registry_ref": "data/c2_cell0_label_taxonomy_lane_cleaning_v0/taxonomy_lane_registry_v0.json",
+    "source_frozen_reference_packet_ref": "data/cell1_schema_consumption_test_review_or_close_v0/cell1_schema_test_frozen_reference_packet_v0.json",
+    "source_next_objective_receipt_ref": "data/cell1_next_bounded_objective_decision_v0_receipts/c34d737d.json"
+  },
+  "non_goals": [
+    "runtime patch",
+    "target file modification",
+    "C5 opening",
+    "general Cell1 authority",
+    "taxonomy mutation",
+    "automatic Cell0 acceptance"
+  ],
+  "return_contract_schema_ref": "data/cell1_handoff_return_loop_test_design_v0/handoff_return_contract_schema_v0.json",
+  "schema_version": "cell1_handoff_return_loop_design_record_v0",
+  "selected_decision_class": "CELL1_OBJECTIVE_HANDOFF_RETURN_LOOP_TEST",
+  "test_edges": [
+    "Cell1 result packet emitted",
+    "result packet references source Cell1 schema-consumption reference",
+    "result packet declares bounded scope",
+    "result packet preserves C2 label lanes",
+    "result packet requests classification by review/Cell0",
+    "result packet stops without hidden command"
+  ]
+}

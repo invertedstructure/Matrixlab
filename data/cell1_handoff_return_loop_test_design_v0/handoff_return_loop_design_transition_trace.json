@@ -1,0 +1,34 @@
+{
+  "schema_version": "cell1_handoff_return_loop_design_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_HANDOFF_RETURN_LOOP_TEST_DESIGNED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "CELL1_OBJECTIVE_HANDOFF_RETURN_LOOP_TEST",
+      "question": "was handoff-return loop test selected",
+      "step": "consume_next_objective_decision",
+      "taken": "read_missing_edge"
+    },
+    {
+      "answer": "Cell1 return packet to review/Cell0",
+      "question": "what edge is missing after schema-consumption reference",
+      "step": "read_missing_edge",
+      "taken": "design_contract"
+    },
+    {
+      "answer": "data/cell1_handoff_return_loop_test_design_v0/handoff_return_contract_schema_v0.json",
+      "question": "what must a returned result packet contain",
+      "step": "design_contract",
+      "taken": "emit_test_plan"
+    },
+    {
+      "answer": "yes",
+      "question": "did the unit avoid execution and authority widening",
+      "step": "emit_test_plan",
+      "taken": "stop"
+    }
+  ]
+}

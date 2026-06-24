@@ -1,0 +1,42 @@
+{
+  "allowed_result_kinds": [
+    "SCHEMA_RESULT_RETURNED",
+    "PROBE_RESULT_RETURNED",
+    "VERIFICATION_RESULT_RETURNED",
+    "REPAIR_REQUEST_RETURNED",
+    "HALT_RETURNED"
+  ],
+  "authority_boundary": {
+    "may_execute_runtime_patch": false,
+    "may_grant_general_cell1_authority": false,
+    "may_modify_target_files": false,
+    "may_mutate_taxonomy": false,
+    "may_open_c5": false,
+    "may_return_result_packet": true
+  },
+  "contract_id": "cell1_return_contract_88ea9c2b",
+  "destination_surface": "CELL0_OR_REVIEW_CLASSIFICATION_SURFACE",
+  "must_not_infer": [
+    "returned result is accepted by Cell0",
+    "runtime patch safety",
+    "C5 authorization",
+    "general Cell1 authority"
+  ],
+  "required_fields": [
+    "source_design_receipt_id",
+    "source_cell1_reference_id",
+    "result_packet_id",
+    "origin_cell",
+    "destination_surface",
+    "result_kind",
+    "bounded_test_scope",
+    "claim_lanes",
+    "evidence_refs",
+    "authority_boundary",
+    "negative_boundary_counters",
+    "classification_request",
+    "terminal"
+  ],
+  "return_object_type": "CELL1_HANDOFF_RETURN_RESULT_PACKET",
+  "schema_version": "cell1_handoff_return_contract_schema_v0"
+}

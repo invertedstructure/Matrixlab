@@ -1,0 +1,31 @@
+{
+  "acceptance_requirements": [
+    "return packet emitted exactly once",
+    "source reference preserved",
+    "C2 lanes preserved",
+    "authority boundary explicit",
+    "classification request emitted",
+    "no runtime patch",
+    "no target file modification",
+    "no C5",
+    "no general Cell1 authority",
+    "no hidden next command"
+  ],
+  "contract_schema_ref": "data/cell1_handoff_return_loop_test_design_v0/handoff_return_contract_schema_v0.json",
+  "design_record_ref": "data/cell1_handoff_return_loop_test_design_v0/handoff_return_loop_design_record_v0.json",
+  "future_test_unit": "RUN_CELL1_HANDOFF_RETURN_LOOP_TEST_FROM_DESIGN_V0",
+  "next_command_goal": null,
+  "recommended_next_after_design": "RUN_CELL1_HANDOFF_RETURN_LOOP_TEST_FROM_DESIGN_V0",
+  "schema_version": "cell1_handoff_return_loop_test_plan_v0",
+  "steps": [
+    "load design receipt and contract",
+    "construct one Cell1 return result packet from the frozen schema-consumption reference",
+    "validate required fields and lane typing",
+    "emit Cell0/review classification request surface",
+    "classify returned packet as accepted-for-review, repair-required, or blocked",
+    "emit rollup/profile/receipt",
+    "stop"
+  ],
+  "test_mode": "BOUNDED_RETURN_LOOP_TEST_ONLY",
+  "test_plan_id": "cell1_return_loop_plan_d3182d97"
+}
