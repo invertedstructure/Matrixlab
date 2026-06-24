@@ -1,0 +1,23 @@
+{
+  "schema_version": "explicit_runtime_patch_target_value_source_dominance_rule_application_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_EXPLICIT_VALUE_SOURCE_DOMINANCE_RULE_APPLIED_STILL_MULTIPLE_TOP_ROWS",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "was the rule previously only added/previewed",
+      "step": "consume_added_dominance_rule",
+      "taken": "apply_rule_as_bounded_test"
+    },
+    {
+      "answer": "EXPLICIT_VALUE_SOURCE_DOMINANCE_RULE_APPLIED_STILL_MULTIPLE_TOP_ROWS",
+      "question": "does rule application produce exactly one top value-source row",
+      "step": "apply_rule_to_ranked_eligible_rows",
+      "taken": "ADD_VALUE_SOURCE_EQUIVALENCE_CLASS_REFINEMENT_RULE_V0",
+      "top_row_count_after_application": 3
+    }
+  ]
+}
