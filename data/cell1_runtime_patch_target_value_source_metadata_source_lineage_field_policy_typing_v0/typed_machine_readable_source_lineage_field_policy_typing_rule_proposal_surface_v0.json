@@ -1,0 +1,27 @@
+{
+  "authorization_required_before_use": true,
+  "proposal": {
+    "must_not": [
+      "choose candidate source ref",
+      "apply rebind",
+      "extract values",
+      "populate metadata",
+      "mark discriminator ready"
+    ],
+    "proposal_id": "source_lineage_field_policy_typing_rule_c972869a",
+    "proposal_status": "PROPOSED_FOR_REVIEW_NOT_APPLIED",
+    "rule_shape": {
+      "candidate_source_ref_may_be_reviewable_only_if": [
+        "candidate declares source_role",
+        "candidate declares source_object_kind",
+        "candidate declares producer_unit or source_unit",
+        "candidate declares lineage_ref or source_packet_ref",
+        "candidate exposes row_identity_schema for slot_id/row_uid/field or equivalent explicit mapping",
+        "field policy declares allowed source_object_kind and source_class for field"
+      ]
+    }
+  },
+  "proposal_count": 1,
+  "schema_version": "typed_machine_readable_source_lineage_field_policy_typing_rule_proposal_surface_v0",
+  "surface_status": "TYPING_RULE_PROPOSAL_SURFACE_EMITTED_NOT_APPLIED"
+}

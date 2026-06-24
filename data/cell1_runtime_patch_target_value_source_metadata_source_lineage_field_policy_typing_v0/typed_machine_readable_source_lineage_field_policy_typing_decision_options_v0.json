@@ -1,0 +1,32 @@
+{
+  "decision_options_status": "SOURCE_LINEAGE_FIELD_POLICY_TYPING_DECISION_OPTIONS_EMITTED",
+  "forbidden_shortcuts": [
+    "apply typing rule immediately",
+    "modify field policy immediately",
+    "modify candidate artifacts",
+    "select source ref",
+    "extract values",
+    "populate metadata"
+  ],
+  "safe_options": [
+    {
+      "meaning": "Review the emitted typing gaps and contracts without applying schema or source refs.",
+      "next_unit": "REVIEW_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_TYPING_REQUIREMENTS_V0",
+      "option": "REVIEW_TYPING_REQUIREMENTS",
+      "recommended": true
+    },
+    {
+      "meaning": "Only after review confirms the contract shape.",
+      "next_unit": "BUILD_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_V0",
+      "option": "BUILD_SCHEMA_OVERLAY",
+      "recommended": false
+    },
+    {
+      "meaning": "Use if this surface should be preserved without continuing.",
+      "next_unit": "FREEZE_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_TYPING_SURFACE_V0",
+      "option": "FREEZE_DIAGNOSTIC_REFERENCE",
+      "recommended": false
+    }
+  ],
+  "schema_version": "typed_machine_readable_source_lineage_field_policy_typing_decision_options_v0"
+}

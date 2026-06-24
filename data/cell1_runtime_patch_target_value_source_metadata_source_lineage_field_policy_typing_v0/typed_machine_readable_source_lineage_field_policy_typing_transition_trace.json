@@ -1,0 +1,33 @@
+{
+  "schema_version": "typed_machine_readable_source_lineage_field_policy_typing_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_TYPING_SURFACE_BUILT_REQUIRES_SCHEMA_OR_RULE_REVIEW",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "candidate artifacts lack row identity, source-object structure, and lineage markers",
+      "question": "why did candidate artifact inspection fail to distinguish source refs",
+      "step": "consume_row_locator_zero_signal",
+      "taken": "expose source lineage and field-policy typing gaps"
+    },
+    {
+      "answer": "TYPED_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_TYPING_SURFACE_BUILT_REQUIRES_SCHEMA_OR_RULE_REVIEW",
+      "question": "what typing would make source-ref choice lawful later",
+      "reason_codes": [
+        "SOURCE_LINEAGE_FIELD_POLICY_TYPING_SURFACE_BUILT",
+        "FIELD_POLICY_TYPING_GAPS_EMITTED",
+        "SOURCE_LINEAGE_REQUIREMENTS_EMITTED",
+        "CANDIDATE_ARTIFACT_TYPING_OVERLAY_EMITTED",
+        "NO_TYPING_RULE_APPLIED",
+        "NO_REBINDS_APPLIED",
+        "NO_VALUES_AUTHORIZED_OR_APPLIED",
+        "NO_METADATA_POPULATION",
+        "LINEAGE_OR_FIELD_POLICY_TYPING_REQUIRED_BEFORE_REBIND_REVIEW"
+      ],
+      "step": "emit_typing_requirements",
+      "taken": "REVIEW_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_TYPING_REQUIREMENTS_V0"
+    }
+  ]
+}
