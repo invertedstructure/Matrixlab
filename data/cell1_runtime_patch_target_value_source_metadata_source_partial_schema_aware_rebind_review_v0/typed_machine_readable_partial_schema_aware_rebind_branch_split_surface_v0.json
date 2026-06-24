@@ -1,0 +1,38 @@
+{
+  "branch_split_status": "BRANCH_SPLIT_REQUIRED_BEFORE_ANY_REBIND_APPLICATION",
+  "branches": [
+    {
+      "allowed_next": "review proposal correctness and hold/application preconditions only",
+      "binding_count": 4,
+      "branch_id": "proposal_review_branch",
+      "forbidden": [
+        "apply rebinds",
+        "populate metadata",
+        "extract values"
+      ],
+      "status": "READY_FOR_SEPARATE_REVIEW_NOT_APPLICATION"
+    },
+    {
+      "allowed_next": "build tie-breaker evidence surface",
+      "binding_count": 22,
+      "branch_id": "ambiguity_repair_branch",
+      "forbidden": [
+        "choose tied candidate by score alone",
+        "apply rebinds"
+      ],
+      "status": "REPAIR_REQUIRED"
+    },
+    {
+      "allowed_next": "build missing schema requirement evidence surface",
+      "binding_count": 498,
+      "branch_id": "requirement_gap_repair_branch",
+      "forbidden": [
+        "invent missing source evidence",
+        "populate metadata"
+      ],
+      "status": "REPAIR_REQUIRED"
+    }
+  ],
+  "schema_version": "typed_machine_readable_partial_schema_aware_rebind_branch_split_surface_v0",
+  "total_binding_count": 524
+}

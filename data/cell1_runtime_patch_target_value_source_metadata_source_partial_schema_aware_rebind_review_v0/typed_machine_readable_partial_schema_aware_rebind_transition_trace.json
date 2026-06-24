@@ -1,0 +1,28 @@
+{
+  "schema_version": "typed_machine_readable_partial_schema_aware_rebind_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_PARTIAL_SCHEMA_AWARE_SOURCE_REF_REBIND_REVIEWED_BRANCH_SPLIT_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "4 proposal-ready, 22 ambiguous, 498 requirement-gap bindings",
+      "question": "what did accepted overlay distinguish",
+      "step": "consume_schema_aware_rebind_review",
+      "taken": "review proposal/ambiguity/gap surfaces"
+    },
+    {
+      "answer": "no",
+      "question": "can the 4 proposals be applied now",
+      "step": "hold_partial_proposals",
+      "taken": "emit proposal hold contract"
+    },
+    {
+      "answer": "proposal review branch plus ambiguity repair branch plus requirement-gap repair branch",
+      "question": "what branch shape is required",
+      "step": "split_residual_branches",
+      "taken": "BUILD_PARTIAL_SCHEMA_AWARE_REBIND_BRANCH_SPLIT_AND_REPAIR_SURFACE_V0"
+    }
+  ]
+}
