@@ -1,0 +1,28 @@
+{
+  "schema_version": "typed_machine_readable_schema_overlay_application_unit_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_APPLICATION_UNIT_REVIEWED_DOWNSTREAM_USE_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "was one-time reference application recorded",
+      "step": "consume_application_unit",
+      "taken": "review applied reference and frame binding"
+    },
+    {
+      "answer": "no",
+      "question": "did reusable/global/preapproved authority leak",
+      "step": "review_non_reuse",
+      "taken": "preserve non-reuse boundary"
+    },
+    {
+      "answer": "yes",
+      "question": "can accepted reference be used downstream in this branch",
+      "step": "review_downstream_contract",
+      "taken": "REVIEW_MACHINE_READABLE_SOURCE_REF_REBIND_CANDIDATES_WITH_ACCEPTED_SCHEMA_OVERLAY_V0"
+    }
+  ]
+}
