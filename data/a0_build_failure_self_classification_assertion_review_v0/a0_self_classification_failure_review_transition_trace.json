@@ -1,0 +1,40 @@
+{
+  "schema_version": "a0_self_classification_failure_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_A0_BUILD_FAILURE_REVIEW_COMPLETE_SELF_CLASSIFICATION_ASSERTION_PATCH_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "did A0 build receipt pass",
+      "step": "consume_a0_build_receipt",
+      "taken": "observe_self_classification"
+    },
+    {
+      "answer": true,
+      "question": "did raw A0 build receipt classify as QUESTION_PACKET_NOT_COMMAND",
+      "step": "observe_self_classification",
+      "taken": "review_wrapper_assertion"
+    },
+    {
+      "answer": true,
+      "question": "was the failed expectation wrong because the raw receipt was not an explicit A0 bundle",
+      "step": "review_wrapper_assertion",
+      "taken": "preserve_substantive_build"
+    },
+    {
+      "answer": true,
+      "question": "are probes/negative controls/build artifacts valid",
+      "step": "preserve_substantive_build",
+      "taken": "emit_patch_authority"
+    },
+    {
+      "answer": false,
+      "question": "patch now",
+      "step": "emit_patch_authority",
+      "taken": "STOP_A0_BUILD_FAILURE_REVIEW_COMPLETE_SELF_CLASSIFICATION_ASSERTION_PATCH_REQUIRED"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "a0_self_classification_assertion_acceptance_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_A0_RECEIPT_TO_BUILDER_TRANSITION_LAYER_BUILT_PATCH_ACCEPTED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": true,
+      "question": "was self-classification failure reviewed as wrapper assertion mismatch only",
+      "step": "consume_review",
+      "taken": "recheck_raw_receipt"
+    },
+    {
+      "answer": true,
+      "question": "does raw A0 build receipt classify as QUESTION_PACKET_NOT_COMMAND",
+      "step": "recheck_raw_receipt",
+      "taken": "build_explicit_closed_lane_bundle_fixture"
+    },
+    {
+      "answer": true,
+      "question": "does explicit closed-lane bundle classify as STOP_LANE_CLOSED",
+      "step": "build_explicit_closed_lane_bundle_fixture",
+      "taken": "accept_a0_build_and_patch_wrapper_assertion"
+    },
+    {
+      "answer": "A0_RECEIPT_TO_BUILDER_TRANSITION_LAYER_BUILT_PATCH_ACCEPTED",
+      "question": "is A0 final accepted without live frontier application",
+      "step": "accept_a0_build_and_patch_wrapper_assertion",
+      "taken": "STOP_A0_RECEIPT_TO_BUILDER_TRANSITION_LAYER_BUILT_PATCH_ACCEPTED"
+    }
+  ]
+}

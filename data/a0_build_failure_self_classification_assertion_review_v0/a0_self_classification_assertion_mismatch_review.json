@@ -1,0 +1,17 @@
+{
+  "a0_expected_for_observed_surface": "QUESTION_PACKET_NOT_COMMAND",
+  "a0_observed": "QUESTION_PACKET_NOT_COMMAND",
+  "classification": "WRAPPER_ASSERTION_EXPECTED_STOP_LANE_CLOSED_BUT_A0_CORRECTLY_RETURNED_QUESTION_PACKET_NOT_COMMAND",
+  "failed_wrapper_expected": "STOP_LANE_CLOSED",
+  "fix_target": "post-build wrapper assertion, not A0 classifier law",
+  "mismatch_only": true,
+  "schema_version": "a0_self_classification_assertion_mismatch_review_v0",
+  "source_a0_build_receipt_id": "067fcaed",
+  "why_a0_question_packet_is_correct": [
+    "raw A0 build receipt has no receipt_path field inside its JSON payload",
+    "raw A0 build receipt has no source_selection_rule field",
+    "some negative-control keys expected by A0 input schema are absent from this raw receipt shape",
+    "A0 law requires explicit receipt bundle selection before classifying a receipt as closed lane",
+    "A0 must prefer no command over fake command"
+  ]
+}

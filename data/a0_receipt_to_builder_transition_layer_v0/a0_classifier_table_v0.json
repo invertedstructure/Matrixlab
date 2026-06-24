@@ -1,0 +1,34 @@
+{
+  "authority_refinement_note": "close-or-freeze may cover human-selected close-and-freeze only as candidate/acceptance after explicit review; never as naked command.",
+  "cases": [
+    {
+      "case": "PASS + STOP + null next + no pressure",
+      "classification": "STOP_LANE_CLOSED"
+    },
+    {
+      "case": "demo/probe closed cleanly + real evidence not yet collected",
+      "classification": "AWAIT_REAL_BATCH_RECEIPTS"
+    },
+    {
+      "case": "FAIL + concrete failure",
+      "classification": "REPAIR_COMMAND_CANDIDATE"
+    },
+    {
+      "case": "PASS + pressure ambiguous",
+      "classification": "QUESTION_PACKET_NOT_COMMAND"
+    },
+    {
+      "case": "PASS + stable pressure + inspection licensed",
+      "classification": "OPERATIONAL_SPEC_CANDIDATE"
+    },
+    {
+      "case": "PASS + missing object / capability stop",
+      "classification": "CANDIDATE_MISSING_OBJECT_PROPOSAL"
+    },
+    {
+      "case": "PASS + branch closed / protocol frozen",
+      "classification": "CLOSE_AND_FREEZE_ACCEPTANCE"
+    }
+  ],
+  "schema_version": "a0_classifier_table_v0"
+}

@@ -1,0 +1,91 @@
+{
+  "builder_command_allowed": false,
+  "builder_command_candidate": null,
+  "observed_classification": "QUESTION_PACKET_NOT_COMMAND",
+  "observed_reason": "receipt surface or explicit source selection is incomplete",
+  "raw_a0_result": {
+    "builder_command_candidate": null,
+    "candidate_missing_object_proposal": null,
+    "classification": {
+      "builder_command_allowed": false,
+      "candidate_missing_object_proposal_allowed": false,
+      "operational_spec_candidate_allowed": false,
+      "reason": "receipt surface or explicit source selection is incomplete",
+      "result": "QUESTION_PACKET_NOT_COMMAND"
+    },
+    "decision_packet": {
+      "missing": {
+        "absent_negative_controls": [
+          "repair_executed_count",
+          "taxonomy_delta_proposal_emitted_count",
+          "authority_widening_authorized_count",
+          "optimization_authorized_count",
+          "unbounded_or_no_cap_run_count",
+          "latest_or_mtime_selection",
+          "proposal_counted_as_execution",
+          "pressure_counted_as_repair"
+        ],
+        "receipt_surface_explicit": false,
+        "source_selection_valid": false
+      },
+      "packet_type": "QUESTION_PACKET_NOT_COMMAND"
+    },
+    "input_receipt": {
+      "commit": null,
+      "gate": "PASS",
+      "next_command_goal": null,
+      "receipt_id": "067fcaed",
+      "receipt_path": null,
+      "terminal": {
+        "next_command_goal": null,
+        "stop_code": "STOP_HUMAN_DECISION_REQUIRED",
+        "type": "STOP"
+      },
+      "unit_id": "BUILD_A0_RECEIPT_TO_BUILDER_TRANSITION_LAYER_V0"
+    },
+    "interrogation_id": "a0_5363449c",
+    "operational_spec_candidate": null,
+    "question_answers": {
+      "affected_lane_or_branch": "lane_closed",
+      "authorized_effect": "no further action",
+      "builder_command_licensed": false,
+      "dominant_pressure_class": "NONE",
+      "gate_passed": true,
+      "must_not_infer": [
+        "do not infer proof",
+        "do not infer optimization",
+        "do not infer global closure",
+        "do not infer next command",
+        "do not infer taxonomy upgrade",
+        "do not infer authority widening",
+        "do not infer rerun authorization",
+        "do not infer missing value from missing field",
+        "do not infer live frontier from latest or mtime",
+        "do not treat strategic discussion as execution authority"
+      ],
+      "negative_controls_absent": [
+        "repair_executed_count",
+        "taxonomy_delta_proposal_emitted_count",
+        "authority_widening_authorized_count",
+        "optimization_authorized_count",
+        "unbounded_or_no_cap_run_count",
+        "latest_or_mtime_selection",
+        "proposal_counted_as_execution",
+        "pressure_counted_as_repair"
+      ],
+      "negative_controls_clean": true,
+      "negative_controls_failed": [],
+      "receipt_surface_explicit": false,
+      "remaining_pressure": [
+        "NONE"
+      ],
+      "source_selection_valid": false
+    },
+    "schema_version": "a0_receipt_to_builder_transition_layer_v0"
+  },
+  "raw_question_packet_accepted": true,
+  "receipt_surface_explicit": false,
+  "schema_version": "a0_raw_build_receipt_self_classification_recheck_v0",
+  "source_a0_build_receipt_id": "067fcaed",
+  "source_selection_valid": false
+}

@@ -1,0 +1,47 @@
+{
+  "probe_cases": [
+    {
+      "case_id": "closed_lane_receipt",
+      "description": "closed lane receipt",
+      "expected_classification": "STOP_LANE_CLOSED",
+      "receipt_id": "probe_closed_lane_receipt"
+    },
+    {
+      "case_id": "failed_gate_receipt",
+      "description": "failed gate receipt",
+      "expected_classification": "REPAIR_COMMAND_CANDIDATE",
+      "receipt_id": "probe_failed_gate_receipt"
+    },
+    {
+      "case_id": "ambiguous_pressure_receipt",
+      "description": "ambiguous pressure receipt",
+      "expected_classification": "QUESTION_PACKET_NOT_COMMAND",
+      "receipt_id": "probe_ambiguous_pressure_receipt"
+    },
+    {
+      "case_id": "stable_pressure_inspection_receipt",
+      "description": "stable pressure inspection receipt",
+      "expected_classification": "OPERATIONAL_SPEC_CANDIDATE",
+      "receipt_id": "probe_stable_pressure_inspection_receipt"
+    },
+    {
+      "case_id": "not_enough_evidence_receipt",
+      "description": "not enough evidence receipt",
+      "expected_classification": "QUESTION_PACKET_NOT_COMMAND",
+      "receipt_id": null
+    },
+    {
+      "case_id": "missing_object_capability_stop_receipt",
+      "description": "missing object capability stop receipt",
+      "expected_classification": "CANDIDATE_MISSING_OBJECT_PROPOSAL",
+      "receipt_id": "probe_missing_object_capability_stop_receipt"
+    },
+    {
+      "case_id": "close_and_freeze_final_acceptance_receipt",
+      "description": "close and freeze final acceptance receipt",
+      "expected_classification": "CLOSE_AND_FREEZE_ACCEPTANCE",
+      "receipt_id": "probe_close_and_freeze_final_acceptance_receipt"
+    }
+  ],
+  "schema_version": "a0_probe_case_manifest_v0"
+}
