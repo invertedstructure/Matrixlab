@@ -1,0 +1,30 @@
+{
+  "schema_version": "typed_value_source_metadata_source_bridge_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_VALUE_SOURCE_METADATA_SOURCE_BRIDGE_BUILT_REQUIRES_SOURCE_PACKET",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "metadata partially populated but no discriminator ready",
+      "question": "why are discriminators still unavailable",
+      "step": "consume_partial_metadata_population",
+      "taken": "build source bridge for missing typed metadata"
+    },
+    {
+      "answer": "TYPED_VALUE_SOURCE_METADATA_SOURCE_BRIDGE_BUILT_REQUIRES_SOURCE_PACKET",
+      "question": "where may missing metadata lawfully come from",
+      "reason_codes": [
+        "MISSING_METADATA_FIELDS_BOUND_TO_ALLOWED_SOURCE_CLASSES",
+        "SOURCE_PACKET_TEMPLATE_EMITTED",
+        "HUMAN_OR_SCHEMA_ONLY_FIELDS_IDENTIFIED",
+        "DISCRIMINATOR_METADATA_NOT_READY_UNTIL_SOURCE_PACKET_REVIEWED",
+        "MACHINE_READABLE_SOURCE_BRIDGE_FIELDS_REQUIRE_PACKET",
+        "HUMAN_OR_PREVALIDATED_SCHEMA_BOUNDARY_FIELDS_REQUIRE_PACKET"
+      ],
+      "step": "bind_missing_fields_to_source_classes",
+      "taken": "PROVIDE_OR_REVIEW_TYPED_VALUE_SOURCE_METADATA_SOURCE_PACKET_V0"
+    }
+  ]
+}

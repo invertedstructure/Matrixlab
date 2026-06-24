@@ -1,0 +1,106 @@
+{
+  "field_count": 3,
+  "fields": [
+    {
+      "allowed_sources": [
+        "human review packet",
+        "prevalidated schema preference packet",
+        "explicit acceptance-boundary packet"
+      ],
+      "bridge_role": "review_or_schema_boundary",
+      "currently_missing": true,
+      "currently_missing_count": 3,
+      "currently_populated_count": 0,
+      "field": "human_preference_boundary_ref",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": true,
+      "may_be_used_for_rule_refinement_after_population": false,
+      "may_force_review_boundary": true,
+      "population_coverage": {
+        "missing": 3,
+        "populated": 0
+      },
+      "purpose": "Record explicit human/schema review boundary when machine choice is not lawful.",
+      "required_source_object": "human_or_prevalidated_schema_source_required",
+      "source_class": "requires_human_or_prevalidated_schema_boundary"
+    },
+    {
+      "allowed_sources": [
+        "human review packet",
+        "prevalidated schema preference packet",
+        "explicit acceptance-boundary packet"
+      ],
+      "bridge_role": "review_or_schema_boundary",
+      "currently_missing": true,
+      "currently_missing_count": 3,
+      "currently_populated_count": 0,
+      "field": "load_bearing_reason",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": true,
+      "may_be_used_for_rule_refinement_after_population": false,
+      "may_force_review_boundary": true,
+      "population_coverage": {
+        "missing": 3,
+        "populated": 0
+      },
+      "purpose": "Explain why the row matters; this is not mechanically derivable from identity alone.",
+      "required_source_object": "human_or_prevalidated_schema_source_required",
+      "source_class": "requires_human_or_prevalidated_schema_boundary"
+    },
+    {
+      "allowed_sources": [
+        "human review packet",
+        "prevalidated schema preference packet",
+        "explicit acceptance-boundary packet"
+      ],
+      "bridge_role": "review_or_schema_boundary",
+      "currently_missing": true,
+      "currently_missing_count": 3,
+      "currently_populated_count": 0,
+      "field": "schema_preference_key",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": true,
+      "may_be_used_for_rule_refinement_after_population": false,
+      "may_force_review_boundary": true,
+      "population_coverage": {
+        "missing": 3,
+        "populated": 0
+      },
+      "purpose": "Record a schema-level preference key if a schema is authorized to choose.",
+      "required_source_object": "human_or_prevalidated_schema_source_required",
+      "source_class": "requires_human_or_prevalidated_schema_boundary"
+    }
+  ],
+  "machine_must_not_infer": [
+    "human_preference_boundary_ref",
+    "load_bearing_reason",
+    "schema_preference_key"
+  ],
+  "review_boundary": "human_or_prevalidated_schema_acceptance_required",
+  "schema_version": "typed_value_source_metadata_human_schema_only_fields_v0",
+  "status": "HUMAN_OR_SCHEMA_ONLY_FIELDS_IDENTIFIED"
+}

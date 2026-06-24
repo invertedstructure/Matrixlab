@@ -1,0 +1,478 @@
+{
+  "acceptance_boundary": "human_or_prevalidated_schema_acceptance_required",
+  "field_count": 15,
+  "field_policies": [
+    {
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "bridge_role": "machine_readable_after_bridge_population",
+      "currently_missing": true,
+      "currently_missing_count": 3,
+      "currently_populated_count": 0,
+      "field": "comparison_grain",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": false,
+      "may_be_used_for_rule_refinement_after_population": true,
+      "may_force_review_boundary": false,
+      "population_coverage": {
+        "missing": 3,
+        "populated": 0
+      },
+      "purpose": "Determine whether rows should be compared in one grain or split first.",
+      "required_source_object": "source_packet_required",
+      "source_class": "requires_typed_source_bridge"
+    },
+    {
+      "allowed_sources": [
+        "existing population packet",
+        "explicit row source_ref/json_path/row_uid",
+        "receipt-backed trace"
+      ],
+      "bridge_role": "already_populated",
+      "currently_missing": false,
+      "currently_missing_count": 0,
+      "currently_populated_count": 3,
+      "field": "direct_evidence_ref",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": false,
+      "may_be_used_for_rule_refinement_after_population": false,
+      "may_force_review_boundary": false,
+      "population_coverage": {
+        "missing": 0,
+        "populated": 3
+      },
+      "purpose": "No v0 purpose registered.",
+      "required_source_object": "none",
+      "source_class": "already_populated_from_explicit_row_identity"
+    },
+    {
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "bridge_role": "machine_readable_after_bridge_population",
+      "currently_missing": true,
+      "currently_missing_count": 3,
+      "currently_populated_count": 0,
+      "field": "direct_evidence_strength",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": false,
+      "may_be_used_for_rule_refinement_after_population": true,
+      "may_force_review_boundary": false,
+      "population_coverage": {
+        "missing": 3,
+        "populated": 0
+      },
+      "purpose": "Rank evidence quality only after explicit evidence-strength source is provided.",
+      "required_source_object": "source_packet_required",
+      "source_class": "requires_typed_source_bridge"
+    },
+    {
+      "allowed_sources": [
+        "human review packet",
+        "prevalidated schema preference packet",
+        "explicit acceptance-boundary packet"
+      ],
+      "bridge_role": "review_or_schema_boundary",
+      "currently_missing": true,
+      "currently_missing_count": 3,
+      "currently_populated_count": 0,
+      "field": "human_preference_boundary_ref",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": true,
+      "may_be_used_for_rule_refinement_after_population": false,
+      "may_force_review_boundary": true,
+      "population_coverage": {
+        "missing": 3,
+        "populated": 0
+      },
+      "purpose": "Record explicit human/schema review boundary when machine choice is not lawful.",
+      "required_source_object": "human_or_prevalidated_schema_source_required",
+      "source_class": "requires_human_or_prevalidated_schema_boundary"
+    },
+    {
+      "allowed_sources": [
+        "existing population packet",
+        "explicit row source_ref/json_path/row_uid",
+        "receipt-backed trace"
+      ],
+      "bridge_role": "already_populated",
+      "currently_missing": false,
+      "currently_missing_count": 0,
+      "currently_populated_count": 3,
+      "field": "inference_chain_ref",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": false,
+      "may_be_used_for_rule_refinement_after_population": false,
+      "may_force_review_boundary": false,
+      "population_coverage": {
+        "missing": 0,
+        "populated": 3
+      },
+      "purpose": "No v0 purpose registered.",
+      "required_source_object": "none",
+      "source_class": "already_populated_from_explicit_row_identity"
+    },
+    {
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "bridge_role": "machine_readable_after_bridge_population",
+      "currently_missing": true,
+      "currently_missing_count": 3,
+      "currently_populated_count": 0,
+      "field": "inference_strength",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": false,
+      "may_be_used_for_rule_refinement_after_population": true,
+      "may_force_review_boundary": false,
+      "population_coverage": {
+        "missing": 3,
+        "populated": 0
+      },
+      "purpose": "Determine whether a row depends on weaker inference.",
+      "required_source_object": "source_packet_required",
+      "source_class": "requires_typed_source_bridge"
+    },
+    {
+      "allowed_sources": [
+        "human review packet",
+        "prevalidated schema preference packet",
+        "explicit acceptance-boundary packet"
+      ],
+      "bridge_role": "review_or_schema_boundary",
+      "currently_missing": true,
+      "currently_missing_count": 3,
+      "currently_populated_count": 0,
+      "field": "load_bearing_reason",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": true,
+      "may_be_used_for_rule_refinement_after_population": false,
+      "may_force_review_boundary": true,
+      "population_coverage": {
+        "missing": 3,
+        "populated": 0
+      },
+      "purpose": "Explain why the row matters; this is not mechanically derivable from identity alone.",
+      "required_source_object": "human_or_prevalidated_schema_source_required",
+      "source_class": "requires_human_or_prevalidated_schema_boundary"
+    },
+    {
+      "allowed_sources": [
+        "existing population packet",
+        "explicit row source_ref/json_path/row_uid",
+        "receipt-backed trace"
+      ],
+      "bridge_role": "already_populated",
+      "currently_missing": false,
+      "currently_missing_count": 0,
+      "currently_populated_count": 3,
+      "field": "provenance_depth",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": false,
+      "may_be_used_for_rule_refinement_after_population": false,
+      "may_force_review_boundary": false,
+      "population_coverage": {
+        "missing": 0,
+        "populated": 3
+      },
+      "purpose": "No v0 purpose registered.",
+      "required_source_object": "none",
+      "source_class": "already_populated_from_explicit_row_identity"
+    },
+    {
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "bridge_role": "machine_readable_after_bridge_population",
+      "currently_missing": true,
+      "currently_missing_count": 3,
+      "currently_populated_count": 0,
+      "field": "rollback_or_stop_boundary_ref",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": false,
+      "may_be_used_for_rule_refinement_after_population": true,
+      "may_force_review_boundary": false,
+      "population_coverage": {
+        "missing": 3,
+        "populated": 0
+      },
+      "purpose": "Bind target value source to rollback or stop boundary.",
+      "required_source_object": "source_packet_required",
+      "source_class": "requires_typed_source_bridge"
+    },
+    {
+      "allowed_sources": [
+        "human review packet",
+        "prevalidated schema preference packet",
+        "explicit acceptance-boundary packet"
+      ],
+      "bridge_role": "review_or_schema_boundary",
+      "currently_missing": true,
+      "currently_missing_count": 3,
+      "currently_populated_count": 0,
+      "field": "schema_preference_key",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": true,
+      "may_be_used_for_rule_refinement_after_population": false,
+      "may_force_review_boundary": true,
+      "population_coverage": {
+        "missing": 3,
+        "populated": 0
+      },
+      "purpose": "Record a schema-level preference key if a schema is authorized to choose.",
+      "required_source_object": "human_or_prevalidated_schema_source_required",
+      "source_class": "requires_human_or_prevalidated_schema_boundary"
+    },
+    {
+      "allowed_sources": [
+        "existing population packet",
+        "explicit row source_ref/json_path/row_uid",
+        "receipt-backed trace"
+      ],
+      "bridge_role": "already_populated",
+      "currently_missing": false,
+      "currently_missing_count": 0,
+      "currently_populated_count": 3,
+      "field": "source_authority",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": false,
+      "may_be_used_for_rule_refinement_after_population": false,
+      "may_force_review_boundary": false,
+      "population_coverage": {
+        "missing": 0,
+        "populated": 3
+      },
+      "purpose": "No v0 purpose registered.",
+      "required_source_object": "none",
+      "source_class": "already_populated_from_explicit_row_identity"
+    },
+    {
+      "allowed_sources": [
+        "existing population packet",
+        "explicit row source_ref/json_path/row_uid",
+        "receipt-backed trace"
+      ],
+      "bridge_role": "already_populated",
+      "currently_missing": false,
+      "currently_missing_count": 0,
+      "currently_populated_count": 3,
+      "field": "source_role",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": false,
+      "may_be_used_for_rule_refinement_after_population": false,
+      "may_force_review_boundary": false,
+      "population_coverage": {
+        "missing": 0,
+        "populated": 3
+      },
+      "purpose": "No v0 purpose registered.",
+      "required_source_object": "none",
+      "source_class": "already_populated_from_explicit_row_identity"
+    },
+    {
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "bridge_role": "machine_readable_after_bridge_population",
+      "currently_missing": true,
+      "currently_missing_count": 3,
+      "currently_populated_count": 0,
+      "field": "target_aspect",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": false,
+      "may_be_used_for_rule_refinement_after_population": true,
+      "may_force_review_boundary": false,
+      "population_coverage": {
+        "missing": 3,
+        "populated": 0
+      },
+      "purpose": "Determine whether rows represent different target aspects.",
+      "required_source_object": "source_packet_required",
+      "source_class": "requires_typed_source_bridge"
+    },
+    {
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "bridge_role": "machine_readable_after_bridge_population",
+      "currently_missing": true,
+      "currently_missing_count": 3,
+      "currently_populated_count": 0,
+      "field": "target_scope",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": false,
+      "may_be_used_for_rule_refinement_after_population": true,
+      "may_force_review_boundary": false,
+      "population_coverage": {
+        "missing": 3,
+        "populated": 0
+      },
+      "purpose": "Determine whether rows compete for the same target scope.",
+      "required_source_object": "source_packet_required",
+      "source_class": "requires_typed_source_bridge"
+    },
+    {
+      "allowed_sources": [
+        "typed value-source metadata source packet",
+        "prevalidated schema field",
+        "explicit source artifact referenced by source packet"
+      ],
+      "bridge_role": "machine_readable_after_bridge_population",
+      "currently_missing": true,
+      "currently_missing_count": 3,
+      "currently_populated_count": 0,
+      "field": "verification_gate_ref",
+      "forbidden_sources": [
+        "latest-file guessing",
+        "mtime selection",
+        "alphabetical preference",
+        "first-seen order",
+        "unstated semantic inference",
+        "hidden preference",
+        "current dominance rank score"
+      ],
+      "human_schema_only": false,
+      "may_be_used_for_rule_refinement_after_population": true,
+      "may_force_review_boundary": false,
+      "population_coverage": {
+        "missing": 3,
+        "populated": 0
+      },
+      "purpose": "Bind target value source to a verification gate.",
+      "required_source_object": "source_packet_required",
+      "source_class": "requires_typed_source_bridge"
+    }
+  ],
+  "field_policy_id": "metadata_field_policy_67dd176c",
+  "field_policy_status": "TYPED_METADATA_FIELD_SOURCE_POLICIES_EMITTED",
+  "human_or_schema_only_field_count": 3,
+  "missing_field_count": 10,
+  "schema_version": "typed_value_source_metadata_source_field_policy_v0",
+  "source_bridge_required_field_count": 7,
+  "source_population_receipt_id": "4f2a0901"
+}
