@@ -1,0 +1,43 @@
+{
+  "schema_version": "typed_value_source_value_proposition_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_VALUE_SOURCE_VALUE_PROPOSITION_REVIEWED_REQUIRES_EXTRACTION_REPAIR_BEFORE_AUTHORIZATION",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "no; review first, no authorization",
+      "question": "should propositions be authorized now",
+      "step": "consume_value_proposition_packet",
+      "taken": "review proposition quality and null reasons"
+    },
+    {
+      "answer": "no source-backed propositions exist",
+      "question": "are machine-readable values authorizable",
+      "step": "review_machine_readable_gaps",
+      "taken": "recommend extraction-surface repair before authorization"
+    },
+    {
+      "answer": "not in this unit",
+      "question": "are human/schema slots authorized",
+      "step": "review_human_schema_boundaries",
+      "taken": "preserve boundary diagnostics"
+    },
+    {
+      "answer": "TYPED_VALUE_SOURCE_VALUE_PROPOSITION_REVIEWED_REQUIRES_EXTRACTION_REPAIR_BEFORE_AUTHORIZATION",
+      "question": "what is the next lawful edge",
+      "reason_codes": [
+        "VALUE_PROPOSITION_PACKET_REVIEWED",
+        "ZERO_SOURCE_BACKED_PROPOSITIONS_CONFIRMED",
+        "ALL_VALUES_REMAIN_NULL_WITH_REASONS",
+        "NO_AUTHORIZATION_APPLIED",
+        "NO_NULL_REASONS_ACCEPTED_AS_FINAL",
+        "MACHINE_READABLE_VALUE_EXTRACTION_SURFACE_REPAIR_REQUIRED",
+        "HUMAN_SCHEMA_BOUNDARIES_REVIEWED_BUT_NOT_AUTHORIZED"
+      ],
+      "step": "classify_review",
+      "taken": "REPAIR_TYPED_MACHINE_READABLE_VALUE_EXTRACTION_SURFACE_V0"
+    }
+  ]
+}
