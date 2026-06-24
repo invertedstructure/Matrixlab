@@ -1,0 +1,25 @@
+{
+  "contract_id": "cell1_return_contract_88ea9c2b",
+  "design_id": "cell1_return_loop_design_30fff534",
+  "failure_classes_to_detect": [
+    "RETURN_PACKET_MISSING_SOURCE_REFERENCE",
+    "RETURN_PACKET_LABEL_LANE_AMBIGUITY",
+    "RETURN_PACKET_AUTHORITY_LEAK",
+    "RETURN_PACKET_HIDDEN_NEXT_COMMAND",
+    "RETURN_PACKET_CLAIMS_RUNTIME_PATCH",
+    "RETURN_PACKET_CLAIMS_C5_AUTHORITY",
+    "RETURN_PACKET_UNCLASSIFIABLE_BY_CELL0"
+  ],
+  "future_test_unit": "RUN_CELL1_HANDOFF_RETURN_LOOP_TEST_FROM_DESIGN_V0",
+  "return_object_type": "CELL1_HANDOFF_RETURN_RESULT_PACKET",
+  "schema_version": "cell1_handoff_return_loop_test_design_readout_v0",
+  "test_edges": [
+    "Cell1 result packet emitted",
+    "result packet references source Cell1 schema-consumption reference",
+    "result packet declares bounded scope",
+    "result packet preserves C2 label lanes",
+    "result packet requests classification by review/Cell0",
+    "result packet stops without hidden command"
+  ],
+  "test_mode": "BOUNDED_RETURN_LOOP_TEST_ONLY"
+}

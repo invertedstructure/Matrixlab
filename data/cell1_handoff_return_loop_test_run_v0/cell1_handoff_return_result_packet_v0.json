@@ -1,0 +1,58 @@
+{
+  "authority_boundary": {
+    "may_emit_hidden_next_command": false,
+    "may_execute_runtime_patch": false,
+    "may_grant_general_cell1_authority": false,
+    "may_modify_target_files": false,
+    "may_mutate_taxonomy": false,
+    "may_open_c5": false,
+    "may_request_review_classification": true,
+    "may_return_result_packet": true
+  },
+  "bounded_test_scope": "HANDOFF_RETURN_LOOP_TEST_ONLY",
+  "claim_lanes": {
+    "authority_status": "BOUNDED_RETURN_ONLY",
+    "evidence_status": "REFERENCE_BACKED",
+    "next_required_move": "CLASSIFY_RETURN_PACKET",
+    "object_identity": "CELL1_HANDOFF_RETURN_RESULT_PACKET",
+    "pressure_class": "RETURN_LOOP_EVIDENCE",
+    "workflow_position": "RETURNED_FOR_REVIEW"
+  },
+  "classification_request": {
+    "allowed_classifications": [
+      "RETURN_PACKET_ACCEPTED_FOR_REVIEW",
+      "RETURN_PACKET_REPAIR_REQUIRED",
+      "RETURN_PACKET_BLOCKED"
+    ],
+    "requested_classification": "RETURN_PACKET_CLASSIFICATION",
+    "requested_surface": "CELL0_OR_REVIEW_CLASSIFICATION_SURFACE"
+  },
+  "destination_surface": "CELL0_OR_REVIEW_CLASSIFICATION_SURFACE",
+  "evidence_refs": [
+    "data/cell1_handoff_return_loop_test_design_v0_receipts/26a8e1a4.json",
+    "data/cell1_schema_consumption_test_review_or_close_v0/cell1_schema_test_frozen_reference_packet_v0.json",
+    "data/cell1_schema_consumption_test_from_c4_handoff_v0_receipts/e6b0fd97.json"
+  ],
+  "lane_registry_receipt_id": "348dabde",
+  "lane_registry_ref": "data/c2_cell0_label_taxonomy_lane_cleaning_v0/taxonomy_lane_registry_v0.json",
+  "lane_registry_schema_version": "taxonomy_lane_registry_v0",
+  "negative_boundary_counters": {
+    "c5_opened_count": 0,
+    "general_cell1_authority_granted_count": 0,
+    "hidden_next_command_count": 0,
+    "runtime_patch_applied_count": 0,
+    "target_file_modified_count": 0,
+    "taxonomy_registry_mutation_count": 0
+  },
+  "origin_cell": "CELL_1",
+  "result_kind": "VERIFICATION_RESULT_RETURNED",
+  "result_packet_id": "cell1_return_29f8e8b0",
+  "schema_version": "cell1_handoff_return_result_packet_v0",
+  "source_cell1_reference_id": "CELL1_SCHEMA_CONSUMPTION_TEST_REFERENCE_V0",
+  "source_design_receipt_id": "26a8e1a4",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_RETURN_PACKET_EMITTED_FOR_REVIEW",
+    "type": "STOP"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "allowed_classifications": [
+    "RETURN_PACKET_ACCEPTED_FOR_REVIEW",
+    "RETURN_PACKET_REPAIR_REQUIRED",
+    "RETURN_PACKET_BLOCKED"
+  ],
+  "authority_boundary": {
+    "may_accept_as_build": false,
+    "may_classify_return_packet": true,
+    "may_execute_cell0_repair": false,
+    "may_execute_cell1": false,
+    "may_open_c5": false
+  },
+  "classification_inputs": {
+    "authority_status_lane": "BOUNDED_RETURN_ONLY",
+    "next_required_move_lane": "CLASSIFY_RETURN_PACKET",
+    "object_identity_lane": "CELL1_HANDOFF_RETURN_RESULT_PACKET",
+    "result_kind": "VERIFICATION_RESULT_RETURNED",
+    "validation_status": "PASS"
+  },
+  "destination_surface": "CELL0_OR_REVIEW_CLASSIFICATION_SURFACE",
+  "request_id": "return_classification_request_5220d854",
+  "requested_classification": "RETURN_PACKET_CLASSIFICATION",
+  "schema_version": "cell0_review_classification_request_v0",
+  "source_return_packet_id": "cell1_return_29f8e8b0",
+  "source_return_packet_ref": "data/cell1_handoff_return_loop_test_run_v0/cell1_handoff_return_result_packet_v0.json",
+  "source_validation_ref": "data/cell1_handoff_return_loop_test_run_v0/return_packet_validation_record_v0.json",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_RETURN_PACKET_CLASSIFICATION_REQUEST_EMITTED",
+    "type": "STOP"
+  }
+}

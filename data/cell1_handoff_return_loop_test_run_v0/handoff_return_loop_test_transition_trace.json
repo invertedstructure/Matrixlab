@@ -1,0 +1,34 @@
+{
+  "schema_version": "cell1_handoff_return_loop_test_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_HANDOFF_RETURN_LOOP_TEST_COMPLETE",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "26a8e1a4",
+      "question": "is a valid return-loop design available",
+      "step": "load_design",
+      "taken": "construct_return_packet"
+    },
+    {
+      "answer": "cell1_return_29f8e8b0",
+      "question": "can Cell1 emit a bounded typed return result packet",
+      "step": "construct_return_packet",
+      "taken": "validate_contract"
+    },
+    {
+      "answer": "PASS",
+      "question": "does the return packet satisfy the contract and lane typing",
+      "step": "validate_contract",
+      "taken": "emit_classification_request"
+    },
+    {
+      "answer": "RETURN_PACKET_ACCEPTED_FOR_REVIEW",
+      "question": "can review/Cell0 classify the returned packet without authority leakage",
+      "step": "emit_classification_request",
+      "taken": "stop"
+    }
+  ]
+}
