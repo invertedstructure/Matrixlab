@@ -1,0 +1,27 @@
+{
+  "schema_version": "typed_value_source_metadata_source_packet_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_VALUE_SOURCE_METADATA_SOURCE_PACKET_NOT_PROVIDED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "typed metadata source packet",
+      "question": "what does the bridge require",
+      "step": "consume_source_bridge",
+      "taken": "review provided packet path or emit missing-packet halt"
+    },
+    {
+      "answer": "TYPED_VALUE_SOURCE_METADATA_SOURCE_PACKET_NOT_PROVIDED",
+      "question": "is source packet present and valid",
+      "reason_codes": [
+        "SOURCE_PACKET_TEMPLATE_EXISTS",
+        "SOURCE_PACKET_PATH_NOT_PROVIDED",
+        "METADATA_SOURCE_PACKET_REQUIRED_BEFORE_POPULATION"
+      ],
+      "step": "review_source_packet",
+      "taken": "PROVIDE_TYPED_VALUE_SOURCE_METADATA_SOURCE_PACKET_VALUES_V0"
+    }
+  ]
+}
