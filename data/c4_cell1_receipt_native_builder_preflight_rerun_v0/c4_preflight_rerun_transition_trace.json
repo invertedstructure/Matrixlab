@@ -1,0 +1,28 @@
+{
+  "schema_version": "c4_preflight_rerun_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C4_PREFLIGHT_READY_FOR_ACCEPTED_PROPOSAL_PACKET",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "CELL1_READY_FOR_NARROW_ACCEPTED_PROPOSAL_TEST",
+      "question": "does C3 rerun permit C4 preflight to open for narrow accepted proposal test",
+      "step": "consume_c3_rerun_verdict",
+      "taken": "open_gate_for_future_accepted_proposal_packet"
+    },
+    {
+      "answer": false,
+      "question": "does this unit have an accepted proposal packet to consume",
+      "step": "open_gate_for_future_accepted_proposal_packet",
+      "taken": "emit_ready_for_accepted_proposal_packet_stop"
+    },
+    {
+      "answer": true,
+      "question": "did C4 avoid build execution and hidden continuation",
+      "step": "stop_without_cell1_execution",
+      "taken": "stop"
+    }
+  ]
+}
