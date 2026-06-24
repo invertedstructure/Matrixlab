@@ -1,0 +1,28 @@
+{
+  "schema_version": "c4_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C4_BLOCKED_BY_C3_INTERFACE_VERDICT",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "CELL1_NOT_READY_PROPOSAL_SCHEMA_GAPS",
+      "question": "does C3 permit narrow accepted proposal Cell 1 test",
+      "step": "consume_c3_interface_verdict",
+      "taken": "block_cell1_opening"
+    },
+    {
+      "answer": true,
+      "question": "can C4 define Cell 1 intake/build receipt schemas without execution",
+      "step": "emit_schema_only_surface",
+      "taken": "emit_blocked_preflight_receipt"
+    },
+    {
+      "answer": true,
+      "question": "did C4 stop without opening Cell 1",
+      "step": "emit_blocked_preflight_receipt",
+      "taken": "stop"
+    }
+  ]
+}
