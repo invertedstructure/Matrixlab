@@ -1,0 +1,28 @@
+{
+  "schema_version": "cell1_handoff_return_loop_review_or_close_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_HANDOFF_RETURN_LOOP_CLOSED_REFERENCE_ONLY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "35e62eaf",
+      "question": "did the bounded handoff-return loop test pass",
+      "step": "consume_return_loop_test_receipt",
+      "taken": "audit_return_loop_boundary"
+    },
+    {
+      "answer": "yes",
+      "question": "did the return packet remain review-only without build/C5/runtime authority",
+      "step": "audit_return_loop_boundary",
+      "taken": "close_reference"
+    },
+    {
+      "answer": "CLOSE_AND_FREEZE_HANDOFF_RETURN_REFERENCE",
+      "question": "should the return-loop witness freeze as reference-only",
+      "step": "close_reference",
+      "taken": "stop"
+    }
+  ]
+}
