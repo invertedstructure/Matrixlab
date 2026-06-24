@@ -1,0 +1,38 @@
+{
+  "schema_version": "c3_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C3_CELL1_BLOCKED_BY_PROPOSAL_SCHEMA_GAP",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": {
+        "b3": "a4cbf33f",
+        "c1": "f8f37c4e",
+        "c2": "348dabde"
+      },
+      "question": "were accepted B3/C1/C2 references explicitly consumed",
+      "step": "consume_b3_c1_c2_basis",
+      "taken": "emit_micro_domain_fixture"
+    },
+    {
+      "answer": true,
+      "question": "was B3 loop reused unchanged",
+      "step": "reuse_b3_loop",
+      "taken": "classify_claims_and_audit_labels"
+    },
+    {
+      "answer": 15,
+      "question": "did C2 lanes block claim/domain label collapse",
+      "step": "classify_claims_and_audit_labels",
+      "taken": "check_c1_proposal_sufficiency"
+    },
+    {
+      "answer": 1,
+      "question": "were proposal schema gaps reported rather than patched",
+      "step": "check_c1_proposal_sufficiency",
+      "taken": "stop"
+    }
+  ]
+}
