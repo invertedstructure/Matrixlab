@@ -1,0 +1,31 @@
+{
+  "schema_version": "b3_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_B3_LOCAL_DECISION_LOOP_SCHEMA_LOCKED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": {
+        "b1_receipt_id": "b9c8f831",
+        "b2_receipt_id": "7ab64083"
+      },
+      "question": "were explicit accepted B1/B2 artifacts consumed as static/probe references",
+      "step": "consume_b1_b2_reference_basis",
+      "taken": "emit_loop_schema"
+    },
+    {
+      "answer": true,
+      "question": "were loop schema, step/edge/forbidden-edge enums, distinction schema/catalog, transition table, license map, trace/receipt schemas emitted",
+      "step": "emit_loop_schema",
+      "taken": "run_transfer_matrix"
+    },
+    {
+      "answer": "TRANSFERABLE_LOCAL_LOOP_V0",
+      "question": "did declared surfaces pass through same loop without forbidden direct edges or bespoke paths",
+      "step": "run_transfer_matrix",
+      "taken": "stop"
+    }
+  ]
+}

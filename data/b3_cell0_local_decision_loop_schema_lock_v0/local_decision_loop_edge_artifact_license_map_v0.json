@@ -1,0 +1,84 @@
+{
+  "license_rules": [
+    {
+      "allowed_terminal_types": [
+        "STOP",
+        "ADVANCE"
+      ],
+      "licensed_artifact_kinds": [
+        "local_move_result"
+      ],
+      "selected_edge": "APPLY_LOCAL_MOVE",
+      "static_probe_allowed": false
+    },
+    {
+      "allowed_terminal_types": [
+        "STOP"
+      ],
+      "licensed_artifact_kinds": [
+        "halt_record"
+      ],
+      "selected_edge": "EMIT_TYPED_STOP",
+      "static_probe_allowed": true
+    },
+    {
+      "allowed_terminal_types": [
+        "STOP"
+      ],
+      "licensed_artifact_kinds": [
+        "proposal_packet"
+      ],
+      "proposal_accepted": false,
+      "proposal_applied": false,
+      "selected_edge": "EMIT_PROPOSAL",
+      "static_probe_allowed": true
+    },
+    {
+      "allowed_terminal_types": [
+        "STOP"
+      ],
+      "licensed_artifact_kinds": [
+        "repair_objective_candidate"
+      ],
+      "repair_executed": false,
+      "selected_edge": "EMIT_REPAIR_CANDIDATE",
+      "static_probe_allowed": true
+    },
+    {
+      "allowed_terminal_types": [
+        "STOP"
+      ],
+      "licensed_artifact_kinds": [
+        "question_packet",
+        "evidence_request"
+      ],
+      "selected_edge": "EMIT_EVIDENCE_REQUEST",
+      "static_probe_allowed": true
+    },
+    {
+      "allowed_terminal_types": [
+        "STOP"
+      ],
+      "builder_command_authorized": false,
+      "licensed_artifact_kinds": [
+        "a1_strategic_packet",
+        "strategic_packet_stub"
+      ],
+      "selected_edge": "EMIT_STRATEGIC_PACKET",
+      "static_probe_allowed": true
+    },
+    {
+      "allowed_terminal_types": [
+        "STOP"
+      ],
+      "licensed_artifact_kinds": [
+        "closure_readout_packet"
+      ],
+      "selected_edge": "CLOSE_NO_PRESSURE",
+      "static_probe_allowed": true
+    }
+  ],
+  "loop_id": "LOCAL_DECISION_LOOP_V0",
+  "rule": "If selected edge does not license emitted artifact kind, B3 fails.",
+  "schema_version": "local_decision_loop_edge_artifact_license_map_v0"
+}

@@ -1,0 +1,81 @@
+{
+  "loop_id": "LOCAL_DECISION_LOOP_V0",
+  "rules": [
+    {
+      "condition": "fail",
+      "from": "LOAD_SURFACE",
+      "to": "STOP_UNTYPED_SURFACE"
+    },
+    {
+      "condition": "fail",
+      "from": "VALIDATE_SURFACE",
+      "to": "STOP_GATE_FAIL"
+    },
+    {
+      "condition": "ambiguous",
+      "from": "SELECT_PRESSURE_GROUP",
+      "to": "QUESTION_PACKET_NOT_COMMAND"
+    },
+    {
+      "condition": "forbidden",
+      "from": "CHECK_INSPECTION_AUTHORITY",
+      "to": "STOP_AUTHORITY_BOUNDARY"
+    },
+    {
+      "condition": "overinspection",
+      "from": "INSPECT_MINIMAL_SURFACE",
+      "to": "STOP_AUTHORITY_VIOLATION"
+    },
+    {
+      "condition": "ambiguous",
+      "from": "CLASSIFY_PRESSURE",
+      "to": "QUESTION_PACKET_NOT_COMMAND"
+    },
+    {
+      "condition": "missing",
+      "from": "IDENTIFY_REQUIRED_DISTINCTION",
+      "to": "STOP_UNDERTYPED_OBJECT"
+    },
+    {
+      "condition": "MISSING_EVIDENCE",
+      "from": "CHECK_DISTINCTION_AVAILABLE",
+      "to": "EMIT_EVIDENCE_REQUEST"
+    },
+    {
+      "condition": "MISSING_MOVE",
+      "from": "CHECK_DISTINCTION_AVAILABLE",
+      "to": "EMIT_PROPOSAL"
+    },
+    {
+      "condition": "MISSING_AUTHORITY",
+      "from": "CHECK_DISTINCTION_AVAILABLE",
+      "to": "EMIT_TYPED_STOP"
+    },
+    {
+      "condition": "AMBIGUOUS",
+      "from": "CHECK_DISTINCTION_AVAILABLE",
+      "to": "QUESTION_PACKET_NOT_COMMAND"
+    },
+    {
+      "condition": "none",
+      "from": "DECIDE_LOCAL_EDGE",
+      "to": "EMIT_TYPED_STOP"
+    },
+    {
+      "condition": "mismatch",
+      "from": "EMIT_ARTIFACT",
+      "to": "STOP_GATE_FAIL"
+    },
+    {
+      "condition": "missing",
+      "from": "EMIT_RECEIPT",
+      "to": "STOP_GATE_FAIL"
+    },
+    {
+      "condition": "hidden_next",
+      "from": "STOP_OR_ADVANCE",
+      "to": "STOP_AUTHORITY_VIOLATION"
+    }
+  ],
+  "schema_version": "local_decision_loop_transition_table_v0"
+}
