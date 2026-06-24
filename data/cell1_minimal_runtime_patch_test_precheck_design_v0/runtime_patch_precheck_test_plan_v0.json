@@ -1,0 +1,32 @@
+{
+  "acceptance_requirements": [
+    "accepted proposal preserved",
+    "bounded target either declared or explicit missing",
+    "verification gate either declared or explicit missing",
+    "rollback-or-stop boundary either declared or explicit missing",
+    "no runtime patch applied",
+    "no target file modified",
+    "no C5 opened",
+    "no general Cell1 authority",
+    "no hidden next command"
+  ],
+  "design_record_ref": "data/cell1_minimal_runtime_patch_test_precheck_design_v0/runtime_patch_precheck_design_record_v0.json",
+  "eligibility_contract_ref": "data/cell1_minimal_runtime_patch_test_precheck_design_v0/runtime_patch_precheck_eligibility_contract_v0.json",
+  "future_precheck_unit": "RUN_CELL1_MINIMAL_RUNTIME_PATCH_TEST_PRECHECK_FROM_DESIGN_V0",
+  "next_command_goal": null,
+  "recommended_next_after_design": "RUN_CELL1_MINIMAL_RUNTIME_PATCH_TEST_PRECHECK_FROM_DESIGN_V0",
+  "schema_version": "cell1_minimal_runtime_patch_precheck_test_plan_v0",
+  "steps": [
+    "load design receipt and eligibility contract",
+    "load accepted proposal packet",
+    "load frozen schema-intake and handoff-return references",
+    "inspect for one bounded runtime patch target candidate",
+    "inspect for verification gate shape",
+    "inspect for rollback-or-stop boundary shape",
+    "emit eligibility classification",
+    "emit rollup/profile/receipt",
+    "stop"
+  ],
+  "test_mode": "BOUNDED_RUNTIME_PATCH_ELIGIBILITY_PRECHECK_ONLY",
+  "test_plan_id": "runtime_patch_precheck_plan_cde5c634"
+}

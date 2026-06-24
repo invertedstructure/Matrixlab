@@ -1,0 +1,34 @@
+{
+  "schema_version": "cell1_minimal_runtime_patch_precheck_design_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_MINIMAL_RUNTIME_PATCH_TEST_PRECHECK_DESIGNED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "CELL1_OBJECTIVE_MINIMAL_RUNTIME_PATCH_TEST_PRECHECK",
+      "question": "was minimal runtime patch test precheck selected",
+      "step": "consume_post_return_next_objective_decision",
+      "taken": "read_reference_stack"
+    },
+    {
+      "answer": "yes",
+      "question": "are intake and return references both frozen",
+      "step": "read_reference_stack",
+      "taken": "design_eligibility_contract"
+    },
+    {
+      "answer": "data/cell1_minimal_runtime_patch_test_precheck_design_v0/runtime_patch_precheck_eligibility_contract_v0.json",
+      "question": "what must be checked before a minimal runtime patch test can be designed",
+      "step": "design_eligibility_contract",
+      "taken": "emit_precheck_plan"
+    },
+    {
+      "answer": "yes",
+      "question": "did the unit avoid precheck execution and runtime patch authority",
+      "step": "emit_precheck_plan",
+      "taken": "stop"
+    }
+  ]
+}

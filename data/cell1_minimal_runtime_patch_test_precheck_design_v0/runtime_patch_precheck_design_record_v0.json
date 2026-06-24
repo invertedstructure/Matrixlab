@@ -1,0 +1,46 @@
+{
+  "design_goal": "Design a bounded eligibility precheck for a later minimal runtime patch test. The precheck may inspect whether required ingredients exist, but may not apply a patch or modify targets.",
+  "design_id": "runtime_patch_precheck_design_c72174ff",
+  "eligibility_contract_ref": "data/cell1_minimal_runtime_patch_test_precheck_design_v0/runtime_patch_precheck_eligibility_contract_v0.json",
+  "failure_classes_to_detect": [
+    "PRECHECK_ACCEPTED_PROPOSAL_GAP",
+    "PRECHECK_BOUNDED_TARGET_MISSING",
+    "PRECHECK_TARGET_SCOPE_UNBOUNDED",
+    "PRECHECK_VERIFICATION_GATE_MISSING",
+    "PRECHECK_ROLLBACK_OR_STOP_BOUNDARY_MISSING",
+    "PRECHECK_AUTHORITY_LEAK_RUNTIME_PATCH",
+    "PRECHECK_AUTHORITY_LEAK_TARGET_MODIFICATION",
+    "PRECHECK_AUTHORITY_LEAK_C5",
+    "PRECHECK_HIDDEN_NEXT_COMMAND"
+  ],
+  "future_precheck_unit": "RUN_CELL1_MINIMAL_RUNTIME_PATCH_TEST_PRECHECK_FROM_DESIGN_V0",
+  "input_surface": {
+    "source_accepted_proposal_packet_ref": "data/accepted_proposal_packet_for_c4_consumption_v0/accepted_proposal_packet_v0.json",
+    "source_after_return_next_objective_decision_ref": "data/cell1_next_bounded_objective_after_return_loop_v0/objective_decision_record_v0.json",
+    "source_c1_patch_schema_ref": "data/c1_proposal_interface_gap_patch_from_c3_v0/proposal_packet_schema_v0_1.json",
+    "source_c2_lane_registry_ref": "data/c2_cell0_label_taxonomy_lane_cleaning_v0/taxonomy_lane_registry_v0.json",
+    "source_handoff_return_reference_packet_ref": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_frozen_reference_packet_v0.json",
+    "source_schema_reference_packet_ref": "data/cell1_schema_consumption_test_review_or_close_v0/cell1_schema_test_frozen_reference_packet_v0.json"
+  },
+  "non_goals": [
+    "runtime patch application",
+    "target file modification",
+    "C5 opening",
+    "general Cell1 authority",
+    "proposal status promotion",
+    "accepted proposal fabrication",
+    "patch verification execution"
+  ],
+  "precheck_edges": [
+    "accepted proposal exists",
+    "bounded target candidate declared",
+    "verification gate declared",
+    "rollback-or-stop boundary declared",
+    "target modification remains forbidden during precheck",
+    "C5 remains blocked",
+    "general Cell1 authority remains blocked",
+    "result can return through review/Cell0 surface"
+  ],
+  "schema_version": "cell1_minimal_runtime_patch_precheck_design_record_v0",
+  "selected_decision_class": "CELL1_OBJECTIVE_MINIMAL_RUNTIME_PATCH_TEST_PRECHECK"
+}

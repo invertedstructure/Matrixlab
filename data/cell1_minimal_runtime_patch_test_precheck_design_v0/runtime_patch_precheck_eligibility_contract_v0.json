@@ -1,0 +1,50 @@
+{
+  "allowed_precheck_outcomes": [
+    "ELIGIBLE_FOR_MINIMAL_RUNTIME_PATCH_TEST_DESIGN",
+    "BLOCKED_MISSING_BOUNDED_TARGET",
+    "BLOCKED_MISSING_VERIFICATION_GATE",
+    "BLOCKED_MISSING_ROLLBACK_OR_STOP_BOUNDARY",
+    "BLOCKED_AUTHORITY_BOUNDARY",
+    "BLOCKED_ACCEPTED_PROPOSAL_GAP",
+    "REQUEST_NARROWER_EVIDENCE"
+  ],
+  "authority_boundary": {
+    "may_apply_runtime_patch": false,
+    "may_fabricate_accepted_proposal": false,
+    "may_grant_general_cell1_authority": false,
+    "may_modify_target_files": false,
+    "may_open_c5": false,
+    "may_promote_proposal_status": false,
+    "may_run_precheck_later": true
+  },
+  "contract_id": "runtime_patch_precheck_contract_0cbfd64b",
+  "eligibility_questions": [
+    "Does an accepted proposal packet exist and remain accepted-for-build?",
+    "Is there exactly one bounded runtime patch target candidate?",
+    "Is target modification forbidden during the precheck itself?",
+    "Is the later patch test guarded by an explicit verification gate?",
+    "Is rollback-or-stop behavior explicit before any target modification?",
+    "Can the result return through the established Cell1 handoff-return surface?",
+    "Does the precheck avoid C5 and general Cell1 authority?"
+  ],
+  "must_not_infer": [
+    "precheck pass equals patch authorization",
+    "accepted proposal equals target-write authority",
+    "review acceptance equals build acceptance",
+    "runtime patch safety",
+    "C5 readiness",
+    "general Cell1 authority"
+  ],
+  "precheck_object_type": "CELL1_MINIMAL_RUNTIME_PATCH_TEST_ELIGIBILITY_PRECHECK",
+  "required_eligibility_fields": [
+    "accepted_proposal_ref",
+    "bounded_patch_target_ref",
+    "target_file_write_scope",
+    "verification_gate",
+    "rollback_or_stop_boundary",
+    "authority_boundary",
+    "return_packet_or_review_surface",
+    "negative_boundary_counters"
+  ],
+  "schema_version": "cell1_minimal_runtime_patch_precheck_eligibility_contract_v0"
+}
