@@ -1,0 +1,28 @@
+{
+  "schema_version": "c1_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C1_PROPOSAL_LAYER_STABLE_REVIEW_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "a4cbf33f",
+      "question": "was B3 EMIT_PROPOSAL edge available as explicit reference basis",
+      "step": "consume_b3_edge_reference",
+      "taken": "emit_c1_proposal_schemas"
+    },
+    {
+      "answer": true,
+      "question": "were proposal schemas, enums, mapping table, validator, review contract, and authority matrix emitted",
+      "step": "emit_c1_proposal_schemas",
+      "taken": "run_static_demo_proposals"
+    },
+    {
+      "answer": "C1_PROPOSAL_LAYER_STABLE",
+      "question": "did proposals remain PROPOSED_ONLY with evidence, authority boundary, review request, and no application",
+      "step": "run_static_demo_proposals",
+      "taken": "stop"
+    }
+  ]
+}

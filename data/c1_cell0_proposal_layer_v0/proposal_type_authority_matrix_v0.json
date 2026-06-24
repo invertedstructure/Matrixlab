@@ -1,0 +1,146 @@
+{
+  "rows": [
+    {
+      "can_apply": false,
+      "can_approve_itself": false,
+      "can_execute_builder": false,
+      "can_mutate_registry": false,
+      "may_describe": [
+        "propose label/halt/move-kind refinement"
+      ],
+      "must_not_do": [
+        "mutate taxonomy registry",
+        "accept taxonomy patch"
+      ],
+      "proposal_type": "TAXONOMY_DELTA_PROPOSAL"
+    },
+    {
+      "can_apply": false,
+      "can_approve_itself": false,
+      "can_execute_builder": false,
+      "can_mutate_registry": false,
+      "may_describe": [
+        "describe candidate move shape",
+        "describe applies_when",
+        "describe expected emitted artifacts",
+        "describe halt behavior"
+      ],
+      "must_not_do": [
+        "register move",
+        "execute move",
+        "mutate move registry"
+      ],
+      "proposal_type": "MISSING_MOVE_PROPOSAL"
+    },
+    {
+      "can_apply": false,
+      "can_approve_itself": false,
+      "can_execute_builder": false,
+      "can_mutate_registry": false,
+      "may_describe": [
+        "ask whether move/object is authorized",
+        "describe authority question"
+      ],
+      "must_not_do": [
+        "treat review request as authorization"
+      ],
+      "proposal_type": "AUTHORITY_REVIEW_PROPOSAL"
+    },
+    {
+      "can_apply": false,
+      "can_approve_itself": false,
+      "can_execute_builder": false,
+      "can_mutate_registry": false,
+      "may_describe": [
+        "propose bounded extraction target"
+      ],
+      "must_not_do": [
+        "extract unbounded payload"
+      ],
+      "proposal_type": "EXTRACTION_OBJECTIVE_PROPOSAL"
+    },
+    {
+      "can_apply": false,
+      "can_approve_itself": false,
+      "can_execute_builder": false,
+      "can_mutate_registry": false,
+      "may_describe": [
+        "propose narrow repair to known failing field/object"
+      ],
+      "must_not_do": [
+        "repair before review",
+        "widen to architecture rewrite"
+      ],
+      "proposal_type": "BOUNDED_REPAIR_PROPOSAL"
+    },
+    {
+      "can_apply": false,
+      "can_approve_itself": false,
+      "can_execute_builder": false,
+      "can_mutate_registry": false,
+      "may_describe": [
+        "propose receipt/readout/projection repair"
+      ],
+      "must_not_do": [
+        "reinterpret semantic payload from observability artifact alone"
+      ],
+      "proposal_type": "OBSERVABILITY_PATCH_PROPOSAL"
+    },
+    {
+      "can_apply": false,
+      "can_approve_itself": false,
+      "can_execute_builder": false,
+      "can_mutate_registry": false,
+      "may_describe": [
+        "split overloaded label into typed lanes"
+      ],
+      "must_not_do": [
+        "promote workflow label or pressure label into object identity"
+      ],
+      "proposal_type": "LABEL_SPLIT_PROPOSAL"
+    },
+    {
+      "can_apply": false,
+      "can_approve_itself": false,
+      "can_execute_builder": false,
+      "can_mutate_registry": false,
+      "may_describe": [
+        "ask for missing evidence class"
+      ],
+      "must_not_do": [
+        "invent evidence",
+        "proceed as if evidence exists"
+      ],
+      "proposal_type": "EVIDENCE_REQUEST_PROPOSAL"
+    },
+    {
+      "can_apply": false,
+      "can_approve_itself": false,
+      "can_execute_builder": false,
+      "can_mutate_registry": false,
+      "may_describe": [
+        "describe small future build target"
+      ],
+      "must_not_do": [
+        "execute builder behavior inside Cell 0"
+      ],
+      "proposal_type": "BUILDER_OBJECTIVE_PROPOSAL"
+    },
+    {
+      "can_apply": false,
+      "can_approve_itself": false,
+      "can_execute_builder": false,
+      "can_mutate_registry": false,
+      "may_describe": [
+        "park unresolved object with reason and reentry condition"
+      ],
+      "must_not_do": [
+        "silently drop unresolved object",
+        "silently accept unresolved object"
+      ],
+      "proposal_type": "PARK_OBJECT_PROPOSAL"
+    }
+  ],
+  "rule": "Proposal type does not imply authority.",
+  "schema_version": "proposal_type_authority_matrix_v0"
+}

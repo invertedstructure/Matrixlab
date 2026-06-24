@@ -1,0 +1,22 @@
+{
+  "bundle_schema": {
+    "evidence_bundle_id": "prop_evidence_<sig8>",
+    "evidence_limitations": [
+      "does not prove proposal will pass",
+      "does not authorize mutation"
+    ],
+    "evidence_refs": [
+      {
+        "ref": null,
+        "ref_type": "receipt | halt_record | failure_progress_record | loop_trace | pressure_classification | required_distinction",
+        "supports": null
+      }
+    ],
+    "evidence_status": "SUFFICIENT_FOR_PROPOSAL | INSUFFICIENT_FOR_PROPOSAL | SUFFICIENT_FOR_QUESTION_ONLY | REQUIRES_EXTRACTION",
+    "missing_evidence": [],
+    "proposal_id": null,
+    "schema_version": "proposal_evidence_bundle_v0"
+  },
+  "rule": "If evidence_status is INSUFFICIENT_FOR_PROPOSAL, emit only EVIDENCE_REQUEST_PROPOSAL or QUESTION_PACKET_NOT_COMMAND.",
+  "schema_version": "proposal_evidence_bundle_schema_v0"
+}

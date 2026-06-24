@@ -1,0 +1,55 @@
+{
+  "closed": true,
+  "rules": [
+    "PROPOSED_ONLY != ACCEPTED_FOR_BUILD",
+    "ACCEPTED_FOR_BUILD != BUILT",
+    "BUILT != VERIFIED"
+  ],
+  "schema_version": "proposal_status_enum_v0",
+  "statuses": [
+    {
+      "c1_may_emit": true,
+      "status": "PROPOSED_ONLY"
+    },
+    {
+      "c1_may_emit": false,
+      "status": "UNDER_REVIEW"
+    },
+    {
+      "c1_may_emit": false,
+      "status": "ACCEPTED_FOR_BUILD"
+    },
+    {
+      "c1_may_emit": false,
+      "status": "ACCEPTED_FOR_TAXONOMY_PATCH"
+    },
+    {
+      "c1_may_emit": false,
+      "status": "ACCEPTED_FOR_EXTRACTION"
+    },
+    {
+      "c1_may_emit": false,
+      "status": "REJECTED"
+    },
+    {
+      "c1_may_emit": false,
+      "status": "DEFERRED"
+    },
+    {
+      "c1_may_emit": false,
+      "status": "NARROWING_REQUIRED"
+    },
+    {
+      "c1_may_emit": false,
+      "status": "EVIDENCE_REQUIRED"
+    },
+    {
+      "c1_may_emit": false,
+      "status": "PARKED"
+    },
+    {
+      "c1_may_emit": false,
+      "status": "SUPERSEDED"
+    }
+  ]
+}

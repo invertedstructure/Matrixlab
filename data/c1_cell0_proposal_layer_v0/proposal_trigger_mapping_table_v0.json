@@ -1,0 +1,110 @@
+{
+  "mappings": [
+    {
+      "ambiguous_requires": null,
+      "proposal_types": [
+        "TAXONOMY_DELTA_PROPOSAL"
+      ],
+      "trigger": "STOP_TAXONOMY_GAP"
+    },
+    {
+      "ambiguous_requires": null,
+      "proposal_types": [
+        "MISSING_MOVE_PROPOSAL"
+      ],
+      "trigger": "STOP_NEEDS_NEW_MOVE"
+    },
+    {
+      "ambiguous_requires": null,
+      "proposal_types": [
+        "AUTHORITY_REVIEW_PROPOSAL"
+      ],
+      "trigger": "STOP_AUTHORITY_BOUNDARY"
+    },
+    {
+      "ambiguous_requires": null,
+      "proposal_types": [
+        "EXTRACTION_OBJECTIVE_PROPOSAL"
+      ],
+      "trigger": "STOP_NEEDS_EXTRACTION"
+    },
+    {
+      "ambiguous_requires": null,
+      "proposal_types": [
+        "BOUNDED_REPAIR_PROPOSAL"
+      ],
+      "trigger": "STOP_RECEIPT_MISMATCH"
+    },
+    {
+      "ambiguous_requires": null,
+      "proposal_types": [
+        "OBSERVABILITY_PATCH_PROPOSAL"
+      ],
+      "trigger": "STOP_PROJECTION_BUG"
+    },
+    {
+      "ambiguous_requires": null,
+      "proposal_types": [
+        "LABEL_SPLIT_PROPOSAL"
+      ],
+      "trigger": "LABEL_AMBIGUITY_PRESSURE"
+    },
+    {
+      "ambiguous_requires": null,
+      "proposal_types": [
+        "EVIDENCE_REQUEST_PROPOSAL"
+      ],
+      "trigger": "MISSING_REQUIRED_DISTINCTION"
+    },
+    {
+      "ambiguous_requires": "QUESTION_PACKET_NOT_COMMAND",
+      "proposal_types": [
+        "BOUNDED_REPAIR_PROPOSAL",
+        "TAXONOMY_DELTA_PROPOSAL",
+        "EVIDENCE_REQUEST_PROPOSAL"
+      ],
+      "trigger": "PRODUCTIVE_PRESSURE"
+    },
+    {
+      "ambiguous_requires": "QUESTION_PACKET_NOT_COMMAND",
+      "proposal_types": [
+        "BOUNDED_REPAIR_PROPOSAL",
+        "OBSERVABILITY_PATCH_PROPOSAL"
+      ],
+      "trigger": "SHARPER_LOCALIZATION"
+    },
+    {
+      "ambiguous_requires": "QUESTION_PACKET_NOT_COMMAND",
+      "proposal_types": [
+        "MISSING_MOVE_PROPOSAL",
+        "EXTRACTION_OBJECTIVE_PROPOSAL",
+        "BUILDER_OBJECTIVE_PROPOSAL"
+      ],
+      "trigger": "MISSING_OBJECT_CLARIFIED"
+    },
+    {
+      "ambiguous_requires": "QUESTION_PACKET_NOT_COMMAND",
+      "proposal_types": [
+        "TAXONOMY_DELTA_PROPOSAL",
+        "MISSING_MOVE_PROPOSAL",
+        "AUTHORITY_REVIEW_PROPOSAL",
+        "EXTRACTION_OBJECTIVE_PROPOSAL",
+        "BOUNDED_REPAIR_PROPOSAL",
+        "OBSERVABILITY_PATCH_PROPOSAL",
+        "LABEL_SPLIT_PROPOSAL",
+        "EVIDENCE_REQUEST_PROPOSAL",
+        "BUILDER_OBJECTIVE_PROPOSAL",
+        "PARK_OBJECT_PROPOSAL"
+      ],
+      "trigger": "B3_EDGE_EMIT_PROPOSAL"
+    },
+    {
+      "ambiguous_requires": null,
+      "proposal_types": [
+        "FORBIDDEN"
+      ],
+      "trigger": "STOP_DONE_WITH_NO_PRESSURE"
+    }
+  ],
+  "schema_version": "proposal_trigger_mapping_table_v0"
+}
