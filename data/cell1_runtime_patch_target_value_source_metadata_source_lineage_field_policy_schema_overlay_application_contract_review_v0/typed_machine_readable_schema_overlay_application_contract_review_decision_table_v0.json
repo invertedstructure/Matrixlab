@@ -1,0 +1,24 @@
+{
+  "decision_status": "APPLICATION_CONTRACT_REVIEW_DECISION_EMITTED",
+  "records": [
+    {
+      "decision": "REQUEST_ACCEPTANCE",
+      "next_unit": "AUTHORIZE_OR_REJECT_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_APPLICATION_CONTRACT_V0",
+      "selected": true,
+      "why": "application contract is safe enough to request acceptance, but acceptance is not granted in this unit"
+    },
+    {
+      "decision": "REPAIR_APPLICATION_CONTRACT",
+      "next_unit": "REPAIR_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_APPLICATION_CONTRACT_V0",
+      "selected": false,
+      "why": "use if scope, forbidden action, or precondition review fails"
+    },
+    {
+      "decision": "FREEZE_APPLICATION_CONTRACT_REVIEW",
+      "next_unit": "FREEZE_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_APPLICATION_CONTRACT_REVIEW_V0",
+      "selected": false,
+      "why": "preserve this review object without continuing toward application"
+    }
+  ],
+  "schema_version": "typed_machine_readable_schema_overlay_application_contract_review_decision_table_v0"
+}

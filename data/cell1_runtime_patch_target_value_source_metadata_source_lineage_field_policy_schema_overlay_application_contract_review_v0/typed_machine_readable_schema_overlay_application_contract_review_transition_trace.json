@@ -1,0 +1,37 @@
+{
+  "schema_version": "typed_machine_readable_schema_overlay_application_contract_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_APPLICATION_CONTRACT_REVIEWED_ACCEPTANCE_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "review scope, forbidden actions, and preconditions",
+      "question": "is the application contract safe enough to request acceptance",
+      "step": "consume_application_contract",
+      "taken": "emit application contract review assessment"
+    },
+    {
+      "answer": "TYPED_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_APPLICATION_CONTRACT_REVIEWED_ACCEPTANCE_REQUIRED",
+      "question": "can acceptance be requested without applying anything",
+      "reason_codes": [
+        "SCHEMA_OVERLAY_APPLICATION_CONTRACT_REVIEWED",
+        "APPLICATION_SCOPE_REVIEWED",
+        "APPLICATION_FORBIDDEN_ACTIONS_REVIEWED",
+        "APPLICATION_PRECONDITIONS_REVIEWED",
+        "APPLICATION_AUTHORIZATION_BOUNDARY_EMITTED",
+        "NO_SCHEMA_OVERLAY_APPLIED",
+        "NO_TYPING_RULE_APPLIED",
+        "NO_FIELD_POLICY_MODIFIED",
+        "NO_CANDIDATE_ARTIFACT_MODIFIED",
+        "NO_REBINDS_APPLIED",
+        "NO_VALUES_AUTHORIZED_OR_APPLIED",
+        "NO_METADATA_POPULATION",
+        "APPLICATION_CONTRACT_REVIEWED_ACCEPTANCE_REQUIRED"
+      ],
+      "step": "classify_application_contract_review",
+      "taken": "AUTHORIZE_OR_REJECT_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_APPLICATION_CONTRACT_V0"
+    }
+  ]
+}
