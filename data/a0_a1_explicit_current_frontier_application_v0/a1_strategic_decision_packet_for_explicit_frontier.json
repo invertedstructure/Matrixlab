@@ -1,0 +1,125 @@
+{
+  "a0_basis": {
+    "a0_classification": "QUESTION_PACKET_NOT_COMMAND",
+    "a0_schema_version": "a0_receipt_to_builder_transition_layer_v0",
+    "commit": null,
+    "gate": null,
+    "interrogation_id": "a0_b4b542bc",
+    "next_command_goal": null,
+    "receipt_id": "cbde4b69",
+    "receipt_path": null,
+    "terminal": {
+      "next_command_goal": null,
+      "stop_code": "STOP_EVIDENCE_MISSING",
+      "type": "STOP"
+    }
+  },
+  "builder_command_candidate": null,
+  "candidate_missing_object_proposal": null,
+  "closed_lane": {
+    "closed_by_gate": false,
+    "closed_by_terminal": false,
+    "lane_id": "pressure_inspected",
+    "status": "AMBIGUOUS"
+  },
+  "decision": {
+    "builder_command_allowed": false,
+    "candidate_missing_object_proposal_allowed": false,
+    "decision_class": "QUESTION_PACKET_NOT_COMMAND",
+    "operational_spec_candidate_allowed": false,
+    "reason": "receipt surface or explicit source selection is incomplete"
+  },
+  "evidence_gathering_packet": null,
+  "operational_spec_candidate": null,
+  "question_packet": {
+    "authority_status": "PACKET_ONLY",
+    "builder_command_candidate": null,
+    "execution_authorized": false,
+    "question_class": "EVIDENCE_SURFACE_DEFICIENCY",
+    "questions": [
+      "Provide explicit A0 basis or missing receipt fields before builder mode receives a command candidate."
+    ],
+    "source_a0_result_id": "a0_b4b542bc",
+    "source_receipt_id": "cbde4b69"
+  },
+  "receipt_grounding": {
+    "distinction_preserved": [
+      "evidence_needed_not_command_permission",
+      "pressure_not_repair_authorization",
+      "stop_done_not_next_objective",
+      "operational_spec_candidate_not_builder_execution",
+      "builder_command_candidate_not_executed_command",
+      "strategic_agreement_not_receipt_authority"
+    ],
+    "must_not_infer": [
+      "do not infer proof",
+      "do not infer optimization",
+      "do not infer global closure",
+      "do not infer next command",
+      "do not infer taxonomy upgrade",
+      "do not infer authority widening",
+      "do not infer rerun authorization",
+      "do not infer missing value from missing field",
+      "do not infer live frontier from latest or mtime",
+      "do not treat strategic discussion as execution authority",
+      "do not infer candidate missing-object followup without explicit receipt evidence",
+      "do not use latest or mtime to find the missing receipt",
+      "do not convert missing optional evidence to null value",
+      "A1 packet is not builder execution",
+      "builder command candidate is not executed command",
+      "operational spec candidate is not execution",
+      "evidence needed is not command permission",
+      "pressure found is not repair authorization",
+      "STOP_DONE or null next is not next objective",
+      "strategic agreement is not receipt authority"
+    ],
+    "must_not_infer_added_by_a1": [
+      "A1 packet is not builder execution",
+      "builder command candidate is not executed command",
+      "operational spec candidate is not execution",
+      "evidence needed is not command permission",
+      "pressure found is not repair authorization",
+      "STOP_DONE or null next is not next objective",
+      "strategic agreement is not receipt authority"
+    ],
+    "must_not_infer_from_a0": [
+      "do not infer proof",
+      "do not infer optimization",
+      "do not infer global closure",
+      "do not infer next command",
+      "do not infer taxonomy upgrade",
+      "do not infer authority widening",
+      "do not infer rerun authorization",
+      "do not infer missing value from missing field",
+      "do not infer live frontier from latest or mtime",
+      "do not treat strategic discussion as execution authority",
+      "do not infer candidate missing-object followup without explicit receipt evidence",
+      "do not use latest or mtime to find the missing receipt",
+      "do not convert missing optional evidence to null value"
+    ],
+    "negative_controls": {},
+    "supporting_artifacts": [],
+    "supporting_fields": [
+      "input_receipt.receipt_id",
+      "input_receipt.receipt_path",
+      "input_receipt.gate",
+      "input_receipt.terminal",
+      "input_receipt.next_command_goal",
+      "question_answers.authorized_effect",
+      "question_answers.negative_controls_clean",
+      "classification.result"
+    ]
+  },
+  "remaining_pressure": {
+    "dominant_pressure_class": "EVIDENCE_SURFACE_DEFICIENCY",
+    "evidence_needed": null,
+    "pressure_is_commandable": false,
+    "secondary_pressure_classes": [
+      "EVIDENCE_SURFACE_DEFICIENCY"
+    ]
+  },
+  "repair_objective_packet": null,
+  "review_status": "READY_FOR_HUMAN_REVIEW",
+  "schema_version": "strategic_decision_packet_v0",
+  "strategic_decision_packet_id": "sdp_86f21a6b"
+}
