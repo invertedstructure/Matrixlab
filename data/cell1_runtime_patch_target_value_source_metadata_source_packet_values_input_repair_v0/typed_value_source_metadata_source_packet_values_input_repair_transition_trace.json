@@ -1,0 +1,31 @@
+{
+  "schema_version": "typed_value_source_metadata_source_packet_values_input_repair_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_VALUE_SOURCE_METADATA_SOURCE_PACKET_VALUES_INPUT_REPAIR_SURFACE_BUILT_REQUIRES_VALUES",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "values_payload_not_provided",
+      "question": "why did source-packet value provision halt",
+      "step": "consume_values_input_invalid_halt",
+      "taken": "build slot-level input repair surface"
+    },
+    {
+      "answer": "TYPED_VALUE_SOURCE_METADATA_SOURCE_PACKET_VALUES_INPUT_REPAIR_SURFACE_BUILT_REQUIRES_VALUES",
+      "question": "what must be supplied before packet materialization",
+      "reason_codes": [
+        "VALUES_INPUT_REPAIR_SURFACE_EMITTED",
+        "VALUES_SLOT_INVENTORY_EMITTED",
+        "MACHINE_READABLE_AND_HUMAN_SCHEMA_SLOTS_SPLIT",
+        "PAYLOAD_TEMPLATE_EMITTED",
+        "VALUES_STILL_NOT_SUPPLIED",
+        "MACHINE_READABLE_SOURCE_VALUES_REQUIRED",
+        "HUMAN_OR_SCHEMA_VALUES_REQUIRED"
+      ],
+      "step": "split_required_slots",
+      "taken": "SUPPLY_TYPED_VALUE_SOURCE_METADATA_SOURCE_PACKET_VALUES_INPUTS_V0"
+    }
+  ]
+}
