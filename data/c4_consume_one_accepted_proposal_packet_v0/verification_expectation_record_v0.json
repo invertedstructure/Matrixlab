@@ -1,0 +1,25 @@
+{
+  "expected_verification_receipt_shape": "cell1_verification_record_v0",
+  "must_not_infer": [
+    "verification pass",
+    "build correctness",
+    "runtime patch correctness"
+  ],
+  "proposal_id": "accepted_artifact_review_interface_probe_v0",
+  "required_checks": [
+    "accepted proposal status is accepted by review",
+    "review receipt authorizes exact proposal id",
+    "PROPOSED_ONLY is not consumed",
+    "no Cell 1 execution unless C4 consumes packet in later unit",
+    "no runtime patch for no-op schema-consumption test"
+  ],
+  "required_negative_controls": [
+    "proposed_only_packet_consumed_count == 0",
+    "proposal_status_promoted_count == 0",
+    "runtime_patch_applied_count == 0"
+  ],
+  "schema_version": "verification_expectation_record_v0",
+  "verification_expectation_id": "verify_expect_96f709f0",
+  "verification_pass_emitted": false,
+  "verification_status": "PENDING_NOT_RUN"
+}

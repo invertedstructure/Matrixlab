@@ -1,0 +1,60 @@
+{
+  "accepted_proposal_packet_ref": "data/accepted_proposal_packet_for_c4_consumption_v0/accepted_proposal_packet_v0.json",
+  "allowed_inputs": [
+    "data/accepted_proposal_packet_for_c4_consumption_v0/accepted_proposal_packet_v0.json",
+    "data/accepted_proposal_packet_for_c4_consumption_v0/review_decision_record_v0.json",
+    "data/c4_cell1_receipt_native_builder_v0/cell1_accepted_proposal_input_schema_v0.json",
+    "data/c1_proposal_interface_gap_patch_from_c3_v0/proposal_packet_schema_v0_1.json",
+    "data/c2_cell0_label_taxonomy_lane_cleaning_v0/taxonomy_lane_registry_v0.json"
+  ],
+  "bounded_objective": "Run one future C4/Cell1 receipt-native builder consumption test against this accepted artifact-review interface proposal, limited to schema/receipt validation and no unrelated scope.",
+  "c4_consumption_record_ref": "data/c4_consume_one_accepted_proposal_packet_v0/c4_consumption_record_v0.json",
+  "cell1_intake_packet_id": "cell1_intake_9009519a",
+  "execution_status": "READY_FOR_CELL1_SCHEMA_CONSUMPTION_TEST",
+  "expected_patch_shape": {
+    "files_expected_to_change": [],
+    "files_forbidden_to_change": [
+      "src/matrixlab/cli.py",
+      "data/c2_cell0_label_taxonomy_lane_cleaning_v0/taxonomy_lane_registry_v0.json"
+    ],
+    "patch_application_expected": false,
+    "patch_kind": "NO_RUNTIME_PATCH_SCHEMA_CONSUMPTION_TEST"
+  },
+  "forbidden_inputs": [
+    "unbounded_payload",
+    "ambient_workspace_inference",
+    "latest_file_guessing",
+    "runtime_patch_targets",
+    "taxonomy_registry_mutation",
+    "C5_artifacts"
+  ],
+  "general_cell1_authority_granted": false,
+  "must_not_infer": [
+    "Cell 1 has executed",
+    "runtime patch is required",
+    "verification has passed",
+    "C5 is authorized"
+  ],
+  "proposal_id": "accepted_artifact_review_interface_probe_v0",
+  "proposal_status": "ACCEPTED_FOR_BUILD",
+  "review_receipt_id": "review_145813eb",
+  "runtime_patch_allowed": false,
+  "schema_version": "cell1_intake_packet_v0",
+  "stop_conditions": [
+    "STOP_C4_ACCEPTED_PROPOSAL_UNDERTYPED",
+    "STOP_C4_REVIEW_RECEIPT_MISSING",
+    "STOP_BUILD_SCOPE_VIOLATION",
+    "STOP_CELL1_NO_RUNTIME_PATCH_REQUIRED"
+  ],
+  "target_surface": "accepted_proposal_packet_for_c4_consumption_v0",
+  "verification_requirement": {
+    "expected_verification_receipt_shape": "cell1_verification_record_v0",
+    "required_checks": [
+      "accepted proposal status is accepted by review",
+      "review receipt authorizes exact proposal id",
+      "PROPOSED_ONLY is not consumed",
+      "no Cell 1 execution unless C4 consumes packet in later unit",
+      "no runtime patch for no-op schema-consumption test"
+    ]
+  }
+}

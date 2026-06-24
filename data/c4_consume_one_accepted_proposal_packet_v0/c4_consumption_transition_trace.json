@@ -1,0 +1,34 @@
+{
+  "schema_version": "c4_consumption_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C4_CONSUMED_ACCEPTED_PROPOSAL_READY_FOR_CELL1_SCHEMA_CONSUMPTION",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "accepted_artifact_review_interface_probe_v0",
+      "question": "is there exactly one review-backed accepted proposal packet",
+      "step": "load_accepted_proposal_packet",
+      "taken": "validate_c4_intake"
+    },
+    {
+      "answer": "PASS",
+      "question": "does review authorize exact proposal id and status match C4 accepted schema",
+      "step": "validate_c4_intake",
+      "taken": "emit_cell1_intake_packet"
+    },
+    {
+      "answer": false,
+      "question": "does the bounded objective require runtime patch",
+      "step": "emit_cell1_intake_packet",
+      "taken": "emit_no_runtime_patch_plan_and_handoff"
+    },
+    {
+      "answer": true,
+      "question": "did C4 avoid patch/probe/verification/C5/hidden continuation",
+      "step": "stop",
+      "taken": "stop"
+    }
+  ]
+}
