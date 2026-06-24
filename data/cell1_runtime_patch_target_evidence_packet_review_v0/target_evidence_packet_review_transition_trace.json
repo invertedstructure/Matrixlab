@@ -1,0 +1,22 @@
+{
+  "schema_version": "cell1_runtime_patch_target_evidence_packet_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TARGET_EVIDENCE_PACKET_MISSING",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "data/cell1_runtime_patch_target_evidence_packet_review_v0/proposed_runtime_patch_target_evidence_packet_v0.json",
+      "question": "is there a declared candidate evidence packet path",
+      "step": "consume_evidence_request_surface",
+      "taken": "inspect_declared_path_only"
+    },
+    {
+      "answer": "TARGET_EVIDENCE_PACKET_MISSING",
+      "question": "can exactly one bounded target candidate be named for review without build acceptance",
+      "step": "review_candidate_or_emit_template",
+      "taken": "emit_template_and_request_explicit_evidence_packet"
+    }
+  ]
+}
