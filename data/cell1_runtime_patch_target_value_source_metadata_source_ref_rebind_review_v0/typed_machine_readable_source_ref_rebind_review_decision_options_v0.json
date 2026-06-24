@@ -1,0 +1,41 @@
+{
+  "decision_options_status": "SOURCE_REF_REBIND_REVIEW_DECISION_OPTIONS_EMITTED",
+  "forbidden_shortcuts": [
+    "apply source ref rebinds in review unit",
+    "treat candidate score as authorization",
+    "extract or apply values",
+    "metadata population",
+    "discriminator readiness",
+    "rule refinement",
+    "tie break",
+    "target selection",
+    "runtime patch"
+  ],
+  "safe_options": [
+    {
+      "meaning": "Only lawful if every broken binding has a unique top rebind proposal.",
+      "next_unit": "REVIEW_OR_APPLY_MACHINE_READABLE_SOURCE_REF_REBIND_PROPOSALS_V0",
+      "option": "REVIEW_OR_APPLY_UNIQUE_REBIND_PROPOSALS",
+      "recommended": false
+    },
+    {
+      "meaning": "Use a bounded dominance/narrowing surface when candidates remain tied or partially ambiguous.",
+      "next_unit": "NARROW_MACHINE_READABLE_SOURCE_REF_REBIND_CANDIDATES_V0",
+      "option": "NARROW_SOURCE_REF_REBIND_CANDIDATES",
+      "recommended": true
+    },
+    {
+      "meaning": "Use when no lawful rebind proposals survive review.",
+      "next_unit": "BUILD_MACHINE_READABLE_SOURCE_ROW_LOCATOR_SURFACE_V0",
+      "option": "BUILD_SOURCE_ROW_LOCATOR_SURFACE",
+      "recommended": false
+    },
+    {
+      "meaning": "Freeze this review as reference only.",
+      "next_unit": "FREEZE_MACHINE_READABLE_SOURCE_REF_REBIND_REVIEW_V0",
+      "option": "FREEZE_AS_DIAGNOSTIC_REFERENCE",
+      "recommended": false
+    }
+  ],
+  "schema_version": "typed_machine_readable_source_ref_rebind_review_decision_options_v0"
+}

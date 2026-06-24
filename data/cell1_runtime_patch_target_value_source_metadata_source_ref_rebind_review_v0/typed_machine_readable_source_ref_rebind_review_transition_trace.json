@@ -1,0 +1,31 @@
+{
+  "schema_version": "typed_machine_readable_source_ref_rebind_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_SOURCE_REF_REBIND_REVIEWED_AMBIGUOUS_TIED_CANDIDATES",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "review candidate scores and ties without applying rebinds",
+      "question": "are any candidate source refs uniquely reviewable for each binding",
+      "step": "consume_source_ref_rebind_candidates",
+      "taken": "score and classify candidates"
+    },
+    {
+      "answer": "TYPED_MACHINE_READABLE_SOURCE_REF_REBIND_REVIEWED_AMBIGUOUS_TIED_CANDIDATES",
+      "question": "can rebind proposals advance to review/application boundary",
+      "reason_codes": [
+        "SOURCE_REF_REBIND_CANDIDATES_REVIEWED",
+        "CANDIDATE_SCORE_TABLE_EMITTED",
+        "PER_BINDING_REVIEW_EMITTED",
+        "NO_REBINDS_APPLIED",
+        "NO_VALUES_AUTHORIZED_OR_APPLIED",
+        "NO_METADATA_POPULATION",
+        "SOURCE_REF_REBIND_CANDIDATES_TIED"
+      ],
+      "step": "classify_rebind_review_result",
+      "taken": "NARROW_MACHINE_READABLE_SOURCE_REF_REBIND_CANDIDATES_V0"
+    }
+  ]
+}
