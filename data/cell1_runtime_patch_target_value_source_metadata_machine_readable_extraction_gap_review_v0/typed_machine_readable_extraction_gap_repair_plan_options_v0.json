@@ -1,0 +1,42 @@
+{
+  "forbidden_shortcuts": [
+    "manual raw value entry",
+    "authorize null reasons",
+    "apply values",
+    "metadata population",
+    "discriminator readiness",
+    "rule refinement",
+    "tie break",
+    "target selection",
+    "runtime patch"
+  ],
+  "repair_options_status": "REPAIR_PLAN_OPTIONS_EMITTED",
+  "safe_options": [
+    {
+      "meaning": "Repair the row source refs / JSON paths so machine-readable slots point at typed field-bearing artifacts.",
+      "next_unit": "REFINE_MACHINE_READABLE_SOURCE_REF_OR_ROW_PATH_TYPING_SURFACE_V0",
+      "option": "REFINE_SOURCE_REF_OR_ROW_PATH_TYPING_SURFACE",
+      "recommended": true
+    },
+    {
+      "meaning": "Add/bridge typed field keys in already resolving source artifacts.",
+      "next_unit": "REFINE_MACHINE_READABLE_FIELD_TYPING_SURFACE_V0",
+      "option": "REFINE_FIELD_TYPING_SURFACE",
+      "recommended": false
+    },
+    {
+      "meaning": "Extractor saw candidates but failed to emit rule candidates.",
+      "next_unit": "REPAIR_MACHINE_READABLE_EXTRACTION_RULE_CANDIDATE_EMISSION_V0",
+      "option": "REPAIR_EXTRACTOR_RULE_CANDIDATE_EMISSION",
+      "recommended": false
+    },
+    {
+      "meaning": "Freeze if branch should stop here.",
+      "next_unit": "FREEZE_MACHINE_READABLE_EXTRACTION_GAP_REVIEW_V0",
+      "option": "FREEZE_AS_DIAGNOSTIC_REFERENCE",
+      "recommended": false
+    }
+  ],
+  "schema_version": "typed_machine_readable_extraction_gap_repair_plan_options_v0",
+  "selected_recommended_next": "REFINE_MACHINE_READABLE_SOURCE_REF_OR_ROW_PATH_TYPING_SURFACE_V0"
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "typed_machine_readable_extraction_gap_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_EXTRACTION_GAPS_REVIEWED_ROW_PATH_REPAIR_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "no extraction rule candidates; 21 row json path repairs required",
+      "question": "why did extraction repair still fail",
+      "step": "consume_extraction_repair_halt",
+      "taken": "classify source/path/typing/narrowness causes"
+    },
+    {
+      "answer": "TYPED_MACHINE_READABLE_EXTRACTION_GAPS_REVIEWED_ROW_PATH_REPAIR_REQUIRED",
+      "question": "which repair surface should be built next",
+      "reason_codes": [
+        "MACHINE_READABLE_EXTRACTION_GAPS_REVIEWED",
+        "ROW_JSON_PATH_GAP_TABLE_EMITTED",
+        "SOURCE_REF_LAYER_REVIEW_EMITTED",
+        "FIELD_TYPING_GAP_TABLE_EMITTED",
+        "NO_VALUES_AUTHORIZED_OR_APPLIED",
+        "NO_METADATA_POPULATION",
+        "ALL_MACHINE_READABLE_GAPS_ARE_ROW_JSON_PATH_GAPS",
+        "REFINE_SOURCE_REF_OR_ROW_PATH_TYPING_SURFACE_REQUIRED"
+      ],
+      "step": "review_gap_causes",
+      "taken": "REFINE_MACHINE_READABLE_SOURCE_REF_OR_ROW_PATH_TYPING_SURFACE_V0"
+    }
+  ]
+}
