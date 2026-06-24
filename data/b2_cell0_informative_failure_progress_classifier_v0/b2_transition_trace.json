@@ -1,0 +1,34 @@
+{
+  "schema_version": "b2_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_B2_INFORMATIVE_FAILURE_PROFILE_EMITTED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "b9c8f831",
+      "question": "were explicit B1 rollup, receipts, classifications, and move results consumed",
+      "step": "consume_b1_records",
+      "taken": "emit_b2_schemas"
+    },
+    {
+      "answer": true,
+      "question": "were failure event, recurrence, comparison, progress, repeat, expected-limit, loop, enum, and rules schemas emitted",
+      "step": "emit_b2_schemas",
+      "taken": "normalize_failure_events"
+    },
+    {
+      "answer": true,
+      "question": "were stopped/proposal outcomes normalized into failure events",
+      "step": "normalize_failure_events",
+      "taken": "classify_failure_progress"
+    },
+    {
+      "answer": "B2_INFORMATIVE_FAILURE_CLASSIFIER_STABLE",
+      "question": "did records distinguish informative failure from repeated/non-informative failure",
+      "step": "classify_failure_progress",
+      "taken": "stop"
+    }
+  ]
+}

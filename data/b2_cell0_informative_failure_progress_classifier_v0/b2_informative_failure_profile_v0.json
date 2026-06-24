@@ -1,0 +1,20 @@
+{
+  "active_object": "Cell 0 failure and stop records",
+  "bad_counters_zero": true,
+  "classification_enum_ref": "data/b2_cell0_informative_failure_progress_classifier_v0/failure_progress_class_enum_v0.json",
+  "informative_failure_rule": "Failure is informative only if it sharpens the decision surface.",
+  "must_not_infer": [
+    "failure is progress",
+    "failure is bad",
+    "new artifact is progress",
+    "expected limit is bug",
+    "retry is authorized",
+    "repair is authorized"
+  ],
+  "next_command_goal": null,
+  "profile_id": "b2_failure_profile_8dc13b3c",
+  "retry_gate_rule": "Retry is lawful only after new evidence, sharper localization, smaller surface, or changed repair target.",
+  "rollup_ref": "data/b2_cell0_informative_failure_progress_classifier_v0/b2_failure_progress_rollup_v0.json",
+  "schema_version": "b2_informative_failure_profile_v0",
+  "status": "B2_INFORMATIVE_FAILURE_CLASSIFIER_STABLE"
+}

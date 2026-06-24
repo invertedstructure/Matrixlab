@@ -1,0 +1,47 @@
+{
+  "artifact_delta_rule": "A new artifact is not progress unless it changes the decision surface.",
+  "expected_limit_rule": "Expected limit is not a bug and is not retryable under the same objective.",
+  "informative_failure_test": {
+    "informative_if_any_true": [
+      "new_surface_detected",
+      "localization_changed",
+      "surface_smaller",
+      "missing_object_clearer",
+      "authority_boundary_clearer",
+      "expected_limit_confirmed",
+      "proposal_candidate_emitted",
+      "new_evidence_refs not empty"
+    ],
+    "non_informative_if": [
+      "recurrence_key_match is true",
+      "new_surface_detected is false",
+      "localization_changed is false",
+      "surface_smaller is false",
+      "missing_object_clearer is false",
+      "authority_boundary_clearer is false",
+      "expected_limit_confirmed is false",
+      "proposal_candidate_emitted is false",
+      "new_evidence_refs empty"
+    ]
+  },
+  "proposal_rule": "Proposal pressure may be productive, but it is not execution.",
+  "retry_gate": {
+    "b2_does_not_retry": true,
+    "retry_allowed_only_after": [
+      "new evidence",
+      "sharper localization",
+      "smaller surface",
+      "changed repair target",
+      "expected limit converted to accepted new objective"
+    ],
+    "retry_forbidden_when_all_same": [
+      "same command",
+      "same surface",
+      "same failure",
+      "same evidence",
+      "same expected behavior",
+      "same authority state"
+    ]
+  },
+  "schema_version": "informative_failure_classifier_rules_v0"
+}
