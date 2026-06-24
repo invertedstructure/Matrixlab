@@ -1,0 +1,28 @@
+{
+  "schema_version": "c2_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C2_LABEL_TAXONOMY_LANES_STABLE",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "f8f37c4e",
+      "question": "were C1 proposal packet labels available as explicit static/probe source",
+      "step": "consume_c1_packet_surface",
+      "taken": "emit_lane_registry_and_schemas"
+    },
+    {
+      "answer": true,
+      "question": "were lane registry, typed label, assertion, gate, promotion, withheld, audit, and consumption schemas emitted",
+      "step": "emit_lane_registry_and_schemas",
+      "taken": "audit_demo_and_c1_labels"
+    },
+    {
+      "answer": "C2_LABEL_TAXONOMY_LANES_STABLE",
+      "question": "were labels assigned or withheld without forbidden lane collapse",
+      "step": "audit_demo_and_c1_labels",
+      "taken": "stop"
+    }
+  ]
+}

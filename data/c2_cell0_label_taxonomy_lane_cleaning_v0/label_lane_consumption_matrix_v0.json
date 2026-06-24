@@ -1,0 +1,137 @@
+{
+  "lanes": {
+    "authority_status": {
+      "allowed_consumers": [
+        "review_layer",
+        "runtime_gate",
+        "builder_gate"
+      ],
+      "forbidden_consumers": [
+        "identity_resolver"
+      ],
+      "may_license": [
+        "read",
+        "propose",
+        "review",
+        "authorized_local_action_if_explicit"
+      ],
+      "must_not_license": [
+        "truth",
+        "verification",
+        "object_identity"
+      ]
+    },
+    "evidence_status": {
+      "allowed_consumers": [
+        "proposal_layer",
+        "review_layer",
+        "audit_layer"
+      ],
+      "forbidden_consumers": [
+        "authority_granter",
+        "builder_executor"
+      ],
+      "may_license": [
+        "proposal",
+        "review",
+        "extraction_request"
+      ],
+      "must_not_license": [
+        "truth",
+        "authority",
+        "execution",
+        "verification"
+      ]
+    },
+    "next_required_move": {
+      "allowed_consumers": [
+        "scheduler",
+        "review_layer",
+        "decision_packet_layer"
+      ],
+      "forbidden_consumers": [
+        "builder_executor_without_acceptance"
+      ],
+      "may_license": [
+        "routing",
+        "question",
+        "review",
+        "proposal"
+      ],
+      "must_not_license": [
+        "execution",
+        "success",
+        "verification",
+        "authority_without_receipt"
+      ]
+    },
+    "object_identity": {
+      "allowed_consumers": [
+        "registry_reader",
+        "proposal_layer",
+        "review_layer"
+      ],
+      "forbidden_consumers": [
+        "authority_granter_without_receipt"
+      ],
+      "may_license": [
+        "reference",
+        "classification",
+        "review"
+      ],
+      "must_not_license": [
+        "authority",
+        "execution",
+        "verification"
+      ]
+    },
+    "pressure_class": {
+      "allowed_consumers": [
+        "classifier",
+        "proposal_layer",
+        "review_layer"
+      ],
+      "forbidden_consumers": [
+        "builder_executor",
+        "identity_resolver"
+      ],
+      "may_license": [
+        "classification",
+        "proposal",
+        "question_packet"
+      ],
+      "must_not_license": [
+        "root_cause_claim",
+        "authority",
+        "execution",
+        "object_identity"
+      ]
+    },
+    "workflow_position": {
+      "allowed_consumers": [
+        "queue_manager",
+        "review_layer",
+        "readout_layer"
+      ],
+      "forbidden_consumers": [
+        "builder_executor",
+        "authority_granter",
+        "identity_resolver"
+      ],
+      "may_license": [
+        "routing",
+        "review",
+        "parking",
+        "closure_readout"
+      ],
+      "must_not_license": [
+        "execution",
+        "verification",
+        "object_identity",
+        "authority"
+      ]
+    }
+  },
+  "rule": "Correct lane assignment is insufficient if the consumer uses the label as if it belonged to another lane.",
+  "schema_version": "label_lane_consumption_matrix_v0"
+}
