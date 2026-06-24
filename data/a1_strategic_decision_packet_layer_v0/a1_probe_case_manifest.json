@@ -1,0 +1,86 @@
+{
+  "probe_cases": [
+    {
+      "a0_classification": "STOP_LANE_CLOSED",
+      "a0_interrogation_id": "a0_7c5ad9b8",
+      "expect_builder_command": false,
+      "expected_decision_class": "STOP_LANE_CLOSED",
+      "probe_id": "closed_lane",
+      "probe_mode_only": true
+    },
+    {
+      "a0_classification": "AWAIT_REAL_BATCH_RECEIPTS",
+      "a0_interrogation_id": "a0_bda47e4f",
+      "expect_builder_command": false,
+      "expected_decision_class": "AWAIT_REAL_BATCH_RECEIPTS",
+      "probe_id": "real_batch_needed",
+      "probe_mode_only": true
+    },
+    {
+      "a0_classification": "REPAIR_COMMAND_CANDIDATE",
+      "a0_interrogation_id": "a0_83a62b35",
+      "expect_builder_command": false,
+      "expected_decision_class": "REPAIR_OBJECTIVE",
+      "probe_id": "failed_gate_repair",
+      "probe_mode_only": true
+    },
+    {
+      "a0_classification": "QUESTION_PACKET_NOT_COMMAND",
+      "a0_interrogation_id": "a0_084453ef",
+      "expect_builder_command": false,
+      "expected_decision_class": "QUESTION_PACKET_NOT_COMMAND",
+      "probe_id": "ambiguous_pressure",
+      "probe_mode_only": true
+    },
+    {
+      "a0_classification": "OPEN_OBJECTIVE_FROM_PRESSURE_CLASS",
+      "a0_interrogation_id": "a0_b8304918",
+      "expect_builder_command": false,
+      "expected_decision_class": "OPEN_OBJECTIVE_FROM_PRESSURE_CLASS",
+      "probe_id": "dominant_pressure",
+      "probe_mode_only": true
+    },
+    {
+      "a0_classification": "OPERATIONAL_SPEC_CANDIDATE",
+      "a0_interrogation_id": "a0_995d2e32",
+      "expect_builder_command": false,
+      "expected_decision_class": "EMIT_OPERATIONAL_SPEC_CANDIDATE",
+      "probe_id": "operational_spec_candidate",
+      "probe_mode_only": true
+    },
+    {
+      "a0_classification": "OPERATIONAL_SPEC_CANDIDATE",
+      "a0_interrogation_id": "a0_f854a756",
+      "expect_builder_command": true,
+      "expected_decision_class": "EMIT_BUILDER_COMMAND_CANDIDATE",
+      "probe_id": "builder_command_candidate",
+      "probe_mode_only": true
+    },
+    {
+      "a0_classification": "CANDIDATE_MISSING_OBJECT_PROPOSAL",
+      "a0_interrogation_id": "a0_71b20233",
+      "expect_builder_command": false,
+      "expected_decision_class": "CANDIDATE_MISSING_OBJECT_PROPOSAL",
+      "probe_id": "candidate_missing_object_proposal",
+      "probe_mode_only": true
+    },
+    {
+      "a0_classification": "CLOSE_AND_FREEZE_ACCEPTANCE",
+      "a0_interrogation_id": "a0_c03741c1",
+      "expect_builder_command": false,
+      "expected_decision_class": "CLOSE_AND_FREEZE_ACCEPTANCE",
+      "probe_id": "close_and_freeze_acceptance",
+      "probe_mode_only": true
+    },
+    {
+      "a0_classification": "DEFER_STRATEGIC_DECISION",
+      "a0_interrogation_id": "a0_787c9911",
+      "expect_builder_command": false,
+      "expected_decision_class": "DEFER_STRATEGIC_DECISION",
+      "probe_id": "defer_strategic_decision",
+      "probe_mode_only": true
+    }
+  ],
+  "probe_count": 10,
+  "schema_version": "a1_probe_case_manifest_v0"
+}
