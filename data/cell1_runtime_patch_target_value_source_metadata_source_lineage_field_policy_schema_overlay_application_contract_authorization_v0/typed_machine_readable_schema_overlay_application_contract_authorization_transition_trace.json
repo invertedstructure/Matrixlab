@@ -1,0 +1,28 @@
+{
+  "schema_version": "typed_machine_readable_schema_overlay_application_contract_authorization_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_APPLICATION_CONTRACT_ACCEPTED_ONE_TIME_APPLICATION_UNIT_AUTHORIZED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "schema accepted for this application contract",
+      "question": "accept, reject, repair, or freeze application contract",
+      "step": "human_decision_received",
+      "taken": "record one-time acceptance"
+    },
+    {
+      "answer": "no",
+      "question": "does acceptance create reusable or preapproved schema authority",
+      "step": "non_reuse_boundary_recorded",
+      "taken": "emit explicit non-reuse boundary"
+    },
+    {
+      "answer": "TYPED_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_APPLICATION_CONTRACT_ACCEPTED_ONE_TIME_APPLICATION_UNIT_AUTHORIZED",
+      "question": "what is the next lawful object",
+      "step": "classify_authorization",
+      "taken": "BUILD_MACHINE_READABLE_SOURCE_LINEAGE_FIELD_POLICY_SCHEMA_OVERLAY_APPLICATION_UNIT_V0"
+    }
+  ]
+}
