@@ -1,0 +1,27 @@
+{
+  "schema_version": "value_source_equivalence_class_diagnostic_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_VALUE_SOURCE_EQUIVALENCE_CLASS_CHARACTERIZED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "no row dominates under current explicit rule",
+      "question": "what does the prior receipt prove",
+      "step": "consume_applied_current_rule_tie",
+      "taken": "diagnose_equivalence_class_before_refinement"
+    },
+    {
+      "answer": "UNRESOLVED_DISTINGUISHABILITY_DUE_TO_MISSING_TYPED_METADATA",
+      "question": "is this true equivalence or unresolved distinguishability",
+      "reason_codes": [
+        "ROWS_IDENTICAL_UNDER_CURRENT_RULE_RANK_FEATURES",
+        "ROWS_HAVE_DIFFERENCES_IGNORED_BY_CURRENT_RULE",
+        "TYPED_METADATA_MISSING_FOR_DISTINGUISHABILITY"
+      ],
+      "step": "compare_top_rows",
+      "taken": "BUILD_NARROWER_TYPED_VALUE_SOURCE_METADATA_SURFACE_V0"
+    }
+  ]
+}
