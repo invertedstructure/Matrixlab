@@ -1,0 +1,28 @@
+{
+  "schema_version": "bounded_adoption_probe_reference_closure_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_CLOSED_AS_REVIEWED_REFERENCE_DECISION_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is the bounded C6 adoption probe reviewed and close-ready",
+      "step": "consume_probe_review",
+      "taken": "freeze bounded adoption-probe reviewed reference"
+    },
+    {
+      "answer": "synthetic packet trace, edge observations, unit feedback, and fail-closed negative controls",
+      "question": "what is frozen",
+      "step": "freeze_evidence_surface",
+      "taken": "emit reference, freeze manifest, index, rollup/profile/report"
+    },
+    {
+      "answer": "no",
+      "question": "does closure patch runtime, authorize C7, or claim transfer/autonomy",
+      "step": "preserve_boundary",
+      "taken": "stop with post-reference decision ready"
+    }
+  ]
+}
