@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_c5_reconsideration_reference_closure_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_C5_RECONSIDERATION_CLOSED_AS_REVIEWED_REFERENCE_C5_OPEN_DECISION_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is C5 reconsideration reviewed clean",
+      "step": "consume_c5_reconsideration_review",
+      "taken": "freeze C5 reconsideration reviewed reference"
+    },
+    {
+      "answer": "yes",
+      "question": "is C5 reconsideration ready",
+      "step": "freeze_c5_readiness",
+      "taken": "freeze readiness status as reference"
+    },
+    {
+      "answer": "no",
+      "question": "does reference closure open C5",
+      "step": "preserve_opening_guard",
+      "taken": "emit post-reference decision readiness"
+    }
+  ]
+}
