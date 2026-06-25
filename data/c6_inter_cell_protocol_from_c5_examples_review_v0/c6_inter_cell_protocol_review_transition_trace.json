@@ -1,0 +1,28 @@
+{
+  "schema_version": "c6_inter_cell_protocol_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_C6_INTER_CELL_PROTOCOL_CANDIDATE_REVIEWED_CLOSE_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "did the repaired C6 build pass",
+      "step": "consume_c6_protocol_candidate",
+      "taken": "review protocol candidate artifacts"
+    },
+    {
+      "answer": "yes",
+      "question": "do proposal, acceptance, probe, verification, handoff, feedback, and observation remain distinct",
+      "step": "verify_packet_law_distinctions",
+      "taken": "emit close candidate"
+    },
+    {
+      "answer": "no",
+      "question": "does review patch runtime, authorize C7, or claim transfer/autonomy",
+      "step": "preserve_boundary",
+      "taken": "stop with close-ready reviewed protocol candidate"
+    }
+  ]
+}
