@@ -1,0 +1,28 @@
+{
+  "schema_version": "c6_bounded_protocol_adoption_probe_design_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_DESIGNED_BUILD_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "was bounded adoption-probe design selected",
+      "step": "consume_post_c6_protocol_reference_decision",
+      "taken": "consume reviewed C6 reference and design bounded probe"
+    },
+    {
+      "answer": "one synthetic bounded inter-cell packet-flow probe",
+      "question": "what is designed",
+      "step": "design_bounded_probe",
+      "taken": "emit build-ready probe design contract"
+    },
+    {
+      "answer": "no",
+      "question": "does design execute probe, patch runtime, authorize C7, or claim transfer/autonomy",
+      "step": "preserve_boundary",
+      "taken": "stop with build-ready bounded probe design"
+    }
+  ]
+}

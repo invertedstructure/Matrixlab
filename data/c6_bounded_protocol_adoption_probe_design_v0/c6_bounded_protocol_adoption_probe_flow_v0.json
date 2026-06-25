@@ -1,0 +1,71 @@
+{
+  "critical_distinctions": [
+    "proposed-only packet != accepted packet",
+    "accepted packet != build",
+    "build/probe packet != verification",
+    "verification pass != review closure",
+    "handoff return != hidden next command",
+    "blocked feedback != repair",
+    "Cell 1 accepted authority != general Cell 1 authority",
+    "decision-edge observation != protocol proof",
+    "unit feedback != repair instruction"
+  ],
+  "flow_status": "DESIGNED",
+  "flow_steps": [
+    {
+      "expected": "not Cell 1 consumable",
+      "next": "UNDER_REVIEW",
+      "packet": "PROPOSAL_PACKET_PROPOSED_ONLY",
+      "step": 0
+    },
+    {
+      "expected": "requires review receipt",
+      "next": "CELL1_BUILDER_INTAKE_PACKET",
+      "packet": "ACCEPTED_PROPOSAL_PACKET",
+      "step": 1
+    },
+    {
+      "expected": "scoped intake only",
+      "next": "CELL1_PROBE_OR_BUILD_PACKET",
+      "packet": "CELL1_BUILDER_INTAKE_PACKET",
+      "step": 2
+    },
+    {
+      "expected": "probe/build report, not verification",
+      "next": "VERIFICATION_RETURN_PACKET",
+      "packet": "CELL1_PROBE_OR_BUILD_PACKET",
+      "step": 3
+    },
+    {
+      "expected": "evidence return, not closure",
+      "next": "HANDOFF_RETURN_PACKET",
+      "packet": "VERIFICATION_RETURN_PACKET",
+      "step": 4
+    },
+    {
+      "expected": "control returned, no hidden next",
+      "next": "terminal review handling",
+      "packet": "HANDOFF_RETURN_PACKET",
+      "step": 5
+    },
+    {
+      "expected": "diagnostic feedback, not repair",
+      "next": "review or Cell0 handling",
+      "packet": "BLOCKED_OR_TYPED_STOP_FEEDBACK_PACKET",
+      "step": 6
+    },
+    {
+      "expected": "transition visible",
+      "next": "sidecar only",
+      "packet": "DECISION_EDGE_OBSERVATION_SIDECAR",
+      "step": 7
+    },
+    {
+      "expected": "failure/block/stop/NA feedback visible",
+      "next": "sidecar only",
+      "packet": "UNIT_FEEDBACK_SIDECAR",
+      "step": 8
+    }
+  ],
+  "schema_version": "c6_bounded_protocol_adoption_probe_flow_v0"
+}

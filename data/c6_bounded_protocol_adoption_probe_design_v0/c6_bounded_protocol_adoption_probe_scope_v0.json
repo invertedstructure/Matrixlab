@@ -1,0 +1,25 @@
+{
+  "allowed_actions": [
+    "read frozen C6 reference",
+    "instantiate demo packet fixture",
+    "validate packet distinctions",
+    "emit synthetic adoption-probe receipts",
+    "emit edge observation sidecars",
+    "emit unit feedback sidecars for blocked/failed/stop/NA cases"
+  ],
+  "allowed_flow": "one synthetic/protocol-only inter-cell flow from proposed-only packet through accepted packet, Cell 1 intake, probe/build report, verification return, handoff, and sidecars",
+  "allowed_object": "reviewed C6 local packet-law reference",
+  "forbidden_actions": [
+    "patch runtime",
+    "register protocol as runtime-wide enforcement",
+    "authorize C7",
+    "execute new domain shift",
+    "mutate C6 reference",
+    "grant general Cell 1 authority",
+    "claim transfer",
+    "claim autonomy"
+  ],
+  "schema_version": "c6_bounded_protocol_adoption_probe_scope_v0",
+  "scope_name": "single_reviewed_reference_to_cell1_intake_packet_flow",
+  "scope_status": "BOUNDED_SCOPE_DESIGNED"
+}

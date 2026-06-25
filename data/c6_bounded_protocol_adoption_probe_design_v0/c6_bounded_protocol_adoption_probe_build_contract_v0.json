@@ -1,0 +1,30 @@
+{
+  "build_authorized_after_design": true,
+  "build_unit": "BUILD_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0",
+  "must_consume": [
+    "data/c6_inter_cell_protocol_from_c5_examples_reference_closure_v0/c6_inter_cell_protocol_reviewed_reference_v0.json",
+    "data/c6_inter_cell_protocol_from_c5_examples_reference_closure_v0/c6_inter_cell_packet_law_reference_v0.json",
+    "data/c6_inter_cell_protocol_from_c5_examples_reference_closure_v0/c6_inter_cell_protocol_surface_reference_v0.json",
+    "data/c6_inter_cell_protocol_from_c5_examples_reference_closure_v0/c6_inter_cell_protocol_gate19_repair_reference_v0.json",
+    "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_schema_v0.json",
+    "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_packet_state_machine_v0.json"
+  ],
+  "must_not_do": [
+    "patch runtime",
+    "register protocol as runtime-wide enforcement",
+    "authorize C7",
+    "execute new domain shift",
+    "mutate C6 reference",
+    "grant general Cell 1 authority",
+    "claim transfer",
+    "claim autonomy"
+  ],
+  "schema_version": "c6_bounded_protocol_adoption_probe_build_contract_v0",
+  "source_decision_receipt": "5a07dcbb",
+  "source_reference_receipt": "50849d13",
+  "terminal_success": {
+    "next_command_goal": null,
+    "stop_code": "STOP_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILT_REVIEW_READY",
+    "type": "STOP"
+  }
+}
