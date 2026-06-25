@@ -1,0 +1,28 @@
+{
+  "schema_version": "runtime_observability_sidecar_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_RUNTIME_OBSERVABILITY_SIDECAR_REVIEWED_CLOSE_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "did repaired synthetic Sidecar build pass",
+      "step": "consume_sidecar_build",
+      "taken": "review hook registry, schemas, event records, trace, rollup, readout, profile"
+    },
+    {
+      "answer": "yes",
+      "question": "did Sidecar record events without acting",
+      "step": "verify_append_only_observation",
+      "taken": "confirm control_path_effect NONE and sidecar_action RECORDED_ONLY"
+    },
+    {
+      "answer": "yes",
+      "question": "did review preserve no-live-hooks/no-runtime-patch/no-C8 boundary",
+      "step": "verify_boundary",
+      "taken": "mark close-ready, not closed"
+    }
+  ]
+}
