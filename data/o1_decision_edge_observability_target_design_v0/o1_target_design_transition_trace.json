@@ -1,0 +1,34 @@
+{
+  "schema_version": "o1_target_design_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O1_DECISION_EDGE_OBSERVABILITY_HARDENING_TARGET_DESIGNED_BUILD_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is source-ref rebind layer closed and post-update decision ready",
+      "step": "consume_closure_reference",
+      "taken": "design O1 target"
+    },
+    {
+      "answer": "sidecar-only decision-edge observability surface from explicit receipt refs",
+      "question": "what is O1 allowed to build",
+      "step": "freeze_o1_scope",
+      "taken": "emit source scope, fields, gates, negative controls, terminal contract"
+    },
+    {
+      "answer": "no",
+      "question": "does this design build a graph or tracker",
+      "step": "preserve_non_graph_boundary",
+      "taken": "emit nonauthority boundary"
+    },
+    {
+      "answer": "BUILD_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_V0",
+      "question": "what next unit is lawful",
+      "step": "authorize_next",
+      "taken": "authorize O1 build next, no observations extracted now"
+    }
+  ]
+}

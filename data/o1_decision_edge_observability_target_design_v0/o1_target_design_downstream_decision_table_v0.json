@@ -1,0 +1,30 @@
+{
+  "decision_status": "O1_TARGET_DESIGN_DOWNSTREAM_TABLE_EMITTED",
+  "records": [
+    {
+      "decision": "BUILD_O1_DECISION_EDGE_OBSERVABILITY_SURFACE",
+      "next_unit": "BUILD_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_V0",
+      "selected": true,
+      "why": "O1 target, source scope, fields, gates, negative controls, terminal rules, and boundaries are frozen for build"
+    },
+    {
+      "decision": "BUILD_DECISION_GRAPH_TRACKER",
+      "next_unit": null,
+      "selected": false,
+      "why": "O1 is observability, not graph tracker construction"
+    },
+    {
+      "decision": "START_UNIT_FEEDBACK_HARDENING_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "O2 follows after O1 surface build/review"
+    },
+    {
+      "decision": "START_METADATA_VALUE_POPULATION_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "metadata/value population remains after post-update hardening"
+    }
+  ],
+  "schema_version": "o1_target_design_downstream_decision_table_v0"
+}
