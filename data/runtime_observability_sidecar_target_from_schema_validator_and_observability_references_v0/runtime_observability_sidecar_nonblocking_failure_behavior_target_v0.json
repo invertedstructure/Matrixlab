@@ -1,0 +1,17 @@
+{
+  "allowed_next": [
+    "emit sidecar failure receipt",
+    "emit rollup/readout",
+    "return to caller without control-path effect"
+  ],
+  "failure_results": [
+    "OBSERVATION_HOOK_UNKNOWN",
+    "OBSERVABILITY_HOOK_GAP",
+    "EVENT_PAYLOAD_INVALID",
+    "UNBOUNDED_PAYLOAD_FORBIDDEN",
+    "FORBIDDEN_CONTROL_CLAIM",
+    "TRACE_APPEND_FAILED"
+  ],
+  "rule": "Observation failure must not block, advance, authorize, execute, or repair the control path.",
+  "schema_version": "runtime_observability_sidecar_nonblocking_failure_behavior_target_v0"
+}

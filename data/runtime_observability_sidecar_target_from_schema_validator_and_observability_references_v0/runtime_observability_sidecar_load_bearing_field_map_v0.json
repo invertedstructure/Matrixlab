@@ -1,0 +1,22 @@
+{
+  "field_map": {
+    "active_object": "object or packet being acted on",
+    "attempted_move": "move the control path attempted",
+    "blocked_moves": "moves made unavailable by observed boundary",
+    "boundary_checked": "boundary or guard observed",
+    "boundary_result": "observed outcome of boundary check",
+    "lawful_next_moves": "next moves exposed by the control path or typed stop",
+    "source_packet_ref": "explicit packet or receipt reference"
+  },
+  "required_edge_fields": [
+    "active_object",
+    "attempted_move",
+    "boundary_checked",
+    "boundary_result",
+    "blocked_moves",
+    "lawful_next_moves",
+    "source_packet_ref"
+  ],
+  "schema_version": "runtime_observability_sidecar_load_bearing_field_map_v0",
+  "why": "These fields allow decision-edge reconstruction without logging everything."
+}

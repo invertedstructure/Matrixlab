@@ -1,0 +1,28 @@
+{
+  "schema_version": "runtime_observability_sidecar_design_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_RUNTIME_OBSERVABILITY_SIDECAR_TARGET_DESIGNED_BUILD_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "was Sidecar target design selected",
+      "step": "consume_post_schema_validator_decision",
+      "taken": "consume selected target and input reference set"
+    },
+    {
+      "answer": "yes",
+      "question": "are Schema Validator and decision-edge observability references frozen",
+      "step": "consume_references",
+      "taken": "define Sidecar target from both references"
+    },
+    {
+      "answer": "observe and emit append-only receipts only",
+      "question": "what is the sidecar allowed to do",
+      "step": "design_sidecar_target",
+      "taken": "emit design target and stop build-ready"
+    }
+  ]
+}
