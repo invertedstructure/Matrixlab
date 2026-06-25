@@ -1,0 +1,28 @@
+{
+  "schema_version": "c5_post_reference_decision_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_C5_POST_REFERENCE_DECISION_SELECTED_C6_EXAMPLE_EXTRACTION_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is the C5 pass-with-gaps reference frozen and decision-ready",
+      "step": "consume_c5_reference_closure",
+      "taken": "evaluate next branch"
+    },
+    {
+      "answer": "EXTRACT_C5_TO_C6_INTER_CELL_PROTOCOL_EXAMPLES_FROM_REVIEWED_REFERENCE_V0",
+      "question": "what should consume the C5 reference first",
+      "step": "select_c6_example_extraction",
+      "taken": "authorize example extraction only"
+    },
+    {
+      "answer": "no",
+      "question": "does this decision open or design C6",
+      "step": "preserve_no_c6_open_boundary",
+      "taken": "stop with selected next unit"
+    }
+  ]
+}

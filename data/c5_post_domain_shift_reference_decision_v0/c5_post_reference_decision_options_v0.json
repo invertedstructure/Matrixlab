@@ -1,0 +1,36 @@
+{
+  "decision_status": "NEXT_BRANCH_SELECTED",
+  "options": [
+    {
+      "branch": "EXTRACT_C5_TO_C6_INTER_CELL_PROTOCOL_EXAMPLES_FROM_REVIEWED_REFERENCE",
+      "next_unit": "EXTRACT_C5_TO_C6_INTER_CELL_PROTOCOL_EXAMPLES_FROM_REVIEWED_REFERENCE_V0",
+      "selected": true,
+      "why": "C5 produced concrete proposal, accepted Cell 1, verification, handoff, edge, and feedback examples; C6 should consume examples before protocol design."
+    },
+    {
+      "branch": "DESIGN_C6_INTER_CELL_PROTOCOL_DIRECTLY",
+      "next_unit": null,
+      "selected": false,
+      "why": "Too much. First extract the C5 examples that C6 should consume."
+    },
+    {
+      "branch": "REFINE_C5_BOUNDED_EVIDENCE_PROPOSAL_HANDLING",
+      "next_unit": null,
+      "selected": false,
+      "why": "The dominant gap is useful, but the immediate next reusable object is the C5-to-C6 example surface."
+    },
+    {
+      "branch": "RUN_ADDITIONAL_DOMAIN_SHIFT_SLICE",
+      "next_unit": null,
+      "selected": false,
+      "why": "No additional slice is needed before extracting the first C6 protocol examples."
+    },
+    {
+      "branch": "CLOSE_AND_RETURN_TO_OBSERVATION_HARDENING",
+      "next_unit": null,
+      "selected": false,
+      "why": "Reference is closed, but it now exposes concrete inter-cell examples worth freezing."
+    }
+  ],
+  "schema_version": "c5_post_reference_decision_options_v0"
+}
