@@ -1,0 +1,36 @@
+{
+  "decision_status": "NEXT_BRANCH_SELECTED",
+  "options": [
+    {
+      "branch": "DESIGN_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE",
+      "next_unit": "DESIGN_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0",
+      "selected": true,
+      "why": "The C6 protocol is frozen as a reviewed reference. The next useful move is a bounded adoption probe design, not runtime-wide adoption."
+    },
+    {
+      "branch": "PARK_C6_PROTOCOL_REFERENCE_ONLY",
+      "next_unit": null,
+      "selected": false,
+      "why": "Reference remains parked and available, but parking alone does not test the packet-law surface."
+    },
+    {
+      "branch": "RETURN_TO_OBSERVATION_HARDENING_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "Important soon, but the C6 protocol should first get one bounded adoption-probe design so observation hardening has packet edges to inspect."
+    },
+    {
+      "branch": "OPEN_C7",
+      "next_unit": null,
+      "selected": false,
+      "why": "Forbidden here. C7 requires explicit later authorization after bounded protocol handling is tested."
+    },
+    {
+      "branch": "PATCH_RUNTIME_WITH_C6_PROTOCOL",
+      "next_unit": null,
+      "selected": false,
+      "why": "Too broad. Runtime-wide enforcement is explicitly not authorized by the C6 reference closure."
+    }
+  ],
+  "schema_version": "post_c6_protocol_reference_decision_options_v0"
+}
