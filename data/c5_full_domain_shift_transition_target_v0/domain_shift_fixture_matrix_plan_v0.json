@@ -1,0 +1,46 @@
+{
+  "domain_id": "artifact_claim_review_v0",
+  "expected_first_outcome_class": "DOMAIN_SHIFT_PASS_WITH_GAPS",
+  "fixtures": [
+    {
+      "expected_outcome": "supported locally; receipt emitted; no global truth claim",
+      "fixture_id": "fixture_001_clean_supported_claim",
+      "must_test": [
+        "supported locally != true globally"
+      ]
+    },
+    {
+      "expected_outcome": "insufficient support; not labeled false",
+      "fixture_id": "fixture_002_unsupported_but_not_false_claim",
+      "must_test": [
+        "unsupported by available evidence != false"
+      ]
+    },
+    {
+      "expected_outcome": "non-claim violation blocked; label audit emitted",
+      "fixture_id": "fixture_003_must_not_infer_violation",
+      "must_test": [
+        "evidence_ref exists != evidence sufficient"
+      ]
+    },
+    {
+      "expected_outcome": "extraction proposal emitted; no extraction without review",
+      "fixture_id": "fixture_004_missing_evidence_requires_extraction_proposal",
+      "must_test": [
+        "proposal packet != accepted command",
+        "review request != review approval"
+      ]
+    },
+    {
+      "expected_outcome": "accepted proposal consumed by Cell 1; minimal build/probe; verification; handoff",
+      "fixture_id": "fixture_005_accepted_proposal_triggers_cell1_probe_or_patch",
+      "must_test": [
+        "accepted proposal != built",
+        "built != verified",
+        "verified != global truth"
+      ]
+    }
+  ],
+  "fixtures_total": 5,
+  "schema_version": "c5_domain_shift_fixture_matrix_plan_v0"
+}

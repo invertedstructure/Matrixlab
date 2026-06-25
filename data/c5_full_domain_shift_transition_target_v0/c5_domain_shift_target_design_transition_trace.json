@@ -1,0 +1,28 @@
+{
+  "schema_version": "c5_domain_shift_target_design_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_C5_FULL_DOMAIN_SHIFT_TRANSITION_TARGET_DESIGNED_BUILD_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is C5 ready to receive a designed domain-shift target",
+      "step": "consume_c5_live_audit_decision_basis",
+      "taken": "freeze target design object"
+    },
+    {
+      "answer": "artifact_claim_review_v0",
+      "question": "which bounded first domain should C5 use",
+      "step": "select_first_domain",
+      "taken": "emit contract schema and fixture matrix plan"
+    },
+    {
+      "answer": "no",
+      "question": "does target design execute the transition",
+      "step": "preserve_design_only_boundary",
+      "taken": "recommend BUILD_C5_FULL_DOMAIN_SHIFT_TRANSITION_V0"
+    }
+  ]
+}
