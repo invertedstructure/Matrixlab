@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_proposal_emission_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_RESOLUTION_PROPOSAL_EMISSION_REVIEWED_PROPOSED_RECORDS_CLEAN_CLOSE_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "were proposed records emitted and ready for review",
+      "step": "consume_proposal_emission",
+      "taken": "review proposed-record inventory and route map"
+    },
+    {
+      "answer": "no",
+      "question": "did review promote proposals into reviewed records",
+      "step": "verify_proposed_unreviewed_boundary",
+      "taken": "preserve proposal-to-review boundary"
+    },
+    {
+      "answer": "no",
+      "question": "does emission review resolve weak feedback or unblock C5",
+      "step": "verify_resolution_and_c5_boundary",
+      "taken": "emit close-ready reference candidate"
+    }
+  ]
+}
