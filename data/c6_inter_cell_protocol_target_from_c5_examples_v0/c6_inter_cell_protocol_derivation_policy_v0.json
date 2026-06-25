@@ -1,0 +1,90 @@
+{
+  "allowed_statuses": [
+    "SUPPORTED_BY_C5_EXAMPLES",
+    "INFERRED_PROTOCOL_NEED",
+    "UNSUPPORTED_EXTENSION",
+    "FORBIDDEN_EXTENSION"
+  ],
+  "derivation_records_target": [
+    {
+      "element": "PROPOSAL_PACKET_PROPOSED_ONLY",
+      "status": "SUPPORTED_BY_C5_EXAMPLES",
+      "support_count": 1
+    },
+    {
+      "element": "ACCEPTED_PROPOSAL_PACKET",
+      "status": "SUPPORTED_BY_C5_EXAMPLES",
+      "support_count": 1
+    },
+    {
+      "element": "CELL1_BUILDER_INTAKE_PACKET",
+      "reason": "Cell 1 needs an explicit intake wrapper for accepted scoped packets.",
+      "status": "INFERRED_PROTOCOL_NEED",
+      "support_count": 1
+    },
+    {
+      "element": "CELL1_PROBE_OR_BUILD_PACKET",
+      "reason": "Probe/build action must be distinguished from verification return.",
+      "status": "INFERRED_PROTOCOL_NEED",
+      "support_count": 1
+    },
+    {
+      "element": "VERIFICATION_RETURN_PACKET",
+      "status": "SUPPORTED_BY_C5_EXAMPLES",
+      "support_count": 1
+    },
+    {
+      "element": "HANDOFF_RETURN_PACKET",
+      "status": "SUPPORTED_BY_C5_EXAMPLES",
+      "support_count": 1
+    },
+    {
+      "element": "BLOCKED_OR_TYPED_STOP_FEEDBACK_PACKET",
+      "status": "SUPPORTED_BY_C5_EXAMPLES",
+      "support_count": 2
+    },
+    {
+      "element": "DECISION_EDGE_OBSERVATION_SIDECAR",
+      "status": "SUPPORTED_BY_C5_EXAMPLES",
+      "support_count": 5
+    },
+    {
+      "element": "UNIT_FEEDBACK_SIDECAR",
+      "reason": "Blocked/failed units need a typed diagnostic sidecar for O2 feedback hardening.",
+      "status": "INFERRED_PROTOCOL_NEED",
+      "support_count": 2
+    },
+    {
+      "element": "GENERAL_CELL1_AUTHORITY",
+      "status": "FORBIDDEN_EXTENSION",
+      "support_count": 0
+    },
+    {
+      "element": "GLOBAL_AUTONOMY",
+      "status": "FORBIDDEN_EXTENSION",
+      "support_count": 0
+    },
+    {
+      "element": "FULL_TRANSFER",
+      "status": "FORBIDDEN_EXTENSION",
+      "support_count": 0
+    },
+    {
+      "element": "C7_AUTHORIZATION",
+      "status": "FORBIDDEN_EXTENSION",
+      "support_count": 0
+    },
+    {
+      "element": "RUNTIME_WIDE_ENFORCEMENT",
+      "status": "FORBIDDEN_EXTENSION",
+      "support_count": 0
+    }
+  ],
+  "rules": {
+    "FORBIDDEN_EXTENSION": "Must not enter protocol.",
+    "INFERRED_PROTOCOL_NEED": "May be included only with explicit reason.",
+    "SUPPORTED_BY_C5_EXAMPLES": "May be included normally.",
+    "UNSUPPORTED_EXTENSION": "Must be parked or question-packeted."
+  },
+  "schema_version": "c6_inter_cell_protocol_derivation_policy_v0"
+}

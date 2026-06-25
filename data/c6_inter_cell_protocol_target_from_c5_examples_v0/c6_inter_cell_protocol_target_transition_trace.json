@@ -1,0 +1,28 @@
+{
+  "schema_version": "c6_inter_cell_protocol_target_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_C6_INTER_CELL_PROTOCOL_TARGET_DESIGNED_BUILD_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is C6 protocol target design authorized next",
+      "step": "consume_post_c6_decision",
+      "taken": "consume reviewed example reference and objective binding"
+    },
+    {
+      "answer": "target spec, packet family target, gates, forbidden transitions, derivation policy, negative controls, and build contract",
+      "question": "what is emitted",
+      "step": "design_target_not_protocol",
+      "taken": "defer protocol candidate build to next unit"
+    },
+    {
+      "answer": "no",
+      "question": "does target design build protocol, patch runtime, or authorize C7",
+      "step": "preserve_boundaries",
+      "taken": "emit build-ready target"
+    }
+  ]
+}

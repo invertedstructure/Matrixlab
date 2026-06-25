@@ -1,0 +1,41 @@
+{
+  "gates": [
+    {
+      "gate": "proposal_consumption_gate",
+      "rule": "If packet.status != ACCEPTED_FOR_CELL1, Cell 1 consumption is forbidden."
+    },
+    {
+      "gate": "review_basis_gate",
+      "rule": "Accepted packet must cite review receipt."
+    },
+    {
+      "gate": "scope_gate",
+      "rule": "Cell 1 may touch only target surfaces named by accepted packet."
+    },
+    {
+      "gate": "probe_build_report_gate",
+      "rule": "Cell 1 must report what it actually did."
+    },
+    {
+      "gate": "verification_gate",
+      "rule": "Cell 1 must return verification packet after probe/build."
+    },
+    {
+      "gate": "handoff_gate",
+      "rule": "Cell 1 must return handoff packet after verification or block."
+    },
+    {
+      "gate": "feedback_gate",
+      "rule": "Blocked Cell 1 must emit useful feedback, not bare failure."
+    },
+    {
+      "gate": "observation_gate",
+      "rule": "Every inter-cell transition emits decision-edge observation sidecar."
+    },
+    {
+      "gate": "unit_feedback_gate",
+      "rule": "Failed, blocked, stopped, or NA units emit unit feedback sidecar."
+    }
+  ],
+  "schema_version": "c6_inter_cell_protocol_gate_requirements_v0"
+}
