@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_weak_feedback_handling_target_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_HANDLING_TARGET_DESIGNED_BUILD_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is weak-feedback handling target design authorized",
+      "step": "consume_post_o2_decision",
+      "taken": "design handling target"
+    },
+    {
+      "answer": "2 UNDER_TYPED_FEEDBACK and 1 AMBIGUOUS_REQUIRES_QUESTION",
+      "question": "which weak records are active",
+      "step": "inventory_weak_records",
+      "taken": "emit unresolved weak-record inventory"
+    },
+    {
+      "answer": "question packets, source-ref requests, under-typed acceptance candidates, parked-with-reason records",
+      "question": "what handling outputs may the next build emit",
+      "step": "freeze_handling_contracts",
+      "taken": "authorize static weak-feedback handling build next"
+    }
+  ]
+}

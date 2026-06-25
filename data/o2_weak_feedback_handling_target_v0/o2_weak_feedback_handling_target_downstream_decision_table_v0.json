@@ -1,0 +1,30 @@
+{
+  "decision_status": "TARGET_BUILD_READY",
+  "records": [
+    {
+      "decision": "BUILD_O2_WEAK_FEEDBACK_HANDLING",
+      "next_unit": "BUILD_O2_WEAK_FEEDBACK_HANDLING_V0",
+      "selected": true,
+      "why": "The handling target has been designed; the next unit may emit handling records for the 3 weak feedback records."
+    },
+    {
+      "decision": "RESOLVE_WEAK_FEEDBACK_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "Design freezes the handling target; resolution belongs to the later build/review path."
+    },
+    {
+      "decision": "RUN_LIVE_FEEDBACK_AUDIT_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "Live audit remains deferred and requires explicit later objective."
+    },
+    {
+      "decision": "OPEN_C5_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "C5 remains blocked by weak feedback."
+    }
+  ],
+  "schema_version": "o2_weak_feedback_handling_target_downstream_decision_table_v0"
+}

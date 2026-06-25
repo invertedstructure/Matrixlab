@@ -1,0 +1,18 @@
+{
+  "enum_status": "HANDLING_POLICY_ENUM_FROZEN",
+  "handling_policy_enum": [
+    "QUESTION_PACKET_REQUIRED",
+    "SOURCE_REF_REQUEST_REQUIRED",
+    "UNDER_TYPED_ACCEPTANCE_CANDIDATE",
+    "PARK_WITH_REASON",
+    "LIVE_AUDIT_REQUEST_CANDIDATE_ONLY"
+  ],
+  "policy_meanings": {
+    "LIVE_AUDIT_REQUEST_CANDIDATE_ONLY": "The weak record may motivate a later live-audit target, but live audit is not run here.",
+    "PARK_WITH_REASON": "The weak record should be parked with explicit reason and no repair.",
+    "QUESTION_PACKET_REQUIRED": "The weak record needs a machine/human-facing question packet before it can be resolved or accepted.",
+    "SOURCE_REF_REQUEST_REQUIRED": "The weak record needs an explicit source-ref or evidence surface request.",
+    "UNDER_TYPED_ACCEPTANCE_CANDIDATE": "The weak record may be accepted as under-typed material only by explicit review and only while preserving C5 block status unless later unblocked."
+  },
+  "schema_version": "o2_weak_feedback_handling_policy_enum_v0"
+}

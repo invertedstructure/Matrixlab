@@ -1,0 +1,25 @@
+{
+  "authorization_status": "BUILD_UNIT_AUTHORIZED_NEXT",
+  "authorized_build_mode": "STATIC_WEAK_FEEDBACK_HANDLING_ONLY",
+  "authorized_next_unit": "BUILD_O2_WEAK_FEEDBACK_HANDLING_V0",
+  "authorized_scope": [
+    "consume weak feedback inventory",
+    "emit handling records for the 3 weak records",
+    "emit question packet candidates where required",
+    "emit source-ref request candidates where required",
+    "emit under-typed acceptance candidates where applicable",
+    "emit parked-with-reason records where applicable",
+    "emit rollup/readout/profile/report/receipt"
+  ],
+  "not_authorized": [
+    "resolve weak feedback without explicit handling record",
+    "run live feedback audit",
+    "repair",
+    "retry",
+    "select build target",
+    "patch runtime",
+    "mutate sources",
+    "open C5"
+  ],
+  "schema_version": "o2_weak_feedback_handling_build_authorization_v0"
+}

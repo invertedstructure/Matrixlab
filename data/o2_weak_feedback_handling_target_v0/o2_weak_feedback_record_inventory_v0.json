@@ -1,0 +1,73 @@
+{
+  "inventory_status": "WEAK_RECORDS_INVENTORIED_FOR_HANDLING_TARGET",
+  "records": [
+    {
+      "failed_relative_to_boundary": "minimum_feedback_boundary",
+      "feedback_quality_class": "UNDER_TYPED_FEEDBACK",
+      "handling_candidates": [
+        "SOURCE_REF_REQUEST_REQUIRED",
+        "QUESTION_PACKET_REQUIRED",
+        "UNDER_TYPED_ACCEPTANCE_CANDIDATE"
+      ],
+      "handling_status": "TARGET_DESIGN_ONLY",
+      "inventory_id": "weak_feedback_inventory_95016ec5",
+      "lawful_next_refinements_observed": [
+        "emit question packet requesting receipt_ref, trace_ref, failing step, and boundary"
+      ],
+      "missing_capability_name": "typed_failure_surface",
+      "missing_discriminator": "failure_location_or_boundary",
+      "resolution_status": "UNRESOLVED",
+      "source_feedback_ref": "unit_feedback_730a4ab1",
+      "source_unit_id": "demo.bare_failed.v0",
+      "unit_status": "FAILED",
+      "where_failed": "STOP.raw_status",
+      "why_failed": "The source only emitted a bare FAILED status, so diagnostic cause cannot be honestly inferred."
+    },
+    {
+      "failed_relative_to_boundary": "schema_validation_boundary",
+      "feedback_quality_class": "UNDER_TYPED_FEEDBACK",
+      "handling_candidates": [
+        "SOURCE_REF_REQUEST_REQUIRED",
+        "QUESTION_PACKET_REQUIRED",
+        "UNDER_TYPED_ACCEPTANCE_CANDIDATE"
+      ],
+      "handling_status": "TARGET_DESIGN_ONLY",
+      "inventory_id": "weak_feedback_inventory_3c746f21",
+      "lawful_next_refinements_observed": [
+        "request validation receipt with failing field_path and expected schema"
+      ],
+      "missing_capability_name": "validation_field_path_evidence",
+      "missing_discriminator": "field_path",
+      "resolution_status": "UNRESOLVED",
+      "source_feedback_ref": "unit_feedback_427185b2",
+      "source_unit_id": "demo.status_only_validation.v0",
+      "unit_status": "FAILED",
+      "where_failed": "VALIDATE.schema",
+      "why_failed": "The validation error lacks field path and object context."
+    },
+    {
+      "failed_relative_to_boundary": "label_noncollapse_boundary",
+      "feedback_quality_class": "AMBIGUOUS_REQUIRES_QUESTION",
+      "handling_candidates": [
+        "QUESTION_PACKET_REQUIRED",
+        "PARK_WITH_REASON"
+      ],
+      "handling_status": "TARGET_DESIGN_ONLY",
+      "inventory_id": "weak_feedback_inventory_9c1fe4a9",
+      "lawful_next_refinements_observed": [
+        "emit question packet for label remainder kind"
+      ],
+      "missing_capability_name": "label_remainder_question_packet",
+      "missing_discriminator": "label_remainder_kind",
+      "resolution_status": "UNRESOLVED",
+      "source_feedback_ref": "unit_feedback_b05950ab",
+      "source_unit_id": "demo.ambiguous_label_remainder.v0",
+      "unit_status": "UNDER_TYPED",
+      "where_failed": "CLASSIFY.label_remainder",
+      "why_failed": "The label remainder cannot be classified without collapsing the label into accepted meaning."
+    }
+  ],
+  "resolution_performed": false,
+  "schema_version": "o2_weak_feedback_record_inventory_v0",
+  "weak_feedback_count": 3
+}
