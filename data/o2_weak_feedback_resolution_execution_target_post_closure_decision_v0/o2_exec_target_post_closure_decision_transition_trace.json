@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_exec_target_post_closure_decision_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_EXEC_TARGET_POST_CLOSURE_DECISION_SELECTED_PROPOSAL_EMISSION_EXECUTION_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is reviewed execution-target reference closed",
+      "step": "consume_execution_target_closure",
+      "taken": "evaluate next branch table"
+    },
+    {
+      "answer": "frozen templates and unresolved proposal routes; zero proposed/reviewed records",
+      "question": "what is available after closure",
+      "step": "inspect_template_only_surface",
+      "taken": "preserve unresolved and C5-block state"
+    },
+    {
+      "answer": "EXECUTE_O2_WEAK_FEEDBACK_RESOLUTION_PROPOSAL_EMISSION_V0",
+      "question": "what next branch is lawful",
+      "step": "select_next_branch",
+      "taken": "authorize proposal emission execution next"
+    }
+  ]
+}

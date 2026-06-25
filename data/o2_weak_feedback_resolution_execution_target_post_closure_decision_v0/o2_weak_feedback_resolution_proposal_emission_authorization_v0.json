@@ -1,0 +1,27 @@
+{
+  "authorization_status": "PROPOSAL_EMISSION_EXECUTION_AUTHORIZED_NEXT",
+  "authorized_execution_mode": "PROPOSAL_EMISSION_ONLY / FROM_REVIEWED_TEMPLATES / NO_REVIEWED_RESOLUTION_NO_C5",
+  "authorized_next_unit": "EXECUTE_O2_WEAK_FEEDBACK_RESOLUTION_PROPOSAL_EMISSION_V0",
+  "authorized_scope": [
+    "emit proposed question-answer records from reviewed templates",
+    "emit proposed source-ref satisfaction records from reviewed templates",
+    "emit proposed under-typed acceptance review records from reviewed templates",
+    "emit parking continuation records as parked unresolved",
+    "emit proposed weak-feedback resolution records from proposal route templates",
+    "preserve review_status=UNREVIEWED for emitted proposed records",
+    "preserve c5_reconsideration_ready=false"
+  ],
+  "not_authorized": [
+    "emit reviewed resolution records",
+    "mark weak feedback resolved",
+    "treat proposed records as reviewed records",
+    "count parking as resolution",
+    "run live audit",
+    "repair",
+    "retry",
+    "patch runtime",
+    "mutate sources",
+    "open C5"
+  ],
+  "schema_version": "o2_weak_feedback_resolution_proposal_emission_authorization_v0"
+}
