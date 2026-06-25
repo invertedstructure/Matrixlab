@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_closure_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_UNIT_FEEDBACK_HARDENING_CLOSED_AS_REVIEWED_REFERENCE_WEAK_FEEDBACK_NOTE_DECISION_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is O2 reviewed clean and close-ready",
+      "step": "consume_o2_review",
+      "taken": "close O2 as reviewed reference"
+    },
+    {
+      "answer": "yes: weak_feedback_count=3",
+      "question": "does weak feedback remain",
+      "step": "freeze_weak_feedback_note",
+      "taken": "freeze weak-feedback note and preserve C5 block"
+    },
+    {
+      "answer": "DECIDE_NEXT_AFTER_O2_FEEDBACK_REFERENCE_CLOSURE_V0",
+      "question": "what is lawful after O2 closure",
+      "step": "authorize_post_closure_decision",
+      "taken": "stop at post-closure decision point"
+    }
+  ]
+}

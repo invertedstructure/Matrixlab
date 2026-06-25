@@ -1,0 +1,30 @@
+{
+  "decision_status": "O2_CLOSURE_DOWNSTREAM_TABLE_EMITTED",
+  "records": [
+    {
+      "decision": "DECIDE_NEXT_AFTER_O2_FEEDBACK_REFERENCE_CLOSURE",
+      "next_unit": "DECIDE_NEXT_AFTER_O2_FEEDBACK_REFERENCE_CLOSURE_V0",
+      "selected": true,
+      "why": "O2 is closed as reviewed reference, but weak feedback remains and C5 is blocked."
+    },
+    {
+      "decision": "RESOLVE_WEAK_FEEDBACK_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "Closure freezes weak-feedback note; it does not resolve it."
+    },
+    {
+      "decision": "RUN_LIVE_FEEDBACK_AUDIT_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "Live audit requires explicit later source-receipt/traces objective."
+    },
+    {
+      "decision": "OPEN_C5_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "C5 remains blocked by weak feedback."
+    }
+  ],
+  "schema_version": "o2_closure_downstream_decision_table_v0"
+}
