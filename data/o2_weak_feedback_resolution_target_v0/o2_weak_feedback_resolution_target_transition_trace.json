@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_weak_feedback_resolution_target_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_RESOLUTION_TARGET_DESIGNED_BUILD_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is resolution target design authorized",
+      "step": "consume_post_closure_decision",
+      "taken": "design resolution target"
+    },
+    {
+      "answer": "reviewed answer/satisfaction/acceptance/parking-resolution gate records",
+      "question": "what must exist before weak feedback can be called resolved",
+      "step": "define_resolution_contracts",
+      "taken": "freeze contracts without executing them"
+    },
+    {
+      "answer": "no",
+      "question": "does target design unblock C5",
+      "step": "preserve_c5_block",
+      "taken": "authorize target build next while preserving block"
+    }
+  ]
+}

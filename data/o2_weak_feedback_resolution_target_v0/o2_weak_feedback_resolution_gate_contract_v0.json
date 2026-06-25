@@ -1,0 +1,25 @@
+{
+  "contract_status": "RESOLUTION_GATE_CONTRACT_FROZEN",
+  "design_unit_emits_resolution_records": false,
+  "resolution_output_schema": {
+    "c5_reconsideration_ready": false,
+    "parking_continuation_refs": [],
+    "question_answer_refs": [],
+    "resolution_decision": "RESOLVED_REVIEWED | REMAINS_UNRESOLVED | PARKED_UNRESOLVED",
+    "resolution_record_id": "weak_feedback_resolution_<sig8>",
+    "review_status": "PROPOSED | REVIEWED_ACCEPTED | REVIEWED_REJECTED",
+    "schema_version": "o2_weak_feedback_resolution_record_v0",
+    "source_ref_satisfaction_refs": [],
+    "source_weak_feedback_ref": null,
+    "under_typed_acceptance_review_refs": []
+  },
+  "resolution_requires": [
+    "every weak feedback record has a reviewed resolution route",
+    "every question packet is either reviewed answered or explicitly reviewed not required",
+    "every source-ref request is either reviewed satisfied or explicitly reviewed not required",
+    "every under-typed acceptance candidate is reviewed approved/rejected/kept candidate-only",
+    "parking is not counted as resolution unless an explicit reviewed rule allows it",
+    "C5 block is not lifted by resolution target design alone"
+  ],
+  "schema_version": "o2_weak_feedback_resolution_gate_contract_v0"
+}
