@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_final_resolution_closure_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE_REVIEWED_CLEAN_CLOSE_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "did final-resolution closure execute cleanly",
+      "step": "consume_final_resolution_closure",
+      "taken": "review final record integrity"
+    },
+    {
+      "answer": "yes",
+      "question": "are final resolution records emitted and weak feedback resolved",
+      "step": "verify_resolution_crossing",
+      "taken": "confirm final boundary crossing"
+    },
+    {
+      "answer": "no",
+      "question": "did final-resolution closure open C5",
+      "step": "verify_c5_block",
+      "taken": "emit close-ready reviewed reference candidate"
+    }
+  ]
+}
