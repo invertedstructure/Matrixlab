@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_c5_reconsideration_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_C5_RECONSIDERATION_AFTER_WEAK_FEEDBACK_RESOLUTION_EXECUTED_READY_FOR_REVIEW",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is C5 reconsideration authorized next",
+      "step": "consume_post_final_reference_decision",
+      "taken": "consume resolved weak-feedback reference"
+    },
+    {
+      "answer": "yes",
+      "question": "may C5 be reconsidered now that weak feedback is resolved",
+      "step": "emit_c5_reconsideration_ready",
+      "taken": "emit C5 reconsideration ready pending review"
+    },
+    {
+      "answer": "no",
+      "question": "does this execution open C5",
+      "step": "hold_c5_opening_guard",
+      "taken": "defer C5 opening until explicit post-review decision"
+    }
+  ]
+}
