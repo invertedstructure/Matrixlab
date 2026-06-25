@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_proposal_emission_post_closure_decision_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_PROPOSAL_EMISSION_POST_CLOSURE_DECISION_SELECTED_PROPOSED_RECORD_REVIEW_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is proposal-emission reference closed",
+      "step": "consume_proposal_emission_closure",
+      "taken": "evaluate next branch table"
+    },
+    {
+      "answer": "frozen unreviewed proposed records; zero reviewed resolution records",
+      "question": "what is available after closure",
+      "step": "inspect_frozen_proposed_records",
+      "taken": "preserve unresolved and C5-block state"
+    },
+    {
+      "answer": "EXECUTE_O2_WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_V0",
+      "question": "what next branch is lawful",
+      "step": "select_next_branch",
+      "taken": "authorize proposed-record review next"
+    }
+  ]
+}

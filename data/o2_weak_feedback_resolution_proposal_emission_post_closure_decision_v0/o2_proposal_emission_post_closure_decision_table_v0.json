@@ -1,0 +1,30 @@
+{
+  "decision_status": "NEXT_BRANCH_SELECTED",
+  "records": [
+    {
+      "branch": "EXECUTE_O2_WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW",
+      "next_unit": "EXECUTE_O2_WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_V0",
+      "selected": true,
+      "why": "Frozen proposed records exist and passed emission-integrity review. The next lawful edge is to review/accept or reject proposed records under explicit boundaries."
+    },
+    {
+      "branch": "MARK_WEAK_FEEDBACK_RESOLVED_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "No reviewed resolution records exist yet."
+    },
+    {
+      "branch": "OPEN_C5_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "C5 remains blocked until reviewed resolution exists and a later decision explicitly selects C5 reconsideration."
+    },
+    {
+      "branch": "RUN_LIVE_FEEDBACK_AUDIT_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "This branch is still inside frozen proposed-record review mechanics, not live feedback audit."
+    }
+  ],
+  "schema_version": "o2_proposal_emission_post_closure_decision_table_v0"
+}

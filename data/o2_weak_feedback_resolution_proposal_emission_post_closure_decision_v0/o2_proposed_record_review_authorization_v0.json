@@ -1,0 +1,27 @@
+{
+  "authorization_status": "PROPOSED_RECORD_REVIEW_AUTHORIZED_NEXT",
+  "authorized_execution_mode": "PROPOSED_RECORD_REVIEW_ONLY / FROM_FROZEN_PROPOSED_RECORDS / NO_C5",
+  "authorized_next_unit": "EXECUTE_O2_WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_V0",
+  "authorized_scope": [
+    "review proposed question-answer records",
+    "review proposed source-ref satisfaction records",
+    "review proposed under-typed acceptance review records",
+    "review parking continuation records as parked unresolved or reject them",
+    "review proposed weak-feedback resolution records",
+    "emit explicit reviewed-record artifacts only inside the next execution unit if gates pass",
+    "preserve c5_reconsideration_ready=false unless a later C5 decision unit explicitly changes it"
+  ],
+  "not_authorized_in_this_decision": [
+    "emit reviewed resolution records",
+    "mark weak feedback resolved",
+    "treat proposed records as reviewed records",
+    "count parking as resolution",
+    "run live audit",
+    "repair",
+    "retry",
+    "patch runtime",
+    "mutate sources",
+    "open C5"
+  ],
+  "schema_version": "o2_proposed_record_review_authorization_v0"
+}
