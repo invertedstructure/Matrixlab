@@ -1,0 +1,34 @@
+{
+  "schema_version": "typed_machine_readable_source_ref_rebind_layer_closure_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_SOURCE_REF_REBIND_LAYER_CLOSED_AS_REVIEWED_REFERENCE_POST_UPDATE_DECISION_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is the source-ref rebind application cleanly reviewed",
+      "step": "consume_reviewed_application",
+      "taken": "close as reviewed reference"
+    },
+    {
+      "answer": "four applied/reviewed source-ref rebinds plus receipt chain",
+      "question": "what object is frozen",
+      "step": "freeze_reference",
+      "taken": "emit reviewed reference and boundary lock"
+    },
+    {
+      "answer": "no",
+      "question": "were ambiguity and requirement-gap branches resolved",
+      "step": "preserve_residuals",
+      "taken": "carry 22 ambiguity and 498 requirement-gap bindings forward"
+    },
+    {
+      "answer": "decision-edge observability hardening first",
+      "question": "what is recommended next",
+      "step": "select_post_closure_direction",
+      "taken": "DESIGN_DECISION_EDGE_OBSERVABILITY_HARDENING_TARGET_V0"
+    }
+  ]
+}

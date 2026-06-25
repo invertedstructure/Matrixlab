@@ -1,0 +1,37 @@
+{
+  "hint_status": "POST_UPDATE_HARDENING_SEQUENCE_PRESERVED_AS_HINT_NOT_EXECUTED",
+  "schema_version": "typed_machine_readable_post_closure_observability_feedback_hardening_sequence_hint_v0",
+  "sequence": [
+    {
+      "executed_now": false,
+      "fields": [
+        "active_object",
+        "attempted_move",
+        "boundary_checked",
+        "blocked_move",
+        "lawful_next_move",
+        "capability_boundary",
+        "authority_boundary",
+        "terminal_result"
+      ],
+      "order": 1,
+      "purpose": "expose graph-relevant edge fields from receipts",
+      "target": "decision_edge_observability"
+    },
+    {
+      "executed_now": false,
+      "fields": [
+        "failure_reason",
+        "failure_location",
+        "relative_object",
+        "relative_source_surface",
+        "relative_boundary",
+        "missing_capability",
+        "exact_refinement_needed"
+      ],
+      "order": 2,
+      "purpose": "make failed or blocked units report useful repair feedback",
+      "target": "unit_feedback_hardening"
+    }
+  ]
+}
