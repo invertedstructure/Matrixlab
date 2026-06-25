@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_final_resolution_closure_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE_EXECUTED_RESOLUTION_RECORDS_REVIEW_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is final-resolution closure authorized",
+      "step": "consume_final_resolution_closure_decision",
+      "taken": "consume frozen reviewed reference"
+    },
+    {
+      "answer": "yes",
+      "question": "can reviewed resolution records be promoted to final resolution",
+      "step": "emit_final_resolution_records",
+      "taken": "emit final weak-feedback resolution records"
+    },
+    {
+      "answer": "no",
+      "question": "does final resolution closure open C5",
+      "step": "preserve_c5_decision_gate",
+      "taken": "keep C5 blocked pending explicit decision"
+    }
+  ]
+}
