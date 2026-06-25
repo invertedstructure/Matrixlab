@@ -1,0 +1,28 @@
+{
+  "schema_version": "runtime_observability_sidecar_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_RUNTIME_OBSERVABILITY_SIDECAR_BUILT_REVIEW_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is Sidecar target design build-ready",
+      "step": "consume_design",
+      "taken": "build synthetic/reference Sidecar observation surface"
+    },
+    {
+      "answer": "16 records, 16 append-only trace entries",
+      "question": "does Sidecar record without acting",
+      "step": "observe_demo_events",
+      "taken": "emit event records and trace"
+    },
+    {
+      "answer": "no",
+      "question": "did Sidecar install hooks, patch runtime, validate, authorize, execute, block, or open C8",
+      "step": "preserve_boundary",
+      "taken": "stop review-ready"
+    }
+  ]
+}

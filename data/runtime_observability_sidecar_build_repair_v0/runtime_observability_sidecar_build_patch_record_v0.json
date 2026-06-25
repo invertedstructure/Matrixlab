@@ -1,0 +1,32 @@
+{
+  "after_sha256": "bff96c94c4fb564b7c5337ba68b8fd092838380722ff3dfb4b28d4136fc92fe8",
+  "before_sha256": "dfe19e280e803cc71990ecde85bc085cb5c9668f8afe798fc1c588b97dd750d8",
+  "changes": [
+    {
+      "from": "forbidden_control_claims_detected",
+      "to": "forbidden_claims_detected",
+      "why": "The designed event record schema uses forbidden_claims_detected."
+    },
+    {
+      "from": "runner ZERO_COUNTERS must be subset of design receipt schema",
+      "to": "design receipt schema counters must be subset of runner ZERO_COUNTERS",
+      "why": "The runner tracks additional negative-control counters beyond the receipt schema target."
+    }
+  ],
+  "does_not_change": [
+    "Sidecar concept",
+    "hook registry target",
+    "event record semantics",
+    "receipt semantics",
+    "append-only trace semantics",
+    "control-path boundary",
+    "live runtime hooks",
+    "runtime routing",
+    "runtime patching",
+    "C8 authorization"
+  ],
+  "patch_scope": "runner/check validation repair only",
+  "repair_status": "PATCH_APPLIED",
+  "schema_version": "runtime_observability_sidecar_build_patch_record_v0",
+  "target_file": "scripts/build_runtime_observability_sidecar_v0.py"
+}
