@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_weak_feedback_handling_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_HANDLING_REVIEWED_STATIC_RECORDS_CLEAN_CLOSE_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "did static handling records emit for all weak records",
+      "step": "consume_handling_build",
+      "taken": "review handling outputs"
+    },
+    {
+      "answer": "no",
+      "question": "did any handling artifact resolve weak feedback or unblock C5",
+      "step": "verify_nonresolution",
+      "taken": "preserve unresolved status and C5 block"
+    },
+    {
+      "answer": "yes",
+      "question": "can static weak-feedback handling close as reviewed reference",
+      "step": "emit_closure_candidate",
+      "taken": "CLOSE_O2_WEAK_FEEDBACK_HANDLING_AS_REVIEWED_REFERENCE_V0"
+    }
+  ]
+}
