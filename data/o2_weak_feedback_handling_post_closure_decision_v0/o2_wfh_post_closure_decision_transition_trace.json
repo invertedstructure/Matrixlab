@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_wfh_post_closure_decision_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WFH_POST_CLOSURE_DECISION_SELECTED_WEAK_FEEDBACK_RESOLUTION_TARGET_DESIGN_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is weak-feedback handling closed as reviewed reference",
+      "step": "consume_wfh_closure",
+      "taken": "evaluate next branch table"
+    },
+    {
+      "answer": "unanswered questions, unsatisfied source-ref requests, unapproved under-typed acceptance candidates, parking-not-resolution, and C5 block",
+      "question": "what remains after closure",
+      "step": "inspect_unresolved_surface",
+      "taken": "preserve unresolved status"
+    },
+    {
+      "answer": "DESIGN_O2_WEAK_FEEDBACK_RESOLUTION_TARGET_V0",
+      "question": "what next branch is lawful",
+      "step": "select_next_branch",
+      "taken": "authorize weak-feedback resolution target design next"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "authorization_status": "TARGET_DESIGN_AUTHORIZED",
+  "authorized_design_mode": "DESIGN_ONLY / WEAK_FEEDBACK_RESOLUTION_TARGET / NO_RESOLUTION_NO_C5",
+  "authorized_next_unit": "DESIGN_O2_WEAK_FEEDBACK_RESOLUTION_TARGET_V0",
+  "schema_version": "o2_weak_feedback_resolution_target_authorization_v0",
+  "target_goal": "Design a bounded resolution target for the reviewed weak-feedback handling reference.",
+  "target_may_not": [
+    "resolve weak feedback during design",
+    "answer question packets during design",
+    "satisfy source-ref requests during design",
+    "approve under-typed acceptance during design",
+    "run live audit",
+    "repair",
+    "retry",
+    "select target for build",
+    "patch runtime",
+    "mutate sources",
+    "open C5"
+  ],
+  "target_should_define": [
+    "how question packets may be answered or remain blocked",
+    "how source-ref requests may be satisfied or escalated",
+    "how under-typed acceptance candidates may be approved, rejected, or kept candidate-only",
+    "how parking may remain explicit without counting as resolution",
+    "what exact reviewed state would count as weak-feedback resolved",
+    "what exact reviewed state, if any, could unblock C5"
+  ]
+}

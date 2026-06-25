@@ -1,0 +1,36 @@
+{
+  "decision_status": "NEXT_BRANCH_SELECTED",
+  "records": [
+    {
+      "branch": "DESIGN_O2_WEAK_FEEDBACK_RESOLUTION_TARGET",
+      "next_unit": "DESIGN_O2_WEAK_FEEDBACK_RESOLUTION_TARGET_V0",
+      "selected": true,
+      "why": "The handling reference is closed, but weak feedback remains unresolved and now has reviewed candidate structures requiring explicit target design before any answer/satisfaction/approval can occur."
+    },
+    {
+      "branch": "ANSWER_OR_RESOLVE_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "This unit decides the next branch only. It may not answer question packets, satisfy source-ref requests, approve under-typed acceptance, or resolve weak feedback."
+    },
+    {
+      "branch": "RUN_LIVE_FEEDBACK_AUDIT_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "Live audit remains a later possible target if the resolution design determines explicit source traces are required."
+    },
+    {
+      "branch": "OPEN_C5_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "C5 remains blocked by weak feedback."
+    },
+    {
+      "branch": "PARK_AND_MOVE_TO_OTHER_PRE_C5_HARDENING",
+      "next_unit": null,
+      "selected": false,
+      "why": "Parking is available but not selected because the current closed reference exposes an explicit resolution-target design edge."
+    }
+  ],
+  "schema_version": "o2_wfh_post_closure_decision_table_v0"
+}
