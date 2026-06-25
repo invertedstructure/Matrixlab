@@ -1,0 +1,28 @@
+{
+  "schema_version": "c5_domain_shift_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_C5_FULL_DOMAIN_SHIFT_TRANSITION_REVIEWED_PASS_WITH_GAPS_CLOSE_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "did C5 build pass with typed outcome",
+      "step": "consume_c5_build_receipt",
+      "taken": "review fixture/proposal/Cell1/edge/feedback surfaces"
+    },
+    {
+      "answer": "yes",
+      "question": "did domain discipline survive while exposing bounded gaps",
+      "step": "confirm_pass_with_gaps",
+      "taken": "emit close candidate"
+    },
+    {
+      "answer": "no",
+      "question": "does review execute new domain shift or claim transfer",
+      "step": "preserve_review_boundary",
+      "taken": "recommend closure as reviewed reference"
+    }
+  ]
+}
