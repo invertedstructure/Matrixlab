@@ -1,0 +1,78 @@
+{
+  "active_object": "one Builder / Proposal Cell candidate packet",
+  "allowed_inputs": [
+    "proposal packet",
+    "claimed schema ref",
+    "claimed schema version",
+    "read-only schema archive / registry",
+    "schema compatibility table",
+    "declared object boundaries",
+    "declared move type",
+    "declared references",
+    "declared receipt contract",
+    "declared verification / distinguishability fields"
+  ],
+  "allowed_outputs": [
+    "schema_validation_result",
+    "validated_candidate_packet if VALID",
+    "schema_feedback_packet if invalid under known schema",
+    "schema_gap_feedback_packet if schema archive gap",
+    "schema_validator_receipt",
+    "rollup/readout/profile/report/transition_trace"
+  ],
+  "core_law": "No proposal may reach the Lawful Admissibility Cell unless it is structurally valid under a known schema.",
+  "core_question": "Can this proposal be read as a well-formed candidate under a known schema?",
+  "forbidden_inputs": [
+    "current authority regime",
+    "human authorization status",
+    "strategic roadmap",
+    "runtime patch target files",
+    "ambient workspace",
+    "latest-file selection",
+    "mtime selection",
+    "hidden memory",
+    "execution result",
+    "builder output"
+  ],
+  "forbidden_outputs": [
+    "authority verdict",
+    "admissibility decision",
+    "execution approval",
+    "builder command",
+    "proposal repair output",
+    "schema archive mutation",
+    "schema creation",
+    "runtime patch",
+    "C7 authorization",
+    "C8 authorization"
+  ],
+  "future_build_unit": "BUILD_RUNTIME_SCHEMA_VALIDATOR_CELL_V0",
+  "layer": "RUNTIME / SIEVE_1",
+  "load_bearing_distinction": {
+    "lawful_admissibility_cell": "If readable, is it allowed?",
+    "schema_validator_cell": "Can this proposal be read?"
+  },
+  "mode": "VALIDATE / CLASSIFY / FORMATION_ONLY",
+  "role": "first proposal-formation sieve",
+  "runtime_position": [
+    "Builder / Proposal Cell",
+    "Schema Validator Cell",
+    "Lawful Admissibility Cell",
+    "Builder Execution",
+    "Advance / Halt"
+  ],
+  "schema_version": "runtime_schema_validator_cell_target_spec_v0",
+  "target_status": "DESIGNED_BUILD_READY",
+  "target_unit_id": "runtime.schema_validator_cell.v0",
+  "unit_id": "BUILD_RUNTIME_SCHEMA_VALIDATOR_CELL_V0",
+  "valid_does_not_mean": [
+    "authorized",
+    "admissible",
+    "true",
+    "useful",
+    "strategically accepted",
+    "executed",
+    "verified"
+  ],
+  "valid_means": "structurally validated under known schema"
+}

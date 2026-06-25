@@ -1,0 +1,101 @@
+{
+  "advance_only_on": "VALID",
+  "checks": [
+    {
+      "check_name": "schema_archive_available",
+      "failure": "SCHEMA_ARCHIVE_UNAVAILABLE",
+      "order": 0
+    },
+    {
+      "check_name": "schema_known",
+      "failure": "UNKNOWN_SCHEMA",
+      "order": 1
+    },
+    {
+      "check_name": "schema_version_compatible",
+      "failure": "SCHEMA_VERSION_MISMATCH",
+      "order": 2
+    },
+    {
+      "check_name": "shape_valid",
+      "failure": "INVALID_SHAPE",
+      "order": 3
+    },
+    {
+      "check_name": "required_fields_present",
+      "failure": "MISSING_FIELD",
+      "order": 4
+    },
+    {
+      "check_name": "forbidden_fields_absent",
+      "failure": "FORBIDDEN_FIELD",
+      "order": 5
+    },
+    {
+      "check_name": "field_types_correct",
+      "failure": "TYPE_MISMATCH",
+      "order": 6
+    },
+    {
+      "check_name": "declared_move_type_known",
+      "failure": "UNKNOWN_MOVE_TYPE",
+      "order": 7
+    },
+    {
+      "check_name": "declared_boundary_structure_complete",
+      "failure": "BOUNDARY_MISSING",
+      "order": 8
+    },
+    {
+      "check_name": "declared_boundary_structure_consistent",
+      "failure": "BOUNDARY_CONFLICT",
+      "order": 9
+    },
+    {
+      "check_name": "references_structurally_resolvable",
+      "failure": "UNRESOLVED_REFERENCE",
+      "order": 10
+    },
+    {
+      "check_name": "receipt_contract_declared",
+      "failure": "RECEIPT_CONTRACT_INSUFFICIENT",
+      "order": 11
+    },
+    {
+      "check_name": "distinguishability_sufficient",
+      "failure": "DISTINGUISHABILITY_INSUFFICIENT",
+      "order": 12
+    },
+    {
+      "check_name": "layer_collapse_absent",
+      "failure": "LAYER_COLLAPSE_IN_PAYLOAD",
+      "order": 13
+    },
+    {
+      "check_name": "hidden_execution_fields_absent",
+      "failure": "HIDDEN_EXECUTION_FIELD",
+      "order": 14
+    }
+  ],
+  "deterministic_failure_precedence": [
+    "SCHEMA_ARCHIVE_UNAVAILABLE",
+    "UNKNOWN_SCHEMA",
+    "SCHEMA_VERSION_MISMATCH",
+    "INVALID_SHAPE",
+    "MISSING_FIELD",
+    "FORBIDDEN_FIELD",
+    "TYPE_MISMATCH",
+    "UNKNOWN_MOVE_TYPE",
+    "BOUNDARY_MISSING",
+    "BOUNDARY_CONFLICT",
+    "UNRESOLVED_REFERENCE",
+    "RECEIPT_CONTRACT_INSUFFICIENT",
+    "DISTINGUISHABILITY_INSUFFICIENT",
+    "LAYER_COLLAPSE_IN_PAYLOAD",
+    "HIDDEN_EXECUTION_FIELD",
+    "SCHEMA_ARCHIVE_GAP"
+  ],
+  "invalid_returns_to": "BUILDER_PROPOSAL_CELL",
+  "schema_version": "runtime_schema_validator_cell_formation_check_table_v0",
+  "valid_advances_to": "LAWFUL_ADMISSIBILITY_CELL"
+}
