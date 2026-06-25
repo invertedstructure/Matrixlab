@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_c5_opening_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE_EXECUTED_OPENED_REVIEW_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is C5 opening execution authorized",
+      "step": "consume_post_c5_reconsideration_decision",
+      "taken": "consume reviewed C5 reconsideration reference"
+    },
+    {
+      "answer": "yes",
+      "question": "may C5 be opened for review",
+      "step": "emit_c5_opening_record",
+      "taken": "emit C5 opened pending review"
+    },
+    {
+      "answer": "no",
+      "question": "does this execution run live audit or build target",
+      "step": "hold_live_audit_guard",
+      "taken": "defer live audit/build until later explicit decision"
+    }
+  ]
+}
