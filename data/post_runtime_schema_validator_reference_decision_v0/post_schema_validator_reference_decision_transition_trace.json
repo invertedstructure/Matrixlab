@@ -1,0 +1,28 @@
+{
+  "schema_version": "post_schema_validator_reference_decision_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_POST_SCHEMA_VALIDATOR_REFERENCE_DECISION_SELECTED_OBSERVABILITY_SIDECAR_DESIGN_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is Schema Validator reference frozen and decision-ready",
+      "step": "consume_schema_validator_reference_closure",
+      "taken": "consume frozen reference as sidecar prerequisite"
+    },
+    {
+      "answer": "yes",
+      "question": "is load-bearing edge-field reference available",
+      "step": "consume_decision_edge_observability_reference",
+      "taken": "use required fields and observability distinctions as sidecar design basis"
+    },
+    {
+      "answer": "Runtime Observability Sidecar target design",
+      "question": "what is the next pre-C8 interlock object",
+      "step": "select_next_branch",
+      "taken": "emit selected branch and stop decision-only"
+    }
+  ]
+}
