@@ -1,0 +1,102 @@
+{
+  "core_question": "Can this proposal be read as a well-formed candidate under a known schema?",
+  "design_must_define": [
+    "schema archive schema",
+    "schema validation result enum",
+    "schema validation result schema",
+    "validated candidate packet schema",
+    "schema feedback packet schema",
+    "schema gap feedback packet schema",
+    "schema validator receipt schema",
+    "check table",
+    "demo cases",
+    "rollup/readout/profile/report/trace",
+    "acceptance gates",
+    "negative controls"
+  ],
+  "design_must_preserve_edge_observability_fields": [
+    "active_object",
+    "attempted_move",
+    "boundary_checked",
+    "boundary_result",
+    "blocked_moves",
+    "lawful_next_moves",
+    "source_packet_ref"
+  ],
+  "failure_precedence_required": [
+    "SCHEMA_ARCHIVE_UNAVAILABLE",
+    "UNKNOWN_SCHEMA",
+    "SCHEMA_VERSION_MISMATCH",
+    "INVALID_SHAPE",
+    "MISSING_FIELD",
+    "FORBIDDEN_FIELD",
+    "TYPE_MISMATCH",
+    "UNKNOWN_MOVE_TYPE",
+    "BOUNDARY_MISSING",
+    "BOUNDARY_CONFLICT",
+    "UNRESOLVED_REFERENCE",
+    "RECEIPT_CONTRACT_INSUFFICIENT",
+    "DISTINGUISHABILITY_INSUFFICIENT",
+    "LAYER_COLLAPSE_IN_PAYLOAD",
+    "HIDDEN_EXECUTION_FIELD",
+    "SCHEMA_ARCHIVE_GAP"
+  ],
+  "formation_checks_only": [
+    "schema known",
+    "schema version compatible",
+    "required fields present",
+    "forbidden fields absent",
+    "field types correct",
+    "declared move type known",
+    "declared boundary structure complete",
+    "declared boundary structure internally consistent",
+    "references structurally resolvable",
+    "receipt contract declared",
+    "distinguishability sufficient",
+    "layer collapse absent",
+    "hidden execution fields absent"
+  ],
+  "must_consume": [
+    "data/decision_edge_observability_reference_closure_from_bounded_c6_adoption_probe_reference_v0/decision_edge_observability_reviewed_reference_v0.json",
+    "data/decision_edge_observability_reference_closure_from_bounded_c6_adoption_probe_reference_v0/decision_edge_observability_requirement_reference_v0.json",
+    "data/decision_edge_observability_reference_closure_from_bounded_c6_adoption_probe_reference_v0/decision_edge_observability_field_schema_reference_v0.json",
+    "data/decision_edge_observability_reference_closure_from_bounded_c6_adoption_probe_reference_v0/decision_edge_observability_distinction_guard_reference_v0.json",
+    "data/decision_edge_observability_reference_closure_from_bounded_c6_adoption_probe_reference_v0/decision_edge_observability_negative_control_reference_v0.json"
+  ],
+  "must_not_do": [
+    "check authority",
+    "check admissibility",
+    "approve execution",
+    "deny on authority grounds",
+    "decide strategy",
+    "decide truth",
+    "decide usefulness",
+    "repair proposals",
+    "create schemas",
+    "mutate schema archive",
+    "validate unknown schema ad hoc",
+    "emit builder command",
+    "execute anything",
+    "patch runtime",
+    "authorize C7",
+    "authorize C8"
+  ],
+  "role": "first proposal-formation sieve",
+  "runtime_position": [
+    "Builder / Proposal Cell",
+    "Schema Validator Cell",
+    "Lawful Admissibility Cell",
+    "Builder Execution",
+    "Advance / Halt"
+  ],
+  "schema_version": "runtime_schema_validator_cell_design_target_v0",
+  "source_decision_edge_observability_reference_closure_receipt_id": "ac09c2e3",
+  "success_meaning": "Schema Validator design target selected. No validator built yet.",
+  "target_status": "SCHEMA_VALIDATOR_CELL_DESIGN_TARGET_SELECTED",
+  "target_unit": "DESIGN_RUNTIME_SCHEMA_VALIDATOR_CELL_TARGET_FROM_REVIEWED_OBSERVABILITY_REFERENCE_V0",
+  "terminology_adjustment": {
+    "avoid": "VALIDATE / CERTIFY / FORMATION_ONLY",
+    "use": "VALIDATE / CLASSIFY / FORMATION_ONLY",
+    "why": "certify can imply authority, truth, or approval; classify preserves formation-only boundary"
+  }
+}
