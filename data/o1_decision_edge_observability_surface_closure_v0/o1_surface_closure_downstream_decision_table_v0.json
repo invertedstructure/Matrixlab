@@ -1,0 +1,24 @@
+{
+  "decision_status": "O1_SURFACE_CLOSURE_DOWNSTREAM_TABLE_EMITTED",
+  "records": [
+    {
+      "decision": "DESIGN_UNIT_FEEDBACK_HARDENING_TARGET",
+      "next_unit": "DESIGN_UNIT_FEEDBACK_HARDENING_TARGET_V0",
+      "selected": true,
+      "why": "O1 is closed as reviewed observability reference; O2 target design is the next cheap high-value hardening step."
+    },
+    {
+      "decision": "EXECUTE_UNIT_FEEDBACK_HARDENING_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "Only O2 design is authorized next; execution requires its own target design and build unit."
+    },
+    {
+      "decision": "EXTRACT_GRAPH_SCHEMA_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "O1 closure preserves observability reference only, not graph schema authority."
+    }
+  ],
+  "schema_version": "o1_surface_closure_downstream_decision_table_v0"
+}

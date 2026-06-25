@@ -1,0 +1,28 @@
+{
+  "schema_version": "o1_surface_closure_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_CLOSED_AS_REVIEWED_REFERENCE_O2_DESIGN_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is O1 reviewed clean and close-ready",
+      "step": "consume_o1_review",
+      "taken": "close O1 as reviewed reference"
+    },
+    {
+      "answer": "8 reviewed sidecar observations, 5 source receipts, 13 provisional handles, rollup/profile/readout, and receipt chain",
+      "question": "what gets frozen",
+      "step": "freeze_reference",
+      "taken": "emit reviewed reference and boundary lock"
+    },
+    {
+      "answer": "DESIGN_UNIT_FEEDBACK_HARDENING_TARGET_V0",
+      "question": "what is lawful after closure",
+      "step": "authorize_next_target_design",
+      "taken": "authorize O2 design target only"
+    }
+  ]
+}
