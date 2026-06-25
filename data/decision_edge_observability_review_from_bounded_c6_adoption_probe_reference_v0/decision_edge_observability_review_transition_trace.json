@@ -1,0 +1,28 @@
+{
+  "schema_version": "decision_edge_observability_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_DECISION_EDGE_OBSERVABILITY_REQUIREMENTS_REVIEWED_CLOSE_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "are extracted decision-edge observability requirements review-ready",
+      "step": "consume_extraction",
+      "taken": "review requirement set, edge requirements, field schema, mappings, guards, and negative controls"
+    },
+    {
+      "answer": "yes",
+      "question": "do all edge requirements preserve the load-bearing fields",
+      "step": "verify_load_bearing_fields",
+      "taken": "emit close candidate"
+    },
+    {
+      "answer": "no",
+      "question": "does review harden unit feedback, patch runtime, or authorize C7",
+      "step": "preserve_boundary",
+      "taken": "stop with close-ready observability review"
+    }
+  ]
+}
