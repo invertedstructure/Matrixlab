@@ -1,0 +1,30 @@
+{
+  "decision_status": "NEXT_BRANCH_SELECTED",
+  "records": [
+    {
+      "branch": "EXECUTE_O2_C5_LIVE_FEEDBACK_AUDIT_AFTER_OPENING_REFERENCE",
+      "next_unit": "EXECUTE_O2_C5_LIVE_FEEDBACK_AUDIT_AFTER_OPENING_REFERENCE_V0",
+      "selected": true,
+      "why": "C5 is open as a reviewed reference and live audit has not yet executed."
+    },
+    {
+      "branch": "RUN_LIVE_FEEDBACK_AUDIT_NOW_IN_DECISION",
+      "next_unit": null,
+      "selected": false,
+      "why": "This unit only selects live audit execution; it does not run the audit."
+    },
+    {
+      "branch": "SELECT_BUILD_TARGET_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "Build target selection remains downstream of live audit/review evidence."
+    },
+    {
+      "branch": "REPAIR_OR_RETRY",
+      "next_unit": null,
+      "selected": false,
+      "why": "No failure is present in the C5 opening reference closure."
+    }
+  ],
+  "schema_version": "o2_c5_post_opening_reference_decision_table_v0"
+}

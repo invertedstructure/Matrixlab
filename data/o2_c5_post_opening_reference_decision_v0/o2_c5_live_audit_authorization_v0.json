@@ -1,0 +1,23 @@
+{
+  "authorization_status": "LIVE_FEEDBACK_AUDIT_EXECUTION_AUTHORIZED_NEXT",
+  "authorized_execution_mode": "C5_LIVE_FEEDBACK_AUDIT_FROM_REVIEWED_OPENING_REFERENCE",
+  "authorized_next_unit": "EXECUTE_O2_C5_LIVE_FEEDBACK_AUDIT_AFTER_OPENING_REFERENCE_V0",
+  "authorized_scope": [
+    "consume C5 opening reviewed reference",
+    "verify C5 open status",
+    "verify live audit guard",
+    "execute bounded live feedback audit evidence surface",
+    "emit review-ready audit output"
+  ],
+  "not_authorized_in_this_decision": [
+    "run live feedback audit",
+    "select build target",
+    "repair",
+    "retry",
+    "patch runtime",
+    "mutate source",
+    "mutate prior receipts",
+    "change architecture"
+  ],
+  "schema_version": "o2_c5_live_audit_authorization_v0"
+}

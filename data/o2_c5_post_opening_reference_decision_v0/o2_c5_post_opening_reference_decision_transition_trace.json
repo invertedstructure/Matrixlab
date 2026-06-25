@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_c5_post_opening_reference_decision_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_POST_C5_OPENING_REFERENCE_DECISION_SELECTED_LIVE_FEEDBACK_AUDIT_EXECUTION_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is C5 opening closed as reviewed reference",
+      "step": "consume_c5_opening_reference_closure",
+      "taken": "evaluate live audit execution branch"
+    },
+    {
+      "answer": "EXECUTE_O2_C5_LIVE_FEEDBACK_AUDIT_AFTER_OPENING_REFERENCE_V0",
+      "question": "what is the next lawful edge after reviewed C5 opening",
+      "step": "select_live_feedback_audit_execution",
+      "taken": "authorize live C5 feedback audit execution next"
+    },
+    {
+      "answer": "no",
+      "question": "does this decision run live audit or choose build target",
+      "step": "preserve_decision_only_boundary",
+      "taken": "keep audit/build deferred until selected execution unit"
+    }
+  ]
+}
