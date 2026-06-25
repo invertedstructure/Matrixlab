@@ -1,0 +1,52 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "failure_feedback": {
+      "type": "object"
+    },
+    "feedback_id": {
+      "pattern": "^unit_feedback_"
+    },
+    "feedback_quality_class": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "schema_version": {
+      "const": "inter_cell_unit_feedback_sidecar_v0"
+    },
+    "source_packet_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "FAILED",
+        "BLOCKED",
+        "STOPPED",
+        "NA"
+      ]
+    },
+    "unit_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "protocol_rule": "C6 does not repair failure. C6 routes feedback.",
+  "required": [
+    "schema_version",
+    "feedback_id",
+    "source_packet_ref",
+    "unit_id",
+    "status",
+    "failure_feedback",
+    "feedback_quality_class"
+  ],
+  "schema_version": "inter_cell_unit_feedback_sidecar_v0",
+  "type": "object"
+}

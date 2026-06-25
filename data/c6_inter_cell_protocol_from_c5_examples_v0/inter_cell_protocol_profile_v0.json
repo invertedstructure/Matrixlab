@@ -1,0 +1,37 @@
+{
+  "bad_counters_zero": true,
+  "must_not_infer": [
+    "general Cell 1 authority",
+    "global autonomy",
+    "full transfer",
+    "multi-agent architecture",
+    "C7 authorized",
+    "runtime-wide enforcement"
+  ],
+  "next_command_goal": null,
+  "observed_protocol_shapes": [
+    {
+      "shape": "proposal -> review -> accepted packet -> Cell1 probe -> verification -> handoff",
+      "status": "SUPPORTED_BY_C5_EXAMPLES",
+      "supporting_examples": 4
+    },
+    {
+      "shape": "accepted packet -> Cell1 blocked -> diagnostic feedback -> return to review",
+      "status": "SUPPORTED_BY_C5_EXAMPLES",
+      "supporting_examples": 2
+    }
+  ],
+  "profile_id": "c6_profile_9c6772ca",
+  "protocol_gaps": [
+    {
+      "gap": "CELL1_BUILDER_INTAKE_PACKET inferred as explicit wrapper",
+      "status": "INFERRED_PROTOCOL_NEED"
+    },
+    {
+      "gap": "UNIT_FEEDBACK_SIDECAR inferred from blocked feedback routing",
+      "status": "INFERRED_PROTOCOL_NEED"
+    }
+  ],
+  "schema_claim": "LOCAL_PROTOCOL_CANDIDATE_ONLY",
+  "schema_version": "inter_cell_protocol_profile_v0"
+}

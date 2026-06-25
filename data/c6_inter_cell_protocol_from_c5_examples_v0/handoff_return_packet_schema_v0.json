@@ -1,0 +1,59 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "accepted_packet_ref": {
+      "type": "string"
+    },
+    "allowed_next_handling": {
+      "type": "array"
+    },
+    "forbidden_next_handling": {
+      "type": "array"
+    },
+    "from_cell": {
+      "const": "CELL_1"
+    },
+    "handoff_status": {
+      "enum": [
+        "RETURNED_TO_CELL0",
+        "RETURNED_TO_REVIEW",
+        "PARKED",
+        "BLOCKED"
+      ]
+    },
+    "packet_id": {
+      "pattern": "^handoff_"
+    },
+    "schema_version": {
+      "const": "handoff_return_packet_v0"
+    },
+    "summary": {
+      "type": "object"
+    },
+    "to": {
+      "enum": [
+        "CELL_0_OR_REVIEW",
+        "REVIEW_OR_AUTHORITY_GATE",
+        "CELL_0"
+      ]
+    },
+    "verification_return_ref": {
+      "type": "string"
+    }
+  },
+  "protocol_rule": "Cell 1 must return control. No momentum.",
+  "required": [
+    "schema_version",
+    "packet_id",
+    "from_cell",
+    "to",
+    "accepted_packet_ref",
+    "verification_return_ref",
+    "handoff_status",
+    "summary",
+    "allowed_next_handling",
+    "forbidden_next_handling"
+  ],
+  "schema_version": "handoff_return_packet_v0",
+  "type": "object"
+}

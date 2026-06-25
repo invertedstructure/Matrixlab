@@ -1,0 +1,48 @@
+{
+  "core_law": "No cell may consume, transform, or act on another cell output unless that output is wrapped in an explicit protocol packet with source, destination, authority, scope, status, allowed inputs, forbidden inputs, expected return, forbidden interpretations, and receipt basis.",
+  "doctrine": [
+    "Cells do not pass vibes.",
+    "Cells pass packets.",
+    "Cell 1 does not receive intentions.",
+    "Cell 1 receives accepted, scoped, receipt-backed packets."
+  ],
+  "must_not_infer": [
+    "general Cell 1 authority",
+    "global autonomy",
+    "full transfer",
+    "multi-agent architecture",
+    "C7 authorized",
+    "runtime-wide enforcement"
+  ],
+  "packet_family": [
+    "PROPOSAL_PACKET_PROPOSED_ONLY",
+    "ACCEPTED_PROPOSAL_PACKET",
+    "CELL1_BUILDER_INTAKE_PACKET",
+    "CELL1_PROBE_OR_BUILD_PACKET",
+    "VERIFICATION_RETURN_PACKET",
+    "HANDOFF_RETURN_PACKET",
+    "BLOCKED_OR_TYPED_STOP_FEEDBACK_PACKET",
+    "DECISION_EDGE_OBSERVATION_SIDECAR",
+    "UNIT_FEEDBACK_SIDECAR"
+  ],
+  "schema_claim": "LOCAL_PROTOCOL_CANDIDATE_ONLY",
+  "schema_version": "inter_cell_protocol_schema_v0",
+  "shared_required_fields": [
+    "schema_version",
+    "packet_id",
+    "from_cell",
+    "to",
+    "status",
+    "source_refs",
+    "authority_boundary",
+    "scope_boundary",
+    "must_not_infer",
+    "next_required_packet_or_terminal"
+  ],
+  "source": "reviewed C5-to-C6 examples",
+  "source_receipts": {
+    "example_reference_closure": "fe882749",
+    "post_c6_decision": "89b2d2cc",
+    "target_design": "b0df3c9d"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "required": [
+        "cell1_consumable",
+        "requires_review",
+        "default_without_review"
+      ],
+      "type": "object"
+    },
+    "from_cell": {
+      "const": "CELL_0"
+    },
+    "must_not_infer": {
+      "type": "array"
+    },
+    "packet_id": {
+      "pattern": "^prop_only_"
+    },
+    "proposal_summary": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "c6_proposed_only_packet_v0"
+    },
+    "source_proposal_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "const": "PROPOSED_ONLY"
+    },
+    "to": {
+      "const": "REVIEW_OR_AUTHORITY_GATE"
+    },
+    "trigger": {
+      "type": "object"
+    }
+  },
+  "protocol_rule": "Cell 1 must reject this packet.",
+  "required": [
+    "schema_version",
+    "packet_id",
+    "from_cell",
+    "to",
+    "status",
+    "source_proposal_ref",
+    "trigger",
+    "proposal_summary",
+    "authority",
+    "must_not_infer"
+  ],
+  "schema_version": "c6_proposed_only_packet_v0",
+  "type": "object"
+}

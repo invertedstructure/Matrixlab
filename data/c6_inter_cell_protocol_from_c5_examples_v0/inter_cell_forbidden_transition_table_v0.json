@@ -1,0 +1,21 @@
+{
+  "forbidden_interpretations": [
+    "proposed-only packet as Cell 1 input",
+    "probe/build as verification",
+    "verification as closure",
+    "handoff as hidden next command",
+    "blocked feedback as repair",
+    "accepted Cell 1 authority as general Cell 1 authority"
+  ],
+  "forbidden_transitions": [
+    "PROPOSED_ONLY -> CELL1_ACCEPTED_CONSUMPTION",
+    "PROPOSED_ONLY -> CELL1_PROBED",
+    "UNDER_REVIEW -> CELL1_ACCEPTED_CONSUMPTION",
+    "CELL1_PROBED -> CLOSED_BY_REVIEW",
+    "CELL1_VERIFIED_PASS -> GLOBAL_SUCCESS",
+    "HANDOFF_RETURN -> NEXT_COMMAND",
+    "BLOCKED_FEEDBACK -> REPAIR_APPLIED",
+    "VERIFICATION_RETURN -> REVIEW_CLOSURE_WITHOUT_REVIEW"
+  ],
+  "schema_version": "inter_cell_forbidden_transition_table_v0"
+}

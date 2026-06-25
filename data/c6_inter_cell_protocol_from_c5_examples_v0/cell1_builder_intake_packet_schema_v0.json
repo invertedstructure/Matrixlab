@@ -1,0 +1,38 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "accepted_packet_ref": {
+      "type": "string"
+    },
+    "from_cell": {
+      "const": "C6_PROTOCOL_LAYER"
+    },
+    "intake_contract": {
+      "type": "object"
+    },
+    "packet_id": {
+      "pattern": "^cell1_intake_"
+    },
+    "required_returns": {
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "cell1_builder_intake_packet_v0"
+    },
+    "to": {
+      "const": "CELL_1"
+    }
+  },
+  "protocol_rule": "Cell 1 consumes a typed intake contract, not loose proposal text.",
+  "required": [
+    "schema_version",
+    "packet_id",
+    "from_cell",
+    "to",
+    "accepted_packet_ref",
+    "intake_contract",
+    "required_returns"
+  ],
+  "schema_version": "cell1_builder_intake_packet_v0",
+  "type": "object"
+}

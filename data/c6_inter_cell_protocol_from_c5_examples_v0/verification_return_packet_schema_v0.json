@@ -1,0 +1,57 @@
+{
+  "additionalProperties": false,
+  "must_not_infer_values": [
+    "global correctness",
+    "domain transfer",
+    "future failures impossible",
+    "review closure",
+    "general Cell 1 authority"
+  ],
+  "properties": {
+    "accepted_packet_ref": {
+      "type": "string"
+    },
+    "from_cell": {
+      "const": "CELL_1"
+    },
+    "must_not_infer": {
+      "type": "array"
+    },
+    "next_required_packet": {
+      "const": "handoff_return_packet_v0"
+    },
+    "packet_id": {
+      "pattern": "^verify_return_"
+    },
+    "probe_or_build_packet_ref": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "verification_return_packet_v0"
+    },
+    "to": {
+      "enum": [
+        "CELL_0_OR_REVIEW",
+        "REVIEW_OR_AUTHORITY_GATE",
+        "CELL_0"
+      ]
+    },
+    "verification": {
+      "type": "object"
+    }
+  },
+  "protocol_rule": "Verification pass returns evidence. It does not close the proposal by itself.",
+  "required": [
+    "schema_version",
+    "packet_id",
+    "from_cell",
+    "to",
+    "accepted_packet_ref",
+    "probe_or_build_packet_ref",
+    "verification",
+    "must_not_infer",
+    "next_required_packet"
+  ],
+  "schema_version": "verification_return_packet_v0",
+  "type": "object"
+}

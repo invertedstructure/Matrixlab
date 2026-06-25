@@ -1,0 +1,61 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "accepted_packet_ref": {
+      "type": "string"
+    },
+    "blocked_moves": {
+      "type": "array"
+    },
+    "blocked_status": {
+      "const": "CELL1_BLOCKED"
+    },
+    "diagnostic_feedback": {
+      "type": "object"
+    },
+    "from_cell": {
+      "const": "CELL_1"
+    },
+    "lawful_next_moves": {
+      "type": "array"
+    },
+    "must_not_infer": {
+      "type": "array"
+    },
+    "packet_id": {
+      "pattern": "^blocked_feedback_"
+    },
+    "schema_version": {
+      "const": "blocked_or_typed_stop_feedback_packet_v0"
+    },
+    "stop_code": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "to": {
+      "enum": [
+        "CELL_0_OR_REVIEW",
+        "REVIEW_OR_AUTHORITY_GATE",
+        "CELL_0"
+      ]
+    }
+  },
+  "protocol_rule": "Blocked Cell 1 returns useful feedback, not bare failure.",
+  "required": [
+    "schema_version",
+    "packet_id",
+    "from_cell",
+    "to",
+    "accepted_packet_ref",
+    "blocked_status",
+    "stop_code",
+    "diagnostic_feedback",
+    "blocked_moves",
+    "lawful_next_moves",
+    "must_not_infer"
+  ],
+  "schema_version": "blocked_or_typed_stop_feedback_packet_v0",
+  "type": "object"
+}

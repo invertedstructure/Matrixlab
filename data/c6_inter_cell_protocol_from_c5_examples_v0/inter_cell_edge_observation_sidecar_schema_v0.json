@@ -1,0 +1,73 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "active_object": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "attempted_move": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "blocked_moves": {
+      "type": "array"
+    },
+    "boundary_checked": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "boundary_result": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "candidate_edge_handles": {
+      "type": "array"
+    },
+    "collection_status": {
+      "const": "OBSERVATION_ONLY"
+    },
+    "lawful_next_moves": {
+      "type": "array"
+    },
+    "observation_id": {
+      "pattern": "^edge_obs_"
+    },
+    "schema_claim": {
+      "const": "NONE"
+    },
+    "schema_version": {
+      "const": "inter_cell_decision_edge_observation_v0"
+    },
+    "source_packet_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "protocol_rule": "Every inter-cell transition should emit an O1-compatible sidecar.",
+  "required": [
+    "schema_version",
+    "observation_id",
+    "source_packet_ref",
+    "active_object",
+    "attempted_move",
+    "boundary_checked",
+    "boundary_result",
+    "candidate_edge_handles",
+    "blocked_moves",
+    "lawful_next_moves",
+    "collection_status",
+    "schema_claim"
+  ],
+  "schema_version": "inter_cell_decision_edge_observation_v0",
+  "type": "object"
+}

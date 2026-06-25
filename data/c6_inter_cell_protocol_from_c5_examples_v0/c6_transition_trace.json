@@ -1,0 +1,28 @@
+{
+  "schema_version": "c6_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C6_INTER_CELL_PROTOCOL_CANDIDATE_EMITTED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is the C6 build target ready",
+      "step": "consume_c6_target_design",
+      "taken": "emit local protocol candidate"
+    },
+    {
+      "answer": "typed packet family, state machine, gates, forbidden transitions, sidecars, derivation records",
+      "question": "what communication surface is defined",
+      "step": "emit_packet_law",
+      "taken": "emit protocol artifacts"
+    },
+    {
+      "answer": "no",
+      "question": "does this patch runtime, authorize C7, or claim transfer/autonomy",
+      "step": "preserve_boundary",
+      "taken": "stop with review-ready protocol candidate"
+    }
+  ]
+}

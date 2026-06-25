@@ -1,0 +1,57 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "acceptance_scope": {
+      "type": "object"
+    },
+    "from_cell": {
+      "const": "REVIEW_OR_AUTHORITY_GATE"
+    },
+    "handoff_requirement": {
+      "type": "object"
+    },
+    "must_not_infer": {
+      "type": "array"
+    },
+    "packet_id": {
+      "pattern": "^accepted_"
+    },
+    "review_receipt_ref": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "c6_accepted_proposal_packet_v0"
+    },
+    "source_proposal_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "const": "ACCEPTED_FOR_CELL1"
+    },
+    "to": {
+      "const": "CELL_1"
+    },
+    "verification_requirement": {
+      "type": "object"
+    }
+  },
+  "protocol_rule": "Accepted proposal packet is the only normal Cell 1 entry point.",
+  "required": [
+    "schema_version",
+    "packet_id",
+    "from_cell",
+    "to",
+    "status",
+    "source_proposal_ref",
+    "review_receipt_ref",
+    "acceptance_scope",
+    "verification_requirement",
+    "handoff_requirement",
+    "must_not_infer"
+  ],
+  "schema_version": "c6_accepted_proposal_packet_v0",
+  "type": "object"
+}

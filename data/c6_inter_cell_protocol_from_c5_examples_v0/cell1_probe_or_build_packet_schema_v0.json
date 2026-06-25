@@ -1,0 +1,46 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "accepted_packet_ref": {
+      "type": "string"
+    },
+    "from_cell": {
+      "const": "CELL_1"
+    },
+    "next_required_packet": {
+      "const": "verification_return_packet_v0"
+    },
+    "packet_id": {
+      "pattern": "^cell1_probe_"
+    },
+    "probe_or_build": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "cell1_probe_or_build_packet_v0"
+    },
+    "scope_result": {
+      "type": "object"
+    },
+    "to": {
+      "enum": [
+        "CELL_0_OR_REVIEW",
+        "REVIEW_OR_AUTHORITY_GATE",
+        "CELL_0"
+      ]
+    }
+  },
+  "protocol_rule": "Probe/build packet is not verification.",
+  "required": [
+    "schema_version",
+    "packet_id",
+    "from_cell",
+    "to",
+    "accepted_packet_ref",
+    "probe_or_build",
+    "scope_result",
+    "next_required_packet"
+  ],
+  "schema_version": "cell1_probe_or_build_packet_v0",
+  "type": "object"
+}
