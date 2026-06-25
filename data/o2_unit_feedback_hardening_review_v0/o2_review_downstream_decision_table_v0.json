@@ -1,0 +1,24 @@
+{
+  "decision_status": "O2_REVIEW_DOWNSTREAM_TABLE_EMITTED",
+  "records": [
+    {
+      "decision": "CLOSE_O2_AS_REVIEWED_REFERENCE",
+      "next_unit": "CLOSE_O2_UNIT_FEEDBACK_HARDENING_AS_REVIEWED_REFERENCE_V0",
+      "selected": true,
+      "why": "O2 static probe reviewed clean; weak feedback remains typed and intentional."
+    },
+    {
+      "decision": "RUN_LIVE_FEEDBACK_AUDIT_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "Live audit still requires explicit source receipts/traces and is not part of this review."
+    },
+    {
+      "decision": "OPEN_C5_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "C5 remains blocked by weak feedback."
+    }
+  ],
+  "schema_version": "o2_review_downstream_decision_table_v0"
+}
