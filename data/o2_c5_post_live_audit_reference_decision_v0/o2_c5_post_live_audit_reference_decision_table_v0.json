@@ -1,0 +1,36 @@
+{
+  "decision_status": "NEXT_BRANCH_SELECTED",
+  "records": [
+    {
+      "branch": "EXECUTE_O2_C5_BUILD_TARGET_SELECTION_AFTER_LIVE_AUDIT_REFERENCE",
+      "next_unit": "EXECUTE_O2_C5_BUILD_TARGET_SELECTION_AFTER_LIVE_AUDIT_REFERENCE_V0",
+      "selected": true,
+      "why": "Reviewed live C5 audit evidence exists and build target guard now permits a separate build-target-selection execution unit."
+    },
+    {
+      "branch": "SELECT_BUILD_TARGET_NOW_IN_DECISION",
+      "next_unit": null,
+      "selected": false,
+      "why": "This decision selects the build target selection unit; it does not choose a build target."
+    },
+    {
+      "branch": "EMIT_BUILD_TARGET_CANDIDATE_NOW_IN_DECISION",
+      "next_unit": null,
+      "selected": false,
+      "why": "Candidate emission belongs to the selected execution unit, not this decision edge."
+    },
+    {
+      "branch": "CONTINUE_LIVE_AUDIT",
+      "next_unit": null,
+      "selected": false,
+      "why": "Current audit reference is clean and contains five observations; no continuation reason is present."
+    },
+    {
+      "branch": "REPAIR_OR_RETRY",
+      "next_unit": null,
+      "selected": false,
+      "why": "No failure is present in the live C5 audit reference closure."
+    }
+  ],
+  "schema_version": "o2_c5_post_live_audit_reference_decision_table_v0"
+}

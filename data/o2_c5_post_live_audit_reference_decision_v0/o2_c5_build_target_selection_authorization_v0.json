@@ -1,0 +1,21 @@
+{
+  "authorization_status": "BUILD_TARGET_SELECTION_EXECUTION_AUTHORIZED_NEXT",
+  "authorized_execution_mode": "C5_BUILD_TARGET_SELECTION_FROM_REVIEWED_LIVE_AUDIT_REFERENCE",
+  "authorized_next_unit": "EXECUTE_O2_C5_BUILD_TARGET_SELECTION_AFTER_LIVE_AUDIT_REFERENCE_V0",
+  "authorized_scope": [
+    "consume reviewed live C5 audit reference",
+    "verify five audit observations",
+    "verify no build target has been selected yet",
+    "select or emit a bounded build-target candidate if evidence supports it",
+    "emit review-ready build-target-selection output"
+  ],
+  "not_authorized_in_this_decision": [
+    "select build target",
+    "emit build target candidate",
+    "patch runtime",
+    "mutate source",
+    "mutate prior receipts",
+    "change architecture"
+  ],
+  "schema_version": "o2_c5_build_target_selection_authorization_v0"
+}
