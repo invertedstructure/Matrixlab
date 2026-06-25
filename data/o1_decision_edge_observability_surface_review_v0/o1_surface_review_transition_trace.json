@@ -1,0 +1,28 @@
+{
+  "schema_version": "o1_surface_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_REVIEWED_CLEAN_CLOSE_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "did O1 emit the required sidecar surface",
+      "step": "consume_o1_surface",
+      "taken": "review observation records, handle records, rollup, profile, readout, and source surface"
+    },
+    {
+      "answer": "no",
+      "question": "did O1 claim graph schema or move authority/runtime/C5/O2",
+      "step": "verify_nonauthority_boundary",
+      "taken": "emit nonauthority safety review with bad counters zero"
+    },
+    {
+      "answer": "yes",
+      "question": "can O1 be closed as a reviewed observability reference",
+      "step": "emit_closure_candidate",
+      "taken": "CLOSE_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_AS_REVIEWED_REFERENCE_V0"
+    }
+  ]
+}

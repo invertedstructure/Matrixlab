@@ -1,0 +1,24 @@
+{
+  "decision_status": "O1_SURFACE_REVIEW_DOWNSTREAM_TABLE_EMITTED",
+  "records": [
+    {
+      "decision": "CLOSE_O1_SURFACE_AS_REVIEWED_REFERENCE",
+      "next_unit": "CLOSE_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_AS_REVIEWED_REFERENCE_V0",
+      "selected": true,
+      "why": "O1 surface reviewed clean and closure candidate emitted."
+    },
+    {
+      "decision": "START_O2_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "O2 should follow after O1 is closed as reviewed reference."
+    },
+    {
+      "decision": "EXTRACT_GRAPH_SCHEMA_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "O1 is observability, not graph schema extraction."
+    }
+  ],
+  "schema_version": "o1_surface_review_downstream_decision_table_v0"
+}
