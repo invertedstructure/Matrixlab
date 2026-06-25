@@ -1,0 +1,27 @@
+{
+  "core_law": "No cell may consume, transform, or act on another cell output unless that output is wrapped in an explicit protocol packet with source, destination, authority, scope, status, allowed inputs, forbidden inputs, expected return, forbidden interpretations, and receipt basis.",
+  "critical_distinctions": [
+    "proposed-only packet != accepted packet",
+    "accepted packet != build",
+    "build/probe packet != verification",
+    "verification pass != review closure",
+    "handoff return != hidden next command",
+    "blocked feedback != repair",
+    "Cell 1 accepted authority != general Cell 1 authority",
+    "decision-edge observation != protocol proof",
+    "unit feedback != repair instruction"
+  ],
+  "packet_law_status": "REVIEWED_REFERENCE",
+  "required_packet_family": [
+    "PROPOSAL_PACKET_PROPOSED_ONLY",
+    "ACCEPTED_PROPOSAL_PACKET",
+    "CELL1_BUILDER_INTAKE_PACKET",
+    "CELL1_PROBE_OR_BUILD_PACKET",
+    "VERIFICATION_RETURN_PACKET",
+    "HANDOFF_RETURN_PACKET",
+    "BLOCKED_OR_TYPED_STOP_FEEDBACK_PACKET",
+    "DECISION_EDGE_OBSERVATION_SIDECAR",
+    "UNIT_FEEDBACK_SIDECAR"
+  ],
+  "schema_version": "c6_inter_cell_packet_law_reference_v0"
+}
