@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_weak_feedback_handling_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_HANDLING_STATIC_RECORDS_EMITTED_REVIEW_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is static weak-feedback handling authorized",
+      "step": "consume_weak_feedback_target_design",
+      "taken": "emit handling records"
+    },
+    {
+      "answer": "yes",
+      "question": "were the 3 weak records given handling outputs",
+      "step": "handle_three_weak_records",
+      "taken": "emit question/source-ref/acceptance/parking/C5 block records"
+    },
+    {
+      "answer": "no",
+      "question": "did handling resolve weak feedback or unblock C5",
+      "step": "preserve_block",
+      "taken": "preserve unresolved status and C5 block"
+    }
+  ]
+}
