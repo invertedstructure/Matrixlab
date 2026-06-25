@@ -1,0 +1,37 @@
+{
+  "decision_status": "NEXT_BRANCH_SELECTED",
+  "options": [
+    {
+      "branch": "DESIGN_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_TARGET",
+      "future_build_unit": "BUILD_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0",
+      "next_unit": "DESIGN_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_TARGET_V0",
+      "selected": true,
+      "why": "The reviewed example reference is frozen; the next lawful edge is target design before protocol build."
+    },
+    {
+      "branch": "BUILD_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_DIRECTLY",
+      "next_unit": null,
+      "selected": false,
+      "why": "Too fast. Build objective is valid, but the target should be designed/frozen first."
+    },
+    {
+      "branch": "DEFER_C6_AND_RETURN_TO_OBSERVATION_HARDENING",
+      "next_unit": null,
+      "selected": false,
+      "why": "Valid later, but the current bridge has enough reviewed examples to design a target."
+    },
+    {
+      "branch": "RUN_NEW_DOMAIN_SHIFT",
+      "next_unit": null,
+      "selected": false,
+      "why": "Not needed and not authorized before C6 packet discipline exists."
+    },
+    {
+      "branch": "OPEN_C7",
+      "next_unit": null,
+      "selected": false,
+      "why": "C7 is explicitly not authorized before C6 communication discipline exists."
+    }
+  ],
+  "schema_version": "c6_post_example_reference_decision_options_v0"
+}

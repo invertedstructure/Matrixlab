@@ -1,0 +1,60 @@
+{
+  "example_catalog_ref": "data/c6_example_extraction_from_c5_reference_v0/c6_inter_cell_protocol_example_catalog_v0.json",
+  "example_types_reviewed": [
+    "ACCEPTED_PROPOSAL_PACKET",
+    "BLOCKED_OR_TYPED_STOP_FEEDBACK",
+    "CELL1_ACCEPTED_PROPOSAL_CONSUMPTION",
+    "DECISION_EDGE_OBSERVATION",
+    "HANDOFF_RETURN_TO_CELL0",
+    "PROPOSAL_PACKET_PROPOSED_ONLY",
+    "VERIFICATION_RETURN"
+  ],
+  "examples_jsonl_ref": "data/c6_example_extraction_from_c5_reference_v0/c6_inter_cell_protocol_examples_from_c5_v0.jsonl",
+  "examples_reviewed": 12,
+  "fields_c6_likely_needs": [
+    "source_cell",
+    "target_cell",
+    "proposal_id",
+    "proposal_status",
+    "review_receipt_ref",
+    "accepted_status",
+    "authority_boundary",
+    "payload_boundary",
+    "target_surface",
+    "allowed_inputs",
+    "forbidden_inputs",
+    "verification_contract",
+    "patch_or_probe_ref",
+    "verification_receipt_ref",
+    "handoff_receipt_ref",
+    "blocked_next_moves",
+    "lawful_next_refinement_or_question",
+    "must_not_infer"
+  ],
+  "future_build_unit": "BUILD_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0",
+  "pressure_readout_ref": "data/c6_example_extraction_from_c5_reference_v0/c6_protocol_pressure_readout_from_c5_examples_v0.json",
+  "proposed_target_unit": "inter_cell.protocol_from_c5_examples.target.v0",
+  "schema_version": "c6_inter_cell_protocol_target_design_seed_v0",
+  "source_example_reference_receipt": "fe882749",
+  "target_design_ready": true,
+  "target_must_not_emit": [
+    "protocol candidate build artifacts",
+    "runtime patch",
+    "C7 artifacts",
+    "general Cell 1 authority",
+    "full-transfer claim",
+    "global-autonomy claim",
+    "runtime-wide enforcement claim"
+  ],
+  "target_should_emit": [
+    "packet family",
+    "packet schemas",
+    "state machine",
+    "gate table",
+    "forbidden transition table",
+    "derivation status records",
+    "negative controls",
+    "rollup/profile/readout",
+    "terminal stop with next_command_goal null"
+  ]
+}

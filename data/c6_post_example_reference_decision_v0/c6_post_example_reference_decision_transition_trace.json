@@ -1,0 +1,28 @@
+{
+  "schema_version": "c6_post_example_reference_decision_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_C6_POST_EXAMPLE_REFERENCE_DECISION_SELECTED_PROTOCOL_TARGET_DESIGN_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is the reviewed C5-to-C6 example reference frozen and decision-ready",
+      "step": "consume_c6_example_reference_closure",
+      "taken": "evaluate C6 protocol target design branch"
+    },
+    {
+      "answer": "DESIGN_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_TARGET_V0",
+      "question": "should C6 build directly or design the target first",
+      "step": "select_target_design_before_build",
+      "taken": "authorize target design only"
+    },
+    {
+      "answer": "no",
+      "question": "does this decision build/emit C6 protocol or authorize C7",
+      "step": "preserve_no_protocol_build_boundary",
+      "taken": "stop with selected target design unit"
+    }
+  ]
+}
