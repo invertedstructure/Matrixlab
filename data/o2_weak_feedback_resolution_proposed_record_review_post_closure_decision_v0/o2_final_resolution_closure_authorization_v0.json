@@ -1,0 +1,24 @@
+{
+  "authorization_status": "FINAL_RESOLUTION_CLOSURE_AUTHORIZED_NEXT",
+  "authorized_execution_mode": "FINAL_RESOLUTION_CLOSURE_FROM_FROZEN_REVIEWED_REFERENCE / NO_C5",
+  "authorized_next_unit": "EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE_V0",
+  "authorized_scope": [
+    "consume frozen reviewed weak-feedback resolution records",
+    "verify reviewed question-answer/source-ref/under-typed records are enough for final closure",
+    "emit explicit final-resolution closure artifacts only if gates pass",
+    "preserve C5 as blocked unless a later C5 decision explicitly changes it"
+  ],
+  "not_authorized_in_this_decision": [
+    "emit final resolution records",
+    "mark weak feedback resolved",
+    "set C5 reconsideration ready",
+    "open C5",
+    "run live feedback audit",
+    "repair",
+    "retry",
+    "patch runtime",
+    "mutate sources",
+    "mutate prior receipts"
+  ],
+  "schema_version": "o2_final_resolution_closure_authorization_v0"
+}

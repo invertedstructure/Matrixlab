@@ -1,0 +1,30 @@
+{
+  "decision_status": "NEXT_BRANCH_SELECTED",
+  "records": [
+    {
+      "branch": "EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE",
+      "next_unit": "EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE_V0",
+      "selected": true,
+      "why": "Reviewed resolution records are frozen as a reviewed reference and the final-resolution boundary explicitly requires a later decision before closure."
+    },
+    {
+      "branch": "MARK_WEAK_FEEDBACK_RESOLVED_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "This decision only selects final-resolution closure; it does not itself emit final resolution records."
+    },
+    {
+      "branch": "OPEN_C5_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "C5 remains blocked until final weak-feedback resolution closure exists and a later C5 decision explicitly selects reconsideration."
+    },
+    {
+      "branch": "RUN_LIVE_FEEDBACK_AUDIT_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "This is still the reviewed-artifact/final-resolution closure path, not a live feedback audit path."
+    }
+  ],
+  "schema_version": "o2_post_review_reference_closure_decision_table_v0"
+}

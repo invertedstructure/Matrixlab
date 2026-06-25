@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_post_review_reference_closure_decision_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION_SELECTED_FINAL_RESOLUTION_CLOSURE_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is the reviewed-artifact reference closed cleanly",
+      "step": "consume_reviewed_artifact_reference_closure",
+      "taken": "evaluate final-resolution closure branch"
+    },
+    {
+      "answer": "EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE_V0",
+      "question": "what is the next lawful edge",
+      "step": "select_final_resolution_closure",
+      "taken": "authorize final-resolution closure execution next"
+    },
+    {
+      "answer": "no",
+      "question": "does this decision open C5",
+      "step": "preserve_c5_boundary",
+      "taken": "keep C5 blocked"
+    }
+  ]
+}
