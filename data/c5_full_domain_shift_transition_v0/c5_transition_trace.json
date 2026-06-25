@@ -1,0 +1,37 @@
+{
+  "schema_version": "c5_full_domain_shift_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C5_DOMAIN_SHIFT_PASS_WITH_GAPS",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "artifact": "data/c5_full_domain_shift_transition_v0/domain_shift_contract_v0.json",
+      "status": "PASS",
+      "step": "LOAD_DOMAIN_CONTRACT"
+    },
+    {
+      "domain_id": "artifact_claim_review_v0",
+      "status": "PASS",
+      "step": "VALIDATE_DOMAIN_SCOPE"
+    },
+    {
+      "fixtures_total": 5,
+      "status": "PASS_WITH_GAPS",
+      "step": "RUN_FIXTURE_MATRIX",
+      "typed_stops": 2
+    },
+    {
+      "cell1_builds_attempted": 1,
+      "cell1_builds_verified": 1,
+      "status": "PASS",
+      "step": "CELL1_ACCEPTED_PROPOSAL_PATH"
+    },
+    {
+      "bad_counters_zero": true,
+      "status": "DOMAIN_SHIFT_PASS_WITH_GAPS",
+      "step": "DOMAIN_SHIFT_ROLLUP"
+    }
+  ]
+}

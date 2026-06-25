@@ -1,0 +1,62 @@
+{
+  "contract_schema": {
+    "allowed_inspection": {
+      "forbidden_modes": [
+        "UNBOUNDED_PAYLOAD",
+        "AMBIENT_CONTEXT",
+        "LATEST_FILE_GUESSING",
+        "MTIME_SELECTION"
+      ],
+      "inspection_modes": [
+        "REF_ONLY",
+        "SUMMARY_ONLY",
+        "BOUNDED_PAYLOAD"
+      ]
+    },
+    "authority_profile": {
+      "cell0": [
+        "inspect_declared_surface",
+        "classify_pressure",
+        "emit_proposal",
+        "emit_typed_stop",
+        "emit_receipt"
+      ],
+      "cell1": [
+        "consume_accepted_proposal",
+        "build_minimal_patch_or_probe",
+        "emit_verification_receipt",
+        "emit_handoff_receipt"
+      ],
+      "forbidden": [
+        "self_accept_proposal",
+        "freebuild",
+        "global_truth_claim",
+        "research_lab_expansion",
+        "auto_chain_builds"
+      ]
+    },
+    "domain_id": "artifact_claim_review_v0",
+    "domain_kind": "artifact_claim_review",
+    "domain_scope": {
+      "allowed_object_kinds": [
+        "artifact_record",
+        "claim_record",
+        "evidence_ref",
+        "support_status",
+        "review_status",
+        "proposal_packet",
+        "verification_receipt",
+        "handoff_receipt"
+      ],
+      "fixtures": [],
+      "forbidden_object_kinds": [
+        "unbounded_payload",
+        "external_web_claim",
+        "global_truth_object",
+        "research_lab_object"
+      ]
+    },
+    "schema_version": "domain_shift_contract_v0"
+  },
+  "schema_version": "domain_shift_contract_schema_v0"
+}
