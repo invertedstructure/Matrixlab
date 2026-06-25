@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_proposed_record_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_EXECUTED_REVIEWED_ARTIFACTS_CLOSE_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is proposed-record review authorized",
+      "step": "consume_proposed_record_review_decision",
+      "taken": "review frozen proposed records"
+    },
+    {
+      "answer": "yes",
+      "question": "are reviewed artifacts emitted explicitly",
+      "step": "cross_proposed_to_reviewed_artifacts",
+      "taken": "emit reviewed artifacts and route map"
+    },
+    {
+      "answer": "no",
+      "question": "does reviewed artifact emission finalize weak feedback or open C5",
+      "step": "preserve_final_resolution_and_c5_boundary",
+      "taken": "review proposed-record review output next"
+    }
+  ]
+}
