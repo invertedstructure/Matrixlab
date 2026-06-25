@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_c5_post_reconsideration_reference_decision_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_POST_C5_RECONSIDERATION_REFERENCE_DECISION_SELECTED_C5_OPENING_EXECUTION_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is C5 reconsideration closed as reviewed reference",
+      "step": "consume_c5_reconsideration_reference_closure",
+      "taken": "evaluate C5 opening execution branch"
+    },
+    {
+      "answer": "EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE_V0",
+      "question": "what is the next lawful edge after reviewed C5 reconsideration",
+      "step": "select_c5_opening_execution",
+      "taken": "authorize C5 opening execution next"
+    },
+    {
+      "answer": "no",
+      "question": "does this decision open C5",
+      "step": "preserve_decision_only_boundary",
+      "taken": "keep C5 unopened until selected execution unit"
+    }
+  ]
+}

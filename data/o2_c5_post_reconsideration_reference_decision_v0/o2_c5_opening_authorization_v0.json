@@ -1,0 +1,22 @@
+{
+  "authorization_status": "C5_OPENING_EXECUTION_AUTHORIZED_NEXT",
+  "authorized_execution_mode": "C5_OPENING_FROM_REVIEWED_RECONSIDERATION_REFERENCE",
+  "authorized_next_unit": "EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE_V0",
+  "authorized_scope": [
+    "consume C5 reconsideration reviewed reference",
+    "verify C5 reconsideration readiness",
+    "verify C5 opening guard",
+    "decide whether C5 opening record can be emitted"
+  ],
+  "not_authorized_in_this_decision": [
+    "open C5",
+    "run live feedback audit",
+    "repair",
+    "retry",
+    "patch runtime",
+    "mutate source",
+    "mutate prior receipts",
+    "change architecture"
+  ],
+  "schema_version": "o2_c5_opening_authorization_v0"
+}

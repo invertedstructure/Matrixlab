@@ -1,0 +1,30 @@
+{
+  "decision_status": "NEXT_BRANCH_SELECTED",
+  "records": [
+    {
+      "branch": "EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE",
+      "next_unit": "EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE_V0",
+      "selected": true,
+      "why": "C5 reconsideration is frozen as a reviewed reference and the open-decision candidate is ready."
+    },
+    {
+      "branch": "OPEN_C5_NOW_IN_DECISION",
+      "next_unit": null,
+      "selected": false,
+      "why": "This unit only selects opening execution; it does not open C5."
+    },
+    {
+      "branch": "RUN_LIVE_FEEDBACK_AUDIT_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "Live audit remains outside this decision-only edge."
+    },
+    {
+      "branch": "REPAIR_OR_RETRY",
+      "next_unit": null,
+      "selected": false,
+      "why": "No failure is present in the C5 reconsideration reference closure."
+    }
+  ],
+  "schema_version": "o2_c5_post_reconsideration_reference_decision_table_v0"
+}
