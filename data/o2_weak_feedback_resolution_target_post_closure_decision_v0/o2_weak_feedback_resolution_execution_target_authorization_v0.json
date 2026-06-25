@@ -1,0 +1,30 @@
+{
+  "authorization_status": "TARGET_DESIGN_AUTHORIZED",
+  "authorized_design_mode": "DESIGN_ONLY / WEAK_FEEDBACK_RESOLUTION_EXECUTION_TARGET / NO_EXECUTION_NO_C5",
+  "authorized_next_unit": "DESIGN_O2_WEAK_FEEDBACK_RESOLUTION_EXECUTION_TARGET_V0",
+  "schema_version": "o2_weak_feedback_resolution_execution_target_authorization_v0",
+  "target_goal": "Design a bounded execution target that will later turn reviewed skeletons and route maps into proposed resolution records under explicit review gates.",
+  "target_may_not": [
+    "execute resolution during design",
+    "answer question packets during design",
+    "satisfy source-ref requests during design",
+    "approve under-typed acceptance during design",
+    "emit reviewed resolution records during design",
+    "run live audit",
+    "repair",
+    "retry",
+    "patch runtime",
+    "mutate sources",
+    "open C5"
+  ],
+  "target_should_define": [
+    "which skeleton surfaces are eligible for proposed resolution execution",
+    "how proposed question-answer records may be produced or remain missing",
+    "how proposed source-ref satisfaction records may be produced or remain missing",
+    "how proposed under-typed review records may be produced or remain candidate-only",
+    "how parking continuation remains explicit unresolved status unless reviewed otherwise",
+    "how proposed weak-feedback resolution records are formed",
+    "what prevents proposed records from becoming reviewed resolution",
+    "what prevents C5 reconsideration until reviewed closure"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "decision_status": "NEXT_BRANCH_SELECTED",
+  "records": [
+    {
+      "branch": "DESIGN_O2_WEAK_FEEDBACK_RESOLUTION_EXECUTION_TARGET",
+      "next_unit": "DESIGN_O2_WEAK_FEEDBACK_RESOLUTION_EXECUTION_TARGET_V0",
+      "selected": true,
+      "why": "The resolution-target reference is closed; the next lawful edge is to design the bounded execution target that can later emit proposed resolution records without executing resolution in this decision unit."
+    },
+    {
+      "branch": "EXECUTE_RESOLUTION_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "This decision unit only selects the next branch. It may not answer, satisfy, approve, resolve, or emit resolution records."
+    },
+    {
+      "branch": "RUN_LIVE_FEEDBACK_AUDIT_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "Live audit may become a subtarget only if the execution-target design requires source traces."
+    },
+    {
+      "branch": "OPEN_C5_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "C5 remains blocked because zero resolution records exist and C5 reconsideration is false."
+    }
+  ],
+  "schema_version": "o2_rt_post_closure_decision_table_v0"
+}
