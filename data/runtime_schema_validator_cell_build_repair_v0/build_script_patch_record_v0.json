@@ -1,0 +1,19 @@
+{
+  "after_sha256": "fd491bf050070008e3c1acd2d2cd82dc9e4668f61be4cfb9da3f9bf2069456b7",
+  "before_sha256": "ef6d782b9d5f3ff5940009a339fa7f9712154b02e014e3fcd172b0924b981b83",
+  "change": "removed hidden_execution from generic FORBIDDEN_FIELDS so dedicated hidden_execution_fields_absent check can emit HIDDEN_EXECUTION_FIELD",
+  "does_not_change": [
+    "authority boundary",
+    "admissibility boundary",
+    "execution boundary",
+    "schema archive mutation policy",
+    "proposal repair policy",
+    "runtime routing",
+    "C7/C8 authorization"
+  ],
+  "patch_scope": "classification-only synthetic build runner repair",
+  "repair_status": "PATCH_APPLIED",
+  "schema_version": "runtime_schema_validator_build_repair_patch_record_v0",
+  "target_file": "scripts/build_runtime_schema_validator_cell_v0.py",
+  "why": "Previous failed build classified the hidden_execution_field demo as FORBIDDEN_FIELD before the dedicated hidden-execution check could run."
+}
