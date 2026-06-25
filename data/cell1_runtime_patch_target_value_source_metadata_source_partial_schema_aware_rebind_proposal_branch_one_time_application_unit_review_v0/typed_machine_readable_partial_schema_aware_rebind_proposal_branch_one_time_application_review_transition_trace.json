@@ -1,0 +1,28 @@
+{
+  "schema_version": "typed_machine_readable_partial_schema_aware_rebind_proposal_branch_one_time_application_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_PARTIAL_SCHEMA_AWARE_REBIND_PROPOSAL_BRANCH_ONE_TIME_APPLICATION_UNIT_REVIEWED_CLEAN_NEXT_OBJECTIVE_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "did the one-time application execute under authorized scope",
+      "step": "consume_application_receipt",
+      "taken": "review applied scope and ledger"
+    },
+    {
+      "answer": "no",
+      "question": "did values/metadata/runtime/C5/schema reuse move",
+      "step": "verify_boundaries",
+      "taken": "emit nonmetadata and nonreuse reviews"
+    },
+    {
+      "answer": "explicit next-objective decision required",
+      "question": "what happens after source-ref rebind application review",
+      "step": "emit_next_decision_surface",
+      "taken": "DECIDE_AFTER_PARTIAL_SCHEMA_AWARE_REBIND_PROPOSAL_BRANCH_ONE_TIME_APPLICATION_REVIEW_V0"
+    }
+  ]
+}
