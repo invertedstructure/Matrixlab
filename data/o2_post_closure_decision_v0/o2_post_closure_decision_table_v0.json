@@ -1,0 +1,36 @@
+{
+  "decision_status": "NEXT_BRANCH_SELECTED",
+  "records": [
+    {
+      "branch": "DESIGN_O2_WEAK_FEEDBACK_HANDLING_TARGET",
+      "next_unit": "DESIGN_O2_WEAK_FEEDBACK_HANDLING_TARGET_V0",
+      "selected": true,
+      "why": "Weak feedback remains unresolved and typed; C5 is blocked until weak feedback is handled or explicitly accepted as under-typed/question material."
+    },
+    {
+      "branch": "RUN_LIVE_FEEDBACK_AUDIT_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "Live feedback audit requires a later explicit source-receipt/traces objective and is not authorized by closure."
+    },
+    {
+      "branch": "RESOLVE_WEAK_FEEDBACK_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "This unit decides the next branch only; weak-feedback resolution belongs to a separate target design/build path."
+    },
+    {
+      "branch": "OPEN_C5_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "C5 remains blocked by weak feedback."
+    },
+    {
+      "branch": "DEFER_WEAK_FEEDBACK_AND_PICK_OTHER_PRE_C5_HARDENING",
+      "next_unit": null,
+      "selected": false,
+      "why": "Weak feedback is the active blocker exposed by O2 closure; handle it first unless a later human decision overrides."
+    }
+  ],
+  "schema_version": "o2_post_closure_decision_table_v0"
+}

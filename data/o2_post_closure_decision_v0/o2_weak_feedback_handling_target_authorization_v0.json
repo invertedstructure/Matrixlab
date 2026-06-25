@@ -1,0 +1,20 @@
+{
+  "authorization_status": "TARGET_DESIGN_AUTHORIZED",
+  "authorized_next_unit": "DESIGN_O2_WEAK_FEEDBACK_HANDLING_TARGET_V0",
+  "schema_version": "o2_weak_feedback_handling_target_authorization_v0",
+  "target_goal": "Design a bounded weak-feedback handling target for the 2 UNDER_TYPED_FEEDBACK and 1 AMBIGUOUS_REQUIRES_QUESTION records preserved by O2 closure.",
+  "target_may_not": [
+    "resolve weak feedback during design",
+    "run live feedback audit",
+    "repair source artifacts",
+    "retry failed units",
+    "select target for build",
+    "open C5"
+  ],
+  "target_should_define": [
+    "whether each weak feedback record needs a question packet, source-ref request, or under-typed acceptance",
+    "minimum evidence needed to resolve or park weak feedback",
+    "how to preserve C5 block until weak feedback is resolved or explicitly accepted",
+    "how to avoid treating weak feedback as failure, success, or repair"
+  ]
+}

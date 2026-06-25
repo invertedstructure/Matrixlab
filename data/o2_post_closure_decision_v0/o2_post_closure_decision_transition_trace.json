@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_post_closure_decision_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_POST_CLOSURE_DECISION_SELECTED_WEAK_FEEDBACK_HANDLING_TARGET_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is O2 closed and post-closure decision ready",
+      "step": "consume_o2_closure",
+      "taken": "evaluate next branch table"
+    },
+    {
+      "answer": "weak_feedback_count=3",
+      "question": "what blocks C5",
+      "step": "check_active_blocker",
+      "taken": "preserve C5 block"
+    },
+    {
+      "answer": "DESIGN_O2_WEAK_FEEDBACK_HANDLING_TARGET_V0",
+      "question": "what next branch is lawful",
+      "step": "select_next_branch",
+      "taken": "authorize weak-feedback handling target design next"
+    }
+  ]
+}
