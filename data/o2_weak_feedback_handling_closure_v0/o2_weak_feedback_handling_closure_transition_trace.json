@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_weak_feedback_handling_closure_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_HANDLING_CLOSED_AS_REVIEWED_REFERENCE_UNRESOLVED_DECISION_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is weak-feedback handling reviewed clean and close-ready",
+      "step": "consume_handling_review",
+      "taken": "freeze reviewed handling reference"
+    },
+    {
+      "answer": "no",
+      "question": "did closure resolve any weak feedback",
+      "step": "preserve_unresolved_status",
+      "taken": "freeze unresolved status"
+    },
+    {
+      "answer": "yes",
+      "question": "is C5 still blocked",
+      "step": "preserve_c5_block",
+      "taken": "emit post-closure decision point"
+    }
+  ]
+}

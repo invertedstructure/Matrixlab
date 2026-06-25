@@ -1,0 +1,24 @@
+{
+  "decision_status": "POST_CLOSURE_DECISION_READY",
+  "records": [
+    {
+      "decision": "DECIDE_NEXT_AFTER_O2_WEAK_FEEDBACK_HANDLING_REFERENCE_CLOSURE",
+      "next_unit": "DECIDE_NEXT_AFTER_O2_WEAK_FEEDBACK_HANDLING_REFERENCE_CLOSURE_V0",
+      "selected": true,
+      "why": "Reviewed handling reference is closed, but weak feedback remains unresolved and C5 is still blocked."
+    },
+    {
+      "decision": "RESOLVE_WEAK_FEEDBACK_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "Closure freezes reviewed handling. Resolution requires explicit later decision/build/review path."
+    },
+    {
+      "decision": "OPEN_C5_NOW",
+      "next_unit": null,
+      "selected": false,
+      "why": "C5 remains blocked by weak feedback."
+    }
+  ],
+  "schema_version": "o2_weak_feedback_handling_closure_downstream_decision_table_v0"
+}
