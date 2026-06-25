@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_c5_live_feedback_audit_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_C5_LIVE_FEEDBACK_AUDIT_AFTER_OPENING_REFERENCE_REVIEWED_CLEAN_CLOSE_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "did live C5 audit execute cleanly",
+      "step": "consume_live_feedback_audit_execution",
+      "taken": "review audit evidence surface and observation set"
+    },
+    {
+      "answer": "yes",
+      "question": "is bounded audit evidence review-clean",
+      "step": "verify_audit_evidence",
+      "taken": "confirm five observation records"
+    },
+    {
+      "answer": "no",
+      "question": "did audit select a build target",
+      "step": "verify_no_build_target",
+      "taken": "emit close-ready reviewed reference candidate"
+    }
+  ]
+}
