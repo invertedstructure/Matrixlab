@@ -1,0 +1,28 @@
+{
+  "schema_version": "post_bounded_probe_reference_decision_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_POST_BOUNDED_C6_ADOPTION_PROBE_REFERENCE_DECISION_SELECTED_OBSERVABILITY_EXTRACTION_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is the bounded C6 adoption-probe reference frozen and decision-ready",
+      "step": "consume_bounded_probe_reference_closure",
+      "taken": "evaluate post-reference branches"
+    },
+    {
+      "answer": "EXTRACT_DECISION_EDGE_OBSERVABILITY_REQUIREMENTS_FROM_BOUNDED_C6_ADOPTION_PROBE_REFERENCE_V0",
+      "question": "what is the smallest useful hardening edge",
+      "step": "select_observability_extraction",
+      "taken": "select decision-edge observability extraction"
+    },
+    {
+      "answer": "no",
+      "question": "does this authorize C7, runtime adoption, or unit-feedback hardening now",
+      "step": "defer_broader_moves",
+      "taken": "stop with extraction-ready decision"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "decision_status": "NEXT_BRANCH_SELECTED",
+  "options": [
+    {
+      "branch": "EXTRACT_DECISION_EDGE_OBSERVABILITY_REQUIREMENTS_FROM_BOUNDED_C6_ADOPTION_PROBE_REFERENCE",
+      "next_unit": "EXTRACT_DECISION_EDGE_OBSERVABILITY_REQUIREMENTS_FROM_BOUNDED_C6_ADOPTION_PROBE_REFERENCE_V0",
+      "selected": true,
+      "why": "The bounded probe generated 7 decision-edge observations. Extracting their requirements is the next smallest observation-hardening move."
+    },
+    {
+      "branch": "EXTRACT_UNIT_FEEDBACK_HARDENING_REQUIREMENTS_FROM_BOUNDED_C6_ADOPTION_PROBE_REFERENCE",
+      "next_unit": null,
+      "selected": false,
+      "why": "Important next, but it follows decision-edge observability extraction so feedback has clearer edge context."
+    },
+    {
+      "branch": "PARK_BOUNDED_C6_ADOPTION_PROBE_REFERENCE_AS_SUFFICIENT",
+      "next_unit": null,
+      "selected": false,
+      "why": "Reference remains parked, but the edge-observation surface is immediately useful for observation hardening."
+    },
+    {
+      "branch": "DESIGN_ANOTHER_BOUNDED_ADOPTION_PROBE",
+      "next_unit": null,
+      "selected": false,
+      "why": "Not yet. Repeating probes before extracting the observed edge surface would add evidence without improving observability."
+    },
+    {
+      "branch": "OPEN_C7",
+      "next_unit": null,
+      "selected": false,
+      "why": "Forbidden here. C7 stays deferred until after observation and feedback hardening."
+    },
+    {
+      "branch": "PATCH_RUNTIME_WITH_C6_PROTOCOL",
+      "next_unit": null,
+      "selected": false,
+      "why": "Forbidden here. The reference does not authorize runtime-wide enforcement."
+    }
+  ],
+  "options_from_reference": [
+    "decide whether to park the bounded adoption probe as sufficient evidence",
+    "decide whether to extract decision-edge observability requirements from the probe",
+    "decide whether to extract unit-feedback hardening requirements from the probe",
+    "decide whether to design another bounded adoption probe",
+    "decide whether to defer C7 until after observation/feedback hardening"
+  ],
+  "schema_version": "post_bounded_probe_reference_decision_options_v0"
+}
