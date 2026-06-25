@@ -1,0 +1,36 @@
+{
+  "packet_law_results": {
+    "accepted_packet_requires_review_receipt": true,
+    "blocked_feedback_not_repair": true,
+    "cell1_intake_scoped": true,
+    "handoff_not_hidden_next_command": true,
+    "probe_build_not_verification": true,
+    "proposed_only_rejected_by_cell1": true,
+    "verification_not_closure": true
+  },
+  "packet_sequence_expected": [
+    "PROPOSAL_PACKET_PROPOSED_ONLY",
+    "ACCEPTED_PROPOSAL_PACKET",
+    "CELL1_BUILDER_INTAKE_PACKET",
+    "CELL1_PROBE_OR_BUILD_PACKET",
+    "VERIFICATION_RETURN_PACKET",
+    "HANDOFF_RETURN_PACKET",
+    "BLOCKED_OR_TYPED_STOP_FEEDBACK_PACKET",
+    "DECISION_EDGE_OBSERVATION_SIDECAR",
+    "UNIT_FEEDBACK_SIDECAR"
+  ],
+  "packet_sequence_matches": true,
+  "packet_trace_count": 9,
+  "packet_types": [
+    "PROPOSAL_PACKET_PROPOSED_ONLY",
+    "ACCEPTED_PROPOSAL_PACKET",
+    "CELL1_BUILDER_INTAKE_PACKET",
+    "CELL1_PROBE_OR_BUILD_PACKET",
+    "VERIFICATION_RETURN_PACKET",
+    "HANDOFF_RETURN_PACKET",
+    "BLOCKED_OR_TYPED_STOP_FEEDBACK_PACKET",
+    "DECISION_EDGE_OBSERVATION_SIDECAR",
+    "UNIT_FEEDBACK_SIDECAR"
+  ],
+  "schema_version": "bounded_adoption_probe_packet_trace_review_v0"
+}
