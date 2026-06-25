@@ -1,0 +1,52 @@
+{
+  "accepted_count": 1,
+  "accepted_packets": [
+    {
+      "authority_boundary": {
+        "accepted": true,
+        "cell1_consumption_allowed": true,
+        "requires_review_acceptance": true
+      },
+      "claim_domain_scope": "artifact_claim_review_v0.fixture_005",
+      "evidence_bundle": [
+        "artifact_005",
+        "claim_005",
+        "accepted_review_basis_005"
+      ],
+      "failure_reject_handling": "Stop and emit O2 feedback if scope expands.",
+      "fixture_id": "domain_fixture_f65191f0",
+      "fixture_label": "fixture_005_accepted_proposal_triggers_cell1_probe_or_patch",
+      "must_not_infer": [
+        "accepted proposal != built",
+        "built != verified",
+        "verified != global truth"
+      ],
+      "payload_boundary": {
+        "inspection_mode": "BOUNDED_PAYLOAD",
+        "unbounded_payload_allowed": false
+      },
+      "proposal_id": "domain_proposal_91e4e950",
+      "proposal_status": "ACCEPTED",
+      "proposal_type": "CELL1_BOUNDED_PROBE",
+      "review_request": {
+        "approved": true,
+        "requested": true,
+        "review_receipt_ref": "accepted_review_basis_005"
+      },
+      "schema_version": "domain_shift_proposal_packet_v0",
+      "trigger": "accepted review basis exists for exactly one bounded probe",
+      "verification_contract": "Verify that one bounded probe record is emitted and returned to Cell 0/review."
+    }
+  ],
+  "required_c6_fields": [
+    "proposal_id",
+    "proposal_status",
+    "review_receipt_ref",
+    "accepted_status",
+    "authority_boundary",
+    "payload_boundary",
+    "target_surface",
+    "verification_contract"
+  ],
+  "schema_version": "c6_accepted_review_packet_examples_from_c5_v0"
+}

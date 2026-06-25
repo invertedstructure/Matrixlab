@@ -1,0 +1,79 @@
+{
+  "accepted_examples": [
+    {
+      "authority_boundary": {
+        "accepted": true,
+        "cell1_consumption_allowed": true,
+        "requires_review_acceptance": true
+      },
+      "claim_domain_scope": "artifact_claim_review_v0.fixture_005",
+      "evidence_bundle": [
+        "artifact_005",
+        "claim_005",
+        "accepted_review_basis_005"
+      ],
+      "failure_reject_handling": "Stop and emit O2 feedback if scope expands.",
+      "fixture_id": "domain_fixture_f65191f0",
+      "fixture_label": "fixture_005_accepted_proposal_triggers_cell1_probe_or_patch",
+      "must_not_infer": [
+        "accepted proposal != built",
+        "built != verified",
+        "verified != global truth"
+      ],
+      "payload_boundary": {
+        "inspection_mode": "BOUNDED_PAYLOAD",
+        "unbounded_payload_allowed": false
+      },
+      "proposal_id": "domain_proposal_91e4e950",
+      "proposal_status": "ACCEPTED",
+      "proposal_type": "CELL1_BOUNDED_PROBE",
+      "review_request": {
+        "approved": true,
+        "requested": true,
+        "review_receipt_ref": "accepted_review_basis_005"
+      },
+      "schema_version": "domain_shift_proposal_packet_v0",
+      "trigger": "accepted review basis exists for exactly one bounded probe",
+      "verification_contract": "Verify that one bounded probe record is emitted and returned to Cell 0/review."
+    }
+  ],
+  "distinction": "PROPOSED_ONLY != ACCEPTED",
+  "proposed_only_examples": [
+    {
+      "authority_boundary": {
+        "accepted": false,
+        "cell1_consumption_allowed": false,
+        "requires_review_acceptance": true
+      },
+      "claim_domain_scope": "artifact_claim_review_v0.fixture_004",
+      "evidence_bundle": [
+        "artifact_004",
+        "claim_004",
+        "evidence_004"
+      ],
+      "failure_reject_handling": "Remain parked as proposed-only; do not extract.",
+      "fixture_id": "domain_fixture_4febaf56",
+      "fixture_label": "fixture_004_missing_evidence_requires_extraction_proposal",
+      "must_not_infer": [
+        "review request is not approval",
+        "proposal packet is not accepted command"
+      ],
+      "payload_boundary": {
+        "inspection_mode": "BOUNDED_PAYLOAD",
+        "unbounded_payload_allowed": false
+      },
+      "proposal_id": "domain_proposal_d89bc3c8",
+      "proposal_status": "PROPOSED_ONLY",
+      "proposal_type": "BOUNDED_EXTRACTION_REQUEST",
+      "review_request": {
+        "approved": false,
+        "requested": true
+      },
+      "schema_version": "domain_shift_proposal_packet_v0",
+      "trigger": "claim cannot be classified under current evidence",
+      "verification_contract": "If accepted later, verify only whether bounded payload contains declared supporting sentence."
+    }
+  ],
+  "schema_version": "c6_proposal_packet_examples_from_c5_v0",
+  "source": "data/c5_full_domain_shift_transition_v0/domain_shift_proposal_packets_v0.jsonl"
+}

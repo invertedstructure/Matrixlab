@@ -1,0 +1,31 @@
+{
+  "fields_c6_likely_needs": [
+    "source_cell",
+    "target_cell",
+    "proposal_id",
+    "proposal_status",
+    "review_receipt_ref",
+    "accepted_status",
+    "authority_boundary",
+    "payload_boundary",
+    "target_surface",
+    "allowed_inputs",
+    "forbidden_inputs",
+    "verification_contract",
+    "patch_or_probe_ref",
+    "verification_receipt_ref",
+    "handoff_receipt_ref",
+    "blocked_next_moves",
+    "lawful_next_refinement_or_question",
+    "must_not_infer"
+  ],
+  "not_a_c6_protocol_design": true,
+  "open_questions_for_later_c6_design": [
+    "Which fields are required versus optional across all inter-cell packets?",
+    "How should C6 represent return-to-review versus return-to-Cell0?",
+    "How should a blocked builder path be distinguished from a verified handoff?",
+    "How should edge observations attach to inter-cell packet lineage?"
+  ],
+  "pressure_summary": "C5 examples show C6 needs typed inter-cell packets for proposal, acceptance, builder consumption, verification return, handoff, and blocked feedback.",
+  "schema_version": "c6_protocol_pressure_readout_from_c5_examples_v0"
+}

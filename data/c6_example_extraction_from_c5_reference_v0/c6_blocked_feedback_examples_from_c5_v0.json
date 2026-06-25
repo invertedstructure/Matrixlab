@@ -1,0 +1,125 @@
+{
+  "feedback_count": 2,
+  "feedback_records": [
+    {
+      "bare_failed_status": false,
+      "blocked_next_moves": [
+        "infer truth",
+        "mark false",
+        "extract payload",
+        "Cell 1 consume proposed-only packet"
+      ],
+      "failed_relative_to_boundary": "support_status_label_boundary",
+      "failed_relative_to_domain_object": [
+        {
+          "id": "artifact_002",
+          "kind": "artifact_record",
+          "summary": "Reviewer note has no approval field."
+        },
+        {
+          "claim": "Reviewer approved the artifact.",
+          "id": "claim_002",
+          "kind": "claim_record"
+        },
+        {
+          "id": "evidence_002",
+          "kind": "evidence_ref",
+          "supports": []
+        }
+      ],
+      "failed_relative_to_missing_capability_or_evidence": "supporting evidence for approval claim",
+      "failed_relative_to_source_surface": {
+        "allowed_fields": [
+          "id",
+          "kind",
+          "summary",
+          "claim",
+          "supports",
+          "requires",
+          "must_not_infer"
+        ],
+        "forbidden_fields": [
+          "unbounded_payload",
+          "ambient_context",
+          "latest_file",
+          "mtime_selected_content"
+        ],
+        "inspection_mode": "SUMMARY_ONLY"
+      },
+      "feedback_id": "domain_feedback_9a016959",
+      "feedback_quality": "DIAGNOSTIC_USEFUL",
+      "fixture_id": "domain_fixture_e73c859b",
+      "fixture_label": "fixture_002_unsupported_but_not_false_claim",
+      "lawful_next_refinement_or_question": "Provide an evidence_ref with explicit approval support or keep claim unsupported.",
+      "schema_version": "unit_feedback_record_v0",
+      "where_failed": "artifact_claim_review_v0.CELL0_LOCAL_DECISION_LOOP",
+      "why_failed": "Available evidence does not support the claim, but this does not license a false label."
+    },
+    {
+      "bare_failed_status": false,
+      "blocked_next_moves": [
+        "infer truth",
+        "mark false",
+        "extract payload",
+        "Cell 1 consume proposed-only packet"
+      ],
+      "failed_relative_to_boundary": "proposal_review_acceptance_boundary",
+      "failed_relative_to_domain_object": [
+        {
+          "id": "artifact_004",
+          "kind": "artifact_record",
+          "summary": "Artifact has bounded payload field but extraction is not pre-authorized."
+        },
+        {
+          "claim": "The payload contains a supporting sentence.",
+          "id": "claim_004",
+          "kind": "claim_record"
+        },
+        {
+          "id": "evidence_004",
+          "kind": "evidence_ref",
+          "requires": "bounded extraction proposal",
+          "supports": []
+        }
+      ],
+      "failed_relative_to_missing_capability_or_evidence": "review-accepted extraction authority",
+      "failed_relative_to_source_surface": {
+        "allowed_fields": [
+          "id",
+          "kind",
+          "summary",
+          "claim",
+          "supports",
+          "requires",
+          "must_not_infer"
+        ],
+        "forbidden_fields": [
+          "unbounded_payload",
+          "ambient_context",
+          "latest_file",
+          "mtime_selected_content"
+        ],
+        "inspection_mode": "BOUNDED_PAYLOAD"
+      },
+      "feedback_id": "domain_feedback_8c19dbd5",
+      "feedback_quality": "DIAGNOSTIC_USEFUL",
+      "fixture_id": "domain_fixture_4febaf56",
+      "fixture_label": "fixture_004_missing_evidence_requires_extraction_proposal",
+      "lawful_next_refinement_or_question": "Review and accept the bounded extraction proposal before Cell 1 may consume it.",
+      "schema_version": "unit_feedback_record_v0",
+      "where_failed": "artifact_claim_review_v0.CELL0_LOCAL_DECISION_LOOP",
+      "why_failed": "Claim classification requires bounded payload extraction that is not accepted yet."
+    }
+  ],
+  "must_preserve": [
+    "why_failed",
+    "where_failed",
+    "failed_relative_to_domain_object",
+    "failed_relative_to_source_surface",
+    "failed_relative_to_boundary",
+    "failed_relative_to_missing_capability_or_evidence",
+    "blocked_next_moves",
+    "lawful_next_refinement_or_question"
+  ],
+  "schema_version": "c6_blocked_feedback_examples_from_c5_v0"
+}

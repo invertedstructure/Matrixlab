@@ -1,0 +1,87 @@
+{
+  "example_count": 12,
+  "example_types": [
+    "ACCEPTED_PROPOSAL_PACKET",
+    "BLOCKED_OR_TYPED_STOP_FEEDBACK",
+    "CELL1_ACCEPTED_PROPOSAL_CONSUMPTION",
+    "DECISION_EDGE_OBSERVATION",
+    "HANDOFF_RETURN_TO_CELL0",
+    "PROPOSAL_PACKET_PROPOSED_ONLY",
+    "VERIFICATION_RETURN"
+  ],
+  "examples": [
+    {
+      "example_id": "c6_example_024cd3b2",
+      "example_type": "PROPOSAL_PACKET_PROPOSED_ONLY",
+      "protocol_use": "C6 must represent proposed-only packets distinctly from accepted commands.",
+      "title": "Proposed-only bounded extraction request stays non-command"
+    },
+    {
+      "example_id": "c6_example_2a8a60a0",
+      "example_type": "ACCEPTED_PROPOSAL_PACKET",
+      "protocol_use": "C6 must carry accepted proposal scope, review basis, and allowed target surface.",
+      "title": "Accepted bounded Cell 1 probe proposal"
+    },
+    {
+      "example_id": "c6_example_9704f767",
+      "example_type": "CELL1_ACCEPTED_PROPOSAL_CONSUMPTION",
+      "protocol_use": "C6 must bind builder execution to accepted proposal scope and zero freebuild/auto-chain counters.",
+      "title": "Cell 1 consumes exactly one accepted proposal"
+    },
+    {
+      "example_id": "c6_example_39d75cea",
+      "example_type": "VERIFICATION_RETURN",
+      "protocol_use": "C6 must require verification receipts and preserve must-not-infer constraints.",
+      "title": "Verification receipt returns bounded observation without global truth"
+    },
+    {
+      "example_id": "c6_example_63ca0e24",
+      "example_type": "HANDOFF_RETURN_TO_CELL0",
+      "protocol_use": "C6 must model return-to-Cell0/review instead of auto-chaining new builds.",
+      "title": "Cell 1 handoff returns verified bounded result"
+    },
+    {
+      "example_id": "c6_example_5adfdcde",
+      "example_type": "BLOCKED_OR_TYPED_STOP_FEEDBACK",
+      "protocol_use": "C6 must preserve blocked-build/typed-stop feedback payloads as returnable inter-cell evidence.",
+      "title": "Typed stop with diagnostic unit feedback: fixture_002_unsupported_but_not_false_claim"
+    },
+    {
+      "example_id": "c6_example_3465dc01",
+      "example_type": "BLOCKED_OR_TYPED_STOP_FEEDBACK",
+      "protocol_use": "C6 must preserve blocked-build/typed-stop feedback payloads as returnable inter-cell evidence.",
+      "title": "Typed stop with diagnostic unit feedback: fixture_004_missing_evidence_requires_extraction_proposal"
+    },
+    {
+      "example_id": "c6_example_4bc95d48",
+      "example_type": "DECISION_EDGE_OBSERVATION",
+      "protocol_use": "C6 must use edge observations to preserve visible inter-cell transitions.",
+      "title": "Decision edge observation for GUARD_AUTHORITY_EDGE"
+    },
+    {
+      "example_id": "c6_example_9b223b11",
+      "example_type": "DECISION_EDGE_OBSERVATION",
+      "protocol_use": "C6 must use edge observations to preserve visible inter-cell transitions.",
+      "title": "Decision edge observation for PROPOSE_VALIDATE_EDGE"
+    },
+    {
+      "example_id": "c6_example_c99eda30",
+      "example_type": "DECISION_EDGE_OBSERVATION",
+      "protocol_use": "C6 must use edge observations to preserve visible inter-cell transitions.",
+      "title": "Decision edge observation for BUILDER_HANDOFF_EDGE"
+    },
+    {
+      "example_id": "c6_example_5c672f5c",
+      "example_type": "DECISION_EDGE_OBSERVATION",
+      "protocol_use": "C6 must use edge observations to preserve visible inter-cell transitions.",
+      "title": "Decision edge observation for VERIFICATION_RETURN_EDGE"
+    },
+    {
+      "example_id": "c6_example_6b8b671a",
+      "example_type": "DECISION_EDGE_OBSERVATION",
+      "protocol_use": "C6 must use edge observations to preserve visible inter-cell transitions.",
+      "title": "Decision edge observation for CAPABILITY_BOUNDARY_EDGE"
+    }
+  ],
+  "schema_version": "c6_inter_cell_protocol_example_catalog_v0"
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "c6_example_extraction_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_C6_EXAMPLE_EXTRACTION_FROM_C5_REFERENCE_REVIEW_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is C6 example extraction authorized next",
+      "step": "consume_post_c5_decision",
+      "taken": "read reviewed C5 reference and C5 build artifacts"
+    },
+    {
+      "answer": "proposal, acceptance, Cell1 probe, verification, handoff, feedback, edge observations",
+      "question": "which C5 examples should C6 consume later",
+      "step": "extract_inter_cell_examples",
+      "taken": "emit example catalog and typed examples"
+    },
+    {
+      "answer": "no",
+      "question": "does extraction open or design C6",
+      "step": "preserve_no_c6_open_boundary",
+      "taken": "emit review-ready extraction object"
+    }
+  ]
+}
