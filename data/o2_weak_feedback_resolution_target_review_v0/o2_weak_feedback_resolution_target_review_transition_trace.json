@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_weak_feedback_resolution_target_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_RESOLUTION_TARGET_REVIEWED_STATIC_SURFACE_CLEAN_CLOSE_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "did static resolution target surface build cleanly",
+      "step": "consume_resolution_target_build",
+      "taken": "review skeletons and route map"
+    },
+    {
+      "answer": "no",
+      "question": "do skeletons or route map resolve weak feedback",
+      "step": "verify_nonresolution",
+      "taken": "preserve unresolved state"
+    },
+    {
+      "answer": "no",
+      "question": "is C5 reconsideration ready",
+      "step": "verify_c5_block",
+      "taken": "emit closure candidate"
+    }
+  ]
+}
