@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_closure_repair_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_PROPOSED_RECORD_REVIEW_CLOSURE_VALIDATOR_REPAIRED_RERUN_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "did closure fail with validator-compatible failure codes",
+      "step": "consume_failed_closure_receipt",
+      "taken": "inspect boundary key shape"
+    },
+    {
+      "answer": "yes",
+      "question": "does actual boundary key preserve same false boundary",
+      "step": "repair_validator_key",
+      "taken": "patch closure validator compatibility"
+    },
+    {
+      "answer": "no",
+      "question": "did repair resolve weak feedback or open C5",
+      "step": "preserve_boundaries",
+      "taken": "authorize rerun only"
+    }
+  ]
+}

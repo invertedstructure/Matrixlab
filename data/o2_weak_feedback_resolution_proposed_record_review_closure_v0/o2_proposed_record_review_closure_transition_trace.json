@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_proposed_record_review_closure_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_CLOSED_AS_REVIEWED_REFERENCE_FINAL_RESOLUTION_DECISION_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is reviewed-artifact output clean and close-ready",
+      "step": "consume_proposed_record_review_review",
+      "taken": "freeze reviewed-artifact reference"
+    },
+    {
+      "answer": "no",
+      "question": "does closure finalize weak-feedback resolution",
+      "step": "lock_final_resolution_boundary",
+      "taken": "preserve final-resolution boundary"
+    },
+    {
+      "answer": "no",
+      "question": "does closure open C5",
+      "step": "preserve_c5_block",
+      "taken": "emit post-closure decision point"
+    }
+  ]
+}
