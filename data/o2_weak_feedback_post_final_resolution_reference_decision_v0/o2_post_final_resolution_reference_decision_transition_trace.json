@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_post_final_resolution_reference_decision_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_POST_FINAL_RESOLUTION_REFERENCE_DECISION_SELECTED_C5_RECONSIDERATION_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is weak feedback resolved and frozen as reviewed reference",
+      "step": "consume_final_resolution_reference_closure",
+      "taken": "evaluate C5 reconsideration branch"
+    },
+    {
+      "answer": "EXECUTE_O2_C5_RECONSIDERATION_AFTER_WEAK_FEEDBACK_RESOLUTION_V0",
+      "question": "what is the next lawful edge after weak-feedback resolution",
+      "step": "select_c5_reconsideration",
+      "taken": "authorize C5 reconsideration execution next"
+    },
+    {
+      "answer": "no",
+      "question": "does this decision open C5",
+      "step": "preserve_c5_block_in_decision",
+      "taken": "keep C5 blocked until execution unit"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "authorization_status": "C5_RECONSIDERATION_AUTHORIZED_NEXT",
+  "authorized_execution_mode": "C5_RECONSIDERATION_FROM_FROZEN_FINAL_RESOLUTION_REFERENCE",
+  "authorized_next_unit": "EXECUTE_O2_C5_RECONSIDERATION_AFTER_WEAK_FEEDBACK_RESOLUTION_V0",
+  "authorized_scope": [
+    "consume final-resolution closure reviewed reference",
+    "verify weak feedback resolved",
+    "verify C5 remains blocked before reconsideration",
+    "decide whether C5 reconsideration readiness can be emitted"
+  ],
+  "not_authorized_in_this_decision": [
+    "set C5 reconsideration ready",
+    "open C5",
+    "run live feedback audit",
+    "repair",
+    "retry",
+    "patch runtime",
+    "mutate source",
+    "mutate prior receipts"
+  ],
+  "schema_version": "o2_c5_reconsideration_authorization_v0"
+}
