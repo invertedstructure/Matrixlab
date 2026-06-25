@@ -1,0 +1,28 @@
+{
+  "schema_version": "runtime_observability_sidecar_reference_closure_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_RUNTIME_OBSERVABILITY_SIDECAR_CLOSED_AS_REVIEWED_REFERENCE_DECISION_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is Sidecar reviewed close-ready",
+      "step": "consume_review",
+      "taken": "freeze reviewed Sidecar reference"
+    },
+    {
+      "answer": "hook registry, event records, append-only trace, typed observation failures, forbidden-control demos, load-bearing fields, zero controls",
+      "question": "what is preserved",
+      "step": "freeze_reference",
+      "taken": "emit frozen reference, manifest, index, rollup, profile"
+    },
+    {
+      "answer": "yes",
+      "question": "are Schema Validator and Sidecar references both frozen",
+      "step": "mark_pre_c8_interlock_completion",
+      "taken": "emit decision-ready object; C8 still requires separate decision"
+    }
+  ]
+}
