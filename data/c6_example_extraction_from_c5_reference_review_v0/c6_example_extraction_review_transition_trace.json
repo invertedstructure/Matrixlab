@@ -1,0 +1,28 @@
+{
+  "schema_version": "c6_example_extraction_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_C6_EXAMPLE_EXTRACTION_FROM_C5_REFERENCE_REVIEWED_CLOSE_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "did extraction complete and become review-ready",
+      "step": "consume_c6_example_extraction_receipt",
+      "taken": "review extracted examples and boundaries"
+    },
+    {
+      "answer": "yes",
+      "question": "do examples cover proposal, acceptance, Cell1, verification, handoff, feedback, and edge surfaces",
+      "step": "confirm_example_surface",
+      "taken": "emit close candidate"
+    },
+    {
+      "answer": "no",
+      "question": "does review open or design C6",
+      "step": "preserve_no_c6_design_boundary",
+      "taken": "recommend closure as reviewed reference"
+    }
+  ]
+}
