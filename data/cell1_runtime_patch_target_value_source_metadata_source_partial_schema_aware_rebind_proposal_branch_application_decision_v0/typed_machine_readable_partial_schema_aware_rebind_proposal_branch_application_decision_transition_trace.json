@@ -1,0 +1,28 @@
+{
+  "schema_version": "typed_machine_readable_partial_schema_aware_rebind_proposal_branch_application_decision_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_PARTIAL_SCHEMA_AWARE_REBIND_PROPOSAL_BRANCH_APPLICATION_DECISION_RECORDED_ONE_TIME_APPLICATION_AUTHORIZED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is the authorization contract reviewed and decision surface ready",
+      "step": "consume_decision_surface",
+      "taken": "record chat human decision"
+    },
+    {
+      "answer": "ACCEPT_FOUR_PROPOSAL_REBINDS_FOR_ONE_TIME_APPLICATION_UNIT",
+      "question": "what decision was made",
+      "step": "record_bounded_decision",
+      "taken": "grant one-time application-unit authorization only"
+    },
+    {
+      "answer": "no",
+      "question": "does this unit apply rebinds",
+      "step": "preserve_nonapplication_boundary",
+      "taken": "emit next application unit contract"
+    }
+  ]
+}
