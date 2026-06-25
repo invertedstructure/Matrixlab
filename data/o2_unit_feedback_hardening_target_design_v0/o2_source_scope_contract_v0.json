@@ -1,0 +1,48 @@
+{
+  "allowed_inputs_for_later_live_audit": [
+    "unit receipts",
+    "unit traces",
+    "halt records",
+    "failure events",
+    "B2 failure progress records",
+    "O1 decision-edge observation records",
+    "source surface refs",
+    "boundary refs",
+    "capability registry or enum if available",
+    "proposal packets",
+    "verification records",
+    "handoff records",
+    "review records"
+  ],
+  "forbidden_inputs": [
+    "repair execution",
+    "target selection",
+    "architecture changes",
+    "source mutation",
+    "retry command",
+    "hidden memory as failure evidence",
+    "unbounded payload inspection",
+    "C5 execution artifacts",
+    "global closure / autonomy / proof claims"
+  ],
+  "initial_source_refs": [
+    {
+      "path": "data/o1_decision_edge_observability_surface_closure_v0_receipts/e9d2dcf5.json",
+      "receipt_id": "e9d2dcf5"
+    },
+    {
+      "path": "data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_reviewed_reference_v0.json",
+      "reference": "o1_reviewed_reference"
+    },
+    {
+      "path": "data/o1_decision_edge_observability_surface_v0/decision_edge_observation_records_v0.jsonl",
+      "reference": "o1_observation_records"
+    }
+  ],
+  "inspection_mode": "DESIGN_AND_STATIC_PROBE_ONLY",
+  "payload_inspection_allowed": false,
+  "schema_version": "o2_source_scope_contract_v0",
+  "selection_rule": "explicit_refs_only",
+  "source_mutation_allowed": false,
+  "source_scope_status": "STATIC_SCHEMA_AND_PROBE_ONLY_FOR_INITIAL_BUILD"
+}

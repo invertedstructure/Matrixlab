@@ -1,0 +1,26 @@
+{
+  "core_question": "If a unit failed, stopped, blocked, or was under-typed, what exactly did that teach us?",
+  "goal": "make failure informative enough that future repair, review, proposal, or domain-shift work can proceed without guessing",
+  "not_goal": [
+    "repair failure",
+    "retry unit",
+    "select build target",
+    "apply runtime patch",
+    "open C5",
+    "prove root cause globally",
+    "count failure as progress"
+  ],
+  "objective": "upgrade unit failure output from bare status to diagnostic feedback",
+  "objective_status": "FROZEN_FOR_BUILD",
+  "schema_version": "o2_objective_contract_v0",
+  "success_means": [
+    "failure feedback names where and why failure occurred",
+    "relative object/source/boundary/rule/capability are visible",
+    "missing capabilities are candidate-only",
+    "refinement candidates are proposed-only",
+    "unchanged retries are blocked",
+    "expected limits are separated from bugs",
+    "rollup/readout/profile summarize feedback quality",
+    "bad counters are zero"
+  ]
+}

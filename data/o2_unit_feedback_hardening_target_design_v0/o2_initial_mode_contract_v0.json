@@ -1,0 +1,32 @@
+{
+  "deferred_mode": "LIVE_FEEDBACK_AUDIT",
+  "deferred_mode_requires_explicit_refs": [
+    "unit receipt refs",
+    "unit trace refs if available",
+    "halt records",
+    "failure event records",
+    "O1 edge observation refs if available",
+    "source surface refs",
+    "boundary refs"
+  ],
+  "initial_mode": "STATIC_SCHEMA_AND_PROBE_ONLY",
+  "initial_mode_allowed": [
+    "emit schemas",
+    "emit feedback quality enum",
+    "emit demo failure events",
+    "emit demo feedback records",
+    "emit rollup/readout",
+    "emit negative controls",
+    "emit O2 receipt"
+  ],
+  "initial_mode_not_required": [
+    "live source failures",
+    "live repair action",
+    "live retry",
+    "live C5 input"
+  ],
+  "no_ambient_inference": true,
+  "no_latest_file_selection": true,
+  "no_mtime_selection": true,
+  "schema_version": "o2_initial_mode_contract_v0"
+}

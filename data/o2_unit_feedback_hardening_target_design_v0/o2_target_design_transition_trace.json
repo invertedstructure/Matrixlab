@@ -1,0 +1,34 @@
+{
+  "schema_version": "o2_target_design_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_UNIT_FEEDBACK_HARDENING_TARGET_DESIGNED_BUILD_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is O1 closed as reviewed reference and O2 design ready",
+      "step": "consume_o1_closure",
+      "taken": "design O2 target"
+    },
+    {
+      "answer": "STATIC_SCHEMA_AND_PROBE_ONLY",
+      "question": "which O2 mode is lawful first",
+      "step": "freeze_initial_mode",
+      "taken": "defer LIVE_FEEDBACK_AUDIT"
+    },
+    {
+      "answer": "why, where, relative-to stack, blocked moves, lawful refinement, evidence, must-not-infer",
+      "question": "what must useful feedback contain",
+      "step": "freeze_feedback_contracts",
+      "taken": "emit axes, quality enum, schemas, demo boundary, retry gate, non-repair boundary"
+    },
+    {
+      "answer": "BUILD_O2_UNIT_FEEDBACK_HARDENING_V0",
+      "question": "what next unit is lawful",
+      "step": "authorize_next",
+      "taken": "authorize O2 static schema/probe build next"
+    }
+  ]
+}

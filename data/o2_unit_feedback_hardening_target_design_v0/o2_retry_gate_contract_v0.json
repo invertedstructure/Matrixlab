@@ -1,0 +1,23 @@
+{
+  "forbidden_retry_conditions": [
+    "same_unit",
+    "same_inputs",
+    "same_boundary",
+    "same_missing_capability",
+    "same_evidence",
+    "same_failure",
+    "retry_anyway"
+  ],
+  "retry_allowed_default": false,
+  "retry_gate_status": "RETRY_RULE_FROZEN",
+  "retry_requires_one_of": [
+    "new_evidence",
+    "changed_boundary",
+    "smaller_surface",
+    "added_discriminator",
+    "accepted_refinement",
+    "expected_external_condition_changed"
+  ],
+  "schema_version": "o2_retry_gate_contract_v0",
+  "terminal_if_blocked": "STOP_SAME_FAILURE_RETRY_BLOCKED"
+}
