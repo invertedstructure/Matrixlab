@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_c5_live_feedback_audit_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_C5_LIVE_FEEDBACK_AUDIT_AFTER_OPENING_REFERENCE_EXECUTED_AUDIT_REVIEW_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is live C5 audit execution authorized",
+      "step": "consume_post_c5_opening_decision",
+      "taken": "consume reviewed C5 opening reference"
+    },
+    {
+      "answer": "yes",
+      "question": "can bounded audit evidence be emitted",
+      "step": "execute_live_feedback_audit",
+      "taken": "emit audit evidence surface and observation set"
+    },
+    {
+      "answer": "no",
+      "question": "does audit execution select a build target",
+      "step": "hold_build_target_guard",
+      "taken": "defer target selection until audit review/decision"
+    }
+  ]
+}

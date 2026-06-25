@@ -1,0 +1,37 @@
+{
+  "observation_count": 5,
+  "observation_set_status": "AUDIT_OBSERVATIONS_EMITTED",
+  "observations": [
+    {
+      "classification": "CONFIRMED",
+      "evidence": "C5 opening reviewed reference exists and reports c5_opened=true.",
+      "observation_id": "C5_AUDIT_OBS_001_C5_OPEN_REFERENCE_PRESENT",
+      "source_path": "data/o2_c5_opening_after_reconsideration_reference_reference_closure_v0/o2_c5_opening_reviewed_reference_v0.json"
+    },
+    {
+      "classification": "CONFIRMED",
+      "evidence": "Pre-audit guard reported live_feedback_audit_executed=false.",
+      "observation_id": "C5_AUDIT_OBS_002_LIVE_AUDIT_GUARD_PREVIOUSLY_HELD",
+      "source_path": "data/o2_c5_opening_after_reconsideration_reference_reference_closure_v0/o2_c5_live_audit_guard_reference_v0.json"
+    },
+    {
+      "classification": "CONFIRMED",
+      "evidence": "Build target guard reports target_selected_for_build=false.",
+      "observation_id": "C5_AUDIT_OBS_003_BUILD_TARGET_NOT_SELECTED",
+      "source_path": "data/o2_c5_opening_after_reconsideration_reference_reference_closure_v0/o2_c5_build_target_guard_reference_v0.json"
+    },
+    {
+      "classification": "CONFIRMED",
+      "evidence": "Resolved weak-feedback basis remains frozen with three emitted resolution records.",
+      "observation_id": "C5_AUDIT_OBS_004_RESOLVED_WEAK_FEEDBACK_BASIS_PRESENT",
+      "source_path": "data/o2_c5_opening_after_reconsideration_reference_reference_closure_v0_receipts/bc04e77f.json"
+    },
+    {
+      "classification": "REVIEW_REQUIRED",
+      "evidence": "Audit produces evidence only; build target selection remains downstream of audit review.",
+      "observation_id": "C5_AUDIT_OBS_005_NEXT_DECISION_REQUIRED",
+      "source_path": "data/o2_c5_opening_after_reconsideration_reference_reference_closure_v0/o2_post_c5_opening_reference_decision_readiness_v0.json"
+    }
+  ],
+  "schema_version": "o2_c5_live_feedback_audit_observation_set_v0"
+}
