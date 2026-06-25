@@ -1,0 +1,28 @@
+{
+  "schema_version": "decision_edge_observability_reference_closure_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_DECISION_EDGE_OBSERVABILITY_REQUIREMENTS_CLOSED_AS_REVIEWED_REFERENCE_DECISION_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "are decision-edge observability requirements reviewed and close-ready",
+      "step": "consume_observability_review",
+      "taken": "freeze reviewed observability requirement reference"
+    },
+    {
+      "answer": "edge requirements, required fields, field schema, guards, negative controls",
+      "question": "what is frozen",
+      "step": "freeze_requirement_surface",
+      "taken": "emit reference, manifest, index, rollup/profile/report"
+    },
+    {
+      "answer": "no",
+      "question": "does closure harden unit feedback, patch runtime, or authorize C7",
+      "step": "preserve_boundary",
+      "taken": "stop with post-observability-reference decision ready"
+    }
+  ]
+}
