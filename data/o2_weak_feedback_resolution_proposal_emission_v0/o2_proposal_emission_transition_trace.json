@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_proposal_emission_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_RESOLUTION_PROPOSAL_EMISSION_EXECUTED_PROPOSED_RECORDS_REVIEW_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is proposal emission authorized",
+      "step": "consume_post_closure_decision",
+      "taken": "emit proposed records from reviewed templates"
+    },
+    {
+      "answer": "no",
+      "question": "are emitted records reviewed records",
+      "step": "cross_template_to_proposal_boundary",
+      "taken": "mark all emitted records UNREVIEWED"
+    },
+    {
+      "answer": "no",
+      "question": "does proposal emission resolve weak feedback or unblock C5",
+      "step": "preserve_resolution_and_c5_boundary",
+      "taken": "review emitted proposals next"
+    }
+  ]
+}
