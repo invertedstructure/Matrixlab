@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_c5_opening_reference_closure_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_C5_OPENING_CLOSED_AS_REVIEWED_REFERENCE_POST_OPENING_DECISION_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is C5 opening reviewed clean",
+      "step": "consume_c5_opening_review",
+      "taken": "freeze C5 opening reviewed reference"
+    },
+    {
+      "answer": "yes",
+      "question": "is C5 open",
+      "step": "freeze_open_status",
+      "taken": "freeze C5 opened status as reference"
+    },
+    {
+      "answer": "no",
+      "question": "did reference closure run live audit or choose build target",
+      "step": "preserve_live_audit_guard",
+      "taken": "emit post-opening decision readiness"
+    }
+  ]
+}
