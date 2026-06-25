@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_weak_feedback_resolution_execution_target_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_RESOLUTION_EXECUTION_TARGET_DESIGNED_BUILD_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is resolution execution target design authorized",
+      "step": "consume_rt_post_closure_decision",
+      "taken": "design execution target"
+    },
+    {
+      "answer": "yes",
+      "question": "can proposed records be designed without executing resolution",
+      "step": "define_proposed_record_layer",
+      "taken": "freeze proposed-record contracts and proposal/review boundary"
+    },
+    {
+      "answer": "no",
+      "question": "did design emit resolution records or unblock C5",
+      "step": "preserve_zero_resolution_state",
+      "taken": "authorize static execution target build next"
+    }
+  ]
+}
