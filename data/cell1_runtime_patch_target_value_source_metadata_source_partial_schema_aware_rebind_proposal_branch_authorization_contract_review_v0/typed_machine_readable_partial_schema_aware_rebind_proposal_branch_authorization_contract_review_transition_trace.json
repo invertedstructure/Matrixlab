@@ -1,0 +1,28 @@
+{
+  "schema_version": "typed_machine_readable_partial_schema_aware_rebind_proposal_branch_authorization_contract_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_PARTIAL_SCHEMA_AWARE_REBIND_PROPOSAL_BRANCH_AUTHORIZATION_CONTRACT_REVIEWED_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "does the contract define bounded scope and preconditions",
+      "step": "consume_authorization_contract",
+      "taken": "review contract surfaces"
+    },
+    {
+      "answer": "no",
+      "question": "does review grant authorization",
+      "step": "preserve_nonapplication",
+      "taken": "emit decision surface only"
+    },
+    {
+      "answer": "request human or validator decision",
+      "question": "what is the next lawful boundary",
+      "step": "select_next_boundary",
+      "taken": "REQUEST_PARTIAL_SCHEMA_AWARE_REBIND_PROPOSAL_BRANCH_APPLICATION_DECISION_V0"
+    }
+  ]
+}
