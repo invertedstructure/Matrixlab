@@ -1,0 +1,28 @@
+{
+  "schema_version": "o1_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_EMITTED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is O1 build authorized from a designed target",
+      "step": "consume_o1_design",
+      "taken": "consume explicit source receipts"
+    },
+    {
+      "answer": "8 observation sidecars emitted",
+      "question": "were local decision-edge fields surfaced",
+      "step": "emit_sidecar_records",
+      "taken": "write observation records JSONL"
+    },
+    {
+      "answer": "no",
+      "question": "did O1 define a graph schema, tracker, command, authority, runtime patch, or C5",
+      "step": "preserve_nonauthority_boundary",
+      "taken": "emit rollup/profile/readout with bad counters zero"
+    }
+  ]
+}
