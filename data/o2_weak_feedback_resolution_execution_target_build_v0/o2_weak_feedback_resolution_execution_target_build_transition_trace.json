@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_weak_feedback_resolution_execution_target_build_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_RESOLUTION_EXECUTION_TARGET_STATIC_SURFACE_EMITTED_REVIEW_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is static execution target build authorized",
+      "step": "consume_execution_target_design",
+      "taken": "materialize templates and gate readouts"
+    },
+    {
+      "answer": "no",
+      "question": "do templates count as proposed or reviewed records",
+      "step": "materialize_template_surface",
+      "taken": "emit zero-record attestation"
+    },
+    {
+      "answer": "no",
+      "question": "does execution target build unblock C5",
+      "step": "preserve_c5_block",
+      "taken": "review required next"
+    }
+  ]
+}
