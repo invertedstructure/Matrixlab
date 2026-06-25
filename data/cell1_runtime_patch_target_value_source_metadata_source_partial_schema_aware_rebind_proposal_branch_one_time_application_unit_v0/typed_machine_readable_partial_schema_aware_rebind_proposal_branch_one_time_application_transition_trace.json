@@ -1,0 +1,34 @@
+{
+  "schema_version": "typed_machine_readable_partial_schema_aware_rebind_proposal_branch_one_time_application_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_MACHINE_READABLE_PARTIAL_SCHEMA_AWARE_REBIND_PROPOSAL_BRANCH_ONE_TIME_APPLICATION_UNIT_APPLIED_REVIEW_REQUIRED",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is one-time application authorized",
+      "step": "consume_application_decision",
+      "taken": "build application scope guard"
+    },
+    {
+      "answer": "yes",
+      "question": "may hold be released inside this unit",
+      "step": "release_hold",
+      "taken": "release hold for four authorized proposal rebinds only"
+    },
+    {
+      "answer": "exactly four authorized proposal rebinds",
+      "question": "which rebinds are applied",
+      "step": "apply_rebinds",
+      "taken": "materialize applied rebind table and ledger"
+    },
+    {
+      "answer": "no",
+      "question": "were values/metadata/runtime/C5/schema reuse touched",
+      "step": "preserve_boundaries",
+      "taken": "emit nonmetadata and nonreuse boundary"
+    }
+  ]
+}
