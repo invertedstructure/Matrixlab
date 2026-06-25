@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_O2_WEAK_FEEDBACK_REMAINS",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is O2 build authorized in static schema/probe mode",
+      "step": "consume_o2_design",
+      "taken": "build schemas and demo feedback machinery"
+    },
+    {
+      "answer": "10 feedback records emitted",
+      "question": "did demo failed/stopped/blocked units receive diagnostic feedback",
+      "step": "emit_feedback_records",
+      "taken": "write feedback records, locations, missing capabilities, refinements, retry gates, and edge links"
+    },
+    {
+      "answer": "no",
+      "question": "did O2 repair, retry, select target, patch runtime, mutate sources, or open C5",
+      "step": "preserve_nonrepair_boundary",
+      "taken": "emit rollup/readout/profile with required bad counters zero"
+    }
+  ]
+}
