@@ -1,0 +1,28 @@
+{
+  "schema_version": "decision_edge_observability_extraction_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_DECISION_EDGE_OBSERVABILITY_REQUIREMENTS_EXTRACTED_REVIEW_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "was decision-edge observability extraction selected",
+      "step": "consume_post_bounded_probe_decision",
+      "taken": "consume bounded probe observability reference and edge observations"
+    },
+    {
+      "answer": "active_object,attempted_move,boundary_checked,boundary_result,blocked_moves,lawful_next_moves,source_packet_ref",
+      "question": "what must each load-bearing edge observation expose",
+      "step": "extract_edge_requirements",
+      "taken": "emit requirement set, per-edge requirements, field schema, and guards"
+    },
+    {
+      "answer": "no",
+      "question": "does extraction patch runtime, authorize C7, or harden unit feedback",
+      "step": "preserve_boundary",
+      "taken": "stop with review-ready extraction"
+    }
+  ]
+}

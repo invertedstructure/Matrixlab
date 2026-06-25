@@ -1,0 +1,42 @@
+{
+  "field_schema_status": "EXTRACTED",
+  "fields": [
+    {
+      "field": "active_object",
+      "purpose": "identifies what object the decision edge acted on",
+      "required": true
+    },
+    {
+      "field": "attempted_move",
+      "purpose": "identifies the move being attempted across the edge",
+      "required": true
+    },
+    {
+      "field": "boundary_checked",
+      "purpose": "records which boundary/guard was checked",
+      "required": true
+    },
+    {
+      "field": "boundary_result",
+      "purpose": "records PASS/BLOCK/STOP/NA style edge result",
+      "required": true
+    },
+    {
+      "field": "blocked_moves",
+      "purpose": "records moves made unlawful at the edge",
+      "required": true
+    },
+    {
+      "field": "lawful_next_moves",
+      "purpose": "records what remains allowed after the edge",
+      "required": true
+    },
+    {
+      "field": "source_packet_ref",
+      "purpose": "links the edge observation to the load-bearing packet/source",
+      "required": true
+    }
+  ],
+  "quality_rule": "Missing any required field downgrades the observation from load-bearing edge evidence to weak trace residue.",
+  "schema_version": "decision_edge_observability_required_field_schema_v0"
+}
