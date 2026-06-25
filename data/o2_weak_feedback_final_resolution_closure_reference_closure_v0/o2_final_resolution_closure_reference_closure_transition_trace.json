@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_final_resolution_closure_reference_closure_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE_CLOSED_AS_REVIEWED_REFERENCE_C5_DECISION_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is final-resolution closure reviewed clean",
+      "step": "consume_final_resolution_closure_review",
+      "taken": "freeze final-resolution closure reference"
+    },
+    {
+      "answer": "yes",
+      "question": "is weak feedback resolved by final records",
+      "step": "preserve_resolved_state",
+      "taken": "freeze resolved state as reference"
+    },
+    {
+      "answer": "no",
+      "question": "does reference closure open C5",
+      "step": "preserve_c5_decision_gate",
+      "taken": "emit post-reference decision readiness"
+    }
+  ]
+}
