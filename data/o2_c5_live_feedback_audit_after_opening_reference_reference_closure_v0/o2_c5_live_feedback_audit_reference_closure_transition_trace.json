@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_c5_live_feedback_audit_reference_closure_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_C5_LIVE_FEEDBACK_AUDIT_CLOSED_AS_REVIEWED_REFERENCE_POST_AUDIT_DECISION_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "is live C5 audit reviewed clean",
+      "step": "consume_live_feedback_audit_review",
+      "taken": "freeze live C5 audit reviewed reference"
+    },
+    {
+      "answer": "yes",
+      "question": "are five audit observations available",
+      "step": "freeze_audit_observations",
+      "taken": "freeze observation set as reference"
+    },
+    {
+      "answer": "no",
+      "question": "did reference closure select a build target",
+      "step": "preserve_build_target_guard",
+      "taken": "emit post-audit decision readiness"
+    }
+  ]
+}
