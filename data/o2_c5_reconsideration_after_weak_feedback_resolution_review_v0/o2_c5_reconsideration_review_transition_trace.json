@@ -1,0 +1,28 @@
+{
+  "schema_version": "o2_c5_reconsideration_review_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_C5_RECONSIDERATION_AFTER_WEAK_FEEDBACK_RESOLUTION_REVIEWED_CLEAN_CLOSE_READY",
+    "type": "STOP"
+  },
+  "trace": [
+    {
+      "answer": "yes",
+      "question": "did C5 reconsideration execute cleanly",
+      "step": "consume_c5_reconsideration_execution",
+      "taken": "review readiness and opening guard"
+    },
+    {
+      "answer": "yes",
+      "question": "is C5 reconsideration ready",
+      "step": "verify_c5_readiness",
+      "taken": "confirm readiness pending review"
+    },
+    {
+      "answer": "no",
+      "question": "did this unit open C5",
+      "step": "verify_c5_not_open",
+      "taken": "emit close-ready reviewed reference candidate"
+    }
+  ]
+}
