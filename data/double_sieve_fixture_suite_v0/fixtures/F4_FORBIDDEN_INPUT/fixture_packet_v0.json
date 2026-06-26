@@ -1,0 +1,84 @@
+{
+  "authority_boundary": {
+    "c7_opened": false,
+    "c8_opened": false,
+    "fixture_expansion_authorized": false,
+    "fixture_mode_harness_only": true,
+    "hidden_next_command": false,
+    "live_mutation_authorized": false,
+    "live_mutation_executed": false,
+    "move_addition_authorized": false,
+    "runtime_mode": "FIXTURE_SUITE_ONLY",
+    "runtime_patch_authorized": false,
+    "schema_archive_mutation_authorized": false,
+    "sidecar_authority": false
+  },
+  "candidate": {
+    "authority_request": {
+      "human_authorization_ref": null,
+      "requested_authority": "FIXTURE_ONLY"
+    },
+    "candidate_id": "candidate_f4_forbidden_input_latest_file",
+    "execution_boundary": {
+      "c7_opened": false,
+      "c8_opened": false,
+      "live_mutation": false,
+      "runtime_mode": "FIXTURE_ONLY"
+    },
+    "inputs": {
+      "input_mode": "latest_file",
+      "target_object": "observability_hook_registry",
+      "target_surface": "missing_hook_surface"
+    },
+    "move_type": "NOOP_FIXTURE_GATE",
+    "receipt_contract": {
+      "expected_receipt_type": "fixture_mode_runtime_membrane_receipt_v0",
+      "hidden_next_command_forbidden": true,
+      "terminal_required": true
+    },
+    "schema_ref": "runtime_move_candidate_v0",
+    "schema_version": "runtime_move_candidate_v0"
+  },
+  "expected": {
+    "admissibility_result": "FORBIDDEN_INPUT",
+    "execution_result": "NOT_RUN",
+    "schema_result": "VALID",
+    "sidecar_status": "OBSERVATION_COMPLETE",
+    "terminal_stop_code": "STOP_FORBIDDEN_INPUT",
+    "unit_feedback_status": "NOT_REQUIRED"
+  },
+  "expected_bad_counters": {
+    "admissibility_denied_executed_count": 0,
+    "authority_required_ignored_count": 0,
+    "bare_failed_status_count": 0,
+    "c7_opened_count": 0,
+    "c8_opened_count": 0,
+    "false_observability_claim_count": 0,
+    "fixture_expansion_count": 0,
+    "forbidden_input_executed_count": 0,
+    "hidden_next_command_count": 0,
+    "invalid_schema_reached_admissibility_count": 0,
+    "latest_file_selection_executed_count": 0,
+    "live_mutation_count": 0,
+    "move_registry_addition_count": 0,
+    "mtime_selection_executed_count": 0,
+    "raw_proposal_reached_admissibility_count": 0,
+    "repair_applied_by_feedback_count": 0,
+    "runtime_patch_count": 0,
+    "schema_archive_mutation_count": 0,
+    "schema_valid_counted_as_admissible_count": 0,
+    "sidecar_authority_claim_count": 0,
+    "sidecar_authorized_move_count": 0,
+    "sidecar_command_emission_count": 0,
+    "sidecar_control_action_count": 0,
+    "sidecar_denied_move_count": 0,
+    "sidecar_state_mutation_count": 0,
+    "unit_feedback_missing_count": 0
+  },
+  "fixture_goal": "Prove structurally valid candidates using forbidden input mode stop before execution.",
+  "fixture_id": "F4_FORBIDDEN_INPUT",
+  "schema_version": "double_sieve_fixture_packet_v0",
+  "sidecar_omit_field": null,
+  "source_runtime_membranes_receipt_ref": "data/r0_runtime_membranes_executable_v0_receipts/r0_runtime_membranes_executable_receipt_012fe341.json",
+  "source_suite_contract_ref": "data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_contract_v0.json"
+}

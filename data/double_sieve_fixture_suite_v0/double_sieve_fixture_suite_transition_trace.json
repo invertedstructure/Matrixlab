@@ -1,0 +1,36 @@
+{
+  "fixture_receipt_refs": [
+    "data/double_sieve_fixture_suite_v0/fixtures/F1_VALID_ADMISSIBLE/double_sieve_fixture_receipt_v0.json",
+    "data/double_sieve_fixture_suite_v0/fixtures/F2_INVALID_SCHEMA/double_sieve_fixture_receipt_v0.json",
+    "data/double_sieve_fixture_suite_v0/fixtures/F3_AUTHORITY_REQUIRED/double_sieve_fixture_receipt_v0.json",
+    "data/double_sieve_fixture_suite_v0/fixtures/F4_FORBIDDEN_INPUT/double_sieve_fixture_receipt_v0.json",
+    "data/double_sieve_fixture_suite_v0/fixtures/F5_EXECUTION_FAILURE_TYPED_FEEDBACK/double_sieve_fixture_receipt_v0.json",
+    "data/double_sieve_fixture_suite_v0/fixtures/F6_SIDECAR_PARTIAL_OBSERVABILITY/double_sieve_fixture_receipt_v0.json"
+  ],
+  "run_id": "double_sieve_suite_run_57568b4b",
+  "schema_version": "double_sieve_fixture_suite_transition_trace_v0",
+  "suite_id": "double_sieve_fixture_suite_5e583552",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DOUBLE_SIEVE_FIXTURE_SUITE_PASS",
+    "type": "STOP"
+  },
+  "transitions": [
+    {
+      "edge": "load committed fixture-mode membranes and suite contract",
+      "from": "R0_RUNTIME_MEMBRANES_EXECUTABLE_READY",
+      "to": "DOUBLE_SIEVE_FIXTURE_CONTEXT_BOUND"
+    },
+    {
+      "edge": "run six deterministic boundary fixtures through membranes",
+      "from": "DOUBLE_SIEVE_FIXTURE_CONTEXT_BOUND",
+      "to": "DOUBLE_SIEVE_FIXTURE_RESULTS_AGGREGATED"
+    },
+    {
+      "edge": "emit suite receipt and stop",
+      "from": "DOUBLE_SIEVE_FIXTURE_RESULTS_AGGREGATED",
+      "to": "STOP_DOUBLE_SIEVE_FIXTURE_SUITE_PASS"
+    }
+  ],
+  "unit_id": "BUILD_DOUBLE_SIEVE_FIXTURE_SUITE_V0"
+}

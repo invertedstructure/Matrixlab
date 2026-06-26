@@ -1,0 +1,160 @@
+{
+  "admissibility_result": "ALLOW",
+  "execution_result": "EXECUTION_GATE_OPENED_NO_LIVE_MUTATION",
+  "expected": {
+    "admissibility_result": "ALLOW",
+    "execution_result": "EXECUTION_GATE_OPENED_NO_LIVE_MUTATION",
+    "schema_result": "VALID",
+    "sidecar_status": "OBSERVATION_COMPLETE",
+    "terminal_stop_code": "STOP_EXECUTION_GATE_OPENED_NO_LIVE_MUTATION",
+    "unit_feedback_status": "NOT_REQUIRED"
+  },
+  "expected_terminal": "STOP_EXECUTION_GATE_OPENED_NO_LIVE_MUTATION",
+  "failures": [],
+  "fixture_gate": "PASS",
+  "fixture_goal": "Prove the valid and admissible fixture path opens the execution gate without live mutation.",
+  "fixture_id": "F1_VALID_ADMISSIBLE",
+  "negative_controls": {
+    "admissibility_denied_executed_count": 0,
+    "authority_required_ignored_count": 0,
+    "bare_failed_status_count": 0,
+    "c7_opened_count": 0,
+    "c8_opened_count": 0,
+    "false_observability_claim_count": 0,
+    "fixture_expansion_count": 0,
+    "forbidden_input_executed_count": 0,
+    "hidden_next_command_count": 0,
+    "invalid_schema_reached_admissibility_count": 0,
+    "latest_file_selection_executed_count": 0,
+    "live_mutation_count": 0,
+    "membrane_receipt_missing_count": 0,
+    "move_registry_addition_count": 0,
+    "mtime_selection_executed_count": 0,
+    "raw_proposal_reached_admissibility_count": 0,
+    "repair_applied_by_feedback_count": 0,
+    "repo_wide_membrane_discovery_count": 0,
+    "runtime_patch_count": 0,
+    "schema_archive_mutation_count": 0,
+    "schema_valid_counted_as_admissible_count": 0,
+    "sidecar_authority_claim_count": 0,
+    "sidecar_authorized_move_count": 0,
+    "sidecar_command_emission_count": 0,
+    "sidecar_control_action_count": 0,
+    "sidecar_denied_move_count": 0,
+    "sidecar_state_mutation_count": 0,
+    "unit_feedback_missing_count": 0,
+    "unselected_authority_regime_used_count": 0,
+    "unselected_schema_surface_used_count": 0,
+    "unselected_sidecar_surface_used_count": 0
+  },
+  "observed": {
+    "admissibility_result": {
+      "allowed_scope": "FIXTURE_ONLY_NO_LIVE_MUTATION",
+      "blocked_by": null,
+      "blocked_move": null,
+      "execution_allowed": true,
+      "forbidden_next_handling": [
+        "perform live mutation",
+        "treat fixture allow as runtime adoption",
+        "open C7",
+        "open C8"
+      ],
+      "lawful_next_handling": [
+        "open fixture execution gate only"
+      ],
+      "result": "ALLOW",
+      "schema_version": "admissibility_result_v0"
+    },
+    "candidate_id": "candidate_f1_valid_admissible",
+    "execution_result": {
+      "execution_gate_opened": true,
+      "fixture_execution_attempted": false,
+      "live_execution_attempted": false,
+      "live_mutation_executed": false,
+      "result": "EXECUTION_GATE_OPENED_NO_LIVE_MUTATION",
+      "schema_version": "execution_gate_result_v0",
+      "unit_feedback": null,
+      "unit_feedback_status": "NOT_REQUIRED"
+    },
+    "negative_controls": {
+      "admissibility_denied_executed_count": 0,
+      "bare_failed_status_count": 0,
+      "c7_opened_count": 0,
+      "c8_opened_count": 0,
+      "false_observability_claim_count": 0,
+      "forbidden_input_executed_count": 0,
+      "hidden_next_command_count": 0,
+      "invalid_schema_reached_admissibility_count": 0,
+      "live_mutation_count": 0,
+      "schema_valid_counted_as_admissible_count": 0,
+      "sidecar_authorized_move_count": 0,
+      "sidecar_denied_move_count": 0,
+      "sidecar_state_mutation_count": 0
+    },
+    "proof_flags": {
+      "admissibility_ran": true,
+      "execution_ran": true,
+      "schema_ran": true,
+      "sidecar_ran": true,
+      "unit_feedback_ran": false
+    },
+    "schema_result": {
+      "blocked_transition": null,
+      "failure_class": null,
+      "failure_location": null,
+      "forbidden_next_handling": [
+        "treat schema VALID as execution permission",
+        "skip admissibility"
+      ],
+      "lawful_next_handling": [
+        "send to Lawful Admissibility Cell"
+      ],
+      "result": "VALID",
+      "schema_version": "schema_validation_result_v0",
+      "valid": true
+    },
+    "schema_version": "runtime_membrane_fixture_harness_result_v0",
+    "sidecar_result": {
+      "effects": {
+        "authority_decision_modified": false,
+        "control_path_modified": false,
+        "full_observability_claim_allowed": true,
+        "runtime_result_overridden": false
+      },
+      "missing_fields": [],
+      "negative_controls": {
+        "false_full_observability_claim_count": 0,
+        "sidecar_authorized_move_count": 0,
+        "sidecar_denied_move_count": 0,
+        "sidecar_state_mutation_count": 0
+      },
+      "schema_version": "observability_sidecar_receipt_v0",
+      "sidecar_authority_status": "ZERO_AUTHORITY",
+      "sidecar_status": "OBSERVATION_COMPLETE"
+    },
+    "terminal": {
+      "next_command_goal": null,
+      "stop_code": "STOP_EXECUTION_GATE_OPENED_NO_LIVE_MUTATION",
+      "type": "STOP"
+    }
+  },
+  "observed_terminal": "STOP_EXECUTION_GATE_OPENED_NO_LIVE_MUTATION",
+  "proof_flags": {
+    "admissibility_ran": true,
+    "execution_ran": true,
+    "schema_ran": true,
+    "sidecar_ran": true,
+    "unit_feedback_ran": false
+  },
+  "run_id": "double_sieve_suite_run_57568b4b",
+  "schema_result": "VALID",
+  "schema_version": "double_sieve_fixture_receipt_v0",
+  "sidecar_status": "OBSERVATION_COMPLETE",
+  "source_fixture_packet_ref": "data/double_sieve_fixture_suite_v0/fixtures/F1_VALID_ADMISSIBLE/fixture_packet_v0.json",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_EXECUTION_GATE_OPENED_NO_LIVE_MUTATION",
+    "type": "STOP"
+  },
+  "unit_feedback_status": "NOT_REQUIRED"
+}
