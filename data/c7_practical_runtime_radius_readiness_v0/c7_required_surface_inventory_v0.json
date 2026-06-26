@@ -1,0 +1,88 @@
+{
+  "inventory_status": "EMITTED",
+  "missing_or_weak_surfaces": [
+    {
+      "minimum_artifact": "runtime_step_packet_contract_v0.json",
+      "next_handling": "define/freeze in C7 contracts unit",
+      "status": "MISSING",
+      "surface_id": "c7_runtime_step_packet_contract",
+      "why_needed": "C7 cannot continue by inferred next command; each step must be packetized."
+    },
+    {
+      "minimum_artifact": "runtime_radius_stop_packet_contract_v0.json",
+      "next_handling": "define/freeze in C7 contracts unit",
+      "status": "MISSING",
+      "surface_id": "c7_runtime_radius_stop_packet_contract",
+      "why_needed": "C7 stops must be typed and diagnostic, not bare failed status."
+    },
+    {
+      "minimum_artifact": "runtime_radius_budget_v0.json",
+      "next_handling": "define/freeze in C7 contracts unit",
+      "status": "MISSING",
+      "surface_id": "c7_runtime_radius_budget",
+      "why_needed": "C7 must be bounded; radius expansion cannot become keep-going momentum."
+    },
+    {
+      "minimum_artifact": "unit_feedback_record_contract_v0.json",
+      "next_handling": "define/freeze in C7 contracts unit",
+      "status": "MISSING_OR_WEAK",
+      "surface_id": "c7_unit_feedback_record_contract",
+      "why_needed": "C7 needs useful failure feedback for missing capability, weak feedback, and diagnostic halts."
+    },
+    {
+      "minimum_artifact": "runtime_radius_negative_counter_contract_v0.json",
+      "next_handling": "define/freeze in C7 contracts unit",
+      "status": "MISSING",
+      "surface_id": "c7_negative_counter_contract",
+      "why_needed": "C7 must prove hidden continuation, invalid advancement, denied execution, and freebuild counters are zero."
+    },
+    {
+      "minimum_artifact": "run_c7_runtime_radius_synthetic_v0.py",
+      "next_handling": "build after contracts and fixtures",
+      "status": "MISSING",
+      "surface_id": "c7_synthetic_runner_harness",
+      "why_needed": "First C7 test should be bounded/synthetic, not live runtime adoption."
+    },
+    {
+      "minimum_artifact": "c7_runtime_radius_test_fixtures_v0.json",
+      "next_handling": "build after contracts",
+      "status": "MISSING",
+      "surface_id": "c7_test_fixture_sequences_A_to_E",
+      "why_needed": "C7 needs bounded tests for clean continuation, schema gap, authority boundary, inter-cell handoff, and missing capability feedback."
+    },
+    {
+      "minimum_artifact": "runtime_radius_rollup_contract_v0.json",
+      "next_handling": "define/freeze in C7 contracts unit",
+      "status": "MISSING",
+      "surface_id": "c7_rollup_and_readout",
+      "why_needed": "C7 success must not be inferred from step count alone."
+    }
+  ],
+  "present_surfaces": [
+    {
+      "role_for_c7": "schema shape validation reference",
+      "source_receipt_id": "732016f0",
+      "status": "PRESENT_REFERENCE_FROZEN",
+      "surface_id": "schema_validator_reference"
+    },
+    {
+      "role_for_c7": "admissibility/authority boundary; Cell 0 named properly, not a new cell",
+      "source_receipt_id": "52630b77",
+      "status": "PRESENT_AS_CELL0_ROLE_BUT_NOT_YET_C7_PACKETIZED",
+      "surface_id": "cell0_lawful_admissibility_surface"
+    },
+    {
+      "role_for_c7": "load-bearing observation surface",
+      "source_receipt_id": "bee348a1",
+      "status": "PRESENT_REFERENCE_FROZEN",
+      "surface_id": "runtime_observability_sidecar_reference"
+    },
+    {
+      "role_for_c7": "basic interlock shape: proposal/reference, schema boundary, sidecar observation, control-path boundary",
+      "source_receipt_id": "a4486c76",
+      "status": "PRESENT_REFERENCE_FROZEN",
+      "surface_id": "c8_basic_interlock_mechanic_reference"
+    }
+  ],
+  "schema_version": "c7_required_surface_inventory_v0"
+}

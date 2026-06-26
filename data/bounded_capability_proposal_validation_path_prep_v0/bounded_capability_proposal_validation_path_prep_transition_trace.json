@@ -1,0 +1,22 @@
+{
+  "schema_version": "bounded_capability_proposal_validation_path_prep_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "RUN_BOUNDED_CAPABILITY_PROPOSAL_VALIDATION_PATH_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "prepare schema validation, lawful admissibility, source linkage, boundary guard, negative control, and human decision gate contracts",
+      "from": "VALID_PROPOSAL_CANDIDATE_READY_FOR_VALIDATION_PATH",
+      "to": "VALIDATION_PATH_PREPARED"
+    },
+    {
+      "edge": "emit validation run target without validation or acceptance",
+      "from": "VALIDATION_PATH_PREPARED",
+      "to": "RUN_VALIDATION_PATH_READY"
+    }
+  ],
+  "unit_id": "PREPARE_BOUNDED_CAPABILITY_PROPOSAL_VALIDATION_PATH_V0",
+  "validation_path_id": "bounded_capability_proposal_validation_path_70fd5b04"
+}

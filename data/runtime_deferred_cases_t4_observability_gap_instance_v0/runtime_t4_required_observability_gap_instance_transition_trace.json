@@ -1,0 +1,21 @@
+{
+  "schema_version": "runtime_t4_required_observability_gap_instance_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "AUDIT_RUNTIME_T6_LOOP_AND_TIE_TRIGGER_FEASIBILITY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "consume T4 observability target and observability contract",
+      "from": "T3_ADMISSIBILITY_BLOCK_CONTRACT_READY_T4_OBSERVABILITY_NEXT",
+      "to": "T4_REQUIRED_OBSERVABILITY_GAP_INSTANCE_BASIS_ACCEPTED"
+    },
+    {
+      "edge": "emit bounded T4 required-gap case instance",
+      "from": "T4_REQUIRED_OBSERVABILITY_GAP_INSTANCE_BASIS_ACCEPTED",
+      "to": "T6_LOOP_AND_TIE_FEASIBILITY_NEXT"
+    }
+  ],
+  "unit_id": "PREPARE_RUNTIME_T4_REQUIRED_OBSERVABILITY_GAP_CASE_INSTANCE_V0"
+}

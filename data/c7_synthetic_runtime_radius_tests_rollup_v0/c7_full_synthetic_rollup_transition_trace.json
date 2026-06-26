@@ -1,0 +1,21 @@
+{
+  "schema_version": "c7_full_synthetic_rollup_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": null,
+    "stop_code": "STOP_C7_SYNTHETIC_RUNTIME_RADIUS_TESTS_COMPLETE",
+    "type": "STOP_DONE"
+  },
+  "transitions": [
+    {
+      "edge": "consume full synthetic rollup target",
+      "from": "C7_HANDOFF_FEEDBACK_D_E_PASS",
+      "to": "C7_FULL_SYNTHETIC_ROLLUP_BASIS_ACCEPTED"
+    },
+    {
+      "edge": "aggregate A-E fixture results",
+      "from": "C7_FULL_SYNTHETIC_ROLLUP_BASIS_ACCEPTED",
+      "to": "C7_SYNTHETIC_RUNTIME_RADIUS_TESTS_BRANCH_CLOSED"
+    }
+  ],
+  "unit_id": "ROLLUP_C7_SYNTHETIC_RUNTIME_RADIUS_TESTS_V0"
+}

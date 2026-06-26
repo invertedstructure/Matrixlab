@@ -1,0 +1,22 @@
+{
+  "decision_request_id": "bounded_capability_proposal_human_decision_request_112a27c4",
+  "schema_version": "bounded_capability_proposal_human_decision_packet_review_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": null,
+    "stop_code": "STOP_BOUNDED_CAPABILITY_PROPOSAL_HUMAN_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "transitions": [
+    {
+      "edge": "review validation state and human decision packet",
+      "from": "VALIDATED_ADMISSIBLE_PROPOSAL_HUMAN_DECISION_PREP_READY",
+      "to": "HUMAN_DECISION_PACKET_READY"
+    },
+    {
+      "edge": "emit decision request packet and stop at human boundary",
+      "from": "HUMAN_DECISION_PACKET_READY",
+      "to": "STOP_HUMAN_DECISION_REQUIRED"
+    }
+  ],
+  "unit_id": "PREPARE_BOUNDED_CAPABILITY_PROPOSAL_HUMAN_DECISION_PACKET_REVIEW_V0"
+}

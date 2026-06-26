@@ -1,0 +1,21 @@
+{
+  "schema_version": "c7_contracts_and_budget_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "BUILD_C7_SYNTHETIC_RUNTIME_RADIUS_FIXTURES_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "consume readiness audit",
+      "from": "C7_READINESS_AUDIT_DONE_CONTRACTS_AND_BUDGET_NEXT",
+      "to": "C7_CONTRACTS_BASIS_ACCEPTED"
+    },
+    {
+      "edge": "prepare runtime-radius contracts and budget",
+      "from": "C7_CONTRACTS_BASIS_ACCEPTED",
+      "to": "C7_FIXTURES_NEXT"
+    }
+  ],
+  "unit_id": "PREPARE_C7_RUNTIME_RADIUS_CONTRACTS_AND_BUDGET_V0"
+}

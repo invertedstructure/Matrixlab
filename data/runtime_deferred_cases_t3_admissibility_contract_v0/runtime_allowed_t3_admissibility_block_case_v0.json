@@ -1,0 +1,29 @@
+{
+  "allowed_case_count": 1,
+  "cases": [
+    {
+      "admissibility_context_derivation_ref": "data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_t3_admissibility_block_context_derivation_v0.json",
+      "case_contract_id": "t3_admissibility_block_declared_deny_context_v0",
+      "case_key": "T3.admissibility_block",
+      "case_role": "admissibility_block_declared_deny_context",
+      "expected_bad_counters_zero": true,
+      "expected_outcome_class": "RUNTIME_SMOKE_BLOCKED_ADMISSIBILITY",
+      "expected_pressure_class": "LAWFUL_ADMISSIBILITY_FAIL",
+      "expected_refinement_candidate_count_min": 1,
+      "expected_stop_code": "STOP_RUNTIME_LAWFUL_ADMISSIBILITY_FAIL",
+      "expected_terminal_type": "STOP",
+      "expected_trace_receipt_match": true,
+      "fixture_expansion_authorized": false,
+      "move_addition_authorized": false,
+      "repair_authorized": false,
+      "runtime_patch_authorized": false,
+      "runtime_state_ref": "data/runtime_adoption_smoke_v0/runtime_state_v0.json",
+      "schema_creation_authorized": false,
+      "suite_may_continue_if_matched": true,
+      "tier": "T3",
+      "why_allowed": "The state remains schema-valid while the declared admissibility context is denied, testing the admissibility boundary separately from schema validation."
+    }
+  ],
+  "catalog_status": "EMITTED",
+  "schema_version": "runtime_allowed_t3_admissibility_block_case_v0"
+}

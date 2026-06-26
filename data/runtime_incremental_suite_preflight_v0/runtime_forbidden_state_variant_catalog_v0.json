@@ -1,0 +1,37 @@
+{
+  "catalog_status": "EMITTED",
+  "forbidden_variant_count": 6,
+  "schema_version": "runtime_forbidden_state_variant_catalog_v0",
+  "variants": [
+    {
+      "forbidden_mutation": "active_object_ref",
+      "variant_id": "forbidden_variant_new_active_object_v0",
+      "why": "would be fixture/object expansion, not state variant"
+    },
+    {
+      "forbidden_mutation": "move_registry_ref",
+      "variant_id": "forbidden_variant_registry_swap_v0",
+      "why": "would bypass current registry only rule"
+    },
+    {
+      "forbidden_mutation": "schema_archive_ref",
+      "variant_id": "forbidden_variant_schema_archive_swap_v0",
+      "why": "would be schema/archive mutation or authority swap"
+    },
+    {
+      "forbidden_mutation": "admissibility_surface_ref",
+      "variant_id": "forbidden_variant_admissibility_surface_swap_v0",
+      "why": "would be authority widening/substitution"
+    },
+    {
+      "forbidden_mutation": "runtime_phase with new behavior semantics",
+      "variant_id": "forbidden_variant_new_runtime_phase_semantics_v0",
+      "why": "only NO_APPLICABLE_MOVE_PROBE is allowed as expected pressure; no new behavior semantics"
+    },
+    {
+      "forbidden_mutation": "move priority/action/applies_when",
+      "variant_id": "forbidden_variant_move_priority_or_action_change_v0",
+      "why": "would patch runtime behavior"
+    }
+  ]
+}

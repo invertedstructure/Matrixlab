@@ -1,0 +1,21 @@
+{
+  "schema_version": "runtime_state_variant_rules_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "PREPARE_RUNTIME_INCREMENTAL_EXPECTED_PRESSURE_CASE_CONTRACT_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "consume reachability map and branch gap index",
+      "from": "REACHABILITY_MAP_READY_STATE_VARIANTS_NEXT",
+      "to": "STATE_VARIANT_RULES_BASIS_ACCEPTED"
+    },
+    {
+      "edge": "emit allowed/forbidden state variant catalogs",
+      "from": "STATE_VARIANT_RULES_BASIS_ACCEPTED",
+      "to": "EXPECTED_PRESSURE_CASE_CONTRACT_NEXT"
+    }
+  ],
+  "unit_id": "PREPARE_RUNTIME_DECLARED_STATE_VARIANT_RULES_V0"
+}

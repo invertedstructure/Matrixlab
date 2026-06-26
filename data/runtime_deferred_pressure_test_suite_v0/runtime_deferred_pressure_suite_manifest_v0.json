@@ -1,0 +1,70 @@
+{
+  "case_count": 3,
+  "cases": [
+    {
+      "case_contract_id": "t3_schema_validation_failure_missing_required_field_v0",
+      "case_id": "deferred_case_t3_schema_validation_failure_v0",
+      "case_key": "T3.schema_validation_failure",
+      "case_role": "schema_validation_failure_missing_required_field",
+      "expected_outcome_class": "RUNTIME_SMOKE_BLOCKED_SCHEMA_VALIDATION",
+      "expected_pressure_class": "SCHEMA_VALIDATION_FAIL",
+      "expected_stop_code": "STOP_RUNTIME_SCHEMA_VALIDATION_FAIL",
+      "expected_terminal_type": "STOP",
+      "source_ref": "data/runtime_deferred_cases_t3_schema_contract_v0/runtime_allowed_t3_schema_validation_failure_case_v0.json",
+      "tier": "T3"
+    },
+    {
+      "case_contract_id": "t3_admissibility_block_declared_deny_context_v0",
+      "case_id": "deferred_case_t3_admissibility_block_v0",
+      "case_key": "T3.admissibility_block",
+      "case_role": "admissibility_block_declared_deny_context",
+      "expected_outcome_class": "RUNTIME_SMOKE_BLOCKED_ADMISSIBILITY",
+      "expected_pressure_class": "LAWFUL_ADMISSIBILITY_FAIL",
+      "expected_stop_code": "STOP_RUNTIME_LAWFUL_ADMISSIBILITY_FAIL",
+      "expected_terminal_type": "STOP",
+      "source_ref": "data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_allowed_t3_admissibility_block_case_v0.json",
+      "tier": "T3"
+    },
+    {
+      "case_contract_id": "t4_required_observability_gap_missing_required_surface_v0",
+      "case_id": "deferred_case_t4_required_observability_gap_v0",
+      "case_key": "T4.full_observability_required_gap",
+      "case_role": "full_observability_required_gap",
+      "expected_outcome_class": "RUNTIME_SMOKE_BLOCKED_OBSERVABILITY_GAP",
+      "expected_pressure_class": "RUNTIME_OBSERVABILITY_GAP",
+      "expected_stop_code": "STOP_RUNTIME_REQUIRED_OBSERVABILITY_GAP",
+      "expected_terminal_type": "STOP",
+      "source_ref": "data/runtime_deferred_cases_t4_observability_gap_instance_v0/runtime_allowed_t4_required_observability_gap_case_instance_v0.json",
+      "tier": "T4"
+    }
+  ],
+  "excluded_cases": [
+    "T6.step_cap_loop_shape",
+    "T6.move_tie_unresolved"
+  ],
+  "forbidden": [
+    "include T6 cases in this suite",
+    "invent loop trigger",
+    "invent move tie",
+    "repair runtime",
+    "add moves",
+    "patch runtime",
+    "expand fixtures by default",
+    "authorize live runtime adoption",
+    "authorize C8"
+  ],
+  "ready_cases": [
+    "T3.schema_validation_failure",
+    "T3.admissibility_block",
+    "T4.full_observability_required_gap"
+  ],
+  "schema_version": "runtime_deferred_pressure_suite_manifest_v0",
+  "source_t6_move_tie_audit_receipt_ref": "data/runtime_deferred_cases_t6_move_tie_surface_audit_v0_receipts/eb20d76b.json",
+  "suite_id": "runtime_deferred_pressure_suite_acdfd50f",
+  "suite_scope": "T3_T4_READY_CASES_ONLY",
+  "suite_status": "BUILT_AND_RUN",
+  "t6_exclusion_basis": {
+    "T6.move_tie_unresolved": "detector false positive; no structured tie candidates",
+    "T6.step_cap_loop_shape": "loop_trigger_available=false"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": "runtime_deferred_pressure_suite_transition_trace_v0",
+  "suite_id": "runtime_deferred_pressure_suite_acdfd50f",
+  "terminal": {
+    "next_unit_id": null,
+    "stop_code": "STOP_RUNTIME_DEFERRED_PRESSURE_SUITE_EXPECTED_PRESSURE_OBSERVED",
+    "type": "STOP"
+  },
+  "transitions": [
+    {
+      "edge": "consume ready T3/T4 suite target",
+      "from": "T6_MOVE_TIE_SURFACE_AUDIT_FALSE_POSITIVE_DEFERRED_SUITE_BUILD_NEXT",
+      "to": "DEFERRED_PRESSURE_SUITE_MANIFEST_BUILT"
+    },
+    {
+      "edge": "run expected-pressure cases",
+      "from": "DEFERRED_PRESSURE_SUITE_MANIFEST_BUILT",
+      "to": "DEFERRED_PRESSURE_SUITE_EXPECTED_PRESSURE_OBSERVED"
+    }
+  ],
+  "unit_id": "BUILD_OUTER_RUNTIME_DEFERRED_PRESSURE_TEST_SUITE_V0"
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": "bounded_structured_t6_trigger_surface_capability_schema_archive_write_authorize_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "EXECUTE_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_SCHEMA_ARCHIVE_WRITE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "record human authorization of bounded schema archive write",
+      "from": "STOP_SCHEMA_ARCHIVE_WRITE_HUMAN_DECISION_REQUIRED",
+      "to": "SCHEMA_ARCHIVE_WRITE_AUTHORIZATION_RECORDED"
+    },
+    {
+      "edge": "emit bounded schema archive write execution target without writing archive",
+      "from": "SCHEMA_ARCHIVE_WRITE_AUTHORIZATION_RECORDED",
+      "to": "SCHEMA_ARCHIVE_WRITE_EXECUTION_TARGET_READY"
+    }
+  ],
+  "unit_id": "RECORD_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_SCHEMA_ARCHIVE_WRITE_AUTHORIZE_DECISION_V0",
+  "write_authorize_decision_record_id": "bounded_structured_t6_trigger_surface_capability_schema_archive_write_authorize_decision_5816bbd0"
+}

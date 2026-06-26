@@ -1,0 +1,21 @@
+{
+  "schema_version": "bounded_capability_proposal_review_scope_classifier_repair_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "PREPARE_BOUNDED_CAPABILITY_PROPOSAL_VALIDATION_PATH_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "classify failure as detector overreach against negative/boundary scope language",
+      "from": "BOUNDED_CAPABILITY_PROPOSAL_REVIEW_GATE_FAIL_FOR_FORBIDDEN_SCOPE_TERMS",
+      "to": "LOCAL_REVIEW_CLASSIFIER_REPAIR_READY"
+    },
+    {
+      "edge": "patch forbidden-scope classifier and rerun proposal review",
+      "from": "LOCAL_REVIEW_CLASSIFIER_REPAIR_READY",
+      "to": "PROPOSAL_REVIEW_PASS_READY_FOR_VALIDATION_PATH"
+    }
+  ],
+  "unit_id": "REPAIR_BOUNDED_CAPABILITY_PROPOSAL_REVIEW_SCOPE_CLASSIFIER_V0"
+}

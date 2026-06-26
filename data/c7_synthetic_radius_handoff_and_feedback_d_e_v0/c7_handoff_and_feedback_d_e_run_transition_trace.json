@@ -1,0 +1,21 @@
+{
+  "schema_version": "c7_handoff_and_feedback_d_e_run_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "ROLLUP_C7_SYNTHETIC_RUNTIME_RADIUS_TESTS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "consume handoff/feedback target",
+      "from": "C7_NEGATIVE_HALTS_B_C_PASS",
+      "to": "C7_HANDOFF_FEEDBACK_D_E_BASIS_ACCEPTED"
+    },
+    {
+      "edge": "run handoff and missing-capability synthetic fixtures",
+      "from": "C7_HANDOFF_FEEDBACK_D_E_BASIS_ACCEPTED",
+      "to": "C7_HANDOFF_FEEDBACK_D_E_PASS"
+    }
+  ],
+  "unit_id": "RUN_C7_SYNTHETIC_RADIUS_HANDOFF_AND_FEEDBACK_D_E_V0"
+}

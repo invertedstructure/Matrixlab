@@ -1,0 +1,22 @@
+{
+  "schema_version": "runtime_deferred_pressure_suite_decision_transition_trace_v0",
+  "suite_id": "runtime_deferred_pressure_suite_acdfd50f",
+  "terminal": {
+    "next_unit_id": null,
+    "stop_code": "STOP_RUNTIME_DEFERRED_PRESSURE_SUITE_BRANCH_COMPLETE",
+    "type": "STOP"
+  },
+  "transitions": [
+    {
+      "edge": "classify case candidates",
+      "from": "DEFERRED_PRESSURE_SUITE_EXPECTED_PRESSURE_OBSERVED",
+      "to": "EXPECTED_PRESSURE_CANDIDATES_CLOSED_AS_COVERAGE"
+    },
+    {
+      "edge": "close deferred pressure branch and preserve T6 for later",
+      "from": "EXPECTED_PRESSURE_CANDIDATES_CLOSED_AS_COVERAGE",
+      "to": "STOP_DEFERRED_PRESSURE_SUITE_BRANCH_COMPLETE"
+    }
+  ],
+  "unit_id": "DECIDE_NEXT_AFTER_RUNTIME_DEFERRED_PRESSURE_TEST_SUITE_V0"
+}

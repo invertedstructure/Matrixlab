@@ -1,0 +1,21 @@
+{
+  "schema_version": "runtime_no_applicable_move_pressure_audit_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": null,
+    "stop_code": "STOP_NO_APPLICABLE_MOVE_PRESSURE_AUDIT_CLOSED_EXPECTED_NEGATIVE_COVERAGE",
+    "type": "STOP"
+  },
+  "transitions": [
+    {
+      "edge": "consume pressure candidate and expected-pressure contract",
+      "from": "NO_APPLICABLE_MOVE_PRESSURE_AUDIT_NEXT",
+      "to": "NO_APPLICABLE_MOVE_EVIDENCE_INDEXED"
+    },
+    {
+      "edge": "classify candidate",
+      "from": "NO_APPLICABLE_MOVE_EVIDENCE_INDEXED",
+      "to": "EXPECTED_NEGATIVE_COVERAGE_CLOSED"
+    }
+  ],
+  "unit_id": "AUDIT_RUNTIME_NO_APPLICABLE_MOVE_PRESSURE_CANDIDATE_V0"
+}

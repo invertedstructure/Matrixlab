@@ -1,0 +1,249 @@
+{
+  "max_steps": 8,
+  "moves": [
+    {
+      "action": "LOAD_BASELINE",
+      "applies_when": {
+        "runtime_phase": "INIT"
+      },
+      "emits_labels": [
+        "BASELINE_LOADED"
+      ],
+      "expected_receipt_fields": [
+        "baseline_ref"
+      ],
+      "expected_trace_fields": [
+        "before_state_sig8",
+        "selected_move",
+        "state_delta",
+        "after_state_sig8"
+      ],
+      "failure_halts": [
+        "STOP_RUNTIME_BASELINE_UNSEALED"
+      ],
+      "forbidden_inputs": [
+        "latest_file",
+        "mtime",
+        "ambient_workspace"
+      ],
+      "may_halt": true,
+      "move_id": "move_load_baseline_seal_v0",
+      "move_kind": "LOAD_BASELINE",
+      "priority": 10,
+      "required_inputs": [
+        "data/runtime_adoption_smoke_v0/runtime_baseline_seal_v0.json"
+      ],
+      "requires_admissibility": false,
+      "requires_schema_validation": false,
+      "schema_version": "runtime_move_v0",
+      "state_delta": {
+        "runtime_phase": "BASELINE_LOADED"
+      }
+    },
+    {
+      "action": "LOAD_RUNTIME_STATE",
+      "applies_when": {
+        "runtime_phase": "BASELINE_LOADED"
+      },
+      "emits_labels": [
+        "STATE_LOADED"
+      ],
+      "expected_receipt_fields": [
+        "start_state_ref"
+      ],
+      "expected_trace_fields": [
+        "before_state_sig8",
+        "selected_move",
+        "state_delta",
+        "after_state_sig8"
+      ],
+      "failure_halts": [
+        "STOP_RUNTIME_STATE_UNTYPED"
+      ],
+      "forbidden_inputs": [
+        "latest_file",
+        "mtime",
+        "ambient_workspace"
+      ],
+      "may_halt": true,
+      "move_id": "move_load_declared_runtime_state_v0",
+      "move_kind": "LOAD_RUNTIME_STATE",
+      "priority": 20,
+      "required_inputs": [
+        "data/runtime_adoption_smoke_v0/runtime_state_v0.json"
+      ],
+      "requires_admissibility": false,
+      "requires_schema_validation": false,
+      "schema_version": "runtime_move_v0",
+      "state_delta": {
+        "runtime_phase": "STATE_LOADED"
+      }
+    },
+    {
+      "action": "VALIDATE_STATE_SCHEMA",
+      "applies_when": {
+        "runtime_phase": "STATE_LOADED"
+      },
+      "emits_labels": [
+        "SCHEMA_VALIDATED"
+      ],
+      "expected_receipt_fields": [
+        "schema_archive_ref"
+      ],
+      "expected_trace_fields": [
+        "schema_validation_ref",
+        "state_delta"
+      ],
+      "failure_halts": [
+        "STOP_RUNTIME_STATE_UNTYPED",
+        "STOP_RUNTIME_SCHEMA_VALIDATION_FAIL"
+      ],
+      "forbidden_inputs": [
+        "schema_invention",
+        "taxonomy_invention"
+      ],
+      "may_halt": true,
+      "move_id": "move_validate_declared_state_v0",
+      "move_kind": "VALIDATE_STATE",
+      "priority": 30,
+      "required_inputs": [
+        "data/runtime_adoption_smoke_v0/runtime_state_schema_v0.json",
+        "data/runtime_schema_validator_cell_reference_closure_v0/runtime_schema_validator_reviewed_reference_v0.json"
+      ],
+      "requires_admissibility": false,
+      "requires_schema_validation": true,
+      "schema_version": "runtime_move_v0",
+      "state_delta": {
+        "runtime_phase": "STATE_VALIDATED",
+        "state_validated": true
+      }
+    },
+    {
+      "action": "CHECK_CELL0_ADMISSIBILITY",
+      "applies_when": {
+        "runtime_phase": "STATE_VALIDATED"
+      },
+      "emits_labels": [
+        "ADMISSIBILITY_ALLOWED"
+      ],
+      "expected_receipt_fields": [
+        "admissibility_surface_ref"
+      ],
+      "expected_trace_fields": [
+        "admissibility_ref",
+        "state_delta"
+      ],
+      "failure_halts": [
+        "STOP_RUNTIME_ADMISSIBILITY_FAIL",
+        "STOP_AUTHORITY_VIOLATION"
+      ],
+      "forbidden_inputs": [
+        "authority_widening",
+        "hidden_memory_authority"
+      ],
+      "may_halt": true,
+      "move_id": "move_check_cell0_lawful_admissibility_v0",
+      "move_kind": "CHECK_LAWFUL_ADMISSIBILITY",
+      "priority": 40,
+      "required_inputs": [
+        "CELL0_AS_LAWFUL_ADMISSIBILITY_SURFACE"
+      ],
+      "requires_admissibility": true,
+      "requires_schema_validation": true,
+      "schema_version": "runtime_move_v0",
+      "state_delta": {
+        "cell0_admissibility": "ALLOW",
+        "runtime_phase": "ADMISSIBILITY_CHECKED"
+      }
+    },
+    {
+      "action": "INSPECT_APPLICABLE_MOVES",
+      "applies_when": {
+        "runtime_phase": "ADMISSIBILITY_CHECKED"
+      },
+      "emits_labels": [
+        "MOVES_INSPECTED"
+      ],
+      "expected_receipt_fields": [
+        "moves_inspected"
+      ],
+      "expected_trace_fields": [
+        "applicable_moves",
+        "selected_move"
+      ],
+      "failure_halts": [
+        "STOP_RUNTIME_NO_APPLICABLE_MOVE",
+        "STOP_RUNTIME_MOVE_TIE_UNRESOLVED"
+      ],
+      "forbidden_inputs": [
+        "unregistered_moves"
+      ],
+      "may_halt": true,
+      "move_id": "move_inspect_registered_moves_v0",
+      "move_kind": "INSPECT_APPLICABLE_MOVES",
+      "priority": 50,
+      "required_inputs": [
+        "data/runtime_adoption_smoke_v0/runtime_move_registry_snapshot_v0.json"
+      ],
+      "requires_admissibility": false,
+      "requires_schema_validation": false,
+      "schema_version": "runtime_move_v0",
+      "state_delta": {
+        "runtime_phase": "MOVES_INSPECTED"
+      }
+    },
+    {
+      "action": "EMIT_TYPED_STOP_DONE",
+      "applies_when": {
+        "runtime_phase": "MOVES_INSPECTED"
+      },
+      "emits_labels": [
+        "STOP_DONE",
+        "NO_PRESSURE_TERMINAL"
+      ],
+      "expected_receipt_fields": [
+        "terminal",
+        "outcome_class",
+        "pressure_classification"
+      ],
+      "expected_trace_fields": [
+        "halt_code",
+        "terminal"
+      ],
+      "failure_halts": [
+        "STOP_RUNTIME_RECEIPT_MISMATCH",
+        "STOP_RUNTIME_PROJECTION_BUG"
+      ],
+      "forbidden_inputs": [
+        "implicit_continuation",
+        "hidden_next_command"
+      ],
+      "may_halt": true,
+      "move_id": "move_emit_typed_smoke_terminal_v0",
+      "move_kind": "EMIT_TYPED_TERMINAL",
+      "priority": 60,
+      "required_inputs": [
+        "data/runtime_adoption_smoke_v0/runtime_smoke_trace_v0.jsonl",
+        "data/runtime_adoption_smoke_v0/runtime_smoke_receipt_v0.json",
+        "data/runtime_adoption_smoke_v0/runtime_smoke_readout_v0.json"
+      ],
+      "requires_admissibility": false,
+      "requires_schema_validation": false,
+      "schema_version": "runtime_move_v0",
+      "state_delta": {
+        "runtime_phase": "TERMINAL",
+        "terminal_result": "STOP_DONE"
+      }
+    }
+  ],
+  "must_not_infer": [
+    "registry is globally installed",
+    "new move family authorized",
+    "production runtime ready",
+    "C8 authorized"
+  ],
+  "registry_id": "runtime_move_registry_outer_smoke_v0",
+  "registry_status": "FROZEN_SNAPSHOT_FOR_SMOKE_RUN",
+  "schema_version": "runtime_move_registry_snapshot_v0",
+  "selection_rule": "Collect applicable registered moves, choose lowest priority number, stop on tie."
+}

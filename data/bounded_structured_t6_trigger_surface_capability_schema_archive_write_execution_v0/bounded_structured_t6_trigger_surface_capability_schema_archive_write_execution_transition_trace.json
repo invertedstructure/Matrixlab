@@ -1,0 +1,27 @@
+{
+  "archive_write_id": "bounded_structured_t6_trigger_surface_capability_schema_archive_write_288f73d7",
+  "schema_version": "bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": null,
+    "stop_code": "STOP_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_SCHEMA_ARCHIVE_WRITE_COMPLETE",
+    "type": "STOP"
+  },
+  "transitions": [
+    {
+      "edge": "consume write authorization and execution target",
+      "from": "SCHEMA_ARCHIVE_WRITE_EXECUTION_TARGET_READY",
+      "to": "SCHEMA_ARCHIVE_WRITE_EXECUTION_AUTHORIZED"
+    },
+    {
+      "edge": "write bounded archive entry with duplicate guard",
+      "from": "SCHEMA_ARCHIVE_WRITE_EXECUTION_AUTHORIZED",
+      "to": "SCHEMA_ARCHIVE_ENTRY_WRITTEN"
+    },
+    {
+      "edge": "emit final write receipt and stop",
+      "from": "SCHEMA_ARCHIVE_ENTRY_WRITTEN",
+      "to": "STOP_SCHEMA_ARCHIVE_WRITE_COMPLETE"
+    }
+  ],
+  "unit_id": "EXECUTE_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_SCHEMA_ARCHIVE_WRITE_V0"
+}

@@ -1,0 +1,26 @@
+{
+  "next_unit_id": "BUILD_C7_SYNTHETIC_RUNTIME_RADIUS_RUNNER_V0",
+  "runner_inputs": [
+    "data/c7_synthetic_runtime_radius_fixtures_v0/c7_synthetic_fixture_index_v0.json",
+    "data/c7_synthetic_runtime_radius_fixtures_v0/c7_synthetic_fixture_expected_outcomes_v0.json",
+    "data/c7_runtime_radius_contracts_and_budget_v0/runtime_step_packet_contract_v0.json",
+    "data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_stop_packet_contract_v0.json",
+    "data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_budget_v0.json",
+    "data/c7_runtime_radius_contracts_and_budget_v0/unit_feedback_record_contract_v0.json",
+    "data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_negative_counter_contract_v0.json",
+    "data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_rollup_contract_v0.json",
+    "data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_readout_contract_v0.json"
+  ],
+  "runner_must_not": [
+    "run live runtime",
+    "authorize runtime adoption",
+    "patch runtime",
+    "install live hooks",
+    "route runtime traffic",
+    "mutate schema archive",
+    "advance hidden next command"
+  ],
+  "runner_scope": "build synthetic runner over frozen contracts and synthetic fixtures only",
+  "schema_version": "c7_synthetic_runner_build_target_v0",
+  "target_status": "RUNNER_NEXT"
+}

@@ -1,0 +1,130 @@
+{
+  "admissibility_checked": false,
+  "allowed_terminal_results": [
+    "PASS_SHAPE_ONLY",
+    "FAIL_SHAPE_ONLY",
+    "UNPOSED_SHAPE",
+    "NEEDS_HUMAN_REVIEW",
+    "STOP_BOUNDARY_HELD"
+  ],
+  "authorization_verdict_emitted": false,
+  "c8_execution_authorized": false,
+  "c8_runtime_authorized": false,
+  "component_map": [
+    {
+      "authority": "INPUT_ONLY",
+      "component_id": "proposal_or_active_object_ref",
+      "may_execute": false,
+      "role": "input reference being tested by the mechanic"
+    },
+    {
+      "authority": "REFERENCE_ONLY",
+      "component_id": "schema_validator_reference",
+      "may_authorize": false,
+      "may_execute": false,
+      "may_mutate_schema_archive": false,
+      "may_validate_live_runtime": false,
+      "role": "checks whether the proposal/active object matches a predetermined schema surface",
+      "source_path": "data/runtime_schema_validator_cell_reference_closure_v0/runtime_schema_validator_reviewed_reference_v0.json"
+    },
+    {
+      "authority": "REFERENCE_ONLY",
+      "component_id": "sidecar_observation_reference",
+      "may_advance_control_path": false,
+      "may_block_control_path": false,
+      "may_install_live_hooks": false,
+      "may_patch_runtime": false,
+      "may_route_runtime": false,
+      "role": "records load-bearing observation fields if later separately adopted",
+      "source_path": "data/runtime_observability_sidecar_reference_closure_v0/runtime_observability_sidecar_reviewed_reference_v0.json"
+    },
+    {
+      "authority": "NOT_GRANTED",
+      "component_id": "control_path_boundary",
+      "may_advance_control_path": false,
+      "may_authorize_runtime_adoption": false,
+      "may_block_control_path": false,
+      "may_execute": false,
+      "role": "separates reference/observation/admissibility typing from any future action"
+    }
+  ],
+  "control_path_advanced": false,
+  "control_path_blocked": false,
+  "core_compression": "Proposal enters; validator boundary classifies shape; sidecar surface records load-bearing fields; control path remains separate.",
+  "execution_claimed": false,
+  "flow_edges": [
+    {
+      "allowed_effect": "read reference only",
+      "edge_id": "edge_0_load",
+      "from": "input_surface",
+      "to": "proposal_or_active_object_ref"
+    },
+    {
+      "allowed_effect": "shape classification only",
+      "edge_id": "edge_1_validator_boundary",
+      "from": "proposal_or_active_object_ref",
+      "to": "validator_boundary_result"
+    },
+    {
+      "allowed_effect": "record load-bearing fields only",
+      "edge_id": "edge_2_sidecar_record",
+      "from": "validator_boundary_result",
+      "to": "sidecar_observation_ref"
+    },
+    {
+      "allowed_effect": "emit terminal result without execution",
+      "edge_id": "edge_3_control_boundary",
+      "from": "sidecar_observation_ref",
+      "to": "terminal_result"
+    }
+  ],
+  "hidden_next_command": false,
+  "live_runtime_hooks_installed": false,
+  "mechanic_kind": "TYPE_ONLY_REFERENCE_MECHANIC",
+  "mechanic_name": "C8 basic interlock mechanic from target-shape reference",
+  "mechanic_role": "Type the smallest interlock between a proposal/reference, schema-validator boundary, sidecar observation surface, and control-path boundary.",
+  "minimum_mechanic_fields": [
+    "proposal_or_active_object_ref",
+    "schema_reference_ref",
+    "validator_boundary_result",
+    "sidecar_observation_ref",
+    "load_bearing_decision_edge_fields",
+    "control_path_boundary",
+    "terminal_result"
+  ],
+  "must_not_impersonate": [
+    "C8 runtime adoption",
+    "C8 execution",
+    "live admissibility service",
+    "authorization verdict",
+    "schema archive mutation",
+    "control path authority"
+  ],
+  "one_step_flow": [
+    "LOAD proposal_or_active_object_ref",
+    "CHECK schema_reference_ref against predetermined schema surface",
+    "CLASSIFY validator_boundary_result as PASS / FAIL / UNPOSED / NEEDS_HUMAN_REVIEW",
+    "RECORD sidecar_observation_ref with load-bearing decision-edge fields",
+    "EMIT terminal_result without executing or authorizing runtime adoption"
+  ],
+  "reference_only": true,
+  "reference_status": "C8_BASIC_INTERLOCK_MECHANIC_REVIEWED_REFERENCE_FROZEN",
+  "required_load_bearing_decision_edge_fields": [
+    "active_object",
+    "attempted_move",
+    "boundary_checked",
+    "boundary_result",
+    "blocked_moves",
+    "lawful_next_moves",
+    "source_packet_ref"
+  ],
+  "runtime_adoption_authorized": false,
+  "runtime_patched": false,
+  "runtime_routing_installed": false,
+  "schema_archive_mutated": false,
+  "schema_created": false,
+  "schema_version": "c8_basic_interlock_mechanic_reviewed_reference_v0",
+  "source_mechanic_path": "data/c8_basic_interlock_mechanic_from_target_shape_reference_v0/c8_basic_interlock_mechanic_v0.json",
+  "source_mechanic_receipt_id": "d3d2ab5e",
+  "validation_verdict_emitted": false
+}

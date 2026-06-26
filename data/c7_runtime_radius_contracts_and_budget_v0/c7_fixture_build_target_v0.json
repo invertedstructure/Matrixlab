@@ -1,0 +1,58 @@
+{
+  "contract_inputs": [
+    {
+      "name": "runtime_step_packet_contract_v0",
+      "path": "data/c7_runtime_radius_contracts_and_budget_v0/runtime_step_packet_contract_v0.json"
+    },
+    {
+      "name": "runtime_radius_stop_packet_contract_v0",
+      "path": "data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_stop_packet_contract_v0.json"
+    },
+    {
+      "name": "runtime_radius_budget_v0",
+      "path": "data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_budget_v0.json"
+    },
+    {
+      "name": "unit_feedback_record_contract_v0",
+      "path": "data/c7_runtime_radius_contracts_and_budget_v0/unit_feedback_record_contract_v0.json"
+    },
+    {
+      "name": "runtime_radius_negative_counter_contract_v0",
+      "path": "data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_negative_counter_contract_v0.json"
+    },
+    {
+      "name": "runtime_radius_rollup_contract_v0",
+      "path": "data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_rollup_contract_v0.json"
+    },
+    {
+      "name": "runtime_radius_readout_contract_v0",
+      "path": "data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_readout_contract_v0.json"
+    }
+  ],
+  "fixture_boundary": "build fixtures only; no C7 runtime run yet",
+  "fixture_sequences_to_build": [
+    {
+      "expected_outcome": "RADIUS_EXPANDED_CLEANLY",
+      "fixture_id": "sequence_A_clean_continuation"
+    },
+    {
+      "expected_outcome": "RADIUS_BLOCKED_BY_SCHEMA_GAP",
+      "fixture_id": "sequence_B_schema_gap_halt"
+    },
+    {
+      "expected_outcome": "RADIUS_BLOCKED_BY_AUTHORITY_BOUNDARY",
+      "fixture_id": "sequence_C_authority_boundary_halt"
+    },
+    {
+      "expected_outcome": "RADIUS_EXPANDED_WITH_TYPED_BOUNDARIES",
+      "fixture_id": "sequence_D_cell1_accepted_build_handoff"
+    },
+    {
+      "expected_outcome": "RADIUS_BLOCKED_BY_MISSING_CAPABILITY",
+      "fixture_id": "sequence_E_missing_capability_feedback"
+    }
+  ],
+  "next_unit_id": "BUILD_C7_SYNTHETIC_RUNTIME_RADIUS_FIXTURES_V0",
+  "schema_version": "c7_fixture_build_target_v0",
+  "target_status": "FIXTURES_NEXT"
+}

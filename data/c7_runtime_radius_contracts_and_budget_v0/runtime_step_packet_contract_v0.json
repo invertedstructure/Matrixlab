@@ -1,0 +1,35 @@
+{
+  "bad_counter_contract_ref": "data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_negative_counter_contract_v0.json",
+  "contract_status": "FROZEN",
+  "must_not_infer": [
+    "next packet from prose",
+    "authority from previous acceptance",
+    "runtime adoption from reference freeze",
+    "success from step count alone"
+  ],
+  "purpose": "Packetize every C7 runtime-radius transition; no inferred next command.",
+  "required_fields": [
+    "schema_version",
+    "step_id",
+    "run_id",
+    "step_index",
+    "input_packet_ref",
+    "active_object",
+    "attempted_move",
+    "schema_validation_ref",
+    "admissibility_ref",
+    "execution_ref",
+    "receipt_ref",
+    "sidecar_event_ref",
+    "edge_observation_ref",
+    "unit_feedback_ref",
+    "terminal",
+    "next_packet_ref",
+    "bad_counters"
+  ],
+  "schema_version": "runtime_step_packet_contract_v0",
+  "terminal_values": [
+    "ADVANCE",
+    "STOP"
+  ]
+}

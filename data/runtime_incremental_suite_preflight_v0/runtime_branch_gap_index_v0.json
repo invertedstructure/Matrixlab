@@ -1,0 +1,178 @@
+{
+  "gap_count": 9,
+  "gaps": [
+    {
+      "branch_id": "terminal_stability_variants",
+      "candidate_only": true,
+      "forbidden_scope": [
+        "add moves",
+        "invent schemas",
+        "invent taxonomy",
+        "patch runtime",
+        "expand fixtures by default",
+        "claim live runtime adoption"
+      ],
+      "gap_id": "runtime_branch_gap_35c92a53",
+      "gap_status": "NEEDS_DECLARED_STATE_VARIANT_RULES",
+      "repair_applied": false,
+      "schema_version": "runtime_branch_gap_record_v0",
+      "smallest_next_handling": "PREPARE_RUNTIME_DECLARED_STATE_VARIANT_RULES_V0",
+      "tier": "T1",
+      "why": "Equivalent state variants need a bounded rule so state declaration does not become hidden fixture expansion."
+    },
+    {
+      "branch_id": "registered_branch_coverage",
+      "candidate_only": true,
+      "forbidden_scope": [
+        "add moves",
+        "invent schemas",
+        "invent taxonomy",
+        "patch runtime",
+        "expand fixtures by default",
+        "claim live runtime adoption"
+      ],
+      "gap_id": "runtime_branch_gap_5da5c06b",
+      "gap_status": "PARTIAL",
+      "repair_applied": false,
+      "schema_version": "runtime_branch_gap_record_v0",
+      "smallest_next_handling": "Use only observed branches first; record unreachable desired branches as coverage pressure if needed.",
+      "tier": "T2",
+      "why": "All current registry moves were observed in the clean linear path; no alternate registered branch was observed."
+    },
+    {
+      "branch_id": "schema_validation_pass",
+      "candidate_only": true,
+      "forbidden_scope": [
+        "add moves",
+        "invent schemas",
+        "invent taxonomy",
+        "patch runtime",
+        "expand fixtures by default",
+        "claim live runtime adoption"
+      ],
+      "gap_id": "runtime_branch_gap_a29558ee",
+      "gap_status": "OBSERVED_PASS_ONLY",
+      "repair_applied": false,
+      "schema_version": "runtime_branch_gap_record_v0",
+      "smallest_next_handling": "Do not manufacture schema failure; require explicit declared invalid-state case or record unreachable branch.",
+      "tier": "T3",
+      "why": "Schema validation pass was observed; schema validation failure was not observed."
+    },
+    {
+      "branch_id": "admissibility_pass",
+      "candidate_only": true,
+      "forbidden_scope": [
+        "add moves",
+        "invent schemas",
+        "invent taxonomy",
+        "patch runtime",
+        "expand fixtures by default",
+        "claim live runtime adoption"
+      ],
+      "gap_id": "runtime_branch_gap_296bf8f5",
+      "gap_status": "OBSERVED_PASS_ONLY",
+      "repair_applied": false,
+      "schema_version": "runtime_branch_gap_record_v0",
+      "smallest_next_handling": "Do not manufacture authority failure; require explicit declared boundary case or record unreachable branch.",
+      "tier": "T3",
+      "why": "Lawful admissibility pass was observed; admissibility block was not observed."
+    },
+    {
+      "branch_id": "observability_degraded_or_gap",
+      "candidate_only": true,
+      "forbidden_scope": [
+        "add moves",
+        "invent schemas",
+        "invent taxonomy",
+        "patch runtime",
+        "expand fixtures by default",
+        "claim live runtime adoption"
+      ],
+      "gap_id": "runtime_branch_gap_372cf7e6",
+      "gap_status": "NOT_REACHABLE_FROM_CURRENT_REGISTRY_ONLY",
+      "repair_applied": false,
+      "schema_version": "runtime_branch_gap_record_v0",
+      "smallest_next_handling": "Prepare non-control observability status case contract before T4 stress.",
+      "tier": "T4",
+      "why": "Current smoke trace records sidecar refs but no degradation/unavailable control knob is present in registry."
+    },
+    {
+      "branch_id": "negative_controls_non_writing",
+      "candidate_only": true,
+      "forbidden_scope": [
+        "add moves",
+        "invent schemas",
+        "invent taxonomy",
+        "patch runtime",
+        "expand fixtures by default",
+        "claim live runtime adoption"
+      ],
+      "gap_id": "runtime_branch_gap_01305566",
+      "gap_status": "NEEDS_NON_WRITING_PROBE_CONTRACT",
+      "repair_applied": false,
+      "schema_version": "runtime_branch_gap_record_v0",
+      "smallest_next_handling": "Prepare negative-control probe contract.",
+      "tier": "T5",
+      "why": "Negative controls must be observed as rejected/non-writing without mutating runtime."
+    },
+    {
+      "branch_id": "step_cap_or_loop_shape",
+      "candidate_only": true,
+      "forbidden_scope": [
+        "add moves",
+        "invent schemas",
+        "invent taxonomy",
+        "patch runtime",
+        "expand fixtures by default",
+        "claim live runtime adoption"
+      ],
+      "gap_id": "runtime_branch_gap_7138fae9",
+      "gap_status": "NOT_REACHABLE_FROM_CURRENT_REGISTRY_ONLY",
+      "repair_applied": false,
+      "schema_version": "runtime_branch_gap_record_v0",
+      "smallest_next_handling": "Do not include T6 in first suite unless loop/cap trigger is declared from current registry.",
+      "tier": "T6",
+      "why": "No registry cycle/repeated move shape was detected."
+    },
+    {
+      "branch_id": "move_tie_unresolved",
+      "candidate_only": true,
+      "forbidden_scope": [
+        "add moves",
+        "invent schemas",
+        "invent taxonomy",
+        "patch runtime",
+        "expand fixtures by default",
+        "claim live runtime adoption"
+      ],
+      "gap_id": "runtime_branch_gap_a46a90c2",
+      "gap_status": "NOT_PRESENT",
+      "repair_applied": false,
+      "schema_version": "runtime_branch_gap_record_v0",
+      "smallest_next_handling": "Do not include move-tie case in first suite.",
+      "tier": "T6",
+      "why": "No same-phase same-priority move tie detected."
+    },
+    {
+      "branch_id": "no_applicable_move",
+      "candidate_only": true,
+      "forbidden_scope": [
+        "add moves",
+        "invent schemas",
+        "invent taxonomy",
+        "patch runtime",
+        "expand fixtures by default",
+        "claim live runtime adoption"
+      ],
+      "gap_id": "runtime_branch_gap_6f1aa1a7",
+      "gap_status": "UNDERDECLARED",
+      "repair_applied": false,
+      "schema_version": "runtime_branch_gap_record_v0",
+      "smallest_next_handling": "Do not invent unrecognized phase inside suite; decide in state variant rules.",
+      "tier": "T2/T6",
+      "why": "Could be forced by an unrecognized runtime_phase, but that needs a declared invalid/edge-state rule."
+    }
+  ],
+  "index_status": "EMITTED",
+  "schema_version": "runtime_branch_gap_index_v0"
+}

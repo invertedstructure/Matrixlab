@@ -1,0 +1,65 @@
+{
+  "human_readout": {
+    "baseline_ref": "data/runtime_adoption_smoke_v0/runtime_baseline_seal_v0.json",
+    "interpretation": "Controlled runtime smoke pass completed. Refinement must be based only on typed halt, mismatch, projection bug, missing move, gate failure, observability gap, or feedback gap emitted by this run.",
+    "moves": {
+      "moves_applied": 6,
+      "moves_inspected": 6,
+      "selected_moves": [
+        "move_load_baseline_seal_v0",
+        "move_load_declared_runtime_state_v0",
+        "move_validate_declared_state_v0",
+        "move_check_cell0_lawful_admissibility_v0",
+        "move_inspect_registered_moves_v0",
+        "move_emit_typed_smoke_terminal_v0"
+      ]
+    },
+    "receipt": {
+      "receipt_ref": "data/runtime_adoption_smoke_v0/runtime_smoke_receipt_v0.json",
+      "receipt_trace_match": true,
+      "trace_ref": "data/runtime_adoption_smoke_v0/runtime_smoke_trace_v0.jsonl"
+    },
+    "run_id": "runtime_smoke_763a67ec",
+    "runtime_pressure": {
+      "candidate_next_handling": null,
+      "observed_gap": null,
+      "pressure_class": "STOP_DONE"
+    },
+    "schema_version": "runtime_smoke_readout_v0",
+    "state": {
+      "changed": true,
+      "final_state_sig8": "448087f7",
+      "start_state_sig8": "6555d62a"
+    },
+    "terminal": {
+      "next_unit_id": null,
+      "stop_code": "STOP_RUNTIME_SMOKE_TYPED_TERMINAL",
+      "terminal_result": "STOP"
+    }
+  },
+  "must_not_infer": [
+    "production runtime ready",
+    "runtime adoption authorized",
+    "C8 authorized",
+    "broad hardening authorized",
+    "fixture expansion authorized by default"
+  ],
+  "run_id": "runtime_smoke_763a67ec",
+  "schema_version": "runtime_smoke_report_v0",
+  "summary": {
+    "bad_counters_zero": true,
+    "moves_applied": 6,
+    "outcome_class": "RUNTIME_SMOKE_PASS_TYPED_STOP",
+    "pressure_class": "STOP_DONE",
+    "refinement_candidates": 0,
+    "steps_attempted": 6,
+    "terminal": {
+      "code": null,
+      "next_command_goal": null,
+      "next_unit_id": null,
+      "stop_code": "STOP_RUNTIME_SMOKE_TYPED_TERMINAL",
+      "type": "STOP"
+    }
+  },
+  "unit_id": "BUILD_OUTER_RUNTIME_ADOPTION_SMOKE_V0"
+}

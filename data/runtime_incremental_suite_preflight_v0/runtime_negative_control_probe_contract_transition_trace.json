@@ -1,0 +1,21 @@
+{
+  "schema_version": "runtime_negative_control_probe_contract_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "BUILD_OUTER_RUNTIME_INCREMENTAL_TEST_SUITE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "consume observability status contract and compact suite shape",
+      "from": "OBSERVABILITY_STATUS_CONTRACT_READY_NEGATIVE_CONTROLS_NEXT",
+      "to": "NEGATIVE_CONTROL_PROBE_CONTRACT_BASIS_ACCEPTED"
+    },
+    {
+      "edge": "emit non-writing negative-control probe contract",
+      "from": "NEGATIVE_CONTROL_PROBE_CONTRACT_BASIS_ACCEPTED",
+      "to": "BUILD_COMPACT_INCREMENTAL_SUITE_NEXT"
+    }
+  ],
+  "unit_id": "PREPARE_RUNTIME_NON_WRITING_NEGATIVE_CONTROL_PROBE_CONTRACT_V0"
+}

@@ -1,0 +1,38 @@
+{
+  "deferred": [
+    "T3.schema_validation_failure",
+    "T3.admissibility_block",
+    "T4.full_observability_required_gap",
+    "T6.step_cap_loop_shape",
+    "T6.move_tie_unresolved"
+  ],
+  "must_not_infer": [
+    "all branches covered",
+    "T3/T6 ready",
+    "runtime adoption authorized",
+    "C8 authorized"
+  ],
+  "ready_cases": [
+    "T0.baseline_replay",
+    "T1.fresh_state_id",
+    "T1.empty_history_ref",
+    "T2.no_applicable_move_probe",
+    "T4.normal_observed_event_sequence",
+    "T4.degraded_sidecar_observation_nonblocking",
+    "T5.unregistered_move_applied_fail_non_writing",
+    "T5.hidden_repair_fail_non_writing",
+    "T5.schema_invented_fail_non_writing",
+    "T5.hidden_next_command_fail_non_writing"
+  ],
+  "schema_version": "runtime_compact_incremental_suite_final_shape_v0",
+  "shape_status": "READY_FOR_COMPACT_INCREMENTAL_SUITE_RUN",
+  "suite_size": 10,
+  "tier_counts": {
+    "T0": 1,
+    "T1": 2,
+    "T2": 1,
+    "T4": 2,
+    "T5": 4
+  },
+  "why_compact": "The first suite should stress declared-state stability, expected pressure, observability status, and non-writing negative controls without manufacturing unreachable T3/T6 branches."
+}

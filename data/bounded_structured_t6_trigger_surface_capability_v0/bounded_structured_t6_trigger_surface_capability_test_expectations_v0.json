@@ -1,0 +1,32 @@
+{
+  "capability_build_id": "bounded_structured_t6_trigger_surface_capability_build_721f09dc",
+  "expectation_status": "BUILT_PENDING_REVIEW",
+  "runtime_execution_required": false,
+  "schema_version": "bounded_structured_t6_trigger_surface_capability_test_expectations_v0",
+  "tests": [
+    {
+      "expected_admissible_as_structured_trigger": true,
+      "expected_classification": "STRUCTURED_TRIGGER_SURFACE_PRESENT",
+      "input_ref": "data/bounded_structured_t6_trigger_surface_capability_v0/bounded_structured_t6_trigger_surface_positive_example_v0.json",
+      "test_id": "positive_structured_trigger_surface_present"
+    },
+    {
+      "expected_admissible_as_structured_trigger": false,
+      "expected_classification": "TEXT_ONLY_TIE_RESIDUE_ONLY",
+      "input_ref": "data/bounded_structured_t6_trigger_surface_capability_v0/bounded_structured_t6_trigger_surface_text_only_negative_control_v0.json",
+      "test_id": "negative_text_only_tie_residue_only"
+    },
+    {
+      "expected_admissible_as_structured_trigger": false,
+      "expected_classification": "STRUCTURED_TRIGGER_SURFACE_ABSENT_TYPED",
+      "input_shape": "structured fields present with typed absence reasons",
+      "test_id": "missing_structured_evidence_typed_absence"
+    },
+    {
+      "expected_admissible_as_structured_trigger": false,
+      "expected_classification": "UNDER_TYPED_EVIDENCE",
+      "input_shape": "required structured fields missing",
+      "test_id": "under_typed_evidence_blocks_progress"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "capability_build_id": "bounded_structured_t6_trigger_surface_capability_build_721f09dc",
+  "classification_rules": [
+    {
+      "admissible_as_structured_trigger": true,
+      "classification": "STRUCTURED_TRIGGER_SURFACE_PRESENT",
+      "when": "loop_trigger_surface.present is true and tie_evidence.present is true"
+    },
+    {
+      "admissible_as_structured_trigger": false,
+      "classification": "STRUCTURED_TRIGGER_SURFACE_ABSENT_TYPED",
+      "when": "loop_trigger_surface.present is false or tie_evidence.present is false, with typed absence reasons"
+    },
+    {
+      "admissible_as_structured_trigger": false,
+      "classification": "TEXT_ONLY_TIE_RESIDUE_ONLY",
+      "when": "text_only_residue.present is true and structured evidence is absent"
+    },
+    {
+      "admissible_as_structured_trigger": false,
+      "classification": "UNDER_TYPED_EVIDENCE",
+      "when": "required fields are missing or under-typed"
+    }
+  ],
+  "determinism_rule": "Classification is deterministic from structured fields only; no free-text detector residue can promote itself.",
+  "policy_status": "BUILT_PENDING_REVIEW",
+  "schema_version": "bounded_structured_t6_trigger_surface_classifier_policy_v0"
+}

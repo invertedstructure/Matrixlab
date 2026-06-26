@@ -1,0 +1,22 @@
+{
+  "human_decision_packet_id": "bounded_structured_t6_trigger_surface_capability_adoption_human_decision_packet_38ae00c0",
+  "schema_version": "bounded_structured_t6_trigger_surface_capability_adoption_human_decision_packet_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": null,
+    "stop_code": "STOP_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_ADOPTION_HUMAN_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "transitions": [
+    {
+      "edge": "prepare human decision packet with bounded adoption/promotion options",
+      "from": "HUMAN_DECISION_PACKET_PREP_READY",
+      "to": "HUMAN_DECISION_PACKET_READY"
+    },
+    {
+      "edge": "stop for human decision without selecting option",
+      "from": "HUMAN_DECISION_PACKET_READY",
+      "to": "STOP_HUMAN_DECISION_REQUIRED"
+    }
+  ],
+  "unit_id": "PREPARE_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_ADOPTION_HUMAN_DECISION_PACKET_V0"
+}

@@ -1,0 +1,25 @@
+{
+  "queue": [
+    {
+      "case_key": "T3.schema_validation_failure",
+      "next_unit_id": "PREPARE_RUNTIME_T3_SCHEMA_VALIDATION_FAILURE_CASE_CONTRACT_V0",
+      "order": 1,
+      "queue_reason": "first missing T3 pressure contract"
+    },
+    {
+      "case_key": "T3.admissibility_block",
+      "next_unit_id": "PREPARE_RUNTIME_T3_ADMISSIBILITY_BLOCK_CASE_CONTRACT_V0",
+      "order": 2,
+      "queue_reason": "second missing T3 pressure contract"
+    },
+    {
+      "case_key": "T4.full_observability_required_gap",
+      "next_unit_id": "PREPARE_RUNTIME_T4_REQUIRED_OBSERVABILITY_GAP_CASE_INSTANCE_V0",
+      "order": 3,
+      "queue_reason": "contract exists; bounded case instance missing"
+    }
+  ],
+  "queue_status": "EMITTED",
+  "schema_version": "runtime_deferred_cases_buildable_queue_v0",
+  "suite_run_allowed_now": false
+}

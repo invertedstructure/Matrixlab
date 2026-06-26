@@ -1,0 +1,29 @@
+{
+  "continuation_rule": "suite_may_continue only if declared observability status and expected terminal/pressure/outcome match exactly.",
+  "degraded_status_rule": "DEGRADED_NON_BLOCKING may terminal normally if observability_required is false and degradation is receipt-visible.",
+  "gap_status_rule": "GAP_EXPECTED_PRESSURE requires RUNTIME_OBSERVABILITY_GAP and candidate-only refinement record.",
+  "normal_status_rule": "OBSERVED requires sidecar observation refs in per-case trace/readout.",
+  "required_false_for_observability_case": [
+    "repair_authorized",
+    "sidecar_control_authority",
+    "runtime_patch_authorized",
+    "live_hook_install_authorized"
+  ],
+  "required_fields_for_observability_case": [
+    "case_id",
+    "tier",
+    "case_name",
+    "case_role",
+    "runtime_state_ref",
+    "observability_required",
+    "declared_observability_status",
+    "expected_terminal_type",
+    "expected_stop_code",
+    "expected_pressure_class",
+    "expected_outcome_class",
+    "expected_trace_receipt_match",
+    "repair_authorized"
+  ],
+  "rules_status": "READY",
+  "schema_version": "runtime_case_manifest_observability_status_rules_v0"
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": "post_c8_basic_interlock_mechanic_reference_decision_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": null,
+    "stop_code": "STOP_C8_BASIC_INTERLOCK_REFERENCE_BRANCH_COMPLETE",
+    "type": "STOP_DONE"
+  },
+  "transitions": [
+    {
+      "edge": "consume reviewed reference and decision-ready marker",
+      "from": "C8_BASIC_INTERLOCK_MECHANIC_FROZEN_AS_REVIEWED_REFERENCE_DECISION_READY",
+      "to": "POST_C8_BASIC_INTERLOCK_REFERENCE_DECISION_BASIS_ACCEPTED"
+    },
+    {
+      "edge": "close reference branch without runtime adoption",
+      "from": "POST_C8_BASIC_INTERLOCK_REFERENCE_DECISION_BASIS_ACCEPTED",
+      "to": "C8_BASIC_INTERLOCK_REFERENCE_BRANCH_CLOSED"
+    }
+  ],
+  "unit_id": "DECIDE_NEXT_AFTER_C8_BASIC_INTERLOCK_MECHANIC_REFERENCE_FREEZE_V0"
+}

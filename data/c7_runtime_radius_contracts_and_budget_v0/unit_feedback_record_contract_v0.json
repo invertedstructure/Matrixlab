@@ -1,0 +1,36 @@
+{
+  "contract_status": "FROZEN",
+  "diagnostic_quality_values": [
+    "USEFUL",
+    "PARTIAL",
+    "WEAK",
+    "UNTYPED"
+  ],
+  "failure_kinds": [
+    "SCHEMA_GAP",
+    "AUTHORITY_BOUNDARY",
+    "FRONTIER_REQUIRED",
+    "MISSING_CAPABILITY",
+    "WEAK_FEEDBACK",
+    "OBSERVABILITY_GAP",
+    "INTER_CELL_PROTOCOL_GAP",
+    "UNTYPED_FAILURE"
+  ],
+  "purpose": "Turn failed or halted units into diagnostic feedback instead of bare status.",
+  "required_fields": [
+    "schema_version",
+    "unit_feedback_id",
+    "run_id",
+    "step_id",
+    "failure_kind",
+    "failed_boundary",
+    "blocked_move",
+    "active_object_ref",
+    "missing_object_or_capability",
+    "observed_evidence_ref",
+    "lawful_next_handling",
+    "diagnostic_quality",
+    "must_not_infer"
+  ],
+  "schema_version": "unit_feedback_record_contract_v0"
+}

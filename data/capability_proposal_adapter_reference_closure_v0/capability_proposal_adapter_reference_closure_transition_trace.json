@@ -1,0 +1,21 @@
+{
+  "schema_version": "capability_proposal_adapter_reference_closure_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": "REVIEW_BOUNDED_CAPABILITY_PROPOSAL_CANDIDATE_V0",
+    "stop_code": "STOP_CAPABILITY_PROPOSAL_ADAPTER_REFERENCE_BRANCH_CLOSED",
+    "type": "STOP"
+  },
+  "transitions": [
+    {
+      "edge": "consume packaging repair receipt and reviewed adapter basis",
+      "from": "CAPABILITY_PROPOSAL_ADAPTER_PARITY_REPAIR_PACKAGING_READY_REFERENCE_FREEZE_NEXT",
+      "to": "ADAPTER_REFERENCE_CLOSURE_READY"
+    },
+    {
+      "edge": "freeze adapter mechanism only; leave proposal pending review",
+      "from": "ADAPTER_REFERENCE_CLOSURE_READY",
+      "to": "ADAPTER_REFERENCE_BRANCH_CLOSED"
+    }
+  ],
+  "unit_id": "CLOSE_CAPABILITY_PROPOSAL_ADAPTER_AS_REVIEWED_REFERENCE_V0"
+}

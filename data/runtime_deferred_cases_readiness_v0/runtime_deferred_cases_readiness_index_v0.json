@@ -1,0 +1,121 @@
+{
+  "case_instance_ready": [
+    "T4.full_observability_required_gap"
+  ],
+  "contract_prep_ready": [
+    "T3.schema_validation_failure",
+    "T3.admissibility_block"
+  ],
+  "deferred_cases": [
+    {
+      "authorized_now": {
+        "prepare_case_contract": true,
+        "repair": false,
+        "run_case": false,
+        "runtime_patch": false,
+        "schema_creation": false
+      },
+      "buildability": "CONTRACT_PREP_READY",
+      "case_key": "T3.schema_validation_failure",
+      "evidence": {
+        "branch_gap_text_contains_schema_validation_pass": true,
+        "observed_schema_pass_only": true
+      },
+      "readiness_class": "NEEDS_CASE_CONTRACT",
+      "reason": "Reachability showed schema pass only; failure case must be declared through explicit invalid-state contract before suite inclusion.",
+      "recommended_next_unit": "PREPARE_RUNTIME_T3_SCHEMA_VALIDATION_FAILURE_CASE_CONTRACT_V0",
+      "tier": "T3"
+    },
+    {
+      "authorized_now": {
+        "prepare_case_contract": true,
+        "repair": false,
+        "run_case": false,
+        "runtime_patch": false,
+        "schema_creation": false
+      },
+      "buildability": "CONTRACT_PREP_READY_AFTER_SCHEMA_FAILURE_CONTRACT",
+      "case_key": "T3.admissibility_block",
+      "evidence": {
+        "branch_gap_text_contains_admissibility_pass": true,
+        "observed_admissibility_pass_only": true
+      },
+      "readiness_class": "NEEDS_CASE_CONTRACT",
+      "reason": "Reachability showed admissibility pass only; authority-boundary case must be declared through explicit blocked-admissibility contract before suite inclusion.",
+      "recommended_next_unit": "PREPARE_RUNTIME_T3_ADMISSIBILITY_BLOCK_CASE_CONTRACT_V0",
+      "tier": "T3"
+    },
+    {
+      "authorized_now": {
+        "prepare_case_instance": true,
+        "repair": false,
+        "run_case": false,
+        "runtime_patch": false,
+        "sidecar_control_authority": false
+      },
+      "buildability": "CASE_INSTANCE_PREP_READY",
+      "case_key": "T4.full_observability_required_gap",
+      "evidence": {
+        "allowed_observability_case_exists": true,
+        "expected_pressure_class": "RUNTIME_OBSERVABILITY_GAP"
+      },
+      "readiness_class": "CONTRACT_EXISTS_NEEDS_CASE_INSTANCE",
+      "reason": "Observability status contract already allowed GAP_EXPECTED_PRESSURE later; only a bounded case instance is missing.",
+      "recommended_next_unit": "PREPARE_RUNTIME_T4_REQUIRED_OBSERVABILITY_GAP_CASE_INSTANCE_V0",
+      "tier": "T4"
+    },
+    {
+      "authorized_now": {
+        "feasibility_audit": true,
+        "move_addition": false,
+        "prepare_case_contract": false,
+        "repair": false,
+        "run_case": false,
+        "runtime_patch": false
+      },
+      "buildability": "NOT_CASE_CONTRACT_READY",
+      "case_key": "T6.step_cap_loop_shape",
+      "evidence": {
+        "registry_has_cycle": false,
+        "registry_move_count": 6
+      },
+      "readiness_class": "NEEDS_FEASIBILITY_AUDIT",
+      "reason": "Current registry does not expose a loop/cycle trigger surface; do not manufacture loop-shaped moves.",
+      "recommended_next_unit": "AUDIT_RUNTIME_T6_LOOP_AND_TIE_TRIGGER_FEASIBILITY_V0",
+      "tier": "T6"
+    },
+    {
+      "authorized_now": {
+        "feasibility_audit": true,
+        "move_addition": false,
+        "prepare_case_contract": false,
+        "repair": false,
+        "run_case": false,
+        "runtime_patch": false
+      },
+      "buildability": "NOT_CASE_CONTRACT_READY",
+      "case_key": "T6.move_tie_unresolved",
+      "evidence": {
+        "move_tie_candidate_count": 0
+      },
+      "readiness_class": "NEEDS_FEASIBILITY_AUDIT",
+      "reason": "Reachability reported no move-tie surface; do not invent tie cases unless feasibility audit finds a lawful current-registry trigger.",
+      "recommended_next_unit": "AUDIT_RUNTIME_T6_LOOP_AND_TIE_TRIGGER_FEASIBILITY_V0",
+      "tier": "T6"
+    }
+  ],
+  "feasibility_required": [
+    "T6.step_cap_loop_shape",
+    "T6.move_tie_unresolved"
+  ],
+  "index_status": "EMITTED",
+  "not_ready_for_suite_run": [
+    "T3.schema_validation_failure",
+    "T3.admissibility_block",
+    "T4.full_observability_required_gap",
+    "T6.step_cap_loop_shape",
+    "T6.move_tie_unresolved"
+  ],
+  "schema_version": "runtime_deferred_cases_readiness_index_v0",
+  "source_no_app_audit_receipt_ref": "data/runtime_no_applicable_move_pressure_audit_v0_receipts/1be6a297.json"
+}

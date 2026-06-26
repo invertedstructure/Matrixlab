@@ -1,0 +1,22 @@
+{
+  "mutation_target_id": "bounded_structured_t6_trigger_surface_capability_schema_archive_mutation_target_63de098e",
+  "schema_version": "bounded_structured_t6_trigger_surface_capability_schema_archive_mutation_target_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "REVIEW_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_SCHEMA_ARCHIVE_MUTATION_TARGET_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "consume accept decision and prepare archive entry candidate plus mutation target",
+      "from": "SCHEMA_ARCHIVE_MUTATION_TARGET_PREP_READY",
+      "to": "SCHEMA_ARCHIVE_MUTATION_TARGET_PREPARED"
+    },
+    {
+      "edge": "emit review target without schema archive write",
+      "from": "SCHEMA_ARCHIVE_MUTATION_TARGET_PREPARED",
+      "to": "SCHEMA_ARCHIVE_MUTATION_TARGET_REVIEW_READY"
+    }
+  ],
+  "unit_id": "PREPARE_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_SCHEMA_ARCHIVE_MUTATION_TARGET_V0"
+}

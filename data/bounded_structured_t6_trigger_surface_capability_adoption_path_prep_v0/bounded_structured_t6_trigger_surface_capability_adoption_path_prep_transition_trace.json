@@ -1,0 +1,22 @@
+{
+  "adoption_path_id": "bounded_structured_t6_trigger_surface_capability_adoption_path_6f9974e5",
+  "schema_version": "bounded_structured_t6_trigger_surface_capability_adoption_path_prep_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "REVIEW_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_ADOPTION_PATH_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "prepare adoption surfaces, authority boundary, candidates, negative control, and review target",
+      "from": "ADOPTION_PATH_PREP_READY",
+      "to": "ADOPTION_PATH_PREPARED_FOR_REVIEW"
+    },
+    {
+      "edge": "emit adoption path review target without adoption or promotion",
+      "from": "ADOPTION_PATH_PREPARED_FOR_REVIEW",
+      "to": "ADOPTION_PATH_REVIEW_READY"
+    }
+  ],
+  "unit_id": "PREPARE_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_ADOPTION_PATH_V0"
+}

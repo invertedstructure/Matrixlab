@@ -1,0 +1,101 @@
+{
+  "allowed_variant_count": 6,
+  "catalog_status": "EMITTED",
+  "first_suite_variant_count": 3,
+  "schema_version": "runtime_allowed_state_variant_catalog_v0",
+  "variants": [
+    {
+      "allowed_mutations": [],
+      "case_role": "baseline_replay",
+      "description": "Exact clean smoke runtime state replay.",
+      "expected_outcome_class": "RUNTIME_SMOKE_PASS_TYPED_STOP",
+      "expected_pressure_class": "STOP_DONE",
+      "expected_stop_code": "STOP_RUNTIME_SMOKE_TYPED_TERMINAL",
+      "expected_terminal_type": "STOP",
+      "include_in_first_suite": true,
+      "requires_expected_pressure_contract": false,
+      "tier": "T0",
+      "variant_id": "state_variant_baseline_replay_v0"
+    },
+    {
+      "allowed_mutations": [
+        "state_id"
+      ],
+      "case_role": "terminal_stability_fresh_state_id",
+      "description": "Same fixed refs with regenerated state_id only.",
+      "expected_outcome_class": "RUNTIME_SMOKE_PASS_TYPED_STOP",
+      "expected_pressure_class": "STOP_DONE",
+      "expected_stop_code": "STOP_RUNTIME_SMOKE_TYPED_TERMINAL",
+      "expected_terminal_type": "STOP",
+      "include_in_first_suite": true,
+      "requires_expected_pressure_contract": false,
+      "tier": "T1",
+      "variant_id": "state_variant_fresh_state_id_v0"
+    },
+    {
+      "allowed_mutations": [
+        "history_ref"
+      ],
+      "case_role": "terminal_stability_empty_history",
+      "description": "Same fixed refs with history_ref explicitly null/empty-equivalent.",
+      "expected_outcome_class": "RUNTIME_SMOKE_PASS_TYPED_STOP",
+      "expected_pressure_class": "STOP_DONE",
+      "expected_stop_code": "STOP_RUNTIME_SMOKE_TYPED_TERMINAL",
+      "expected_terminal_type": "STOP",
+      "include_in_first_suite": true,
+      "requires_expected_pressure_contract": false,
+      "tier": "T1",
+      "variant_id": "state_variant_empty_history_ref_v0"
+    },
+    {
+      "allowed_mutations": [
+        "history_ref"
+      ],
+      "case_role": "terminal_stability_populated_history",
+      "description": "Same fixed refs with history_ref pointing to the clean smoke trace.",
+      "expected_outcome_class": "RUNTIME_SMOKE_PASS_TYPED_STOP",
+      "expected_pressure_class": "STOP_DONE",
+      "expected_stop_code": "STOP_RUNTIME_SMOKE_TYPED_TERMINAL",
+      "expected_terminal_type": "STOP",
+      "include_in_first_suite": false,
+      "requires_expected_pressure_contract": false,
+      "tier": "T1",
+      "variant_id": "state_variant_populated_history_ref_v0",
+      "why_not_first_suite": "compact suite uses two T1 cases first"
+    },
+    {
+      "allowed_mutations": [
+        "status",
+        "history_ref"
+      ],
+      "case_role": "terminal_stability_prior_terminal_marker",
+      "description": "Same fixed refs with explicit prior terminal marker status only.",
+      "expected_outcome_class": "RUNTIME_SMOKE_PASS_TYPED_STOP",
+      "expected_pressure_class": "STOP_DONE",
+      "expected_stop_code": "STOP_RUNTIME_SMOKE_TYPED_TERMINAL",
+      "expected_terminal_type": "STOP",
+      "include_in_first_suite": false,
+      "requires_expected_pressure_contract": false,
+      "tier": "T1",
+      "variant_id": "state_variant_prior_terminal_marker_v0",
+      "why_not_first_suite": "compact suite keeps T1 minimal first"
+    },
+    {
+      "allowed_mutations": [
+        "runtime_phase"
+      ],
+      "case_role": "declared_no_applicable_move_pressure",
+      "description": "Explicit phase token that should select no registered move and emit expected NO_APPLICABLE_MOVE pressure.",
+      "expected_outcome_class": "RUNTIME_SMOKE_BLOCKED_NO_APPLICABLE_MOVE",
+      "expected_pressure_class": "NO_APPLICABLE_MOVE",
+      "expected_stop_code": "STOP_RUNTIME_NO_APPLICABLE_MOVE",
+      "expected_terminal_type": "STOP",
+      "include_in_first_suite": false,
+      "requires_expected_pressure_contract": true,
+      "runtime_phase_value": "NO_APPLICABLE_MOVE_PROBE",
+      "tier": "T2/T6",
+      "variant_id": "state_variant_no_applicable_move_probe_v0",
+      "why_not_first_suite": "requires expected-pressure case contract first"
+    }
+  ]
+}

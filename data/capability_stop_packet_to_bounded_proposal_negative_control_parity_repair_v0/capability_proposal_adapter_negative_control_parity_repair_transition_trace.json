@@ -1,0 +1,21 @@
+{
+  "schema_version": "capability_proposal_adapter_negative_control_parity_repair_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "CLOSE_CAPABILITY_PROPOSAL_ADAPTER_AS_REVIEWED_REFERENCE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "add missing negative-control counter at zero",
+      "from": "VALID_PROPOSAL_BRIDGE_NEEDS_LOCAL_PARITY_REPAIR",
+      "to": "NEGATIVE_CONTROL_PARITY_REPAIRED"
+    },
+    {
+      "edge": "post-repair parity check",
+      "from": "NEGATIVE_CONTROL_PARITY_REPAIRED",
+      "to": "REFERENCE_FREEZE_READY"
+    }
+  ],
+  "unit_id": "REPAIR_CAPABILITY_PROPOSAL_ADAPTER_NEGATIVE_CONTROL_PARITY_V0"
+}

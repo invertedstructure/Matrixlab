@@ -1,0 +1,21 @@
+{
+  "schema_version": "runtime_t3_admissibility_block_contract_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "PREPARE_RUNTIME_T4_REQUIRED_OBSERVABILITY_GAP_CASE_INSTANCE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "consume T3 schema contract and admissibility target",
+      "from": "T3_SCHEMA_FAILURE_CONTRACT_READY_ADMISSIBILITY_NEXT",
+      "to": "T3_ADMISSIBILITY_BLOCK_CONTRACT_BASIS_ACCEPTED"
+    },
+    {
+      "edge": "emit expected-pressure admissibility-block contract",
+      "from": "T3_ADMISSIBILITY_BLOCK_CONTRACT_BASIS_ACCEPTED",
+      "to": "T4_REQUIRED_OBSERVABILITY_GAP_INSTANCE_NEXT"
+    }
+  ],
+  "unit_id": "PREPARE_RUNTIME_T3_ADMISSIBILITY_BLOCK_CASE_CONTRACT_V0"
+}

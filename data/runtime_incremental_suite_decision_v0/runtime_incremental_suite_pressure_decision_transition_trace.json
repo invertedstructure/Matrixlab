@@ -1,0 +1,21 @@
+{
+  "schema_version": "runtime_incremental_suite_pressure_decision_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "AUDIT_RUNTIME_NO_APPLICABLE_MOVE_PRESSURE_CANDIDATE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "consume suite receipt and candidate-only pressure",
+      "from": "STOP_RUNTIME_INCREMENTAL_SUITE_PRESSURE_OBSERVED",
+      "to": "PRESSURE_CANDIDATE_INDEXED"
+    },
+    {
+      "edge": "select smallest lawful inspection target",
+      "from": "PRESSURE_CANDIDATE_INDEXED",
+      "to": "NO_APPLICABLE_MOVE_PRESSURE_AUDIT_NEXT"
+    }
+  ],
+  "unit_id": "DECIDE_NEXT_AFTER_RUNTIME_INCREMENTAL_SUITE_PRESSURE_OBSERVED_V0"
+}

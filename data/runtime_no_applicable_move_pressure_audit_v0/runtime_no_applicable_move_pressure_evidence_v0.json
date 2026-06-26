@@ -1,0 +1,123 @@
+{
+  "evidence_reading": "The NO_APPLICABLE_MOVE case used the special phase token NO_APPLICABLE_MOVE_PROBE, which was allowed only as an expected-pressure probe. It matched the expected terminal and pressure. No real runtime objective requested a missing move.",
+  "evidence_status": "EMITTED",
+  "expected_pressure_contract_match": {
+    "case_contract_id": "expected_pressure_no_applicable_move_probe_v0",
+    "case_role": "declared_no_applicable_move_pressure",
+    "expected_bad_counters_zero": true,
+    "expected_outcome_class": "RUNTIME_SMOKE_BLOCKED_NO_APPLICABLE_MOVE",
+    "expected_pressure_class": "NO_APPLICABLE_MOVE",
+    "expected_refinement_candidate_count_min": 1,
+    "expected_refinement_candidate_status": "CANDIDATE_ONLY",
+    "expected_stop_code": "STOP_RUNTIME_NO_APPLICABLE_MOVE",
+    "expected_terminal_type": "STOP",
+    "expected_trace_receipt_match": true,
+    "move_addition_authorized": false,
+    "repair_authorized": false,
+    "runtime_patch_authorized": false,
+    "runtime_phase_value": "NO_APPLICABLE_MOVE_PROBE",
+    "schema_creation_authorized": false,
+    "schema_version": "runtime_allowed_expected_pressure_case_v0",
+    "source_variant_id": "state_variant_no_applicable_move_probe_v0",
+    "suite_may_continue_if_matched": true,
+    "taxonomy_creation_authorized": false,
+    "tier": "T2",
+    "why_allowed": "No applicable move was identified as underdeclared by reachability audit. This contract allows the suite to test that the runtime emits typed pressure instead of inventing a move."
+  },
+  "probe_token_registered_as_real_phase": false,
+  "registry_phases": [
+    "ADMISSIBILITY_CHECKED",
+    "BASELINE_LOADED",
+    "INIT",
+    "MOVES_INSPECTED",
+    "STATE_LOADED",
+    "STATE_VALIDATED"
+  ],
+  "schema_version": "runtime_no_applicable_move_pressure_evidence_v0",
+  "source_candidate_id": "runtime_suite_refine_07e27e1b",
+  "source_case_id": "runtime_case_18d1eaa5",
+  "source_case_result": {
+    "bad_counters_zero": true,
+    "case_id": "runtime_case_18d1eaa5",
+    "expected_terminal_matched": true,
+    "next_unit_id": null,
+    "outcome_class": "RUNTIME_SMOKE_BLOCKED_NO_APPLICABLE_MOVE",
+    "pressure_class": "NO_APPLICABLE_MOVE",
+    "readout_ref": "data/runtime_incremental_test_suite_v0/cases/runtime_case_18d1eaa5/runtime_smoke_readout_v0.json",
+    "receipt_ref": "data/runtime_incremental_test_suite_v0/cases/runtime_case_18d1eaa5/runtime_smoke_receipt_v0.json",
+    "receipt_trace_match": true,
+    "refinement_candidates_emitted": 1,
+    "run_id": "runtime_incremental_run_9d3e3009",
+    "schema_version": "runtime_case_result_v0",
+    "stop_code": "STOP_RUNTIME_NO_APPLICABLE_MOVE",
+    "suite_may_continue": true,
+    "terminal_type": "STOP",
+    "tier": "T2",
+    "trace_ref": "data/runtime_incremental_test_suite_v0/cases/runtime_case_18d1eaa5/runtime_smoke_trace_v0.jsonl"
+  },
+  "source_manifest_row": {
+    "admissibility_expected": false,
+    "allowed_pressure": [
+      "NO_APPLICABLE_MOVE"
+    ],
+    "case_id": "runtime_case_18d1eaa5",
+    "case_name": "no applicable move probe",
+    "case_role": "declared_no_applicable_move_pressure",
+    "declared_observability_status": "OBSERVED",
+    "declared_probe_intent": null,
+    "expected_moves_max": 8,
+    "expected_moves_min": 0,
+    "expected_outcome_class": "RUNTIME_SMOKE_BLOCKED_NO_APPLICABLE_MOVE",
+    "expected_pressure_class": "NO_APPLICABLE_MOVE",
+    "expected_probe_result": null,
+    "expected_stop_code": "STOP_RUNTIME_NO_APPLICABLE_MOVE",
+    "expected_terminal_type": "STOP",
+    "expected_trace_receipt_match": true,
+    "fixture_expansion_authorized": false,
+    "forbidden_pressure": [],
+    "must_not_infer": [
+      "production runtime ready",
+      "new moves authorized",
+      "schemas may grow",
+      "fixtures may expand by default",
+      "C8 authorized"
+    ],
+    "observability_required": true,
+    "repair_authorized": false,
+    "runtime_state_ref": "data/runtime_incremental_test_suite_v0/cases/runtime_case_18d1eaa5/runtime_state_v0.json",
+    "schema_validation_expected": false,
+    "schema_version": "runtime_incremental_test_case_v0",
+    "tier": "T2"
+  },
+  "source_state_row": {
+    "case_id": "runtime_case_18d1eaa5",
+    "case_role": "declared_no_applicable_move_pressure",
+    "derivation_rule": "no_applicable_move",
+    "runtime_state_ref": "data/runtime_incremental_test_suite_v0/cases/runtime_case_18d1eaa5/runtime_state_v0.json",
+    "source_state_ref": "data/runtime_adoption_smoke_v0/runtime_state_v0.json",
+    "tier": "T2"
+  },
+  "state_variant_catalog_entry": {
+    "allowed_mutations": [
+      "runtime_phase"
+    ],
+    "case_role": "declared_no_applicable_move_pressure",
+    "description": "Explicit phase token that should select no registered move and emit expected NO_APPLICABLE_MOVE pressure.",
+    "expected_outcome_class": "RUNTIME_SMOKE_BLOCKED_NO_APPLICABLE_MOVE",
+    "expected_pressure_class": "NO_APPLICABLE_MOVE",
+    "expected_stop_code": "STOP_RUNTIME_NO_APPLICABLE_MOVE",
+    "expected_terminal_type": "STOP",
+    "include_in_first_suite": false,
+    "requires_expected_pressure_contract": true,
+    "runtime_phase_value": "NO_APPLICABLE_MOVE_PROBE",
+    "tier": "T2/T6",
+    "variant_id": "state_variant_no_applicable_move_probe_v0",
+    "why_not_first_suite": "requires expected-pressure case contract first"
+  },
+  "state_variant_special_token": {
+    "outcome_class": "RUNTIME_SMOKE_BLOCKED_NO_APPLICABLE_MOVE",
+    "pressure_class": "NO_APPLICABLE_MOVE",
+    "status": "ALLOWED_ONLY_WITH_EXPECTED_PRESSURE_CONTRACT",
+    "token": "NO_APPLICABLE_MOVE_PROBE"
+  }
+}

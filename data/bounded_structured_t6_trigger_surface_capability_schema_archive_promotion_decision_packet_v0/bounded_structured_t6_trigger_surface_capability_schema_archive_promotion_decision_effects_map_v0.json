@@ -1,0 +1,29 @@
+{
+  "decision_effects": {
+    "ACCEPT_SCHEMA_ARCHIVE_PROMOTION_FOR_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY": {
+      "next_surface": "schema archive mutation target preparation",
+      "requires_later_recorded_human_decision": true,
+      "schema_archive_mutation_authorized_by_packet": false
+    },
+    "CLOSE_SCHEMA_PROMOTION_PATH_NO_MUTATION": {
+      "next_surface": "close no-mutation",
+      "schema_archive_mutation_authorized": false
+    },
+    "DEFER_SCHEMA_ARCHIVE_PROMOTION_DECISION": {
+      "next_surface": "defer/hold",
+      "schema_archive_mutation_authorized": false
+    },
+    "FREEZE_SCHEMA_CANDIDATE_AS_REFERENCE_ONLY": {
+      "next_surface": "reference-only freeze",
+      "schema_archive_mutation_authorized": false
+    },
+    "REJECT_SCHEMA_ARCHIVE_PROMOTION": {
+      "next_surface": "reject promotion",
+      "schema_archive_mutation_authorized": false
+    }
+  },
+  "effect_rule": "A future selected decision may authorize only its next bounded recording/target unit. This decision packet performs no mutation.",
+  "effects_status": "READY_FOR_HUMAN_DECISION",
+  "promotion_decision_packet_id": "bounded_structured_t6_trigger_surface_capability_schema_archive_promotion_decision_packet_ca415d65",
+  "schema_version": "bounded_structured_t6_trigger_surface_capability_schema_archive_promotion_decision_effects_map_v0"
+}

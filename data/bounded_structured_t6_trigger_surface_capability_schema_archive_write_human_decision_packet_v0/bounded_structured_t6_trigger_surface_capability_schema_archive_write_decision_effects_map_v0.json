@@ -1,0 +1,29 @@
+{
+  "decision_effects": {
+    "AUTHORIZE_SCHEMA_ARCHIVE_WRITE_FOR_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY": {
+      "next_surface": "record write authorization and prepare bounded schema archive write execution target",
+      "requires_later_recorded_human_decision": true,
+      "schema_archive_write_authorized_by_packet": false,
+      "schema_archive_write_executed_by_packet": false
+    },
+    "CLOSE_SCHEMA_ARCHIVE_WRITE_PATH_NO_WRITE": {
+      "next_surface": "close no-write",
+      "schema_archive_write_authorized": false,
+      "schema_archive_write_executed": false
+    },
+    "DEFER_SCHEMA_ARCHIVE_WRITE_DECISION": {
+      "next_surface": "defer/hold",
+      "schema_archive_write_authorized": false,
+      "schema_archive_write_executed": false
+    },
+    "REJECT_SCHEMA_ARCHIVE_WRITE": {
+      "next_surface": "reject write",
+      "schema_archive_write_authorized": false,
+      "schema_archive_write_executed": false
+    }
+  },
+  "effect_rule": "Only a later recorded human decision may authorize the next bounded write unit. This packet performs no write.",
+  "effects_status": "READY_FOR_HUMAN_DECISION",
+  "schema_version": "bounded_structured_t6_trigger_surface_capability_schema_archive_write_decision_effects_map_v0",
+  "write_decision_packet_id": "bounded_structured_t6_trigger_surface_capability_schema_archive_write_human_decision_packet_f86a0126"
+}

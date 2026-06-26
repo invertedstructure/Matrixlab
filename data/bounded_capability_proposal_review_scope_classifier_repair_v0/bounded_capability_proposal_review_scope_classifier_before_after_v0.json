@@ -1,0 +1,21 @@
+{
+  "classifier_problem": "The prior detector searched raw scope text and could not distinguish positive scope claims from negative/boundary language.",
+  "failed_terms": [
+    "runtime repair",
+    "fixture expansion by default"
+  ],
+  "new_behavior": "A forbidden term blocks only when it appears as a positive scope claim without negative/boundary markers.",
+  "old_behavior": "Any occurrence of a forbidden term in scope text was blocking.",
+  "patch_result": {
+    "new_classifier_present": true,
+    "old_classifier_found": true,
+    "patch_status": "PATCHED",
+    "script_changed": true,
+    "script_sha256_after": "26646a2cdf4cdf05a5a23be236f1631921bdf8cceec6d0a39ab2037760582897",
+    "script_sha256_before": "d4795482feb8db746e865796a0dd82f235474d3258acb9f443e654ac00da168c"
+  },
+  "proposal_edited": false,
+  "proposal_semantics_changed": false,
+  "repair_scope": "LOCAL_REVIEW_CLASSIFIER_ONLY",
+  "schema_version": "bounded_capability_proposal_review_scope_classifier_before_after_v0"
+}

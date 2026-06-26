@@ -1,0 +1,21 @@
+{
+  "schema_version": "runtime_reachability_audit_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "PREPARE_RUNTIME_DECLARED_STATE_VARIANT_RULES_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "consume smoke registry and trace",
+      "from": "OUTER_RUNTIME_SMOKE_STOP_DONE",
+      "to": "REGISTRY_REACHABILITY_MAP_EMITTED"
+    },
+    {
+      "edge": "classify suite tier feasibility",
+      "from": "REGISTRY_REACHABILITY_MAP_EMITTED",
+      "to": "STATE_VARIANT_RULES_NEXT"
+    }
+  ],
+  "unit_id": "AUDIT_RUNTIME_INCREMENTAL_SUITE_REACHABILITY_MAP_V0"
+}

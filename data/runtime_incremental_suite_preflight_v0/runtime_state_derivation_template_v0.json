@@ -1,0 +1,23 @@
+{
+  "derivation_steps": [
+    "copy clean smoke runtime_state_v0",
+    "apply only catalog-listed allowed mutations",
+    "regenerate state_id from canonical mutated state",
+    "record derivation_ref and source_variant_id in case manifest, not as new schema fields unless already allowed",
+    "validate required runtime_state_v0 fields remain present",
+    "run through current registry only"
+  ],
+  "forbidden_steps": [
+    "change active_object_ref",
+    "change move_registry_ref",
+    "change schema_archive_ref",
+    "change admissibility_surface_ref",
+    "add runtime moves",
+    "add schema fields",
+    "select latest/mtime file",
+    "patch runtime"
+  ],
+  "schema_version": "runtime_state_derivation_template_v0",
+  "source_state_ref": "data/runtime_adoption_smoke_v0/runtime_state_v0.json",
+  "template_status": "READY"
+}

@@ -1,0 +1,27 @@
+{
+  "adapter_run_id": "capability_adapter_33477636",
+  "schema_version": "capability_proposal_adapter_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CAPABILITY_PROPOSAL_CANDIDATE_EMITTED",
+    "type": "STOP"
+  },
+  "transitions": [
+    {
+      "edge": "consume fixed structured capability-stop packet",
+      "from": "STOP_CAPABILITY_LAYER_REQUIRED",
+      "to": "CAPABILITY_STOP_PACKET_VALIDATED"
+    },
+    {
+      "edge": "map missing objects and required capability to proposal candidate",
+      "from": "CAPABILITY_STOP_PACKET_VALIDATED",
+      "to": "BOUNDED_CAPABILITY_PROPOSAL_CANDIDATE_EMITTED"
+    },
+    {
+      "edge": "emit human decision packet without acceptance",
+      "from": "BOUNDED_CAPABILITY_PROPOSAL_CANDIDATE_EMITTED",
+      "to": "STOP_REVIEW_READY"
+    }
+  ],
+  "unit_id": "BUILD_CAPABILITY_STOP_PACKET_TO_BOUNDED_PROPOSAL_V0"
+}

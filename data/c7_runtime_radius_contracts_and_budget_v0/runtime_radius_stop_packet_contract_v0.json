@@ -1,0 +1,35 @@
+{
+  "allowed_stop_codes": [
+    "STOP_SCHEMA_GAP",
+    "STOP_AUTHORITY_REQUIRED",
+    "STOP_FRONTIER_REQUIRED",
+    "STOP_MISSING_CAPABILITY",
+    "STOP_WEAK_FEEDBACK",
+    "STOP_OBSERVABILITY_GAP",
+    "STOP_INTER_CELL_PROTOCOL_GAP",
+    "STOP_UNTYPED_FAILURE",
+    "STOP_BUDGET_EXHAUSTED",
+    "STOP_DONE"
+  ],
+  "contract_status": "FROZEN",
+  "purpose": "Make C7 halts useful and typed.",
+  "required_fields": [
+    "schema_version",
+    "run_id",
+    "stop_step_index",
+    "stop_code",
+    "stop_reason",
+    "last_valid_packet_ref",
+    "blocked_packet_ref",
+    "blocked_move",
+    "blocked_by",
+    "lawful_next_handling",
+    "must_not_infer",
+    "terminal"
+  ],
+  "schema_version": "runtime_radius_stop_packet_contract_v0",
+  "terminal_values": [
+    "STOP",
+    "STOP_DONE"
+  ]
+}

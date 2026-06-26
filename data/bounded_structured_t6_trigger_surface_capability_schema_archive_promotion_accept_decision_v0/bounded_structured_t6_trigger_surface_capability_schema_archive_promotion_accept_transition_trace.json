@@ -1,0 +1,22 @@
+{
+  "accept_decision_record_id": "bounded_structured_t6_trigger_surface_capability_schema_archive_promotion_accept_decision_a0d0c10d",
+  "schema_version": "bounded_structured_t6_trigger_surface_capability_schema_archive_promotion_accept_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "PREPARE_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_SCHEMA_ARCHIVE_MUTATION_TARGET_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "record human acceptance of schema archive promotion",
+      "from": "STOP_SCHEMA_ARCHIVE_PROMOTION_HUMAN_DECISION_REQUIRED",
+      "to": "SCHEMA_ARCHIVE_PROMOTION_ACCEPT_DECISION_RECORDED"
+    },
+    {
+      "edge": "emit schema archive mutation target prep target without mutation",
+      "from": "SCHEMA_ARCHIVE_PROMOTION_ACCEPT_DECISION_RECORDED",
+      "to": "SCHEMA_ARCHIVE_MUTATION_TARGET_PREP_READY"
+    }
+  ],
+  "unit_id": "RECORD_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_SCHEMA_ARCHIVE_PROMOTION_ACCEPT_DECISION_V0"
+}

@@ -1,0 +1,34 @@
+{
+  "candidate_rule": "emit candidate-only refinement record if schema validation failure is real, underdeclared, mismatched, or not receipt-visible",
+  "continuation_rule": "suite_may_continue only if STOP_RUNTIME_SCHEMA_VALIDATION_FAIL and SCHEMA_VALIDATION_FAIL match exactly",
+  "ordering_rule": "schema validation failure must stop before admissibility check and before registered move inspection",
+  "required_false_for_t3_schema_failure_case": [
+    "repair_authorized",
+    "schema_creation_authorized",
+    "taxonomy_creation_authorized",
+    "fixture_expansion_authorized",
+    "runtime_patch_authorized",
+    "live_hook_install_authorized",
+    "runtime_adoption_authorized",
+    "c8_authorized"
+  ],
+  "required_fields_for_t3_schema_failure_case": [
+    "case_id",
+    "tier",
+    "case_name",
+    "case_role",
+    "runtime_state_ref",
+    "invalid_state_derivation_ref",
+    "expected_terminal_type",
+    "expected_stop_code",
+    "expected_pressure_class",
+    "expected_outcome_class",
+    "expected_trace_receipt_match",
+    "expected_bad_counters_zero",
+    "repair_authorized",
+    "schema_creation_authorized",
+    "runtime_patch_authorized"
+  ],
+  "rules_status": "READY",
+  "schema_version": "runtime_case_manifest_t3_schema_validation_failure_rules_v0"
+}

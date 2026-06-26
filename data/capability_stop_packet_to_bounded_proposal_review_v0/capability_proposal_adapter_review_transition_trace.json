@@ -1,0 +1,21 @@
+{
+  "schema_version": "capability_proposal_adapter_review_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "REPAIR_CAPABILITY_PROPOSAL_ADAPTER_NEGATIVE_CONTROL_PARITY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "review proposal bridge shape and authority guards",
+      "from": "CAPABILITY_PROPOSAL_CANDIDATE_EMITTED",
+      "to": "VALID_PROPOSAL_BRIDGE"
+    },
+    {
+      "edge": "check negative-control schema parity",
+      "from": "VALID_PROPOSAL_BRIDGE",
+      "to": "LOCAL_PARITY_REPAIR_REQUIRED"
+    }
+  ],
+  "unit_id": "REVIEW_CAPABILITY_STOP_PACKET_TO_BOUNDED_PROPOSAL_V0"
+}

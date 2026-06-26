@@ -1,0 +1,102 @@
+{
+  "acceptance_conditions": [
+    "future T6 audit can distinguish loop trigger present, loop trigger absent, and loop trigger under-specified",
+    "future T6 audit can distinguish structured move-tie evidence from text-only detector noise",
+    "missing object loop_trigger_surface_missing becomes explicitly representable",
+    "missing object structured_tie_evidence_missing becomes explicitly representable",
+    "source stop can be re-run and produce a more specific terminal without inventing a trigger",
+    "new evidence surface emits required fields for trigger presence, trigger absence, and under-specification",
+    "receipt proves no authority widening",
+    "negative controls remain zero"
+  ],
+  "boundary_guards": {
+    "c8_authorized": false,
+    "fixture_expansion_authorized": false,
+    "implementation_authorized": false,
+    "move_addition_authorized": false,
+    "runtime_patch_authorized": false,
+    "schema_mutation_authorized": false
+  },
+  "candidate_id": "capability_candidate_6b708e9f",
+  "human_decision_options": [
+    "accept proposal for bounded implementation",
+    "reject proposal",
+    "edit proposal and resubmit",
+    "defer proposal",
+    "freeze proposal as reference only",
+    "request narrower proposal",
+    "request alternate proposal",
+    "close source branch for current registry only"
+  ],
+  "missing_objects_addressed": [
+    "loop_trigger_surface_missing",
+    "structured_tie_evidence_missing"
+  ],
+  "must_not_infer": [
+    "proposal accepted",
+    "implementation authorized",
+    "runtime repair authorized",
+    "schema mutation authorized",
+    "move addition authorized",
+    "runtime adoption authorized",
+    "C8 authorized"
+  ],
+  "non_goals": [
+    "does not implement the capability",
+    "does not repair the source unit",
+    "does not add runtime moves",
+    "does not mutate schema archive",
+    "does not expand fixtures by default",
+    "does not patch runtime",
+    "does not authorize runtime adoption",
+    "does not authorize C8",
+    "does not create live control authority",
+    "does not add loop handling",
+    "does not add tie-breaking policy",
+    "does not make T6 pass directly"
+  ],
+  "proposal_id": "capability_proposal_57dda6e9",
+  "proposal_kind": "BOUNDED_TRIGGER_SURFACE_CAPABILITY_PROPOSAL",
+  "proposal_status": "PROPOSAL_CANDIDATE_ONLY",
+  "proposed_surface": "bounded_structured_t6_trigger_surface_capability_v0",
+  "purpose": "Expose structured evidence for T6 loop-trigger and move-tie conditions without inferring triggers from weak text/noise evidence.",
+  "required_capability": "bounded_structured_t6_trigger_surface_capability",
+  "required_receipts": [
+    "capability design receipt",
+    "capability build receipt",
+    "capability review receipt",
+    "capability closure receipt if frozen as reference",
+    "negative-control receipt",
+    "acceptance-gate receipt",
+    "source-stop linkage receipt",
+    "demo-case receipt",
+    "audit receipt",
+    "validator receipt",
+    "human decision receipt"
+  ],
+  "schema_version": "bounded_capability_proposal_v0",
+  "scope": [
+    "create a bounded structured T6 trigger evidence surface",
+    "define minimal input fields for loop and move-tie trigger inspection",
+    "define minimal output fields distinguishing trigger present, trigger absent, and trigger under-specified",
+    "define acceptance receipt shape proving missing-object distinction is preserved",
+    "define one demo/audit case for current registry replay",
+    "define negative controls for no runtime repair, no move addition, and no fixture expansion by default",
+    "define human review path before implementation"
+  ],
+  "shared_missing_boundary": "bounded_t6_trigger_surface_capability",
+  "source_case_id": "T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT",
+  "source_receipt_ref": "data/runtime_t6_capability_boundary_surface_audit_v0_receipts/82726f6b.json",
+  "source_stop_packet_id": "cap_stop_cac14180",
+  "source_unit_id": "AUDIT_RUNTIME_T6_CAPABILITY_BOUNDARY_SURFACE_V0",
+  "validator_requirements": [
+    "proposal is well formed",
+    "proposal is typed",
+    "proposal cites source stop packet",
+    "proposal preserves missing-object distinction",
+    "proposal avoids unauthorized repair",
+    "proposal declares scope and non-goals",
+    "proposal exposes human decision options",
+    "proposal preserves boundary flags"
+  ]
+}

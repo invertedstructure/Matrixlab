@@ -1,0 +1,21 @@
+{
+  "schema_version": "c8_target_shape_reference_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "DECIDE_NEXT_AFTER_C8_TARGET_SHAPE_REFERENCE_FREEZE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "consume prepared target shape",
+      "from": "C8_TARGET_SHAPE_PREPARED_NO_RUNTIME_ADOPTION",
+      "to": "C8_TARGET_SHAPE_REFERENCE_BASIS_ACCEPTED"
+    },
+    {
+      "edge": "freeze as reviewed reference only",
+      "from": "C8_TARGET_SHAPE_REFERENCE_BASIS_ACCEPTED",
+      "to": "C8_TARGET_SHAPE_FROZEN_AS_REVIEWED_REFERENCE_DECISION_READY"
+    }
+  ],
+  "unit_id": "BUILD_OR_FREEZE_C8_TARGET_SHAPE_V0"
+}

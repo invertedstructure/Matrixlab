@@ -1,0 +1,32 @@
+{
+  "schema_version": "runtime_incremental_suite_transition_trace_v0",
+  "suite_id": "runtime_incremental_suite_42e7bb1b",
+  "terminal": {
+    "next_unit_id": null,
+    "stop_code": "STOP_RUNTIME_INCREMENTAL_SUITE_PRESSURE_OBSERVED",
+    "type": "STOP"
+  },
+  "transitions": [
+    {
+      "edge": "consume compact 10-case build target",
+      "from": "NEGATIVE_CONTROL_PROBE_CONTRACT_READY_FULL_SUITE_NEXT",
+      "to": "SUITE_BASELINE_SEALED"
+    },
+    {
+      "edge": "declare finite state set and manifest",
+      "from": "SUITE_BASELINE_SEALED",
+      "to": "DECLARED_STATE_SET_READY"
+    },
+    {
+      "edge": "run 10 declared cases through current registry-only harness",
+      "from": "DECLARED_STATE_SET_READY",
+      "to": "EXPECTED_PRESSURE_OBSERVED"
+    },
+    {
+      "edge": "emit rollup/profile/report/receipt",
+      "from": "EXPECTED_PRESSURE_OBSERVED",
+      "to": "STOP_RUNTIME_INCREMENTAL_SUITE_PRESSURE_OBSERVED"
+    }
+  ],
+  "unit_id": "BUILD_OUTER_RUNTIME_INCREMENTAL_TEST_SUITE_V0"
+}

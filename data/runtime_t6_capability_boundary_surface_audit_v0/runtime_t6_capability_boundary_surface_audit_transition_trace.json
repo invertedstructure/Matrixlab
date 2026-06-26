@@ -1,0 +1,21 @@
+{
+  "schema_version": "runtime_t6_capability_boundary_surface_audit_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": null,
+    "stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+    "type": "STOP"
+  },
+  "transitions": [
+    {
+      "edge": "inspect current T6 pressure surface",
+      "from": "T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT_NEXT",
+      "to": "T6_MISSING_OBJECTS_IDENTIFIED"
+    },
+    {
+      "edge": "check current capability against missing objects",
+      "from": "T6_MISSING_OBJECTS_IDENTIFIED",
+      "to": "STOP_CAPABILITY_LAYER_REQUIRED"
+    }
+  ],
+  "unit_id": "AUDIT_RUNTIME_T6_CAPABILITY_BOUNDARY_SURFACE_V0"
+}

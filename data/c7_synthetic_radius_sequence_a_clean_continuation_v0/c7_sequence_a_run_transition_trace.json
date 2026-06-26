@@ -1,0 +1,21 @@
+{
+  "schema_version": "c7_sequence_a_run_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "RUN_C7_SYNTHETIC_RADIUS_NEGATIVE_HALTS_B_C_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "consume runner and sequence A target",
+      "from": "C7_SYNTHETIC_RUNTIME_RADIUS_RUNNER_BUILT_SEQUENCE_A_NEXT",
+      "to": "C7_SEQUENCE_A_RUN_BASIS_ACCEPTED"
+    },
+    {
+      "edge": "run synthetic clean-continuation fixture",
+      "from": "C7_SEQUENCE_A_RUN_BASIS_ACCEPTED",
+      "to": "C7_SEQUENCE_A_CLEAN_CONTINUATION_PASS"
+    }
+  ],
+  "unit_id": "RUN_C7_SYNTHETIC_RADIUS_SEQUENCE_A_CLEAN_CONTINUATION_V0"
+}

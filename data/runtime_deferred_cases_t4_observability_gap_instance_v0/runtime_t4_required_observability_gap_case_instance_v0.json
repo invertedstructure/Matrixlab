@@ -1,0 +1,59 @@
+{
+  "candidate_emission_only": true,
+  "case_contract_id": "t4_required_observability_gap_missing_required_surface_v0",
+  "case_instance_status": "FROZEN_FOR_DEFERRED_SUITE_V0",
+  "case_key": "T4.full_observability_required_gap",
+  "case_role": "full_observability_required_gap",
+  "expected_outcome_class": "RUNTIME_SMOKE_BLOCKED_OBSERVABILITY_GAP",
+  "expected_pressure_class": "RUNTIME_OBSERVABILITY_GAP",
+  "expected_terminal": {
+    "next_unit_id": null,
+    "stop_code": "STOP_RUNTIME_REQUIRED_OBSERVABILITY_GAP",
+    "type": "STOP"
+  },
+  "gap_derivation_ref": "data/runtime_deferred_cases_t4_observability_gap_instance_v0/runtime_t4_required_observability_gap_derivation_v0.json",
+  "must_not_infer": [
+    "sidecar controls runtime",
+    "sidecar may repair runtime",
+    "observability gap authorizes runtime patching",
+    "fixture expansion is authorized",
+    "deferred suite is ready",
+    "runtime adoption is authorized",
+    "C8 is authorized"
+  ],
+  "repair_inside_suite_authorized": false,
+  "schema_version": "runtime_t4_required_observability_gap_case_instance_v0",
+  "selected_observability_contract_case": {
+    "case_contract_id": "observability_status_required_gap_pressure_v0",
+    "case_role": "full_observability_required_gap",
+    "declared_observability_status": "GAP_EXPECTED_PRESSURE",
+    "expected_bad_counters_zero": true,
+    "expected_outcome_class": "RUNTIME_SMOKE_BLOCKED_OBSERVABILITY_GAP",
+    "expected_pressure_class": "RUNTIME_OBSERVABILITY_GAP",
+    "expected_refinement_candidate_count_min": 1,
+    "expected_stop_code": "STOP_RUNTIME_OBSERVABILITY_GAP",
+    "expected_terminal_type": "STOP",
+    "expected_trace_receipt_match": true,
+    "include_in_first_suite": false,
+    "observability_required": true,
+    "repair_authorized": false,
+    "schema_version": "runtime_allowed_observability_status_case_v0",
+    "sidecar_control_authority": false,
+    "suite_may_continue_if_matched": true,
+    "tier": "T4",
+    "why_allowed_later": "Full-observability-required gap is a typed pressure case, not repair authority.",
+    "why_not_first_suite": "compact first suite uses normal + degraded observability; required-gap pressure can follow after negative controls"
+  },
+  "source_observability_contract_ref": "data/runtime_incremental_suite_preflight_v0/runtime_observability_status_case_contract_v0.json",
+  "source_t3_admissibility_receipt_ref": "data/runtime_deferred_cases_t3_admissibility_contract_v0_receipts/e8a7665a.json",
+  "suite_may_continue_if_matched": true,
+  "tier": "T4",
+  "validation_order_requirement": [
+    "load declared state",
+    "validate declared state schema",
+    "evaluate admissibility if present",
+    "evaluate required observability surface",
+    "stop before treating missing observation as runtime success",
+    "emit typed pressure/readout/receipt"
+  ]
+}

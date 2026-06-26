@@ -1,0 +1,31 @@
+{
+  "bounded_next_proposition_available": false,
+  "missing_objects": [
+    "loop_trigger_surface_missing",
+    "structured_tie_evidence_missing"
+  ],
+  "payload_status": "EMITTED",
+  "required_capability": "bounded_structured_t6_trigger_surface_capability",
+  "result": "STOP_CAPABILITY_LAYER_REQUIRED",
+  "safe_next_human_choices": [
+    {
+      "choice": "authorize_bounded_structured_trigger_profile_hardening",
+      "meaning": "Improve the current registry/reachability profile so loop/tie trigger surfaces are structurally represented, without inventing values."
+    },
+    {
+      "choice": "authorize_bounded_synthetic_registry_variant_for_t6",
+      "meaning": "Create an explicit synthetic registry variant designed to expose a loop or move-tie trigger, then test T6 against that bounded variant."
+    },
+    {
+      "choice": "defer_t6_again",
+      "meaning": "Keep T6 preserved until a later capability layer exists."
+    },
+    {
+      "choice": "close_t6_for_current_registry_only",
+      "meaning": "Record that the current registry has no contractable T6 trigger surface, without making a universal claim about T6."
+    }
+  ],
+  "schema_version": "runtime_t6_parent_return_payload_v0",
+  "unit_id": "AUDIT_RUNTIME_T6_CAPABILITY_BOUNDARY_SURFACE_V0",
+  "why_no_proposition": "A lawful T6 proposition requires a trigger surface or an authorized capability to construct one; neither exists in the current objective."
+}

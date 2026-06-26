@@ -1,0 +1,80 @@
+{
+  "allowed_pressure_match_modes": [
+    {
+      "mode": "EXPECTED_EXACT",
+      "rule": "terminal_type, stop_code, pressure_class, and outcome_class must match manifest values exactly"
+    },
+    {
+      "mode": "ALLOWED_PRESSURE",
+      "rule": "pressure_class may be accepted only if listed in allowed_pressure for that case"
+    }
+  ],
+  "candidate_emission_only": true,
+  "closed_outcome_enum": [
+    "RUNTIME_SMOKE_PASS_ADVANCE_READY",
+    "RUNTIME_SMOKE_PASS_TYPED_STOP",
+    "RUNTIME_SMOKE_PASS_WITH_LOCAL_GOTCHA_REPAIR",
+    "RUNTIME_SMOKE_BLOCKED_BASELINE_UNSEALED",
+    "RUNTIME_SMOKE_BLOCKED_UNTYPED_STATE",
+    "RUNTIME_SMOKE_BLOCKED_REGIME_MISMATCH",
+    "RUNTIME_SMOKE_BLOCKED_SCHEMA_VALIDATION",
+    "RUNTIME_SMOKE_BLOCKED_ADMISSIBILITY",
+    "RUNTIME_SMOKE_BLOCKED_NO_APPLICABLE_MOVE",
+    "RUNTIME_SMOKE_BLOCKED_MISSING_MOVE",
+    "RUNTIME_SMOKE_BLOCKED_TRACE_MISMATCH",
+    "RUNTIME_SMOKE_BLOCKED_RECEIPT_MISMATCH",
+    "RUNTIME_SMOKE_BLOCKED_PROJECTION_BUG",
+    "RUNTIME_SMOKE_BLOCKED_STEP_LIMIT",
+    "RUNTIME_SMOKE_BLOCKED_OBSERVABILITY_GAP",
+    "RUNTIME_SMOKE_BLOCKED_FEEDBACK_GAP",
+    "RUNTIME_SMOKE_AUTHORITY_VIOLATION"
+  ],
+  "closed_pressure_enum": [
+    "NO_PRESSURE_TERMINAL",
+    "ADVANCE_READY",
+    "STOP_DONE",
+    "STOP_NEXT_MOVE_BOUNDARY",
+    "BASELINE_UNSEALED",
+    "RUNTIME_STATE_UNTYPED",
+    "FIXTURE_LOAD_ERROR",
+    "REGIME_MISMATCH",
+    "NO_APPLICABLE_MOVE",
+    "STEP_LIMIT_EXCEEDED",
+    "SCHEMA_VALIDATION_FAIL",
+    "LAWFUL_ADMISSIBILITY_FAIL",
+    "RUNTIME_GATE_FAIL",
+    "RUNTIME_TRACE_MISMATCH",
+    "RUNTIME_RECEIPT_MISMATCH",
+    "RUNTIME_PROJECTION_BUG",
+    "RUNTIME_MISSING_MOVE_PRESSURE",
+    "RUNTIME_OBSERVABILITY_GAP",
+    "RUNTIME_FEEDBACK_GAP",
+    "RUNTIME_AUTHORITY_BOUNDARY",
+    "QUESTION_PACKET_NOT_COMMAND"
+  ],
+  "contract_status": "FROZEN_FOR_INCREMENTAL_SUITE_V0",
+  "core_rule": "A typed pressure result may count as a successful test case only when the case manifest declares that pressure as expected or allowed before execution.",
+  "forbidden_pressure_match_modes": [
+    "treat unexpected pressure as pass",
+    "repair inside suite",
+    "add move from pressure inside suite",
+    "add schema from pressure inside suite",
+    "add taxonomy from pressure inside suite",
+    "retry without changed declared state",
+    "hide next command"
+  ],
+  "must_not_infer": [
+    "expected pressure authorizes repair",
+    "expected pressure proves runtime correctness",
+    "expected pressure authorizes move addition",
+    "expected pressure authorizes schema/taxonomy growth",
+    "expected pressure authorizes runtime adoption",
+    "C8 is authorized"
+  ],
+  "pressure_is_not_repair_authority": true,
+  "repair_inside_suite_authorized": false,
+  "schema_version": "runtime_expected_pressure_case_contract_v0",
+  "source_allowed_variant_catalog_ref": "data/runtime_incremental_suite_preflight_v0/runtime_allowed_state_variant_catalog_v0.json",
+  "source_state_variant_rules_ref": "data/runtime_incremental_suite_preflight_v0/runtime_declared_state_variant_rules_v0.json",
+  "suite_result_rule": "Expected pressure may allow suite continuation, but must still emit per-case receipt, trace, readout, pressure classification, and candidate-only refinement record if gap/failure is material."
+}

@@ -1,0 +1,32 @@
+{
+  "check_kind": "SCHEMA_VALIDATION",
+  "contract_status": "READY",
+  "does_not_authorize": [
+    "proposal acceptance",
+    "implementation",
+    "runtime repair",
+    "runtime patch",
+    "schema mutation",
+    "move addition",
+    "fixture expansion",
+    "runtime adoption",
+    "C8 authorization"
+  ],
+  "fail_output_status": "SCHEMA_VALIDATION_FAIL_TYPED_REASON",
+  "pass_output_status": "SCHEMA_VALIDATION_PASS",
+  "required_checks": [
+    "proposal packet is well formed JSON",
+    "schema_version is bounded_capability_proposal_v0",
+    "proposal_id is stable and matches reviewed candidate",
+    "proposal_kind is typed",
+    "proposal_status remains PROPOSAL_CANDIDATE_ONLY",
+    "source stop packet id is present and matches source packet",
+    "required capability is explicit",
+    "missing objects are explicit and preserved",
+    "scope, non-goals, required receipts, acceptance conditions, boundary guards, validator requirements, and must_not_infer are present",
+    "human decision options are complete"
+  ],
+  "schema_version": "bounded_capability_proposal_schema_validation_contract_v0",
+  "validation_path_id": "bounded_capability_proposal_validation_path_70fd5b04",
+  "validator_name": "Schema Validator Cell / Lawful Admissibility Cell"
+}

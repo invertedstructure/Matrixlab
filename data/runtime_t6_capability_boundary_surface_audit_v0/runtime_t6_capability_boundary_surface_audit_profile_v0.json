@@ -1,0 +1,38 @@
+{
+  "capability_boundary_assessment_ref": "data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_capability_boundary_assessment_v0.json",
+  "capability_stop_packet_ref": "data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_capability_stop_packet_v0.json",
+  "core_rule": "T6 pressure must terminate as either a bounded proposition or a capability-stop packet. Current evidence supports the capability-stop packet.",
+  "current_surface_inventory_ref": "data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_current_surface_inventory_v0.json",
+  "missing_object_diagnosis_ref": "data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_missing_object_diagnosis_v0.json",
+  "must_not_infer": [
+    "T6 is impossible",
+    "T6 is globally closed",
+    "runtime should be patched",
+    "moves should be added",
+    "fixtures should be expanded by default",
+    "live runtime adoption is authorized",
+    "C8 is authorized"
+  ],
+  "parent_return_payload_ref": "data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_parent_return_payload_v0.json",
+  "profile_status": "TYPED_RUNTIME_T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT_STOP_CAPABILITY_LAYER_REQUIRED",
+  "recommended_next": null,
+  "safe_next_human_choices": [
+    {
+      "choice": "authorize_bounded_structured_trigger_profile_hardening",
+      "meaning": "Improve the current registry/reachability profile so loop/tie trigger surfaces are structurally represented, without inventing values."
+    },
+    {
+      "choice": "authorize_bounded_synthetic_registry_variant_for_t6",
+      "meaning": "Create an explicit synthetic registry variant designed to expose a loop or move-tie trigger, then test T6 against that bounded variant."
+    },
+    {
+      "choice": "defer_t6_again",
+      "meaning": "Keep T6 preserved until a later capability layer exists."
+    },
+    {
+      "choice": "close_t6_for_current_registry_only",
+      "meaning": "Record that the current registry has no contractable T6 trigger surface, without making a universal claim about T6."
+    }
+  ],
+  "schema_version": "runtime_t6_capability_boundary_surface_audit_profile_v0"
+}

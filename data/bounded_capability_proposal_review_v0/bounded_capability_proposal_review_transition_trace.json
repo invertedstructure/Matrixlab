@@ -1,0 +1,22 @@
+{
+  "proposal_review_id": "bounded_capability_proposal_review_0dfd4595",
+  "schema_version": "bounded_capability_proposal_review_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "PREPARE_BOUNDED_CAPABILITY_PROPOSAL_VALIDATION_PATH_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "review source alignment, scope, non-goals, receipts, acceptance conditions, human decision packet",
+      "from": "PROPOSAL_CANDIDATE_ONLY_PENDING_REVIEW",
+      "to": "VALID_PROPOSAL_CANDIDATE_CONTENT"
+    },
+    {
+      "edge": "prepare validation path target without acceptance",
+      "from": "VALID_PROPOSAL_CANDIDATE_CONTENT",
+      "to": "READY_FOR_VALIDATION_PATH"
+    }
+  ],
+  "unit_id": "REVIEW_BOUNDED_CAPABILITY_PROPOSAL_CANDIDATE_V0"
+}

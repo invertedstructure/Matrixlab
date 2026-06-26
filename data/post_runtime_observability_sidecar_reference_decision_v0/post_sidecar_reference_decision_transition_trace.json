@@ -1,0 +1,21 @@
+{
+  "schema_version": "post_sidecar_reference_decision_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "PREPARE_C8_TARGET_SHAPE_FROM_PRE_C8_INTERLOCK_PAIR_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "consume reviewed reference closure receipt",
+      "from": "RUNTIME_OBSERVABILITY_SIDECAR_REFERENCE_CLOSURE_DECISION_READY",
+      "to": "POST_SIDECAR_DECISION_BASIS_ACCEPTED"
+    },
+    {
+      "edge": "verify pre-C8 interlock pair and no-authority boundary",
+      "from": "POST_SIDECAR_DECISION_BASIS_ACCEPTED",
+      "to": "C8_TARGET_SHAPE_NEXT_TYPED_UNIT_NAMED"
+    }
+  ],
+  "unit_id": "DECIDE_NEXT_AFTER_RUNTIME_OBSERVABILITY_SIDECAR_REFERENCE_CLOSURE_V0"
+}

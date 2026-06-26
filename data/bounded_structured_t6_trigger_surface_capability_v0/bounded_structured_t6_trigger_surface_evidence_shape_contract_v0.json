@@ -1,0 +1,26 @@
+{
+  "capability_build_id": "bounded_structured_t6_trigger_surface_capability_build_721f09dc",
+  "contract_status": "BUILT_PENDING_REVIEW",
+  "schema_version": "bounded_structured_t6_trigger_surface_evidence_shape_contract_v0",
+  "structured_loop_trigger_surface_required_shape": {
+    "present": "bool",
+    "source_receipt_ref": "string_or_null",
+    "surface_family": "string",
+    "trigger_condition_ref": "string_or_null",
+    "typed_absence_reason": "string_or_null"
+  },
+  "structured_tie_evidence_required_shape": {
+    "present": "bool",
+    "source_receipt_ref": "string_or_null",
+    "tie_family": "string",
+    "tie_object_ref": "string_or_null",
+    "typed_absence_reason": "string_or_null"
+  },
+  "sufficiency_rule": "A trigger surface is sufficient only when structured loop trigger surface and structured tie evidence are present. Text-only residue is always negative control unless separately promoted by structured evidence.",
+  "text_only_residue_shape": {
+    "detector_ref": "string_or_null",
+    "is_sufficient_for_structured_trigger": false,
+    "present": "bool",
+    "text": "string_or_null"
+  }
+}

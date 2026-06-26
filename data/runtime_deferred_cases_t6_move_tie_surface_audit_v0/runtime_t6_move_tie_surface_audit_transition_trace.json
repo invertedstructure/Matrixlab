@@ -1,0 +1,21 @@
+{
+  "schema_version": "runtime_t6_move_tie_surface_audit_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "BUILD_OUTER_RUNTIME_DEFERRED_PRESSURE_TEST_SUITE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "consume failed T6 feasibility receipt and registry profile",
+      "from": "T6_FEASIBILITY_AUDIT_STOPPED_ON_TIE_SURFACE_FOUND",
+      "to": "T6_MOVE_TIE_SURFACE_INDEXED"
+    },
+    {
+      "edge": "classify detected tie surface",
+      "from": "T6_MOVE_TIE_SURFACE_INDEXED",
+      "to": "DEFERRED_PRESSURE_SUITE_BUILD_T3_T4_ONLY_NEXT"
+    }
+  ],
+  "unit_id": "AUDIT_RUNTIME_T6_MOVE_TIE_TRIGGER_SURFACE_FOUND_V0"
+}

@@ -1,0 +1,30 @@
+{
+  "candidate_rule": "emit candidate-only refinement record if the pressure indicates missing move, observability gap, feedback gap, schema/admissibility failure, mismatch, or projection bug",
+  "continuation_rule": "suite_may_continue only if the emitted pressure exactly matches expected pressure or allowed_pressure and all forbidden counters remain zero",
+  "no_candidate_required_for": [
+    "STOP_DONE",
+    "NO_PRESSURE_TERMINAL"
+  ],
+  "required_false_for_expected_pressure_case": [
+    "repair_authorized",
+    "fixture_expansion_authorized"
+  ],
+  "required_fields_for_expected_pressure_case": [
+    "case_id",
+    "tier",
+    "case_name",
+    "case_role",
+    "runtime_state_ref",
+    "expected_terminal_type",
+    "expected_stop_code",
+    "expected_pressure_class",
+    "expected_outcome_class",
+    "expected_trace_receipt_match",
+    "allowed_pressure",
+    "forbidden_pressure",
+    "repair_authorized",
+    "fixture_expansion_authorized"
+  ],
+  "rules_status": "READY",
+  "schema_version": "runtime_case_manifest_expected_pressure_rules_v0"
+}

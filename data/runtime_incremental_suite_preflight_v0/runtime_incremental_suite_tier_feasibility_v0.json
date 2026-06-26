@@ -1,0 +1,94 @@
+{
+  "defer_or_gate": {
+    "T3": "include pass-only coverage only unless failure branches are explicitly declared without invention",
+    "T6": "defer unless loop/step-cap trigger surface exists in current registry"
+  },
+  "feasibility_status": "COMPACT_SUITE_FIRST",
+  "must_not_infer": [
+    "T3 failure probes are reachable",
+    "T6 loop/cap probes are reachable",
+    "unreachable desired branches authorize move creation",
+    "coverage pressure authorizes repair inside audit"
+  ],
+  "recommended_first_suite": {
+    "T0": 1,
+    "T1": 2,
+    "T2": 2,
+    "T4": 2,
+    "T5": 3,
+    "total_cases": 10
+  },
+  "schema_version": "runtime_incremental_suite_tier_feasibility_v0",
+  "tier_findings": [
+    {
+      "branch_id": "baseline_replay",
+      "candidate_next": null,
+      "status": "READY",
+      "tier": "T0",
+      "why": "Clean smoke path is fully observed."
+    },
+    {
+      "branch_id": "terminal_stability_variants",
+      "candidate_next": "PREPARE_RUNTIME_DECLARED_STATE_VARIANT_RULES_V0",
+      "status": "NEEDS_DECLARED_STATE_VARIANT_RULES",
+      "tier": "T1",
+      "why": "Equivalent state variants need a bounded rule so state declaration does not become hidden fixture expansion."
+    },
+    {
+      "branch_id": "registered_branch_coverage",
+      "candidate_next": "Use only observed branches first; record unreachable desired branches as coverage pressure if needed.",
+      "status": "PARTIAL",
+      "tier": "T2",
+      "why": "All current registry moves were observed in the clean linear path; no alternate registered branch was observed."
+    },
+    {
+      "branch_id": "schema_validation_pass",
+      "candidate_next": "Do not manufacture schema failure; require explicit declared invalid-state case or record unreachable branch.",
+      "status": "OBSERVED_PASS_ONLY",
+      "tier": "T3",
+      "why": "Schema validation pass was observed; schema validation failure was not observed."
+    },
+    {
+      "branch_id": "admissibility_pass",
+      "candidate_next": "Do not manufacture authority failure; require explicit declared boundary case or record unreachable branch.",
+      "status": "OBSERVED_PASS_ONLY",
+      "tier": "T3",
+      "why": "Lawful admissibility pass was observed; admissibility block was not observed."
+    },
+    {
+      "branch_id": "observability_degraded_or_gap",
+      "candidate_next": "Prepare non-control observability status case contract before T4 stress.",
+      "status": "NOT_REACHABLE_FROM_CURRENT_REGISTRY_ONLY",
+      "tier": "T4",
+      "why": "Current smoke trace records sidecar refs but no degradation/unavailable control knob is present in registry."
+    },
+    {
+      "branch_id": "negative_controls_non_writing",
+      "candidate_next": "Prepare negative-control probe contract.",
+      "status": "NEEDS_NON_WRITING_PROBE_CONTRACT",
+      "tier": "T5",
+      "why": "Negative controls must be observed as rejected/non-writing without mutating runtime."
+    },
+    {
+      "branch_id": "step_cap_or_loop_shape",
+      "candidate_next": "Do not include T6 in first suite unless loop/cap trigger is declared from current registry.",
+      "status": "NOT_REACHABLE_FROM_CURRENT_REGISTRY_ONLY",
+      "tier": "T6",
+      "why": "No registry cycle/repeated move shape was detected."
+    },
+    {
+      "branch_id": "move_tie_unresolved",
+      "candidate_next": "Do not include move-tie case in first suite.",
+      "status": "NOT_PRESENT",
+      "tier": "T6",
+      "why": "No same-phase same-priority move tie detected."
+    },
+    {
+      "branch_id": "no_applicable_move",
+      "candidate_next": "Do not invent unrecognized phase inside suite; decide in state variant rules.",
+      "status": "UNDERDECLARED",
+      "tier": "T2/T6",
+      "why": "Could be forced by an unrecognized runtime_phase, but that needs a declared invalid/edge-state rule."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "candidate_missing_objects_to_inspect_next": [
+    {
+      "candidate_missing_object": "loop_trigger_surface_missing",
+      "case_key": "T6.step_cap_loop_shape",
+      "initial_capability_question": "Can current capability construct or inspect a lawful loop/step-cap trigger without inventing registry moves?",
+      "known_evidence": "loop_trigger_available=false in failed feasibility and loop carry-forward",
+      "surface_where_stop_occurred": "runtime registry reachability profile"
+    },
+    {
+      "candidate_missing_object": "structured_tie_evidence_missing",
+      "case_key": "T6.move_tie_unresolved",
+      "initial_capability_question": "Can current capability prove competing applicable moves from structured registry evidence rather than tie-related text?",
+      "known_evidence": "text-only tie hit, move_tie_candidate_count=0, computed_tie_group_count=0",
+      "surface_where_stop_occurred": "runtime registry reachability profile / move-tie detector"
+    },
+    {
+      "candidate_missing_object": "capability_boundary_unknown",
+      "case_key": "T6.shared",
+      "initial_capability_question": "What exact capability is missing before T6 can emit a lawful proposition or typed stop?",
+      "known_evidence": "T6 was preserved as later objective, not continuation pressure from deferred suite",
+      "surface_where_stop_occurred": "T6 trigger/case-contract boundary"
+    }
+  ],
+  "current_known_t6_surface_observations": {
+    "loop_surface": {
+      "classification": "DEFERRED_CURRENT_REGISTRY_NO_LOOP_TRIGGER",
+      "loop_trigger_available": false
+    },
+    "move_tie_surface_followup": {
+      "classification_kind": "DETECTOR_FALSE_POSITIVE_TEXT_ONLY_TIE_SURFACE",
+      "computed_tie_group_count": 0,
+      "move_tie_candidate_count": 0,
+      "receipt_ref": "data/runtime_deferred_cases_t6_move_tie_surface_audit_v0_receipts/eb20d76b.json",
+      "structured_tie_hit": false,
+      "text_only_tie_hit": true
+    },
+    "prior_feasibility_stop": {
+      "reason": "prior audit stopped because it saw a tie surface but was not authorized to classify it",
+      "receipt_ref": "data/runtime_deferred_cases_t6_feasibility_v0_receipts/3d72600a.json",
+      "reported_loop_trigger_available": false,
+      "reported_tie_trigger_available": true
+    }
+  },
+  "index_status": "COLLECTION_STAGE_T6_OBJECT_INDEX",
+  "schema_version": "runtime_t6_missing_object_class_index_v0",
+  "source_loop_schema_ref": "data/runtime_t6_capability_boundary_objective_v0/current_surface_pressure_handling_loop_schema_v0_collection_stage.json",
+  "t6_case_keys": [
+    "T6.step_cap_loop_shape",
+    "T6.move_tie_unresolved"
+  ]
+}

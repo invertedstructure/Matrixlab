@@ -1,0 +1,22 @@
+{
+  "decision_record_id": "bounded_capability_proposal_human_decision_accept_17aadfcd",
+  "schema_version": "bounded_capability_proposal_human_decision_accept_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "PREPARE_ACCEPTED_BOUNDED_CAPABILITY_PROPOSAL_IMPLEMENTATION_PATH_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "human selected ACCEPT_FOR_BOUNDED_IMPLEMENTATION",
+      "from": "STOP_BOUNDED_CAPABILITY_PROPOSAL_HUMAN_DECISION_REQUIRED",
+      "to": "HUMAN_DECISION_ACCEPTED_FOR_BOUNDED_IMPLEMENTATION_PATH_PREP"
+    },
+    {
+      "edge": "emit implementation-path prep target without implementing",
+      "from": "HUMAN_DECISION_ACCEPTED_FOR_BOUNDED_IMPLEMENTATION_PATH_PREP",
+      "to": "IMPLEMENTATION_PATH_PREP_READY"
+    }
+  ],
+  "unit_id": "RECORD_BOUNDED_CAPABILITY_PROPOSAL_HUMAN_DECISION_ACCEPT_FOR_BOUNDED_IMPLEMENTATION_V0"
+}

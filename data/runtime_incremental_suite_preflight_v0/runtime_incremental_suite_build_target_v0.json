@@ -1,0 +1,43 @@
+{
+  "case_count": 10,
+  "case_list": [
+    "T0.baseline_replay",
+    "T1.fresh_state_id",
+    "T1.empty_history_ref",
+    "T2.no_applicable_move_probe",
+    "T4.normal_observed_event_sequence",
+    "T4.degraded_sidecar_observation_nonblocking",
+    "T5.unregistered_move_applied_fail_non_writing",
+    "T5.hidden_repair_fail_non_writing",
+    "T5.schema_invented_fail_non_writing",
+    "T5.hidden_next_command_fail_non_writing"
+  ],
+  "forbidden": [
+    "add moves",
+    "invent schemas",
+    "invent taxonomy",
+    "patch runtime",
+    "install live hooks",
+    "expand fixtures by default",
+    "run T3/T6 unreachable branches",
+    "authorize C8"
+  ],
+  "inputs": [
+    "data/runtime_incremental_suite_preflight_v0/runtime_non_writing_negative_control_probe_contract_v0.json",
+    "data/runtime_incremental_suite_preflight_v0/runtime_allowed_non_writing_negative_control_cases_v0.json",
+    "data/runtime_incremental_suite_preflight_v0/runtime_case_manifest_negative_control_probe_rules_v0.json",
+    "data/runtime_incremental_suite_preflight_v0/runtime_compact_incremental_suite_final_shape_v0.json",
+    "data/runtime_adoption_smoke_v0_receipts/runtime_smoke_receipt_900b2eae.json",
+    "data/runtime_adoption_smoke_v0/runtime_move_registry_snapshot_v0.json",
+    "data/runtime_adoption_smoke_v0/runtime_state_v0.json"
+  ],
+  "next_unit_id": "BUILD_OUTER_RUNTIME_INCREMENTAL_TEST_SUITE_V0",
+  "schema_version": "runtime_incremental_suite_build_target_v0",
+  "source_preflight_receipts": {
+    "expected_pressure_contract": "201aad4a",
+    "observability_status_contract": "2d72c2b9",
+    "reachability_map": "de9b179a",
+    "state_variant_rules": "b9472e45"
+  },
+  "target_status": "BUILD_COMPACT_INCREMENTAL_SUITE_NEXT"
+}

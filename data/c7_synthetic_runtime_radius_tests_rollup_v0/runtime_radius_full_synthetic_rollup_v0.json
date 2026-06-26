@@ -1,0 +1,71 @@
+{
+  "aggregate_outcome": "C7_SYNTHETIC_RADIUS_TESTS_PASS_WITH_TYPED_BOUNDARIES",
+  "all_bad_counters_zero": true,
+  "all_expected_outcomes_matched": true,
+  "bad_counters": {
+    "admissibility_denied_executed_count": 0,
+    "authority_required_ignored_count": 0,
+    "bare_failed_status_count": 0,
+    "cell1_auto_chain_count": 0,
+    "cell1_freebuild_count": 0,
+    "edge_observation_missing_count": 0,
+    "general_cell1_authority_claim_count": 0,
+    "global_autonomy_claim_count": 0,
+    "hidden_next_command_count": 0,
+    "higher_radius_treated_as_always_better_count": 0,
+    "productive_pressure_counted_as_radius_count": 0,
+    "proposal_applied_without_review_count": 0,
+    "proposed_only_consumed_by_cell1_count": 0,
+    "receipt_missing_count": 0,
+    "research_lab_readiness_claim_count": 0,
+    "schema_invalid_advanced_count": 0,
+    "sidecar_event_missing_count": 0,
+    "unit_feedback_missing_count": 0,
+    "unknown_schema_accepted_count": 0,
+    "untyped_halt_count": 0
+  },
+  "fixture_count": 5,
+  "fixtures_run": [
+    "sequence_A_clean_continuation",
+    "sequence_B_schema_gap_halt",
+    "sequence_C_authority_boundary_halt",
+    "sequence_D_cell1_accepted_build_handoff",
+    "sequence_E_missing_capability_feedback"
+  ],
+  "gate": "PASS",
+  "halt_reasons": {
+    "STOP_AUTHORITY_REQUIRED": 1,
+    "STOP_DONE": 2,
+    "STOP_MISSING_CAPABILITY": 1,
+    "STOP_SCHEMA_GAP": 1
+  },
+  "halts": {
+    "typed_halt_count": 5,
+    "untyped_halt_count": 0
+  },
+  "lawful_continuation_depth_total": 8,
+  "live_runtime_run": false,
+  "max_contiguous_valid_steps_observed": 3,
+  "no_untyped_halts": true,
+  "observability": {
+    "edge_observations_emitted": 13,
+    "receipts_emitted": 13,
+    "sidecar_event_records_emitted": 13,
+    "unit_feedback_records_emitted": 3
+  },
+  "outcome_counts": {
+    "RADIUS_BLOCKED_BY_AUTHORITY_BOUNDARY": 1,
+    "RADIUS_BLOCKED_BY_MISSING_CAPABILITY": 1,
+    "RADIUS_BLOCKED_BY_SCHEMA_GAP": 1,
+    "RADIUS_EXPANDED_CLEANLY": 1,
+    "RADIUS_EXPANDED_WITH_TYPED_BOUNDARIES": 1
+  },
+  "runtime_adoption_authorized": false,
+  "schema_version": "runtime_radius_full_synthetic_rollup_v0",
+  "status": "TYPED_C7_SYNTHETIC_RUNTIME_RADIUS_TESTS_ROLLUP_PASS_BRANCH_CLOSED",
+  "steps_advanced": 8,
+  "steps_attempted": 13,
+  "steps_halted": 5,
+  "synthetic_test_only": true,
+  "unit_id": "ROLLUP_C7_SYNTHETIC_RUNTIME_RADIUS_TESTS_V0"
+}

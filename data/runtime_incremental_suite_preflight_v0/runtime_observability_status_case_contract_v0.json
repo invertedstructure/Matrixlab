@@ -1,0 +1,50 @@
+{
+  "allowed_observability_statuses": [
+    "OBSERVED",
+    "DEGRADED_NON_BLOCKING",
+    "GAP_EXPECTED_PRESSURE"
+  ],
+  "candidate_emission_only": true,
+  "contract_status": "FROZEN_FOR_INCREMENTAL_SUITE_V0",
+  "core_rule": "Observability status is evidence, not control authority. Control path acts; Sidecar records.",
+  "full_observability_gap_pressure": {
+    "outcome_class": "RUNTIME_SMOKE_BLOCKED_OBSERVABILITY_GAP",
+    "pressure_class": "RUNTIME_OBSERVABILITY_GAP",
+    "repair_authorized": false,
+    "terminal_type": "STOP"
+  },
+  "must_not_infer": [
+    "sidecar has control authority",
+    "degraded observation is runtime failure by default",
+    "observability gap authorizes repair inside suite",
+    "observability status authorizes live hooks",
+    "runtime adoption is authorized",
+    "C8 is authorized"
+  ],
+  "repair_inside_suite_authorized": false,
+  "schema_version": "runtime_observability_status_case_contract_v0",
+  "sidecar_may": [
+    "record event references",
+    "record degraded status",
+    "record missing observation as evidence gap",
+    "support trace/readout comparison"
+  ],
+  "sidecar_may_not": [
+    "select moves",
+    "block moves",
+    "advance moves",
+    "validate schema",
+    "authorize admissibility",
+    "patch runtime",
+    "install hooks",
+    "mutate state",
+    "emit hidden next command"
+  ],
+  "source_expected_pressure_contract_ref": "data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_v0.json",
+  "source_sidecar_reference_ref": "data/runtime_observability_sidecar_reference_closure_v0/runtime_observability_sidecar_reviewed_reference_v0.json",
+  "status_meanings": {
+    "DEGRADED_NON_BLOCKING": "observation is explicitly degraded but terminal may still be typed if full observability is not required",
+    "GAP_EXPECTED_PRESSURE": "full observability was declared required and missing evidence must emit RUNTIME_OBSERVABILITY_GAP",
+    "OBSERVED": "sidecar observation refs are present and no control claim is made"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "expected_possible_terminal_shapes": [
+    {
+      "meaning": "a bounded next T6 proposition is available within current capability",
+      "terminal_type": "ADVANCE"
+    },
+    {
+      "meaning": "current capability cannot proceed and emits the minimum stop packet",
+      "stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+      "terminal_type": "STOP"
+    }
+  ],
+  "next_unit_id": "AUDIT_RUNTIME_T6_CAPABILITY_BOUNDARY_SURFACE_V0",
+  "schema_version": "runtime_t6_capability_boundary_surface_audit_target_v0",
+  "source_capability_stop_packet_schema_ref": "data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_stop_packet_schema_v0.json",
+  "source_loop_schema_ref": "data/runtime_t6_capability_boundary_objective_v0/current_surface_pressure_handling_loop_schema_v0_collection_stage.json",
+  "source_objective_ref": "data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_objective_v0.json",
+  "target_role": "Inspect T6 pressure step by step and emit either a lawful proposition or STOP_CAPABILITY_LAYER_REQUIRED.",
+  "target_status": "T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT_NEXT"
+}

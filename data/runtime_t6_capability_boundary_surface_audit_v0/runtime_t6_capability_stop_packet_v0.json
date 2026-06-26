@@ -1,0 +1,95 @@
+{
+  "anti_overclaim": {
+    "does_mean": "The current capability layer cannot proceed lawfully on T6 without a bounded trigger-surface capability or human-declared next objective.",
+    "does_not_mean": [
+      "T6 is impossible",
+      "T6 is invalid",
+      "T6 is closed globally",
+      "source content is universally absent",
+      "human must accept a schema introduction"
+    ]
+  },
+  "evidence_already_collected": {
+    "failed_feasibility_reading": {
+      "failures": [
+        "t6_trigger_surface_found_requires_human_contract_decision"
+      ],
+      "loop_trigger_available": false,
+      "tie_trigger_available": true
+    },
+    "failed_feasibility_receipt_ref": "data/runtime_deferred_cases_t6_feasibility_v0_receipts/3d72600a.json",
+    "loop_carry_forward_reading": {
+      "classification": "DEFERRED_CURRENT_REGISTRY_NO_LOOP_TRIGGER",
+      "loop_trigger_available": false
+    },
+    "loop_carry_forward_ref": "data/runtime_deferred_cases_t6_move_tie_surface_audit_v0/runtime_t6_loop_surface_carry_forward_v0.json",
+    "move_tie_surface_audit_receipt_ref": "data/runtime_deferred_cases_t6_move_tie_surface_audit_v0_receipts/eb20d76b.json",
+    "move_tie_surface_reading": {
+      "classification_kind": "DETECTOR_FALSE_POSITIVE_TEXT_ONLY_TIE_SURFACE",
+      "computed_tie_group_count": 0,
+      "move_tie_candidate_count": 0,
+      "structured_tie_hit": false,
+      "text_only_tie_hit": true
+    }
+  },
+  "missing_object": [
+    "loop_trigger_surface_missing",
+    "structured_tie_evidence_missing",
+    "bounded_t6_trigger_surface_capability"
+  ],
+  "parent_return_payload": {
+    "bounded_next_proposition_available": false,
+    "missing_objects": [
+      "loop_trigger_surface_missing",
+      "structured_tie_evidence_missing"
+    ],
+    "payload_status": "EMITTED",
+    "required_capability": "bounded_structured_t6_trigger_surface_capability",
+    "result": "STOP_CAPABILITY_LAYER_REQUIRED",
+    "safe_next_human_choices": [
+      {
+        "choice": "authorize_bounded_structured_trigger_profile_hardening",
+        "meaning": "Improve the current registry/reachability profile so loop/tie trigger surfaces are structurally represented, without inventing values."
+      },
+      {
+        "choice": "authorize_bounded_synthetic_registry_variant_for_t6",
+        "meaning": "Create an explicit synthetic registry variant designed to expose a loop or move-tie trigger, then test T6 against that bounded variant."
+      },
+      {
+        "choice": "defer_t6_again",
+        "meaning": "Keep T6 preserved until a later capability layer exists."
+      },
+      {
+        "choice": "close_t6_for_current_registry_only",
+        "meaning": "Record that the current registry has no contractable T6 trigger surface, without making a universal claim about T6."
+      }
+    ],
+    "schema_version": "runtime_t6_parent_return_payload_v0",
+    "unit_id": "AUDIT_RUNTIME_T6_CAPABILITY_BOUNDARY_SURFACE_V0",
+    "why_no_proposition": "A lawful T6 proposition requires a trigger surface or an authorized capability to construct one; neither exists in the current objective."
+  },
+  "receipt_ref": "data/runtime_t6_capability_boundary_surface_audit_v0_receipts/82726f6b.json",
+  "required_capability": "bounded_structured_t6_trigger_surface_capability",
+  "safe_next_human_choices": [
+    {
+      "choice": "authorize_bounded_structured_trigger_profile_hardening",
+      "meaning": "Improve the current registry/reachability profile so loop/tie trigger surfaces are structurally represented, without inventing values."
+    },
+    {
+      "choice": "authorize_bounded_synthetic_registry_variant_for_t6",
+      "meaning": "Create an explicit synthetic registry variant designed to expose a loop or move-tie trigger, then test T6 against that bounded variant."
+    },
+    {
+      "choice": "defer_t6_again",
+      "meaning": "Keep T6 preserved until a later capability layer exists."
+    },
+    {
+      "choice": "close_t6_for_current_registry_only",
+      "meaning": "Record that the current registry has no contractable T6 trigger surface, without making a universal claim about T6."
+    }
+  ],
+  "schema_version": "runtime_t6_capability_stop_packet_v0",
+  "stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+  "surface_where_stop_occurred": "runtime registry reachability profile / T6 trigger surface boundary",
+  "why_current_capability_cannot_proceed": "The current audit can inspect and classify available evidence, but it cannot lawfully create, infer, or authorize the missing T6 trigger surface. A T6 case contract would require structured trigger evidence or a separate authorized trigger-surface capability."
+}

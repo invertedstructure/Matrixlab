@@ -1,0 +1,57 @@
+{
+  "decision_request_id": "bounded_capability_proposal_human_decision_request_112a27c4",
+  "effects": {
+    "ACCEPT_FOR_BOUNDED_IMPLEMENTATION": {
+      "decision_meaning": "Accept the validated/admissible proposal for a later bounded implementation-prep path.",
+      "implementation_authorized_immediately": false,
+      "next_lawful_unit_after_decision": "PREPARE_ACCEPTED_BOUNDED_CAPABILITY_PROPOSAL_IMPLEMENTATION_PATH_V0",
+      "notes": "Acceptance does not itself implement. It authorizes a later bounded implementation-prep unit."
+    },
+    "CLOSE_SOURCE_BRANCH_FOR_CURRENT_REGISTRY_ONLY": {
+      "decision_meaning": "Close this source branch for the current registry only.",
+      "implementation_authorized_immediately": false,
+      "next_lawful_unit_after_decision": "CLOSE_T6_CAPABILITY_SOURCE_BRANCH_FOR_CURRENT_REGISTRY_ONLY_V0",
+      "notes": "Does not claim global impossibility; closes this branch under current registry state."
+    },
+    "DEFER": {
+      "decision_meaning": "Defer decision without closing the proposal.",
+      "implementation_authorized_immediately": false,
+      "next_lawful_unit_after_decision": "FREEZE_BOUNDED_CAPABILITY_PROPOSAL_AS_DEFERRED_DECISION_V0",
+      "notes": "Default safe decision; preserves proposal as validated/admissible but undecided."
+    },
+    "EDIT_AND_RESUBMIT": {
+      "decision_meaning": "Request proposal edit and resubmission.",
+      "implementation_authorized_immediately": false,
+      "next_lawful_unit_after_decision": "PREPARE_BOUNDED_CAPABILITY_PROPOSAL_EDIT_PACKET_V0",
+      "notes": "Edits require a new typed edit packet and re-review/revalidation."
+    },
+    "FREEZE_AS_REFERENCE_ONLY": {
+      "decision_meaning": "Freeze the proposal as a reference object only.",
+      "implementation_authorized_immediately": false,
+      "next_lawful_unit_after_decision": "CLOSE_BOUNDED_CAPABILITY_PROPOSAL_AS_REFERENCE_ONLY_V0",
+      "notes": "Reference-only closure forbids implementation from this branch."
+    },
+    "REJECT": {
+      "decision_meaning": "Reject the proposal candidate.",
+      "implementation_authorized_immediately": false,
+      "next_lawful_unit_after_decision": "CLOSE_REJECTED_BOUNDED_CAPABILITY_PROPOSAL_BRANCH_V0",
+      "notes": "No repair or implementation follows unless a new human command opens a new proposal."
+    },
+    "REQUEST_ALTERNATE_PROPOSAL": {
+      "decision_meaning": "Ask for an alternate proposal.",
+      "implementation_authorized_immediately": false,
+      "next_lawful_unit_after_decision": "PREPARE_ALTERNATE_BOUNDED_CAPABILITY_PROPOSAL_REQUEST_V0",
+      "notes": "Creates alternate proposal request; current proposal remains not accepted."
+    },
+    "REQUEST_NARROWER_PROPOSAL": {
+      "decision_meaning": "Ask for a narrower proposal.",
+      "implementation_authorized_immediately": false,
+      "next_lawful_unit_after_decision": "PREPARE_NARROWER_BOUNDED_CAPABILITY_PROPOSAL_REQUEST_V0",
+      "notes": "Creates a new narrower proposal request; current proposal remains not accepted."
+    }
+  },
+  "global_rule": "No listed decision directly implements. Even ACCEPT_FOR_BOUNDED_IMPLEMENTATION only authorizes a later bounded implementation-prep path.",
+  "proposal_id": "capability_proposal_57dda6e9",
+  "schema_version": "bounded_capability_proposal_human_decision_effects_map_v0",
+  "validation_run_id": "bounded_capability_proposal_validation_run_b82ae568"
+}

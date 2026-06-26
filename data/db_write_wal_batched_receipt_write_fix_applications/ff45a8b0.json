@@ -1,0 +1,56 @@
+{
+  "application_id": "ff45a8b0",
+  "application_kind": "DB_WRITE_WAL_BATCHED_RECEIPT_WRITE_FIX_APPLICATION",
+  "application_sig8": "ff45a8b0",
+  "applied_changes": [
+    "CONFIGURED_SQLITE_CONNECTION_WRAPPER_WITH_WAL_NORMAL_BUSY_TIMEOUT",
+    "REPAIRED_WRAPPER_RECURSION_BEFORE_COMMIT",
+    "PRESERVED_RECEIPT_ROWS_AND_SCHEMA",
+    "PRESERVED_GATE_LAW_RUN_SEMANTICS"
+  ],
+  "created_at": "2026-06-20T18:57:21.147080+00:00",
+  "deferred_changes": [
+    {
+      "change_id": "BATCH_RECEIPT_INSERTS_WITH_EXPLICIT_TRANSACTIONS",
+      "reason": "No per-receipt commit rewrite was applied blindly. Retest first with WAL-only wrapper; if DB_WRITE remains proven, authorize a narrower writer-specific batch patch from evidence."
+    }
+  ],
+  "failures": [],
+  "gate": "PASS",
+  "registry_sqlite": {
+    "journal_mode_after_application": "wal",
+    "synchronous_after_application": 2,
+    "total_receipts_after_application": 1620510
+  },
+  "required_retest": {
+    "after_profile_required": true,
+    "before_after_comparison_required": true,
+    "before_profile_id": "c89790f0",
+    "comparison_artifact_schema": "micro_burden_before_after_comparison_v0",
+    "same_micro_suite_required": true,
+    "same_probe_specs_required": true,
+    "same_script": "scripts/wide_burden_profile_microruns.py --execute"
+  },
+  "schema_version": "db_write_wal_batched_receipt_write_fix_application_v0",
+  "semantics": {
+    "execution_skipping": false,
+    "gate_semantics_change": false,
+    "law_semantics_change": false,
+    "radius_expansion": false,
+    "receipt_compression": false,
+    "receipt_deletion": false,
+    "receipt_schema_change": false,
+    "run_semantics_change": false
+  },
+  "source_candidate_gate": "PASS",
+  "source_candidate_id": "2de6e3c2",
+  "target_burden_class": "BURDEN_DB_WRITE",
+  "terminal": {
+    "next_command_goal": "RERUN_MICRO_BURDEN_PROFILE_AFTER_DB_WRITE_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TRANSACTION_BATCHING_NOT_APPLIED_BLINDLY_WRITER_SURFACE_NEEDS_EVIDENCE_IF_WAL_ONLY_INSUFFICIENT"
+  ]
+}

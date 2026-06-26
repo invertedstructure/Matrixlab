@@ -1,0 +1,23 @@
+{
+  "schema_version": "bounded_capability_proposal_validation_path_run_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "PREPARE_BOUNDED_CAPABILITY_PROPOSAL_HUMAN_DECISION_PACKET_REVIEW_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "run source linkage, schema validation, lawful admissibility, boundary guard, negative control, and human decision gate checks",
+      "from": "VALIDATION_RUN_TARGET_READY",
+      "to": "VALIDATION_AND_ADMISSIBILITY_PASS"
+    },
+    {
+      "edge": "emit human decision prep target without taking human decision",
+      "from": "VALIDATION_AND_ADMISSIBILITY_PASS",
+      "to": "HUMAN_DECISION_PREP_READY"
+    }
+  ],
+  "unit_id": "RUN_BOUNDED_CAPABILITY_PROPOSAL_VALIDATION_PATH_V0",
+  "validation_path_id": "bounded_capability_proposal_validation_path_70fd5b04",
+  "validation_run_id": "bounded_capability_proposal_validation_run_b82ae568"
+}

@@ -1,0 +1,113 @@
+{
+  "allowed_mutable_fields": [
+    {
+      "field": "state_id",
+      "reason": "T1 fresh state-id stability",
+      "rule": "may be regenerated from canonical state bytes",
+      "semantic_change": false
+    },
+    {
+      "field": "history_ref",
+      "reason": "T1 history stability",
+      "rule": "may be null, empty-equivalent, or point to declared prior trace/readout refs",
+      "semantic_change": false
+    },
+    {
+      "field": "runtime_phase",
+      "reason": "phase is selector input; unrecognized phase must be declared as expected pressure, not hidden behavior",
+      "requires_expected_pressure_contract": true,
+      "rule": "may only be one of registry phases or the explicit underdeclared edge token NO_APPLICABLE_MOVE_PROBE",
+      "semantic_change": true
+    },
+    {
+      "field": "status",
+      "reason": "T1 prior terminal marker stability",
+      "rule": "may remain READY or be TERMINAL_MARKER_ONLY for explicit prior-terminal marker case",
+      "semantic_change": false
+    }
+  ],
+  "forbidden_mutations": [
+    {
+      "field_or_scope": "active_object_ref",
+      "reason": "changing active object would become fixture/object expansion"
+    },
+    {
+      "field_or_scope": "move_registry_ref",
+      "reason": "changing registry would become move addition or registry swap"
+    },
+    {
+      "field_or_scope": "schema_archive_ref",
+      "reason": "changing schema archive would become schema mutation or authority swap"
+    },
+    {
+      "field_or_scope": "admissibility_surface_ref",
+      "reason": "changing admissibility surface would become authority widening/substitution"
+    },
+    {
+      "field_or_scope": "observability_sidecar_ref",
+      "reason": "changing sidecar ref belongs to later observability-status contract, not state variant rules"
+    },
+    {
+      "field_or_scope": "runtime moves / actions / priorities",
+      "reason": "state variant rules may not alter runtime behavior"
+    },
+    {
+      "field_or_scope": "new state schema fields",
+      "reason": "would create schema expansion before receipt pressure"
+    }
+  ],
+  "immutable_fields": [
+    "schema_version",
+    "active_object_ref",
+    "active_object_kind",
+    "regime_ref",
+    "move_registry_ref",
+    "schema_archive_ref",
+    "admissibility_surface_ref",
+    "observability_sidecar_ref",
+    "receipt_surface_ref",
+    "readout_surface_ref",
+    "halt_vocabulary_ref",
+    "declared_by",
+    "must_not_infer"
+  ],
+  "must_not_infer": [
+    "new active objects may be introduced",
+    "new moves may be introduced",
+    "state variants authorize schema changes",
+    "state variants authorize runtime patching",
+    "unrecognized phase creates behavior",
+    "T3/T6 failure branches are ready",
+    "C8 is authorized"
+  ],
+  "observed_phase_path": [
+    "BASELINE_LOADED",
+    "STATE_LOADED",
+    "STATE_VALIDATED",
+    "ADMISSIBILITY_CHECKED",
+    "MOVES_INSPECTED",
+    "TERMINAL"
+  ],
+  "registry_phases": [
+    "ADMISSIBILITY_CHECKED",
+    "BASELINE_LOADED",
+    "INIT",
+    "MOVES_INSPECTED",
+    "STATE_LOADED",
+    "STATE_VALIDATED"
+  ],
+  "rules_status": "FROZEN_FOR_INCREMENTAL_SUITE_V0",
+  "schema_version": "runtime_declared_state_variant_rules_v0",
+  "selection_rule": "variants must be human-declared, bounded, derived from clean smoke fixed refs, and listed in the allowed catalog before execution",
+  "source_clean_smoke_receipt_ref": "data/runtime_adoption_smoke_v0_receipts/runtime_smoke_receipt_900b2eae.json",
+  "source_clean_smoke_state_ref": "data/runtime_adoption_smoke_v0/runtime_state_v0.json",
+  "source_reachability_map_ref": "data/runtime_incremental_suite_preflight_v0/runtime_registry_reachability_map_v0.json",
+  "special_phase_tokens": [
+    {
+      "outcome_class": "RUNTIME_SMOKE_BLOCKED_NO_APPLICABLE_MOVE",
+      "pressure_class": "NO_APPLICABLE_MOVE",
+      "status": "ALLOWED_ONLY_WITH_EXPECTED_PRESSURE_CONTRACT",
+      "token": "NO_APPLICABLE_MOVE_PROBE"
+    }
+  ]
+}

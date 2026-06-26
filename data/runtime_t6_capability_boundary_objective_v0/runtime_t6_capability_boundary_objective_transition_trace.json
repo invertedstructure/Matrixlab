@@ -1,0 +1,21 @@
+{
+  "schema_version": "runtime_t6_capability_boundary_objective_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "AUDIT_RUNTIME_T6_CAPABILITY_BOUNDARY_SURFACE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "human declares bounded T6 capability-boundary objective",
+      "from": "DEFERRED_PRESSURE_SUITE_BRANCH_COMPLETE_T6_PRESERVED_FOR_LATER",
+      "to": "CURRENT_SURFACE_PRESSURE_HANDLING_LOOP_SCHEMA_RECORDED"
+    },
+    {
+      "edge": "prepare T6 missing-object/capability-boundary audit target",
+      "from": "CURRENT_SURFACE_PRESSURE_HANDLING_LOOP_SCHEMA_RECORDED",
+      "to": "T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT_NEXT"
+    }
+  ],
+  "unit_id": "PREPARE_RUNTIME_T6_CAPABILITY_BOUNDARY_OBJECTIVE_FROM_LOOP_SCHEMA_V0"
+}

@@ -1,0 +1,36 @@
+{
+  "admissibility_context_derivation_ref": "data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_t3_admissibility_block_context_derivation_v0.json",
+  "candidate_emission_only": true,
+  "case_key": "T3.admissibility_block",
+  "contract_status": "FROZEN_FOR_DEFERRED_SUITE_V0",
+  "core_rule": "Admissibility block is an expected-pressure case only when the manifest declares a schema-valid state plus an explicit deny-context before execution.",
+  "expected_outcome_class": "RUNTIME_SMOKE_BLOCKED_ADMISSIBILITY",
+  "expected_pressure_class": "LAWFUL_ADMISSIBILITY_FAIL",
+  "expected_terminal": {
+    "next_unit_id": null,
+    "stop_code": "STOP_RUNTIME_LAWFUL_ADMISSIBILITY_FAIL",
+    "type": "STOP"
+  },
+  "must_not_infer": [
+    "admissibility block authorizes repair",
+    "authority surface should widen",
+    "new move is needed",
+    "schema should change",
+    "deferred suite is ready",
+    "runtime adoption is authorized",
+    "C8 is authorized"
+  ],
+  "repair_inside_suite_authorized": false,
+  "schema_version": "runtime_t3_admissibility_block_case_contract_v0",
+  "source_expected_pressure_contract_ref": "data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_v0.json",
+  "source_t3_schema_contract_ref": "data/runtime_deferred_cases_t3_schema_contract_v0/runtime_t3_schema_validation_failure_case_contract_v0.json",
+  "suite_may_continue_if_matched": true,
+  "tier": "T3",
+  "validation_order_requirement": [
+    "load declared state",
+    "validate declared state schema",
+    "evaluate admissibility context",
+    "stop before registered move inspection if denied",
+    "emit typed pressure/readout/receipt"
+  ]
+}

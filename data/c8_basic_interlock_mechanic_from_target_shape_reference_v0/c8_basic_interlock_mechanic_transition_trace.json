@@ -1,0 +1,21 @@
+{
+  "schema_version": "c8_basic_interlock_mechanic_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "BUILD_OR_FREEZE_C8_BASIC_INTERLOCK_MECHANIC_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "consume ADVANCE next unit",
+      "from": "POST_C8_TARGET_SHAPE_REFERENCE_DECISION_READY_BASIC_INTERLOCK_NEXT",
+      "to": "C8_BASIC_INTERLOCK_MECHANIC_BASIS_ACCEPTED"
+    },
+    {
+      "edge": "type mechanic without runtime adoption",
+      "from": "C8_BASIC_INTERLOCK_MECHANIC_BASIS_ACCEPTED",
+      "to": "C8_BASIC_INTERLOCK_MECHANIC_PREPARED_NO_RUNTIME_ADOPTION"
+    }
+  ],
+  "unit_id": "PREPARE_C8_BASIC_INTERLOCK_MECHANIC_FROM_TARGET_SHAPE_REFERENCE_V0"
+}

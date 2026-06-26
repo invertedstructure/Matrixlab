@@ -1,0 +1,36 @@
+{
+  "candidate_rule": "emit candidate-only refinement record if admissibility block is real, underdeclared, mismatched, or not receipt-visible",
+  "continuation_rule": "suite_may_continue only if STOP_RUNTIME_ADMISSIBILITY_BLOCK and ADMISSIBILITY_BLOCK match exactly",
+  "ordering_rule": "admissibility block must occur after schema validation passes and before registered move inspection",
+  "required_false_for_t3_admissibility_block_case": [
+    "repair_authorized",
+    "move_addition_authorized",
+    "schema_creation_authorized",
+    "taxonomy_creation_authorized",
+    "fixture_expansion_authorized",
+    "runtime_patch_authorized",
+    "live_hook_install_authorized",
+    "runtime_adoption_authorized",
+    "c8_authorized"
+  ],
+  "required_fields_for_t3_admissibility_block_case": [
+    "case_id",
+    "tier",
+    "case_name",
+    "case_role",
+    "runtime_state_ref",
+    "admissibility_context_derivation_ref",
+    "expected_terminal_type",
+    "expected_stop_code",
+    "expected_pressure_class",
+    "expected_outcome_class",
+    "expected_trace_receipt_match",
+    "expected_bad_counters_zero",
+    "repair_authorized",
+    "move_addition_authorized",
+    "schema_creation_authorized",
+    "runtime_patch_authorized"
+  ],
+  "rules_status": "READY",
+  "schema_version": "runtime_case_manifest_t3_admissibility_block_rules_v0"
+}

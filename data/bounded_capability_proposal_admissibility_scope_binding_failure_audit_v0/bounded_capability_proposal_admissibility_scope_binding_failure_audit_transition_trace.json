@@ -1,0 +1,22 @@
+{
+  "audit_id": "bounded_capability_proposal_scope_binding_audit_b475f6ce",
+  "schema_version": "bounded_capability_proposal_admissibility_scope_binding_failure_audit_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "REPAIR_BOUNDED_CAPABILITY_PROPOSAL_VALIDATION_SCOPE_BINDING_CLASSIFIER_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "separate structural source/capability binding from literal scope phrase binding",
+      "from": "VALIDATION_PATH_RUN_GATE_FAIL_SCOPE_MISSING_CAPABILITY_BOUNDARY_BINDING",
+      "to": "VALIDATOR_SCOPE_BINDING_PHRASE_OVERSTRICT_STRUCTURAL_BINDING_PRESENT"
+    },
+    {
+      "edge": "emit typed repair target without editing proposal or validating",
+      "from": "VALIDATOR_SCOPE_BINDING_PHRASE_OVERSTRICT_STRUCTURAL_BINDING_PRESENT",
+      "to": "VALIDATOR_CLASSIFIER_REPAIR"
+    }
+  ],
+  "unit_id": "AUDIT_BOUNDED_CAPABILITY_PROPOSAL_ADMISSIBILITY_SCOPE_BINDING_FAILURE_V0"
+}

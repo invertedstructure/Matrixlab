@@ -1,0 +1,48 @@
+{
+  "diagnoses": [
+    {
+      "case_key": "T6.step_cap_loop_shape",
+      "evidence_already_collected": [
+        "failed feasibility summary reported loop_trigger_available=false",
+        "loop carry-forward reported loop_trigger_available=false",
+        "no lawful loop/step-cap trigger surface is visible in the current registry profile"
+      ],
+      "missing_object": "loop_trigger_surface_missing",
+      "object_is_authorized": false,
+      "object_is_classified": true,
+      "object_is_missing": true,
+      "object_is_repairable": false,
+      "object_is_representable": true,
+      "object_is_within_current_capability": false,
+      "surface_where_stop_occurred": "runtime registry reachability profile",
+      "why_not_contractable_now": "A T6 loop case requires a lawful loop or step-cap trigger surface; current evidence only proves absence of that trigger surface."
+    },
+    {
+      "case_key": "T6.move_tie_unresolved",
+      "evidence_already_collected": [
+        "prior feasibility audit saw tie_trigger_available=true",
+        "follow-up audit classified this as DETECTOR_FALSE_POSITIVE_TEXT_ONLY_TIE_SURFACE",
+        "structured_tie_hit=false",
+        "move_tie_candidate_count=0",
+        "computed_tie_group_count=0",
+        "real_unresolved_tie_surface_found=false"
+      ],
+      "missing_object": "structured_tie_evidence_missing",
+      "object_is_authorized": false,
+      "object_is_classified": true,
+      "object_is_missing": true,
+      "object_is_repairable": false,
+      "object_is_representable": true,
+      "object_is_within_current_capability": false,
+      "surface_where_stop_occurred": "runtime registry reachability profile / move-tie detector",
+      "why_not_contractable_now": "A T6 move-tie case requires structured competing-move evidence; current capability has only text/noise evidence and zero computed tie groups."
+    }
+  ],
+  "diagnosis_status": "MISSING_OBJECTS_IDENTIFIED",
+  "schema_version": "runtime_t6_missing_object_diagnosis_v0",
+  "shared_missing_boundary": {
+    "anti_overclaim": "This does not prove T6 is invalid or impossible. It only exposes the current capability boundary.",
+    "meaning": "The current system can inspect existing registry surfaces, but cannot lawfully manufacture or introduce the missing loop/tie trigger surface inside this objective.",
+    "missing_object": "bounded_t6_trigger_surface_capability"
+  }
+}

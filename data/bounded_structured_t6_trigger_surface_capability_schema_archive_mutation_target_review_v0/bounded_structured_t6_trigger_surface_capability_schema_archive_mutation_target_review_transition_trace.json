@@ -1,0 +1,22 @@
+{
+  "mutation_target_review_id": "bounded_structured_t6_trigger_surface_capability_schema_archive_mutation_target_review_213c76c7",
+  "schema_version": "bounded_structured_t6_trigger_surface_capability_schema_archive_mutation_target_review_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "PREPARE_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_SCHEMA_ARCHIVE_WRITE_HUMAN_DECISION_PACKET_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "review mutation target source chain, candidate, mutation plan, preconditions, boundary, and negative control",
+      "from": "SCHEMA_ARCHIVE_MUTATION_TARGET_REVIEW_READY",
+      "to": "SCHEMA_ARCHIVE_MUTATION_TARGET_REVIEW_PASS"
+    },
+    {
+      "edge": "emit schema archive write human decision packet prep target without archive write",
+      "from": "SCHEMA_ARCHIVE_MUTATION_TARGET_REVIEW_PASS",
+      "to": "SCHEMA_ARCHIVE_WRITE_HUMAN_DECISION_PACKET_PREP_READY"
+    }
+  ],
+  "unit_id": "REVIEW_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_SCHEMA_ARCHIVE_MUTATION_TARGET_V0"
+}

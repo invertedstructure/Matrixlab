@@ -1,0 +1,42 @@
+{
+  "components": [
+    {
+      "authority": "INPUT_ONLY",
+      "component_id": "proposal_or_active_object_ref",
+      "may_execute": false,
+      "role": "input reference being tested by the mechanic"
+    },
+    {
+      "authority": "REFERENCE_ONLY",
+      "component_id": "schema_validator_reference",
+      "may_authorize": false,
+      "may_execute": false,
+      "may_mutate_schema_archive": false,
+      "may_validate_live_runtime": false,
+      "role": "checks whether the proposal/active object matches a predetermined schema surface",
+      "source_path": "data/runtime_schema_validator_cell_reference_closure_v0/runtime_schema_validator_reviewed_reference_v0.json"
+    },
+    {
+      "authority": "REFERENCE_ONLY",
+      "component_id": "sidecar_observation_reference",
+      "may_advance_control_path": false,
+      "may_block_control_path": false,
+      "may_install_live_hooks": false,
+      "may_patch_runtime": false,
+      "may_route_runtime": false,
+      "role": "records load-bearing observation fields if later separately adopted",
+      "source_path": "data/runtime_observability_sidecar_reference_closure_v0/runtime_observability_sidecar_reviewed_reference_v0.json"
+    },
+    {
+      "authority": "NOT_GRANTED",
+      "component_id": "control_path_boundary",
+      "may_advance_control_path": false,
+      "may_authorize_runtime_adoption": false,
+      "may_block_control_path": false,
+      "may_execute": false,
+      "role": "separates reference/observation/admissibility typing from any future action"
+    }
+  ],
+  "map_status": "MAPPED",
+  "schema_version": "c8_basic_interlock_component_map_v0"
+}

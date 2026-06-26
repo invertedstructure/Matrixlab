@@ -1,0 +1,31 @@
+{
+  "flow_edges": [
+    {
+      "allowed_effect": "read reference only",
+      "edge_id": "edge_0_load",
+      "from": "input_surface",
+      "to": "proposal_or_active_object_ref"
+    },
+    {
+      "allowed_effect": "shape classification only",
+      "edge_id": "edge_1_validator_boundary",
+      "from": "proposal_or_active_object_ref",
+      "to": "validator_boundary_result"
+    },
+    {
+      "allowed_effect": "record load-bearing fields only",
+      "edge_id": "edge_2_sidecar_record",
+      "from": "validator_boundary_result",
+      "to": "sidecar_observation_ref"
+    },
+    {
+      "allowed_effect": "emit terminal result without execution",
+      "edge_id": "edge_3_control_boundary",
+      "from": "sidecar_observation_ref",
+      "to": "terminal_result"
+    }
+  ],
+  "flow_kind": "ONE_STEP_INTERLOCK",
+  "flow_status": "TYPED",
+  "schema_version": "c8_basic_interlock_mechanic_flow_v0"
+}

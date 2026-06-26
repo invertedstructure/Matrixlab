@@ -1,0 +1,202 @@
+{
+  "core_finding": "Current registry exposes the clean linear smoke path. Boundary/failure/loop branches need explicit declaration contracts before inclusion, or must be recorded as unreachable coverage pressure.",
+  "map_status": "EMITTED",
+  "move_reachability": [
+    {
+      "applies_when_runtime_phase": "INIT",
+      "branch_notes": [],
+      "failure_halt_reachability": [],
+      "failure_halts": [
+        "STOP_RUNTIME_BASELINE_UNSEALED"
+      ],
+      "may_halt": true,
+      "move_id": "move_load_baseline_seal_v0",
+      "move_kind": "LOAD_BASELINE",
+      "observed_in_clean_smoke": true,
+      "priority": 10,
+      "reachability_status": "OBSERVED_IN_CLEAN_SMOKE",
+      "requires_admissibility": false,
+      "requires_schema_validation": false,
+      "state_delta_runtime_phase": "BASELINE_LOADED"
+    },
+    {
+      "applies_when_runtime_phase": "BASELINE_LOADED",
+      "branch_notes": [],
+      "failure_halt_reachability": [
+        {
+          "halt": "STOP_RUNTIME_STATE_UNTYPED",
+          "status": "NOT_OBSERVED_IN_CLEAN_SMOKE",
+          "suite_handling": "requires_explicit_declared_case_or_record_as_unreachable_pressure"
+        }
+      ],
+      "failure_halts": [
+        "STOP_RUNTIME_STATE_UNTYPED"
+      ],
+      "may_halt": true,
+      "move_id": "move_load_declared_runtime_state_v0",
+      "move_kind": "LOAD_RUNTIME_STATE",
+      "observed_in_clean_smoke": true,
+      "priority": 20,
+      "reachability_status": "OBSERVED_IN_CLEAN_SMOKE",
+      "requires_admissibility": false,
+      "requires_schema_validation": false,
+      "state_delta_runtime_phase": "STATE_LOADED"
+    },
+    {
+      "applies_when_runtime_phase": "STATE_LOADED",
+      "branch_notes": [],
+      "failure_halt_reachability": [
+        {
+          "halt": "STOP_RUNTIME_STATE_UNTYPED",
+          "status": "NOT_OBSERVED_IN_CLEAN_SMOKE",
+          "suite_handling": "requires_explicit_declared_case_or_record_as_unreachable_pressure"
+        },
+        {
+          "halt": "STOP_RUNTIME_SCHEMA_VALIDATION_FAIL",
+          "status": "NOT_OBSERVED_IN_CLEAN_SMOKE",
+          "suite_handling": "requires_explicit_declared_case_or_record_as_unreachable_pressure"
+        }
+      ],
+      "failure_halts": [
+        "STOP_RUNTIME_STATE_UNTYPED",
+        "STOP_RUNTIME_SCHEMA_VALIDATION_FAIL"
+      ],
+      "may_halt": true,
+      "move_id": "move_validate_declared_state_v0",
+      "move_kind": "VALIDATE_STATE",
+      "observed_in_clean_smoke": true,
+      "priority": 30,
+      "reachability_status": "OBSERVED_IN_CLEAN_SMOKE",
+      "requires_admissibility": false,
+      "requires_schema_validation": true,
+      "state_delta_runtime_phase": "STATE_VALIDATED"
+    },
+    {
+      "applies_when_runtime_phase": "STATE_VALIDATED",
+      "branch_notes": [],
+      "failure_halt_reachability": [
+        {
+          "halt": "STOP_RUNTIME_ADMISSIBILITY_FAIL",
+          "status": "NOT_OBSERVED_IN_CLEAN_SMOKE",
+          "suite_handling": "requires_explicit_declared_case_or_record_as_unreachable_pressure"
+        },
+        {
+          "halt": "STOP_AUTHORITY_VIOLATION",
+          "status": "NOT_OBSERVED_IN_CLEAN_SMOKE",
+          "suite_handling": "requires_explicit_declared_case_or_record_as_unreachable_pressure"
+        }
+      ],
+      "failure_halts": [
+        "STOP_RUNTIME_ADMISSIBILITY_FAIL",
+        "STOP_AUTHORITY_VIOLATION"
+      ],
+      "may_halt": true,
+      "move_id": "move_check_cell0_lawful_admissibility_v0",
+      "move_kind": "CHECK_LAWFUL_ADMISSIBILITY",
+      "observed_in_clean_smoke": true,
+      "priority": 40,
+      "reachability_status": "OBSERVED_IN_CLEAN_SMOKE",
+      "requires_admissibility": true,
+      "requires_schema_validation": true,
+      "state_delta_runtime_phase": "ADMISSIBILITY_CHECKED"
+    },
+    {
+      "applies_when_runtime_phase": "ADMISSIBILITY_CHECKED",
+      "branch_notes": [],
+      "failure_halt_reachability": [
+        {
+          "halt": "STOP_RUNTIME_NO_APPLICABLE_MOVE",
+          "status": "NOT_OBSERVED_IN_CLEAN_SMOKE",
+          "suite_handling": "requires_explicit_declared_case_or_record_as_unreachable_pressure"
+        },
+        {
+          "halt": "STOP_RUNTIME_MOVE_TIE_UNRESOLVED",
+          "status": "NOT_OBSERVED_IN_CLEAN_SMOKE",
+          "suite_handling": "requires_explicit_declared_case_or_record_as_unreachable_pressure"
+        }
+      ],
+      "failure_halts": [
+        "STOP_RUNTIME_NO_APPLICABLE_MOVE",
+        "STOP_RUNTIME_MOVE_TIE_UNRESOLVED"
+      ],
+      "may_halt": true,
+      "move_id": "move_inspect_registered_moves_v0",
+      "move_kind": "INSPECT_APPLICABLE_MOVES",
+      "observed_in_clean_smoke": true,
+      "priority": 50,
+      "reachability_status": "OBSERVED_IN_CLEAN_SMOKE",
+      "requires_admissibility": false,
+      "requires_schema_validation": false,
+      "state_delta_runtime_phase": "MOVES_INSPECTED"
+    },
+    {
+      "applies_when_runtime_phase": "MOVES_INSPECTED",
+      "branch_notes": [],
+      "failure_halt_reachability": [
+        {
+          "halt": "STOP_RUNTIME_RECEIPT_MISMATCH",
+          "status": "NOT_OBSERVED_IN_CLEAN_SMOKE",
+          "suite_handling": "requires_explicit_declared_case_or_record_as_unreachable_pressure"
+        },
+        {
+          "halt": "STOP_RUNTIME_PROJECTION_BUG",
+          "status": "NOT_OBSERVED_IN_CLEAN_SMOKE",
+          "suite_handling": "requires_explicit_declared_case_or_record_as_unreachable_pressure"
+        }
+      ],
+      "failure_halts": [
+        "STOP_RUNTIME_RECEIPT_MISMATCH",
+        "STOP_RUNTIME_PROJECTION_BUG"
+      ],
+      "may_halt": true,
+      "move_id": "move_emit_typed_smoke_terminal_v0",
+      "move_kind": "EMIT_TYPED_TERMINAL",
+      "observed_in_clean_smoke": true,
+      "priority": 60,
+      "reachability_status": "OBSERVED_IN_CLEAN_SMOKE",
+      "requires_admissibility": false,
+      "requires_schema_validation": false,
+      "state_delta_runtime_phase": "TERMINAL"
+    }
+  ],
+  "move_tie_candidates": [],
+  "observed_admissibility_block": false,
+  "observed_admissibility_pass": true,
+  "observed_move_count": 6,
+  "observed_moves": [
+    "move_load_baseline_seal_v0",
+    "move_load_declared_runtime_state_v0",
+    "move_validate_declared_state_v0",
+    "move_check_cell0_lawful_admissibility_v0",
+    "move_inspect_registered_moves_v0",
+    "move_emit_typed_smoke_terminal_v0"
+  ],
+  "observed_schema_validation_failure": false,
+  "observed_schema_validation_pass": true,
+  "phase_graph": {
+    "ADMISSIBILITY_CHECKED": [
+      "MOVES_INSPECTED"
+    ],
+    "BASELINE_LOADED": [
+      "STATE_LOADED"
+    ],
+    "INIT": [
+      "BASELINE_LOADED"
+    ],
+    "MOVES_INSPECTED": [
+      "TERMINAL"
+    ],
+    "STATE_LOADED": [
+      "STATE_VALIDATED"
+    ],
+    "STATE_VALIDATED": [
+      "ADMISSIBILITY_CHECKED"
+    ]
+  },
+  "registry_has_cycle": false,
+  "registry_move_count": 6,
+  "schema_version": "runtime_registry_reachability_map_v0",
+  "source_registry_ref": "data/runtime_adoption_smoke_v0/runtime_move_registry_snapshot_v0.json",
+  "source_trace_ref": "data/runtime_adoption_smoke_v0/runtime_smoke_trace_v0.jsonl",
+  "unobserved_registered_moves": []
+}

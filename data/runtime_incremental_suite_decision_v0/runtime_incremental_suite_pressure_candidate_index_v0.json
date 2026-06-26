@@ -1,0 +1,62 @@
+{
+  "blocked_cases": [
+    {
+      "bad_counters_zero": true,
+      "case_id": "runtime_case_18d1eaa5",
+      "expected_terminal_matched": true,
+      "next_unit_id": null,
+      "outcome_class": "RUNTIME_SMOKE_BLOCKED_NO_APPLICABLE_MOVE",
+      "pressure_class": "NO_APPLICABLE_MOVE",
+      "readout_ref": "data/runtime_incremental_test_suite_v0/cases/runtime_case_18d1eaa5/runtime_smoke_readout_v0.json",
+      "receipt_ref": "data/runtime_incremental_test_suite_v0/cases/runtime_case_18d1eaa5/runtime_smoke_receipt_v0.json",
+      "receipt_trace_match": true,
+      "refinement_candidates_emitted": 1,
+      "run_id": "runtime_incremental_run_9d3e3009",
+      "schema_version": "runtime_case_result_v0",
+      "stop_code": "STOP_RUNTIME_NO_APPLICABLE_MOVE",
+      "suite_may_continue": true,
+      "terminal_type": "STOP",
+      "tier": "T2",
+      "trace_ref": "data/runtime_incremental_test_suite_v0/cases/runtime_case_18d1eaa5/runtime_smoke_trace_v0.jsonl"
+    }
+  ],
+  "candidate_count": 1,
+  "candidates": [
+    {
+      "candidate_id": "runtime_suite_refine_07e27e1b",
+      "candidate_only": true,
+      "failed_relative_to": {
+        "admissibility_rule": null,
+        "feedback_surface": null,
+        "move": null,
+        "observability_surface": null,
+        "projection_surface": null,
+        "receipt_surface": null,
+        "schema": null,
+        "state": "data/runtime_incremental_test_suite_v0/cases/runtime_case_18d1eaa5/runtime_state_v0.json"
+      },
+      "observed_failure_or_gap": "declared runtime phase has no applicable registered move",
+      "pressure_class": "NO_APPLICABLE_MOVE",
+      "repair_applied": false,
+      "schema_version": "runtime_suite_refinement_candidate_v0",
+      "smallest_lawful_next_handling": "candidate only; later decision may inspect whether a real move is missing or the probe remains negative coverage",
+      "source_case_id": "runtime_case_18d1eaa5",
+      "source_receipt_ref": "data/runtime_incremental_test_suite_v0/cases/runtime_case_18d1eaa5/runtime_smoke_receipt_v0.json",
+      "source_trace_ref": "data/runtime_incremental_test_suite_v0/cases/runtime_case_18d1eaa5/runtime_smoke_trace_v0.jsonl",
+      "tier": "T2"
+    }
+  ],
+  "classification": {
+    "NO_APPLICABLE_MOVE": {
+      "candidate_count": 1,
+      "decision": "AUDIT_CANDIDATE_BEFORE_REPAIR",
+      "reason": "The suite intentionally declared a no-applicable-move pressure probe. It must be inspected before deciding whether this is real missing move pressure or negative coverage."
+    }
+  },
+  "index_status": "EMITTED",
+  "pressure_classes": [
+    "NO_APPLICABLE_MOVE"
+  ],
+  "schema_version": "runtime_incremental_suite_pressure_candidate_index_v0",
+  "source_suite_receipt_ref": "data/runtime_incremental_test_suite_v0_receipts/5b62e42f.json"
+}

@@ -1,0 +1,51 @@
+{
+  "allowed_terminal_results": [
+    "PASS_SHAPE_ONLY",
+    "FAIL_SHAPE_ONLY",
+    "UNPOSED_SHAPE",
+    "NEEDS_HUMAN_REVIEW",
+    "STOP_BOUNDARY_HELD"
+  ],
+  "core_compression": "Proposal enters; validator boundary classifies shape; sidecar surface records load-bearing fields; control path remains separate.",
+  "mechanic_kind": "TYPE_ONLY_REFERENCE_MECHANIC",
+  "mechanic_name": "C8 basic interlock mechanic from target-shape reference",
+  "mechanic_role": "Type the smallest interlock between a proposal/reference, schema-validator boundary, sidecar observation surface, and control-path boundary.",
+  "mechanic_status": "TYPED_C8_BASIC_INTERLOCK_MECHANIC_PREPARED_NO_RUNTIME_ADOPTION",
+  "minimum_mechanic_fields": [
+    "proposal_or_active_object_ref",
+    "schema_reference_ref",
+    "validator_boundary_result",
+    "sidecar_observation_ref",
+    "load_bearing_decision_edge_fields",
+    "control_path_boundary",
+    "terminal_result"
+  ],
+  "must_not_impersonate": [
+    "C8 runtime adoption",
+    "C8 execution",
+    "live admissibility service",
+    "authorization verdict",
+    "schema archive mutation",
+    "control path authority"
+  ],
+  "one_step_flow": [
+    "LOAD proposal_or_active_object_ref",
+    "CHECK schema_reference_ref against predetermined schema surface",
+    "CLASSIFY validator_boundary_result as PASS / FAIL / UNPOSED / NEEDS_HUMAN_REVIEW",
+    "RECORD sidecar_observation_ref with load-bearing decision-edge fields",
+    "EMIT terminal_result without executing or authorizing runtime adoption"
+  ],
+  "reference_only": true,
+  "required_load_bearing_decision_edge_fields": [
+    "active_object",
+    "attempted_move",
+    "boundary_checked",
+    "boundary_result",
+    "blocked_moves",
+    "lawful_next_moves",
+    "source_packet_ref"
+  ],
+  "schema_version": "c8_basic_interlock_mechanic_v0",
+  "target_unit_id": "c8.basic_interlock_mechanic.from_target_shape_reference.v0",
+  "unit_id": "PREPARE_C8_BASIC_INTERLOCK_MECHANIC_FROM_TARGET_SHAPE_REFERENCE_V0"
+}

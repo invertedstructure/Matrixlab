@@ -1,0 +1,21 @@
+{
+  "schema_version": "c8_target_shape_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "BUILD_OR_FREEZE_C8_TARGET_SHAPE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "consume ADVANCE next unit",
+      "from": "POST_SIDECAR_REFERENCE_DECISION_READY",
+      "to": "C8_TARGET_SHAPE_BASIS_ACCEPTED"
+    },
+    {
+      "edge": "type target shape without runtime adoption",
+      "from": "C8_TARGET_SHAPE_BASIS_ACCEPTED",
+      "to": "C8_TARGET_SHAPE_PREPARED_NO_RUNTIME_ADOPTION"
+    }
+  ],
+  "unit_id": "PREPARE_C8_TARGET_SHAPE_FROM_PRE_C8_INTERLOCK_PAIR_V0"
+}

@@ -1,0 +1,43 @@
+{
+  "candidate_emission_only": true,
+  "contract_status": "FROZEN_FOR_INCREMENTAL_SUITE_V0",
+  "core_rule": "Negative controls are declared non-writing probes. They prove forbidden behavior is rejected or remains unapplied without performing the forbidden action.",
+  "must_not_infer": [
+    "forbidden action may be applied to prove rejection",
+    "negative control authorizes repair",
+    "negative control authorizes schema/taxonomy/move growth",
+    "negative control authorizes runtime patching",
+    "negative control authorizes live hooks",
+    "negative control authorizes C8"
+  ],
+  "negative_control_result_enum": [
+    "FORBIDDEN_ACTION_REJECTED_NON_WRITING",
+    "FORBIDDEN_ACTION_NOT_APPLIED",
+    "FORBIDDEN_ACTION_TYPED_STOP",
+    "NEGATIVE_CONTROL_PROBE_GATE_FAIL"
+  ],
+  "probe_execution_rule": "A probe records intent, expected rejection, and zero write counters; it must not mutate runtime, registry, schemas, taxonomy, fixtures, prior receipts, live hooks, or control path.",
+  "repair_inside_suite_authorized": false,
+  "required_zero_counters": [
+    "unregistered_move_applied_count",
+    "hidden_repair_count",
+    "schema_invented_count",
+    "taxonomy_invented_count",
+    "fixture_expanded_by_default_count",
+    "architecture_widened_count",
+    "ambient_workspace_inference_count",
+    "latest_file_selection_count",
+    "mtime_selection_count",
+    "trace_missing_count",
+    "implicit_continuation_count",
+    "production_runtime_claim_count",
+    "broad_hardening_count",
+    "runtime_patch_count",
+    "live_hook_install_count",
+    "prior_receipt_mutation_count",
+    "hidden_next_command_count",
+    "c8_authorization_count"
+  ],
+  "schema_version": "runtime_non_writing_negative_control_probe_contract_v0",
+  "source_observability_status_contract_ref": "data/runtime_incremental_suite_preflight_v0/runtime_observability_status_case_contract_v0.json"
+}

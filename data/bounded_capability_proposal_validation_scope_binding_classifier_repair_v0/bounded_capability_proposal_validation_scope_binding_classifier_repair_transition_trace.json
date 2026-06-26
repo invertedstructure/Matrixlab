@@ -1,0 +1,21 @@
+{
+  "schema_version": "bounded_capability_proposal_validation_scope_binding_classifier_repair_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "PREPARE_BOUNDED_CAPABILITY_PROPOSAL_HUMAN_DECISION_PACKET_REVIEW_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "patch validation classifier to accept structural source-stop/capability binding",
+      "from": "ADMISSIBILITY_SCOPE_BINDING_FAILURE_AUDITED_AS_VALIDATOR_OVERSTRICT",
+      "to": "LOCAL_VALIDATION_CLASSIFIER_REPAIR_READY"
+    },
+    {
+      "edge": "rerun validation path without editing proposal",
+      "from": "LOCAL_VALIDATION_CLASSIFIER_REPAIR_READY",
+      "to": "VALIDATION_PASS_HUMAN_DECISION_PREP_READY"
+    }
+  ],
+  "unit_id": "REPAIR_BOUNDED_CAPABILITY_PROPOSAL_VALIDATION_SCOPE_BINDING_CLASSIFIER_V0"
+}

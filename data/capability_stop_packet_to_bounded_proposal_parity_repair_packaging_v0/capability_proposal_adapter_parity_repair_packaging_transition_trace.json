@@ -1,0 +1,21 @@
+{
+  "schema_version": "capability_proposal_adapter_parity_repair_packaging_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "CLOSE_CAPABILITY_PROPOSAL_ADAPTER_AS_REVIEWED_REFERENCE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "verify already-emitted repair receipt and packaging scope",
+      "from": "NEGATIVE_CONTROL_PARITY_REPAIRED_REFERENCE_FREEZE_READY_BUT_PACKAGING_FAILED",
+      "to": "PACKAGING_REPAIR_READY"
+    },
+    {
+      "edge": "force-add ignored repair artifacts",
+      "from": "PACKAGING_REPAIR_READY",
+      "to": "REFERENCE_FREEZE_NEXT"
+    }
+  ],
+  "unit_id": "REPAIR_CAPABILITY_PROPOSAL_ADAPTER_PARITY_REPAIR_PACKAGING_V0"
+}

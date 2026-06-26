@@ -1,0 +1,22 @@
+{
+  "promotion_decision_packet_id": "bounded_structured_t6_trigger_surface_capability_schema_archive_promotion_decision_packet_ca415d65",
+  "schema_version": "bounded_structured_t6_trigger_surface_capability_schema_archive_promotion_decision_packet_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": null,
+    "stop_code": "STOP_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_SCHEMA_ARCHIVE_PROMOTION_HUMAN_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "transitions": [
+    {
+      "edge": "prepare schema archive promotion human decision packet",
+      "from": "SCHEMA_ARCHIVE_PROMOTION_DECISION_PACKET_PREP_READY",
+      "to": "SCHEMA_ARCHIVE_PROMOTION_DECISION_PACKET_READY"
+    },
+    {
+      "edge": "stop for human schema promotion decision without mutation",
+      "from": "SCHEMA_ARCHIVE_PROMOTION_DECISION_PACKET_READY",
+      "to": "STOP_SCHEMA_ARCHIVE_PROMOTION_HUMAN_DECISION_REQUIRED"
+    }
+  ],
+  "unit_id": "PREPARE_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_SCHEMA_ARCHIVE_PROMOTION_DECISION_PACKET_V0"
+}

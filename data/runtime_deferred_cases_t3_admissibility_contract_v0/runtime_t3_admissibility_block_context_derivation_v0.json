@@ -1,0 +1,29 @@
+{
+  "context_written_by_suite_later": true,
+  "context_written_now": false,
+  "declared_admissibility_context": {
+    "admissibility_context_id": "admissibility_deny_unapproved_action_v0",
+    "declared_authority": "DENY",
+    "deny_code": "LAWFUL_ADMISSIBILITY_FAIL",
+    "deny_reason": "Declared action is outside the allowed admissibility surface for this test case.",
+    "requested_action": "runtime_action_unapproved_for_t3_probe_v0"
+  },
+  "derivation_id": "admissibility_context_declared_deny_v0",
+  "derivation_kind": "VALID_STATE_WITH_DECLARED_ADMISSIBILITY_DENY_CONTEXT",
+  "derivation_status": "READY",
+  "expected_admissibility_result": "LAWFUL_ADMISSIBILITY_FAIL",
+  "expected_outcome_class": "RUNTIME_SMOKE_BLOCKED_ADMISSIBILITY",
+  "expected_pressure_class": "LAWFUL_ADMISSIBILITY_FAIL",
+  "expected_stop_code": "STOP_RUNTIME_LAWFUL_ADMISSIBILITY_FAIL",
+  "expected_terminal_type": "STOP",
+  "expected_validation_result": "SCHEMA_VALIDATION_PASS",
+  "move_addition_authorized": false,
+  "repair_authorized": false,
+  "runtime_patch_authorized": false,
+  "schema_version": "runtime_t3_admissibility_block_context_derivation_v0",
+  "source_schema_ref": "data/runtime_adoption_smoke_v0/runtime_state_schema_v0.json",
+  "source_state_ref": "data/runtime_adoption_smoke_v0/runtime_state_v0.json",
+  "state_mutation_required": false,
+  "state_schema_validity_requirement": "base smoke state remains schema-valid",
+  "why_valid_negative_case": "The declared state should pass schema validation, then stop at the admissibility boundary before move application."
+}

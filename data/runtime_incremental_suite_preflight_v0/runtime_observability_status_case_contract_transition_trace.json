@@ -1,0 +1,21 @@
+{
+  "schema_version": "runtime_observability_status_case_contract_transition_trace_v0",
+  "terminal": {
+    "next_unit_id": "PREPARE_RUNTIME_NON_WRITING_NEGATIVE_CONTROL_PROBE_CONTRACT_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transitions": [
+    {
+      "edge": "consume expected pressure contract and sidecar reference",
+      "from": "EXPECTED_PRESSURE_CASE_CONTRACT_READY_OBSERVABILITY_STATUS_NEXT",
+      "to": "OBSERVABILITY_STATUS_CASE_CONTRACT_BASIS_ACCEPTED"
+    },
+    {
+      "edge": "emit non-control observability status contract",
+      "from": "OBSERVABILITY_STATUS_CASE_CONTRACT_BASIS_ACCEPTED",
+      "to": "NEGATIVE_CONTROL_PROBE_CONTRACT_NEXT"
+    }
+  ],
+  "unit_id": "PREPARE_RUNTIME_OBSERVABILITY_STATUS_CASE_CONTRACT_V0"
+}

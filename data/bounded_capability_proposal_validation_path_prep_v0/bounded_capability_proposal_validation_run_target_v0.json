@@ -1,0 +1,36 @@
+{
+  "boundary_guard_contract_ref": "data/bounded_capability_proposal_validation_path_prep_v0/bounded_capability_proposal_boundary_guard_contract_v0.json",
+  "does_not_authorize": [
+    "proposal acceptance",
+    "implementation",
+    "runtime repair",
+    "runtime patch",
+    "schema mutation",
+    "move addition",
+    "fixture expansion",
+    "runtime adoption",
+    "C8 authorization"
+  ],
+  "human_decision_gate_contract_ref": "data/bounded_capability_proposal_validation_path_prep_v0/bounded_capability_proposal_human_decision_gate_contract_v0.json",
+  "lawful_admissibility_contract_ref": "data/bounded_capability_proposal_validation_path_prep_v0/bounded_capability_proposal_lawful_admissibility_contract_v0.json",
+  "negative_control_contract_ref": "data/bounded_capability_proposal_validation_path_prep_v0/bounded_capability_proposal_negative_control_contract_v0.json",
+  "next_unit_id": "RUN_BOUNDED_CAPABILITY_PROPOSAL_VALIDATION_PATH_V0",
+  "proposal_id": "capability_proposal_57dda6e9",
+  "proposal_ref": "data/capability_stop_packet_to_bounded_proposal_v0/bounded_capability_proposal_v0.json",
+  "run_sequence": [
+    "load validator input bundle",
+    "verify source linkage",
+    "run schema validation checks",
+    "run lawful admissibility checks",
+    "verify boundary guards and negative controls",
+    "emit validation/admissibility receipt",
+    "if both pass, advance to human decision packet review/prep",
+    "if either fails, stop with typed reason and repair target if local"
+  ],
+  "schema_validation_contract_ref": "data/bounded_capability_proposal_validation_path_prep_v0/bounded_capability_proposal_schema_validation_contract_v0.json",
+  "schema_version": "bounded_capability_proposal_validation_run_target_v0",
+  "source_linkage_contract_ref": "data/bounded_capability_proposal_validation_path_prep_v0/bounded_capability_proposal_source_linkage_contract_v0.json",
+  "target_status": "READY",
+  "validation_path_id": "bounded_capability_proposal_validation_path_70fd5b04",
+  "validator_input_bundle_ref": "data/bounded_capability_proposal_validation_path_prep_v0/bounded_capability_proposal_validator_input_bundle_v0.json"
+}

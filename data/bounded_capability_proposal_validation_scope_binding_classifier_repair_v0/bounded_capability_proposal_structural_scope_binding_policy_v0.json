@@ -1,0 +1,34 @@
+{
+  "binding_policy": "A bounded capability proposal may satisfy capability-boundary scope binding either by direct scope phrase or by structural source-stop/capability linkage.",
+  "direct_scope_phrase_binding": [
+    "capability-boundary",
+    "capability boundary"
+  ],
+  "does_not_authorize": [
+    "proposal edit",
+    "proposal acceptance",
+    "human decision",
+    "implementation",
+    "runtime repair",
+    "runtime patch",
+    "schema mutation",
+    "move addition",
+    "fixture expansion",
+    "runtime adoption",
+    "C8 authorization"
+  ],
+  "policy_status": "READY",
+  "schema_version": "bounded_capability_proposal_structural_scope_binding_policy_v0",
+  "structural_binding_requirements": [
+    "proposal_id matches reviewed proposal",
+    "proposal_kind is BOUNDED_TRIGGER_SURFACE_CAPABILITY_PROPOSAL",
+    "proposal_status remains PROPOSAL_CANDIDATE_ONLY",
+    "proposal source_stop_packet_id matches source stop packet",
+    "source stop code is STOP_CAPABILITY_LAYER_REQUIRED",
+    "proposal missing_objects_addressed equals source missing_objects",
+    "proposal required_capability equals source required_capability",
+    "proposal proposed_surface equals bounded v0 required capability surface",
+    "source linkage validation passed",
+    "schema validation passed"
+  ]
+}

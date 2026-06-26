@@ -1,0 +1,23 @@
+{
+  "blocked_by": "CELL0_LAWFUL_ADMISSIBILITY_SURFACE",
+  "blocked_move": "runtime_patch",
+  "blocked_packet_ref": "sequence_C_authority_boundary_halt__input_packet_1",
+  "last_valid_packet_ref": "sequence_C_authority_boundary_halt__input_packet_0",
+  "lawful_next_handling": [
+    "request review",
+    "emit authority proposal",
+    "park blocked packet"
+  ],
+  "must_not_infer": [
+    "runtime failed globally",
+    "authority granted",
+    "hidden next command exists",
+    "step count equals success"
+  ],
+  "run_id": "runtime_run_sequence_C_authority_boundary_halt",
+  "schema_version": "runtime_radius_stop_packet_v0",
+  "stop_code": "STOP_AUTHORITY_REQUIRED",
+  "stop_reason": "Packet is schema-valid but move crosses current authority boundary.",
+  "stop_step_index": 1,
+  "terminal": "STOP"
+}

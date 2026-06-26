@@ -1,0 +1,21 @@
+{
+  "minimum_fields": [
+    "required_capability",
+    "surface_where_stop_occurred",
+    "missing_object",
+    "evidence_already_collected",
+    "why_current_capability_cannot_proceed",
+    "safe_next_human_choices",
+    "receipt_ref",
+    "parent_return_payload"
+  ],
+  "packet_rules": [
+    "Do not overclaim object invalidity.",
+    "Do not close the underlying object merely because current capability is missing.",
+    "Do not authorize repair, schema creation, move addition, runtime patch, fixture expansion, C8, or live runtime adoption.",
+    "Return enough evidence for the parent/human to choose a bounded next objective."
+  ],
+  "schema_status": "COLLECTION_STAGE_STOP_PACKET_SHAPE",
+  "schema_version": "runtime_t6_capability_stop_packet_schema_v0",
+  "stop_code": "STOP_CAPABILITY_LAYER_REQUIRED"
+}
