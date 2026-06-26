@@ -1,0 +1,27 @@
+{
+  "packet_id": "r0_baseline_locked_active_source_packet_c6b87624",
+  "schema_version": "r0_active_source_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_R0_BASELINE_LOCKED_ACTIVE_SOURCE_PACKET_READY",
+    "type": "STOP"
+  },
+  "transitions": [
+    {
+      "edge": "consume explicit operator source selection without repo-wide inference",
+      "from": "OPERATOR_SOURCE_SELECTION_AVAILABLE",
+      "to": "SOURCE_SELECTION_BOUND"
+    },
+    {
+      "edge": "emit R0 active source ledger and implicit authority denials",
+      "from": "SOURCE_SELECTION_BOUND",
+      "to": "R0_BASELINE_LOCKED_ACTIVE_SOURCE_PACKET_READY"
+    },
+    {
+      "edge": "stop with no automatic next command",
+      "from": "R0_BASELINE_LOCKED_ACTIVE_SOURCE_PACKET_READY",
+      "to": "STOP_R0_BASELINE_LOCKED_ACTIVE_SOURCE_PACKET_READY"
+    }
+  ],
+  "unit_id": "BUILD_R0_BASELINE_LOCKED_ACTIVE_SOURCE_PACKET_V0"
+}

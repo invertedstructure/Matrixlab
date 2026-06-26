@@ -1,0 +1,28 @@
+{
+  "archive_id": "decision_graph_observation_archive_5bad839f",
+  "graph_schema_id": "DG_SCHEMA_ARCHIVE_WRITE_EXECUTION_V0",
+  "schema_version": "decision_graph_observation_archive_transition_trace_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DECISION_GRAPH_OBSERVATION_ARCHIVE_READY",
+    "type": "STOP"
+  },
+  "transitions": [
+    {
+      "edge": "consume operator-declared receipt-backed graph intake",
+      "from": "DECISION_GRAPH_OBSERVATION_INTAKE_AVAILABLE",
+      "to": "DECISION_GRAPH_INTAKE_BOUND"
+    },
+    {
+      "edge": "emit observation-only graph schema record and archive index",
+      "from": "DECISION_GRAPH_INTAKE_BOUND",
+      "to": "DECISION_GRAPH_OBSERVATION_ARCHIVE_READY"
+    },
+    {
+      "edge": "stop with no automatic next command",
+      "from": "DECISION_GRAPH_OBSERVATION_ARCHIVE_READY",
+      "to": "STOP_DECISION_GRAPH_OBSERVATION_ARCHIVE_READY"
+    }
+  ],
+  "unit_id": "BUILD_DECISION_GRAPH_OBSERVATION_ARCHIVE_V0"
+}

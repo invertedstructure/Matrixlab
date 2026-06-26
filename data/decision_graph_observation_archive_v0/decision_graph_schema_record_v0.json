@@ -1,0 +1,268 @@
+{
+  "allowed_transitions": [
+    "SCHEMA_ARCHIVE_WRITE_EXECUTION_TARGET_READY -> SCHEMA_ARCHIVE_WRITE_EXECUTION_AUTHORIZED",
+    "SCHEMA_ARCHIVE_WRITE_EXECUTION_AUTHORIZED -> SCHEMA_ARCHIVE_ENTRY_WRITTEN",
+    "SCHEMA_ARCHIVE_ENTRY_WRITTEN -> STOP_SCHEMA_ARCHIVE_WRITE_COMPLETE"
+  ],
+  "archive_status": "OBSERVATION_ONLY",
+  "authority_boundary": {
+    "authorization_granted": false,
+    "c7_opened": false,
+    "c8_authorized": false,
+    "execution_registry_mutated": false,
+    "fixture_expansion_authorized": false,
+    "move_addition_authorized": false,
+    "runtime_adoption_authorized": false,
+    "schema_archive_mutation_authorized": false,
+    "schema_mutation_authorized": false,
+    "validator_authorization_schema_created": false
+  },
+  "authorization_schema_role": false,
+  "counterexamples": [],
+  "decision_edges": [
+    {
+      "allowed_when": [
+        "human write authorization was recorded",
+        "execution target is ready",
+        "duplicate guard has not failed"
+      ],
+      "authority_boundary": [
+        "does not authorize runtime adoption",
+        "does not authorize move addition",
+        "does not authorize fixture expansion",
+        "does not authorize C8"
+      ],
+      "blocked_when": [
+        "write authorization missing",
+        "execution target missing",
+        "archive entry already exists",
+        "authority boundary leak detected"
+      ],
+      "edge_id": "decision_edge_c32900c5",
+      "edge_kind": "ARCHIVE_WRITE_EDGE",
+      "edge_name": "consume_write_authorization_and_execution_target",
+      "edge_source_kind": "TRANSITION_TRACE",
+      "emitted_artifacts": [],
+      "forbidden_inferences": [
+        "graph may execute in future",
+        "write graph is now validator-authorized",
+        "schema archive write means runtime adoption"
+      ],
+      "from_state": "SCHEMA_ARCHIVE_WRITE_EXECUTION_TARGET_READY",
+      "human_decision_required": false,
+      "required_evidence": [
+        "schema_archive_write_authorized true",
+        "schema_archive_mutation_authorized true",
+        "schema_archive_write_executed false before execution"
+      ],
+      "required_inputs": [
+        "source_write_authorize_receipt_id",
+        "source_write_execution_target_id"
+      ],
+      "supporting_receipt_refs": [
+        "data/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_v0_receipts/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_receipt_d747aa8e.json"
+      ],
+      "supporting_trace_refs": [
+        "data/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_v0/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_transition_trace.json"
+      ],
+      "terminal_if_blocked": "STOP_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_SCHEMA_ARCHIVE_WRITE_EXECUTION_GATE_FAIL",
+      "to_state": "SCHEMA_ARCHIVE_WRITE_EXECUTION_AUTHORIZED"
+    },
+    {
+      "allowed_when": [
+        "duplicate guard passes",
+        "archive entry candidate is bound",
+        "write verification passes"
+      ],
+      "authority_boundary": [
+        "allowed effect is one bounded schema archive entry write only"
+      ],
+      "blocked_when": [
+        "duplicate graph/archive entry detected",
+        "post-write verification failed",
+        "archive path missing"
+      ],
+      "edge_id": "decision_edge_18db24b7",
+      "edge_kind": "ARCHIVE_WRITE_EDGE",
+      "edge_name": "write_bounded_archive_entry_with_duplicate_guard",
+      "edge_source_kind": "RECEIPT_FIELD",
+      "emitted_artifacts": [
+        "schema archive",
+        "write verification",
+        "archive delta",
+        "post-write state"
+      ],
+      "forbidden_inferences": [
+        "schema archive entry is executable",
+        "fixtures may expand",
+        "moves may be added"
+      ],
+      "from_state": "SCHEMA_ARCHIVE_WRITE_EXECUTION_AUTHORIZED",
+      "human_decision_required": false,
+      "required_evidence": [
+        "schema_archive_entry_written true",
+        "schema_archive_entry_promoted true",
+        "archive_after_sha256 present"
+      ],
+      "required_inputs": [
+        "schema_archive_ref",
+        "archive_entry_candidate_id",
+        "schema_name"
+      ],
+      "supporting_receipt_refs": [
+        "data/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_v0_receipts/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_receipt_d747aa8e.json"
+      ],
+      "supporting_trace_refs": [],
+      "terminal_if_blocked": "STOP_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_SCHEMA_ARCHIVE_WRITE_EXECUTION_GATE_FAIL",
+      "to_state": "SCHEMA_ARCHIVE_ENTRY_WRITTEN"
+    },
+    {
+      "allowed_when": [
+        "write verification passes",
+        "receipt emitted",
+        "hidden next command false"
+      ],
+      "authority_boundary": [
+        "terminal stop does not authorize future action"
+      ],
+      "blocked_when": [
+        "receipt mismatch",
+        "hidden next command detected"
+      ],
+      "edge_id": "decision_edge_31dd658e",
+      "edge_kind": "TERMINAL_EDGE",
+      "edge_name": "emit_final_write_receipt_and_stop",
+      "edge_source_kind": "TYPED_STOP",
+      "emitted_artifacts": [
+        "typed write execution receipt"
+      ],
+      "forbidden_inferences": [
+        "terminal receipt is future authority",
+        "receipt evidence bypasses human review"
+      ],
+      "from_state": "SCHEMA_ARCHIVE_ENTRY_WRITTEN",
+      "human_decision_required": false,
+      "required_evidence": [
+        "terminal type STOP",
+        "next_unit_id null",
+        "STOP_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_SCHEMA_ARCHIVE_WRITE_COMPLETE"
+      ],
+      "required_inputs": [
+        "write receipt",
+        "terminal stop code"
+      ],
+      "supporting_receipt_refs": [
+        "data/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_v0_receipts/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_receipt_d747aa8e.json"
+      ],
+      "supporting_trace_refs": [
+        "data/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_v0/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_transition_trace.json"
+      ],
+      "terminal_if_blocked": "STOP_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_SCHEMA_ARCHIVE_WRITE_EXECUTION_GATE_FAIL",
+      "to_state": "STOP_SCHEMA_ARCHIVE_WRITE_COMPLETE"
+    }
+  ],
+  "evidence_grade": "SINGLE_RECEIPT",
+  "execution_schema_role": false,
+  "forbidden_transitions": [
+    "observed graph -> validator recurring authorization schema",
+    "observed graph -> execution registry entry",
+    "schema archive write receipt -> runtime adoption",
+    "schema archive write receipt -> move addition",
+    "schema archive write receipt -> fixture expansion",
+    "schema archive write receipt -> C7 opened",
+    "schema archive write receipt -> C8 authorization",
+    "receipt evidence -> human review bypass"
+  ],
+  "graph_name": "Schema Archive Write Execution",
+  "graph_schema_id": "DG_SCHEMA_ARCHIVE_WRITE_EXECUTION_V0",
+  "graph_status": "OBSERVED_ONCE",
+  "human_decision_points": [
+    "human schema archive write authorization was required upstream, before execution"
+  ],
+  "known_variants": [],
+  "must_not_infer": [
+    "graph is authorized",
+    "graph may execute",
+    "graph may commit",
+    "graph may bypass human review",
+    "graph is a validator recurring schema",
+    "graph archive is active in R0 by default",
+    "runtime adoption is authorized",
+    "C7 is open",
+    "C8 is authorized",
+    "graph may be used by validator recurring mode",
+    "graph may mutate registry",
+    "graph may mutate schema archive"
+  ],
+  "not_authorized_for": [
+    "validator recurring authorization",
+    "execution",
+    "commit",
+    "runtime adoption",
+    "schema mutation",
+    "move addition",
+    "fixture expansion",
+    "C7 opening",
+    "C8 authorization",
+    "human review bypass"
+  ],
+  "notes": [
+    "First v0 graph observation archive entry; single-graph run.",
+    "Chosen because the schema archive write execution receipt is fresh, terminal, and authority-bounded."
+  ],
+  "observed_instances": [
+    "dg_instance_41bc135b"
+  ],
+  "primary_trigger_object_family": "SCHEMA_ARCHIVE_WRITE_RECEIPT",
+  "receipts_required": [
+    "data/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_v0_receipts/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_receipt_d747aa8e.json"
+  ],
+  "required_evidence": [
+    "PASS receipt",
+    "archive write id",
+    "archive before/after hash",
+    "archive entry written true",
+    "authority boundary false for runtime/C7/C8",
+    "terminal stop code"
+  ],
+  "required_input_objects": [
+    "schema archive write authorization receipt",
+    "schema archive write execution target",
+    "archive entry candidate",
+    "schema archive mutation target",
+    "schema archive path"
+  ],
+  "reuse_bound_to_primary_trigger_family": true,
+  "reuse_conditions": [
+    "descriptive comparison only",
+    "must remain bound to primary trigger family",
+    "requires separate human promotion before validator recurring use",
+    "requires separate admissibility/execution path before action"
+  ],
+  "schema_role": "OBSERVATION_SCHEMA_ONLY",
+  "schema_version": "decision_graph_schema_record_v0",
+  "secondary_trigger_object_families": [
+    "SCHEMA_ARCHIVE_PROMOTION_DECISION",
+    "HUMAN_DECISION_PACKET"
+  ],
+  "source": {
+    "source_human_decision_packet_refs": [],
+    "source_readout_refs": [
+      "data/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_v0/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_readout_v0.json"
+    ],
+    "source_receipt_refs": [
+      "data/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_v0_receipts/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_receipt_d747aa8e.json"
+    ],
+    "source_rollup_refs": [
+      "data/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_v0/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_rollup_v0.json"
+    ],
+    "source_trace_refs": [
+      "data/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_v0/bounded_structured_t6_trigger_surface_capability_schema_archive_write_execution_transition_trace.json"
+    ]
+  },
+  "terminal_states": [
+    "STOP_BOUNDED_STRUCTURED_T6_TRIGGER_SURFACE_CAPABILITY_SCHEMA_ARCHIVE_WRITE_COMPLETE"
+  ],
+  "trigger_object_family": "SCHEMA_ARCHIVE_WRITE_RECEIPT",
+  "validator_schema_role": false
+}

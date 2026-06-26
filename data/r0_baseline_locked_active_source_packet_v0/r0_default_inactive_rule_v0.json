@@ -1,0 +1,24 @@
+{
+  "applies_to": [
+    "unlisted committed artifacts",
+    "old drafts",
+    "historical receipts",
+    "review candidates",
+    "roadmap notes",
+    "stale tests",
+    "unselected runtime sketches",
+    "unselected C7/C8 material"
+  ],
+  "committed_artifacts_inactive_by_default": true,
+  "exceptions": [
+    "sources explicitly listed as ACTIVE_PRE_C7_SOURCE",
+    "schemas explicitly listed as ARCHIVED_SCHEMA",
+    "sources explicitly listed as REFERENCE_ONLY_SOURCE",
+    "sources explicitly listed as REVIEWED_EXAMPLE_SOURCE",
+    "sources explicitly listed as FORBIDDEN_AS_RUNTIME_AUTHORITY"
+  ],
+  "no_latest_or_mtime_selection": true,
+  "no_repo_wide_active_inference": true,
+  "rule": "Any committed artifact not explicitly listed in active_sources is inactive as runtime authority.",
+  "schema_version": "r0_default_inactive_rule_v0"
+}
