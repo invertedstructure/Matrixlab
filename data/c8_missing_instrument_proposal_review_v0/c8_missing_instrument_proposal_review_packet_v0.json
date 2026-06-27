@@ -1,0 +1,67 @@
+{
+  "created_at": "2026-06-27T08:04:06.165947+00:00",
+  "decision_class": "C8_PROPOSAL_REVIEWABLE_NOT_ACCEPTED",
+  "human_decision_options": [
+    "ACCEPT_FOR_SEPARATE_BUILD_PACKET",
+    "REQUEST_REFINEMENT",
+    "REJECT_PROPOSAL",
+    "PARK_PROPOSAL"
+  ],
+  "milestone": "C8_MISSING_INSTRUMENT_PROPOSAL_REVIEWED",
+  "must_not_infer": [
+    "proposal accepted",
+    "instrument accepted",
+    "instrument built",
+    "Cell 1 authorized",
+    "C8 may rerun without an accepted build packet",
+    "frontier solved"
+  ],
+  "not_authorized_by_this_review": [
+    "accepted build packet",
+    "instrument build",
+    "Cell 1 build",
+    "verification probe",
+    "repeat run",
+    "research mode",
+    "global solution claim",
+    "frontier solved claim",
+    "future C8 specimen"
+  ],
+  "proposal_review": {
+    "authority_boundary_clean": true,
+    "instrument_kind": "DISCRIMINATOR",
+    "proposal_has_verification": true,
+    "proposal_id": "missing_instrument_d56acf49",
+    "proposal_is_bounded": true,
+    "proposal_is_well_formed": true,
+    "proposal_status": "PROPOSED_ONLY",
+    "review_findings": [
+      "Proposal is a bounded local discriminator candidate, not a patch.",
+      "Proposal status remains PROPOSED_ONLY.",
+      "Proposal may be accepted only by a separate human decision layer.",
+      "No accepted build packet exists in the source C8 specimen.",
+      "No instrument build, verification probe, repeat, or research-mode continuation is authorized by this review."
+    ],
+    "smallest_honest_name": "local_transition_family_discriminator_candidate"
+  },
+  "recommended_next_human_decision": "ACCEPT_FOR_SEPARATE_BUILD_PACKET_OR_REQUEST_REFINEMENT",
+  "review_gate": "PASS",
+  "review_id": "c8_proposal_review_4de4401b",
+  "review_status": "TYPED_C8_MISSING_INSTRUMENT_PROPOSAL_REVIEW_PASS",
+  "schema_version": "c8_missing_instrument_proposal_review_packet_v0",
+  "source_refs": {
+    "accepted_build_stub_ref": "data/c8_basic_research_loop_specimen_v0/accepted_instrument_build_packet_v0.json",
+    "c8_receipt_ref": "data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_6e5dafcf.json",
+    "classification_ref": "data/c8_basic_research_loop_specimen_v0/research_transition_classification_v0.json",
+    "frontier_surface_ref": "data/c8_basic_research_loop_specimen_v0/frontier_surface_contract_v0.json",
+    "probe_receipt_ref": "data/c8_basic_research_loop_specimen_v0/bounded_probe_receipt_v0.json",
+    "proposal_ref": "data/c8_basic_research_loop_specimen_v0/missing_instrument_proposal_v0.json"
+  },
+  "target_unit_id": "research.c8_missing_instrument_proposal_review.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_MISSING_INSTRUMENT_PROPOSAL_REVIEW_READY_FOR_HUMAN_DECISION",
+    "type": "STOP"
+  },
+  "unit_id": "REVIEW_C8_MISSING_INSTRUMENT_PROPOSAL_V0"
+}

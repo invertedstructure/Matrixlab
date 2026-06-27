@@ -1,0 +1,65 @@
+{
+  "authority_boundary": {
+    "can_build_instrument": false,
+    "can_create_accepted_build_packet_now": false,
+    "can_prepare_bounded_build_packet": true,
+    "can_repeat_c8": false,
+    "can_run_verification": false,
+    "requires_next_review_before_build_packet_creation": true
+  },
+  "bounded_build_packet_prep": {
+    "allowed_future_packet_count": 1,
+    "allowed_future_packet_type": "accepted_instrument_build_packet_v0",
+    "bounded_objective": "On the declared C7/runtime-attachment evidence surface only, separate typed local transition evidence from missing-discriminator obstruction without claiming global sufficiency.",
+    "candidate_name": "local_transition_family_discriminator_candidate",
+    "expected_verification": {
+      "expected_result": "classification becomes DISCRIMINATOR_USEFUL_LOCALLY or remains INCONCLUSIVE_BUT_TYPED with a sharper obstruction",
+      "verification_probe": "rerun one bounded classification probe on the same declared evidence refs after separate acceptance"
+    },
+    "future_packet_forbidden_changes": [
+      "rewrite dominance system",
+      "expand fixture set",
+      "claim global sufficiency",
+      "authorize general Cell 1",
+      "open research mode",
+      "skip local verification requirement"
+    ],
+    "future_packet_must_reference": [
+      "data/c8_basic_research_loop_specimen_v0/missing_instrument_proposal_v0.json",
+      "data/c8_missing_instrument_proposal_review_v0_receipts/c8_proposal_review_receipt_4e8dc3b7.json",
+      "data/c8_bounded_instrument_build_packet_prep_v0/c8_bounded_instrument_build_packet_prep_human_decision_v0.json",
+      "data/c8_bounded_instrument_build_packet_prep_v0/c8_bounded_instrument_build_packet_prep_v0.json"
+    ],
+    "instrument_kind": "DISCRIMINATOR",
+    "source_proposal_status": "PROPOSED_ONLY",
+    "target_frontier_surface_ref": "data/c8_basic_research_loop_specimen_v0/frontier_surface_contract_v0.json",
+    "target_surface_kind": "MISSING_DISCRIMINATOR_SURFACE",
+    "why_needed": "The specimen needs a bounded local discriminator to decide whether the observed typed C7 authority-boundary transition belongs to a reusable transition family or remains only a one-run observation."
+  },
+  "must_not_infer": [
+    "accepted_instrument_build_packet_v0 exists",
+    "instrument is built",
+    "instrument is accepted globally",
+    "Cell 1 has build authority",
+    "verification is authorized",
+    "C8 may rerun",
+    "frontier is solved"
+  ],
+  "prep_packet_id": "c8_bounded_instrument_build_packet_prep_b88522c1",
+  "schema_version": "c8_bounded_instrument_build_packet_prep_v0",
+  "source_refs": {
+    "c8_receipt_ref": "data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_6e5dafcf.json",
+    "classification_ref": "data/c8_basic_research_loop_specimen_v0/research_transition_classification_v0.json",
+    "frontier_surface_ref": "data/c8_basic_research_loop_specimen_v0/frontier_surface_contract_v0.json",
+    "probe_receipt_ref": "data/c8_basic_research_loop_specimen_v0/bounded_probe_receipt_v0.json",
+    "proposal_ref": "data/c8_basic_research_loop_specimen_v0/missing_instrument_proposal_v0.json",
+    "proposal_review_packet_ref": "data/c8_missing_instrument_proposal_review_v0/c8_missing_instrument_proposal_review_packet_v0.json",
+    "proposal_review_receipt_ref": "data/c8_missing_instrument_proposal_review_v0_receipts/c8_proposal_review_receipt_4e8dc3b7.json"
+  },
+  "status": "ACCEPTED_FOR_BUILD_PACKET_PREP_ONLY",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_BOUNDED_INSTRUMENT_BUILD_PACKET_PREP_READY",
+    "type": "STOP"
+  }
+}
