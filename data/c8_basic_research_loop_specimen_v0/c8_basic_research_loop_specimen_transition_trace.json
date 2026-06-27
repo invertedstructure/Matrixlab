@@ -1,0 +1,63 @@
+{
+  "mode": "PROPOSAL_ONLY_FIRST_PASS",
+  "run_id": "c8_specimen_16b05ccf",
+  "schema_version": "c8_basic_research_loop_specimen_transition_trace_v0",
+  "source_receipt_immutability": {
+    "source_hashes_after": {
+      "c7_receipt": "6e71ba40e118fb9c88aebda556111c2a658416db9dd67e4aaaa4af88915c20e1",
+      "c7_rollup": "76f173d6b72585af0686d5d31aa10002c97aca47ed2c51cfeff0cf6fc294e57f",
+      "double_sieve_receipt": "a7778a23d9868ad2e0290aea9f404f3e040e3a4b13fc98b7ba7dabb97396b4ee",
+      "r0_active_source_packet": "3d9b9be83fbb6be5f101aced120f38a962c21a0e5758fecd2c9185b8328597a8",
+      "r0_receipt": "54c57177206335f418a17f5ce3d74e1026b5eee2f050cc6b5fbee70de6c1ce9c",
+      "runtime_attachment_receipt": "f9fd63824fb71c266f7812c26c61d8f2cf1157a40b7b8ea5548b352558ed8ece",
+      "runtime_membranes_receipt": "1810f88a3bd42ad82ebcd28f3c0b6add9e01a449b35b33e94700ffc01812597b"
+    },
+    "source_hashes_before": {
+      "c7_receipt": "6e71ba40e118fb9c88aebda556111c2a658416db9dd67e4aaaa4af88915c20e1",
+      "c7_rollup": "76f173d6b72585af0686d5d31aa10002c97aca47ed2c51cfeff0cf6fc294e57f",
+      "double_sieve_receipt": "a7778a23d9868ad2e0290aea9f404f3e040e3a4b13fc98b7ba7dabb97396b4ee",
+      "r0_active_source_packet": "3d9b9be83fbb6be5f101aced120f38a962c21a0e5758fecd2c9185b8328597a8",
+      "r0_receipt": "54c57177206335f418a17f5ce3d74e1026b5eee2f050cc6b5fbee70de6c1ce9c",
+      "runtime_attachment_receipt": "f9fd63824fb71c266f7812c26c61d8f2cf1157a40b7b8ea5548b352558ed8ece",
+      "runtime_membranes_receipt": "1810f88a3bd42ad82ebcd28f3c0b6add9e01a449b35b33e94700ffc01812597b"
+    },
+    "source_receipts_mutated": false
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED",
+    "type": "STOP"
+  },
+  "transitions": [
+    {
+      "artifact": "data/c8_basic_research_loop_specimen_v0/c8_specimen_open_decision_packet_v0.json",
+      "result": "OPEN_ONE_BOUNDED_C8_SPECIMEN",
+      "step": "OPEN_SPECIMEN"
+    },
+    {
+      "artifact": "data/c8_basic_research_loop_specimen_v0/frontier_surface_contract_v0.json",
+      "result": "MISSING_DISCRIMINATOR_SURFACE",
+      "step": "LOAD_FRONTIER_SURFACE"
+    },
+    {
+      "artifact": "data/c8_basic_research_loop_specimen_v0/bounded_probe_receipt_v0.json",
+      "result": "INCONCLUSIVE_BUT_TYPED",
+      "step": "RUN_BOUNDED_PROBE"
+    },
+    {
+      "artifact": "data/c8_basic_research_loop_specimen_v0/research_transition_classification_v0.json",
+      "result": "MISSING_INSTRUMENT_EXPOSED",
+      "step": "CLASSIFY_TRANSITION"
+    },
+    {
+      "artifact": "data/c8_basic_research_loop_specimen_v0/missing_instrument_proposal_v0.json",
+      "result": "PROPOSED_ONLY",
+      "step": "PROPOSE_MISSING_INSTRUMENT"
+    },
+    {
+      "artifact": null,
+      "result": "STOP_C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED",
+      "step": "HALT_TYPED"
+    }
+  ]
+}
