@@ -1,0 +1,57 @@
+{
+  "c8_rerun_performed": false,
+  "cases_failed": 0,
+  "cases_passed": 3,
+  "cases_total": 3,
+  "frontier_solved_claim": false,
+  "global_solution_claim": false,
+  "instrument_id": "local_transition_family_discriminator_2deb5cd1",
+  "instrument_ref": "data/c8_local_transition_family_discriminator_v0/local_transition_family_discriminator_candidate_v0.json",
+  "results": [
+    {
+      "case_id": "positive_in_scope_missing_instrument_exposed",
+      "expected_label": "LOCAL_TRANSITION_FAMILY_CANDIDATE_CONFIRMED",
+      "observed": {
+        "claims_global_solution": false,
+        "is_in_scope": true,
+        "label": "LOCAL_TRANSITION_FAMILY_CANDIDATE_CONFIRMED",
+        "reason": "Within the accepted packet boundary, the evidence matches the local missing-discriminator transition family candidate."
+      },
+      "observed_label": "LOCAL_TRANSITION_FAMILY_CANDIDATE_CONFIRMED",
+      "passed": true
+    },
+    {
+      "case_id": "negative_wrong_surface",
+      "expected_label": "OUT_OF_SCOPE_SURFACE",
+      "observed": {
+        "claims_global_solution": false,
+        "is_in_scope": false,
+        "label": "OUT_OF_SCOPE_SURFACE",
+        "reason": "Evidence is not on the declared missing-discriminator frontier surface."
+      },
+      "observed_label": "OUT_OF_SCOPE_SURFACE",
+      "passed": true
+    },
+    {
+      "case_id": "negative_missing_accepted_packet",
+      "expected_label": "MISSING_REQUIRED_EVIDENCE",
+      "observed": {
+        "claims_global_solution": false,
+        "is_in_scope": false,
+        "label": "MISSING_REQUIRED_EVIDENCE",
+        "missing": [
+          "accepted_build_packet_id"
+        ],
+        "reason": "Required bounded evidence fields are missing."
+      },
+      "observed_label": "MISSING_REQUIRED_EVIDENCE",
+      "passed": true
+    }
+  ],
+  "schema_version": "local_transition_family_discriminator_verification_receipt_v0",
+  "status": "PASS",
+  "unit_id": "BUILD_ONE_BOUNDED_LOCAL_TRANSITION_FAMILY_DISCRIMINATOR_V0",
+  "verification_cases_ref": "data/c8_local_transition_family_discriminator_v0/local_transition_family_discriminator_verification_cases_v0.json",
+  "verification_probe_count": 1,
+  "verification_receipt_id": "local_transition_family_discriminator_verification_32822378"
+}

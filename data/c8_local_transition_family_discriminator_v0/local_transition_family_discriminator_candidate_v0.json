@@ -1,0 +1,71 @@
+{
+  "authority_boundary": {
+    "can_authorize_future_builds": false,
+    "can_claim_frontier_solved": false,
+    "can_claim_global_discriminator": false,
+    "can_classify_local_transition_family_candidate": true,
+    "can_mutate_sources": false,
+    "can_open_research_mode": false
+  },
+  "bounded_domain": {
+    "accepted_build_packet_id": "accepted_instrument_build_packet_2e67943c",
+    "classification": "MISSING_INSTRUMENT_EXPOSED",
+    "frontier_surface_kind": "MISSING_DISCRIMINATOR_SURFACE",
+    "probe_classification_candidate": "MISSING_INSTRUMENT_EXPOSED",
+    "proposal_id": "missing_instrument_d56acf49",
+    "scope_note": "Only the declared C8 missing-discriminator surface and its source artifacts are in scope."
+  },
+  "built_by_unit": "BUILD_ONE_BOUNDED_LOCAL_TRANSITION_FAMILY_DISCRIMINATOR_V0",
+  "candidate_name": "local_transition_family_discriminator_candidate",
+  "created_at": "2026-06-27T08:54:17.650704+00:00",
+  "decision_labels": [
+    "LOCAL_TRANSITION_FAMILY_CANDIDATE_CONFIRMED",
+    "LOCAL_TRANSITION_FAMILY_NOT_CONFIRMED",
+    "MISSING_REQUIRED_EVIDENCE",
+    "OUT_OF_SCOPE_ACCEPTED_PACKET",
+    "OUT_OF_SCOPE_PROPOSAL",
+    "OUT_OF_SCOPE_SURFACE"
+  ],
+  "instrument_id": "local_transition_family_discriminator_2deb5cd1",
+  "instrument_kind": "DISCRIMINATOR",
+  "must_not_infer": [
+    "global discriminator exists",
+    "frontier is solved",
+    "future Cell 1 builds are generally authorized",
+    "source C8 artifacts may be mutated",
+    "C8 rerun has occurred"
+  ],
+  "rules": [
+    {
+      "description": "Missing required bounded evidence produces MISSING_REQUIRED_EVIDENCE.",
+      "rule_id": "R0_REQUIRED_FIELDS"
+    },
+    {
+      "description": "Evidence must reference the accepted build packet id.",
+      "rule_id": "R1_ACCEPTED_PACKET_BOUNDARY"
+    },
+    {
+      "description": "Evidence must reference the source proposal id.",
+      "rule_id": "R2_PROPOSAL_BOUNDARY"
+    },
+    {
+      "description": "Evidence must remain on MISSING_DISCRIMINATOR_SURFACE.",
+      "rule_id": "R3_SURFACE_BOUNDARY"
+    },
+    {
+      "description": "Within boundary, matching MISSING_INSTRUMENT_EXPOSED classification and probe candidate confirms a local transition-family candidate.",
+      "rule_id": "R4_LOCAL_CONFIRMATION"
+    }
+  ],
+  "schema_version": "local_transition_family_discriminator_candidate_v0",
+  "source_refs": {
+    "accepted_build_packet_ref": "data/c8_accepted_instrument_build_packet_v0/accepted_instrument_build_packet_v0.json",
+    "accepted_packet_receipt_ref": "data/c8_accepted_instrument_build_packet_v0_receipts/c8_accepted_build_packet_receipt_36ac9c56.json",
+    "build_packet_prep_receipt_ref": "data/c8_bounded_instrument_build_packet_prep_v0_receipts/c8_build_packet_prep_receipt_52acb2b7.json",
+    "classification_ref": "data/c8_basic_research_loop_specimen_v0/research_transition_classification_v0.json",
+    "frontier_surface_ref": "data/c8_basic_research_loop_specimen_v0/frontier_surface_contract_v0.json",
+    "probe_receipt_ref": "data/c8_basic_research_loop_specimen_v0/bounded_probe_receipt_v0.json",
+    "proposal_ref": "data/c8_basic_research_loop_specimen_v0/missing_instrument_proposal_v0.json",
+    "proposal_review_receipt_ref": "data/c8_missing_instrument_proposal_review_v0_receipts/c8_proposal_review_receipt_4e8dc3b7.json"
+  }
+}
