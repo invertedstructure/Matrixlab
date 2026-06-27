@@ -1,0 +1,62 @@
+{
+  "attachment_run_id": "runtime_attachment_run_1e446747",
+  "schema_version": "runtime_observability_feedback_transition_trace_v0",
+  "source_receipt_immutability": {
+    "fixture_hashes_after": {
+      "data/double_sieve_fixture_suite_v0/fixtures/F1_VALID_ADMISSIBLE/double_sieve_fixture_receipt_v0.json": "d45f77f7fc6d1e0256a9e71fe27484c1e0090b18778ba3e46ffb82be8f914ae6",
+      "data/double_sieve_fixture_suite_v0/fixtures/F2_INVALID_SCHEMA/double_sieve_fixture_receipt_v0.json": "d7a8a32faa127381b5ec480a4e9ada38be7e581f80e7ee203e903f2fc07340c0",
+      "data/double_sieve_fixture_suite_v0/fixtures/F3_AUTHORITY_REQUIRED/double_sieve_fixture_receipt_v0.json": "d1d6d8ebacc3ed9aef32b9b0a5bb8aab656c05e8f4eca77e7fab9a0a94470b56",
+      "data/double_sieve_fixture_suite_v0/fixtures/F4_FORBIDDEN_INPUT/double_sieve_fixture_receipt_v0.json": "8fa04e09ed1a830042b5c68ebd86d679427b94ee9c4a059a2bea11c8b725ad1f",
+      "data/double_sieve_fixture_suite_v0/fixtures/F5_EXECUTION_FAILURE_TYPED_FEEDBACK/double_sieve_fixture_receipt_v0.json": "1881914e2624d5902825efc318a5b476d206b510b9191c008ca8e40bf20a21d0",
+      "data/double_sieve_fixture_suite_v0/fixtures/F6_SIDECAR_PARTIAL_OBSERVABILITY/double_sieve_fixture_receipt_v0.json": "f4db8ff35ad143ebad669b024ab713a8a2c5581d9e7c57850a81688ab6091fba"
+    },
+    "fixture_hashes_before": {
+      "data/double_sieve_fixture_suite_v0/fixtures/F1_VALID_ADMISSIBLE/double_sieve_fixture_receipt_v0.json": "d45f77f7fc6d1e0256a9e71fe27484c1e0090b18778ba3e46ffb82be8f914ae6",
+      "data/double_sieve_fixture_suite_v0/fixtures/F2_INVALID_SCHEMA/double_sieve_fixture_receipt_v0.json": "d7a8a32faa127381b5ec480a4e9ada38be7e581f80e7ee203e903f2fc07340c0",
+      "data/double_sieve_fixture_suite_v0/fixtures/F3_AUTHORITY_REQUIRED/double_sieve_fixture_receipt_v0.json": "d1d6d8ebacc3ed9aef32b9b0a5bb8aab656c05e8f4eca77e7fab9a0a94470b56",
+      "data/double_sieve_fixture_suite_v0/fixtures/F4_FORBIDDEN_INPUT/double_sieve_fixture_receipt_v0.json": "8fa04e09ed1a830042b5c68ebd86d679427b94ee9c4a059a2bea11c8b725ad1f",
+      "data/double_sieve_fixture_suite_v0/fixtures/F5_EXECUTION_FAILURE_TYPED_FEEDBACK/double_sieve_fixture_receipt_v0.json": "1881914e2624d5902825efc318a5b476d206b510b9191c008ca8e40bf20a21d0",
+      "data/double_sieve_fixture_suite_v0/fixtures/F6_SIDECAR_PARTIAL_OBSERVABILITY/double_sieve_fixture_receipt_v0.json": "f4db8ff35ad143ebad669b024ab713a8a2c5581d9e7c57850a81688ab6091fba"
+    },
+    "source_double_sieve_receipt_mutated": false,
+    "source_fixture_receipts_mutated": false,
+    "source_hashes_after": {
+      "source_double_sieve_rollup_ref": "5e88504e748cd04cd1d1774947ac0c94ebb9ccf2e2b94dcdce9088a068201095",
+      "source_double_sieve_suite_receipt_ref": "a7778a23d9868ad2e0290aea9f404f3e040e3a4b13fc98b7ba7dabb97396b4ee",
+      "source_r0_active_source_packet_ref": "3d9b9be83fbb6be5f101aced120f38a962c21a0e5758fecd2c9185b8328597a8",
+      "source_r0_receipt_ref": "54c57177206335f418a17f5ce3d74e1026b5eee2f050cc6b5fbee70de6c1ce9c",
+      "source_runtime_membranes_receipt_ref": "1810f88a3bd42ad82ebcd28f3c0b6add9e01a449b35b33e94700ffc01812597b"
+    },
+    "source_hashes_before": {
+      "source_double_sieve_rollup_ref": "5e88504e748cd04cd1d1774947ac0c94ebb9ccf2e2b94dcdce9088a068201095",
+      "source_double_sieve_suite_receipt_ref": "a7778a23d9868ad2e0290aea9f404f3e040e3a4b13fc98b7ba7dabb97396b4ee",
+      "source_r0_active_source_packet_ref": "3d9b9be83fbb6be5f101aced120f38a962c21a0e5758fecd2c9185b8328597a8",
+      "source_r0_receipt_ref": "54c57177206335f418a17f5ce3d74e1026b5eee2f050cc6b5fbee70de6c1ce9c",
+      "source_runtime_membranes_receipt_ref": "1810f88a3bd42ad82ebcd28f3c0b6add9e01a449b35b33e94700ffc01812597b"
+    },
+    "source_receipts_mutated": false
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_RUNTIME_OBSERVABILITY_AND_FEEDBACK_ATTACHED",
+    "type": "STOP"
+  },
+  "transitions": [
+    {
+      "edge": "consume explicit attachment intake and committed step receipts",
+      "from": "DOUBLE_SIEVE_FIXTURE_SUITE_PASS_COMMITTED",
+      "to": "RUNTIME_ATTACHMENT_CONTEXT_BOUND"
+    },
+    {
+      "edge": "derive sidecar events, decision-edge observations, feedback, degradation records, and step receipts",
+      "from": "RUNTIME_ATTACHMENT_CONTEXT_BOUND",
+      "to": "RUNTIME_ATTACHMENT_BUNDLES_COMPLETE"
+    },
+    {
+      "edge": "emit attachment receipt and stop",
+      "from": "RUNTIME_ATTACHMENT_BUNDLES_COMPLETE",
+      "to": "STOP_RUNTIME_OBSERVABILITY_AND_FEEDBACK_ATTACHED"
+    }
+  ],
+  "unit_id": "BUILD_RUNTIME_OBSERVABILITY_AND_FEEDBACK_ATTACHMENT_V0"
+}
