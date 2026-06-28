@@ -1,0 +1,59 @@
+{
+  "bounded_probe_question": "After one closed local C8 instrumentation loop, what evidence is sufficient to keep the local discriminator and loop pattern non-reusable unless a later authority packet explicitly promotes them?",
+  "created_at": "2026-06-28T08:48:33.167098+00:00",
+  "evidence_items": [
+    {
+      "evidence_id": "E0_EXECUTION_AUTHORITY_EXISTS",
+      "meaning": "A specific authority object exists for the exact bounded probe execution unit.",
+      "source": "data/c8_successor_surface_bounded_probe_execution_acceptance_v0/c8_successor_surface_bounded_probe_execution_authority_v0.json",
+      "value": true
+    },
+    {
+      "evidence_id": "E1_AUTHORITY_COUNT_IS_ONE",
+      "meaning": "Authority count is exactly one future bounded probe execution.",
+      "source": "data/c8_successor_surface_bounded_probe_execution_acceptance_v0/c8_successor_surface_bounded_probe_execution_authority_v0.json",
+      "value": true
+    },
+    {
+      "evidence_id": "E2_NO_REUSABLE_SCHEMA_AUTHORITY",
+      "meaning": "No source authority promotes the local discriminator or loop pattern into reusable schema.",
+      "source": "data/c8_successor_surface_bounded_probe_execution_acceptance_v0_receipts/c8_successor_probe_execution_acceptance_receipt_31139bd1.json",
+      "value": true
+    },
+    {
+      "evidence_id": "E3_NO_BUILD_OR_RERUN_AUTHORITY",
+      "meaning": "The authority does not authorize instrument build, Cell 1 build, verification probe, or C8 rerun.",
+      "source": "data/c8_successor_surface_bounded_probe_execution_acceptance_v0_receipts/c8_successor_probe_execution_acceptance_receipt_31139bd1.json",
+      "value": true
+    },
+    {
+      "evidence_id": "E4_PREP_PACKET_WELL_FORMED_BOUNDED",
+      "meaning": "The source prep packet was reviewed as well formed and bounded.",
+      "source": "data/c8_successor_surface_bounded_probe_prep_packet_review_v0_receipts/c8_successor_probe_prep_packet_review_receipt_f3acc3a5.json",
+      "value": true
+    },
+    {
+      "evidence_id": "E5_PROBE_QUESTION_BOUNDED_TO_REUSE_AUTHORITY",
+      "meaning": "The probe question asks only whether current evidence preserves non-reuse absent later explicit promotion.",
+      "source": "data/c8_successor_surface_bounded_probe_prep_packet_v0/c8_successor_surface_bounded_probe_spec_v0.json",
+      "value": true
+    },
+    {
+      "evidence_id": "E6_NO_GLOBAL_OR_FRONTIER_CLAIM",
+      "meaning": "Sources deny global-solution and frontier-solved claims.",
+      "source": "data/c8_successor_surface_bounded_probe_execution_acceptance_v0_receipts/c8_successor_probe_execution_acceptance_receipt_31139bd1.json",
+      "value": true
+    }
+  ],
+  "failed_evidence": [],
+  "probe_evidence_id": "c8_successor_reuse_authority_probe_evidence_4f51ca49",
+  "probe_id": "c8_successor_surface_reuse_authority_boundary_probe_v0",
+  "probe_kind": "REUSE_AUTHORITY_BOUNDARY_PROBE",
+  "schema_version": "c8_successor_surface_bounded_reuse_authority_probe_evidence_v0",
+  "selected_surface_id": "c8_successor_surface_reuse_authority_boundary_after_local_closure_v0",
+  "source_acceptance_decision_id": "c8_successor_probe_execution_acceptance_decision_64e3fccf",
+  "source_acceptance_packet_id": "c8_successor_probe_execution_acceptance_packet_2ffc6f0d",
+  "source_acceptance_receipt_id": "c8_successor_probe_execution_acceptance_receipt_31139bd1",
+  "source_authority_id": "c8_successor_probe_execution_authority_52f56baf",
+  "source_prep_packet_id": "c8_successor_probe_prep_packet_74a6c209"
+}
