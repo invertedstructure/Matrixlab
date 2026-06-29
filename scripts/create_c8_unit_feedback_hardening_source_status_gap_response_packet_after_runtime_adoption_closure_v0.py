@@ -1,0 +1,568 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import hashlib
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any, Dict, List
+
+ROOT = Path(__file__).resolve().parents[1]
+
+UNIT_ID = "CREATE_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0"
+TARGET_UNIT_ID = "research.c8.unit_feedback_hardening.source_status_gap_response.packet.after_runtime_adoption_closure.v0"
+MILESTONE = "C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_CREATED_AFTER_RUNTIME_ADOPTION_CLOSURE"
+
+SOURCE_ACCEPTANCE_RECEIPT_ID = "c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_receipt_0f04cacc"
+SOURCE_ACCEPTANCE_DECISION_ID = "c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_decision_7b8218ab"
+SOURCE_ACCEPTANCE_PACKET_ID = "c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_packet_f8e56829"
+SOURCE_STATUS_GAP_RESPONSE_AUTHORITY_ID = "c8_unit_feedback_hardening_source_status_gap_response_authority_716573d0"
+SOURCE_ACCEPTANCE_BOUNDARY_ID = "c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_boundary_9ac0ca5d"
+
+SOURCE_DECISION_RECEIPT_ID = "c8_unit_feedback_hardening_decision_packet_receipt_8565c071"
+SOURCE_DECISION_PACKET_ID = "c8_unit_feedback_hardening_decision_packet_033976d2"
+SOURCE_DECISION_OPTIONS_ID = "c8_unit_feedback_hardening_decision_options_54d847bd"
+SOURCE_DECISION_BOUNDARY_ID = "c8_unit_feedback_hardening_decision_packet_boundary_5336d87a"
+
+SOURCE_ASSESSMENT_RECEIPT_ID = "c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_receipt_2b262320"
+SOURCE_ASSESSMENT_PACKET_ID = "c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_packet_4e6c1747"
+SOURCE_ASSESSMENT_OPTIONS_ID = "c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_options_373a4f21"
+SOURCE_ASSESSMENT_BOUNDARY_ID = "c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_boundary_987942ec"
+
+SOURCE_DISCOVERY_RECEIPT_ID = "c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_receipt_c9e0fb77"
+SOURCE_DISCOVERY_RESULT_ID = "c8_unit_feedback_hardening_failed_unit_sample_discovery_result_67360c26"
+SOURCE_DISCOVERY_BOUNDARY_ID = "c8_unit_feedback_hardening_failed_unit_sample_discovery_boundary_2ae0e55c"
+SOURCE_DISCOVERY_AUTHORITY_ID = "c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_authority_f06fa4a1"
+
+SELECTED_SURFACE_ID = "c8_successor_surface_unit_feedback_hardening_after_runtime_adoption_closure_v0"
+SELECTED_SURFACE_KIND = "UNIT_FEEDBACK_HARDENING_SURFACE"
+SELECTED_SURFACE_LABEL = "C8_UNIT_FEEDBACK_HARDENING_AFTER_RUNTIME_ADOPTION_CLOSURE_SURFACE"
+
+PROBE_ID = "c8_unit_feedback_hardening_bounded_probe_after_runtime_adoption_closure_v0"
+PROBE_KIND = "UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE"
+PROBE_LABEL = "C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_AFTER_RUNTIME_ADOPTION_CLOSURE"
+
+GAP_OBJECT = "FAILED_UNIT_SAMPLE_ABSENCE"
+DISCOVERY_TARGET = "ONE_FAILED_UNIT_SAMPLE"
+FAILED_UNIT_SAMPLE_ID = "c8_failed_unit_sample_ee4e6092"
+FAILED_UNIT_SAMPLE_SOURCE_PATH = "data/a0_current_receipt_chain_frontier_application_v0_receipts/c1d0f615.json"
+FAILED_UNIT_SAMPLE_SOURCE_STATUS = "MISSING_STATUS_FIELD_WITH_FAILURE_INDICATOR"
+
+DIAGNOSTIC_ASSESSMENT_STATUS = "FAILED_UNIT_SAMPLE_DIAGNOSTIC_FEEDBACK_USEFUL_WITH_SOURCE_STATUS_GAP_EXPOSED"
+FEEDBACK_HARDENING_DECISION_CLASS = "UNIT_FEEDBACK_HARDENING_DECISION_USEFUL_DIAGNOSTIC_FEEDBACK_WITH_LOCAL_SOURCE_STATUS_GAP"
+LOCAL_GAP_OBJECT = "SOURCE_ARTIFACT_TOP_LEVEL_STATUS_ABSENCE"
+
+SOURCE_STATUS_GAP_RESPONSE_CLASS = "SOURCE_STATUS_GAP_RESPONSE_PRESERVE_MISSING_STATUS_MARKER_AND_PREPARE_BOUNDED_STATUS_FIELD_DECISION"
+RECOMMENDED_HUMAN_DECISION = "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_FOR_BOUNDED_STATUS_FIELD_DECISION"
+FUTURE_UNIT = "CREATE_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0"
+REVIEW_UNIT = "REVIEW_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0"
+
+OUT_DIR = ROOT / "data/c8_unit_feedback_hardening_source_status_gap_response_packet_after_runtime_adoption_closure_v0"
+RECEIPT_DIR = ROOT / "data/c8_unit_feedback_hardening_source_status_gap_response_packet_after_runtime_adoption_closure_v0_receipts"
+
+ACCEPTANCE_RECEIPT = ROOT / "data/c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_receipt_0f04cacc.json"
+ACCEPTANCE_DECISION = ROOT / "data/c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_decision_v0.json"
+ACCEPTANCE_PACKET = ROOT / "data/c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_packet_v0.json"
+SOURCE_STATUS_GAP_AUTHORITY = ROOT / "data/c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_source_status_gap_response_authority_v0.json"
+ACCEPTANCE_BOUNDARY = ROOT / "data/c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_boundary_audit_v0.json"
+ACCEPTANCE_READOUT = ROOT / "data/c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_readout_v0.json"
+ACCEPTANCE_REPORT = ROOT / "data/c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_report.json"
+
+RESPONSE_PACKET = OUT_DIR / "c8_unit_feedback_hardening_source_status_gap_response_packet_v0.json"
+RESPONSE_OPTIONS = OUT_DIR / "c8_unit_feedback_hardening_source_status_gap_response_options_v0.json"
+BOUNDARY_AUDIT = OUT_DIR / "c8_unit_feedback_hardening_source_status_gap_response_boundary_audit_v0.json"
+READOUT = OUT_DIR / "c8_unit_feedback_hardening_source_status_gap_response_readout_v0.json"
+REPORT = OUT_DIR / "c8_unit_feedback_hardening_source_status_gap_response_report.json"
+
+FORBIDDEN_COUNTER_KEYS = [
+    "bounded_source_status_field_decision_packet_created_count",
+    "source_artifact_mutation_count",
+    "status_field_added_count",
+    "source_status_invented_count",
+    "additional_sample_discovery_count",
+    "probe_execution_authorized_count",
+    "probe_executed_count",
+    "instrument_build_count",
+    "cell1_build_count",
+    "verification_probe_count",
+    "c8_rerun_count",
+    "missing_instrument_proposal_count",
+    "research_mode_opened_count",
+    "general_cell1_authority_count",
+    "reusable_schema_authorized_count",
+    "global_solution_claim_count",
+    "frontier_solved_claim_count",
+    "hidden_next_command_count",
+]
+
+def now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+def canonical_bytes(obj: Any) -> bytes:
+    return json.dumps(obj, sort_keys=True, separators=(",", ":"), default=str).encode("utf-8")
+
+def sig8(obj: Any) -> str:
+    return hashlib.sha256(canonical_bytes(obj)).hexdigest()[:8]
+
+def sha256_file(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def rel(path: Path) -> str:
+    return path.resolve().relative_to(ROOT.resolve()).as_posix()
+
+def read_json(path: Path) -> Dict[str, Any]:
+    return json.loads(path.read_text())
+
+def write_json(path: Path, obj: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(obj, indent=2, sort_keys=True) + "\n")
+
+def chk(failures: List[str], label: str, got: Any, want: Any) -> None:
+    if got != want:
+        failures.append(f"{label}_wrong:{got}!={want}")
+
+def main() -> int:
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    RECEIPT_DIR.mkdir(parents=True, exist_ok=True)
+
+    failures: List[str] = []
+    warnings: List[str] = []
+    forbidden_counters = {k: 0 for k in FORBIDDEN_COUNTER_KEYS}
+
+    sources = {
+        "acceptance_receipt": ACCEPTANCE_RECEIPT,
+        "acceptance_decision": ACCEPTANCE_DECISION,
+        "acceptance_packet": ACCEPTANCE_PACKET,
+        "source_status_gap_authority": SOURCE_STATUS_GAP_AUTHORITY,
+        "acceptance_boundary": ACCEPTANCE_BOUNDARY,
+        "acceptance_readout": ACCEPTANCE_READOUT,
+        "acceptance_report": ACCEPTANCE_REPORT,
+    }
+
+    for label, path in sources.items():
+        if not path.exists():
+            failures.append(f"source_missing:{label}:{rel(path)}")
+
+    source_hashes_before = {
+        label: sha256_file(path)
+        for label, path in sources.items()
+        if path.exists()
+    }
+
+    receipt = read_json(ACCEPTANCE_RECEIPT)
+    decision = read_json(ACCEPTANCE_DECISION)
+    packet = read_json(ACCEPTANCE_PACKET)
+    authority = read_json(SOURCE_STATUS_GAP_AUTHORITY)
+    boundary = read_json(ACCEPTANCE_BOUNDARY)
+    summary = receipt.get("machine_readable_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_summary", {})
+
+    expected_receipt = {
+        "gate": "PASS",
+        "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_DECISION_PACKET_ACCEPTANCE_FOR_SOURCE_STATUS_GAP_RESPONSE_PASS",
+        "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_DECISION_PACKET_ACCEPTED_FOR_SOURCE_STATUS_GAP_RESPONSE",
+        "receipt_id": SOURCE_ACCEPTANCE_RECEIPT_ID,
+    }
+    for key, want in expected_receipt.items():
+        chk(failures, f"acceptance_receipt_{key}", receipt.get(key), want)
+
+    expected_summary = {
+        "decision_packet_acceptance_complete": True,
+        "authorized_unit_consumed": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_DECISION_PACKET_FOR_SOURCE_STATUS_GAP_RESPONSE_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+        "source_decision_receipt_id": SOURCE_DECISION_RECEIPT_ID,
+        "source_decision_packet_id": SOURCE_DECISION_PACKET_ID,
+        "source_decision_options_id": SOURCE_DECISION_OPTIONS_ID,
+        "source_decision_boundary_id": SOURCE_DECISION_BOUNDARY_ID,
+        "failed_unit_sample_id": FAILED_UNIT_SAMPLE_ID,
+        "failed_unit_sample_source_path": FAILED_UNIT_SAMPLE_SOURCE_PATH,
+        "failed_unit_sample_source_status": FAILED_UNIT_SAMPLE_SOURCE_STATUS,
+        "diagnostic_assessment_status": DIAGNOSTIC_ASSESSMENT_STATUS,
+        "feedback_hardening_decision_class": FEEDBACK_HARDENING_DECISION_CLASS,
+        "local_gap_object": LOCAL_GAP_OBJECT,
+        "decision_packet_accepted_for_source_status_gap_response": True,
+        "authorized_future_unit_after_review": UNIT_ID,
+        "authorized_future_unit_count_after_review": 1,
+        "source_status_gap_response_packet_created_now": False,
+        "additional_sample_discovery_now": False,
+        "probe_execution_authorized_now": False,
+        "probe_executed_now": False,
+        "instrument_built_now": False,
+        "c8_rerun_now": False,
+        "reusable_schema_authorized": False,
+        "source_artifacts_mutated": False,
+        "forbidden_counters_zero": True,
+        "requires_review": True,
+    }
+    for key, want in expected_summary.items():
+        chk(failures, f"acceptance_summary_{key}", summary.get(key), want)
+
+    chk(failures, "acceptance_decision_id", decision.get("c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_decision_id"), SOURCE_ACCEPTANCE_DECISION_ID)
+    chk(failures, "acceptance_packet_id", packet.get("c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_packet_id"), SOURCE_ACCEPTANCE_PACKET_ID)
+    chk(failures, "acceptance_boundary_id", boundary.get("c8_unit_feedback_hardening_decision_packet_acceptance_for_source_status_gap_response_boundary_audit_id"), SOURCE_ACCEPTANCE_BOUNDARY_ID)
+
+    chk(failures, "source_status_gap_authority_id", authority.get("c8_unit_feedback_hardening_source_status_gap_response_authority_id"), SOURCE_STATUS_GAP_RESPONSE_AUTHORITY_ID)
+    chk(failures, "authority_authorized_future_unit", authority.get("authorized_future_unit"), UNIT_ID)
+    chk(failures, "authority_authorized_future_unit_count", authority.get("authorized_future_unit_count"), 1)
+    chk(failures, "authority_status", authority.get("authority_status"), "ACTIVE_AFTER_REVIEW_AND_COMMIT")
+
+    scope = authority.get("authority_scope", {})
+    chk(failures, "scope_may_create_one_source_status_gap_response_packet", scope.get("may_create_one_source_status_gap_response_packet"), True)
+    chk(failures, "scope_may_create_source_status_gap_response_packet_now", scope.get("may_create_source_status_gap_response_packet_now"), False)
+    chk(failures, "scope_may_execute_additional_sample_discovery", scope.get("may_execute_additional_sample_discovery"), False)
+    chk(failures, "scope_may_authorize_probe_execution_now", scope.get("may_authorize_probe_execution_now"), False)
+    chk(failures, "scope_may_execute_probe_now", scope.get("may_execute_probe_now"), False)
+    chk(failures, "scope_may_build_now", scope.get("may_build_now"), False)
+    chk(failures, "scope_may_rerun_c8_now", scope.get("may_rerun_c8_now"), False)
+    chk(failures, "scope_may_promote_schema_now", scope.get("may_promote_schema_now"), False)
+
+    response_packet = {
+        "schema_version": "c8_unit_feedback_hardening_source_status_gap_response_packet_v0",
+        "c8_unit_feedback_hardening_source_status_gap_response_packet_id": None,
+        "created_at": now_iso(),
+        "unit_id": UNIT_ID,
+        "source_decision_packet_acceptance_receipt_id": SOURCE_ACCEPTANCE_RECEIPT_ID,
+        "source_decision_packet_acceptance_decision_id": SOURCE_ACCEPTANCE_DECISION_ID,
+        "source_decision_packet_acceptance_packet_id": SOURCE_ACCEPTANCE_PACKET_ID,
+        "source_status_gap_response_authority_id": SOURCE_STATUS_GAP_RESPONSE_AUTHORITY_ID,
+        "source_decision_packet_acceptance_boundary_id": SOURCE_ACCEPTANCE_BOUNDARY_ID,
+        "source_decision_receipt_id": SOURCE_DECISION_RECEIPT_ID,
+        "source_decision_packet_id": SOURCE_DECISION_PACKET_ID,
+        "source_decision_options_id": SOURCE_DECISION_OPTIONS_ID,
+        "source_decision_boundary_id": SOURCE_DECISION_BOUNDARY_ID,
+        "source_diagnostic_assessment_receipt_id": SOURCE_ASSESSMENT_RECEIPT_ID,
+        "source_diagnostic_assessment_packet_id": SOURCE_ASSESSMENT_PACKET_ID,
+        "source_diagnostic_assessment_options_id": SOURCE_ASSESSMENT_OPTIONS_ID,
+        "source_diagnostic_assessment_boundary_id": SOURCE_ASSESSMENT_BOUNDARY_ID,
+        "source_discovery_execution_receipt_id": SOURCE_DISCOVERY_RECEIPT_ID,
+        "source_discovery_result_id": SOURCE_DISCOVERY_RESULT_ID,
+        "source_discovery_boundary_id": SOURCE_DISCOVERY_BOUNDARY_ID,
+        "source_discovery_execution_authority_id": SOURCE_DISCOVERY_AUTHORITY_ID,
+        "selected_surface_id": SELECTED_SURFACE_ID,
+        "selected_surface_kind": SELECTED_SURFACE_KIND,
+        "selected_surface_label": SELECTED_SURFACE_LABEL,
+        "probe_id": PROBE_ID,
+        "probe_kind": PROBE_KIND,
+        "probe_label": PROBE_LABEL,
+        "gap_object": GAP_OBJECT,
+        "discovery_target": DISCOVERY_TARGET,
+        "failed_unit_sample_id": FAILED_UNIT_SAMPLE_ID,
+        "failed_unit_sample_source_path": FAILED_UNIT_SAMPLE_SOURCE_PATH,
+        "failed_unit_sample_source_status": FAILED_UNIT_SAMPLE_SOURCE_STATUS,
+        "diagnostic_assessment_status": DIAGNOSTIC_ASSESSMENT_STATUS,
+        "feedback_hardening_decision_class": FEEDBACK_HARDENING_DECISION_CLASS,
+        "local_gap_object": LOCAL_GAP_OBJECT,
+        "source_status_gap_response_class": SOURCE_STATUS_GAP_RESPONSE_CLASS,
+        "response_read": (
+            "The source artifact has a qualifying failure indicator but no top-level status field. "
+            "The response must preserve the explicit missing-status marker and must not invent source status."
+        ),
+        "response_consequence": (
+            "Route the top-level status absence into one bounded source-status field decision packet after review, "
+            "rather than mutating the source artifact or promoting a reusable schema now."
+        ),
+        "missing_status_marker_preserved": True,
+        "source_status_invented_now": False,
+        "source_artifact_mutated_now": False,
+        "status_field_added_now": False,
+        "bounded_source_status_field_decision_packet_created_now": False,
+        "source_status_gap_response_packet_created_now": True,
+        "additional_sample_discovery_now": False,
+        "probe_execution_authorized_now": False,
+        "probe_executed_now": False,
+        "instrument_build_authorized_now": False,
+        "cell1_build_authorized_now": False,
+        "verification_probe_authorized_now": False,
+        "c8_rerun_authorized_now": False,
+        "missing_instrument_proposal_authorized_now": False,
+        "reusable_schema_authorized_now": False,
+        "research_mode_opened": False,
+        "global_solution_claim": False,
+        "frontier_solved_claim": False,
+        "requires_review": True,
+        "recommended_human_decision": RECOMMENDED_HUMAN_DECISION,
+        "if_accepted_authorizes_future_unit": FUTURE_UNIT,
+        "authorized_future_unit_count_after_review": 1,
+        "recommended_review_unit": REVIEW_UNIT,
+    }
+    response_packet["c8_unit_feedback_hardening_source_status_gap_response_packet_id"] = "c8_unit_feedback_hardening_source_status_gap_response_packet_" + sig8(response_packet)
+    write_json(RESPONSE_PACKET, response_packet)
+
+    options = {
+        "schema_version": "c8_unit_feedback_hardening_source_status_gap_response_options_v0",
+        "c8_unit_feedback_hardening_source_status_gap_response_options_id": None,
+        "created_at": now_iso(),
+        "source_status_gap_response_packet_id": response_packet["c8_unit_feedback_hardening_source_status_gap_response_packet_id"],
+        "recommended_human_decision": RECOMMENDED_HUMAN_DECISION,
+        "if_accepted_authorizes_future_unit": FUTURE_UNIT,
+        "human_decision_options": [
+            RECOMMENDED_HUMAN_DECISION,
+            "REJECT_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET",
+            "REQUEST_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_REVISION",
+        ],
+    }
+    options["c8_unit_feedback_hardening_source_status_gap_response_options_id"] = "c8_unit_feedback_hardening_source_status_gap_response_options_" + sig8(options)
+    write_json(RESPONSE_OPTIONS, options)
+
+    boundary_audit = {
+        "schema_version": "c8_unit_feedback_hardening_source_status_gap_response_boundary_audit_v0",
+        "c8_unit_feedback_hardening_source_status_gap_response_boundary_audit_id": None,
+        "gate": "PASS" if not failures else "FAIL",
+        "source_status_gap_response_packet_id": response_packet["c8_unit_feedback_hardening_source_status_gap_response_packet_id"],
+        "source_status_gap_response_options_id": options["c8_unit_feedback_hardening_source_status_gap_response_options_id"],
+        "source_status_gap_response_authority_id": SOURCE_STATUS_GAP_RESPONSE_AUTHORITY_ID,
+        "allowed_now": {
+            "create_one_source_status_gap_response_packet": True,
+            "emit_source_status_gap_response_for_review": True,
+        },
+        "not_allowed_now": {
+            "create_bounded_source_status_field_decision_packet_now": True,
+            "mutate_source_artifact": True,
+            "add_status_field_now": True,
+            "invent_source_status": True,
+            "execute_additional_sample_discovery": True,
+            "authorize_probe_execution": True,
+            "execute_probe": True,
+            "build_instrument": True,
+            "build_cell1": True,
+            "run_verification_probe": True,
+            "rerun_c8": True,
+            "create_missing_instrument_proposal": True,
+            "authorize_reusable_schema": True,
+            "open_research_mode": True,
+            "claim_global_solution": True,
+            "claim_frontier_solved": True,
+            "claim_unit_feedback_hardening_complete": True,
+        },
+        "forbidden_counters": forbidden_counters,
+        "failures": failures,
+        "warnings": warnings,
+    }
+    boundary_audit["c8_unit_feedback_hardening_source_status_gap_response_boundary_audit_id"] = "c8_unit_feedback_hardening_source_status_gap_response_boundary_" + sig8(boundary_audit)
+    write_json(BOUNDARY_AUDIT, boundary_audit)
+
+    source_hashes_after = {
+        label: sha256_file(path)
+        for label, path in sources.items()
+        if path.exists()
+    }
+    if source_hashes_before != source_hashes_after:
+        forbidden_counters["source_artifact_mutation_count"] += 1
+        failures.append("source_artifact_mutation_count:1")
+
+    gate_results = {
+        "SOURCE_STATUS_GAP_RESPONSE_0_SOURCE_ACCEPTANCE_RECEIPT_PASS": receipt.get("gate") == "PASS",
+        "SOURCE_STATUS_GAP_RESPONSE_1_AUTHORITY_PRESENT_AND_ACTIVE": authority.get("authority_status") == "ACTIVE_AFTER_REVIEW_AND_COMMIT",
+        "SOURCE_STATUS_GAP_RESPONSE_2_AUTHORIZED_UNIT_MATCH": authority.get("authorized_future_unit") == UNIT_ID,
+        "SOURCE_STATUS_GAP_RESPONSE_3_ONE_RESPONSE_PACKET_CREATED": response_packet["source_status_gap_response_packet_created_now"] is True,
+        "SOURCE_STATUS_GAP_RESPONSE_4_NO_SOURCE_MUTATION_OR_STATUS_INVENTION": response_packet["source_artifact_mutated_now"] is False and response_packet["source_status_invented_now"] is False and response_packet["status_field_added_now"] is False,
+        "SOURCE_STATUS_GAP_RESPONSE_5_DECISION_PACKET_NOT_CREATED_NOW": response_packet["bounded_source_status_field_decision_packet_created_now"] is False,
+        "SOURCE_STATUS_GAP_RESPONSE_6_NO_DISCOVERY_PROBE_BUILD_RERUN_SCHEMA": response_packet["additional_sample_discovery_now"] is False and response_packet["probe_execution_authorized_now"] is False and response_packet["instrument_build_authorized_now"] is False and response_packet["c8_rerun_authorized_now"] is False and response_packet["reusable_schema_authorized_now"] is False,
+        "SOURCE_STATUS_GAP_RESPONSE_7_SOURCE_ARTIFACTS_IMMUTABLE": source_hashes_before == source_hashes_after,
+        "SOURCE_STATUS_GAP_RESPONSE_8_FORBIDDEN_COUNTERS_ZERO": all(v == 0 for v in forbidden_counters.values()),
+        "SOURCE_STATUS_GAP_RESPONSE_9_REQUIRES_REVIEW": response_packet["requires_review"] is True,
+    }
+
+    false_gates = [k for k, v in gate_results.items() if v is not True]
+    if false_gates:
+        failures.extend([f"source_status_gap_response_gate_false:{g}" for g in false_gates])
+
+    gate = "PASS" if not failures else "FAIL"
+    status = "TYPED_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_PASS" if gate == "PASS" else "TYPED_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_FAIL"
+    outcome = "C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_READY_FOR_REVIEW" if gate == "PASS" else "C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_FAILED"
+    terminal_stop = "STOP_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_READY_FOR_REVIEW" if gate == "PASS" else "STOP_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_FAILED"
+
+    readout = {
+        "schema_version": "c8_unit_feedback_hardening_source_status_gap_response_readout_v0",
+        "title": "C8 unit-feedback hardening source-status gap response packet",
+        "status": status,
+        "outcome_class": outcome,
+        "source_status_gap_response_class": SOURCE_STATUS_GAP_RESPONSE_CLASS,
+        "local_gap_object": LOCAL_GAP_OBJECT,
+        "failed_unit_sample_id": FAILED_UNIT_SAMPLE_ID,
+        "source_status_gap_response_packet_created_now": True,
+        "bounded_source_status_field_decision_packet_created_now": False,
+        "source_artifact_mutated_now": False,
+        "source_status_invented_now": False,
+        "status_field_added_now": False,
+        "additional_sample_discovery_now": False,
+        "probe_execution_authorized_now": False,
+        "probe_executed_now": False,
+        "instrument_build_authorized_now": False,
+        "c8_rerun_authorized_now": False,
+        "reusable_schema_authorized_now": False,
+        "requires_review": True,
+        "recommended_human_decision": RECOMMENDED_HUMAN_DECISION,
+        "if_accepted_authorizes_future_unit": FUTURE_UNIT,
+        "recommended_review_unit": REVIEW_UNIT,
+        "terminal_stop_code": terminal_stop,
+    }
+    write_json(READOUT, readout)
+
+    report_obj = {
+        "schema_version": "c8_unit_feedback_hardening_source_status_gap_response_report_v0",
+        "unit_id": UNIT_ID,
+        "target_unit_id": TARGET_UNIT_ID,
+        "milestone": MILESTONE,
+        "gate": gate,
+        "status": status,
+        "outcome_class": outcome,
+        "source_decision_packet_acceptance_receipt_id": SOURCE_ACCEPTANCE_RECEIPT_ID,
+        "source_status_gap_response_authority_id": SOURCE_STATUS_GAP_RESPONSE_AUTHORITY_ID,
+        "failed_unit_sample_id": FAILED_UNIT_SAMPLE_ID,
+        "local_gap_object": LOCAL_GAP_OBJECT,
+        "source_status_gap_response_class": SOURCE_STATUS_GAP_RESPONSE_CLASS,
+        "source_status_gap_response_packet_created_now": True,
+        "bounded_source_status_field_decision_packet_created_now": False,
+        "source_artifact_mutated_now": False,
+        "source_status_invented_now": False,
+        "status_field_added_now": False,
+        "additional_sample_discovery_now": False,
+        "probe_execution_authorized_now": False,
+        "probe_executed_now": False,
+        "instrument_build_authorized_now": False,
+        "cell1_build_authorized_now": False,
+        "verification_probe_authorized_now": False,
+        "c8_rerun_authorized_now": False,
+        "missing_instrument_proposal_authorized_now": False,
+        "reusable_schema_authorized_now": False,
+        "research_mode_opened": False,
+        "global_solution_claim": False,
+        "frontier_solved_claim": False,
+        "requires_review": True,
+        "recommended_human_decision": RECOMMENDED_HUMAN_DECISION,
+        "if_accepted_authorizes_future_unit": FUTURE_UNIT,
+        "recommended_review_unit": REVIEW_UNIT,
+        "failures": failures,
+        "warnings": warnings,
+    }
+    write_json(REPORT, report_obj)
+
+    receipt_obj = {
+        "schema_version": "c8_unit_feedback_hardening_source_status_gap_response_packet_receipt_v0",
+        "receipt_type": "TYPED_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_RECEIPT",
+        "receipt_id": None,
+        "created_at": now_iso(),
+        "unit_id": UNIT_ID,
+        "target_unit_id": TARGET_UNIT_ID,
+        "milestone": MILESTONE,
+        "gate": gate,
+        "status": status,
+        "outcome_class": outcome,
+        "machine_readable_unit_feedback_hardening_source_status_gap_response_packet_summary": {
+            "source_status_gap_response_packet_created": gate == "PASS",
+            "authorized_unit_consumed": UNIT_ID,
+            "source_decision_packet_acceptance_receipt_id": SOURCE_ACCEPTANCE_RECEIPT_ID,
+            "source_decision_packet_acceptance_decision_id": SOURCE_ACCEPTANCE_DECISION_ID,
+            "source_decision_packet_acceptance_packet_id": SOURCE_ACCEPTANCE_PACKET_ID,
+            "source_status_gap_response_authority_id": SOURCE_STATUS_GAP_RESPONSE_AUTHORITY_ID,
+            "source_decision_packet_acceptance_boundary_id": SOURCE_ACCEPTANCE_BOUNDARY_ID,
+            "source_decision_receipt_id": SOURCE_DECISION_RECEIPT_ID,
+            "source_decision_packet_id": SOURCE_DECISION_PACKET_ID,
+            "source_decision_options_id": SOURCE_DECISION_OPTIONS_ID,
+            "source_decision_boundary_id": SOURCE_DECISION_BOUNDARY_ID,
+            "source_diagnostic_assessment_receipt_id": SOURCE_ASSESSMENT_RECEIPT_ID,
+            "source_diagnostic_assessment_packet_id": SOURCE_ASSESSMENT_PACKET_ID,
+            "source_diagnostic_assessment_options_id": SOURCE_ASSESSMENT_OPTIONS_ID,
+            "source_diagnostic_assessment_boundary_id": SOURCE_ASSESSMENT_BOUNDARY_ID,
+            "source_discovery_execution_receipt_id": SOURCE_DISCOVERY_RECEIPT_ID,
+            "source_discovery_result_id": SOURCE_DISCOVERY_RESULT_ID,
+            "source_discovery_boundary_id": SOURCE_DISCOVERY_BOUNDARY_ID,
+            "source_discovery_execution_authority_id": SOURCE_DISCOVERY_AUTHORITY_ID,
+            "selected_surface_id": SELECTED_SURFACE_ID,
+            "selected_surface_kind": SELECTED_SURFACE_KIND,
+            "selected_surface_label": SELECTED_SURFACE_LABEL,
+            "probe_id": PROBE_ID,
+            "probe_kind": PROBE_KIND,
+            "probe_label": PROBE_LABEL,
+            "gap_object": GAP_OBJECT,
+            "discovery_target": DISCOVERY_TARGET,
+            "failed_unit_sample_id": FAILED_UNIT_SAMPLE_ID,
+            "failed_unit_sample_source_path": FAILED_UNIT_SAMPLE_SOURCE_PATH,
+            "failed_unit_sample_source_status": FAILED_UNIT_SAMPLE_SOURCE_STATUS,
+            "diagnostic_assessment_status": DIAGNOSTIC_ASSESSMENT_STATUS,
+            "feedback_hardening_decision_class": FEEDBACK_HARDENING_DECISION_CLASS,
+            "local_gap_object": LOCAL_GAP_OBJECT,
+            "source_status_gap_response_class": SOURCE_STATUS_GAP_RESPONSE_CLASS,
+            "source_status_gap_response_packet_created_now": True,
+            "bounded_source_status_field_decision_packet_created_now": False,
+            "source_artifact_mutated_now": False,
+            "source_status_invented_now": False,
+            "status_field_added_now": False,
+            "additional_sample_discovery_now": False,
+            "probe_execution_authorized_now": False,
+            "probe_executed_now": False,
+            "instrument_built_now": False,
+            "cell1_built_now": False,
+            "verification_probe_run_now": False,
+            "c8_rerun_now": False,
+            "missing_instrument_proposal_created_now": False,
+            "research_mode_opened": False,
+            "general_cell1_authority": False,
+            "reusable_schema_authorized": False,
+            "global_solution_claim": False,
+            "frontier_solved_claim": False,
+            "source_artifacts_mutated": source_hashes_before != source_hashes_after,
+            "forbidden_counters_zero": all(v == 0 for v in forbidden_counters.values()),
+            "requires_review": True,
+            "recommended_human_decision": RECOMMENDED_HUMAN_DECISION,
+            "if_accepted_authorizes_future_unit": FUTURE_UNIT,
+            "authorized_future_unit_count_after_review": 1,
+            "recommended_review_unit": REVIEW_UNIT,
+            "next_command_goal": None,
+        },
+        "gate_results": gate_results,
+        "forbidden_counters": forbidden_counters,
+        "source_artifact_immutability": {
+            "source_hashes_before": source_hashes_before,
+            "source_hashes_after": source_hashes_after,
+            "source_artifacts_mutated": source_hashes_before != source_hashes_after,
+        },
+        "output_artifacts": {
+            "source_status_gap_response_packet": rel(RESPONSE_PACKET),
+            "source_status_gap_response_options": rel(RESPONSE_OPTIONS),
+            "boundary_audit": rel(BOUNDARY_AUDIT),
+            "readout": rel(READOUT),
+            "report": rel(REPORT),
+        },
+        "failures": failures,
+        "warnings": warnings,
+        "terminal": {
+            "type": "STOP",
+            "stop_code": terminal_stop,
+            "next_command_goal": None,
+        },
+    }
+
+    receipt_obj["receipt_id"] = "c8_unit_feedback_hardening_source_status_gap_response_packet_receipt_" + sig8(receipt_obj)
+    receipt_path = RECEIPT_DIR / f"{receipt_obj['receipt_id']}.json"
+    receipt_obj["output_artifacts"]["receipt"] = rel(receipt_path)
+    write_json(receipt_path, receipt_obj)
+
+    print(json.dumps(receipt_obj, indent=2, sort_keys=True))
+    print(f"c8_unit_feedback_hardening_source_status_gap_response_packet_receipt_id={receipt_obj['receipt_id']}")
+    print(f"c8_unit_feedback_hardening_source_status_gap_response_packet_receipt_path={rel(receipt_path)}")
+    print(f"c8_unit_feedback_hardening_source_status_gap_response_packet_path={rel(RESPONSE_PACKET)}")
+    print(f"c8_unit_feedback_hardening_source_status_gap_response_options_path={rel(RESPONSE_OPTIONS)}")
+    print(f"c8_unit_feedback_hardening_source_status_gap_response_boundary_path={rel(BOUNDARY_AUDIT)}")
+    print(f"failed_unit_sample_id={FAILED_UNIT_SAMPLE_ID}")
+    print(f"local_gap_object={LOCAL_GAP_OBJECT}")
+    print(f"source_status_gap_response_class={SOURCE_STATUS_GAP_RESPONSE_CLASS}")
+    print("source_status_gap_response_packet_created_now=true")
+    print("bounded_source_status_field_decision_packet_created_now=false")
+    print("source_artifact_mutated_now=false")
+    print("source_status_invented_now=false")
+    print("status_field_added_now=false")
+    print("additional_sample_discovery_now=false")
+    print("probe_execution_authorized_now=false")
+    print("probe_executed_now=false")
+    print("instrument_built_now=false")
+    print("c8_rerun_now=false")
+    print("reusable_schema_authorized=false")
+    print(f"recommended_human_decision={RECOMMENDED_HUMAN_DECISION}")
+    print(f"if_accepted_authorizes_future_unit={FUTURE_UNIT}")
+    print(f"recommended_review_unit={REVIEW_UNIT}")
+    print(f"terminal_stop_code={terminal_stop}")
+
+    return 0 if gate == "PASS" else 1
+
+if __name__ == "__main__":
+    raise SystemExit(main())
