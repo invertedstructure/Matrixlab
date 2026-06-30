@@ -4,7 +4,7 @@ This packet does not copy the full receipt stack. Receipts remain evidence and s
 
 ## Full receipt locations
 
-- External WSL receipt archive: `/home/asd/matrixlab_receipts/` - present; file count: `720`.
+- External WSL receipt archive: `/home/asd/matrixlab_receipts/` - present; file count: `727`.
 - Repo architecture extraction receipt copy: `docs/matrixlabs/receipts/` - present; file count: `714`.
 
 ## Current load-bearing recent receipt pointers
@@ -18,6 +18,11 @@ This packet does not copy the full receipt stack. Receipts remain evidence and s
 - `/home/asd/matrixlab_receipts/receipt_20260630_144848.txt`
 - `/home/asd/matrixlab_receipts/receipt_20260630_145207.txt`
 - `/home/asd/matrixlab_receipts/receipt_20260630_150542.txt`
+- `/home/asd/matrixlab_receipts/receipt_20260630_200018.txt`
+- `/home/asd/matrixlab_receipts/receipt_20260630_221233.txt`
+- `/home/asd/matrixlab_receipts/receipt_20260630_222449.txt`
+- `/home/asd/matrixlab_receipts/receipt_20260630_223451.txt`
+- `/home/asd/matrixlab_receipts/receipt_20260630_223715.txt`
 
 ## Upload rule
 

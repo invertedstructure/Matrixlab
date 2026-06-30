@@ -70,8 +70,13 @@ def run_git(root: Path, args: list[str], check: bool = False) -> str:
 
 def git_status_excluding_baseline_share(root: Path, status_lines: list[str]) -> list[str]:
     """Keep raw git status available while identifying non-generated changes."""
-    excluded_prefixes = ("?? baseline_share/", " M baseline_share/", "M  baseline_share/", "A  baseline_share/")
-    return [line for line in status_lines if not line.startswith(excluded_prefixes)]
+    def status_path(line: str) -> str:
+        if len(line) >= 4 and line[2] == " ":
+            return line[3:]
+        parts = line.split(maxsplit=1)
+        return parts[1] if len(parts) == 2 else line
+
+    return [line for line in status_lines if not status_path(line).startswith(f"{BASELINE_DIR}/")]
 
 
 def detect_repo_root(start: Path) -> Path:

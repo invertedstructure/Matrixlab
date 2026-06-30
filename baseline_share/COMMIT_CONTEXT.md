@@ -1,7 +1,7 @@
 # Commit Context
 
-- Generated at UTC: `2026-06-30T18:50:24Z`
-- Current HEAD SHA: `9f2fd5cceee3badd1e5dd55910150fe1242252b3`
+- Generated at UTC: `2026-06-30T21:37:15Z`
+- Current HEAD SHA: `24619b142b0b6a961532ced6f9458809e4c9ce7a`
 - Branch: `master`
 - Worktree state at generation time: `dirty`
 - Generator script: `scripts/build_baseline_share_v0.py`
@@ -9,6 +9,7 @@
 ## Recent 10 commits
 
 ```text
+24619b142 Add MatrixLabs baseline share packet generator
 9f2fd5cce Add MatrixLabs architecture extraction reference layer
 a370223f0 Accept C8 post-patch surface decision
 4df5f80df Create C8 patch execution closure-readiness packet
@@ -18,20 +19,26 @@ e801c5f76 Execute C8 local source-status patch once
 fcf51cb86 Accept C8 local patch-plan authority
 d65de6623 Create C8 bounded source-status field decision packet
 275a80b29 Accept C8 bounded status-field decision authority
-f8d9b27d3 Create C8 source-status gap response packet
 ```
 
 ## Git status short
 
 ```text
-?? baseline_share/
-?? scripts/build_baseline_share_v0.py
+M baseline_share/COMMIT_CONTEXT.md
+ M baseline_share/CURRENT_STATE.md
+ M baseline_share/MANIFEST.json
+ M baseline_share/RECEIPT_POINTERS.md
+ M scripts/build_baseline_share_v0.py
+?? docs/matrixlabs/architecture/c8_observed_decision_path_v0.json
+?? docs/matrixlabs/architecture/c8_observed_decision_path_v0.md
 ```
 
 ## Git status short excluding generated baseline_share
 
 ```text
-?? scripts/build_baseline_share_v0.py
+ M scripts/build_baseline_share_v0.py
+?? docs/matrixlabs/architecture/c8_observed_decision_path_v0.json
+?? docs/matrixlabs/architecture/c8_observed_decision_path_v0.md
 ```
 
 ## Safety facts
