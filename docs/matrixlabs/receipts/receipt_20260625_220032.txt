@@ -1,0 +1,311 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_220032
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_220032.txt
+
+PREPARE_RUNTIME_OBSERVABILITY_STATUS_CASE_CONTRACT_V0
+
+STATUS_BEFORE_RELEVANT
+M  .gitignore
+A  data/runtime_incremental_suite_preflight_v0/runtime_allowed_expected_pressure_cases_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_allowed_state_variant_catalog_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_branch_gap_index_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_case_manifest_expected_pressure_rules_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_compact_suite_shape_after_expected_pressure_contract_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_compact_suite_shape_after_state_rules_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_declared_state_variant_rules_target_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_declared_state_variant_rules_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_basis_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_profile_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_rollup_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_target_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_transition_trace.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_forbidden_expected_pressure_handling_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_forbidden_state_variant_catalog_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_incremental_suite_tier_feasibility_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_observability_status_case_contract_target_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_basis_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_profile_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_rollup_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_transition_trace.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_registry_reachability_map_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_state_derivation_template_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_state_variant_rules_basis_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_state_variant_rules_profile_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_state_variant_rules_rollup_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_state_variant_rules_transition_trace.json
+A  data/runtime_incremental_suite_preflight_v0_receipts/201aad4a.json
+A  data/runtime_incremental_suite_preflight_v0_receipts/b9472e45.json
+A  data/runtime_incremental_suite_preflight_v0_receipts/de9b179a.json
+
+VERIFY_OBSERVABILITY_STATUS_CONTRACT_BASIS
+present data/runtime_incremental_suite_preflight_v0_receipts/201aad4a.json
+present data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_v0.json
+present data/runtime_incremental_suite_preflight_v0/runtime_allowed_expected_pressure_cases_v0.json
+present data/runtime_incremental_suite_preflight_v0/runtime_case_manifest_expected_pressure_rules_v0.json
+present data/runtime_incremental_suite_preflight_v0/runtime_compact_suite_shape_after_expected_pressure_contract_v0.json
+present data/runtime_incremental_suite_preflight_v0/runtime_observability_status_case_contract_target_v0.json
+present data/runtime_observability_sidecar_reference_closure_v0_receipts/bee348a1.json
+present data/runtime_observability_sidecar_reference_closure_v0/runtime_observability_sidecar_reviewed_reference_v0.json
+present data/runtime_incremental_suite_preflight_v0/runtime_registry_reachability_map_v0.json
+present data/runtime_incremental_suite_preflight_v0/runtime_branch_gap_index_v0.json
+present data/runtime_adoption_smoke_v0_receipts/runtime_smoke_receipt_900b2eae.json
+present data/runtime_adoption_smoke_v0/runtime_smoke_trace_v0.jsonl
+
+PATCH_GITIGNORE
+
+WRITE_OBSERVABILITY_STATUS_CONTRACT_PREP
+
+PY_COMPILE_OBSERVABILITY_STATUS_CONTRACT
+
+RUN_OBSERVABILITY_STATUS_CONTRACT
+{
+  "acceptance_gate_results": {
+    "OBS_STATUS_0_EXPECTED_PRESSURE_RECEIPT_CONSUMED": true,
+    "OBS_STATUS_1_SIDECAR_REFERENCE_CONSUMED": true,
+    "OBS_STATUS_2_SMOKE_TRACE_SIDECAR_REFS_SEEN": true,
+    "OBS_STATUS_3_CONTRACT_EMITTED": true,
+    "OBS_STATUS_4_ALLOWED_CASES_EMITTED": true,
+    "OBS_STATUS_5_FORBIDDEN_CONTROL_CLAIMS_EMITTED": true,
+    "OBS_STATUS_6_MANIFEST_RULES_EMITTED": true,
+    "OBS_STATUS_7_NEGATIVE_CONTROL_CONTRACT_NEXT": true,
+    "OBS_STATUS_8_NO_SUITE_RUN": true,
+    "OBS_STATUS_9_NO_HIDDEN_NEXT_COMMAND": true
+  },
+  "build_mode": "RUNTIME_OBSERVABILITY_STATUS_CASE_CONTRACT_ONLY",
+  "created_at": "2026-06-25T21:00:32.766580+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OUTER / RUNTIME_ADOPTION / INCREMENTAL_SUITE_PREFLIGHT",
+  "machine_readable_observability_status_summary": {
+    "allowed_observability_case_count": 3,
+    "architecture_widened": false,
+    "c8_authorized": false,
+    "degraded_nonblocking_case_ready": true,
+    "first_suite_observability_case_count": 2,
+    "fixture_expanded_by_default": false,
+    "forbidden_control_claim_count": 9,
+    "hidden_next_command": false,
+    "live_runtime_hooks_installed": false,
+    "next_unit_id": "PREPARE_RUNTIME_NON_WRITING_NEGATIVE_CONTROL_PROBE_CONTRACT_V0",
+    "normal_observation_case_ready": true,
+    "observability_status_contract_done": true,
+    "ready_for_full_test_batch": false,
+    "ready_for_negative_control_probe_contract": true,
+    "reason_codes": [
+      "EXPECTED_PRESSURE_CONTRACT_CONSUMED",
+      "SIDECAR_REFERENCE_CONSUMED",
+      "OBSERVABILITY_STATUS_CASE_CONTRACT_EMITTED",
+      "NORMAL_OBSERVATION_CASE_READY",
+      "DEGRADED_NONBLOCKING_OBSERVATION_CASE_READY",
+      "REQUIRED_GAP_OBSERVATION_CASE_ALLOWED_LATER",
+      "CONTROL_PATH_ACTS_SIDECAR_RECORDS",
+      "NEGATIVE_CONTROL_PROBE_CONTRACT_NEXT",
+      "NO_SUITE_RUN",
+      "NO_SIDECAR_CONTROL_AUTHORITY",
+      "NO_RUNTIME_PATCH",
+      "NO_LIVE_HOOK_INSTALL",
+      "NO_MOVE_ADDITION",
+      "NO_SCHEMA_INVENTION",
+      "NO_TAXONOMY_INVENTION",
+      "NO_FIXTURE_EXPANSION_BY_DEFAULT",
+      "NO_C8_AUTHORIZATION",
+      "NO_HIDDEN_NEXT_COMMAND"
+    ],
+    "required_gap_case_allowed_later": true,
+    "runtime_adoption_authorized": false,
+    "runtime_patched": false,
+    "schema_archive_mutated": false,
+    "schema_created": false,
+    "sidecar_control_authority_granted": false,
+    "smoke_sidecar_observation_ref_count": 6,
+    "status": "TYPED_RUNTIME_OBSERVABILITY_STATUS_CASE_CONTRACT_READY_NEGATIVE_CONTROLS_NEXT",
+    "taxonomy_created": false
+  },
+  "mode": "PREPARE_CONTRACT_ONLY / OBSERVABILITY_STATUS_CASES / NO_TEST_RUN",
+  "output_artifacts": {
+    "allowed_observability_status_cases": "data/runtime_incremental_suite_preflight_v0/runtime_allowed_observability_status_cases_v0.json",
+    "basis": "data/runtime_incremental_suite_preflight_v0/runtime_observability_status_case_contract_basis_v0.json",
+    "case_manifest_observability_rules": "data/runtime_incremental_suite_preflight_v0/runtime_case_manifest_observability_status_rules_v0.json",
+    "compact_suite_shape_after_observability": "data/runtime_incremental_suite_preflight_v0/runtime_compact_suite_shape_after_observability_status_contract_v0.json",
+    "forbidden_observability_control_claims": "data/runtime_incremental_suite_preflight_v0/runtime_forbidden_observability_control_claims_v0.json",
+    "implementation_receipt": "data/runtime_incremental_suite_preflight_v0_receipts/2d72c2b9.json",
+    "next_target": "data/runtime_incremental_suite_preflight_v0/runtime_negative_control_probe_contract_target_v0.json",
+    "observability_status_contract": "data/runtime_incremental_suite_preflight_v0/runtime_observability_status_case_contract_v0.json",
+    "profile": "data/runtime_incremental_suite_preflight_v0/runtime_observability_status_case_contract_profile_v0.json",
+    "rollup": "data/runtime_incremental_suite_preflight_v0/runtime_observability_status_case_contract_rollup_v0.json",
+    "transition_trace": "data/runtime_incremental_suite_preflight_v0/runtime_observability_status_case_contract_transition_trace.json"
+  },
+  "receipt_id": "2d72c2b9",
+  "receipt_type": "TYPED_RUNTIME_OBSERVABILITY_STATUS_CASE_CONTRACT_RECEIPT",
+  "schema_version": "runtime_observability_status_case_contract_receipt_v0",
+  "source_expected_pressure_receipt_id": "201aad4a",
+  "source_sidecar_receipt_id": "bee348a1",
+  "status": "TYPED_RUNTIME_OBSERVABILITY_STATUS_CASE_CONTRACT_READY_NEGATIVE_CONTROLS_NEXT",
+  "target_unit_id": "outer.runtime_adoption.incremental_suite.observability_status_case_contract_v0",
+  "terminal": {
+    "next_unit_id": "PREPARE_RUNTIME_NON_WRITING_NEGATIVE_CONTROL_PROBE_CONTRACT_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "unit_id": "PREPARE_RUNTIME_OBSERVABILITY_STATUS_CASE_CONTRACT_V0",
+  "warnings": []
+}
+runtime_observability_status_contract_receipt_id=2d72c2b9
+runtime_observability_status_contract_receipt_path=data/runtime_incremental_suite_preflight_v0_receipts/2d72c2b9.json
+runtime_observability_status_contract_next_unit=PREPARE_RUNTIME_NON_WRITING_NEGATIVE_CONTROL_PROBE_CONTRACT_V0
+
+ASSERT_OBSERVABILITY_STATUS_CONTRACT
+{
+  "allowed_observability_case_count": 3,
+  "c8_authorized": false,
+  "degraded_nonblocking_case_ready": true,
+  "failures": [],
+  "first_suite_observability_case_count": 2,
+  "forbidden_control_claim_count": 9,
+  "gate": "PASS",
+  "hidden_next_command": false,
+  "next_unit_id": "PREPARE_RUNTIME_NON_WRITING_NEGATIVE_CONTROL_PROBE_CONTRACT_V0",
+  "normal_observation_case_ready": true,
+  "observability_status_contract_done": true,
+  "ready_for_full_test_batch": false,
+  "ready_for_negative_control_probe_contract": true,
+  "receipt_id": "2d72c2b9",
+  "required_gap_case_allowed_later": true,
+  "runtime_adoption_authorized": false,
+  "runtime_patched": false,
+  "sidecar_control_authority_granted": false,
+  "smoke_sidecar_observation_ref_count": 6,
+  "status": "TYPED_RUNTIME_OBSERVABILITY_STATUS_CASE_CONTRACT_READY_NEGATIVE_CONTROLS_NEXT",
+  "terminal": {
+    "next_unit_id": "PREPARE_RUNTIME_NON_WRITING_NEGATIVE_CONTROL_PROBE_CONTRACT_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+SHOW_OBSERVABILITY_STATUS_CONTRACT_NEXT
+receipt_id=2d72c2b9
+receipt_path=data/runtime_incremental_suite_preflight_v0_receipts/2d72c2b9.json
+status=TYPED_RUNTIME_OBSERVABILITY_STATUS_CASE_CONTRACT_READY_NEGATIVE_CONTROLS_NEXT
+observability_status_contract_done=True
+allowed_observability_case_count=3
+first_suite_observability_case_count=2
+forbidden_control_claim_count=9
+smoke_sidecar_observation_ref_count=6
+normal_observation_case_ready=True
+degraded_nonblocking_case_ready=True
+required_gap_case_allowed_later=True
+ready_for_negative_control_probe_contract=True
+ready_for_full_test_batch=False
+next_unit_id=PREPARE_RUNTIME_NON_WRITING_NEGATIVE_CONTROL_PROBE_CONTRACT_V0
+runtime_adoption_authorized=False
+runtime_patched=False
+sidecar_control_authority_granted=False
+hidden_next_command=False
+c8_authorized=False
+terminal_type=ADVANCE
+terminal_next_unit_id=PREPARE_RUNTIME_NON_WRITING_NEGATIVE_CONTROL_PROBE_CONTRACT_V0
+
+SHOW_ALLOWED_OBSERVABILITY_STATUS_CASES
+allowed_observability_case_count=3
+first_suite_observability_case_count=2
+FIRST:T4:observability_status_normal_observed_v0:OBSERVED:control=False
+FIRST:T4:observability_status_degraded_nonblocking_v0:DEGRADED_NON_BLOCKING:control=False
+LATER:T4:observability_status_required_gap_pressure_v0:GAP_EXPECTED_PRESSURE:control=False
+
+SHOW_COMPACT_SUITE_SHAPE_AFTER_OBSERVABILITY
+shape_status=PARTIAL_READY_NEGATIVE_CONTROLS_NEXT
+ready_cases_after_this_unit=T0.baseline_replay,T1.fresh_state_id,T1.empty_history_ref,T2.no_applicable_move_probe,T4.normal_observed_event_sequence,T4.degraded_sidecar_observation_nonblocking
+observability_cases_ready=T4.normal_observed_event_sequence,T4.degraded_sidecar_observation_nonblocking
+observability_cases_allowed_later=T4.full_observability_required_gap
+not_ready_until_negative_control_probe_contract=T5.non_writing_negative_controls
+deferred=T3.schema_validation_failure,T3.admissibility_block,T6.step_cap_loop_shape,T6.move_tie_unresolved
+
+DIFF_STAT_RELEVANT
+
+STATUS_AFTER_RELEVANT
+M  .gitignore
+A  data/runtime_incremental_suite_preflight_v0/runtime_allowed_expected_pressure_cases_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_allowed_state_variant_catalog_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_branch_gap_index_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_case_manifest_expected_pressure_rules_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_compact_suite_shape_after_expected_pressure_contract_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_compact_suite_shape_after_state_rules_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_declared_state_variant_rules_target_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_declared_state_variant_rules_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_basis_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_profile_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_rollup_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_target_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_transition_trace.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_forbidden_expected_pressure_handling_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_forbidden_state_variant_catalog_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_incremental_suite_tier_feasibility_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_observability_status_case_contract_target_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_basis_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_profile_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_rollup_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_transition_trace.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_registry_reachability_map_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_state_derivation_template_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_state_variant_rules_basis_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_state_variant_rules_profile_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_state_variant_rules_rollup_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_state_variant_rules_transition_trace.json
+A  data/runtime_incremental_suite_preflight_v0_receipts/201aad4a.json
+A  data/runtime_incremental_suite_preflight_v0_receipts/b9472e45.json
+A  data/runtime_incremental_suite_preflight_v0_receipts/de9b179a.json
+?? scripts/prepare_runtime_observability_status_case_contract_v0.py
+
+PACKAGE_OBSERVABILITY_STATUS_CONTRACT_ARTIFACTS
+
+OBSERVABILITY_STATUS_CONTRACT_READY_FOR_COMMIT
+M  .gitignore
+A  data/runtime_incremental_suite_preflight_v0/runtime_allowed_expected_pressure_cases_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_allowed_observability_status_cases_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_allowed_state_variant_catalog_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_branch_gap_index_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_case_manifest_expected_pressure_rules_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_case_manifest_observability_status_rules_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_compact_suite_shape_after_expected_pressure_contract_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_compact_suite_shape_after_observability_status_contract_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_compact_suite_shape_after_state_rules_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_declared_state_variant_rules_target_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_declared_state_variant_rules_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_basis_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_profile_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_rollup_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_target_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_transition_trace.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_forbidden_expected_pressure_handling_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_forbidden_observability_control_claims_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_forbidden_state_variant_catalog_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_incremental_suite_tier_feasibility_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_negative_control_probe_contract_target_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_observability_status_case_contract_basis_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_observability_status_case_contract_profile_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_observability_status_case_contract_rollup_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_observability_status_case_contract_target_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_observability_status_case_contract_transition_trace.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_observability_status_case_contract_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_basis_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_profile_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_rollup_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_transition_trace.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_registry_reachability_map_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_state_derivation_template_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_state_variant_rules_basis_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_state_variant_rules_profile_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_state_variant_rules_rollup_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_state_variant_rules_transition_trace.json
+A  data/runtime_incremental_suite_preflight_v0_receipts/201aad4a.json
+A  data/runtime_incremental_suite_preflight_v0_receipts/2d72c2b9.json
+A  data/runtime_incremental_suite_preflight_v0_receipts/b9472e45.json
+A  data/runtime_incremental_suite_preflight_v0_receipts/de9b179a.json
+A  scripts/prepare_runtime_observability_status_case_contract_v0.py
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

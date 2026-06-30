@@ -1,0 +1,315 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_191003
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_191003.txt
+
+PATCH_HUMAN_DECISION_RECORD_NEGATIVE_CONTROL_SIDE_EFFECT_V0
+
+STATUS_BEFORE
+?? data/
+
+VERIFY_SCRIPT_EXISTS
+
+PATCH_BUILDER_DRY_RUN_NO_WRITE_MODE
+
+PY_COMPILE
+
+RE_EMIT_APPROVED_DECISION_RECORD_PASS
+{
+  "approved_bounds": {
+    "max_candidate_rows": 10000,
+    "max_cycles_per_case": 50,
+    "max_new_bands": 512,
+    "max_new_cases_total": 10,
+    "max_new_runs": 1,
+    "max_output_files": 16
+  },
+  "created_at": "2026-06-21T18:10:03.689362+00:00",
+  "decision": "APPROVE",
+  "decision_effects": {
+    "approval_does_not_accept_candidate": true,
+    "approval_does_not_authorize_scale_mode": true,
+    "approval_does_not_change_runtime_code": true,
+    "approval_does_not_change_runtime_receipt_emission": true,
+    "approval_does_not_create_candidate_rows": true,
+    "approval_does_not_create_synthetic_fake_rows": true,
+    "approval_does_not_execute": true,
+    "approval_does_not_full_registry_scan": true,
+    "approval_does_not_insert_registry": true,
+    "approval_does_not_mutate_runtime": true,
+    "approval_does_not_put_audit_or_debug_in_payload": true,
+    "approval_does_not_put_full_occurrence_key_in_payload": true,
+    "approval_does_not_read_registry_sqlite": true,
+    "approval_does_not_run_runner": true,
+    "approval_does_not_run_transition_compression_probe": true,
+    "approval_does_not_use_case_id_or_cycle_n_identity_patch": true,
+    "approval_does_not_use_latest_or_mtime_selection": true,
+    "approval_does_not_use_rowid_or_receipt_hash_truth_surface": true,
+    "approval_is_scoped_to_valid_against_surface": true,
+    "approves_option_a_narrowed": true,
+    "authorized_next_command_goal": "BUILD_APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_POLICY_V0",
+    "authorizes_recipe_policy_build": true
+  },
+  "decision_id": "55b293ef",
+  "decision_name": "HUMAN_DECISION_RECORD_APPROVE_OPTION_A_NARROWED_V0",
+  "decision_path": "data/raw_delta_signature_candidate_new_bounded_surface_recipe_human_decisions/55b293ef.json",
+  "decision_sig8": "55b293ef",
+  "decision_status": "APPROVED_SCOPED",
+  "failures": [],
+  "gate": "PASS",
+  "human_boundary": {
+    "human_approved": true,
+    "human_decision_requested": "APPROVE",
+    "human_notes": "Approved Option A narrowed as recipe shape only. No execution or candidate acceptance is authorized by this decision record.",
+    "human_selected_option": "OPTION_A_NARROWED"
+  },
+  "proposal_id": "71f1a3f0",
+  "proposal_name": "PROPOSE_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_V0",
+  "proposal_receipt_id": "d8a7686c",
+  "receipt_id": "6dc33fbd",
+  "receipt_sig8": "6dc33fbd",
+  "receipt_type": "HUMAN_DECISION_RECORD_RECEIPT",
+  "required_next_artifact": {
+    "artifact_name": "APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_POLICY_V0",
+    "builder_goal": "BUILD_APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_POLICY_V0",
+    "must_include_bounds": {
+      "max_candidate_rows": 10000,
+      "max_cycles_per_case": 50,
+      "max_new_bands": 512,
+      "max_new_cases_total": 10,
+      "max_new_runs": 1,
+      "max_output_files": 16
+    },
+    "must_include_candidate_row_schema": true,
+    "must_include_no_candidate_acceptance_guard": true,
+    "must_include_no_latest_mtime_guard": true,
+    "must_include_no_registry_sqlite_guard": true,
+    "must_include_no_runtime_mutation_guard": true,
+    "must_include_observer_extractor_contract": true,
+    "must_include_runner_command": true
+  },
+  "schema_version": "raw_delta_signature_candidate_new_bounded_surface_recipe_human_decision_receipt_v0",
+  "selected_option_id": "OPTION_A_NARROWED",
+  "terminal": {
+    "next_command_goal": "BUILD_APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "valid_against": {
+    "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+    "policy_id": "7050f196",
+    "policy_receipt_id": "2c061175",
+    "receipt_id": "065849ef",
+    "selected_encoding_id": "raw_decimal_sig6",
+    "selected_target_raw_delta_field": "compression_ratio",
+    "surface_id": "40e5f5b4"
+  },
+  "warnings": []
+}
+decision_id=55b293ef
+decision_json_path=data/raw_delta_signature_candidate_new_bounded_surface_recipe_human_decisions/55b293ef.json
+decision_receipt_path=data/raw_delta_signature_candidate_new_bounded_surface_recipe_human_decision_receipts/55b293ef.json
+
+ASSERT_LIVE_DECISION_PASS_AFTER_REEMIT
+{
+  "decision": "APPROVE",
+  "decision_gate": "PASS",
+  "decision_id": "55b293ef",
+  "decision_receipt_id": "6dc33fbd",
+  "decision_status": "APPROVED_SCOPED",
+  "receipt_gate": "PASS",
+  "selected_option_id": "OPTION_A_NARROWED",
+  "terminal": {
+    "next_command_goal": "BUILD_APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_DRY_RUN_NO_LIVE_SIDE_EFFECT
+{
+  "case": "proposal_status_fail",
+  "expected": "proposal_status_wrong",
+  "failures": [
+    "proposal_status_wrong:AUTHORIZED"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "proposal_already_approved_fail",
+  "expected": "proposal_decision_status_wrong",
+  "failures": [
+    "proposal_decision_status_wrong:APPROVED"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "valid_against_fail",
+  "expected": "valid_against_wrong",
+  "failures": [
+    "valid_against_wrong:{'candidate_design_id': 'RAW_DELTA_SIGNATURE_CANDIDATE_V0', 'policy_id': '7050f196', 'policy_receipt_id': '2c061175', 'receipt_id': '065849ef', 'selected_encoding_id': 'raw_decimal_sig6', 'selected_target_raw_delta_field': 'compression_ratio', 'surface_id': 'OTHER'}"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "recommended_option_fail",
+  "expected": "recommended_option_wrong",
+  "failures": [
+    "recommended_option_wrong:OPTION_B_EXISTING_RECEIPT_SURFACE_EXTRACTOR"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "recommended_authorized_fail",
+  "expected": "recommended_status_wrong",
+  "failures": [
+    "recommended_status_wrong:AUTHORIZED"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "bounds_fail",
+  "expected": "selected_option_bounds_wrong",
+  "failures": [
+    "selected_option_bounds_wrong:{'max_candidate_rows': 10000, 'max_cycles_per_case': 50, 'max_new_bands': 512, 'max_new_cases_total': 10, 'max_new_runs': 999, 'max_output_files': 16}"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "runner_executed_fail",
+  "expected": "proposal_guard_not_false:runner_executed",
+  "failures": [
+    "proposal_guard_not_false:runner_executed:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "candidate_accepted_fail",
+  "expected": "proposal_guard_not_false:candidate_accepted",
+  "failures": [
+    "proposal_guard_not_false:candidate_accepted:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "terminal_type_fail",
+  "expected": "proposal_terminal_type_wrong",
+  "failures": [
+    "proposal_terminal_type_wrong:ADVANCE"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "policy_runner_authority_fail",
+  "expected": "policy_forbidden_authority_not_false:authorizes_runner_execution",
+  "failures": [
+    "policy_forbidden_authority_not_false:authorizes_runner_execution:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "policy_candidate_acceptance_fail",
+  "expected": "policy_forbidden_authority_not_false:authorizes_candidate_acceptance",
+  "failures": [
+    "policy_forbidden_authority_not_false:authorizes_candidate_acceptance:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "live_artifact_unchanged": true,
+  "live_decision_hash_after": "14b5a2fc12ede66e6502d9ef84bca6767d8274f1a0e8f2b810cf44f27aca87b0",
+  "live_decision_hash_before": "14b5a2fc12ede66e6502d9ef84bca6767d8274f1a0e8f2b810cf44f27aca87b0",
+  "live_receipt_hash_after": "4376954609b86ddede70dbd66f3ce45554162ff5e4c4201e79a6c578fecafec6",
+  "live_receipt_hash_before": "4376954609b86ddede70dbd66f3ce45554162ff5e4c4201e79a6c578fecafec6",
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+FINAL_LIVE_DECISION_HEAD_JSON
+{
+  "approved_bounds": {
+    "max_candidate_rows": 10000,
+    "max_cycles_per_case": 50,
+    "max_new_bands": 512,
+    "max_new_cases_total": 10,
+    "max_new_runs": 1,
+    "max_output_files": 16
+  },
+  "decision": "APPROVE",
+  "decision_effects": {
+    "approval_does_not_accept_candidate": true,
+    "approval_does_not_authorize_scale_mode": true,
+    "approval_does_not_change_runtime_code": true,
+    "approval_does_not_change_runtime_receipt_emission": true,
+    "approval_does_not_create_candidate_rows": true,
+    "approval_does_not_create_synthetic_fake_rows": true,
+    "approval_does_not_execute": true,
+    "approval_does_not_full_registry_scan": true,
+    "approval_does_not_insert_registry": true,
+    "approval_does_not_mutate_runtime": true,
+    "approval_does_not_put_audit_or_debug_in_payload": true,
+    "approval_does_not_put_full_occurrence_key_in_payload": true,
+    "approval_does_not_read_registry_sqlite": true,
+    "approval_does_not_run_runner": true,
+    "approval_does_not_run_transition_compression_probe": true,
+    "approval_does_not_use_case_id_or_cycle_n_identity_patch": true,
+    "approval_does_not_use_latest_or_mtime_selection": true,
+    "approval_does_not_use_rowid_or_receipt_hash_truth_surface": true,
+    "approval_is_scoped_to_valid_against_surface": true,
+    "approves_option_a_narrowed": true,
+    "authorized_next_command_goal": "BUILD_APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_POLICY_V0",
+    "authorizes_recipe_policy_build": true
+  },
+  "decision_id": "55b293ef",
+  "decision_status": "APPROVED_SCOPED",
+  "gate": "PASS",
+  "proposal_id": "71f1a3f0",
+  "receipt_id": "6dc33fbd",
+  "selected_option_id": "OPTION_A_NARROWED",
+  "terminal": {
+    "next_command_goal": "BUILD_APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_RUNTIME_AND_PRIOR_PROBES_UNTOUCHED
+scripts/write_human_decision_record_approve_option_a_narrowed_v0.py
+runtime/prior probes untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ ...e_human_decision_record_approve_option_a_narrowed_v0.py | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
+
+STATUS_AFTER
+ M scripts/write_human_decision_record_approve_option_a_narrowed_v0.py
+?? data/
+[master da0704930] patch human decision negative controls no write
+ 1 file changed, 8 insertions(+), 6 deletions(-)
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

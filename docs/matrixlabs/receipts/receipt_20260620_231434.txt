@@ -1,0 +1,555 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_231434
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_231434.txt
+
+DIAGNOSE_STABLE_DELTA_SIGNATURE_FAILURE_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_STABLE_DELTA_SIGNATURE_FAILURE_DIAGNOSTIC
+
+PY_COMPILE
+
+RUN_STABLE_DELTA_SIGNATURE_FAILURE_DIAGNOSTIC
+{
+  "byte_bloat_summary": {
+    "current_compressed_row_bytes_recomputed": 409753,
+    "current_vs_full_ratio": 1.373130076941637,
+    "estimated_debug_sidecar_bytes": 331197,
+    "full_receipt_bytes": 298408,
+    "minimal_required_row_bytes": 100380,
+    "minimal_required_vs_full_ratio": 0.3363850835098255,
+    "projected_scale_row_bytes": 78556,
+    "projected_scale_vs_full_ratio": 0.26325031500495966
+  },
+  "collision_summary": {
+    "collision_group_count": 19,
+    "collision_group_sizes_top10": [
+      32,
+      32,
+      16,
+      16,
+      12,
+      12,
+      8,
+      8,
+      4,
+      4
+    ],
+    "largest_collision_group_size": 32,
+    "total_delta_signature_groups": 21
+  },
+  "created_at": "2026-06-20T22:14:34.757077+00:00",
+  "decision": {
+    "diagnose_before_new_probe": true,
+    "do_not_accept_probe_candidate": true,
+    "do_not_authorize_receipt_replacement": true,
+    "do_not_authorize_scale_mode": true,
+    "do_not_scale_current_signature": true,
+    "recommended_next_command_goal": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1_POLICY"
+  },
+  "diagnostic_id": "21878f3c",
+  "diagnostic_path": "data/stable_delta_signature_diagnostics/21878f3c.json",
+  "diagnostic_sig8": "21878f3c",
+  "failures": [],
+  "gate": "PASS",
+  "receipt_id": "7467309f",
+  "receipt_sig8": "7467309f",
+  "root_cause": {
+    "burden_diagnosis": {
+      "burden_ratio_bytes": 1.373130076941637,
+      "compressed_signature_bytes": 409753,
+      "diagnosis": "The observer row stores too much debug/signature payload, making compressed rows larger than full receipt baseline.",
+      "full_receipt_bytes": 298408
+    },
+    "containment_diagnosis": {
+      "audit_recoverability_valid": true,
+      "diagnosis": "The observer harness is lawful; the signature candidate failed.",
+      "observer_only_valid": true,
+      "truth_surface_valid": true
+    },
+    "false_merge_diagnosis": {
+      "collision_count": 19,
+      "diagnosis": "The candidate signature is too coarse for local occurrence separability.",
+      "distinct_compressed_signatures": 21,
+      "distinct_full_occurrence_keys": 176,
+      "distinguishability_retention_ratio": 0.11931818181818182,
+      "false_merge_count": 19
+    },
+    "primary_failure": "FALSE_MERGES_AND_NO_BURDEN_REDUCTION"
+  },
+  "schema_version": "stable_delta_signature_failure_diagnostic_receipt_v0",
+  "source_probe_id": "a729e00e",
+  "source_probe_terminal_decision": "FAIL",
+  "source_receipt_id": "0ce90f3f",
+  "terminal": {
+    "next_command_goal": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1_POLICY",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+diagnostic_id=21878f3c
+diagnostic_json_path=data/stable_delta_signature_diagnostics/21878f3c.json
+diagnostic_receipt_path=data/stable_delta_signature_diagnostic_receipts/21878f3c.json
+DIAGNOSTIC_ID=21878f3c
+
+ASSERT_STABLE_DELTA_SIGNATURE_FAILURE_DIAGNOSTIC
+{
+  "byte_bloat_summary": {
+    "current_compressed_row_bytes_recomputed": 409753,
+    "current_vs_full_ratio": 1.373130076941637,
+    "estimated_debug_sidecar_bytes": 331197,
+    "full_receipt_bytes": 298408,
+    "minimal_required_row_bytes": 100380,
+    "minimal_required_vs_full_ratio": 0.3363850835098255,
+    "projected_scale_row_bytes": 78556,
+    "projected_scale_vs_full_ratio": 0.26325031500495966
+  },
+  "candidate_v0_1_design_target": {
+    "candidate_design_id": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1",
+    "core_correction": "Separate tiny signature payload from observer/debug/audit sidecar.",
+    "design_status": "PROPOSED_BY_FAILURE_DIAGNOSTIC_NOT_IMPLEMENTED",
+    "do_not_repeat": [
+      "Do not include full delta_payload JSON in every compressed row as scale payload.",
+      "Do not count observer debug fields as compressed burden.",
+      "Do not run scale bands on a signature with false merges.",
+      "Do not compare against raw receipt hashes.",
+      "Do not authorize receipt replacement or scale mode."
+    ],
+    "next_command_goal": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1_POLICY",
+    "proposed_signature_payload": {
+      "compression_version": "stable_delta_signature_v0.1_candidate",
+      "forbidden_in_signature_payload": [
+        "full_occurrence_key",
+        "audit_pointer",
+        "observer_notes",
+        "full debug delta_payload",
+        "raw receipt hash",
+        "receipt rowid as primary identity",
+        "timestamps",
+        "paths",
+        "run packaging fields"
+      ],
+      "signature_basis": [
+        "canonical transition tuple if present: state_hash_before, move_id, state_hash_after, halt_reason/status",
+        "case-local occurrence discriminator only if it is canonical and audit-derived, not rowid packaging noise",
+        "compact shape/event buckets only if they increase separability without increasing projected burden above full burden"
+      ]
+    },
+    "required_next_probe_behavior": [
+      "Measure signature payload bytes separately from audit/debug sidecar bytes.",
+      "Report current_compressed_row_bytes, minimal_required_row_bytes, and projected_scale_row_bytes separately.",
+      "Use collision diagnosis before any scale-band run.",
+      "Only advance to scale bands after no_silent_collapse is true on the local probe."
+    ]
+  },
+  "collision_summary": {
+    "collision_group_count": 19,
+    "collision_group_sizes_top10": [
+      32,
+      32,
+      16,
+      16,
+      12,
+      12,
+      8,
+      8,
+      4,
+      4
+    ],
+    "largest_collision_group_size": 32,
+    "total_delta_signature_groups": 21
+  },
+  "decision": {
+    "diagnose_before_new_probe": true,
+    "do_not_accept_probe_candidate": true,
+    "do_not_authorize_receipt_replacement": true,
+    "do_not_authorize_scale_mode": true,
+    "do_not_scale_current_signature": true,
+    "recommended_next_command_goal": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1_POLICY"
+  },
+  "diagnostic_id": "21878f3c",
+  "diagnostic_scope": {
+    "probe_script_changed": false,
+    "read_only": true,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "runtime_receipt_system_changed": false,
+    "scale_mode_authorized": false,
+    "theorem_content_authorized": false
+  },
+  "failures": [],
+  "gate": "PASS",
+  "missing_core_fields": [
+    {
+      "distinct_present_values": 0,
+      "field": "state_hash_before",
+      "missing": 176,
+      "missing_rate": 1.0,
+      "present": 0
+    },
+    {
+      "distinct_present_values": 0,
+      "field": "state_hash_after",
+      "missing": 176,
+      "missing_rate": 1.0,
+      "present": 0
+    },
+    {
+      "distinct_present_values": 1,
+      "field": "move_id",
+      "missing": 0,
+      "missing_rate": 0.0,
+      "present": 176
+    },
+    {
+      "distinct_present_values": 0,
+      "field": "delta_payload.transition.state_hash_before",
+      "missing": 176,
+      "missing_rate": 1.0,
+      "present": 0
+    },
+    {
+      "distinct_present_values": 0,
+      "field": "delta_payload.transition.state_hash_after",
+      "missing": 176,
+      "missing_rate": 1.0,
+      "present": 0
+    },
+    {
+      "distinct_present_values": 1,
+      "field": "delta_payload.transition.move_id",
+      "missing": 0,
+      "missing_rate": 0.0,
+      "present": 176
+    },
+    {
+      "distinct_present_values": 2,
+      "field": "delta_payload.transition.halt_reason",
+      "missing": 166,
+      "missing_rate": 0.943182,
+      "present": 10
+    },
+    {
+      "distinct_present_values": 0,
+      "field": "delta_payload.transition.status",
+      "missing": 176,
+      "missing_rate": 1.0,
+      "present": 0
+    },
+    {
+      "distinct_present_values": 1,
+      "field": "delta_payload.case_surface.family",
+      "missing": 0,
+      "missing_rate": 0.0,
+      "present": 176
+    },
+    {
+      "distinct_present_values": 0,
+      "field": "delta_payload.case_surface.probe_id",
+      "missing": 176,
+      "missing_rate": 1.0,
+      "present": 0
+    },
+    {
+      "distinct_present_values": 0,
+      "field": "delta_payload.case_surface.slot_id",
+      "missing": 176,
+      "missing_rate": 1.0,
+      "present": 0
+    },
+    {
+      "distinct_present_values": 0,
+      "field": "delta_payload.case_surface.burden_class",
+      "missing": 176,
+      "missing_rate": 1.0,
+      "present": 0
+    }
+  ],
+  "receipt_gate": "PASS",
+  "receipt_id": "7467309f",
+  "root_cause": {
+    "burden_diagnosis": {
+      "burden_ratio_bytes": 1.373130076941637,
+      "compressed_signature_bytes": 409753,
+      "diagnosis": "The observer row stores too much debug/signature payload, making compressed rows larger than full receipt baseline.",
+      "full_receipt_bytes": 298408
+    },
+    "containment_diagnosis": {
+      "audit_recoverability_valid": true,
+      "diagnosis": "The observer harness is lawful; the signature candidate failed.",
+      "observer_only_valid": true,
+      "truth_surface_valid": true
+    },
+    "false_merge_diagnosis": {
+      "collision_count": 19,
+      "diagnosis": "The candidate signature is too coarse for local occurrence separability.",
+      "distinct_compressed_signatures": 21,
+      "distinct_full_occurrence_keys": 176,
+      "distinguishability_retention_ratio": 0.11931818181818182,
+      "false_merge_count": 19
+    },
+    "primary_failure": "FALSE_MERGES_AND_NO_BURDEN_REDUCTION"
+  },
+  "source_probe_id": "a729e00e",
+  "source_probe_summary": {
+    "burden_ratio_bytes": 1.373130076941637,
+    "collision_count": 19,
+    "collision_rate": 0.9047619047619048,
+    "compressed_signature_bytes": 409753,
+    "compressed_signature_count": 176,
+    "distinct_compressed_signatures": 21,
+    "distinct_full_occurrence_keys": 176,
+    "distinguishability_retention_ratio": 0.11931818181818182,
+    "false_merge_count": 19,
+    "full_receipt_bytes": 298408,
+    "full_receipt_count": 176,
+    "pass_gates": {
+      "audit_recoverability": true,
+      "burden_reduction_real": false,
+      "no_silent_collapse": false,
+      "observer_only_containment": true,
+      "raw_receipt_hash_not_used_as_truth_surface": true,
+      "stability_across_scale": false
+    },
+    "scale_value": 0.08689503188506247
+  },
+  "source_probe_terminal_decision": "FAIL",
+  "source_receipt_id": "0ce90f3f",
+  "terminal": {
+    "next_command_goal": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1_POLICY",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_STABLE_DELTA_SIGNATURE_FAILURE_DIAGNOSTIC
+{
+  "case": "probe_not_failed_fail",
+  "expected": "terminal_decision_expected_FAIL",
+  "failures": [
+    "terminal_decision_expected_FAIL:PASS_OBSERVER_ONLY"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "raw_hash_truth_surface_fail",
+  "expected": "raw_hash_truth_surface_used",
+  "failures": [
+    "raw_hash_truth_surface_used"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "scale_mode_authority_fail",
+  "expected": "authority_guard_failed:scale_mode_authorized",
+  "failures": [
+    "authority_guard_failed:scale_mode_authorized:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "audit_recoverability_fail",
+  "expected": "audit_recoverability_not_true",
+  "failures": [
+    "audit_recoverability_not_true"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "silent_collapse_guard_expected_false_fail",
+  "expected": "no_silent_collapse_expected_false",
+  "failures": [
+    "no_silent_collapse_expected_false"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "burden_ratio_expected_over_one_fail",
+  "expected": "burden_ratio_expected_over_1",
+  "failures": [
+    "burden_ratio_expected_over_1:0.5"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+DIAGNOSTIC_HEAD_JSON
+{
+  "byte_bloat_summary": {
+    "current_compressed_row_bytes_recomputed": 409753,
+    "current_vs_full_ratio": 1.373130076941637,
+    "estimated_debug_sidecar_bytes": 331197,
+    "full_receipt_bytes": 298408,
+    "minimal_required_row_bytes": 100380,
+    "minimal_required_vs_full_ratio": 0.3363850835098255,
+    "projected_scale_row_bytes": 78556,
+    "projected_scale_vs_full_ratio": 0.26325031500495966
+  },
+  "candidate_v0_1_design_target": {
+    "candidate_design_id": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1",
+    "core_correction": "Separate tiny signature payload from observer/debug/audit sidecar.",
+    "design_status": "PROPOSED_BY_FAILURE_DIAGNOSTIC_NOT_IMPLEMENTED",
+    "do_not_repeat": [
+      "Do not include full delta_payload JSON in every compressed row as scale payload.",
+      "Do not count observer debug fields as compressed burden.",
+      "Do not run scale bands on a signature with false merges.",
+      "Do not compare against raw receipt hashes.",
+      "Do not authorize receipt replacement or scale mode."
+    ],
+    "next_command_goal": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1_POLICY",
+    "proposed_signature_payload": {
+      "compression_version": "stable_delta_signature_v0.1_candidate",
+      "forbidden_in_signature_payload": [
+        "full_occurrence_key",
+        "audit_pointer",
+        "observer_notes",
+        "full debug delta_payload",
+        "raw receipt hash",
+        "receipt rowid as primary identity",
+        "timestamps",
+        "paths",
+        "run packaging fields"
+      ],
+      "signature_basis": [
+        "canonical transition tuple if present: state_hash_before, move_id, state_hash_after, halt_reason/status",
+        "case-local occurrence discriminator only if it is canonical and audit-derived, not rowid packaging noise",
+        "compact shape/event buckets only if they increase separability without increasing projected burden above full burden"
+      ]
+    },
+    "required_next_probe_behavior": [
+      "Measure signature payload bytes separately from audit/debug sidecar bytes.",
+      "Report current_compressed_row_bytes, minimal_required_row_bytes, and projected_scale_row_bytes separately.",
+      "Use collision diagnosis before any scale-band run.",
+      "Only advance to scale bands after no_silent_collapse is true on the local probe."
+    ]
+  },
+  "collision_summary": {
+    "collision_group_count": 19,
+    "collision_group_sizes_top10": [
+      32,
+      32,
+      16,
+      16,
+      12,
+      12,
+      8,
+      8,
+      4,
+      4
+    ],
+    "largest_collision_group_size": 32,
+    "total_delta_signature_groups": 21
+  },
+  "decision": {
+    "diagnose_before_new_probe": true,
+    "do_not_accept_probe_candidate": true,
+    "do_not_authorize_receipt_replacement": true,
+    "do_not_authorize_scale_mode": true,
+    "do_not_scale_current_signature": true,
+    "recommended_next_command_goal": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1_POLICY"
+  },
+  "diagnostic_id": "21878f3c",
+  "gate": "PASS",
+  "root_cause": {
+    "burden_diagnosis": {
+      "burden_ratio_bytes": 1.373130076941637,
+      "compressed_signature_bytes": 409753,
+      "diagnosis": "The observer row stores too much debug/signature payload, making compressed rows larger than full receipt baseline.",
+      "full_receipt_bytes": 298408
+    },
+    "containment_diagnosis": {
+      "audit_recoverability_valid": true,
+      "diagnosis": "The observer harness is lawful; the signature candidate failed.",
+      "observer_only_valid": true,
+      "truth_surface_valid": true
+    },
+    "false_merge_diagnosis": {
+      "collision_count": 19,
+      "diagnosis": "The candidate signature is too coarse for local occurrence separability.",
+      "distinct_compressed_signatures": 21,
+      "distinct_full_occurrence_keys": 176,
+      "distinguishability_retention_ratio": 0.11931818181818182,
+      "false_merge_count": 19
+    },
+    "primary_failure": "FALSE_MERGES_AND_NO_BURDEN_REDUCTION"
+  },
+  "source_probe_id": "a729e00e",
+  "source_probe_summary": {
+    "burden_ratio_bytes": 1.373130076941637,
+    "collision_count": 19,
+    "collision_rate": 0.9047619047619048,
+    "compressed_signature_bytes": 409753,
+    "compressed_signature_count": 176,
+    "distinct_compressed_signatures": 21,
+    "distinct_full_occurrence_keys": 176,
+    "distinguishability_retention_ratio": 0.11931818181818182,
+    "false_merge_count": 19,
+    "full_receipt_bytes": 298408,
+    "full_receipt_count": 176,
+    "pass_gates": {
+      "audit_recoverability": true,
+      "burden_reduction_real": false,
+      "no_silent_collapse": false,
+      "observer_only_containment": true,
+      "raw_receipt_hash_not_used_as_truth_surface": true,
+      "stability_across_scale": false
+    },
+    "scale_value": 0.08689503188506247
+  },
+  "source_probe_terminal_decision": "FAIL",
+  "terminal": {
+    "next_command_goal": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1_POLICY",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_RUNTIME_RECEIPT_SYSTEM_UNTOUCHED
+.gitignore
+runtime and probe system untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/diagnose_stable_delta_signature_failure_v0.py
+[master 45d17fb33] diagnose stable delta signature probe failure
+ 2 files changed, 541 insertions(+)
+ create mode 100755 scripts/diagnose_stable_delta_signature_failure_v0.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

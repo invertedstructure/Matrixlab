@@ -1,0 +1,97 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_140521
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_140521.txt
+
+REVIEW_C8_SUCCESSOR_SURFACE_BOUNDED_REUSE_AUTHORITY_PROBE_RESULT_V0_FIXED
+
+VERIFY_BOUNDED_REUSE_AUTHORITY_PROBE_ARTIFACTS_PRESENT
+present data/c8_successor_surface_bounded_reuse_authority_probe_v0_receipts/c8_successor_reuse_authority_probe_receipt_803165de.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_v0/c8_successor_surface_bounded_reuse_authority_probe_evidence_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_v0/c8_successor_surface_bounded_reuse_authority_probe_result_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_v0/c8_successor_surface_bounded_reuse_authority_probe_boundary_audit_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_v0/c8_successor_surface_bounded_reuse_authority_probe_readout_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_v0/c8_successor_surface_bounded_reuse_authority_probe_report.json
+present scripts/execute_c8_successor_surface_bounded_reuse_authority_probe_v0.py
+
+PY_COMPILE_BOUNDED_REUSE_AUTHORITY_PROBE_RUNNER
+
+VERIFY_BOUNDED_REUSE_AUTHORITY_PROBE_RECEIPT
+{
+  "allowed_probe_execution_count": 1,
+  "c8_rerun_now": false,
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "instrument_built_now": false,
+  "new_authority_needed_now": false,
+  "outcome_class": "C8_SUCCESSOR_SURFACE_REUSE_BOUNDARY_HELD_NO_NEW_AUTHORITY_NEEDED",
+  "probe_execution_count": 1,
+  "probe_gates_false_count": 0,
+  "probe_id": "c8_successor_surface_reuse_authority_boundary_probe_v0",
+  "probe_kind": "REUSE_AUTHORITY_BOUNDARY_PROBE",
+  "probe_output_class": "REUSE_BOUNDARY_HELD_NO_NEW_AUTHORITY_NEEDED",
+  "receipt_id": "c8_successor_reuse_authority_probe_receipt_803165de",
+  "recommended_review_unit": "REVIEW_C8_SUCCESSOR_SURFACE_BOUNDED_REUSE_AUTHORITY_PROBE_RESULT_V0",
+  "reusable_schema_authorized": false,
+  "reuse_boundary_held": true,
+  "review_gate": "PASS",
+  "source_acceptance_receipt_id": "c8_successor_probe_execution_acceptance_receipt_31139bd1",
+  "source_authority_id": "c8_successor_probe_execution_authority_52f56baf",
+  "source_prep_packet_id": "c8_successor_probe_prep_packet_74a6c209",
+  "status": "TYPED_C8_SUCCESSOR_SURFACE_BOUNDED_REUSE_AUTHORITY_PROBE_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_SUCCESSOR_SURFACE_BOUNDED_REUSE_AUTHORITY_PROBE_RESULT_READY_FOR_REVIEW",
+    "type": "STOP"
+  }
+}
+
+VERIFY_BOUNDED_REUSE_AUTHORITY_PROBE_CONTENT
+{
+  "authority_boundary": {
+    "executed_one_bounded_probe": true,
+    "may_authorize_reusable_schema": false,
+    "may_build_cell1": false,
+    "may_build_instrument": false,
+    "may_claim_frontier_solved": false,
+    "may_claim_global_solution": false,
+    "may_create_missing_instrument_proposal": false,
+    "may_execute_additional_probe_without_new_authority": false,
+    "may_open_research_mode": false,
+    "may_rerun_c8": false,
+    "may_run_verification_probe": false
+  },
+  "boundary_audit_id": "c8_successor_reuse_authority_probe_boundary_72e5fd07",
+  "content_review_gate": "PASS",
+  "evidence_items_count": 7,
+  "failed_evidence_count": 0,
+  "failures": [],
+  "new_authority_needed_now": false,
+  "probe_evidence_id": "c8_successor_reuse_authority_probe_evidence_4f51ca49",
+  "probe_output_class": "REUSE_BOUNDARY_HELD_NO_NEW_AUTHORITY_NEEDED",
+  "probe_result_id": "c8_successor_reuse_authority_probe_result_3260762c",
+  "recommended_review_unit": "REVIEW_C8_SUCCESSOR_SURFACE_BOUNDED_REUSE_AUTHORITY_PROBE_RESULT_V0",
+  "requires_review": true,
+  "reuse_boundary_held": true
+}
+
+VERIFY_STAGED_SCOPE_BOUNDED_REUSE_AUTHORITY_PROBE_ONLY
+staged_path_count=8
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+bounded_reuse_authority_probe_receipts_staged=['data/c8_successor_surface_bounded_reuse_authority_probe_v0_receipts/c8_successor_reuse_authority_probe_receipt_803165de.json']
+
+REVIEW_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...ed_reuse_authority_probe_boundary_audit_v0.json |  55 ++
+ ..._bounded_reuse_authority_probe_evidence_v0.json |  59 +++
+ ...e_bounded_reuse_authority_probe_readout_v0.json |  20 +
+ ...rface_bounded_reuse_authority_probe_report.json |  32 ++
+ ...ce_bounded_reuse_authority_probe_result_v0.json |  33 ++
+ ...sor_reuse_authority_probe_receipt_803165de.json | 137 +++++
+ ...sor_surface_bounded_reuse_authority_probe_v0.py | 576 +++++++++++++++++++++
+ 8 files changed, 918 insertions(+)
+
+REVIEW_C8_SUCCESSOR_SURFACE_BOUNDED_REUSE_AUTHORITY_PROBE_RESULT_PASS
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

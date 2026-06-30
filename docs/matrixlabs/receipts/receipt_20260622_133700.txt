@@ -1,0 +1,466 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_133700
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_133700.txt
+
+IMPLEMENT_HALT_VOCABULARY_V0_WITH_DEMO_RECORDS_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+VERIFY_HALT_VOCABULARY_IMPLEMENTATION_INPUTS_TRACKED
+tracked data/halt_vocabulary_v0_policies/0707a2d7.json
+tracked data/halt_vocabulary_v0_policy_receipts/0707a2d7.json
+tracked data/proceed_adapter_v0_implementation_receipts/363d2f4a.json
+tracked data/proceed_adapter_v0_policies/e6b3dcfc.json
+tracked src/matrixlab/proceed_adapter_v0.py
+tracked data/jurisdiction_runner_v0_2_trace_ledger_hardening_implementation_receipts/cc24a11f.json
+tracked data/jurisdiction_runner_v0_2_trace_schemas/b4887660.json
+tracked data/jurisdiction_runner_v0_2_proposal_ledger_schemas/eee2a318.json
+tracked src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py
+tracked data/local_regime_v1_declarations/25802530.json
+
+PATCH_GITIGNORE
+
+WRITE_HALT_VOCABULARY_IMPLEMENTATION_BUILDER
+
+PY_COMPILE_HALT_VOCABULARY_IMPLEMENTATION_BUILDER
+
+RUN_HALT_VOCABULARY_IMPLEMENTATION
+{
+  "acceptance_gate_results": {
+    "HVI0_source_policy_verified": true,
+    "HVI1_core_artifacts_emitted": true,
+    "HVI2_vocabulary_four_field_rule_verified": true,
+    "HVI3_halt_record_schema_verified": true,
+    "HVI4_demo_halt_records_emitted": true,
+    "HVI5_demo_halt_receipts_emitted": true,
+    "HVI6_alias_and_taxonomy_record_only_verified": true,
+    "HVI7_no_source_artifact_mutation": true
+  },
+  "aggregate_metrics": {
+    "advance_terminal_as_halt_count": 0,
+    "canonical_halt_entry_count": 21,
+    "demo_halt_receipt_count": 4,
+    "demo_halt_record_count": 4,
+    "demo_receipt_validation_failure_count": 0,
+    "halt_as_proof_claim_count": 0,
+    "halt_as_truth_claim_count": 0,
+    "halt_family_count": 10,
+    "halt_record_validation_failure_count": 0,
+    "halt_route_count": 21,
+    "hidden_continuation_count": 0,
+    "new_move_added_count": 0,
+    "proposal_executed_count": 0,
+    "proposal_promoted_count": 0,
+    "registry_sqlite_write_count": 0,
+    "registry_write_count": 0,
+    "source_ledger_modified_count": 0,
+    "source_receipt_modified_count": 0,
+    "source_regime_modified_count": 0,
+    "source_runner_modified_count": 0,
+    "source_trace_modified_count": 0,
+    "stop_terminal_count": 4,
+    "taxonomy_delta_applied_count": 0,
+    "taxonomy_delta_promoted_count": 0
+  },
+  "artifact_guards": {
+    "ambient_workspace_authority_used": false,
+    "halt_policy_receipt_tracked": true,
+    "halt_policy_tracked": true,
+    "latest_or_mtime_selection_used": false,
+    "outputs_path_addressed": true,
+    "source_ledger_schema_tracked": true,
+    "source_local_regime_v1_tracked": true,
+    "source_proceed_adapter_module_tracked": true,
+    "source_proceed_policy_tracked": true,
+    "source_proceed_receipt_tracked": true,
+    "source_trace_ledger_receipt_tracked": true,
+    "source_trace_ledger_runner_tracked": true,
+    "source_trace_schema_tracked": true
+  },
+  "authority_guards": {
+    "day3_demo_halt_receipts_emitted": true,
+    "day3_demo_halt_record_plan_artifact_emitted": true,
+    "day3_demo_halt_records_emitted": true,
+    "final_schema_claimed": false,
+    "global_taxonomy_claimed": false,
+    "halt_as_proof_claimed": false,
+    "halt_as_truth_claimed": false,
+    "halt_classifier_priority_artifact_emitted": true,
+    "halt_family_table_artifact_emitted": true,
+    "halt_record_schema_artifact_emitted": true,
+    "halt_to_next_handling_table_artifact_emitted": true,
+    "halt_vocabulary_artifact_emitted": true,
+    "hidden_continuation_authorized": false,
+    "implementation_receipt_emitted": true,
+    "new_move_added": false,
+    "proceed_readout_halt_patch_artifact_emitted": true,
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_promoted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_receipt_halt_patch_artifact_emitted": true,
+    "source_ledger_modified": false,
+    "source_local_regime_v1_modified": false,
+    "source_proceed_adapter_modified": false,
+    "source_receipt_modified": false,
+    "source_trace_ledger_runner_modified": false,
+    "source_trace_modified": false,
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false,
+    "trace_entry_halt_patch_artifact_emitted": true
+  },
+  "created_at": "2026-06-22T12:37:02.445150+00:00",
+  "demo_halt_receipts_path": "data/halt_vocabulary_v0_demo/day3_demo_halt_receipts.json",
+  "demo_halt_records": {
+    "halt_723bc72b": {
+      "halt_code": "STOP_PROJECTION_BUG",
+      "halt_family": "PROJECTION",
+      "halt_record_id": "halt_723bc72b",
+      "record_path": "data/halt_vocabulary_v0_demo/halt_records/halt_723bc72b.json",
+      "source_ledger_ref": {
+        "ledger_id": "7fe12905",
+        "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/7fe12905.json"
+      },
+      "source_readout_ref": {
+        "readout_id": "fc290951",
+        "readout_path": "data/proceed_adapter_v0_demo_readouts/fc290951.json"
+      },
+      "source_receipt_ref": {
+        "receipt_id": "201f2d8f",
+        "receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/201f2d8f.json"
+      },
+      "source_trace_ref": {
+        "trace_id": "1c1e2bc9",
+        "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/1c1e2bc9.json"
+      },
+      "taxonomy_pressure": {
+        "status": "NONE",
+        "taxonomy_delta_applied": false,
+        "taxonomy_delta_promoted": false
+      },
+      "terminal_result": {
+        "halt_record_ref": {
+          "halt_record_id": "halt_723bc72b",
+          "halt_record_path": "data/halt_vocabulary_v0_demo/halt_records/halt_723bc72b.json"
+        },
+        "stop_code": "STOP_PROJECTION_BUG",
+        "type": "STOP"
+      }
+    },
+    "halt_8794163e": {
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "halt_family": "BASE_RUNNER",
+      "halt_record_id": "halt_8794163e",
+      "record_path": "data/halt_vocabulary_v0_demo/halt_records/halt_8794163e.json",
+      "source_ledger_ref": {
+        "ledger_id": "33db614a",
+        "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/33db614a.json"
+      },
+      "source_readout_ref": {
+        "readout_id": "1810c921",
+        "readout_path": "data/proceed_adapter_v0_demo_readouts/1810c921.json"
+      },
+      "source_receipt_ref": {
+        "receipt_id": "da854e41",
+        "receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/da854e41.json"
+      },
+      "source_trace_ref": {
+        "trace_id": "28b45d4b",
+        "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/28b45d4b.json"
+      },
+      "taxonomy_pressure": {
+        "status": "NONE",
+        "taxonomy_delta_applied": false,
+        "taxonomy_delta_promoted": false
+      },
+      "terminal_result": {
+        "halt_record_ref": {
+          "halt_record_id": "halt_8794163e",
+          "halt_record_path": "data/halt_vocabulary_v0_demo/halt_records/halt_8794163e.json"
+        },
+        "stop_code": "STOP_NO_APPLICABLE_MOVE",
+        "type": "STOP"
+      }
+    },
+    "halt_b05a7b64": {
+      "halt_code": "STOP_TAXONOMY_GAP",
+      "halt_family": "TAXONOMY_PRESSURE",
+      "halt_record_id": "halt_b05a7b64",
+      "record_path": "data/halt_vocabulary_v0_demo/halt_records/halt_b05a7b64.json",
+      "source_ledger_ref": {
+        "ledger_id": "7fe12905",
+        "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/7fe12905.json"
+      },
+      "source_readout_ref": {
+        "readout_id": "773a7d2b",
+        "readout_path": "data/proceed_adapter_v0_demo_readouts/773a7d2b.json"
+      },
+      "source_receipt_ref": {
+        "receipt_id": "201f2d8f",
+        "receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/201f2d8f.json"
+      },
+      "source_trace_ref": {
+        "trace_id": "1c1e2bc9",
+        "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/1c1e2bc9.json"
+      },
+      "taxonomy_pressure": {
+        "status": "RECORDED_ONLY",
+        "taxonomy_delta_applied": false,
+        "taxonomy_delta_promoted": false
+      },
+      "terminal_result": {
+        "halt_record_ref": {
+          "halt_record_id": "halt_b05a7b64",
+          "halt_record_path": "data/halt_vocabulary_v0_demo/halt_records/halt_b05a7b64.json"
+        },
+        "stop_code": "STOP_TAXONOMY_GAP",
+        "type": "STOP"
+      }
+    },
+    "halt_b3f91dcc": {
+      "halt_code": "STOP_NEXT_MOVE_BOUNDARY",
+      "halt_family": "PROCEED_MODE",
+      "halt_record_id": "halt_b3f91dcc",
+      "record_path": "data/halt_vocabulary_v0_demo/halt_records/halt_b3f91dcc.json",
+      "source_ledger_ref": {
+        "ledger_id": "7fe12905",
+        "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/7fe12905.json"
+      },
+      "source_readout_ref": {
+        "readout_id": "8e700878",
+        "readout_path": "data/proceed_adapter_v0_demo_readouts/8e700878.json"
+      },
+      "source_receipt_ref": {
+        "receipt_id": "201f2d8f",
+        "receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/201f2d8f.json"
+      },
+      "source_trace_ref": {
+        "trace_id": "1c1e2bc9",
+        "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/1c1e2bc9.json"
+      },
+      "taxonomy_pressure": {
+        "status": "NONE",
+        "taxonomy_delta_applied": false,
+        "taxonomy_delta_promoted": false
+      },
+      "terminal_result": {
+        "halt_record_ref": {
+          "halt_record_id": "halt_b3f91dcc",
+          "halt_record_path": "data/halt_vocabulary_v0_demo/halt_records/halt_b3f91dcc.json"
+        },
+        "stop_code": "STOP_NEXT_MOVE_BOUNDARY",
+        "type": "STOP"
+      }
+    }
+  },
+  "failures": [],
+  "gate": "PASS",
+  "output_artifacts": {
+    "day3_demo_halt_receipts": "data/halt_vocabulary_v0_demo/day3_demo_halt_receipts.json",
+    "day3_demo_halt_record_plan": "data/halt_vocabulary_v0_demo/day3_demo_halt_record_plan_v0.json",
+    "day3_demo_halt_records_jsonl": "data/halt_vocabulary_v0_demo/day3_demo_halt_records.jsonl",
+    "demo_halt_record_files": {
+      "halt_723bc72b": "data/halt_vocabulary_v0_demo/halt_records/halt_723bc72b.json",
+      "halt_8794163e": "data/halt_vocabulary_v0_demo/halt_records/halt_8794163e.json",
+      "halt_b05a7b64": "data/halt_vocabulary_v0_demo/halt_records/halt_b05a7b64.json",
+      "halt_b3f91dcc": "data/halt_vocabulary_v0_demo/halt_records/halt_b3f91dcc.json"
+    },
+    "halt_classifier_priority": "data/halt_classifier_priorities/halt_classifier_priority_v0.json",
+    "halt_family_table": "data/halt_family_tables/halt_family_table_v0.json",
+    "halt_record_schema": "data/halt_record_schemas/halt_record_schema_v0.json",
+    "halt_to_next_handling_table": "data/halt_to_next_handling_tables/halt_to_next_handling_table_v0.json",
+    "halt_vocabulary": "data/halt_vocabulary_v0/halt_vocabulary_v0.json",
+    "proceed_readout_halt_patch": "data/halt_schema_patches/proceed_readout_halt_patch_v0.json",
+    "runner_receipt_halt_patch": "data/halt_schema_patches/runner_receipt_halt_patch_v0.json",
+    "trace_entry_halt_patch": "data/halt_schema_patches/trace_entry_halt_patch_v0.json"
+  },
+  "receipt_id": "75eabbe2",
+  "receipt_type": "HALT_VOCABULARY_V0_IMPLEMENTATION_RECEIPT",
+  "schema_version": "halt_vocabulary_v0_implementation_receipt_v0",
+  "source_halt_vocabulary_policy_id": "0707a2d7",
+  "source_halt_vocabulary_policy_receipt_id": "dc00a5cf",
+  "source_local_regime_hash": "25802530",
+  "source_proceed_adapter_implementation_receipt_id": "363d2f4a",
+  "source_proposal_ledger_schema_id": "eee2a318",
+  "source_trace_ledger_implementation_receipt_id": "cc24a11f",
+  "source_trace_schema_id": "b4887660",
+  "target_unit_id": "halt_vocabulary.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  },
+  "unit_id": "IMPLEMENT_HALT_VOCABULARY_V0_WITH_DEMO_RECORDS_V0",
+  "warnings": []
+}
+halt_vocabulary_implementation_receipt_id=75eabbe2
+halt_vocabulary_implementation_receipt_path=data/halt_vocabulary_v0_implementation_receipts/75eabbe2.json
+artifact_day3_demo_halt_receipts_path=data/halt_vocabulary_v0_demo/day3_demo_halt_receipts.json
+artifact_day3_demo_halt_record_plan_path=data/halt_vocabulary_v0_demo/day3_demo_halt_record_plan_v0.json
+artifact_day3_demo_halt_records_jsonl_path=data/halt_vocabulary_v0_demo/day3_demo_halt_records.jsonl
+artifact_halt_classifier_priority_path=data/halt_classifier_priorities/halt_classifier_priority_v0.json
+artifact_halt_family_table_path=data/halt_family_tables/halt_family_table_v0.json
+artifact_halt_record_schema_path=data/halt_record_schemas/halt_record_schema_v0.json
+artifact_halt_to_next_handling_table_path=data/halt_to_next_handling_tables/halt_to_next_handling_table_v0.json
+artifact_halt_vocabulary_path=data/halt_vocabulary_v0/halt_vocabulary_v0.json
+artifact_proceed_readout_halt_patch_path=data/halt_schema_patches/proceed_readout_halt_patch_v0.json
+artifact_runner_receipt_halt_patch_path=data/halt_schema_patches/runner_receipt_halt_patch_v0.json
+artifact_trace_entry_halt_patch_path=data/halt_schema_patches/trace_entry_halt_patch_v0.json
+demo_halt_record_halt_723bc72b_path=data/halt_vocabulary_v0_demo/halt_records/halt_723bc72b.json
+demo_halt_record_halt_8794163e_path=data/halt_vocabulary_v0_demo/halt_records/halt_8794163e.json
+demo_halt_record_halt_b05a7b64_path=data/halt_vocabulary_v0_demo/halt_records/halt_b05a7b64.json
+demo_halt_record_halt_b3f91dcc_path=data/halt_vocabulary_v0_demo/halt_records/halt_b3f91dcc.json
+HALT_VOCABULARY_IMPLEMENTATION_RECEIPT_ID=75eabbe2
+HALT_VOCABULARY_IMPLEMENTATION_RECEIPT_PATH=data/halt_vocabulary_v0_implementation_receipts/75eabbe2.json
+
+ASSERT_HALT_VOCABULARY_IMPLEMENTATION
+{
+  "acceptance_gate_results": {
+    "HVI0_source_policy_verified": true,
+    "HVI1_core_artifacts_emitted": true,
+    "HVI2_vocabulary_four_field_rule_verified": true,
+    "HVI3_halt_record_schema_verified": true,
+    "HVI4_demo_halt_records_emitted": true,
+    "HVI5_demo_halt_receipts_emitted": true,
+    "HVI6_alias_and_taxonomy_record_only_verified": true,
+    "HVI7_no_source_artifact_mutation": true
+  },
+  "aggregate_metrics": {
+    "advance_terminal_as_halt_count": 0,
+    "canonical_halt_entry_count": 21,
+    "demo_halt_receipt_count": 4,
+    "demo_halt_record_count": 4,
+    "demo_receipt_validation_failure_count": 0,
+    "halt_as_proof_claim_count": 0,
+    "halt_as_truth_claim_count": 0,
+    "halt_family_count": 10,
+    "halt_record_validation_failure_count": 0,
+    "halt_route_count": 21,
+    "hidden_continuation_count": 0,
+    "new_move_added_count": 0,
+    "proposal_executed_count": 0,
+    "proposal_promoted_count": 0,
+    "registry_sqlite_write_count": 0,
+    "registry_write_count": 0,
+    "source_ledger_modified_count": 0,
+    "source_receipt_modified_count": 0,
+    "source_regime_modified_count": 0,
+    "source_runner_modified_count": 0,
+    "source_trace_modified_count": 0,
+    "stop_terminal_count": 4,
+    "taxonomy_delta_applied_count": 0,
+    "taxonomy_delta_promoted_count": 0
+  },
+  "authority_guards": {
+    "day3_demo_halt_receipts_emitted": true,
+    "day3_demo_halt_record_plan_artifact_emitted": true,
+    "day3_demo_halt_records_emitted": true,
+    "final_schema_claimed": false,
+    "global_taxonomy_claimed": false,
+    "halt_as_proof_claimed": false,
+    "halt_as_truth_claimed": false,
+    "halt_classifier_priority_artifact_emitted": true,
+    "halt_family_table_artifact_emitted": true,
+    "halt_record_schema_artifact_emitted": true,
+    "halt_to_next_handling_table_artifact_emitted": true,
+    "halt_vocabulary_artifact_emitted": true,
+    "hidden_continuation_authorized": false,
+    "implementation_receipt_emitted": true,
+    "new_move_added": false,
+    "proceed_readout_halt_patch_artifact_emitted": true,
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_promoted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_receipt_halt_patch_artifact_emitted": true,
+    "source_ledger_modified": false,
+    "source_local_regime_v1_modified": false,
+    "source_proceed_adapter_modified": false,
+    "source_receipt_modified": false,
+    "source_trace_ledger_runner_modified": false,
+    "source_trace_modified": false,
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false,
+    "trace_entry_halt_patch_artifact_emitted": true
+  },
+  "gate": "PASS",
+  "receipt_id": "75eabbe2",
+  "source_halt_vocabulary_policy_id": "0707a2d7",
+  "target_unit_id": "halt_vocabulary.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROLS_HALT_VOCABULARY_IMPLEMENTATION_NON_WRITING
+{
+  "case": "advance_terminal_as_halt_fail",
+  "failures": [
+    "advance_terminal_as_halt_count_nonzero:1"
+  ]
+}
+{
+  "case": "taxonomy_delta_applied_fail",
+  "failures": [
+    "metric_not_zero:taxonomy_delta_applied_count:1"
+  ]
+}
+{
+  "case": "halt_as_proof_claim_fail",
+  "failures": [
+    "metric_not_zero:halt_as_proof_claim_count:1"
+  ]
+}
+{
+  "case": "new_move_added_guard_fail",
+  "failures": [
+    "authority_guard_not_false:new_move_added:True"
+  ]
+}
+{
+  "case": "source_trace_modified_guard_fail",
+  "failures": [
+    "authority_guard_not_false:source_trace_modified:True"
+  ]
+}
+{
+  "case": "hidden_next_fail",
+  "failures": [
+    "terminal_next_not_null:{'next_command_goal': 'HIDDEN_NEXT', 'stop_code': 'STOP_DONE', 'type': 'STOP'}"
+  ]
+}
+{
+  "case": "policy_next_goal_fail",
+  "failures": [
+    "policy_terminal_next_wrong:WRONG_NEXT"
+  ]
+}
+Traceback (most recent call last):
+  File "<stdin>", line 72, in <module>
+  File "/usr/lib/python3.14/json/__init__.py", line 345, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+                    f'not {s.__class__.__name__}')
+TypeError: the JSON object must be str, bytes or bytearray, not list
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

@@ -1,0 +1,417 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_000555
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_000555.txt
+
+ADD_SCALABILITY_CONTRACT_V0
+
+STATUS_BEFORE
+
+BACKUP
+CLI_SIG=9cc137391830
+BACKUP=/tmp/matrixlab_cli_before_scalability_contract_9cc137391830.py
+
+PATCH_GITIGNORE
+
+PATCH_CLI_SCALABILITY_CONTRACT
+
+PY_COMPILE
+
+HELP_SMOKE
+help smoke ok
+
+BUILD_SCALABILITY_CONTRACT_POSITIVE
+{
+  "baseline": {
+    "aggregate_coarse_profiles_total": 9,
+    "aggregate_raw_total_by_slot_sum": 451,
+    "confidence_scope": "RADIUS_50_SLOT_SEPARATED_PROBE_ONLY",
+    "domain_shift_generator_id": "da466dc2",
+    "gate": "PASS",
+    "observation_id": "566a342b",
+    "outcome": "MEASUREMENT_TRANSFER_STABLE_CURVE",
+    "radius": 50,
+    "receipt_rows_sum": 21348,
+    "semantic_pressure_detected": false,
+    "slot_count_expected": 9,
+    "slot_count_observed": 9,
+    "slot_execution_id": "74358d77",
+    "source_support_id": "54890760",
+    "terminal_type": "ADVANCE",
+    "total_receipts_sum": 21348,
+    "transfer_contract_id": "50a01dcd"
+  },
+  "baseline_linkage_check": {
+    "baseline_generator_resolves": true,
+    "baseline_generator_sig_matches": true,
+    "baseline_observation_resolves": true,
+    "baseline_observation_sig_matches": true,
+    "baseline_slot_execution_resolves": true,
+    "baseline_slot_execution_sig_matches": true,
+    "baseline_support_resolves": true,
+    "baseline_support_sig_matches": true,
+    "baseline_transfer_contract_resolves": true,
+    "baseline_transfer_contract_sig_matches": true
+  },
+  "contract_id": "ba39cd7b",
+  "contract_kind": "POST_R50_PRE_R75_FIRST_ORDER_OBSERVATION_CONTRACT",
+  "contract_schema_version": "scalability_contract_v0",
+  "contract_sig8": "ba39cd7b",
+  "delta_classes": [
+    "SAME_SHAPES_SAME_COUNTS",
+    "SAME_SHAPES_COUNT_SHIFT",
+    "NEW_SHAPE_OBSERVED",
+    "MISSING_SHAPE_OBSERVED",
+    "REPEATED_FAMILY_INCONSISTENT",
+    "UNCLASSIFIED_DELTA"
+  ],
+  "execution_shape": "KEEP_9_SLOT_SEPARATED_RUNS",
+  "failure_classes": [
+    "STOP_MEASUREMENT_FAILURE",
+    "STOP_RESOURCE_BOUNDARY",
+    "STOP_IDENTITY_DISTINGUISHABILITY_DEFICIT",
+    "STOP_ONTOLOGY_PRESSURE",
+    "STOP_UNCLASSIFIED_DELTA"
+  ],
+  "failures": [],
+  "forbidden": {
+    "add_new_cell_types": true,
+    "add_new_domain_shift_families": true,
+    "add_new_theorem_layers": true,
+    "alter_existing_gate_semantics": true,
+    "alter_existing_run_semantics": true,
+    "alter_move_registry_semantics": true,
+    "implement_caching": true,
+    "implement_compression": true,
+    "select_representative_subset": true,
+    "skip_receipts": true,
+    "treat_contract_as_proof_of_future_scale": true,
+    "treat_r50_as_global_scalability_proof": true
+  },
+  "gate": "PASS",
+  "layer": "OUTER_MIDDLE_BOUNDARY_OBJECT",
+  "next_scale_step": "RADIUS_75_SLOT_SEPARATED",
+  "non_failure_continuation_classes": [
+    "CURVE_STABLE_CONTINUE",
+    "CURVE_CHANGED_CONTINUE_MEASUREMENT",
+    "PROVISIONAL_R50_R75_ENVELOPE"
+  ],
+  "r50_r75_comparison_artifact": "radius_scale_observation_v0",
+  "r75_decision_rule": {
+    "delta_unclassified": "STOP_UNCLASSIFIED_DELTA",
+    "measurement_fails": "STOP_MEASUREMENT_FAILURE",
+    "new_or_shifted_shapes_cleanly_classified": "CURVE_CHANGED_CONTINUE_MEASUREMENT",
+    "repeated_family_consistency_breaks": "STOP_IDENTITY_DISTINGUISHABILITY_DEFICIT",
+    "resource_envelope_exceeded": "STOP_RESOURCE_BOUNDARY",
+    "same_shapes_acceptable_burden": [
+      "CURVE_STABLE_CONTINUE",
+      "PROVISIONAL_R50_R75_ENVELOPE"
+    ],
+    "semantic_pressure_appears": "STOP_ONTOLOGY_PRESSURE"
+  },
+  "r75_observation_gate": "RADIUS_SCALE_OBSERVATION_GATE_V0",
+  "r75_observation_gate_pass_requirements": [
+    "R75 observation gate passes",
+    "R75 verification gate passes",
+    "slot_count_observed = slot_count_expected = 9",
+    "sigs match",
+    "no receipt mismatches",
+    "no dirty slots",
+    "no eval-gate failures",
+    "no unresolved slot execution/support/generator/contract",
+    "semantic pressure fields are explicit",
+    "delta_vs_radius_50 exists",
+    "delta_class is assigned",
+    "terminal decision is explicit"
+  ],
+  "representative_subset_status": "NOT_LICENSED_AT_V0",
+  "required_r75_artifact": "domain_shift_slot_observation_v0 with radius=75",
+  "required_r75_fields": [
+    "radius",
+    "confidence_scope",
+    "slot_count_expected",
+    "slot_count_observed",
+    "measurement_cleanliness",
+    "repeated_family_consistency",
+    "aggregate_by_family",
+    "aggregate_by_move",
+    "aggregate_coarse_profiles",
+    "aggregate_coarse_profiles_total",
+    "aggregate_raw_total_by_slot_sum",
+    "semantic_pressure",
+    "semantic_pressure_detected",
+    "delta_vs_radius_50",
+    "delta_class",
+    "normalized_deltas_if_available",
+    "operator_burden_v0_if_available",
+    "terminal_decision"
+  ],
+  "secondary_metrics": [
+    "receipt_burden",
+    "runtime_burden_if_available",
+    "slot_consistency",
+    "identity_distinguishability",
+    "semantic_pressure",
+    "operator_burden_if_available",
+    "resource_boundary_if_observable"
+  ],
+  "target_metric": "first_order_curve_stability",
+  "terminal": {
+    "next_command_goal": "RUN_RADIUS_75_SLOT_SEPARATED_UNDER_SCALABILITY_CONTRACT_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "verification_result": {
+    "failures": [],
+    "gate": "PASS",
+    "warnings": []
+  },
+  "warnings": []
+}
+contract_path: data/scalability_contracts/ba39cd7b.json
+CONTRACT_ID=ba39cd7b
+
+VERIFY_SCALABILITY_CONTRACT_POSITIVE
+{
+  "baseline_linkage_check": {
+    "baseline_generator_resolves": true,
+    "baseline_generator_sig_matches": true,
+    "baseline_observation_resolves": true,
+    "baseline_observation_sig_matches": true,
+    "baseline_slot_execution_resolves": true,
+    "baseline_slot_execution_sig_matches": true,
+    "baseline_support_resolves": true,
+    "baseline_support_sig_matches": true,
+    "baseline_transfer_contract_resolves": true,
+    "baseline_transfer_contract_sig_matches": true
+  },
+  "baseline_observation_check": {
+    "aggregate_coarse_profiles_total": 9,
+    "aggregate_raw_total_by_slot_sum": 451,
+    "gate": "PASS",
+    "measurement_cleanliness_clean": true,
+    "outcome": "MEASUREMENT_TRANSFER_STABLE_CURVE",
+    "repeated_family_consistency_clean": true,
+    "semantic_pressure_detected": false,
+    "slot_count_expected": 9,
+    "slot_count_observed": 9,
+    "terminal_type": "ADVANCE"
+  },
+  "baseline_observation_id": "566a342b",
+  "contract_id": "ba39cd7b",
+  "contract_path": "data/scalability_contracts/ba39cd7b.json",
+  "contract_recomputed_sig8": "ba39cd7b",
+  "contract_sig8": "ba39cd7b",
+  "failures": [],
+  "gate": "PASS",
+  "input_contract": "ba39cd7b",
+  "terminal": {
+    "next_command_goal": "RUN_RADIUS_75_SLOT_SEPARATED_UNDER_SCALABILITY_CONTRACT_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "verification_id": "507f4ee8",
+  "verification_result": {
+    "failures": [],
+    "gate": "PASS",
+    "warnings": []
+  },
+  "verification_schema_version": "scalability_contract_verification_v0",
+  "verification_sig8": "507f4ee8",
+  "warnings": []
+}
+verification_path: data/scalability_contract_verifications/507f4ee8.json
+
+ASSERT_SCALABILITY_CONTRACT_POSITIVE
+{
+  "baseline_confidence_scope": "RADIUS_50_SLOT_SEPARATED_PROBE_ONLY",
+  "baseline_domain_shift_generator_id": "da466dc2",
+  "baseline_linkage_check": {
+    "baseline_generator_resolves": true,
+    "baseline_generator_sig_matches": true,
+    "baseline_observation_resolves": true,
+    "baseline_observation_sig_matches": true,
+    "baseline_slot_execution_resolves": true,
+    "baseline_slot_execution_sig_matches": true,
+    "baseline_support_resolves": true,
+    "baseline_support_sig_matches": true,
+    "baseline_transfer_contract_resolves": true,
+    "baseline_transfer_contract_sig_matches": true
+  },
+  "baseline_observation_id": "566a342b",
+  "baseline_radius": 50,
+  "baseline_receipt_rows_sum": 21348,
+  "baseline_slot_execution_id": "74358d77",
+  "baseline_source_support_id": "54890760",
+  "baseline_total_receipts_sum": 21348,
+  "baseline_transfer_contract_id": "50a01dcd",
+  "contract_id": "ba39cd7b",
+  "contract_kind": "POST_R50_PRE_R75_FIRST_ORDER_OBSERVATION_CONTRACT",
+  "contract_sig8": "ba39cd7b",
+  "execution_shape": "KEEP_9_SLOT_SEPARATED_RUNS",
+  "gate": "PASS",
+  "next_scale_step": "RADIUS_75_SLOT_SEPARATED",
+  "recomputed_sig8": "ba39cd7b",
+  "representative_subset_status": "NOT_LICENSED_AT_V0",
+  "sig_matches": true,
+  "target_metric": "first_order_curve_stability",
+  "terminal": {
+    "next_command_goal": "RUN_RADIUS_75_SLOT_SEPARATED_UNDER_SCALABILITY_CONTRACT_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "verification_gate": "PASS"
+}
+
+NEGATIVE_CONTROL_UNRESOLVED_BASELINE_OBSERVATION
+{
+  "baseline": {
+    "observation_id": "definitely_missing_r50_observation"
+  },
+  "baseline_linkage_check": {},
+  "contract_id": "6bd5f36d",
+  "contract_kind": "POST_R50_PRE_R75_FIRST_ORDER_OBSERVATION_CONTRACT",
+  "contract_schema_version": "scalability_contract_v0",
+  "contract_sig8": "6bd5f36d",
+  "delta_classes": [],
+  "execution_shape": "KEEP_9_SLOT_SEPARATED_RUNS",
+  "failure_classes": [],
+  "failures": [
+    "baseline_observation_unresolved:definitely_missing_r50_observation:could not resolve 'definitely_missing_r50_observation' under data/domain_shift_slot_observations"
+  ],
+  "forbidden": {},
+  "gate": "FAIL",
+  "layer": "OUTER_MIDDLE_BOUNDARY_OBJECT",
+  "next_scale_step": "RADIUS_75_SLOT_SEPARATED",
+  "non_failure_continuation_classes": [],
+  "r50_r75_comparison_artifact": "radius_scale_observation_v0",
+  "r75_decision_rule": {},
+  "r75_observation_gate": "RADIUS_SCALE_OBSERVATION_GATE_V0",
+  "r75_observation_gate_pass_requirements": [],
+  "representative_subset_status": "NOT_LICENSED_AT_V0",
+  "required_r75_artifact": "domain_shift_slot_observation_v0 with radius=75",
+  "required_r75_fields": [],
+  "secondary_metrics": [
+    "receipt_burden",
+    "runtime_burden_if_available",
+    "slot_consistency",
+    "identity_distinguishability",
+    "semantic_pressure",
+    "operator_burden_if_available",
+    "resource_boundary_if_observable"
+  ],
+  "target_metric": "first_order_curve_stability",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CONTRACT_BUILD_FAIL",
+    "type": "STOP"
+  },
+  "verification_result": {
+    "failures": [
+      "baseline_observation_unresolved:definitely_missing_r50_observation:could not resolve 'definitely_missing_r50_observation' under data/domain_shift_slot_observations"
+    ],
+    "gate": "FAIL",
+    "warnings": []
+  },
+  "warnings": []
+}
+contract_path: data/scalability_contracts/6bd5f36d.json
+
+ASSERT_NEGATIVE_CONTROL
+{
+  "contract_id": "6bd5f36d",
+  "failures": [
+    "baseline_observation_unresolved:definitely_missing_r50_observation:could not resolve 'definitely_missing_r50_observation' under data/domain_shift_slot_observations"
+  ],
+  "gate": "FAIL",
+  "path": "data/scalability_contracts/6bd5f36d.json",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CONTRACT_BUILD_FAIL",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROL_MISSING_CONTRACT_VERIFY
+{
+  "baseline_linkage_check": {},
+  "baseline_observation_check": {},
+  "baseline_observation_id": null,
+  "contract_id": "definitely_missing_contract",
+  "contract_path": null,
+  "contract_recomputed_sig8": null,
+  "contract_sig8": null,
+  "failures": [
+    "contract_unresolved:definitely_missing_contract:could not resolve 'definitely_missing_contract' under data/scalability_contracts"
+  ],
+  "gate": "FAIL",
+  "input_contract": "definitely_missing_contract",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_GATE_FAIL",
+    "type": "STOP"
+  },
+  "verification_id": "f1667b7c",
+  "verification_result": {
+    "failures": [
+      "contract_unresolved:definitely_missing_contract:could not resolve 'definitely_missing_contract' under data/scalability_contracts"
+    ],
+    "gate": "FAIL",
+    "warnings": []
+  },
+  "verification_schema_version": "scalability_contract_verification_v0",
+  "verification_sig8": "f1667b7c",
+  "warnings": []
+}
+verification_path: data/scalability_contract_verifications/f1667b7c.json
+
+ASSERT_NEGATIVE_VERIFY
+{
+  "failures": [
+    "contract_unresolved:definitely_missing_contract:could not resolve 'definitely_missing_contract' under data/scalability_contracts"
+  ],
+  "gate": "FAIL",
+  "path": "data/scalability_contract_verifications/f1667b7c.json",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_GATE_FAIL",
+    "type": "STOP"
+  },
+  "verification_id": "f1667b7c"
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260619_223630_696427
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    48 │
+│ total_receipts │  2400 │
+│ receipt_rows   │  2400 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    48 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore           |   6 +
+ src/matrixlab/cli.py | 688 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 694 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+ M src/matrixlab/cli.py
+[master 4a14f1624] add scalability contract
+ 2 files changed, 694 insertions(+)
+
+COMMIT_DONE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

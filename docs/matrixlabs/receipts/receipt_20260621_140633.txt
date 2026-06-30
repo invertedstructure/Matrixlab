@@ -1,0 +1,479 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_140633
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_140633.txt
+
+BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_POLICY
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_POLICY_BUILDER
+
+PY_COMPILE
+
+BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_POLICY
+{
+  "authority": {
+    "authorized_next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_PROBE",
+    "authorizes_audit_pointer_in_signature_payload": false,
+    "authorizes_bounded_v0_3_probe_execution": true,
+    "authorizes_candidate_acceptance": false,
+    "authorizes_case_id_or_cycle_n_primary_identity_patch": false,
+    "authorizes_debug_payload_in_signature_payload": false,
+    "authorizes_full_registry_scan": false,
+    "authorizes_next_candidate_probe_implementation": true,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_registry_write": false,
+    "authorizes_rowid_identity_patch": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_mode": false,
+    "authorizes_v0_3_policy_only": true,
+    "observer_only": true
+  },
+  "candidate_design_id": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3",
+  "candidate_design_summary": {
+    "allowed_delta_bucket_columns": [
+      "row_delta",
+      "col_delta",
+      "rank_delta",
+      "support_delta",
+      "distinct_column_types_before",
+      "distinct_column_types_after",
+      "new_column_types_added",
+      "compression_ratio"
+    ],
+    "forbidden_primary_identity_patch": [
+      "case_id",
+      "cycle_n",
+      "rowid",
+      "receipt_hash",
+      "audit_pointer",
+      "full_occurrence_key"
+    ],
+    "new_lawful_discriminator": "transition_delta_buckets",
+    "primary_blocker": "REPEATED_TRANSITION_SIGNATURE_COLLAPSES_DISTINCT_OCCURRENCES",
+    "v0_2_rejected_for_scale_acceptance": true
+  },
+  "created_at": "2026-06-21T13:06:34.012122+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "implementation_constraints": {
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_registry_sqlite": true,
+    "must_not_change_runtime_receipt_emission": true,
+    "must_not_full_registry_scan": true,
+    "must_not_modify_files": [
+      "src/",
+      "app/",
+      "matrixlab/",
+      "scripts/stable_delta_signature_candidate_v0_2_scale_band_probe.py",
+      "scripts/diagnose_bounded_scale_false_merges_v0.py",
+      "scripts/build_bounded_scale_band_selection_policy_v0.py",
+      "scripts/stable_delta_signature_candidate_v0_2_probe.py",
+      "scripts/canonical_transition_surface_probe_v0.py"
+    ],
+    "must_reuse_bounded_source_probe_surface": true,
+    "must_touch_only_files": [
+      "scripts/stable_delta_signature_candidate_v0_3_probe.py"
+    ]
+  },
+  "policy_id": "78a6fbec",
+  "policy_name": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_POLICY",
+  "policy_path": "data/stable_delta_signature_candidate_v0_3_policies/78a6fbec.json",
+  "policy_sig8": "78a6fbec",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_id": "d8c99bbc",
+  "receipt_sig8": "d8c99bbc",
+  "schema_version": "stable_delta_signature_candidate_v0_3_policy_receipt_v0",
+  "source_bounded_policy_id": "b79955ce",
+  "source_bounded_scale_probe_id": "227e9426",
+  "source_bounded_scale_receipt_id": "0ae57255",
+  "source_diagnostic_id": "62c8d96c",
+  "source_diagnostic_receipt_id": "b88d3818",
+  "source_v02_probe_id": "bcdb3d93",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_PROBE",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+policy_id=78a6fbec
+policy_json_path=data/stable_delta_signature_candidate_v0_3_policies/78a6fbec.json
+policy_receipt_path=data/stable_delta_signature_candidate_v0_3_policy_receipts/78a6fbec.json
+V03_POLICY_ID=78a6fbec
+
+ASSERT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_POLICY
+{
+  "authority": {
+    "authorized_next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_PROBE",
+    "authorizes_audit_pointer_in_signature_payload": false,
+    "authorizes_bounded_v0_3_probe_execution": true,
+    "authorizes_candidate_acceptance": false,
+    "authorizes_case_id_or_cycle_n_primary_identity_patch": false,
+    "authorizes_debug_payload_in_signature_payload": false,
+    "authorizes_full_registry_scan": false,
+    "authorizes_next_candidate_probe_implementation": true,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_registry_write": false,
+    "authorizes_rowid_identity_patch": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_mode": false,
+    "authorizes_v0_3_policy_only": true,
+    "observer_only": true
+  },
+  "candidate_design": {
+    "base_transition_tuple_retained": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after"
+    ],
+    "bounded_evaluation_surface": {
+      "bands_total": 266,
+      "bounded_default_required": true,
+      "compatible_run_count": 10,
+      "failed_bands_to_retest": 10,
+      "full_registry_forbidden": true,
+      "source_policy_id": "b79955ce",
+      "source_scale_probe_id": "227e9426",
+      "source_scale_receipt_id": "0ae57255"
+    },
+    "candidate_design_id": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3",
+    "design_hypothesis": "Promote lawful compact transition-delta buckets from debug sidecar into the candidate signature payload. The bounded false-merge diagnostic showed compact_delta_debug differed across all collision groups, while v0.2 payloads were identical.",
+    "design_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+    "explicit_non_solutions": [
+      "Do not add case_id as primary identity.",
+      "Do not add cycle_n as primary identity.",
+      "Do not add rowid or receipt_rowid.",
+      "Do not add full_occurrence_key.",
+      "Do not add raw receipt hash or receipt hash.",
+      "Do not add audit pointer to signature payload.",
+      "Do not add debug payload to signature payload.",
+      "Do not full-registry scan.",
+      "Do not accept candidate from policy construction."
+    ],
+    "new_lawful_discriminator": {
+      "allowed_source_columns": [
+        "row_delta",
+        "col_delta",
+        "rank_delta",
+        "support_delta",
+        "distinct_column_types_before",
+        "distinct_column_types_after",
+        "new_column_types_added",
+        "compression_ratio"
+      ],
+      "construction": "canonical bucketized map of available transition-delta metrics; omitted metrics must be explicitly recorded as absent rather than fabricated",
+      "kind": "LAWFUL_TRANSITION_DELTA_DISCRIMINATOR",
+      "must_be_measured_as_signature_payload": true,
+      "must_be_measured_separately_from_debug_sidecar": true,
+      "must_report_delta_bucket_coverage": true,
+      "must_report_delta_bucket_discriminative_power": true,
+      "name": "transition_delta_buckets",
+      "source": "existing registry receipt delta columns only"
+    },
+    "pass_gates_for_next_probe": {
+      "audit_recoverability": "audit pointer remains outside signature payload and points back to source registry rows",
+      "authority_containment": "observer-only, no registry writes, no runtime receipt changes, no scale mode, no acceptance",
+      "bounded_selection": "must reuse bounded default surface unless explicit later policy changes it",
+      "burden_reduction": "projected v0.3 burden must remain below full receipt burden",
+      "delta_bucket_coverage": "every row must report present/absent coverage for allowed delta columns",
+      "no_false_merge_on_failed_bands": "v0.3 must clear the known 10 failed bounded bands or stop",
+      "no_identity_leak": "payload excludes case_id/cycle_n as primary identity, rowid, audit pointer, full occurrence key, receipt hashes, paths, timestamps",
+      "source_surface_regression": "state_sig8_before, move_id, state_sig8_after, and allowed delta columns must be inspected honestly",
+      "truth_surface": "compare full_occurrence_key to candidate_delta_signature, never raw receipt hashes"
+    },
+    "reason_for_v0_3": "v0.2 transition tuple caused repeated transition signatures to collapse distinct bounded-scale occurrences.",
+    "signature_payload_forbidden_fields": [
+      "full_occurrence_key",
+      "raw_full_receipt_hash",
+      "full_receipt_hash",
+      "receipt_hash",
+      "receipt_sig8",
+      "receipt_rowid",
+      "rowid",
+      "audit_pointer",
+      "debug_payload",
+      "observer_notes",
+      "created_at",
+      "created_utc",
+      "timestamp",
+      "path",
+      "receipt_path",
+      "file_path",
+      "case_id_as_primary_identity",
+      "cycle_n_as_primary_identity",
+      "case_id",
+      "cycle_n",
+      "depth_as_primary_identity"
+    ],
+    "signature_payload_required_fields": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after",
+      "transition_delta_buckets"
+    ],
+    "terminal_decisions_for_next_probe": {
+      "FAIL_V0_3_BURDEN_REGRESSION": "Use when v0.3 projected burden is not below full receipt burden.",
+      "FAIL_V0_3_FALSE_MERGE_PERSISTS": "Use when the 10 known bounded false-merge bands still collide.",
+      "FAIL_V0_3_IDENTITY_LEAK": "Use when forbidden identity/audit/receipt fields enter signature payload.",
+      "FAIL_V0_3_OBSERVER_INTERFERENCE": "Use when registry/runtime/receipt emission/authority is mutated.",
+      "FAIL_V0_3_SOURCE_SURFACE_REGRESSION": "Use when required transition or delta fields are missing without honest absent-field accounting.",
+      "PASS_V0_3_BOUNDED_FALSE_MERGE_REPAIR": "Use when v0.3 clears known bounded false merges with burden reduction and authority containment."
+    },
+    "truth_surface": "full_occurrence_key_to_candidate_delta_signature",
+    "v0_2_rejected_for_scale_acceptance": true
+  },
+  "candidate_design_id": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3",
+  "failures": [],
+  "gate": "PASS",
+  "implementation_constraints": {
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_registry_sqlite": true,
+    "must_not_change_runtime_receipt_emission": true,
+    "must_not_full_registry_scan": true,
+    "must_not_modify_files": [
+      "src/",
+      "app/",
+      "matrixlab/",
+      "scripts/stable_delta_signature_candidate_v0_2_scale_band_probe.py",
+      "scripts/diagnose_bounded_scale_false_merges_v0.py",
+      "scripts/build_bounded_scale_band_selection_policy_v0.py",
+      "scripts/stable_delta_signature_candidate_v0_2_probe.py",
+      "scripts/canonical_transition_surface_probe_v0.py"
+    ],
+    "must_reuse_bounded_source_probe_surface": true,
+    "must_touch_only_files": [
+      "scripts/stable_delta_signature_candidate_v0_3_probe.py"
+    ]
+  },
+  "policy_id": "78a6fbec",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_id": "d8c99bbc",
+  "source_diagnostic_id": "62c8d96c",
+  "source_diagnostic_receipt_id": "b88d3818",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_PROBE",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_POLICY
+{
+  "case": "diagnosis_status_fail",
+  "expected": "diagnosis_status_wrong",
+  "failures": [
+    "diagnosis_status_wrong:UNDIAGNOSED"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_not_false_merge_fail",
+  "expected": "source_terminal_not_FAIL_SCALE_FALSE_MERGE",
+  "failures": [
+    "source_terminal_not_FAIL_SCALE_FALSE_MERGE:PASS_SCALE_BANDS_OBSERVER_ONLY"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "full_registry_source_fail",
+  "expected": "source_used_full_registry",
+  "failures": [
+    "source_used_full_registry:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "classification_fail",
+  "expected": "classification_wrong",
+  "failures": [
+    "classification_wrong:OTHER"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "compact_delta_not_supported_fail",
+  "expected": "compact_delta_debug_not_observed_as_differing",
+  "failures": [
+    "compact_delta_debug_not_observed_as_differing"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "v02_not_rejected_fail",
+  "expected": "decision_expected_true:candidate_v0_2_rejected_for_scale_acceptance",
+  "failures": [
+    "decision_expected_true:candidate_v0_2_rejected_for_scale_acceptance:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "case_cycle_identity_patch_allowed_fail",
+  "expected": "decision_expected_true:do_not_patch_by_adding_case_id_or_cycle_n_as_primary_identity",
+  "failures": [
+    "decision_expected_true:do_not_patch_by_adding_case_id_or_cycle_n_as_primary_identity:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "diagnostic_case_cycle_authority_fail",
+  "expected": "diagnostic_illegal_authority:authorizes_case_id_or_cycle_n_primary_identity_patch",
+  "failures": [
+    "diagnostic_illegal_authority:authorizes_case_id_or_cycle_n_primary_identity_patch:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_scale_full_registry_fail",
+  "expected": "source_scale_used_full_registry",
+  "failures": [
+    "source_scale_used_full_registry"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_scale_false_merge_gate_hidden_fail",
+  "expected": "source_scale_false_merge_gate_not_false",
+  "failures": [
+    "source_scale_false_merge_gate_not_false"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_POLICY_HEAD_JSON
+{
+  "authority": {
+    "authorized_next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_PROBE",
+    "authorizes_audit_pointer_in_signature_payload": false,
+    "authorizes_bounded_v0_3_probe_execution": true,
+    "authorizes_candidate_acceptance": false,
+    "authorizes_case_id_or_cycle_n_primary_identity_patch": false,
+    "authorizes_debug_payload_in_signature_payload": false,
+    "authorizes_full_registry_scan": false,
+    "authorizes_next_candidate_probe_implementation": true,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_registry_write": false,
+    "authorizes_rowid_identity_patch": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_mode": false,
+    "authorizes_v0_3_policy_only": true,
+    "observer_only": true
+  },
+  "candidate_design_id": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3",
+  "candidate_design_summary": {
+    "allowed_delta_bucket_columns": [
+      "row_delta",
+      "col_delta",
+      "rank_delta",
+      "support_delta",
+      "distinct_column_types_before",
+      "distinct_column_types_after",
+      "new_column_types_added",
+      "compression_ratio"
+    ],
+    "forbidden_primary_identity_patch": [
+      "case_id",
+      "cycle_n",
+      "rowid",
+      "receipt_hash",
+      "audit_pointer",
+      "full_occurrence_key"
+    ],
+    "new_lawful_discriminator": "transition_delta_buckets",
+    "primary_blocker": "REPEATED_TRANSITION_SIGNATURE_COLLAPSES_DISTINCT_OCCURRENCES",
+    "v0_2_rejected_for_scale_acceptance": true
+  },
+  "gate": "PASS",
+  "implementation_constraints": {
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_registry_sqlite": true,
+    "must_not_change_runtime_receipt_emission": true,
+    "must_not_full_registry_scan": true,
+    "must_not_modify_files": [
+      "src/",
+      "app/",
+      "matrixlab/",
+      "scripts/stable_delta_signature_candidate_v0_2_scale_band_probe.py",
+      "scripts/diagnose_bounded_scale_false_merges_v0.py",
+      "scripts/build_bounded_scale_band_selection_policy_v0.py",
+      "scripts/stable_delta_signature_candidate_v0_2_probe.py",
+      "scripts/canonical_transition_surface_probe_v0.py"
+    ],
+    "must_reuse_bounded_source_probe_surface": true,
+    "must_touch_only_files": [
+      "scripts/stable_delta_signature_candidate_v0_3_probe.py"
+    ]
+  },
+  "policy_id": "78a6fbec",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_id": "d8c99bbc",
+  "source_bounded_scale_probe_id": "227e9426",
+  "source_diagnostic_id": "62c8d96c",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_PROBE",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_RUNTIME_AND_PRIOR_PROBES_UNTOUCHED
+.gitignore
+runtime/prior probes untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/build_stable_delta_signature_candidate_v0_3_policy.py
+[master 9c3f58822] build stable delta signature candidate v0.3 policy
+ 2 files changed, 458 insertions(+)
+ create mode 100755 scripts/build_stable_delta_signature_candidate_v0_3_policy.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

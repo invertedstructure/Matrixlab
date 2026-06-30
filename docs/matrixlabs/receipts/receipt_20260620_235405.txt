@@ -1,0 +1,636 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_235405
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_235405.txt
+
+BUILD_CANONICAL_TRANSITION_SURFACE_PROBE_POLICY_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_CANONICAL_TRANSITION_SURFACE_POLICY_BUILDER
+
+PY_COMPILE
+
+BUILD_CANONICAL_TRANSITION_SURFACE_PROBE_POLICY
+{
+  "authorized_next_command_goal": "IMPLEMENT_CANONICAL_TRANSITION_SURFACE_PROBE_V0",
+  "authorizes_architecture_redesign": false,
+  "authorizes_full_receipt_suppression": false,
+  "authorizes_next_probe_implementation": true,
+  "authorizes_raw_receipt_hash_truth_surface": false,
+  "authorizes_receipt_compression": false,
+  "authorizes_receipt_deletion": false,
+  "authorizes_receipt_replacement": false,
+  "authorizes_runtime_receipt_emission_change": false,
+  "authorizes_scale_band_run": false,
+  "authorizes_scale_mode": false,
+  "authorizes_stable_delta_candidate_acceptance": false,
+  "authorizes_taxonomy_evolution": false,
+  "authorizes_theorem_content": false,
+  "created_at": "2026-06-20T22:54:05.894112+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "policy_id": "c7d3d021",
+  "policy_name": "BUILD_CANONICAL_TRANSITION_SURFACE_PROBE_POLICY_V0",
+  "policy_path": "data/canonical_transition_surface_probe_policies/c7d3d021.json",
+  "policy_sig8": "c7d3d021",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_id": "079a71f5",
+  "receipt_sig8": "079a71f5",
+  "required_probe_behavior": {
+    "classify_each_candidate_field": true,
+    "emit_probe_receipt": true,
+    "emit_surface_rows_jsonl": true,
+    "inspect_existing_audit_pointer_targets_if_resolvable_without_mutation": true,
+    "inspect_receipt_payload_json_if_present": true,
+    "inspect_registry_receipts": true,
+    "must_not_change_receipt_generation": true,
+    "must_not_use_raw_receipt_hash_as_truth_surface": true,
+    "must_not_use_rowid_as_signature_identity": true,
+    "must_not_write_to_registry_sqlite": true,
+    "read_existing_surfaces_only": true
+  },
+  "schema_version": "canonical_transition_surface_probe_policy_receipt_v0",
+  "source_burden_status": "BURDEN_SIDE_PROGRESS_CONFIRMED",
+  "source_candidate_policy_id": "c3dcd5d1",
+  "source_candidate_probe_id": "a097b68f",
+  "source_candidate_receipt_id": "08b4ac55",
+  "source_distinguishability_status": "FAILED_LOCAL_NO_SILENT_COLLAPSE",
+  "source_false_merge_diagnostic_id": "79acf44a",
+  "source_false_merge_diagnostic_receipt_id": "71557a8e",
+  "source_primary_failure": "LAWFUL_PAYLOAD_TOO_COARSE_FOR_WITHIN_CASE_OCCURRENCE_SEPARABILITY",
+  "source_stable_delta_diagnostic_id": "21878f3c",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_CANONICAL_TRANSITION_SURFACE_PROBE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_decisions": {
+    "FAIL_OBSERVER_INTERFERENCE": "Use when the probe changes runtime, receipts, registry, or authority.",
+    "FAIL_PACKAGING_NOISE_ONLY": "Use when apparent uniqueness comes only from rowid, timestamps, paths, raw hashes, or packaging fields.",
+    "FAIL_TRANSITION_SURFACE_MISSING": "Use when state before/after or lawful transition discriminator is absent.",
+    "FAIL_WITHIN_CASE_OCCURRENCE_SURFACE_MISSING": "Use when case-level identity exists but within-case occurrence identity is absent or packaging-noise only.",
+    "NEEDS_SOURCE_SURFACE_EXTENSION_POLICY": "Use when the existing surface is insufficient and a separate policy would be required to add lawful instrumentation later.",
+    "PASS_CANONICAL_TRANSITION_SURFACE_OBSERVER_ONLY": "Use when lawful transition identity is present, discriminative, audit-derived, and observer-only."
+  },
+  "warnings": []
+}
+policy_id=c7d3d021
+policy_json_path=data/canonical_transition_surface_probe_policies/c7d3d021.json
+policy_receipt_path=data/canonical_transition_surface_probe_policy_receipts/c7d3d021.json
+CANONICAL_SURFACE_POLICY_ID=c7d3d021
+
+ASSERT_CANONICAL_TRANSITION_SURFACE_PROBE_POLICY
+{
+  "authority": {
+    "authorized_next_command_goal": "IMPLEMENT_CANONICAL_TRANSITION_SURFACE_PROBE_V0",
+    "authorizes_architecture_redesign": false,
+    "authorizes_full_receipt_suppression": false,
+    "authorizes_next_probe_implementation": true,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_band_run": false,
+    "authorizes_scale_mode": false,
+    "authorizes_stable_delta_candidate_acceptance": false,
+    "authorizes_taxonomy_evolution": false,
+    "authorizes_theorem_content": false
+  },
+  "failures": [],
+  "field_classification_contract": {
+    "candidate_fields": [
+      "run_id",
+      "case_id",
+      "occurrence_id",
+      "transition_id",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after",
+      "halt_reason",
+      "terminal_status",
+      "family",
+      "radius",
+      "depth",
+      "cycle",
+      "probe_id",
+      "slot_id",
+      "burden_class",
+      "raw_event_count",
+      "shape_count",
+      "receipt_count"
+    ],
+    "packaging_noise_examples": [
+      "receipt rowid used as primary transition identity",
+      "timestamps",
+      "paths",
+      "raw receipt hashes",
+      "run packaging fields that do not describe transition occurrence"
+    ],
+    "required_stats_per_field": [
+      "present_count",
+      "missing_count",
+      "missing_rate",
+      "distinct_present_values",
+      "is_constant",
+      "is_discriminative",
+      "is_audit_derived",
+      "is_packaging_noise",
+      "usable_for_transition_surface",
+      "usable_for_signature_payload"
+    ]
+  },
+  "gate": "PASS",
+  "implementation_constraints": {
+    "must_not_change_registry_sqlite": true,
+    "must_not_create_compression_candidate": true,
+    "must_not_delete_existing_outputs": true,
+    "must_not_modify_files": [
+      "src/",
+      "app/",
+      "matrixlab/",
+      "scripts/stable_delta_signature_candidate_v0_1_probe.py",
+      "scripts/stable_delta_signature_probe_v0.py",
+      "scripts/wide_burden_profile_microruns.py"
+    ],
+    "must_not_run_scale_bands": true,
+    "must_touch_only_files": [
+      "scripts/canonical_transition_surface_probe_v0.py"
+    ]
+  },
+  "mode": "OUTER_OBSERVER_ONLY",
+  "objective": {
+    "goal": "Determine whether the existing audit/registry surface exposes lawful transition identity sufficient to support future stable delta signatures.",
+    "non_goals": [
+      "Do not build a new compression candidate.",
+      "Do not run scale bands.",
+      "Do not modify runtime receipt emission.",
+      "Do not add new instrumentation to the runner.",
+      "Do not declare scale mode.",
+      "Do not accept the failed v0.1 candidate."
+    ],
+    "questions": [
+      "Are state_hash_before and state_hash_after present anywhere in the existing audit surface?",
+      "Is move_id canonical and discriminative, or merely constant context?",
+      "Is there a lawful within-case occurrence discriminator that is audit-derived and not packaging noise?",
+      "Can a transition_id be reconstructed from audit-derived fields without using raw rowid as primary signature identity?",
+      "Is the source surface sufficient for local no-silent-collapse testing?"
+    ]
+  },
+  "policy_id": "c7d3d021",
+  "policy_name": "BUILD_CANONICAL_TRANSITION_SURFACE_PROBE_POLICY_V0",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_gate": "PASS",
+  "receipt_id": "079a71f5",
+  "required_negative_controls": [
+    {
+      "case": "runtime_receipt_emission_change_fail",
+      "must_fail_if": "probe changes runtime receipt emission"
+    },
+    {
+      "case": "registry_mutation_fail",
+      "must_fail_if": "probe writes to registry.sqlite"
+    },
+    {
+      "case": "rowid_identity_as_transition_fail",
+      "must_fail_if": "probe treats receipt rowid as primary transition identity"
+    },
+    {
+      "case": "raw_hash_truth_surface_fail",
+      "must_fail_if": "probe uses raw receipt hash as primary truth surface"
+    },
+    {
+      "case": "case_only_false_pass_fail",
+      "must_fail_if": "probe reports pass using only case_id as occurrence discriminator"
+    },
+    {
+      "case": "scale_mode_authority_fail",
+      "must_fail_if": "probe authorizes scale mode or scale bands"
+    }
+  ],
+  "required_probe_behavior": {
+    "classify_each_candidate_field": true,
+    "emit_probe_receipt": true,
+    "emit_surface_rows_jsonl": true,
+    "inspect_existing_audit_pointer_targets_if_resolvable_without_mutation": true,
+    "inspect_receipt_payload_json_if_present": true,
+    "inspect_registry_receipts": true,
+    "must_not_change_receipt_generation": true,
+    "must_not_use_raw_receipt_hash_as_truth_surface": true,
+    "must_not_use_rowid_as_signature_identity": true,
+    "must_not_write_to_registry_sqlite": true,
+    "read_existing_surfaces_only": true
+  },
+  "source_candidate_probe_id": "a097b68f",
+  "source_candidate_receipt_id": "08b4ac55",
+  "source_false_merge_diagnostic_id": "79acf44a",
+  "source_false_merge_diagnostic_receipt_id": "71557a8e",
+  "surface_pass_requirements": {
+    "authority_containment": {
+      "pass_condition": "observer_only true and all authority escalation guards false",
+      "required": true
+    },
+    "occurrence_anchoring": {
+      "pass_condition": "full_occurrence_key and audit_pointer are recoverable",
+      "required": true
+    },
+    "source_surface_honesty": {
+      "pass_condition": "missing, constant, coarse, and packaging-noise fields are explicitly classified",
+      "required": true
+    },
+    "transition_surface_completeness": {
+      "pass_condition": "state_hash_before, move_id, state_hash_after are present and/or a lawful audit-derived transition discriminator exists",
+      "required": true
+    },
+    "within_case_discriminator": {
+      "pass_condition": "within-case occurrence identity is audit-derived and not raw packaging noise",
+      "required": true
+    }
+  },
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_CANONICAL_TRANSITION_SURFACE_PROBE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_decisions": {
+    "FAIL_OBSERVER_INTERFERENCE": "Use when the probe changes runtime, receipts, registry, or authority.",
+    "FAIL_PACKAGING_NOISE_ONLY": "Use when apparent uniqueness comes only from rowid, timestamps, paths, raw hashes, or packaging fields.",
+    "FAIL_TRANSITION_SURFACE_MISSING": "Use when state before/after or lawful transition discriminator is absent.",
+    "FAIL_WITHIN_CASE_OCCURRENCE_SURFACE_MISSING": "Use when case-level identity exists but within-case occurrence identity is absent or packaging-noise only.",
+    "NEEDS_SOURCE_SURFACE_EXTENSION_POLICY": "Use when the existing surface is insufficient and a separate policy would be required to add lawful instrumentation later.",
+    "PASS_CANONICAL_TRANSITION_SURFACE_OBSERVER_ONLY": "Use when lawful transition identity is present, discriminative, audit-derived, and observer-only."
+  }
+}
+
+NEGATIVE_CONTROLS_CANONICAL_TRANSITION_SURFACE_POLICY
+{
+  "case": "fm_diag_gate_fail",
+  "expected": "fm_diag_gate_not_PASS",
+  "failures": [
+    "fm_diag_gate_not_PASS:FAIL"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "root_primary_failure_fail",
+  "expected": "root_primary_failure_wrong",
+  "failures": [
+    "root_primary_failure_wrong:OTHER"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "transition_surface_missing_expected_fail",
+  "expected": "fm_decision_expected_true:transition_surface_missing",
+  "failures": [
+    "fm_decision_expected_true:transition_surface_missing:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "recommended_next_goal_fail",
+  "expected": "fm_recommended_next_goal_wrong",
+  "failures": [
+    "fm_recommended_next_goal_wrong:OTHER"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "transition_sufficient_expected_false_fail",
+  "expected": "transition_sufficient_expected_false",
+  "failures": [
+    "transition_sufficient_expected_false"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "candidate_scale_mode_authority_fail",
+  "expected": "candidate_illegal_authority:scale_mode_authorized",
+  "failures": [
+    "candidate_illegal_authority:scale_mode_authorized:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "candidate_policy_scale_band_fail",
+  "expected": "candidate_policy_authorizes_scale_bands_unexpectedly",
+  "failures": [
+    "candidate_policy_authorizes_scale_bands_unexpectedly"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+CANONICAL_TRANSITION_SURFACE_POLICY_HEAD_JSON
+{
+  "authority": {
+    "authorized_next_command_goal": "IMPLEMENT_CANONICAL_TRANSITION_SURFACE_PROBE_V0",
+    "authorizes_architecture_redesign": false,
+    "authorizes_full_receipt_suppression": false,
+    "authorizes_next_probe_implementation": true,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_band_run": false,
+    "authorizes_scale_mode": false,
+    "authorizes_stable_delta_candidate_acceptance": false,
+    "authorizes_taxonomy_evolution": false,
+    "authorizes_theorem_content": false
+  },
+  "field_classification_contract": {
+    "candidate_fields": [
+      "run_id",
+      "case_id",
+      "occurrence_id",
+      "transition_id",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after",
+      "halt_reason",
+      "terminal_status",
+      "family",
+      "radius",
+      "depth",
+      "cycle",
+      "probe_id",
+      "slot_id",
+      "burden_class",
+      "raw_event_count",
+      "shape_count",
+      "receipt_count"
+    ],
+    "packaging_noise_examples": [
+      "receipt rowid used as primary transition identity",
+      "timestamps",
+      "paths",
+      "raw receipt hashes",
+      "run packaging fields that do not describe transition occurrence"
+    ],
+    "required_stats_per_field": [
+      "present_count",
+      "missing_count",
+      "missing_rate",
+      "distinct_present_values",
+      "is_constant",
+      "is_discriminative",
+      "is_audit_derived",
+      "is_packaging_noise",
+      "usable_for_transition_surface",
+      "usable_for_signature_payload"
+    ]
+  },
+  "gate": "PASS",
+  "implementation_constraints": {
+    "must_not_change_registry_sqlite": true,
+    "must_not_create_compression_candidate": true,
+    "must_not_delete_existing_outputs": true,
+    "must_not_modify_files": [
+      "src/",
+      "app/",
+      "matrixlab/",
+      "scripts/stable_delta_signature_candidate_v0_1_probe.py",
+      "scripts/stable_delta_signature_probe_v0.py",
+      "scripts/wide_burden_profile_microruns.py"
+    ],
+    "must_not_run_scale_bands": true,
+    "must_touch_only_files": [
+      "scripts/canonical_transition_surface_probe_v0.py"
+    ]
+  },
+  "objective": {
+    "goal": "Determine whether the existing audit/registry surface exposes lawful transition identity sufficient to support future stable delta signatures.",
+    "non_goals": [
+      "Do not build a new compression candidate.",
+      "Do not run scale bands.",
+      "Do not modify runtime receipt emission.",
+      "Do not add new instrumentation to the runner.",
+      "Do not declare scale mode.",
+      "Do not accept the failed v0.1 candidate."
+    ],
+    "questions": [
+      "Are state_hash_before and state_hash_after present anywhere in the existing audit surface?",
+      "Is move_id canonical and discriminative, or merely constant context?",
+      "Is there a lawful within-case occurrence discriminator that is audit-derived and not packaging noise?",
+      "Can a transition_id be reconstructed from audit-derived fields without using raw rowid as primary signature identity?",
+      "Is the source surface sufficient for local no-silent-collapse testing?"
+    ]
+  },
+  "policy_id": "c7d3d021",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "required_probe_behavior": {
+    "classify_each_candidate_field": true,
+    "emit_probe_receipt": true,
+    "emit_surface_rows_jsonl": true,
+    "inspect_existing_audit_pointer_targets_if_resolvable_without_mutation": true,
+    "inspect_receipt_payload_json_if_present": true,
+    "inspect_registry_receipts": true,
+    "must_not_change_receipt_generation": true,
+    "must_not_use_raw_receipt_hash_as_truth_surface": true,
+    "must_not_use_rowid_as_signature_identity": true,
+    "must_not_write_to_registry_sqlite": true,
+    "read_existing_surfaces_only": true
+  },
+  "source_false_merge_diagnostic_id": "79acf44a",
+  "source_result_summary": {
+    "burden_ratio_projected": 0.26337654604996075,
+    "burden_ratio_signature_payload": 0.05518417277869496,
+    "burden_side_progress_confirmed": true,
+    "collision_group_count": 10,
+    "distinguishability_blocker_confirmed": true,
+    "false_merge_count": 10,
+    "field_cause_analysis": {
+      "canonical_discriminator_sufficient": true,
+      "collision_payload_key_frequency": {
+        "case": 10,
+        "cv": 10,
+        "m_const": 10
+      },
+      "critical_observation": [
+        "state_hash_before and state_hash_after are absent across the source surface.",
+        "move_id is present but constant, so it cannot separate occurrences.",
+        "case_id has only 10 values across 176 occurrences; it separates cases, not within-case occurrences.",
+        "halt_reason is sparse and only present for 10 receipts.",
+        "false merges are therefore expected unless a lawful within-case occurrence discriminator is extracted."
+      ],
+      "missing_or_non_discriminative_fields": {
+        "burden_class": {
+          "distinct_present_values": 0,
+          "field": "burden_class",
+          "missing": 176,
+          "missing_rate": 1.0,
+          "present": 0
+        },
+        "canonical_occurrence_id": {
+          "distinct_present_values": 0,
+          "field": "canonical_occurrence_id",
+          "missing": 176,
+          "missing_rate": 1.0,
+          "present": 0
+        },
+        "halt_reason": {
+          "distinct_present_values": 2,
+          "field": "halt_reason",
+          "missing": 166,
+          "missing_rate": 0.943182,
+          "present": 10
+        },
+        "move_id": {
+          "distinct_present_values": 1,
+          "field": "move_id",
+          "missing": 0,
+          "missing_rate": 0.0,
+          "present": 176
+        },
+        "probe_id": {
+          "distinct_present_values": 0,
+          "field": "probe_id",
+          "missing": 176,
+          "missing_rate": 1.0,
+          "present": 0
+        },
+        "raw_event_count": {
+          "distinct_present_values": 0,
+          "field": "raw_event_count",
+          "missing": 176,
+          "missing_rate": 1.0,
+          "present": 0
+        },
+        "receipt_count": {
+          "distinct_present_values": 0,
+          "field": "receipt_count",
+          "missing": 176,
+          "missing_rate": 1.0,
+          "present": 0
+        },
+        "shape_count": {
+          "distinct_present_values": 0,
+          "field": "shape_count",
+          "missing": 176,
+          "missing_rate": 1.0,
+          "present": 0
+        },
+        "slot_id": {
+          "distinct_present_values": 0,
+          "field": "slot_id",
+          "missing": 176,
+          "missing_rate": 1.0,
+          "present": 0
+        },
+        "state_hash_after": {
+          "distinct_present_values": 0,
+          "field": "state_hash_after",
+          "missing": 176,
+          "missing_rate": 1.0,
+          "present": 0
+        },
+        "state_hash_before": {
+          "distinct_present_values": 0,
+          "field": "state_hash_before",
+          "missing": 176,
+          "missing_rate": 1.0,
+          "present": 0
+        },
+        "status": {
+          "distinct_present_values": 0,
+          "field": "status",
+          "missing": 176,
+          "missing_rate": 1.0,
+          "present": 0
+        }
+      },
+      "surface_honesty_status": "SUFFICIENT_FOR_LOCAL_COLLISION_TEST",
+      "transition_sufficient": false,
+      "weak_metric_discriminator_available": false
+    },
+    "root_cause": {
+      "burden_status": "BURDEN_SIDE_PROGRESS_CONFIRMED",
+      "diagnosis": "v0.1 separated signature/debug/audit burden correctly, but the lawful signature payload lacks transition or within-case occurrence fields needed to preserve all full occurrence keys.",
+      "distinguishability_status": "FAILED_LOCAL_NO_SILENT_COLLAPSE",
+      "primary_failure": "LAWFUL_PAYLOAD_TOO_COARSE_FOR_WITHIN_CASE_OCCURRENCE_SEPARABILITY"
+    }
+  },
+  "surface_pass_requirements": {
+    "authority_containment": {
+      "pass_condition": "observer_only true and all authority escalation guards false",
+      "required": true
+    },
+    "occurrence_anchoring": {
+      "pass_condition": "full_occurrence_key and audit_pointer are recoverable",
+      "required": true
+    },
+    "source_surface_honesty": {
+      "pass_condition": "missing, constant, coarse, and packaging-noise fields are explicitly classified",
+      "required": true
+    },
+    "transition_surface_completeness": {
+      "pass_condition": "state_hash_before, move_id, state_hash_after are present and/or a lawful audit-derived transition discriminator exists",
+      "required": true
+    },
+    "within_case_discriminator": {
+      "pass_condition": "within-case occurrence identity is audit-derived and not raw packaging noise",
+      "required": true
+    }
+  },
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_CANONICAL_TRANSITION_SURFACE_PROBE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_decisions": {
+    "FAIL_OBSERVER_INTERFERENCE": "Use when the probe changes runtime, receipts, registry, or authority.",
+    "FAIL_PACKAGING_NOISE_ONLY": "Use when apparent uniqueness comes only from rowid, timestamps, paths, raw hashes, or packaging fields.",
+    "FAIL_TRANSITION_SURFACE_MISSING": "Use when state before/after or lawful transition discriminator is absent.",
+    "FAIL_WITHIN_CASE_OCCURRENCE_SURFACE_MISSING": "Use when case-level identity exists but within-case occurrence identity is absent or packaging-noise only.",
+    "NEEDS_SOURCE_SURFACE_EXTENSION_POLICY": "Use when the existing surface is insufficient and a separate policy would be required to add lawful instrumentation later.",
+    "PASS_CANONICAL_TRANSITION_SURFACE_OBSERVER_ONLY": "Use when lawful transition identity is present, discriminative, audit-derived, and observer-only."
+  }
+}
+
+VERIFY_RUNTIME_AND_PRIOR_SYSTEM_UNTOUCHED
+.gitignore
+runtime and prior system untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/build_canonical_transition_surface_probe_policy_v0.py
+[master b2f8802c7] build canonical transition surface probe policy
+ 2 files changed, 488 insertions(+)
+ create mode 100755 scripts/build_canonical_transition_surface_probe_policy_v0.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

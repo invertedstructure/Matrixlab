@@ -1,0 +1,74 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_223926
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_223926.txt
+
+BUILD_RECEIPT_VOLUME_FIX_CANDIDATE_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_RECEIPT_VOLUME_CANDIDATE_SCRIPT
+
+PY_COMPILE
+
+BUILD_RECEIPT_VOLUME_CANDIDATE
+{
+  "accepted_burden_classes_frozen": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "authorized_next_command_goal": "APPLY_RECEIPT_VOLUME_FIX_CANDIDATE_V0",
+  "authorizes_application_next": true,
+  "authorizes_code_change_now": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_patch_application_now": false,
+  "authorizes_raw_receipt_write_suppression": false,
+  "authorizes_receipt_compression": false,
+  "authorizes_receipt_deletion": false,
+  "authorizes_registry_sqlite_total_mismatch": false,
+  "authorizes_synthetic_receipts": false,
+  "candidate_id": "c47caed0",
+  "candidate_kind": "RECEIPT_VOLUME_FIX_CANDIDATE",
+  "candidate_name": "FIX_CANDIDATE_RECEIPT_VOLUME_WRITE_PRESSURE_PLAN_V0",
+  "candidate_path": "data/receipt_volume_fix_candidates/c47caed0.json",
+  "candidate_sig8": "c47caed0",
+  "candidate_status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "created_at": "2026-06-20T21:39:27.706409+00:00",
+  "failures": [
+    "source_inspection_receipt_volume_slot_missing"
+  ],
+  "gate": "FAIL",
+  "proposed_design_id": "RECEIPT_WRITE_PRESSURE_PLAN_CACHE_AND_ACCOUNTING_CERTIFICATE_V0",
+  "receipt_id": "3e4b9a99",
+  "receipt_sig8": "3e4b9a99",
+  "rejected_or_deferred_burden_classes_frozen": [
+    "BURDEN_DEPTH_SCAN"
+  ],
+  "schema_version": "receipt_volume_fix_candidate_receipt_v0",
+  "source_after_revert_profile_id": "b6609f93",
+  "source_next_burden_decision_id": "25bf9c59",
+  "source_policy_id": "2e6aa9d6",
+  "target_burden_class": "BURDEN_RECEIPT_VOLUME",
+  "target_elapsed_ms": 1005,
+  "target_probe": "MICRO_05_RECEIPT_WRITE_PRESSURE",
+  "target_receipts": 176,
+  "target_receipts_per_sec": 175.124378,
+  "target_rows": 1,
+  "target_slot": "MICRO_05_RECEIPT_WRITE_PRESSURE_E",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_RECEIPT_VOLUME_CANDIDATE_INVALID",
+    "type": "STOP"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+candidate_json_path=data/receipt_volume_fix_candidates/c47caed0.json
+candidate_receipt_path=data/receipt_volume_fix_candidate_receipts/c47caed0.json
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

@@ -1,0 +1,323 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260619_013708
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260619_013708.txt
+
+BUILD_AGENT_CYCLE_OBSERVE_V1
+
+STATUS_BEFORE
+
+BACKUP
+CLI_SIG=aeca2a54ae4a
+BACKUP=/tmp/matrixlab_cli_before_cycle_observe_aeca2a54ae4a.py
+
+PATCH_GITIGNORE
+
+PATCH_CLI_AGENT_CYCLE_OBSERVE
+
+PY_COMPILE
+
+HELP_SMOKE
+help smoke ok:
+  /tmp/matrixlab_cli_help_after_cycle_observe.txt
+  /tmp/matrixlab_cycle_observe_help.txt
+
+RUN_CYCLE_OBSERVE_PASS_WITH_BOUNDARY
+{
+  "boundary_event": {
+    "count": 77,
+    "meaning": "resource_boundary_appeared_at_current_radius",
+    "type": "MAX_CELLS_EXCEEDED"
+  },
+  "classification": {
+    "compression_signal": "GOOD_WEAK",
+    "continuation_radius_growth": "up",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "flat",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "cycle_next_id": "99e3a4e2",
+  "cycle_next_payload_sig8": "99e3a4e2",
+  "cycle_observation_id": "31f9d160",
+  "cycle_observation_payload_sig8": "31f9d160",
+  "cycle_observation_schema_version": "agent_cycle_observation_receipt_v1",
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": 0,
+    "continuation_radius_delta": 50,
+    "current_run_id": "run_20260618_235807_638720",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260618_205137_932569",
+    "raw_move_profiles_delta": 126,
+    "registered_moves_delta": 50,
+    "total_receipts_delta": 58924,
+    "unknown_laws_delta": 0
+  },
+  "expected_families": "ABCDE",
+  "expected_max_cells": 50000,
+  "expected_previous_run_id": "run_20260618_205137_932569",
+  "expected_radius": 150,
+  "failures": [],
+  "gate": "PASS",
+  "input_cycle_next": "99e3a4e2",
+  "input_cycle_next_path": "data/agent_cycle_next/99e3a4e2.json",
+  "input_observed_eval": "0a9048aa",
+  "input_observed_eval_path": "data/evals/0a9048aa.json",
+  "metrics": {
+    "coarse_move_profiles_total": 9,
+    "cycles_per_case": 150,
+    "depth_max": 150,
+    "depth_min": 3,
+    "families": "one_sided_suspension,two_sided_suspension,suspension_plus_repair,projection_quotient,relabel_symmetry_stress",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 660,
+      "MAX_CELLS_EXCEEDED": 77,
+      "REPEATED_STATE_PERIODIC": 3
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 150,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 531,
+    "receipt_rows": 107708,
+    "receipt_sig8": "cadccb79",
+    "registered_moves_total": 150,
+    "reused_shape": true,
+    "status": "DONE",
+    "total_cases": 740,
+    "total_receipts": 107708,
+    "unknown_laws": 0
+  },
+  "observed_eval_id": "0a9048aa",
+  "observed_gate": "PASS",
+  "observed_previous_run_id": "run_20260618_205137_932569",
+  "observed_radius": 150,
+  "observed_run_id": "run_20260618_235807_638720",
+  "observed_terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "recomputed_cycle_next_payload_sig8": "99e3a4e2",
+  "terminal": {
+    "next_command_goal": "DECIDE_RESOURCE_BOUNDARY_OR_EXPAND_MAX_CELLS",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "max_cells_boundary_observed"
+  ]
+}
+cycle_observation_path: data/agent_cycle_observations/31f9d160.json
+
+VERIFY_CYCLE_OBSERVATION_RECEIPT
+{
+  "boundary_event": {
+    "count": 77,
+    "meaning": "resource_boundary_appeared_at_current_radius",
+    "type": "MAX_CELLS_EXCEEDED"
+  },
+  "cycle_observation_id": "31f9d160",
+  "gate": "PASS",
+  "id_matches_filename": true,
+  "observed_eval_id": "0a9048aa",
+  "observed_run_id": "run_20260618_235807_638720",
+  "path": "data/agent_cycle_observations/31f9d160.json",
+  "recomputed_sig": "31f9d160",
+  "sig_matches": true,
+  "stored_sig": "31f9d160",
+  "terminal": {
+    "next_command_goal": "DECIDE_RESOURCE_BOUNDARY_OR_EXPAND_MAX_CELLS",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "max_cells_boundary_observed"
+  ]
+}
+
+RUN_CYCLE_OBSERVE_FAIL_NEGATIVE
+{
+  "boundary_event": {
+    "count": 77,
+    "meaning": "resource_boundary_appeared_at_current_radius",
+    "type": "MAX_CELLS_EXCEEDED"
+  },
+  "classification": {
+    "compression_signal": "GOOD_WEAK",
+    "continuation_radius_growth": "up",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "flat",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "cycle_next_id": "ecbe3ea9",
+  "cycle_next_payload_sig8": "ecbe3ea9",
+  "cycle_observation_id": "25a7d52e",
+  "cycle_observation_payload_sig8": "25a7d52e",
+  "cycle_observation_schema_version": "agent_cycle_observation_receipt_v1",
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": 0,
+    "continuation_radius_delta": 50,
+    "current_run_id": "run_20260618_235807_638720",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260618_205137_932569",
+    "raw_move_profiles_delta": 126,
+    "registered_moves_delta": 50,
+    "total_receipts_delta": 58924,
+    "unknown_laws_delta": 0
+  },
+  "expected_families": "ABCDE",
+  "expected_max_cells": 50000,
+  "expected_previous_run_id": "run_20260618_201554_453008",
+  "expected_radius": 150,
+  "failures": [
+    "cycle_next_gate_not_PASS",
+    "observed_previous_run_mismatch:run_20260618_205137_932569!=run_20260618_201554_453008"
+  ],
+  "gate": "FAIL",
+  "input_cycle_next": "ecbe3ea9",
+  "input_cycle_next_path": "data/agent_cycle_next/ecbe3ea9.json",
+  "input_observed_eval": "0a9048aa",
+  "input_observed_eval_path": "data/evals/0a9048aa.json",
+  "metrics": {
+    "coarse_move_profiles_total": 9,
+    "cycles_per_case": 150,
+    "depth_max": 150,
+    "depth_min": 3,
+    "families": "one_sided_suspension,two_sided_suspension,suspension_plus_repair,projection_quotient,relabel_symmetry_stress",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 660,
+      "MAX_CELLS_EXCEEDED": 77,
+      "REPEATED_STATE_PERIODIC": 3
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 150,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 531,
+    "receipt_rows": 107708,
+    "receipt_sig8": "cadccb79",
+    "registered_moves_total": 150,
+    "reused_shape": true,
+    "status": "DONE",
+    "total_cases": 740,
+    "total_receipts": 107708,
+    "unknown_laws": 0
+  },
+  "observed_eval_id": "0a9048aa",
+  "observed_gate": "PASS",
+  "observed_previous_run_id": "run_20260618_205137_932569",
+  "observed_radius": 150,
+  "observed_run_id": "run_20260618_235807_638720",
+  "observed_terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "recomputed_cycle_next_payload_sig8": "ecbe3ea9",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "cycle_observation_failed",
+    "type": "STOP"
+  },
+  "warnings": [
+    "max_cells_boundary_observed"
+  ]
+}
+cycle_observation_path: data/agent_cycle_observations/25a7d52e.json
+
+REPLAY_EXISTING_CYCLE_NEXT_SMOKE
+{
+  "command_argvs": [
+    [
+      "uv",
+      "run",
+      "python",
+      "src/matrixlab/cli.py",
+      "stress",
+      "--families",
+      "ABCDE",
+      "--depth-max",
+      "150",
+      "--cycles-per-case",
+      "150",
+      "--max-cells",
+      "50000",
+      "--strict-laws"
+    ],
+    [
+      "uv",
+      "run",
+      "python",
+      "src/matrixlab/cli.py",
+      "gate",
+      "latest"
+    ],
+    [
+      "uv",
+      "run",
+      "python",
+      "src/matrixlab/cli.py",
+      "agent-eval",
+      "latest",
+      "--previous",
+      "run_20260618_205137_932569"
+    ]
+  ],
+  "command_count": 3,
+  "command_kind": "CONTROLLED_CONTINUATION_EXPANSION",
+  "command_lines": [
+    "uv run python src/matrixlab/cli.py stress --families ABCDE --depth-max 150 --cycles-per-case 150 --max-cells 50000 --strict-laws",
+    "uv run python src/matrixlab/cli.py gate latest",
+    "uv run python src/matrixlab/cli.py agent-eval latest --previous run_20260618_205137_932569"
+  ],
+  "command_script": "uv run python src/matrixlab/cli.py stress --families ABCDE --depth-max 150 --cycles-per-case 150 --max-cells 50000 --strict-laws\nuv run python src/matrixlab/cli.py gate latest\nuv run python src/matrixlab/cli.py agent-eval latest --previous run_20260618_205137_932569",
+  "current_radius": 100,
+  "cycle_ledger_id": "56455945",
+  "cycle_ledger_payload_sig8": "56455945",
+  "cycle_next_id": "99e3a4e2",
+  "cycle_next_payload_sig8": "99e3a4e2",
+  "cycle_next_schema_version": "agent_cycle_next_receipt_v1",
+  "depth_step": 50,
+  "failures": [],
+  "families": "ABCDE",
+  "gate": "PASS",
+  "input_cycle_ledger": "56455945",
+  "input_cycle_ledger_path": "data/agent_cycle_ledgers/56455945.json",
+  "last_eval_id": "e13f75e6",
+  "last_run_id": "run_20260618_205137_932569",
+  "ledger_cycle_count": 2,
+  "ledger_gate": "PASS",
+  "ledger_verdict": "REPRODUCED_FLAT_STABILITY",
+  "max_cells": 50000,
+  "next_radius": 150,
+  "recomputed_cycle_ledger_payload_sig8": "56455945",
+  "selected_goal": "RUN_FULL_NORMAL_STRICT_EXPAND_CONTINUATION_RADIUS",
+  "selection_reason": "ledger_is_clean_and_repeated_same_radius_no_longer_adds_information",
+  "strict_laws": true,
+  "terminal": {
+    "next_command_goal": "MANUAL_EXECUTE_CYCLE_NEXT_COMMANDS",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+cycle_next_path: data/agent_cycle_next/99e3a4e2.json
+
+VERIFY_GITIGNORE
+.gitignore:42:data/agent_cycle_observations/	data/agent_cycle_observations/test.json
+
+DIFF_STAT
+ .gitignore           |   3 +
+ src/matrixlab/cli.py | 165 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 168 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+ M src/matrixlab/cli.py
+[master a3b9d1b26] add agent cycle observation command
+ 2 files changed, 168 insertions(+)
+
+COMMIT_DONE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

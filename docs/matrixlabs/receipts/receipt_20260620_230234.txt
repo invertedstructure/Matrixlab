@@ -1,0 +1,269 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_230234
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_230234.txt
+
+IMPLEMENT_STABLE_DELTA_SIGNATURE_PROBE_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_STABLE_DELTA_SIGNATURE_PROBE
+
+PY_COMPILE
+
+RUN_STABLE_DELTA_SIGNATURE_PROBE_LATEST
+{
+  "actual_observer_overhead_ms": 223,
+  "authority_guards": {
+    "compressed_signature_promoted_to_theorem_content": false,
+    "full_receipts_suppressed": false,
+    "observer_only": true,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_mode_authorized": false
+  },
+  "burden_ratio_bytes": 1.373130076941637,
+  "burden_ratio_count": 1.0,
+  "collision_count": 19,
+  "collision_rate": 0.9047619047619048,
+  "compressed_signature_bytes": 409753,
+  "compressed_signature_count": 176,
+  "compression_version": "stable_delta_signature_v0.2",
+  "created_at": "2026-06-20T22:02:35.437985+00:00",
+  "distinct_compressed_signatures": 21,
+  "distinct_full_occurrence_keys": 176,
+  "distinguishability_retention_ratio": 0.11931818181818182,
+  "failures": [],
+  "false_merge_count": 19,
+  "false_split_count": "N/A",
+  "full_receipt_bytes": 298408,
+  "full_receipt_count": 176,
+  "gate": "STABLE_DELTA_SIGNATURE_PROBE_EXECUTION_PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "pass_gates": {
+    "audit_recoverability": true,
+    "burden_reduction_real": false,
+    "no_silent_collapse": false,
+    "observer_only_containment": true,
+    "raw_receipt_hash_not_used_as_truth_surface": true,
+    "stability_across_scale": false
+  },
+  "probe_id": "a729e00e",
+  "probe_sig8": "a729e00e",
+  "projected_compressed_burden_bytes": 409753,
+  "receipt_id": "0ce90f3f",
+  "receipt_sig8": "0ce90f3f",
+  "rows_path": "data/stable_delta_signature_probe_rows/a729e00e.jsonl",
+  "scale_value": 0.08689503188506247,
+  "schema_version": "stable_delta_signature_probe_minimal_receipt_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_STABLE_DELTA_SIGNATURE_PROBE_FAILED",
+    "type": "STOP"
+  },
+  "terminal_decision": "FAIL",
+  "truth_surface": {
+    "canonical_occurrence_key_version": "full_occurrence_key_v0",
+    "full_receipt_hash_compared_to_delta_signature": false,
+    "primary_comparison": "full_occurrence_key_to_compressed_delta_signature",
+    "raw_full_receipt_hash_used_as_truth_surface": false
+  },
+  "warnings": []
+}
+probe_id=a729e00e
+probe_rows_path=data/stable_delta_signature_probe_rows/a729e00e.jsonl
+probe_receipt_path=data/stable_delta_signature_probe_receipts/a729e00e.json
+PROBE_ID=a729e00e
+
+ASSERT_STABLE_DELTA_SIGNATURE_PROBE_RECEIPT
+{
+  "actual_observer_overhead_ms": 223,
+  "authority_guards": {
+    "compressed_signature_promoted_to_theorem_content": false,
+    "full_receipts_suppressed": false,
+    "observer_only": true,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_mode_authorized": false
+  },
+  "burden_ratio_bytes": 1.373130076941637,
+  "burden_ratio_count": 1.0,
+  "collision_count": 19,
+  "collision_rate": 0.9047619047619048,
+  "compressed_signature_bytes": 409753,
+  "compressed_signature_count": 176,
+  "compression_version": "stable_delta_signature_v0.2",
+  "distinct_compressed_signatures": 21,
+  "distinct_full_occurrence_keys": 176,
+  "distinguishability_retention_ratio": 0.11931818181818182,
+  "failures": [],
+  "false_merge_count": 19,
+  "false_split_count": "N/A",
+  "full_receipt_bytes": 298408,
+  "full_receipt_count": 176,
+  "gate": "STABLE_DELTA_SIGNATURE_PROBE_EXECUTION_PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "pass_gates": {
+    "audit_recoverability": true,
+    "burden_reduction_real": false,
+    "no_silent_collapse": false,
+    "observer_only_containment": true,
+    "raw_receipt_hash_not_used_as_truth_surface": true,
+    "stability_across_scale": false
+  },
+  "probe_id": "a729e00e",
+  "projected_compressed_burden_bytes": 409753,
+  "receipt_id": "0ce90f3f",
+  "rows_loaded": 176,
+  "scale_value": 0.08689503188506247,
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_STABLE_DELTA_SIGNATURE_PROBE_FAILED",
+    "type": "STOP"
+  },
+  "terminal_decision": "FAIL",
+  "truth_surface": {
+    "canonical_occurrence_key_version": "full_occurrence_key_v0",
+    "full_receipt_hash_compared_to_delta_signature": false,
+    "primary_comparison": "full_occurrence_key_to_compressed_delta_signature",
+    "raw_full_receipt_hash_used_as_truth_surface": false
+  }
+}
+
+NEGATIVE_CONTROLS_STABLE_DELTA_SIGNATURE_PROBE
+{
+  "case": "raw_hash_truth_surface_fail",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+{
+  "case": "scale_mode_authority_fail",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+{
+  "case": "runtime_receipt_emission_change_fail",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+{
+  "case": "receipt_deletion_authority_fail",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+{
+  "case": "audit_recoverability_fail",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+{
+  "case": "forced_false_merge_detection",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+negative controls ok
+
+PROBE_HEAD_JSON
+{
+  "actual_observer_overhead_ms": 223,
+  "authority_guards": {
+    "compressed_signature_promoted_to_theorem_content": false,
+    "full_receipts_suppressed": false,
+    "observer_only": true,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_mode_authorized": false
+  },
+  "burden_ratio_bytes": 1.373130076941637,
+  "burden_ratio_count": 1.0,
+  "collision_count": 19,
+  "collision_rate": 0.9047619047619048,
+  "compressed_signature_bytes": 409753,
+  "compressed_signature_count": 176,
+  "compression_version": "stable_delta_signature_v0.2",
+  "distinct_compressed_signatures": 21,
+  "distinct_full_occurrence_keys": 176,
+  "distinguishability_retention_ratio": 0.11931818181818182,
+  "false_merge_count": 19,
+  "false_split_count": "N/A",
+  "full_receipt_bytes": 298408,
+  "full_receipt_count": 176,
+  "gate": "STABLE_DELTA_SIGNATURE_PROBE_EXECUTION_PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "pass_gates": {
+    "audit_recoverability": true,
+    "burden_reduction_real": false,
+    "no_silent_collapse": false,
+    "observer_only_containment": true,
+    "raw_receipt_hash_not_used_as_truth_surface": true,
+    "stability_across_scale": false
+  },
+  "probe_id": "a729e00e",
+  "projected_compressed_burden_bytes": 409753,
+  "receipt_id": "0ce90f3f",
+  "scale_value": 0.08689503188506247,
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_STABLE_DELTA_SIGNATURE_PROBE_FAILED",
+    "type": "STOP"
+  },
+  "terminal_decision": "FAIL",
+  "truth_surface": {
+    "canonical_occurrence_key_version": "full_occurrence_key_v0",
+    "full_receipt_hash_compared_to_delta_signature": false,
+    "primary_comparison": "full_occurrence_key_to_compressed_delta_signature",
+    "raw_full_receipt_hash_used_as_truth_surface": false
+  }
+}
+
+VERIFY_RUNTIME_RECEIPT_SYSTEM_UNTOUCHED
+.gitignore
+runtime receipt system untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/stable_delta_signature_probe_v0.py
+[master 474af40e6] implement stable delta signature observer probe
+ 2 files changed, 770 insertions(+)
+ create mode 100755 scripts/stable_delta_signature_probe_v0.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

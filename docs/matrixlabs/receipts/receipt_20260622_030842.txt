@@ -1,0 +1,479 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_030842
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_030842.txt
+
+IMPLEMENT_JURISDICTION_RUNNER_V0_1_WITH_DRY_RUN_FIXTURE_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+VERIFY_BOOTSTRAP_POLICY_TRACKED
+tracked data/jurisdiction_runner_v0_1_bootstrap_policies/0fe04fb5.json
+tracked data/jurisdiction_runner_v0_1_bootstrap_policy_receipts/0fe04fb5.json
+
+PATCH_GITIGNORE
+
+WRITE_JURISDICTION_RUNNER_V0_1_MODULE
+
+WRITE_IMPLEMENTATION_SCRIPT
+
+PY_COMPILE_RUNNER_AND_IMPLEMENTATION_SCRIPT
+
+RUN_IMPLEMENTATION_WITH_DRY_RUN_FIXTURE
+{
+  "artifact_guards": {
+    "ambient_workspace_authority_used": false,
+    "bootstrap_policy_receipt_tracked": true,
+    "bootstrap_policy_tracked": true,
+    "latest_or_mtime_selection_used": false,
+    "outputs_path_addressed": true,
+    "outputs_receipt_referenced": true,
+    "unrelated_untracked_data_not_authority": true
+  },
+  "authority_guards": {
+    "bootstrap_policy_consumed": true,
+    "dry_run_fixture_created": true,
+    "dry_run_fixture_executed": true,
+    "expected_transcript_created": true,
+    "final_schema_claimed": false,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "local_regime_runtime_mutated": false,
+    "local_regime_v0_declared": true,
+    "proof_claimed": false,
+    "proposal_promoted": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_executed": true,
+    "runner_implemented": true
+  },
+  "bootstrap_policy_id": "0fe04fb5",
+  "bootstrap_policy_receipt_id": "bc448c6d",
+  "created_at": "2026-06-22T02:08:42.353245+00:00",
+  "dry_run_fixture_id": "dry_run_apply_registered_transition_v0",
+  "dry_run_fixture_path": "data/jurisdiction_runner_v0_1_dry_run_fixtures/dry_run_apply_registered_transition_v0.json",
+  "dry_run_gate": "PASS",
+  "dry_run_metrics": {
+    "applied_move_count": 1,
+    "artifact_burden_bytes": 231,
+    "authority_violation_count": 0,
+    "blocked_move_count": 0,
+    "duplicate_unresolved_proposal_count": 0,
+    "gate_fail_count": 0,
+    "halt_count_by_code": {
+      "STOP_DONE": 1
+    },
+    "halt_with_proposal_count": 0,
+    "halt_without_proposal_count": 1,
+    "local_closure_radius_observed": 1,
+    "metric_burden_bytes": 542,
+    "missing_dependency_count": 0,
+    "move_count": 1,
+    "proposal_count_by_type": {},
+    "proposal_emitted_count": 0,
+    "proposal_withheld_count": 1,
+    "receipt_burden_bytes": 3434,
+    "receipt_count": 1,
+    "typed_object_count": 1,
+    "untyped_object_count": 0
+  },
+  "dry_run_receipt_id": "a85e0cc4",
+  "dry_run_receipt_path": "data/jurisdiction_runner_v0_1_dry_run_receipts/a85e0cc4.json",
+  "dry_run_terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  },
+  "dry_run_transcript": [
+    "LOAD_REGIME",
+    "LOAD_STATE",
+    "VALIDATE_STATE",
+    "SELECT_MOVE",
+    "CHECK_AUTHORITY",
+    "APPLY_OR_BLOCK_MOVE",
+    "EMIT_RECEIPT",
+    "EMIT_METRICS",
+    "EMIT_TERMINAL"
+  ],
+  "dry_run_transcript_matches_expected": true,
+  "expected_transcript": [
+    "LOAD_REGIME",
+    "LOAD_STATE",
+    "VALIDATE_STATE",
+    "SELECT_MOVE",
+    "CHECK_AUTHORITY",
+    "APPLY_OR_BLOCK_MOVE",
+    "EMIT_RECEIPT",
+    "EMIT_METRICS",
+    "EMIT_TERMINAL"
+  ],
+  "expected_transcript_path": "data/jurisdiction_runner_v0_1_expected_transcripts/dry_run_apply_registered_transition_v0.json",
+  "failures": [],
+  "gate": "PASS",
+  "local_regime_hash": "097d620c",
+  "local_regime_path": "data/local_regime_v0_declarations/097d620c.json",
+  "local_regime_version": "local_regime.v0",
+  "receipt_id": "04c0692d",
+  "receipt_type": "JURISDICTION_RUNNER_V0_1_IMPLEMENTATION_RECEIPT",
+  "runner_module_path": "src/matrixlab/jurisdiction_runner_v0_1.py",
+  "runner_unit_id": "jurisdiction_runner.v0.1",
+  "schema_version": "jurisdiction_runner_v0_1_implementation_receipt_v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  },
+  "unit_id": "IMPLEMENT_JURISDICTION_RUNNER_V0_1_WITH_DRY_RUN_FIXTURE_V0",
+  "warnings": []
+}
+implementation_receipt_id=04c0692d
+implementation_receipt_path=data/jurisdiction_runner_v0_1_implementation_receipts/04c0692d.json
+local_regime_path=data/local_regime_v0_declarations/097d620c.json
+dry_run_fixture_id=dry_run_apply_registered_transition_v0
+dry_run_fixture_path=data/jurisdiction_runner_v0_1_dry_run_fixtures/dry_run_apply_registered_transition_v0.json
+expected_transcript_path=data/jurisdiction_runner_v0_1_expected_transcripts/dry_run_apply_registered_transition_v0.json
+dry_run_receipt_id=a85e0cc4
+dry_run_receipt_path=data/jurisdiction_runner_v0_1_dry_run_receipts/a85e0cc4.json
+IMPLEMENTATION_RECEIPT_ID=04c0692d
+DRY_RUN_FIXTURE_ID=dry_run_apply_registered_transition_v0
+DRY_RUN_RECEIPT_ID=a85e0cc4
+
+ASSERT_IMPLEMENTATION_RECEIPT_AND_DRY_RUN
+{
+  "artifact_guards": {
+    "ambient_workspace_authority_used": false,
+    "bootstrap_policy_receipt_tracked": true,
+    "bootstrap_policy_tracked": true,
+    "latest_or_mtime_selection_used": false,
+    "outputs_path_addressed": true,
+    "outputs_receipt_referenced": true,
+    "unrelated_untracked_data_not_authority": true
+  },
+  "authority_guards": {
+    "bootstrap_policy_consumed": true,
+    "dry_run_fixture_created": true,
+    "dry_run_fixture_executed": true,
+    "expected_transcript_created": true,
+    "final_schema_claimed": false,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "local_regime_runtime_mutated": false,
+    "local_regime_v0_declared": true,
+    "proof_claimed": false,
+    "proposal_promoted": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_executed": true,
+    "runner_implemented": true
+  },
+  "dry_run_gate": "PASS",
+  "dry_run_terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  },
+  "dry_run_transcript_matches_expected": true,
+  "gate": "PASS",
+  "implementation_receipt_id": "04c0692d",
+  "local_regime_hash": "097d620c",
+  "local_regime_version": "local_regime.v0",
+  "runner_unit_id": "jurisdiction_runner.v0.1",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROLS_IMPLEMENTATION_NON_WRITING
+{
+  "case": "bootstrap_gate_fail",
+  "failures": [
+    "bootstrap_gate_not_PASS:FAIL"
+  ]
+}
+{
+  "case": "terminal_next_fail",
+  "failures": [
+    "bootstrap_terminal_next_wrong:WRONG_NEXT"
+  ]
+}
+{
+  "case": "implementation_not_authorized_fail",
+  "failures": [
+    "authorized_next_not_true:implement_jurisdiction_runner_v0_1:False"
+  ]
+}
+{
+  "case": "valid_dry_run",
+  "failures": [],
+  "gate": "PASS"
+}
+{
+  "case": "terminal_contract_fail",
+  "failures": [
+    "dry_run_terminal_wrong:{'type': 'ADVANCE', 'next_command_goal': None, 'stop_code': 'STOP_DONE'}"
+  ]
+}
+{
+  "after": {
+    "dry_run_receipt": "9424a664bacc277cf6adf07ac2ecf2ace2d93bb1276586f9ca3bdc261e3d2156",
+    "implementation_receipt": "703ca0fef03c8dc2db68376504abefc8e3fa71f3c4b1d9b0e8013725895cdb40"
+  },
+  "before": {
+    "dry_run_receipt": "9424a664bacc277cf6adf07ac2ecf2ace2d93bb1276586f9ca3bdc261e3d2156",
+    "implementation_receipt": "703ca0fef03c8dc2db68376504abefc8e3fa71f3c4b1d9b0e8013725895cdb40"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+IMPLEMENTATION_HEAD_JSON
+{
+  "artifact_guards": {
+    "ambient_workspace_authority_used": false,
+    "bootstrap_policy_receipt_tracked": true,
+    "bootstrap_policy_tracked": true,
+    "latest_or_mtime_selection_used": false,
+    "outputs_path_addressed": true,
+    "outputs_receipt_referenced": true,
+    "unrelated_untracked_data_not_authority": true
+  },
+  "authority_guards": {
+    "bootstrap_policy_consumed": true,
+    "dry_run_fixture_created": true,
+    "dry_run_fixture_executed": true,
+    "expected_transcript_created": true,
+    "final_schema_claimed": false,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "local_regime_runtime_mutated": false,
+    "local_regime_v0_declared": true,
+    "proof_claimed": false,
+    "proposal_promoted": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_executed": true,
+    "runner_implemented": true
+  },
+  "dry_run_fixture_id": "dry_run_apply_registered_transition_v0",
+  "dry_run_gate": "PASS",
+  "dry_run_receipt_id": "a85e0cc4",
+  "dry_run_transcript_matches_expected": true,
+  "gate": "PASS",
+  "local_regime_hash": "097d620c",
+  "local_regime_version": "local_regime.v0",
+  "receipt_id": "04c0692d",
+  "runner_unit_id": "jurisdiction_runner.v0.1",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  }
+}
+
+VERIFY_NO_REGISTRY_MUTATION
+.gitignore
+sqlite registry untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/implement_jurisdiction_runner_v0_1_with_dry_run_fixture_v0.py
+?? src/matrixlab/jurisdiction_runner_v0_1.py
+
+PACKAGE_IMPLEMENTATION_ARTIFACTS
+packaged data/local_regime_v0_declarations/097d620c.json
+packaged data/jurisdiction_runner_v0_1_dry_run_fixtures/dry_run_apply_registered_transition_v0.json
+packaged data/jurisdiction_runner_v0_1_expected_transcripts/dry_run_apply_registered_transition_v0.json
+packaged data/jurisdiction_runner_v0_1_dry_run_receipts/a85e0cc4.json
+packaged data/jurisdiction_runner_v0_1_implementation_receipts/04c0692d.json
+[master 4b9bd6314] implement jurisdiction runner v0.1 with dry run fixture
+ 8 files changed, 1350 insertions(+)
+ create mode 100644 data/jurisdiction_runner_v0_1_dry_run_fixtures/dry_run_apply_registered_transition_v0.json
+ create mode 100644 data/jurisdiction_runner_v0_1_dry_run_receipts/a85e0cc4.json
+ create mode 100644 data/jurisdiction_runner_v0_1_expected_transcripts/dry_run_apply_registered_transition_v0.json
+ create mode 100644 data/jurisdiction_runner_v0_1_implementation_receipts/04c0692d.json
+ create mode 100644 data/local_regime_v0_declarations/097d620c.json
+ create mode 100755 scripts/implement_jurisdiction_runner_v0_1_with_dry_run_fixture_v0.py
+ create mode 100644 src/matrixlab/jurisdiction_runner_v0_1.py
+
+COMMIT_DONE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+NEXT_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+implementation_receipt_id=04c0692d
+implementation_receipt_path=data/jurisdiction_runner_v0_1_implementation_receipts/04c0692d.json
+local_regime_path=data/local_regime_v0_declarations/097d620c.json
+dry_run_fixture_id=dry_run_apply_registered_transition_v0
+dry_run_fixture_path=data/jurisdiction_runner_v0_1_dry_run_fixtures/dry_run_apply_registered_transition_v0.json
+expected_transcript_path=data/jurisdiction_runner_v0_1_expected_transcripts/dry_run_apply_registered_transition_v0.json
+dry_run_receipt_id=a85e0cc4
+dry_run_receipt_path=data/jurisdiction_runner_v0_1_dry_run_receipts/a85e0cc4.json
+{
+  "artifact_guards": {
+    "ambient_workspace_authority_used": false,
+    "bootstrap_policy_receipt_tracked": true,
+    "bootstrap_policy_tracked": true,
+    "latest_or_mtime_selection_used": false,
+    "outputs_path_addressed": true,
+    "outputs_receipt_referenced": true,
+    "unrelated_untracked_data_not_authority": true
+  },
+  "authority_guards": {
+    "bootstrap_policy_consumed": true,
+    "dry_run_fixture_created": true,
+    "dry_run_fixture_executed": true,
+    "expected_transcript_created": true,
+    "final_schema_claimed": false,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "local_regime_runtime_mutated": false,
+    "local_regime_v0_declared": true,
+    "proof_claimed": false,
+    "proposal_promoted": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_executed": true,
+    "runner_implemented": true
+  },
+  "dry_run_gate": "PASS",
+  "dry_run_metrics": {
+    "applied_move_count": 1,
+    "artifact_burden_bytes": 231,
+    "authority_violation_count": 0,
+    "blocked_move_count": 0,
+    "duplicate_unresolved_proposal_count": 0,
+    "gate_fail_count": 0,
+    "halt_count_by_code": {
+      "STOP_DONE": 1
+    },
+    "halt_with_proposal_count": 0,
+    "halt_without_proposal_count": 1,
+    "local_closure_radius_observed": 1,
+    "metric_burden_bytes": 542,
+    "missing_dependency_count": 0,
+    "move_count": 1,
+    "proposal_count_by_type": {},
+    "proposal_emitted_count": 0,
+    "proposal_withheld_count": 1,
+    "receipt_burden_bytes": 3434,
+    "receipt_count": 1,
+    "typed_object_count": 1,
+    "untyped_object_count": 0
+  },
+  "dry_run_receipt_summary": {
+    "halt_code": "STOP_DONE",
+    "move_status": "APPLIED",
+    "no_proposal_reason": "PRESSURE_ALREADY_TYPED",
+    "proposal_status": "NONE",
+    "selected_move_id": "MOVE_APPLY_REGISTERED_TRANSITION",
+    "state_after": {
+      "state_id": "typed_counter_zero",
+      "typed": true,
+      "value": 1
+    },
+    "state_before": {
+      "state_id": "typed_counter_zero",
+      "typed": true,
+      "value": 0
+    }
+  },
+  "dry_run_terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  },
+  "dry_run_transcript_matches_expected": true,
+  "gate": "PASS",
+  "local_regime_hash": "097d620c",
+  "local_regime_version": "local_regime.v0",
+  "runner_unit_id": "jurisdiction_runner.v0.1",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  }
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

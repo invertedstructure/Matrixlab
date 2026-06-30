@@ -1,0 +1,452 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_031600
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_031600.txt
+
+CLOSE_O2_UNIT_FEEDBACK_HARDENING_AS_REVIEWED_REFERENCE_V0
+
+STATUS_BEFORE_RELEVANT
+
+VERIFY_O2_CLOSURE_BASIS
+present data/o2_unit_feedback_hardening_review_v0_receipts/ddf04eb2.json
+present data/o2_unit_feedback_hardening_review_v0/o2_unit_feedback_hardening_review_assessment_v0.json
+present data/o2_unit_feedback_hardening_review_v0/o2_schema_artifact_review_v0.json
+present data/o2_unit_feedback_hardening_review_v0/o2_feedback_record_integrity_review_v0.json
+present data/o2_unit_feedback_hardening_review_v0/o2_weak_feedback_intentionality_review_v0.json
+present data/o2_unit_feedback_hardening_review_v0/o2_expected_limit_separation_review_v0.json
+present data/o2_unit_feedback_hardening_review_v0/o2_retry_gate_review_v0.json
+present data/o2_unit_feedback_hardening_review_v0/o2_candidate_only_boundary_review_v0.json
+present data/o2_unit_feedback_hardening_review_v0/o2_c5_feedback_readiness_review_v0.json
+present data/o2_unit_feedback_hardening_review_v0/o2_nonauthority_safety_review_v0.json
+present data/o2_unit_feedback_hardening_review_v0/o2_unit_feedback_hardening_closure_candidate_v0.json
+present data/o2_unit_feedback_hardening_review_v0/o2_review_classification_v0.json
+present data/o2_unit_feedback_hardening_review_v0/o2_review_authority_boundary_v0.json
+present data/o2_unit_feedback_hardening_review_v0/o2_review_rollup_v0.json
+present data/o2_unit_feedback_hardening_review_v0/o2_review_profile_v0.json
+present data/o2_unit_feedback_hardening_review_v0/o2_review_report.json
+present data/o2_unit_feedback_hardening_review_v0/o2_review_transition_trace.json
+present data/o2_unit_feedback_hardening_v0_receipts/131d6837.json
+present data/o2_unit_feedback_hardening_v0/unit_feedback_records_v0.jsonl
+present data/o2_unit_feedback_hardening_v0/unit_feedback_rollup_v0.json
+present data/o2_unit_feedback_hardening_v0/unit_feedback_readout_v0.json
+present data/o2_unit_feedback_hardening_v0/o2_feedback_profile_v0.json
+present data/o2_unit_feedback_hardening_v0/o2_report.json
+
+PATCH_GITIGNORE
+
+WRITE_O2_CLOSURE_RUNNER
+
+PY_COMPILE_O2_CLOSURE
+
+RUN_O2_CLOSURE
+{
+  "acceptance_gate_results": {
+    "O2_CLOSE_0_REVIEW_RECEIPT_CONSUMED": true,
+    "O2_CLOSE_10_C5_REMAINS_BLOCKED": true,
+    "O2_CLOSE_11_NO_LIVE_FEEDBACK_AUDIT": true,
+    "O2_CLOSE_12_NO_REPAIR_APPLIED": true,
+    "O2_CLOSE_13_NO_RETRY_EXECUTED": true,
+    "O2_CLOSE_14_NO_TARGET_SELECTED_FOR_BUILD": true,
+    "O2_CLOSE_15_NO_RUNTIME_PATCH": true,
+    "O2_CLOSE_16_NO_SOURCE_MUTATION": true,
+    "O2_CLOSE_17_NO_ARCHITECTURE_CHANGE": true,
+    "O2_CLOSE_18_NO_HIDDEN_NEXT_COMMAND": true,
+    "O2_CLOSE_19_POST_CLOSURE_DECISION_READY": true,
+    "O2_CLOSE_1_CLOSURE_RECORD_EMITTED": true,
+    "O2_CLOSE_20_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "O2_CLOSE_2_REVIEWED_REFERENCE_EMITTED": true,
+    "O2_CLOSE_3_WEAK_FEEDBACK_NOTE_FROZEN": true,
+    "O2_CLOSE_4_C5_BLOCK_STATUS_FROZEN": true,
+    "O2_CLOSE_5_REFERENCE_FREEZE_EMITTED": true,
+    "O2_CLOSE_6_RECEIPT_CHAIN_EMITTED": true,
+    "O2_CLOSE_7_BOUNDARY_LOCK_EMITTED": true,
+    "O2_CLOSE_8_TEN_FEEDBACK_RECORDS_FROZEN": true,
+    "O2_CLOSE_9_WEAK_FEEDBACK_NOT_RESOLVED": true
+  },
+  "aggregate_metrics": {
+    "bad_counters_zero": true,
+    "build_mode": "O2_CLOSURE_ONLY",
+    "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+    "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / CLOSURE",
+    "mode": "CLOSE / FREEZE_REVIEWED_REFERENCE / WEAK_FEEDBACK_NOTE / NO_C5",
+    "reason_codes": [
+      "O2_CLOSED_AS_REVIEWED_REFERENCE",
+      "O2_REVIEW_RECEIPT_CONSUMED",
+      "STATIC_SCHEMA_PROBE_REFERENCE_FROZEN",
+      "TEN_FEEDBACK_RECORDS_FROZEN_AS_REVIEWED_REFERENCE",
+      "WEAK_FEEDBACK_NOTE_FROZEN",
+      "WEAK_FEEDBACK_INTENTIONAL_AND_TYPED",
+      "C5_BLOCK_STATUS_FROZEN",
+      "C5_REMAINS_BLOCKED_BY_WEAK_FEEDBACK",
+      "MISSING_CAPABILITIES_REMAIN_CANDIDATE_ONLY",
+      "REFINEMENT_CANDIDATES_REMAIN_PROPOSED_ONLY",
+      "RETRY_GATE_BEHAVIOR_FROZEN",
+      "EXPECTED_LIMITS_SEPARATED_FROM_BUGS",
+      "NO_LIVE_FEEDBACK_AUDIT_EXECUTED",
+      "NO_WEAK_FEEDBACK_RESOLUTION_ATTEMPTED",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_SOURCE_MUTATION",
+      "NO_C5_OPENED",
+      "POST_CLOSURE_DECISION_READY"
+    ],
+    "receipt_backed_claim": "O2 was closed as a reviewed reference with weak-feedback note. The static schema/probe feedback machinery, 10 reviewed feedback records, candidate-only missing capabilities, proposed-only refinements, retry-gate behavior, expected-limit separation, and C5 block status are frozen as reference context. Weak feedback remains intentional and typed. Closure does not resolve weak feedback, run live audit, repair, retry, select target, patch runtime, mutate sources, or open C5.",
+    "recommended_next_handling": "DECIDE_NEXT_AFTER_O2_FEEDBACK_REFERENCE_CLOSURE_V0",
+    "schema_version": "o2_closure_report_v0",
+    "status": "TYPED_O2_UNIT_FEEDBACK_HARDENING_CLOSED_AS_REVIEWED_REFERENCE_WEAK_FEEDBACK_NOTE_DECISION_READY",
+    "target_unit_id": "observation.unit_feedback_hardening_closure.v0",
+    "unit_id": "CLOSE_O2_UNIT_FEEDBACK_HARDENING_AS_REVIEWED_REFERENCE_V0",
+    "weak_feedback_count": 3
+  },
+  "build_mode": "O2_CLOSURE_ONLY",
+  "created_at": "2026-06-25T02:16:00.361937+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / CLOSURE",
+  "machine_readable_o2_closure_summary": {
+    "ambiguous_requires_question_count": 1,
+    "architecture_change": false,
+    "bad_counters_zero": true,
+    "c5_block_status_frozen": true,
+    "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+    "c5_opened": false,
+    "feedback_records_frozen_count": 10,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "live_feedback_audit_executed": false,
+    "mtime_selection": false,
+    "o2_closed_as_reviewed_reference": true,
+    "post_closure_decision_ready": true,
+    "prior_receipt_mutated": false,
+    "reason_codes": [
+      "O2_CLOSED_AS_REVIEWED_REFERENCE",
+      "O2_REVIEW_RECEIPT_CONSUMED",
+      "STATIC_SCHEMA_PROBE_REFERENCE_FROZEN",
+      "TEN_FEEDBACK_RECORDS_FROZEN_AS_REVIEWED_REFERENCE",
+      "WEAK_FEEDBACK_NOTE_FROZEN",
+      "WEAK_FEEDBACK_INTENTIONAL_AND_TYPED",
+      "C5_BLOCK_STATUS_FROZEN",
+      "C5_REMAINS_BLOCKED_BY_WEAK_FEEDBACK",
+      "MISSING_CAPABILITIES_REMAIN_CANDIDATE_ONLY",
+      "REFINEMENT_CANDIDATES_REMAIN_PROPOSED_ONLY",
+      "RETRY_GATE_BEHAVIOR_FROZEN",
+      "EXPECTED_LIMITS_SEPARATED_FROM_BUGS",
+      "NO_LIVE_FEEDBACK_AUDIT_EXECUTED",
+      "NO_WEAK_FEEDBACK_RESOLUTION_ATTEMPTED",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_SOURCE_MUTATION",
+      "NO_C5_OPENED",
+      "POST_CLOSURE_DECISION_READY"
+    ],
+    "recommended_next": "DECIDE_NEXT_AFTER_O2_FEEDBACK_REFERENCE_CLOSURE_V0",
+    "repair_applied": false,
+    "retry_executed": false,
+    "reviewed_reference_emitted": true,
+    "runtime_patch_applied": false,
+    "source_mutated": false,
+    "status": "TYPED_O2_UNIT_FEEDBACK_HARDENING_CLOSED_AS_REVIEWED_REFERENCE_WEAK_FEEDBACK_NOTE_DECISION_READY",
+    "target_selected_for_build": false,
+    "under_typed_feedback_count": 2,
+    "weak_feedback_count": 3,
+    "weak_feedback_note_frozen": true,
+    "weak_feedback_resolved": false
+  },
+  "mode": "CLOSE / FREEZE_REVIEWED_REFERENCE / WEAK_FEEDBACK_NOTE / NO_C5",
+  "output_artifacts": {
+    "authority_boundary": "data/o2_unit_feedback_hardening_closure_v0/o2_closure_authority_boundary_v0.json",
+    "boundary_lock": "data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_boundary_lock_v0.json",
+    "c5_block_status": "data/o2_unit_feedback_hardening_closure_v0/o2_c5_block_status_v0.json",
+    "classification": "data/o2_unit_feedback_hardening_closure_v0/o2_closure_classification_v0.json",
+    "closure_record": "data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_closure_record_v0.json",
+    "downstream_decision_table": "data/o2_unit_feedback_hardening_closure_v0/o2_closure_downstream_decision_table_v0.json",
+    "implementation_receipt": "data/o2_unit_feedback_hardening_closure_v0_receipts/bf5163d7.json",
+    "profile": "data/o2_unit_feedback_hardening_closure_v0/o2_closure_profile_v0.json",
+    "receipt_chain": "data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_receipt_chain_v0.json",
+    "reference_freeze": "data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_reference_freeze_v0.json",
+    "report": "data/o2_unit_feedback_hardening_closure_v0/o2_closure_report.json",
+    "reviewed_reference": "data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_reviewed_reference_v0.json",
+    "rollup": "data/o2_unit_feedback_hardening_closure_v0/o2_closure_rollup_v0.json",
+    "transition_trace": "data/o2_unit_feedback_hardening_closure_v0/o2_closure_transition_trace.json",
+    "weak_feedback_note": "data/o2_unit_feedback_hardening_closure_v0/o2_weak_feedback_note_v0.json"
+  },
+  "receipt_id": "bf5163d7",
+  "receipt_type": "TYPED_O2_UNIT_FEEDBACK_HARDENING_CLOSURE_RECEIPT",
+  "schema_version": "o2_unit_feedback_hardening_closure_receipt_v0",
+  "source_o2_review_receipt_id": "ddf04eb2",
+  "target_unit_id": "observation.unit_feedback_hardening_closure.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_UNIT_FEEDBACK_HARDENING_CLOSED_AS_REVIEWED_REFERENCE_WEAK_FEEDBACK_NOTE_DECISION_READY",
+    "type": "STOP"
+  },
+  "unit_id": "CLOSE_O2_UNIT_FEEDBACK_HARDENING_AS_REVIEWED_REFERENCE_V0",
+  "warnings": []
+}
+o2_closure_receipt_id=bf5163d7
+o2_closure_receipt_path=data/o2_unit_feedback_hardening_closure_v0_receipts/bf5163d7.json
+o2_closure_record_path=data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_closure_record_v0.json
+o2_reviewed_reference_path=data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_reviewed_reference_v0.json
+o2_weak_feedback_note_path=data/o2_unit_feedback_hardening_closure_v0/o2_weak_feedback_note_v0.json
+o2_c5_block_status_path=data/o2_unit_feedback_hardening_closure_v0/o2_c5_block_status_v0.json
+o2_reference_freeze_path=data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_reference_freeze_v0.json
+o2_receipt_chain_path=data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_receipt_chain_v0.json
+o2_boundary_lock_path=data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_boundary_lock_v0.json
+o2_closure_rollup_path=data/o2_unit_feedback_hardening_closure_v0/o2_closure_rollup_v0.json
+o2_closure_profile_path=data/o2_unit_feedback_hardening_closure_v0/o2_closure_profile_v0.json
+
+ASSERT_O2_CLOSURE
+{
+  "bad_counters_zero": true,
+  "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+  "failures": [],
+  "gate": "PASS",
+  "o2_closed_as_reviewed_reference": true,
+  "post_closure_decision_ready": true,
+  "receipt_id": "bf5163d7",
+  "recommended_next": "DECIDE_NEXT_AFTER_O2_FEEDBACK_REFERENCE_CLOSURE_V0",
+  "status": "TYPED_O2_UNIT_FEEDBACK_HARDENING_CLOSED_AS_REVIEWED_REFERENCE_WEAK_FEEDBACK_NOTE_DECISION_READY",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_UNIT_FEEDBACK_HARDENING_CLOSED_AS_REVIEWED_REFERENCE_WEAK_FEEDBACK_NOTE_DECISION_READY",
+    "type": "STOP"
+  },
+  "weak_feedback_count": 3,
+  "weak_feedback_resolved": false
+}
+
+VERIFY_O2_CLOSURE_ONLY_NO_WEAK_RESOLUTION_NO_LIVE_AUDIT_NO_REPAIR_NO_RETRY_NO_TARGET_NO_PATCH_NO_SOURCE_MUTATION_NO_C5
+allowed_status_lines_checked
+O2 closed as reviewed reference; weak feedback note frozen; C5 still blocked; no weak resolution/no live audit/no repair/no retry/no target/no patch/no source mutation/no C5
+
+SHOW_O2_CLOSURE_NEXT
+status=TYPED_O2_UNIT_FEEDBACK_HARDENING_CLOSED_AS_REVIEWED_REFERENCE_WEAK_FEEDBACK_NOTE_DECISION_READY
+reason_codes=O2_CLOSED_AS_REVIEWED_REFERENCE,O2_REVIEW_RECEIPT_CONSUMED,STATIC_SCHEMA_PROBE_REFERENCE_FROZEN,TEN_FEEDBACK_RECORDS_FROZEN_AS_REVIEWED_REFERENCE,WEAK_FEEDBACK_NOTE_FROZEN,WEAK_FEEDBACK_INTENTIONAL_AND_TYPED,C5_BLOCK_STATUS_FROZEN,C5_REMAINS_BLOCKED_BY_WEAK_FEEDBACK,MISSING_CAPABILITIES_REMAIN_CANDIDATE_ONLY,REFINEMENT_CANDIDATES_REMAIN_PROPOSED_ONLY,RETRY_GATE_BEHAVIOR_FROZEN,EXPECTED_LIMITS_SEPARATED_FROM_BUGS,NO_LIVE_FEEDBACK_AUDIT_EXECUTED,NO_WEAK_FEEDBACK_RESOLUTION_ATTEMPTED,NO_REPAIR_APPLIED,NO_RETRY_EXECUTED,NO_TARGET_SELECTED_FOR_BUILD,NO_RUNTIME_PATCH_APPLIED,NO_SOURCE_MUTATION,NO_C5_OPENED,POST_CLOSURE_DECISION_READY
+o2_closed_as_reviewed_reference=True
+reviewed_reference_emitted=True
+weak_feedback_note_frozen=True
+weak_feedback_count=3
+under_typed_feedback_count=2
+ambiguous_requires_question_count=1
+feedback_records_frozen_count=10
+weak_feedback_resolved=False
+c5_feedback_readiness=BLOCKED_BY_WEAK_FEEDBACK
+c5_block_status_frozen=True
+post_closure_decision_ready=True
+live_feedback_audit_executed=False
+repair_applied=False
+retry_executed=False
+target_selected_for_build=False
+runtime_patch_applied=False
+source_mutated=False
+prior_receipt_mutated=False
+architecture_change=False
+c5_opened=False
+hidden_next_command=False
+latest_file_guessing=False
+mtime_selection=False
+bad_counters_zero=True
+recommended_next=DECIDE_NEXT_AFTER_O2_FEEDBACK_REFERENCE_CLOSURE_V0
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+?? scripts/close_o2_unit_feedback_hardening_as_reviewed_reference_v0.py
+
+PACKAGE_O2_CLOSURE_ARTIFACTS
+packaged data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_closure_record_v0.json
+packaged data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_reviewed_reference_v0.json
+packaged data/o2_unit_feedback_hardening_closure_v0/o2_weak_feedback_note_v0.json
+packaged data/o2_unit_feedback_hardening_closure_v0/o2_c5_block_status_v0.json
+packaged data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_reference_freeze_v0.json
+packaged data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_receipt_chain_v0.json
+packaged data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_boundary_lock_v0.json
+packaged data/o2_unit_feedback_hardening_closure_v0/o2_closure_downstream_decision_table_v0.json
+packaged data/o2_unit_feedback_hardening_closure_v0/o2_closure_classification_v0.json
+packaged data/o2_unit_feedback_hardening_closure_v0/o2_closure_authority_boundary_v0.json
+packaged data/o2_unit_feedback_hardening_closure_v0/o2_closure_rollup_v0.json
+packaged data/o2_unit_feedback_hardening_closure_v0/o2_closure_profile_v0.json
+packaged data/o2_unit_feedback_hardening_closure_v0/o2_closure_report.json
+packaged data/o2_unit_feedback_hardening_closure_v0/o2_closure_transition_trace.json
+[master 156e1c3fe] close O2 unit feedback hardening as reviewed reference
+ 17 files changed, 1250 insertions(+)
+ create mode 100644 data/o2_unit_feedback_hardening_closure_v0/o2_c5_block_status_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_closure_v0/o2_closure_authority_boundary_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_closure_v0/o2_closure_classification_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_closure_v0/o2_closure_downstream_decision_table_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_closure_v0/o2_closure_profile_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_closure_v0/o2_closure_report.json
+ create mode 100644 data/o2_unit_feedback_hardening_closure_v0/o2_closure_rollup_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_closure_v0/o2_closure_transition_trace.json
+ create mode 100644 data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_boundary_lock_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_closure_record_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_receipt_chain_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_reference_freeze_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_reviewed_reference_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_closure_v0/o2_weak_feedback_note_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_closure_v0_receipts/bf5163d7.json
+ create mode 100755 scripts/close_o2_unit_feedback_hardening_as_reviewed_reference_v0.py
+
+COMMIT_DONE_RELEVANT
+
+O2_CLOSURE_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+o2_closure_receipt_id=bf5163d7
+o2_closure_receipt_path=data/o2_unit_feedback_hardening_closure_v0_receipts/bf5163d7.json
+{
+  "acceptance_gate_results": {
+    "O2_CLOSE_0_REVIEW_RECEIPT_CONSUMED": true,
+    "O2_CLOSE_10_C5_REMAINS_BLOCKED": true,
+    "O2_CLOSE_11_NO_LIVE_FEEDBACK_AUDIT": true,
+    "O2_CLOSE_12_NO_REPAIR_APPLIED": true,
+    "O2_CLOSE_13_NO_RETRY_EXECUTED": true,
+    "O2_CLOSE_14_NO_TARGET_SELECTED_FOR_BUILD": true,
+    "O2_CLOSE_15_NO_RUNTIME_PATCH": true,
+    "O2_CLOSE_16_NO_SOURCE_MUTATION": true,
+    "O2_CLOSE_17_NO_ARCHITECTURE_CHANGE": true,
+    "O2_CLOSE_18_NO_HIDDEN_NEXT_COMMAND": true,
+    "O2_CLOSE_19_POST_CLOSURE_DECISION_READY": true,
+    "O2_CLOSE_1_CLOSURE_RECORD_EMITTED": true,
+    "O2_CLOSE_20_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "O2_CLOSE_2_REVIEWED_REFERENCE_EMITTED": true,
+    "O2_CLOSE_3_WEAK_FEEDBACK_NOTE_FROZEN": true,
+    "O2_CLOSE_4_C5_BLOCK_STATUS_FROZEN": true,
+    "O2_CLOSE_5_REFERENCE_FREEZE_EMITTED": true,
+    "O2_CLOSE_6_RECEIPT_CHAIN_EMITTED": true,
+    "O2_CLOSE_7_BOUNDARY_LOCK_EMITTED": true,
+    "O2_CLOSE_8_TEN_FEEDBACK_RECORDS_FROZEN": true,
+    "O2_CLOSE_9_WEAK_FEEDBACK_NOT_RESOLVED": true
+  },
+  "aggregate_metrics": {
+    "bad_counters_zero": true,
+    "build_mode": "O2_CLOSURE_ONLY",
+    "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+    "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / CLOSURE",
+    "mode": "CLOSE / FREEZE_REVIEWED_REFERENCE / WEAK_FEEDBACK_NOTE / NO_C5",
+    "reason_codes": [
+      "O2_CLOSED_AS_REVIEWED_REFERENCE",
+      "O2_REVIEW_RECEIPT_CONSUMED",
+      "STATIC_SCHEMA_PROBE_REFERENCE_FROZEN",
+      "TEN_FEEDBACK_RECORDS_FROZEN_AS_REVIEWED_REFERENCE",
+      "WEAK_FEEDBACK_NOTE_FROZEN",
+      "WEAK_FEEDBACK_INTENTIONAL_AND_TYPED",
+      "C5_BLOCK_STATUS_FROZEN",
+      "C5_REMAINS_BLOCKED_BY_WEAK_FEEDBACK",
+      "MISSING_CAPABILITIES_REMAIN_CANDIDATE_ONLY",
+      "REFINEMENT_CANDIDATES_REMAIN_PROPOSED_ONLY",
+      "RETRY_GATE_BEHAVIOR_FROZEN",
+      "EXPECTED_LIMITS_SEPARATED_FROM_BUGS",
+      "NO_LIVE_FEEDBACK_AUDIT_EXECUTED",
+      "NO_WEAK_FEEDBACK_RESOLUTION_ATTEMPTED",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_SOURCE_MUTATION",
+      "NO_C5_OPENED",
+      "POST_CLOSURE_DECISION_READY"
+    ],
+    "receipt_backed_claim": "O2 was closed as a reviewed reference with weak-feedback note. The static schema/probe feedback machinery, 10 reviewed feedback records, candidate-only missing capabilities, proposed-only refinements, retry-gate behavior, expected-limit separation, and C5 block status are frozen as reference context. Weak feedback remains intentional and typed. Closure does not resolve weak feedback, run live audit, repair, retry, select target, patch runtime, mutate sources, or open C5.",
+    "recommended_next_handling": "DECIDE_NEXT_AFTER_O2_FEEDBACK_REFERENCE_CLOSURE_V0",
+    "schema_version": "o2_closure_report_v0",
+    "status": "TYPED_O2_UNIT_FEEDBACK_HARDENING_CLOSED_AS_REVIEWED_REFERENCE_WEAK_FEEDBACK_NOTE_DECISION_READY",
+    "target_unit_id": "observation.unit_feedback_hardening_closure.v0",
+    "unit_id": "CLOSE_O2_UNIT_FEEDBACK_HARDENING_AS_REVIEWED_REFERENCE_V0",
+    "weak_feedback_count": 3
+  },
+  "build_mode": "O2_CLOSURE_ONLY",
+  "created_at": "2026-06-25T02:16:00.361937+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / CLOSURE",
+  "machine_readable_o2_closure_summary": {
+    "ambiguous_requires_question_count": 1,
+    "architecture_change": false,
+    "bad_counters_zero": true,
+    "c5_block_status_frozen": true,
+    "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+    "c5_opened": false,
+    "feedback_records_frozen_count": 10,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "live_feedback_audit_executed": false,
+    "mtime_selection": false,
+    "o2_closed_as_reviewed_reference": true,
+    "post_closure_decision_ready": true,
+    "prior_receipt_mutated": false,
+    "reason_codes": [
+      "O2_CLOSED_AS_REVIEWED_REFERENCE",
+      "O2_REVIEW_RECEIPT_CONSUMED",
+      "STATIC_SCHEMA_PROBE_REFERENCE_FROZEN",
+      "TEN_FEEDBACK_RECORDS_FROZEN_AS_REVIEWED_REFERENCE",
+      "WEAK_FEEDBACK_NOTE_FROZEN",
+      "WEAK_FEEDBACK_INTENTIONAL_AND_TYPED",
+      "C5_BLOCK_STATUS_FROZEN",
+      "C5_REMAINS_BLOCKED_BY_WEAK_FEEDBACK",
+      "MISSING_CAPABILITIES_REMAIN_CANDIDATE_ONLY",
+      "REFINEMENT_CANDIDATES_REMAIN_PROPOSED_ONLY",
+      "RETRY_GATE_BEHAVIOR_FROZEN",
+      "EXPECTED_LIMITS_SEPARATED_FROM_BUGS",
+      "NO_LIVE_FEEDBACK_AUDIT_EXECUTED",
+      "NO_WEAK_FEEDBACK_RESOLUTION_ATTEMPTED",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_SOURCE_MUTATION",
+      "NO_C5_OPENED",
+      "POST_CLOSURE_DECISION_READY"
+    ],
+    "recommended_next": "DECIDE_NEXT_AFTER_O2_FEEDBACK_REFERENCE_CLOSURE_V0",
+    "repair_applied": false,
+    "retry_executed": false,
+    "reviewed_reference_emitted": true,
+    "runtime_patch_applied": false,
+    "source_mutated": false,
+    "status": "TYPED_O2_UNIT_FEEDBACK_HARDENING_CLOSED_AS_REVIEWED_REFERENCE_WEAK_FEEDBACK_NOTE_DECISION_READY",
+    "target_selected_for_build": false,
+    "under_typed_feedback_count": 2,
+    "weak_feedback_count": 3,
+    "weak_feedback_note_frozen": true,
+    "weak_feedback_resolved": false
+  },
+  "mode": "CLOSE / FREEZE_REVIEWED_REFERENCE / WEAK_FEEDBACK_NOTE / NO_C5",
+  "output_artifacts": {
+    "authority_boundary": "data/o2_unit_feedback_hardening_closure_v0/o2_closure_authority_boundary_v0.json",
+    "boundary_lock": "data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_boundary_lock_v0.json",
+    "c5_block_status": "data/o2_unit_feedback_hardening_closure_v0/o2_c5_block_status_v0.json",
+    "classification": "data/o2_unit_feedback_hardening_closure_v0/o2_closure_classification_v0.json",
+    "closure_record": "data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_closure_record_v0.json",
+    "downstream_decision_table": "data/o2_unit_feedback_hardening_closure_v0/o2_closure_downstream_decision_table_v0.json",
+    "implementation_receipt": "data/o2_unit_feedback_hardening_closure_v0_receipts/bf5163d7.json",
+    "profile": "data/o2_unit_feedback_hardening_closure_v0/o2_closure_profile_v0.json",
+    "receipt_chain": "data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_receipt_chain_v0.json",
+    "reference_freeze": "data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_reference_freeze_v0.json",
+    "report": "data/o2_unit_feedback_hardening_closure_v0/o2_closure_report.json",
+    "reviewed_reference": "data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_reviewed_reference_v0.json",
+    "rollup": "data/o2_unit_feedback_hardening_closure_v0/o2_closure_rollup_v0.json",
+    "transition_trace": "data/o2_unit_feedback_hardening_closure_v0/o2_closure_transition_trace.json",
+    "weak_feedback_note": "data/o2_unit_feedback_hardening_closure_v0/o2_weak_feedback_note_v0.json"
+  },
+  "receipt_id": "bf5163d7",
+  "receipt_type": "TYPED_O2_UNIT_FEEDBACK_HARDENING_CLOSURE_RECEIPT",
+  "schema_version": "o2_unit_feedback_hardening_closure_receipt_v0",
+  "source_o2_review_receipt_id": "ddf04eb2",
+  "target_unit_id": "observation.unit_feedback_hardening_closure.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_UNIT_FEEDBACK_HARDENING_CLOSED_AS_REVIEWED_REFERENCE_WEAK_FEEDBACK_NOTE_DECISION_READY",
+    "type": "STOP"
+  },
+  "unit_id": "CLOSE_O2_UNIT_FEEDBACK_HARDENING_AS_REVIEWED_REFERENCE_V0",
+  "warnings": []
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

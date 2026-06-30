@@ -1,0 +1,1203 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_195500
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_195500.txt
+
+APPLY_DB_WRITE_WAL_BATCHED_RECEIPT_WRITE_FIX_V0
+
+STATUS_BEFORE
+?? data/
+
+VERIFY_SOURCE_CANDIDATE
+{
+  "authorizes_execution_skipping": false,
+  "authorizes_gate_semantics_change": false,
+  "authorizes_law_semantics_change": false,
+  "authorizes_patch_application": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_receipt_compression": false,
+  "authorizes_receipt_deletion": false,
+  "authorizes_receipt_schema_change": false,
+  "authorizes_runner_semantics_change": false,
+  "candidate_id": "2de6e3c2",
+  "candidate_name": "FIX_CANDIDATE_DB_WRITE_WAL_BATCHED_RECEIPT_WRITE_V0",
+  "candidate_sig8": "2de6e3c2",
+  "candidate_status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "gate": "PASS",
+  "source_policy_id": "e8880c58",
+  "source_profile_id": "c89790f0",
+  "target_burden_class": "BURDEN_DB_WRITE",
+  "terminal": {
+    "next_command_goal": "APPLY_DB_WRITE_WAL_BATCHED_RECEIPT_WRITE_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+INSPECT_SQLITE_WRITE_SURFACE
+373:    with sqlite3.connect(DB_PATH) as con:
+459:    with sqlite3.connect(DB_PATH) as con:
+733:    with sqlite3.connect(DB_PATH) as con:
+788:    with sqlite3.connect(DB_PATH) as con:
+801:    with sqlite3.connect(DB_PATH) as con:
+839:    with sqlite3.connect(DB_PATH) as con:
+1134:    with sqlite3.connect(DB_PATH) as con:
+1218:    with sqlite3.connect(DB_PATH) as con:
+1299:    with sqlite3.connect(DB_PATH) as con:
+1431:    with sqlite3.connect(DB_PATH) as con:
+1491:    with sqlite3.connect(DB_PATH) as con:
+1601:    with sqlite3.connect(DB_PATH) as con:
+1667:    with sqlite3.connect(DB_PATH) as con:
+1768:        con.executemany(
+1772:        con.commit()
+1774:    with sqlite3.connect(DB_PATH) as con:
+1899:    with sqlite3.connect(DB_PATH) as con:
+2018:        with sqlite3.connect(DB_PATH) as con:
+4472:        con = sqlite3.connect(db_path)
+4971:        con = sqlite3.connect(sqlite_path)
+5112:            con = sqlite3.connect(temp_db)
+5130:            con.commit()
+5143:            con = sqlite3.connect(temp_db)
+5161:            con.commit()
+5174:            con = sqlite3.connect(temp_db)
+5191:            con.commit()
+5205:            con = sqlite3.connect(temp_db)
+5254:                f"insert into receipts ({col_list}) values ({placeholders})",
+5257:            con.commit()
+5275:            con = sqlite3.connect(temp_db)
+8201:    con = sqlite3.connect("data/runs/registry.sqlite")
+8567:    con = _sqlite3.connect("data/runs/registry.sqlite")
+8697:    con = _sqlite3.connect("data/runs/registry.sqlite")
+
+PATCH_DB_WRITE_WAL_LAYER
+{
+  "connect_count_before": 26,
+  "connect_replace_count": 26,
+  "gate": "PASS",
+  "helper_added": true,
+  "patch": "DB_WRITE_WAL_CONNECTION_WRAPPER_APPLIED",
+  "semantics": {
+    "execution_skipping": false,
+    "gate_semantics_change": false,
+    "law_semantics_change": false,
+    "receipt_compression": false,
+    "receipt_deletion": false,
+    "receipt_schema_change": false,
+    "run_semantics_change": false
+  },
+  "warnings": []
+}
+
+PY_COMPILE
+
+VERIFY_SQLITE_WAL_PRAGMA_ON_REGISTRY
+{
+  "journal_mode_observed_without_wrapper": "delete",
+  "note": "WAL may only become visible after first wrapped connection opens the DB.",
+  "registry_path": "data/runs/registry.sqlite",
+  "synchronous_observed_without_wrapper": 2
+}
+
+SMOKE_RUN_AFTER_PATCH
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:1146 in stress             │
+│                                                                              │
+│    1143 │   """                                                              │
+│    1144 │   Deliberately push the runner until halt reasons appear.          │
+│    1145 │   """                                                              │
+│ ❱  1146 │   execute_run(                                                     │
+│    1147 │   │   depth_min=3,                                                 │
+│    1148 │   │   depth_max=depth_max,                                         │
+│    1149 │   │   families=families,                                           │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:920 in execute_run         │
+│                                                                              │
+│     917 │   strict_laws: bool = False,                                       │
+│     918 ) -> dict:                                                           │
+│     919 │   _ml_progress_run_config(locals())                                │
+│ ❱   920 │   run_id = allocate_run_id(run_id)                                 │
+│     921 │                                                                    │
+│     922 │   family_names = parse_families(families)                          │
+│     923                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:900 in allocate_run_id     │
+│                                                                              │
+│     897 │   else:                                                            │
+│     898 │   │   base = requested_run_id                                      │
+│     899 │                                                                    │
+│ ❱   900 │   if not run_id_exists(base):                                      │
+│     901 │   │   return base                                                  │
+│     902 │                                                                    │
+│     903 │   for i in range(1, 1000):                                         │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:872 in run_id_exists       │
+│                                                                              │
+│     869                                                                      │
+│     870                                                                      │
+│     871 def run_id_exists(run_id: str) -> bool:                              │
+│ ❱   872 │   init_db()                                                        │
+│     873 │                                                                    │
+│     874 │   with _matrixlab_connect_sqlite(DB_PATH) as con:                  │
+│     875 │   │   found = con.execute(                                         │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:408 in init_db             │
+│                                                                              │
+│     405 def init_db() -> None:                                               │
+│     406 │   DB_PATH.parent.mkdir(parents=True, exist_ok=True)                │
+│     407 │                                                                    │
+│ ❱   408 │   with _matrixlab_connect_sqlite(DB_PATH) as con:                  │
+│     409 │   │   con.execute(                                                 │
+│     410 │   │   │   """                                                      │
+│     411 │   │   │   create table if not exists runs (                        │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│                          ... 891 frames hidden ...                           │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+│                                                                              │
+│ /home/asd/projects/matrixlab/src/matrixlab/cli.py:21 in                      │
+│ _matrixlab_connect_sqlite                                                    │
+│                                                                              │
+│      18                                                                      │
+│      19                                                                      │
+│      20 def _matrixlab_connect_sqlite(*args, **kwargs):                      │
+│ ❱    21 │   con = _matrixlab_connect_sqlite(*args, **kwargs)                 │
+│      22 │   _matrixlab_configure_sqlite_write_connection(con)                │
+│      23 │   return con                                                       │
+│      24                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────╯
+RecursionError: maximum recursion depth exceeded
+SMOKE_RUN_ID_MISSING
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

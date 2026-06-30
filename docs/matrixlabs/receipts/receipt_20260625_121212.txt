@@ -1,0 +1,434 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_121212
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_121212.txt
+
+DECIDE_NEXT_AFTER_O2_WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_REFERENCE_CLOSURE_V0
+
+STATUS_BEFORE_RELEVANT
+?? data/radius_125_slot_execution_summaries/
+
+VERIFY_POST_REVIEW_REFERENCE_CLOSURE_DECISION_BASIS
+present data/o2_weak_feedback_resolution_proposed_record_review_closure_v0_receipts/2f793867.json
+present data/o2_weak_feedback_resolution_proposed_record_review_closure_v0/o2_proposed_record_review_closure_record_v0.json
+present data/o2_weak_feedback_resolution_proposed_record_review_closure_v0/o2_proposed_record_review_reviewed_reference_v0.json
+present data/o2_weak_feedback_resolution_proposed_record_review_closure_v0/o2_reviewed_artifact_inventory_freeze_v0.json
+present data/o2_weak_feedback_resolution_proposed_record_review_closure_v0/o2_reviewed_weak_feedback_resolution_record_freeze_v0.json
+present data/o2_weak_feedback_resolution_proposed_record_review_closure_v0/o2_reviewed_route_map_freeze_v0.json
+present data/o2_weak_feedback_resolution_proposed_record_review_closure_v0/o2_final_resolution_boundary_lock_v0.json
+present data/o2_weak_feedback_resolution_proposed_record_review_closure_v0/o2_proposed_record_review_unresolved_status_freeze_v0.json
+present data/o2_weak_feedback_resolution_proposed_record_review_closure_v0/o2_proposed_record_review_c5_block_freeze_v0.json
+present data/o2_weak_feedback_resolution_proposed_record_review_closure_v0/o2_proposed_record_review_receipt_chain_v0.json
+present data/o2_weak_feedback_resolution_proposed_record_review_closure_v0/o2_proposed_record_review_closure_downstream_decision_table_v0.json
+present data/o2_weak_feedback_resolution_proposed_record_review_closure_v0/o2_proposed_record_review_closure_authority_boundary_v0.json
+present data/o2_weak_feedback_resolution_proposed_record_review_closure_v0/o2_proposed_record_review_closure_classification_v0.json
+present data/o2_weak_feedback_resolution_proposed_record_review_closure_v0/o2_proposed_record_review_closure_rollup_v0.json
+present data/o2_weak_feedback_resolution_proposed_record_review_closure_v0/o2_proposed_record_review_closure_profile_v0.json
+present data/o2_weak_feedback_resolution_proposed_record_review_closure_v0/o2_proposed_record_review_closure_report.json
+present data/o2_weak_feedback_resolution_proposed_record_review_closure_v0/o2_proposed_record_review_closure_transition_trace.json
+
+PATCH_GITIGNORE
+
+WRITE_POST_REVIEW_REFERENCE_CLOSURE_DECISION_RUNNER
+
+PY_COMPILE_POST_REVIEW_REFERENCE_CLOSURE_DECISION
+
+RUN_POST_REVIEW_REFERENCE_CLOSURE_DECISION
+{
+  "acceptance_gate_results": {
+    "POST_REVIEW_CLOSURE_DECIDE_0_SOURCE_CLOSURE_RECEIPT_CONSUMED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_10_NO_LIVE_AUDIT": true,
+    "POST_REVIEW_CLOSURE_DECIDE_11_NO_REPAIR_RETRY_PATCH_SOURCE_MUTATION": true,
+    "POST_REVIEW_CLOSURE_DECIDE_12_NO_HIDDEN_NEXT_COMMAND": true,
+    "POST_REVIEW_CLOSURE_DECIDE_13_NO_LATEST_OR_MTIME": true,
+    "POST_REVIEW_CLOSURE_DECIDE_14_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_1_DECISION_BASIS_EMITTED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_2_REVIEWED_REFERENCE_CONFIRMED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_3_REVIEWED_RESOLUTION_RECORDS_CONFIRMED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_4_FINAL_BOUNDARY_LOCK_CONFIRMED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_5_C5_BLOCK_CONFIRMED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_6_FINAL_RESOLUTION_CLOSURE_SELECTED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_7_FINAL_CLOSURE_AUTHORIZATION_EMITTED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_8_NO_FINAL_RESOLUTION_EMITTED_IN_DECISION": true,
+    "POST_REVIEW_CLOSURE_DECIDE_9_C5_NOT_OPENED": true
+  },
+  "aggregate_metrics": {
+    "bad_counters_zero": true,
+    "build_mode": "O2_WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION_ONLY",
+    "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+    "final_resolution_boundary_crossed": false,
+    "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION",
+    "mode": "DECIDE_ONLY / SELECT_FINAL_RESOLUTION_CLOSURE / NO_FINAL_RESOLUTION_NO_C5",
+    "reason_codes": [
+      "POST_REVIEW_REFERENCE_CLOSURE_DECISION_COMPLETE",
+      "PROPOSED_RECORD_REVIEW_CLOSURE_RECEIPT_CONSUMED",
+      "REVIEWED_ARTIFACT_REFERENCE_CONFIRMED",
+      "REVIEWED_RESOLUTION_RECORDS_FROZEN_CONFIRMED",
+      "FINAL_RESOLUTION_BOUNDARY_LOCK_CONFIRMED",
+      "UNRESOLVED_STATUS_CONFIRMED",
+      "C5_BLOCK_CONFIRMED",
+      "FINAL_RESOLUTION_CLOSURE_SELECTED_NEXT",
+      "NO_FINAL_RESOLUTION_EMITTED_IN_DECISION",
+      "NO_WEAK_FEEDBACK_RESOLUTION_RECORDED_IN_DECISION",
+      "NO_C5_RECONSIDERATION_READY",
+      "NO_C5_OPENED",
+      "NO_LIVE_FEEDBACK_AUDIT_EXECUTED",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_SOURCE_MUTATION"
+    ],
+    "receipt_backed_claim": "The post-closure decision selected final weak-feedback resolution closure as the next branch. This decision does not itself resolve weak feedback and does not unblock C5.",
+    "recommended_next_handling": "EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE_V0",
+    "resolution_records_emitted_count": 0,
+    "reviewed_resolution_records_frozen_count": 3,
+    "schema_version": "o2_post_review_reference_closure_decision_report_v0",
+    "status": "TYPED_O2_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION_SELECTED_FINAL_RESOLUTION_CLOSURE_READY",
+    "target_unit_id": "observation.o2_weak_feedback_resolution_proposed_record_review_post_closure_decision.v0",
+    "unit_id": "DECIDE_NEXT_AFTER_O2_WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_REFERENCE_CLOSURE_V0",
+    "weak_feedback_resolved": false
+  },
+  "build_mode": "O2_WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION_ONLY",
+  "created_at": "2026-06-25T11:12:13.714030+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION",
+  "machine_readable_o2_post_review_reference_closure_decision_summary": {
+    "architecture_change": false,
+    "bad_counters_zero": true,
+    "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+    "c5_opened": false,
+    "c5_reconsideration_ready": false,
+    "final_resolution_boundary_crossed": false,
+    "final_resolution_closure_authorized_next": true,
+    "final_resolution_closure_executed_in_decision": false,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "live_feedback_audit_executed": false,
+    "mtime_selection": false,
+    "parking_counted_as_resolution": false,
+    "post_closure_decision_complete": true,
+    "prior_receipt_mutated": false,
+    "reason_codes": [
+      "POST_REVIEW_REFERENCE_CLOSURE_DECISION_COMPLETE",
+      "PROPOSED_RECORD_REVIEW_CLOSURE_RECEIPT_CONSUMED",
+      "REVIEWED_ARTIFACT_REFERENCE_CONFIRMED",
+      "REVIEWED_RESOLUTION_RECORDS_FROZEN_CONFIRMED",
+      "FINAL_RESOLUTION_BOUNDARY_LOCK_CONFIRMED",
+      "UNRESOLVED_STATUS_CONFIRMED",
+      "C5_BLOCK_CONFIRMED",
+      "FINAL_RESOLUTION_CLOSURE_SELECTED_NEXT",
+      "NO_FINAL_RESOLUTION_EMITTED_IN_DECISION",
+      "NO_WEAK_FEEDBACK_RESOLUTION_RECORDED_IN_DECISION",
+      "NO_C5_RECONSIDERATION_READY",
+      "NO_C5_OPENED",
+      "NO_LIVE_FEEDBACK_AUDIT_EXECUTED",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_SOURCE_MUTATION"
+    ],
+    "recommended_next": "EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE_V0",
+    "repair_applied": false,
+    "resolution_records_emitted_count": 0,
+    "retry_executed": false,
+    "reviewed_resolution_records_exist": true,
+    "reviewed_resolution_records_frozen_count": 3,
+    "runtime_patch_applied": false,
+    "selected_next_branch": "EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE",
+    "selected_next_unit": "EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE_V0",
+    "source_mutated": false,
+    "status": "TYPED_O2_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION_SELECTED_FINAL_RESOLUTION_CLOSURE_READY",
+    "target_selected_for_build": false,
+    "weak_feedback_resolved": false
+  },
+  "mode": "DECIDE_ONLY / SELECT_FINAL_RESOLUTION_CLOSURE / NO_FINAL_RESOLUTION_NO_C5",
+  "output_artifacts": {
+    "authority_boundary": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_authority_boundary_v0.json",
+    "c5_block_continuation": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_c5_block_continuation_v0.json",
+    "classification": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_classification_v0.json",
+    "decision_basis": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_basis_v0.json",
+    "decision_table": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_table_v0.json",
+    "deferred_branches": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_deferred_branches_v0.json",
+    "final_resolution_closure_authorization": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_final_resolution_closure_authorization_v0.json",
+    "final_resolution_closure_input_scope": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_final_resolution_closure_input_scope_v0.json",
+    "implementation_receipt": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0_receipts/34bab59d.json",
+    "profile": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_profile_v0.json",
+    "report": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_report.json",
+    "rollup": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_rollup_v0.json",
+    "selected_branch": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_final_resolution_closure_selected_branch_v0.json",
+    "transition_trace": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_transition_trace.json",
+    "unresolved_continuation": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_unresolved_continuation_v0.json"
+  },
+  "receipt_id": "34bab59d",
+  "receipt_type": "TYPED_O2_POST_REVIEW_REFERENCE_CLOSURE_DECISION_RECEIPT",
+  "schema_version": "o2_post_review_reference_closure_decision_receipt_v0",
+  "source_proposed_record_review_closure_receipt_id": "2f793867",
+  "target_unit_id": "observation.o2_weak_feedback_resolution_proposed_record_review_post_closure_decision.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION_SELECTED_FINAL_RESOLUTION_CLOSURE_READY",
+    "type": "STOP"
+  },
+  "unit_id": "DECIDE_NEXT_AFTER_O2_WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_REFERENCE_CLOSURE_V0",
+  "warnings": []
+}
+post_review_reference_closure_decision_receipt_id=34bab59d
+post_review_reference_closure_decision_receipt_path=data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0_receipts/34bab59d.json
+post_review_reference_closure_decision_basis_path=data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_basis_v0.json
+final_resolution_closure_selected_branch_path=data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_final_resolution_closure_selected_branch_v0.json
+final_resolution_closure_authorization_path=data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_final_resolution_closure_authorization_v0.json
+post_review_reference_closure_decision_rollup_path=data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_rollup_v0.json
+post_review_reference_closure_decision_profile_path=data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_profile_v0.json
+
+ASSERT_POST_REVIEW_REFERENCE_CLOSURE_DECISION
+{
+  "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+  "c5_reconsideration_ready": false,
+  "failures": [],
+  "final_resolution_boundary_crossed": false,
+  "final_resolution_closure_authorized_next": true,
+  "final_resolution_closure_executed_in_decision": false,
+  "gate": "PASS",
+  "receipt_id": "34bab59d",
+  "recommended_next": "EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE_V0",
+  "resolution_records_emitted_count": 0,
+  "reviewed_resolution_records_exist": true,
+  "reviewed_resolution_records_frozen_count": 3,
+  "selected_next_branch": "EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE",
+  "selected_next_unit": "EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE_V0",
+  "status": "TYPED_O2_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION_SELECTED_FINAL_RESOLUTION_CLOSURE_READY",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION_SELECTED_FINAL_RESOLUTION_CLOSURE_READY",
+    "type": "STOP"
+  },
+  "weak_feedback_resolved": false
+}
+
+VERIFY_DECISION_ONLY_NO_FINAL_RESOLUTION_NO_C5
+allowed_status_lines_checked
+Post-review reference closure decision selected final-resolution closure next; decision emitted zero final records; weak feedback unresolved; C5 block preserved
+
+SHOW_POST_REVIEW_REFERENCE_CLOSURE_DECISION_NEXT
+status=TYPED_O2_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION_SELECTED_FINAL_RESOLUTION_CLOSURE_READY
+reason_codes=POST_REVIEW_REFERENCE_CLOSURE_DECISION_COMPLETE,PROPOSED_RECORD_REVIEW_CLOSURE_RECEIPT_CONSUMED,REVIEWED_ARTIFACT_REFERENCE_CONFIRMED,REVIEWED_RESOLUTION_RECORDS_FROZEN_CONFIRMED,FINAL_RESOLUTION_BOUNDARY_LOCK_CONFIRMED,UNRESOLVED_STATUS_CONFIRMED,C5_BLOCK_CONFIRMED,FINAL_RESOLUTION_CLOSURE_SELECTED_NEXT,NO_FINAL_RESOLUTION_EMITTED_IN_DECISION,NO_WEAK_FEEDBACK_RESOLUTION_RECORDED_IN_DECISION,NO_C5_RECONSIDERATION_READY,NO_C5_OPENED,NO_LIVE_FEEDBACK_AUDIT_EXECUTED,NO_REPAIR_APPLIED,NO_RETRY_EXECUTED,NO_RUNTIME_PATCH_APPLIED,NO_SOURCE_MUTATION
+post_closure_decision_complete=True
+selected_next_branch=EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE
+selected_next_unit=EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE_V0
+final_resolution_closure_authorized_next=True
+reviewed_resolution_records_exist=True
+reviewed_resolution_records_frozen_count=3
+final_resolution_closure_executed_in_decision=False
+resolution_records_emitted_count=0
+weak_feedback_resolved=False
+final_resolution_boundary_crossed=False
+parking_counted_as_resolution=False
+c5_feedback_readiness=BLOCKED_BY_WEAK_FEEDBACK
+c5_reconsideration_ready=False
+c5_opened=False
+live_feedback_audit_executed=False
+repair_applied=False
+retry_executed=False
+target_selected_for_build=False
+runtime_patch_applied=False
+source_mutated=False
+prior_receipt_mutated=False
+architecture_change=False
+hidden_next_command=False
+latest_file_guessing=False
+mtime_selection=False
+bad_counters_zero=True
+recommended_next=EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE_V0
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+?? data/radius_125_slot_execution_summaries/
+?? scripts/decide_next_after_o2_weak_feedback_resolution_proposed_record_review_reference_closure_v0.py
+
+PACKAGE_POST_REVIEW_REFERENCE_CLOSURE_DECISION_ARTIFACTS
+packaged data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_basis_v0.json
+packaged data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_table_v0.json
+packaged data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_final_resolution_closure_selected_branch_v0.json
+packaged data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_final_resolution_closure_authorization_v0.json
+packaged data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_final_resolution_closure_input_scope_v0.json
+packaged data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_unresolved_continuation_v0.json
+packaged data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_c5_block_continuation_v0.json
+packaged data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_deferred_branches_v0.json
+packaged data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_authority_boundary_v0.json
+packaged data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_classification_v0.json
+packaged data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_rollup_v0.json
+packaged data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_profile_v0.json
+packaged data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_report.json
+packaged data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_transition_trace.json
+[master a36080c14] decide next after O2 proposed-record review reference closure
+ 17 files changed, 1171 insertions(+)
+ create mode 100644 data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_final_resolution_closure_authorization_v0.json
+ create mode 100644 data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_final_resolution_closure_input_scope_v0.json
+ create mode 100644 data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_final_resolution_closure_selected_branch_v0.json
+ create mode 100644 data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_c5_block_continuation_v0.json
+ create mode 100644 data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_authority_boundary_v0.json
+ create mode 100644 data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_basis_v0.json
+ create mode 100644 data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_classification_v0.json
+ create mode 100644 data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_profile_v0.json
+ create mode 100644 data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_report.json
+ create mode 100644 data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_rollup_v0.json
+ create mode 100644 data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_table_v0.json
+ create mode 100644 data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_transition_trace.json
+ create mode 100644 data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_deferred_branches_v0.json
+ create mode 100644 data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_unresolved_continuation_v0.json
+ create mode 100644 data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0_receipts/34bab59d.json
+ create mode 100755 scripts/decide_next_after_o2_weak_feedback_resolution_proposed_record_review_reference_closure_v0.py
+
+COMMIT_DONE_RELEVANT
+?? data/radius_125_slot_execution_summaries/
+
+POST_REVIEW_REFERENCE_CLOSURE_DECISION_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+post_review_reference_closure_decision_receipt_id=34bab59d
+post_review_reference_closure_decision_receipt_path=data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0_receipts/34bab59d.json
+{
+  "acceptance_gate_results": {
+    "POST_REVIEW_CLOSURE_DECIDE_0_SOURCE_CLOSURE_RECEIPT_CONSUMED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_10_NO_LIVE_AUDIT": true,
+    "POST_REVIEW_CLOSURE_DECIDE_11_NO_REPAIR_RETRY_PATCH_SOURCE_MUTATION": true,
+    "POST_REVIEW_CLOSURE_DECIDE_12_NO_HIDDEN_NEXT_COMMAND": true,
+    "POST_REVIEW_CLOSURE_DECIDE_13_NO_LATEST_OR_MTIME": true,
+    "POST_REVIEW_CLOSURE_DECIDE_14_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_1_DECISION_BASIS_EMITTED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_2_REVIEWED_REFERENCE_CONFIRMED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_3_REVIEWED_RESOLUTION_RECORDS_CONFIRMED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_4_FINAL_BOUNDARY_LOCK_CONFIRMED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_5_C5_BLOCK_CONFIRMED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_6_FINAL_RESOLUTION_CLOSURE_SELECTED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_7_FINAL_CLOSURE_AUTHORIZATION_EMITTED": true,
+    "POST_REVIEW_CLOSURE_DECIDE_8_NO_FINAL_RESOLUTION_EMITTED_IN_DECISION": true,
+    "POST_REVIEW_CLOSURE_DECIDE_9_C5_NOT_OPENED": true
+  },
+  "aggregate_metrics": {
+    "bad_counters_zero": true,
+    "build_mode": "O2_WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION_ONLY",
+    "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+    "final_resolution_boundary_crossed": false,
+    "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION",
+    "mode": "DECIDE_ONLY / SELECT_FINAL_RESOLUTION_CLOSURE / NO_FINAL_RESOLUTION_NO_C5",
+    "reason_codes": [
+      "POST_REVIEW_REFERENCE_CLOSURE_DECISION_COMPLETE",
+      "PROPOSED_RECORD_REVIEW_CLOSURE_RECEIPT_CONSUMED",
+      "REVIEWED_ARTIFACT_REFERENCE_CONFIRMED",
+      "REVIEWED_RESOLUTION_RECORDS_FROZEN_CONFIRMED",
+      "FINAL_RESOLUTION_BOUNDARY_LOCK_CONFIRMED",
+      "UNRESOLVED_STATUS_CONFIRMED",
+      "C5_BLOCK_CONFIRMED",
+      "FINAL_RESOLUTION_CLOSURE_SELECTED_NEXT",
+      "NO_FINAL_RESOLUTION_EMITTED_IN_DECISION",
+      "NO_WEAK_FEEDBACK_RESOLUTION_RECORDED_IN_DECISION",
+      "NO_C5_RECONSIDERATION_READY",
+      "NO_C5_OPENED",
+      "NO_LIVE_FEEDBACK_AUDIT_EXECUTED",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_SOURCE_MUTATION"
+    ],
+    "receipt_backed_claim": "The post-closure decision selected final weak-feedback resolution closure as the next branch. This decision does not itself resolve weak feedback and does not unblock C5.",
+    "recommended_next_handling": "EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE_V0",
+    "resolution_records_emitted_count": 0,
+    "reviewed_resolution_records_frozen_count": 3,
+    "schema_version": "o2_post_review_reference_closure_decision_report_v0",
+    "status": "TYPED_O2_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION_SELECTED_FINAL_RESOLUTION_CLOSURE_READY",
+    "target_unit_id": "observation.o2_weak_feedback_resolution_proposed_record_review_post_closure_decision.v0",
+    "unit_id": "DECIDE_NEXT_AFTER_O2_WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_REFERENCE_CLOSURE_V0",
+    "weak_feedback_resolved": false
+  },
+  "build_mode": "O2_WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION_ONLY",
+  "created_at": "2026-06-25T11:12:13.714030+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION",
+  "machine_readable_o2_post_review_reference_closure_decision_summary": {
+    "architecture_change": false,
+    "bad_counters_zero": true,
+    "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+    "c5_opened": false,
+    "c5_reconsideration_ready": false,
+    "final_resolution_boundary_crossed": false,
+    "final_resolution_closure_authorized_next": true,
+    "final_resolution_closure_executed_in_decision": false,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "live_feedback_audit_executed": false,
+    "mtime_selection": false,
+    "parking_counted_as_resolution": false,
+    "post_closure_decision_complete": true,
+    "prior_receipt_mutated": false,
+    "reason_codes": [
+      "POST_REVIEW_REFERENCE_CLOSURE_DECISION_COMPLETE",
+      "PROPOSED_RECORD_REVIEW_CLOSURE_RECEIPT_CONSUMED",
+      "REVIEWED_ARTIFACT_REFERENCE_CONFIRMED",
+      "REVIEWED_RESOLUTION_RECORDS_FROZEN_CONFIRMED",
+      "FINAL_RESOLUTION_BOUNDARY_LOCK_CONFIRMED",
+      "UNRESOLVED_STATUS_CONFIRMED",
+      "C5_BLOCK_CONFIRMED",
+      "FINAL_RESOLUTION_CLOSURE_SELECTED_NEXT",
+      "NO_FINAL_RESOLUTION_EMITTED_IN_DECISION",
+      "NO_WEAK_FEEDBACK_RESOLUTION_RECORDED_IN_DECISION",
+      "NO_C5_RECONSIDERATION_READY",
+      "NO_C5_OPENED",
+      "NO_LIVE_FEEDBACK_AUDIT_EXECUTED",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_SOURCE_MUTATION"
+    ],
+    "recommended_next": "EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE_V0",
+    "repair_applied": false,
+    "resolution_records_emitted_count": 0,
+    "retry_executed": false,
+    "reviewed_resolution_records_exist": true,
+    "reviewed_resolution_records_frozen_count": 3,
+    "runtime_patch_applied": false,
+    "selected_next_branch": "EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE",
+    "selected_next_unit": "EXECUTE_O2_WEAK_FEEDBACK_FINAL_RESOLUTION_CLOSURE_V0",
+    "source_mutated": false,
+    "status": "TYPED_O2_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION_SELECTED_FINAL_RESOLUTION_CLOSURE_READY",
+    "target_selected_for_build": false,
+    "weak_feedback_resolved": false
+  },
+  "mode": "DECIDE_ONLY / SELECT_FINAL_RESOLUTION_CLOSURE / NO_FINAL_RESOLUTION_NO_C5",
+  "output_artifacts": {
+    "authority_boundary": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_authority_boundary_v0.json",
+    "c5_block_continuation": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_c5_block_continuation_v0.json",
+    "classification": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_classification_v0.json",
+    "decision_basis": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_basis_v0.json",
+    "decision_table": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_table_v0.json",
+    "deferred_branches": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_deferred_branches_v0.json",
+    "final_resolution_closure_authorization": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_final_resolution_closure_authorization_v0.json",
+    "final_resolution_closure_input_scope": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_final_resolution_closure_input_scope_v0.json",
+    "implementation_receipt": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0_receipts/34bab59d.json",
+    "profile": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_profile_v0.json",
+    "report": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_report.json",
+    "rollup": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_rollup_v0.json",
+    "selected_branch": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_final_resolution_closure_selected_branch_v0.json",
+    "transition_trace": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_decision_transition_trace.json",
+    "unresolved_continuation": "data/o2_weak_feedback_resolution_proposed_record_review_post_closure_decision_v0/o2_post_review_reference_closure_unresolved_continuation_v0.json"
+  },
+  "receipt_id": "34bab59d",
+  "receipt_type": "TYPED_O2_POST_REVIEW_REFERENCE_CLOSURE_DECISION_RECEIPT",
+  "schema_version": "o2_post_review_reference_closure_decision_receipt_v0",
+  "source_proposed_record_review_closure_receipt_id": "2f793867",
+  "target_unit_id": "observation.o2_weak_feedback_resolution_proposed_record_review_post_closure_decision.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_PROPOSED_RECORD_REVIEW_POST_CLOSURE_DECISION_SELECTED_FINAL_RESOLUTION_CLOSURE_READY",
+    "type": "STOP"
+  },
+  "unit_id": "DECIDE_NEXT_AFTER_O2_WEAK_FEEDBACK_RESOLUTION_PROPOSED_RECORD_REVIEW_REFERENCE_CLOSURE_V0",
+  "warnings": []
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

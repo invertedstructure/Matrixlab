@@ -1,0 +1,389 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_081634
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_081634.txt
+
+BUILD_C8_BASIC_RESEARCH_LOOP_SPECIMEN_V0
+
+STATUS_BEFORE_RELEVANT
+M  .gitignore
+A  data/c8_basic_research_loop_specimen_v0/accepted_instrument_build_packet_v0.json
+A  data/c8_basic_research_loop_specimen_v0/bounded_probe_receipt_v0.json
+A  data/c8_basic_research_loop_specimen_v0/bounded_research_probe_packet_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_budget_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_profile_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_readout_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_report.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_rollup_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_transition_trace.json
+A  data/c8_basic_research_loop_specimen_v0/c8_decision_edge_observations_v0.jsonl
+A  data/c8_basic_research_loop_specimen_v0/c8_probe_admissibility_result_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_probe_schema_validation_result_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_repeat_once_packet_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_runtime_step_receipts_v0.jsonl
+A  data/c8_basic_research_loop_specimen_v0/c8_sidecar_events_v0.jsonl
+A  data/c8_basic_research_loop_specimen_v0/c8_specimen_open_decision_packet_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_unit_feedback_records_v0.jsonl
+A  data/c8_basic_research_loop_specimen_v0/frontier_surface_contract_v0.json
+A  data/c8_basic_research_loop_specimen_v0/instrument_verification_receipt_v0.json
+A  data/c8_basic_research_loop_specimen_v0/missing_instrument_proposal_v0.json
+A  data/c8_basic_research_loop_specimen_v0/research_transition_classification_v0.json
+A  data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_c2c7a900.json
+A  scripts/run_c8_basic_research_loop_specimen_v0.py
+
+VERIFY_C8_PREREQS_PRESENT
+present data/r0_baseline_locked_active_source_packet_v0/r0_active_source_packet_v0.json
+present data/r0_baseline_locked_active_source_packet_v0_receipts/r0_active_source_packet_receipt_7936a753.json
+present data/r0_runtime_membranes_executable_v0_receipts/r0_runtime_membranes_executable_receipt_012fe341.json
+present data/double_sieve_fixture_suite_v0_receipts/double_sieve_fixture_suite_receipt_462668ee.json
+present data/runtime_observability_feedback_attachment_v0_receipts/runtime_observability_feedback_attachment_receipt_f06ba9ce.json
+present data/c7_bounded_continuation_radius_test_v0_receipts/c7_bounded_continuation_radius_receipt_826fa798.json
+present data/c7_bounded_continuation_radius_test_v0/c7_bounded_continuation_radius_rollup_v0.json
+
+VERIFY_COMMITTED_PRECONDITION_SHAS
+double_sieve_commit_present=729c35c57a87ce68404c45960d8eed0534d187d4
+runtime_attachment_commit_present=72a60464ccd28b445bcaea5c26bfe63db930fb6e
+c7_commit_present=a286c2a135cb0015d57566f52043c098c61b1ad3
+
+PATCH_GITIGNORE
+
+WRITE_C8_BASIC_RESEARCH_LOOP_SPECIMEN_RUNNER
+
+PY_COMPILE_C8_RUNNER
+
+RUN_C8_BASIC_RESEARCH_LOOP_SPECIMEN
+{
+  "acceptance_gate_results": {
+    "C8_0_SPECIMEN_OPEN_DECISION_PACKET_CONSUMED": true,
+    "C8_10_PROBE_SCHEMA_VALIDATED": true,
+    "C8_11_PROBE_ADMISSIBILITY_CHECKED": true,
+    "C8_12_BOUNDED_PROBE_EXECUTED": true,
+    "C8_13_PROBE_RECEIPT_EMITTED": true,
+    "C8_14_TRANSITION_CLASSIFICATION_EMITTED": true,
+    "C8_15_MISSING_INSTRUMENT_PROPOSAL_IF_NEEDED": true,
+    "C8_16_NO_INSTRUMENT_BUILD_WITHOUT_ACCEPTANCE": true,
+    "C8_17_CELL1_BUILD_ONLY_IF_ACCEPTED": true,
+    "C8_18_LOCAL_VERIFICATION_IF_BUILT": true,
+    "C8_19_REPEAT_AT_MOST_ONCE": true,
+    "C8_1_BUDGET_CONSUMED": true,
+    "C8_20_NO_UNBOUNDED_PROBE": true,
+    "C8_21_NO_HIDDEN_CONTINUATION": true,
+    "C8_22_NO_GLOBAL_SOLUTION_CLAIM": true,
+    "C8_23_NO_FRONTIER_SOLVED_CLAIM": true,
+    "C8_24_NO_RESEARCH_MODE_OPENED": true,
+    "C8_25_NO_CELL1_FREEBUILD": true,
+    "C8_26_NO_SECOND_FRONTIER_SURFACE": true,
+    "C8_27_SIDE_CAR_AND_O1_O2_ATTACHED": true,
+    "C8_28_RECEIPTS_EMITTED": true,
+    "C8_29_ROLLUP_READOUT_PROFILE_REPORT_TRACE_EMITTED": true,
+    "C8_2_R0_PRECONDITION_VERIFIED": true,
+    "C8_30_BAD_COUNTERS_ZERO": true,
+    "C8_31_SPECIMEN_OPEN_PACKET_OPERATOR_DECLARED": true,
+    "C8_32_C8_NOT_OPENED_BY_C7_ALONE": true,
+    "C8_33_FIRST_PASS_PROPOSAL_ONLY": true,
+    "C8_34_NO_PROPOSAL_SELF_ACCEPTANCE": true,
+    "C8_35_ACCEPTED_BUILD_PACKET_NOT_CREATED_BY_RUNNER": true,
+    "C8_36_NA_STUBS_EMITTED_FOR_BUILD_VERIFY_REPEAT": true,
+    "C8_37_SOURCE_RECEIPTS_IMMUTABLE": true,
+    "C8_3_RUNTIME_MEMBRANES_PRECONDITION_VERIFIED": true,
+    "C8_4_DOUBLE_SIEVE_PRECONDITION_VERIFIED": true,
+    "C8_5_RUNTIME_ATTACHMENT_PRECONDITION_VERIFIED": true,
+    "C8_6_C7_PASS_PRECONDITION_VERIFIED": true,
+    "C8_7_ONE_FRONTIER_SURFACE_DECLARED": true,
+    "C8_8_FRONTIER_SURFACE_CONTRACT_VALID": true,
+    "C8_9_ONE_BOUNDED_PROBE_PACKET_DECLARED": true
+  },
+  "created_at": "2026-06-27T07:16:34.938356+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "machine_readable_c8_summary": {
+    "accepted_build_packet_created_by_runner": false,
+    "accepted_build_packet_preexisting": false,
+    "bad_counters_zero": true,
+    "bounded_probes_run": 1,
+    "cell1_freebuild": false,
+    "decision_edge_observations_emitted": 1,
+    "frontier_solved_claim": false,
+    "frontier_surfaces_loaded": 1,
+    "global_solution_claim": false,
+    "hidden_continuation": false,
+    "instrument_built": false,
+    "instrument_built_with_acceptance": false,
+    "local_verification_emitted": false,
+    "missing_instrument_proposal_emitted": true,
+    "missing_instrument_proposal_status": "PROPOSED_ONLY",
+    "na_stubs_emitted_for_build_verify_repeat": true,
+    "next_command_goal": null,
+    "proposal_only_first_pass": true,
+    "proposal_self_accepted": false,
+    "repeat_once_completed": false,
+    "research_mode_opened": false,
+    "runtime_receipts_emitted": 1,
+    "sidecar_events_emitted": 1,
+    "source_receipts_mutated": false,
+    "specimen_complete": true,
+    "transition_classification": "MISSING_INSTRUMENT_EXPOSED",
+    "transition_classification_emitted": true,
+    "unbounded_probe": false,
+    "unit_feedback_records_emitted": 0
+  },
+  "milestone": "C8_BASIC_RESEARCH_LOOP_SPECIMEN",
+  "negative_controls": {
+    "accepted_build_packet_created_by_runner_count": 0,
+    "ambient_workspace_probe_count": 0,
+    "bare_failed_status_count": 0,
+    "cell1_freebuild_count": 0,
+    "frontier_solved_claim_count": 0,
+    "global_solution_claim_count": 0,
+    "hidden_continuation_count": 0,
+    "instrument_built_from_own_proposal_count": 0,
+    "instrument_built_without_acceptance_count": 0,
+    "latest_file_selection_count": 0,
+    "mtime_selection_count": 0,
+    "probe_without_admissibility_count": 0,
+    "probe_without_receipt_count": 0,
+    "probe_without_schema_validation_count": 0,
+    "proposal_self_accepted_count": 0,
+    "repeat_beyond_once_count": 0,
+    "research_mode_opened_count": 0,
+    "runtime_law_bypassed_count": 0,
+    "second_frontier_surface_count": 0,
+    "source_c7_receipt_mutation_count": 0,
+    "source_double_sieve_receipt_mutation_count": 0,
+    "source_r0_packet_mutation_count": 0,
+    "source_receipt_mutation_count": 0,
+    "source_runtime_attachment_receipt_mutation_count": 0,
+    "source_runtime_membranes_receipt_mutation_count": 0,
+    "transition_classification_missing_count": 0,
+    "unbounded_probe_count": 0,
+    "unreviewed_theory_import_count": 0,
+    "verification_missing_after_build_count": 0,
+    "verification_run_without_preexisting_acceptance_count": 0
+  },
+  "outcome_class": "C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED",
+  "output_artifacts": {
+    "accepted_instrument_build_packet": "data/c8_basic_research_loop_specimen_v0/accepted_instrument_build_packet_v0.json",
+    "bounded_probe_receipt": "data/c8_basic_research_loop_specimen_v0/bounded_probe_receipt_v0.json",
+    "bounded_research_probe_packet": "data/c8_basic_research_loop_specimen_v0/bounded_research_probe_packet_v0.json",
+    "budget": "data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_budget_v0.json",
+    "decision_edge_observations": "data/c8_basic_research_loop_specimen_v0/c8_decision_edge_observations_v0.jsonl",
+    "frontier_surface_contract": "data/c8_basic_research_loop_specimen_v0/frontier_surface_contract_v0.json",
+    "instrument_verification_receipt": "data/c8_basic_research_loop_specimen_v0/instrument_verification_receipt_v0.json",
+    "missing_instrument_proposal": "data/c8_basic_research_loop_specimen_v0/missing_instrument_proposal_v0.json",
+    "probe_admissibility": "data/c8_basic_research_loop_specimen_v0/c8_probe_admissibility_result_v0.json",
+    "probe_schema_validation": "data/c8_basic_research_loop_specimen_v0/c8_probe_schema_validation_result_v0.json",
+    "profile": "data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_profile_v0.json",
+    "readout": "data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_readout_v0.json",
+    "receipt": "data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_6e5dafcf.json",
+    "repeat_once_packet": "data/c8_basic_research_loop_specimen_v0/c8_repeat_once_packet_v0.json",
+    "report": "data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_report.json",
+    "rollup": "data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_rollup_v0.json",
+    "runtime_step_receipts": "data/c8_basic_research_loop_specimen_v0/c8_runtime_step_receipts_v0.jsonl",
+    "sidecar_events": "data/c8_basic_research_loop_specimen_v0/c8_sidecar_events_v0.jsonl",
+    "specimen_open_decision_packet": "data/c8_basic_research_loop_specimen_v0/c8_specimen_open_decision_packet_v0.json",
+    "transition_classification": "data/c8_basic_research_loop_specimen_v0/research_transition_classification_v0.json",
+    "transition_trace": "data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_transition_trace.json",
+    "unit_feedback_records": "data/c8_basic_research_loop_specimen_v0/c8_unit_feedback_records_v0.jsonl"
+  },
+  "receipt_id": "c8_basic_research_loop_specimen_receipt_6e5dafcf",
+  "receipt_type": "TYPED_C8_BASIC_RESEARCH_LOOP_SPECIMEN_RECEIPT",
+  "run_id": "c8_specimen_16b05ccf",
+  "schema_version": "c8_basic_research_loop_specimen_receipt_v0",
+  "source_receipt_immutability": {
+    "source_hashes_after": {
+      "c7_receipt": "6e71ba40e118fb9c88aebda556111c2a658416db9dd67e4aaaa4af88915c20e1",
+      "c7_rollup": "76f173d6b72585af0686d5d31aa10002c97aca47ed2c51cfeff0cf6fc294e57f",
+      "double_sieve_receipt": "a7778a23d9868ad2e0290aea9f404f3e040e3a4b13fc98b7ba7dabb97396b4ee",
+      "r0_active_source_packet": "3d9b9be83fbb6be5f101aced120f38a962c21a0e5758fecd2c9185b8328597a8",
+      "r0_receipt": "54c57177206335f418a17f5ce3d74e1026b5eee2f050cc6b5fbee70de6c1ce9c",
+      "runtime_attachment_receipt": "f9fd63824fb71c266f7812c26c61d8f2cf1157a40b7b8ea5548b352558ed8ece",
+      "runtime_membranes_receipt": "1810f88a3bd42ad82ebcd28f3c0b6add9e01a449b35b33e94700ffc01812597b"
+    },
+    "source_hashes_before": {
+      "c7_receipt": "6e71ba40e118fb9c88aebda556111c2a658416db9dd67e4aaaa4af88915c20e1",
+      "c7_rollup": "76f173d6b72585af0686d5d31aa10002c97aca47ed2c51cfeff0cf6fc294e57f",
+      "double_sieve_receipt": "a7778a23d9868ad2e0290aea9f404f3e040e3a4b13fc98b7ba7dabb97396b4ee",
+      "r0_active_source_packet": "3d9b9be83fbb6be5f101aced120f38a962c21a0e5758fecd2c9185b8328597a8",
+      "r0_receipt": "54c57177206335f418a17f5ce3d74e1026b5eee2f050cc6b5fbee70de6c1ce9c",
+      "runtime_attachment_receipt": "f9fd63824fb71c266f7812c26c61d8f2cf1157a40b7b8ea5548b352558ed8ece",
+      "runtime_membranes_receipt": "1810f88a3bd42ad82ebcd28f3c0b6add9e01a449b35b33e94700ffc01812597b"
+    },
+    "source_receipts_mutated": false
+  },
+  "source_receipts": {
+    "c7_receipt_ref": "data/c7_bounded_continuation_radius_test_v0_receipts/c7_bounded_continuation_radius_receipt_826fa798.json",
+    "c7_rollup_ref": "data/c7_bounded_continuation_radius_test_v0/c7_bounded_continuation_radius_rollup_v0.json",
+    "double_sieve_suite_receipt_ref": "data/double_sieve_fixture_suite_v0_receipts/double_sieve_fixture_suite_receipt_462668ee.json",
+    "r0_active_source_packet_ref": "data/r0_baseline_locked_active_source_packet_v0/r0_active_source_packet_v0.json",
+    "r0_receipt_ref": "data/r0_baseline_locked_active_source_packet_v0_receipts/r0_active_source_packet_receipt_7936a753.json",
+    "runtime_membranes_receipt_ref": "data/r0_runtime_membranes_executable_v0_receipts/r0_runtime_membranes_executable_receipt_012fe341.json",
+    "runtime_observability_feedback_attachment_receipt_ref": "data/runtime_observability_feedback_attachment_v0_receipts/runtime_observability_feedback_attachment_receipt_f06ba9ce.json"
+  },
+  "status": "TYPED_C8_BASIC_RESEARCH_LOOP_SPECIMEN_PASS",
+  "target_unit_id": "research.c8_basic_research_loop_specimen.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED",
+    "type": "STOP"
+  },
+  "unit_id": "BUILD_C8_BASIC_RESEARCH_LOOP_SPECIMEN_V0",
+  "warnings": []
+}
+c8_receipt_id=c8_basic_research_loop_specimen_receipt_6e5dafcf
+c8_receipt_path=data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_6e5dafcf.json
+c8_run_id=c8_specimen_16b05ccf
+c8_outcome=C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED
+c8_terminal_stop_code=STOP_C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED
+
+ASSERT_C8_BASIC_RESEARCH_LOOP_SPECIMEN
+{
+  "acceptance_gates_false_count": 0,
+  "bounded_probes_run": 1,
+  "failures": [],
+  "frontier_surfaces_loaded": 1,
+  "gate": "PASS",
+  "instrument_built": false,
+  "missing_instrument_proposal_status": "PROPOSED_ONLY",
+  "negative_controls_nonzero_count": 0,
+  "outcome_class": "C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED",
+  "receipt_id": "c8_basic_research_loop_specimen_receipt_6e5dafcf",
+  "repeat_once_completed": false,
+  "run_id": "c8_specimen_16b05ccf",
+  "status": "TYPED_C8_BASIC_RESEARCH_LOOP_SPECIMEN_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED",
+    "type": "STOP"
+  },
+  "transition_classification": "MISSING_INSTRUMENT_EXPOSED"
+}
+
+SHOW_C8_SPECIMEN_SUMMARY
+receipt_id=c8_basic_research_loop_specimen_receipt_6e5dafcf
+receipt_path=data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_6e5dafcf.json
+status=TYPED_C8_BASIC_RESEARCH_LOOP_SPECIMEN_PASS
+outcome_class=C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED
+run_id=c8_specimen_16b05ccf
+proposal_only_first_pass=True
+frontier_surfaces_loaded=1
+bounded_probes_run=1
+transition_classification=MISSING_INSTRUMENT_EXPOSED
+missing_instrument_proposal_emitted=True
+missing_instrument_proposal_status=PROPOSED_ONLY
+instrument_built=False
+instrument_built_with_acceptance=False
+local_verification_emitted=False
+repeat_once_completed=False
+na_stubs_emitted_for_build_verify_repeat=True
+sidecar_events_emitted=1
+decision_edge_observations_emitted=1
+runtime_receipts_emitted=1
+cell1_freebuild=False
+proposal_self_accepted=False
+global_solution_claim=False
+frontier_solved_claim=False
+research_mode_opened=False
+source_receipts_mutated=False
+bad_counters_zero=True
+terminal_stop_code=STOP_C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED
+next_command_goal=None
+
+SHOW_C8_PROPOSAL
+proposal_id=missing_instrument_d56acf49
+status=PROPOSED_ONLY
+instrument_kind=DISCRIMINATOR
+smallest_honest_name=local_transition_family_discriminator_candidate
+can_propose=True
+can_apply=False
+requires_review=True
+
+SHOW_C8_NA_STUBS
+data/c8_basic_research_loop_specimen_v0/accepted_instrument_build_packet_v0.json status=NOT_APPLICABLE_NO_ACCEPTED_BUILD_PACKET reason=C8 first-pass specimen is proposal-only and no preexisting accepted build packet was provided.
+data/c8_basic_research_loop_specimen_v0/instrument_verification_receipt_v0.json status=NOT_APPLICABLE_NO_ACCEPTED_BUILD_PACKET reason=No instrument was built because no preexisting accepted build packet exists.
+data/c8_basic_research_loop_specimen_v0/c8_repeat_once_packet_v0.json status=NOT_APPLICABLE_NO_ACCEPTED_BUILD_PACKET reason=No repeat is allowed in the proposal-only first pass.
+
+FORCE_ADD_C8_ARTIFACTS
+
+DIFF_STAT_RELEVANT
+ .gitignore                                         |    6 +
+ .../accepted_instrument_build_packet_v0.json       |   15 +
+ .../bounded_probe_receipt_v0.json                  |   52 +
+ .../bounded_research_probe_packet_v0.json          |   33 +
+ .../c8_basic_research_loop_specimen_budget_v0.json |   18 +
+ ...c8_basic_research_loop_specimen_profile_v0.json |   28 +
+ ...c8_basic_research_loop_specimen_readout_v0.json |   38 +
+ .../c8_basic_research_loop_specimen_report.json    |   24 +
+ .../c8_basic_research_loop_specimen_rollup_v0.json |   65 ++
+ ...ic_research_loop_specimen_transition_trace.json |   63 ++
+ .../c8_decision_edge_observations_v0.jsonl         |    1 +
+ .../c8_probe_admissibility_result_v0.json          |   13 +
+ .../c8_probe_schema_validation_result_v0.json      |    9 +
+ .../c8_repeat_once_packet_v0.json                  |   14 +
+ .../c8_runtime_step_receipts_v0.jsonl              |    1 +
+ .../c8_sidecar_events_v0.jsonl                     |    1 +
+ .../c8_specimen_open_decision_packet_v0.json       |   38 +
+ .../c8_unit_feedback_records_v0.jsonl              |    0
+ .../frontier_surface_contract_v0.json              |   55 ++
+ .../instrument_verification_receipt_v0.json        |   14 +
+ .../missing_instrument_proposal_v0.json            |   30 +
+ .../research_transition_classification_v0.json     |   23 +
+ ...ic_research_loop_specimen_receipt_6e5dafcf.json |  177 ++++
+ ...ic_research_loop_specimen_receipt_c2c7a900.json |  177 ++++
+ scripts/run_c8_basic_research_loop_specimen_v0.py  | 1004 ++++++++++++++++++++
+ 25 files changed, 1899 insertions(+)
+
+STATUS_AFTER_RELEVANT
+M  .gitignore
+A  data/c8_basic_research_loop_specimen_v0/accepted_instrument_build_packet_v0.json
+A  data/c8_basic_research_loop_specimen_v0/bounded_probe_receipt_v0.json
+A  data/c8_basic_research_loop_specimen_v0/bounded_research_probe_packet_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_budget_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_profile_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_readout_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_report.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_rollup_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_transition_trace.json
+A  data/c8_basic_research_loop_specimen_v0/c8_decision_edge_observations_v0.jsonl
+A  data/c8_basic_research_loop_specimen_v0/c8_probe_admissibility_result_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_probe_schema_validation_result_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_repeat_once_packet_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_runtime_step_receipts_v0.jsonl
+A  data/c8_basic_research_loop_specimen_v0/c8_sidecar_events_v0.jsonl
+A  data/c8_basic_research_loop_specimen_v0/c8_specimen_open_decision_packet_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_unit_feedback_records_v0.jsonl
+A  data/c8_basic_research_loop_specimen_v0/frontier_surface_contract_v0.json
+A  data/c8_basic_research_loop_specimen_v0/instrument_verification_receipt_v0.json
+A  data/c8_basic_research_loop_specimen_v0/missing_instrument_proposal_v0.json
+A  data/c8_basic_research_loop_specimen_v0/research_transition_classification_v0.json
+A  data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_6e5dafcf.json
+A  data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_c2c7a900.json
+A  scripts/run_c8_basic_research_loop_specimen_v0.py
+
+C8_BASIC_RESEARCH_LOOP_SPECIMEN_READY_FOR_REVIEW
+M  .gitignore
+A  data/c8_basic_research_loop_specimen_v0/accepted_instrument_build_packet_v0.json
+A  data/c8_basic_research_loop_specimen_v0/bounded_probe_receipt_v0.json
+A  data/c8_basic_research_loop_specimen_v0/bounded_research_probe_packet_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_budget_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_profile_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_readout_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_report.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_rollup_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_transition_trace.json
+A  data/c8_basic_research_loop_specimen_v0/c8_decision_edge_observations_v0.jsonl
+A  data/c8_basic_research_loop_specimen_v0/c8_probe_admissibility_result_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_probe_schema_validation_result_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_repeat_once_packet_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_runtime_step_receipts_v0.jsonl
+A  data/c8_basic_research_loop_specimen_v0/c8_sidecar_events_v0.jsonl
+A  data/c8_basic_research_loop_specimen_v0/c8_specimen_open_decision_packet_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_unit_feedback_records_v0.jsonl
+A  data/c8_basic_research_loop_specimen_v0/frontier_surface_contract_v0.json
+A  data/c8_basic_research_loop_specimen_v0/instrument_verification_receipt_v0.json
+A  data/c8_basic_research_loop_specimen_v0/missing_instrument_proposal_v0.json
+A  data/c8_basic_research_loop_specimen_v0/research_transition_classification_v0.json
+A  data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_6e5dafcf.json
+A  data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_c2c7a900.json
+A  scripts/run_c8_basic_research_loop_specimen_v0.py
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

@@ -1,0 +1,483 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_033530
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_033530.txt
+
+DESIGN_O2_WEAK_FEEDBACK_HANDLING_TARGET_V0
+
+STATUS_BEFORE_RELEVANT
+
+VERIFY_WEAK_FEEDBACK_HANDLING_TARGET_DESIGN_BASIS
+present data/o2_post_closure_decision_v0_receipts/2fef4830.json
+present data/o2_post_closure_decision_v0/o2_post_closure_decision_basis_v0.json
+present data/o2_post_closure_decision_v0/o2_post_closure_decision_table_v0.json
+present data/o2_post_closure_decision_v0/o2_selected_next_branch_v0.json
+present data/o2_post_closure_decision_v0/o2_weak_feedback_handling_target_authorization_v0.json
+present data/o2_post_closure_decision_v0/o2_c5_block_continuation_v0.json
+present data/o2_post_closure_decision_v0/o2_post_closure_decision_authority_boundary_v0.json
+present data/o2_post_closure_decision_v0/o2_post_closure_decision_classification_v0.json
+present data/o2_post_closure_decision_v0/o2_post_closure_decision_rollup_v0.json
+present data/o2_post_closure_decision_v0/o2_post_closure_decision_profile_v0.json
+present data/o2_post_closure_decision_v0/o2_post_closure_decision_report.json
+present data/o2_unit_feedback_hardening_closure_v0_receipts/bf5163d7.json
+present data/o2_unit_feedback_hardening_closure_v0/o2_weak_feedback_note_v0.json
+present data/o2_unit_feedback_hardening_closure_v0/o2_c5_block_status_v0.json
+present data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_reviewed_reference_v0.json
+present data/o2_unit_feedback_hardening_closure_v0/o2_unit_feedback_hardening_boundary_lock_v0.json
+present data/o2_unit_feedback_hardening_v0/unit_feedback_records_v0.jsonl
+present data/o2_unit_feedback_hardening_v0/unit_feedback_quality_enum_v0.json
+present data/o2_unit_feedback_hardening_v0/unit_retry_gate_records_v0.jsonl
+
+PATCH_GITIGNORE
+
+WRITE_WEAK_FEEDBACK_HANDLING_TARGET_DESIGN_RUNNER
+
+PY_COMPILE_WEAK_FEEDBACK_TARGET_DESIGN
+
+RUN_WEAK_FEEDBACK_TARGET_DESIGN
+{
+  "acceptance_gate_results": {
+    "WFH_DESIGN_0_POST_O2_DECISION_RECEIPT_CONSUMED": true,
+    "WFH_DESIGN_10_BUILD_AUTHORIZATION_EMITTED": true,
+    "WFH_DESIGN_11_ACCEPTANCE_GATES_EMITTED": true,
+    "WFH_DESIGN_12_NEGATIVE_CONTROLS_EMITTED": true,
+    "WFH_DESIGN_13_TERMINAL_RULES_EMITTED": true,
+    "WFH_DESIGN_14_NO_WEAK_FEEDBACK_RESOLUTION": true,
+    "WFH_DESIGN_15_NO_LIVE_AUDIT": true,
+    "WFH_DESIGN_16_NO_REPAIR_RETRY_TARGET_PATCH_SOURCE_MUTATION": true,
+    "WFH_DESIGN_17_NO_C5_OPENED": true,
+    "WFH_DESIGN_18_NO_LATEST_OR_MTIME": true,
+    "WFH_DESIGN_19_NO_HIDDEN_NEXT_COMMAND": true,
+    "WFH_DESIGN_1_TARGET_DEFINITION_EMITTED": true,
+    "WFH_DESIGN_20_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "WFH_DESIGN_2_SOURCE_SCOPE_EMITTED": true,
+    "WFH_DESIGN_3_THREE_WEAK_RECORDS_INVENTORIED": true,
+    "WFH_DESIGN_4_HANDLING_POLICY_ENUM_EMITTED": true,
+    "WFH_DESIGN_5_QUESTION_PACKET_CONTRACT_EMITTED": true,
+    "WFH_DESIGN_6_SOURCE_REF_REQUEST_CONTRACT_EMITTED": true,
+    "WFH_DESIGN_7_UNDER_TYPED_ACCEPTANCE_CONTRACT_EMITTED": true,
+    "WFH_DESIGN_8_PARKING_CONTRACT_EMITTED": true,
+    "WFH_DESIGN_9_C5_BLOCK_CONTRACT_EMITTED": true
+  },
+  "aggregate_metrics": {
+    "authorized_next_unit": "BUILD_O2_WEAK_FEEDBACK_HANDLING_V0",
+    "bad_counters_zero": true,
+    "build_mode": "O2_WEAK_FEEDBACK_HANDLING_TARGET_DESIGN_ONLY",
+    "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+    "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / WEAK_FEEDBACK_HANDLING_TARGET_DESIGN",
+    "mode": "DESIGN_ONLY / WEAK_FEEDBACK_HANDLING_TARGET / NO_RESOLUTION_NO_C5",
+    "reason_codes": [
+      "WEAK_FEEDBACK_HANDLING_TARGET_DESIGNED",
+      "POST_O2_DECISION_RECEIPT_CONSUMED",
+      "THREE_WEAK_FEEDBACK_RECORDS_INVENTORIED",
+      "TWO_UNDER_TYPED_FEEDBACK_RECORDS_CONFIRMED",
+      "ONE_AMBIGUOUS_REQUIRES_QUESTION_RECORD_CONFIRMED",
+      "QUESTION_PACKET_CONTRACT_FROZEN",
+      "SOURCE_REF_REQUEST_CONTRACT_FROZEN",
+      "UNDER_TYPED_ACCEPTANCE_CANDIDATE_CONTRACT_FROZEN",
+      "PARKING_CONTRACT_FROZEN",
+      "HANDLING_POLICY_ENUM_FROZEN",
+      "C5_BLOCK_CONTRACT_FROZEN",
+      "BUILD_O2_WEAK_FEEDBACK_HANDLING_AUTHORIZED_NEXT",
+      "NO_WEAK_FEEDBACK_RESOLUTION_ATTEMPTED",
+      "NO_LIVE_FEEDBACK_AUDIT_EXECUTED",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_SOURCE_MUTATION",
+      "NO_C5_OPENED"
+    ],
+    "receipt_backed_claim": "The O2 weak-feedback handling target was designed from the post-O2 closure decision. It inventories the 3 weak records, freezes handling policy options, question packet contract, source-ref request contract, under-typed acceptance candidate contract, parking contract, C5 block contract, acceptance gates, negative controls, terminal rules, and build authorization. It does not resolve weak feedback, run live audit, repair, retry, select target, patch runtime, mutate sources, or open C5.",
+    "recommended_next_handling": "BUILD_O2_WEAK_FEEDBACK_HANDLING_V0",
+    "schema_version": "o2_weak_feedback_handling_target_report_v0",
+    "status": "TYPED_O2_WEAK_FEEDBACK_HANDLING_TARGET_DESIGNED_BUILD_READY",
+    "target_unit_id": "observation.o2_weak_feedback_handling_target.v0",
+    "unit_id": "DESIGN_O2_WEAK_FEEDBACK_HANDLING_TARGET_V0",
+    "weak_feedback_count": 3
+  },
+  "build_mode": "O2_WEAK_FEEDBACK_HANDLING_TARGET_DESIGN_ONLY",
+  "created_at": "2026-06-25T02:35:30.531792+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / WEAK_FEEDBACK_HANDLING_TARGET_DESIGN",
+  "machine_readable_o2_weak_feedback_target_summary": {
+    "ambiguous_requires_question_count": 1,
+    "architecture_change": false,
+    "authorized_build_mode": "STATIC_WEAK_FEEDBACK_HANDLING_ONLY",
+    "authorized_next_unit": "BUILD_O2_WEAK_FEEDBACK_HANDLING_V0",
+    "bad_counters_zero": true,
+    "c5_block_contract_frozen": true,
+    "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+    "c5_opened": false,
+    "handling_policy_enum_frozen": true,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "live_feedback_audit_executed": false,
+    "mtime_selection": false,
+    "parking_contract_frozen": true,
+    "prior_receipt_mutated": false,
+    "question_packet_contract_frozen": true,
+    "reason_codes": [
+      "WEAK_FEEDBACK_HANDLING_TARGET_DESIGNED",
+      "POST_O2_DECISION_RECEIPT_CONSUMED",
+      "THREE_WEAK_FEEDBACK_RECORDS_INVENTORIED",
+      "TWO_UNDER_TYPED_FEEDBACK_RECORDS_CONFIRMED",
+      "ONE_AMBIGUOUS_REQUIRES_QUESTION_RECORD_CONFIRMED",
+      "QUESTION_PACKET_CONTRACT_FROZEN",
+      "SOURCE_REF_REQUEST_CONTRACT_FROZEN",
+      "UNDER_TYPED_ACCEPTANCE_CANDIDATE_CONTRACT_FROZEN",
+      "PARKING_CONTRACT_FROZEN",
+      "HANDLING_POLICY_ENUM_FROZEN",
+      "C5_BLOCK_CONTRACT_FROZEN",
+      "BUILD_O2_WEAK_FEEDBACK_HANDLING_AUTHORIZED_NEXT",
+      "NO_WEAK_FEEDBACK_RESOLUTION_ATTEMPTED",
+      "NO_LIVE_FEEDBACK_AUDIT_EXECUTED",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_SOURCE_MUTATION",
+      "NO_C5_OPENED"
+    ],
+    "recommended_next": "BUILD_O2_WEAK_FEEDBACK_HANDLING_V0",
+    "repair_applied": false,
+    "retry_executed": false,
+    "runtime_patch_applied": false,
+    "source_mutated": false,
+    "source_ref_request_contract_frozen": true,
+    "status": "TYPED_O2_WEAK_FEEDBACK_HANDLING_TARGET_DESIGNED_BUILD_READY",
+    "target_designed": true,
+    "target_selected_for_build": false,
+    "under_typed_acceptance_contract_frozen": true,
+    "under_typed_feedback_count": 2,
+    "weak_feedback_count": 3,
+    "weak_feedback_resolved": false,
+    "weak_records_inventoried_count": 3
+  },
+  "mode": "DESIGN_ONLY / WEAK_FEEDBACK_HANDLING_TARGET / NO_RESOLUTION_NO_C5",
+  "output_artifacts": {
+    "acceptance_gates": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_acceptance_gates_v0.json",
+    "authority_boundary": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_authority_boundary_v0.json",
+    "build_authorization": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_build_authorization_v0.json",
+    "c5_block_contract": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_c5_block_contract_v0.json",
+    "classification": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_classification_v0.json",
+    "downstream_decision_table": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_downstream_decision_table_v0.json",
+    "handling_policy_enum": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_policy_enum_v0.json",
+    "implementation_receipt": "data/o2_weak_feedback_handling_target_v0_receipts/90309841.json",
+    "negative_controls": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_negative_controls_v0.json",
+    "parking_contract": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_parking_contract_v0.json",
+    "profile": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_profile_v0.json",
+    "question_packet_contract": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_question_packet_contract_v0.json",
+    "report": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_report.json",
+    "rollup": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_rollup_v0.json",
+    "source_ref_request_contract": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_source_ref_request_contract_v0.json",
+    "source_scope": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_source_scope_v0.json",
+    "target_definition": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_definition_v0.json",
+    "terminal_rules": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_terminal_rules_v0.json",
+    "transition_trace": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_transition_trace.json",
+    "under_typed_acceptance_contract": "data/o2_weak_feedback_handling_target_v0/o2_under_typed_acceptance_contract_v0.json",
+    "weak_record_inventory": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_record_inventory_v0.json"
+  },
+  "receipt_id": "90309841",
+  "receipt_type": "TYPED_O2_WEAK_FEEDBACK_HANDLING_TARGET_DESIGN_RECEIPT",
+  "schema_version": "o2_weak_feedback_handling_target_design_receipt_v0",
+  "source_post_o2_decision_receipt_id": "2fef4830",
+  "target_unit_id": "observation.o2_weak_feedback_handling_target.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_HANDLING_TARGET_DESIGNED_BUILD_READY",
+    "type": "STOP"
+  },
+  "unit_id": "DESIGN_O2_WEAK_FEEDBACK_HANDLING_TARGET_V0",
+  "warnings": []
+}
+weak_feedback_target_design_receipt_id=90309841
+weak_feedback_target_design_receipt_path=data/o2_weak_feedback_handling_target_v0_receipts/90309841.json
+weak_feedback_target_definition_path=data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_definition_v0.json
+weak_feedback_inventory_path=data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_record_inventory_v0.json
+weak_feedback_handling_policy_enum_path=data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_policy_enum_v0.json
+weak_feedback_question_packet_contract_path=data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_question_packet_contract_v0.json
+weak_feedback_source_ref_request_contract_path=data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_source_ref_request_contract_v0.json
+under_typed_acceptance_contract_path=data/o2_weak_feedback_handling_target_v0/o2_under_typed_acceptance_contract_v0.json
+weak_feedback_build_authorization_path=data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_build_authorization_v0.json
+weak_feedback_target_rollup_path=data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_rollup_v0.json
+weak_feedback_target_profile_path=data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_profile_v0.json
+
+ASSERT_WEAK_FEEDBACK_TARGET_DESIGN
+{
+  "authorized_next_unit": "BUILD_O2_WEAK_FEEDBACK_HANDLING_V0",
+  "bad_counters_zero": true,
+  "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+  "failures": [],
+  "gate": "PASS",
+  "receipt_id": "90309841",
+  "recommended_next": "BUILD_O2_WEAK_FEEDBACK_HANDLING_V0",
+  "status": "TYPED_O2_WEAK_FEEDBACK_HANDLING_TARGET_DESIGNED_BUILD_READY",
+  "target_designed": true,
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_HANDLING_TARGET_DESIGNED_BUILD_READY",
+    "type": "STOP"
+  },
+  "weak_feedback_count": 3,
+  "weak_feedback_resolved": false,
+  "weak_records_inventoried_count": 3
+}
+
+VERIFY_WEAK_FEEDBACK_TARGET_DESIGN_ONLY_NO_RESOLUTION_NO_LIVE_AUDIT_NO_REPAIR_NO_RETRY_NO_TARGET_NO_PATCH_NO_SOURCE_MUTATION_NO_C5
+allowed_status_lines_checked
+Weak-feedback handling target designed; 3 weak records inventoried unresolved; build authorized next; no weak resolution/no live audit/no repair/no retry/no target/no patch/no source mutation/no C5
+
+SHOW_WEAK_FEEDBACK_TARGET_DESIGN_NEXT
+status=TYPED_O2_WEAK_FEEDBACK_HANDLING_TARGET_DESIGNED_BUILD_READY
+reason_codes=WEAK_FEEDBACK_HANDLING_TARGET_DESIGNED,POST_O2_DECISION_RECEIPT_CONSUMED,THREE_WEAK_FEEDBACK_RECORDS_INVENTORIED,TWO_UNDER_TYPED_FEEDBACK_RECORDS_CONFIRMED,ONE_AMBIGUOUS_REQUIRES_QUESTION_RECORD_CONFIRMED,QUESTION_PACKET_CONTRACT_FROZEN,SOURCE_REF_REQUEST_CONTRACT_FROZEN,UNDER_TYPED_ACCEPTANCE_CANDIDATE_CONTRACT_FROZEN,PARKING_CONTRACT_FROZEN,HANDLING_POLICY_ENUM_FROZEN,C5_BLOCK_CONTRACT_FROZEN,BUILD_O2_WEAK_FEEDBACK_HANDLING_AUTHORIZED_NEXT,NO_WEAK_FEEDBACK_RESOLUTION_ATTEMPTED,NO_LIVE_FEEDBACK_AUDIT_EXECUTED,NO_REPAIR_APPLIED,NO_RETRY_EXECUTED,NO_TARGET_SELECTED_FOR_BUILD,NO_RUNTIME_PATCH_APPLIED,NO_SOURCE_MUTATION,NO_C5_OPENED
+target_designed=True
+authorized_next_unit=BUILD_O2_WEAK_FEEDBACK_HANDLING_V0
+authorized_build_mode=STATIC_WEAK_FEEDBACK_HANDLING_ONLY
+weak_feedback_count=3
+under_typed_feedback_count=2
+ambiguous_requires_question_count=1
+weak_records_inventoried_count=3
+handling_policy_enum_frozen=True
+question_packet_contract_frozen=True
+source_ref_request_contract_frozen=True
+under_typed_acceptance_contract_frozen=True
+parking_contract_frozen=True
+c5_block_contract_frozen=True
+weak_feedback_resolved=False
+c5_feedback_readiness=BLOCKED_BY_WEAK_FEEDBACK
+c5_opened=False
+live_feedback_audit_executed=False
+repair_applied=False
+retry_executed=False
+target_selected_for_build=False
+runtime_patch_applied=False
+source_mutated=False
+prior_receipt_mutated=False
+architecture_change=False
+hidden_next_command=False
+latest_file_guessing=False
+mtime_selection=False
+bad_counters_zero=True
+recommended_next=BUILD_O2_WEAK_FEEDBACK_HANDLING_V0
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+?? scripts/design_o2_weak_feedback_handling_target_v0.py
+
+PACKAGE_WEAK_FEEDBACK_TARGET_DESIGN_ARTIFACTS
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_definition_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_source_scope_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_record_inventory_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_policy_enum_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_question_packet_contract_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_source_ref_request_contract_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_under_typed_acceptance_contract_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_parking_contract_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_c5_block_contract_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_build_authorization_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_acceptance_gates_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_negative_controls_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_terminal_rules_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_downstream_decision_table_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_authority_boundary_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_classification_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_rollup_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_profile_v0.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_report.json
+packaged data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_transition_trace.json
+[master 2de1b6980] design O2 weak feedback handling target
+ 23 files changed, 1578 insertions(+)
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_under_typed_acceptance_contract_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_c5_block_contract_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_acceptance_gates_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_build_authorization_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_negative_controls_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_policy_enum_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_source_scope_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_authority_boundary_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_classification_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_definition_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_downstream_decision_table_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_profile_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_report.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_rollup_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_transition_trace.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_terminal_rules_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_parking_contract_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_question_packet_contract_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_record_inventory_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_source_ref_request_contract_v0.json
+ create mode 100644 data/o2_weak_feedback_handling_target_v0_receipts/90309841.json
+ create mode 100755 scripts/design_o2_weak_feedback_handling_target_v0.py
+
+COMMIT_DONE_RELEVANT
+
+WEAK_FEEDBACK_TARGET_DESIGN_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+weak_feedback_target_design_receipt_id=90309841
+weak_feedback_target_design_receipt_path=data/o2_weak_feedback_handling_target_v0_receipts/90309841.json
+{
+  "acceptance_gate_results": {
+    "WFH_DESIGN_0_POST_O2_DECISION_RECEIPT_CONSUMED": true,
+    "WFH_DESIGN_10_BUILD_AUTHORIZATION_EMITTED": true,
+    "WFH_DESIGN_11_ACCEPTANCE_GATES_EMITTED": true,
+    "WFH_DESIGN_12_NEGATIVE_CONTROLS_EMITTED": true,
+    "WFH_DESIGN_13_TERMINAL_RULES_EMITTED": true,
+    "WFH_DESIGN_14_NO_WEAK_FEEDBACK_RESOLUTION": true,
+    "WFH_DESIGN_15_NO_LIVE_AUDIT": true,
+    "WFH_DESIGN_16_NO_REPAIR_RETRY_TARGET_PATCH_SOURCE_MUTATION": true,
+    "WFH_DESIGN_17_NO_C5_OPENED": true,
+    "WFH_DESIGN_18_NO_LATEST_OR_MTIME": true,
+    "WFH_DESIGN_19_NO_HIDDEN_NEXT_COMMAND": true,
+    "WFH_DESIGN_1_TARGET_DEFINITION_EMITTED": true,
+    "WFH_DESIGN_20_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "WFH_DESIGN_2_SOURCE_SCOPE_EMITTED": true,
+    "WFH_DESIGN_3_THREE_WEAK_RECORDS_INVENTORIED": true,
+    "WFH_DESIGN_4_HANDLING_POLICY_ENUM_EMITTED": true,
+    "WFH_DESIGN_5_QUESTION_PACKET_CONTRACT_EMITTED": true,
+    "WFH_DESIGN_6_SOURCE_REF_REQUEST_CONTRACT_EMITTED": true,
+    "WFH_DESIGN_7_UNDER_TYPED_ACCEPTANCE_CONTRACT_EMITTED": true,
+    "WFH_DESIGN_8_PARKING_CONTRACT_EMITTED": true,
+    "WFH_DESIGN_9_C5_BLOCK_CONTRACT_EMITTED": true
+  },
+  "aggregate_metrics": {
+    "authorized_next_unit": "BUILD_O2_WEAK_FEEDBACK_HANDLING_V0",
+    "bad_counters_zero": true,
+    "build_mode": "O2_WEAK_FEEDBACK_HANDLING_TARGET_DESIGN_ONLY",
+    "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+    "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / WEAK_FEEDBACK_HANDLING_TARGET_DESIGN",
+    "mode": "DESIGN_ONLY / WEAK_FEEDBACK_HANDLING_TARGET / NO_RESOLUTION_NO_C5",
+    "reason_codes": [
+      "WEAK_FEEDBACK_HANDLING_TARGET_DESIGNED",
+      "POST_O2_DECISION_RECEIPT_CONSUMED",
+      "THREE_WEAK_FEEDBACK_RECORDS_INVENTORIED",
+      "TWO_UNDER_TYPED_FEEDBACK_RECORDS_CONFIRMED",
+      "ONE_AMBIGUOUS_REQUIRES_QUESTION_RECORD_CONFIRMED",
+      "QUESTION_PACKET_CONTRACT_FROZEN",
+      "SOURCE_REF_REQUEST_CONTRACT_FROZEN",
+      "UNDER_TYPED_ACCEPTANCE_CANDIDATE_CONTRACT_FROZEN",
+      "PARKING_CONTRACT_FROZEN",
+      "HANDLING_POLICY_ENUM_FROZEN",
+      "C5_BLOCK_CONTRACT_FROZEN",
+      "BUILD_O2_WEAK_FEEDBACK_HANDLING_AUTHORIZED_NEXT",
+      "NO_WEAK_FEEDBACK_RESOLUTION_ATTEMPTED",
+      "NO_LIVE_FEEDBACK_AUDIT_EXECUTED",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_SOURCE_MUTATION",
+      "NO_C5_OPENED"
+    ],
+    "receipt_backed_claim": "The O2 weak-feedback handling target was designed from the post-O2 closure decision. It inventories the 3 weak records, freezes handling policy options, question packet contract, source-ref request contract, under-typed acceptance candidate contract, parking contract, C5 block contract, acceptance gates, negative controls, terminal rules, and build authorization. It does not resolve weak feedback, run live audit, repair, retry, select target, patch runtime, mutate sources, or open C5.",
+    "recommended_next_handling": "BUILD_O2_WEAK_FEEDBACK_HANDLING_V0",
+    "schema_version": "o2_weak_feedback_handling_target_report_v0",
+    "status": "TYPED_O2_WEAK_FEEDBACK_HANDLING_TARGET_DESIGNED_BUILD_READY",
+    "target_unit_id": "observation.o2_weak_feedback_handling_target.v0",
+    "unit_id": "DESIGN_O2_WEAK_FEEDBACK_HANDLING_TARGET_V0",
+    "weak_feedback_count": 3
+  },
+  "build_mode": "O2_WEAK_FEEDBACK_HANDLING_TARGET_DESIGN_ONLY",
+  "created_at": "2026-06-25T02:35:30.531792+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / WEAK_FEEDBACK_HANDLING_TARGET_DESIGN",
+  "machine_readable_o2_weak_feedback_target_summary": {
+    "ambiguous_requires_question_count": 1,
+    "architecture_change": false,
+    "authorized_build_mode": "STATIC_WEAK_FEEDBACK_HANDLING_ONLY",
+    "authorized_next_unit": "BUILD_O2_WEAK_FEEDBACK_HANDLING_V0",
+    "bad_counters_zero": true,
+    "c5_block_contract_frozen": true,
+    "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+    "c5_opened": false,
+    "handling_policy_enum_frozen": true,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "live_feedback_audit_executed": false,
+    "mtime_selection": false,
+    "parking_contract_frozen": true,
+    "prior_receipt_mutated": false,
+    "question_packet_contract_frozen": true,
+    "reason_codes": [
+      "WEAK_FEEDBACK_HANDLING_TARGET_DESIGNED",
+      "POST_O2_DECISION_RECEIPT_CONSUMED",
+      "THREE_WEAK_FEEDBACK_RECORDS_INVENTORIED",
+      "TWO_UNDER_TYPED_FEEDBACK_RECORDS_CONFIRMED",
+      "ONE_AMBIGUOUS_REQUIRES_QUESTION_RECORD_CONFIRMED",
+      "QUESTION_PACKET_CONTRACT_FROZEN",
+      "SOURCE_REF_REQUEST_CONTRACT_FROZEN",
+      "UNDER_TYPED_ACCEPTANCE_CANDIDATE_CONTRACT_FROZEN",
+      "PARKING_CONTRACT_FROZEN",
+      "HANDLING_POLICY_ENUM_FROZEN",
+      "C5_BLOCK_CONTRACT_FROZEN",
+      "BUILD_O2_WEAK_FEEDBACK_HANDLING_AUTHORIZED_NEXT",
+      "NO_WEAK_FEEDBACK_RESOLUTION_ATTEMPTED",
+      "NO_LIVE_FEEDBACK_AUDIT_EXECUTED",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_SOURCE_MUTATION",
+      "NO_C5_OPENED"
+    ],
+    "recommended_next": "BUILD_O2_WEAK_FEEDBACK_HANDLING_V0",
+    "repair_applied": false,
+    "retry_executed": false,
+    "runtime_patch_applied": false,
+    "source_mutated": false,
+    "source_ref_request_contract_frozen": true,
+    "status": "TYPED_O2_WEAK_FEEDBACK_HANDLING_TARGET_DESIGNED_BUILD_READY",
+    "target_designed": true,
+    "target_selected_for_build": false,
+    "under_typed_acceptance_contract_frozen": true,
+    "under_typed_feedback_count": 2,
+    "weak_feedback_count": 3,
+    "weak_feedback_resolved": false,
+    "weak_records_inventoried_count": 3
+  },
+  "mode": "DESIGN_ONLY / WEAK_FEEDBACK_HANDLING_TARGET / NO_RESOLUTION_NO_C5",
+  "output_artifacts": {
+    "acceptance_gates": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_acceptance_gates_v0.json",
+    "authority_boundary": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_authority_boundary_v0.json",
+    "build_authorization": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_build_authorization_v0.json",
+    "c5_block_contract": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_c5_block_contract_v0.json",
+    "classification": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_classification_v0.json",
+    "downstream_decision_table": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_downstream_decision_table_v0.json",
+    "handling_policy_enum": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_policy_enum_v0.json",
+    "implementation_receipt": "data/o2_weak_feedback_handling_target_v0_receipts/90309841.json",
+    "negative_controls": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_negative_controls_v0.json",
+    "parking_contract": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_parking_contract_v0.json",
+    "profile": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_profile_v0.json",
+    "question_packet_contract": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_question_packet_contract_v0.json",
+    "report": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_report.json",
+    "rollup": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_rollup_v0.json",
+    "source_ref_request_contract": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_source_ref_request_contract_v0.json",
+    "source_scope": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_source_scope_v0.json",
+    "target_definition": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_definition_v0.json",
+    "terminal_rules": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_terminal_rules_v0.json",
+    "transition_trace": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_handling_target_transition_trace.json",
+    "under_typed_acceptance_contract": "data/o2_weak_feedback_handling_target_v0/o2_under_typed_acceptance_contract_v0.json",
+    "weak_record_inventory": "data/o2_weak_feedback_handling_target_v0/o2_weak_feedback_record_inventory_v0.json"
+  },
+  "receipt_id": "90309841",
+  "receipt_type": "TYPED_O2_WEAK_FEEDBACK_HANDLING_TARGET_DESIGN_RECEIPT",
+  "schema_version": "o2_weak_feedback_handling_target_design_receipt_v0",
+  "source_post_o2_decision_receipt_id": "2fef4830",
+  "target_unit_id": "observation.o2_weak_feedback_handling_target.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_WEAK_FEEDBACK_HANDLING_TARGET_DESIGNED_BUILD_READY",
+    "type": "STOP"
+  },
+  "unit_id": "DESIGN_O2_WEAK_FEEDBACK_HANDLING_TARGET_V0",
+  "warnings": []
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

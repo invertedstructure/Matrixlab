@@ -1,0 +1,337 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260624_010635
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260624_010635.txt
+
+REVIEW_A0_BUILD_FAILURE_SELF_CLASSIFICATION_ASSERTION_V0
+
+STATUS_BEFORE
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/a0_receipt_to_builder_transition_layer_v0.py
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+
+VERIFY_A0_SELF_CLASSIFICATION_FAILURE_REVIEW_INPUTS
+present data/a0_receipt_to_builder_transition_layer_v0_receipts/067fcaed.json
+present data/a0_receipt_to_builder_transition_layer_v0/a0_output_schema_v0.json
+present data/a0_receipt_to_builder_transition_layer_v0/a0_question_set_v0.json
+present data/a0_receipt_to_builder_transition_layer_v0/a0_classification_enum_v0.json
+present data/a0_receipt_to_builder_transition_layer_v0/a0_pressure_enum_v0.json
+present data/a0_receipt_to_builder_transition_layer_v0/a0_command_candidate_schema_v0.json
+present data/a0_receipt_to_builder_transition_layer_v0/a0_missing_object_proposal_schema_v0.json
+present data/a0_receipt_to_builder_transition_layer_v0/a0_classifier_table_v0.json
+present data/a0_receipt_to_builder_transition_layer_v0/a0_probe_case_manifest.json
+present data/a0_receipt_to_builder_transition_layer_v0/a0_probe_results.jsonl
+present data/a0_receipt_to_builder_transition_layer_v0/a0_negative_control_results.jsonl
+present data/a0_receipt_to_builder_transition_layer_v0/a0_transition_layer_report.json
+present scripts/a0_receipt_to_builder_transition_layer_v0.py
+
+PATCH_GITIGNORE
+
+WRITE_A0_SELF_CLASSIFICATION_FAILURE_REVIEW_RUNNER
+
+PY_COMPILE_A0_SELF_CLASS_REVIEW_RUNNER
+
+RUN_A0_SELF_CLASSIFICATION_FAILURE_REVIEW
+{
+  "a0_self_classification_failure_review_guards": {
+    "a0_classifier_law_mutated": false,
+    "builder_command_executed": false,
+    "existing_receipts_mutated": false,
+    "hidden_next_command": false,
+    "latest_or_mtime_selection_used": false,
+    "live_frontier_applied": false,
+    "repair_executed": false,
+    "review_only_no_patch": true,
+    "source_mutated": false,
+    "strategic_discussion_as_authority": false
+  },
+  "a0_self_classification_failure_review_summary": {
+    "accepted_a0_build_result": "A0_RECEIPT_TO_BUILDER_TRANSITION_LAYER_BUILT",
+    "accepted_negative_control_pass_count": 18,
+    "accepted_probe_pass_count": 7,
+    "assertion_review_classification": "WRAPPER_ASSERTION_EXPECTED_STOP_LANE_CLOSED_BUT_A0_CORRECTLY_RETURNED_QUESTION_PACKET_NOT_COMMAND",
+    "failed_wrapper_expected_classification": "STOP_LANE_CLOSED",
+    "observed_self_classification": "QUESTION_PACKET_NOT_COMMAND",
+    "recommended_next_handling": "PATCH_A0_BUILD_SELF_CLASSIFICATION_ASSERTION_TO_EXPLICIT_BUNDLE_OR_QUESTION_PACKET_ACCEPTANCE_V0",
+    "review_only_no_patch": true,
+    "review_result": "A0_BUILD_FAILURE_REVIEW_ACCEPTS_WRAPPER_ASSERTION_MISMATCH_ONLY",
+    "substantive_a0_build_supported": true,
+    "true_a0_build_failure": false,
+    "true_a0_classifier_failure": false
+  },
+  "acceptance_gate_results": {
+    "A0_SELF_CLASS_REVIEW_0_A0_BUILD_RECEIPT_CONSUMED": true,
+    "A0_SELF_CLASS_REVIEW_10_NO_A0_CLASSIFIER_LAW_MUTATION": true,
+    "A0_SELF_CLASS_REVIEW_11_NO_LATEST_OR_MTIME_SELECTION": true,
+    "A0_SELF_CLASS_REVIEW_12_NO_HIDDEN_NEXT_COMMAND": true,
+    "A0_SELF_CLASS_REVIEW_1_A0_BUILD_GATE_PASS_PRESERVED": true,
+    "A0_SELF_CLASS_REVIEW_2_SELF_CLASSIFICATION_OBSERVED": true,
+    "A0_SELF_CLASS_REVIEW_3_WRAPPER_ASSERTION_MISMATCH_CONFIRMED": true,
+    "A0_SELF_CLASS_REVIEW_4_SUBSTANTIVE_BUILD_SUPPORTED": true,
+    "A0_SELF_CLASS_REVIEW_5_FIX_AUTHORITY_PACKET_EMITTED": true,
+    "A0_SELF_CLASS_REVIEW_6_NO_BUILDER_COMMAND_EXECUTED": true,
+    "A0_SELF_CLASS_REVIEW_7_NO_REPAIR_EXECUTED": true,
+    "A0_SELF_CLASS_REVIEW_8_NO_SOURCE_OR_RECEIPT_MUTATION": true,
+    "A0_SELF_CLASS_REVIEW_9_NO_LIVE_FRONTIER_APPLICATION": true
+  },
+  "aggregate_metrics": {
+    "a0_build_artifacts_consumed_count": 1,
+    "a0_build_receipt_consumed_count": 1,
+    "a0_classifier_law_mutation_count": 0,
+    "accepted_a0_build_result": "A0_RECEIPT_TO_BUILDER_TRANSITION_LAYER_BUILT",
+    "accepted_negative_control_pass_count": 18,
+    "accepted_probe_pass_count": 7,
+    "assertion_mismatch_only_count": 1,
+    "assertion_mismatch_review_emitted_count": 1,
+    "builder_command_executed_count": 0,
+    "existing_receipt_mutation_count": 0,
+    "failed_wrapper_expected_classification": "STOP_LANE_CLOSED",
+    "fix_authority_packet_emitted_count": 1,
+    "hidden_next_command_count": 0,
+    "latest_or_mtime_selection_count": 0,
+    "live_frontier_application_count": 0,
+    "next_decision_packet_emitted_count": 1,
+    "observed_self_classification": "QUESTION_PACKET_NOT_COMMAND",
+    "recommended_next_handling": "PATCH_A0_BUILD_SELF_CLASSIFICATION_ASSERTION_TO_EXPLICIT_BUNDLE_OR_QUESTION_PACKET_ACCEPTANCE_V0",
+    "repair_executed_count": 0,
+    "review_decision_emitted_count": 1,
+    "self_classification_observation_emitted_count": 1,
+    "source_a0_build_receipt_id": "067fcaed",
+    "source_mutation_count": 0,
+    "strategic_discussion_as_authority_count": 0,
+    "substantive_a0_build_supported_count": 1,
+    "substantive_build_review_emitted_count": 1
+  },
+  "created_at": "2026-06-24T00:06:35.953586+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "human_decision": {
+    "authorized": [
+      "consume A0 build receipt and artifacts",
+      "re-run A0 classify against the A0 build receipt as non-writing observation",
+      "classify the post-build wrapper assertion failure",
+      "preserve substantive A0 build if supported",
+      "emit narrow fix authority packet",
+      "stop before patching or live frontier application"
+    ],
+    "decision": "REVIEW_A0_BUILD_FAILURE_SELF_CLASSIFICATION_ASSERTION",
+    "not_authorized": [
+      "execute builder command",
+      "execute repair",
+      "mutate A0 source artifacts",
+      "mutate prior receipts",
+      "apply A0 to current frontier",
+      "select live frontier by latest-file guessing",
+      "select live frontier by mtime sorting",
+      "invent next objective",
+      "infer roadmap from strategic discussion",
+      "weaken A0 classifier law",
+      "treat QUESTION_PACKET_NOT_COMMAND as an A0 classifier failure",
+      "hide next command"
+    ],
+    "scope": "Review the failed A0 wrapper assertion. Determine whether A0 itself built successfully and whether the block failed only because the wrapper expected STOP_LANE_CLOSED when classifying the raw A0 build receipt, even though A0 correctly returned QUESTION_PACKET_NOT_COMMAND for an incomplete explicit receipt surface/source-selection bundle.",
+    "source_a0_build_receipt_id": "067fcaed"
+  },
+  "output_artifacts": {
+    "assertion_mismatch_review": "data/a0_build_failure_self_classification_assertion_review_v0/a0_self_classification_assertion_mismatch_review.json",
+    "fix_authority_packet": "data/a0_build_failure_self_classification_assertion_review_v0/a0_self_classification_assertion_fix_authority_packet.json",
+    "implementation_receipt": "data/a0_build_failure_self_classification_assertion_review_v0_receipts/2ff85a7a.json",
+    "next_decision_packet": "data/a0_build_failure_self_classification_assertion_review_v0/a0_self_classification_failure_review_next_decision_packet.json",
+    "report": "data/a0_build_failure_self_classification_assertion_review_v0/a0_self_classification_failure_review_report.json",
+    "review_decision": "data/a0_build_failure_self_classification_assertion_review_v0/a0_self_classification_failure_review_decision.json",
+    "review_surface": "data/a0_build_failure_self_classification_assertion_review_v0/a0_self_classification_failure_review_surface.json",
+    "self_classification_observation": "data/a0_build_failure_self_classification_assertion_review_v0/a0_self_classification_observation.json",
+    "source_a0_adapter_script": "scripts/a0_receipt_to_builder_transition_layer_v0.py",
+    "source_a0_build_receipt": "data/a0_receipt_to_builder_transition_layer_v0_receipts/067fcaed.json",
+    "source_a0_transition_report": "data/a0_receipt_to_builder_transition_layer_v0/a0_transition_layer_report.json",
+    "substantive_build_review": "data/a0_build_failure_self_classification_assertion_review_v0/a0_substantive_build_review.json",
+    "transition_trace": "data/a0_build_failure_self_classification_assertion_review_v0/a0_self_classification_failure_review_transition_trace.json"
+  },
+  "receipt_id": "2ff85a7a",
+  "receipt_type": "A0_BUILD_FAILURE_SELF_CLASSIFICATION_ASSERTION_REVIEW_RECEIPT",
+  "schema_version": "a0_build_failure_self_classification_assertion_review_receipt_v0",
+  "source_a0_build_receipt_id": "067fcaed",
+  "source_a0_build_unit_id": "BUILD_A0_RECEIPT_TO_BUILDER_TRANSITION_LAYER_V0",
+  "target_unit_id": "a0.build_failure.self_classification_assertion.review.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_A0_BUILD_FAILURE_REVIEW_COMPLETE_SELF_CLASSIFICATION_ASSERTION_PATCH_REQUIRED",
+    "type": "STOP"
+  },
+  "unit_id": "REVIEW_A0_BUILD_FAILURE_SELF_CLASSIFICATION_ASSERTION_V0",
+  "warnings": []
+}
+a0_self_class_review_receipt_id=2ff85a7a
+a0_self_class_review_receipt_path=data/a0_build_failure_self_classification_assertion_review_v0_receipts/2ff85a7a.json
+fix_authority_packet_path=data/a0_build_failure_self_classification_assertion_review_v0/a0_self_classification_assertion_fix_authority_packet.json
+next_decision_packet_path=data/a0_build_failure_self_classification_assertion_review_v0/a0_self_classification_failure_review_next_decision_packet.json
+A0_SELF_CLASS_REVIEW_RECEIPT_ID=2ff85a7a
+A0_SELF_CLASS_REVIEW_RECEIPT_PATH=data/a0_build_failure_self_classification_assertion_review_v0_receipts/2ff85a7a.json
+FIX_AUTHORITY_PACKET_PATH=data/a0_build_failure_self_classification_assertion_review_v0/a0_self_classification_assertion_fix_authority_packet.json
+NEXT_DECISION_PACKET_PATH=data/a0_build_failure_self_classification_assertion_review_v0/a0_self_classification_failure_review_next_decision_packet.json
+
+ASSERT_A0_SELF_CLASSIFICATION_FAILURE_REVIEW
+{
+  "a0_self_classification_failure_review_summary": {
+    "accepted_a0_build_result": "A0_RECEIPT_TO_BUILDER_TRANSITION_LAYER_BUILT",
+    "accepted_negative_control_pass_count": 18,
+    "accepted_probe_pass_count": 7,
+    "assertion_review_classification": "WRAPPER_ASSERTION_EXPECTED_STOP_LANE_CLOSED_BUT_A0_CORRECTLY_RETURNED_QUESTION_PACKET_NOT_COMMAND",
+    "failed_wrapper_expected_classification": "STOP_LANE_CLOSED",
+    "observed_self_classification": "QUESTION_PACKET_NOT_COMMAND",
+    "recommended_next_handling": "PATCH_A0_BUILD_SELF_CLASSIFICATION_ASSERTION_TO_EXPLICIT_BUNDLE_OR_QUESTION_PACKET_ACCEPTANCE_V0",
+    "review_only_no_patch": true,
+    "review_result": "A0_BUILD_FAILURE_REVIEW_ACCEPTS_WRAPPER_ASSERTION_MISMATCH_ONLY",
+    "substantive_a0_build_supported": true,
+    "true_a0_build_failure": false,
+    "true_a0_classifier_failure": false
+  },
+  "aggregate_metrics": {
+    "a0_build_artifacts_consumed_count": 1,
+    "a0_build_receipt_consumed_count": 1,
+    "a0_classifier_law_mutation_count": 0,
+    "accepted_a0_build_result": "A0_RECEIPT_TO_BUILDER_TRANSITION_LAYER_BUILT",
+    "accepted_negative_control_pass_count": 18,
+    "accepted_probe_pass_count": 7,
+    "assertion_mismatch_only_count": 1,
+    "assertion_mismatch_review_emitted_count": 1,
+    "builder_command_executed_count": 0,
+    "existing_receipt_mutation_count": 0,
+    "failed_wrapper_expected_classification": "STOP_LANE_CLOSED",
+    "fix_authority_packet_emitted_count": 1,
+    "hidden_next_command_count": 0,
+    "latest_or_mtime_selection_count": 0,
+    "live_frontier_application_count": 0,
+    "next_decision_packet_emitted_count": 1,
+    "observed_self_classification": "QUESTION_PACKET_NOT_COMMAND",
+    "recommended_next_handling": "PATCH_A0_BUILD_SELF_CLASSIFICATION_ASSERTION_TO_EXPLICIT_BUNDLE_OR_QUESTION_PACKET_ACCEPTANCE_V0",
+    "repair_executed_count": 0,
+    "review_decision_emitted_count": 1,
+    "self_classification_observation_emitted_count": 1,
+    "source_a0_build_receipt_id": "067fcaed",
+    "source_mutation_count": 0,
+    "strategic_discussion_as_authority_count": 0,
+    "substantive_a0_build_supported_count": 1,
+    "substantive_build_review_emitted_count": 1
+  },
+  "gate": "PASS",
+  "receipt_id": "2ff85a7a",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_A0_BUILD_FAILURE_REVIEW_COMPLETE_SELF_CLASSIFICATION_ASSERTION_PATCH_REQUIRED",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROLS_A0_SELF_CLASS_REVIEW_NON_WRITING
+{
+  "case": "assertion_mismatch_not_only_fail",
+  "failures": [
+    "assertion_mismatch_only_not_true"
+  ]
+}
+{
+  "case": "substantive_build_not_supported_fail",
+  "failures": [
+    "substantive_a0_build_not_supported"
+  ]
+}
+{
+  "case": "builder_command_executed_fail",
+  "failures": [
+    "report_count_not_zero:builder_command_executed_count:1"
+  ]
+}
+{
+  "case": "repair_executed_fail",
+  "failures": [
+    "report_count_not_zero:repair_executed_count:1"
+  ]
+}
+{
+  "case": "source_mutation_fail",
+  "failures": [
+    "report_count_not_zero:source_mutation_count:1"
+  ]
+}
+{
+  "case": "existing_receipt_mutation_fail",
+  "failures": [
+    "report_count_not_zero:existing_receipt_mutation_count:1"
+  ]
+}
+{
+  "case": "hidden_next_command_fail",
+  "failures": [
+    "report_count_not_zero:hidden_next_command_count:1"
+  ]
+}
+{
+  "case": "live_frontier_application_fail",
+  "failures": [
+    "report_count_not_zero:live_frontier_application_count:1"
+  ]
+}
+{
+  "case": "a0_classifier_law_mutation_fail",
+  "failures": [
+    "report_count_not_zero:a0_classifier_law_mutation_count:1"
+  ]
+}
+{
+  "case": "latest_or_mtime_selection_fail",
+  "failures": [
+    "report_count_not_zero:latest_or_mtime_selection_count:1"
+  ]
+}
+{
+  "case": "strategic_discussion_authority_fail",
+  "failures": [
+    "report_count_not_zero:strategic_discussion_as_authority_count:1"
+  ]
+}
+{
+  "case": "live_frontier_receipt_fail",
+  "failures": [
+    "metric_not_zero:live_frontier_application_count:1"
+  ]
+}
+{
+  "case": "terminal_hidden_next_command_fail",
+  "failures": [
+    "terminal_not_STOP:{'type': 'ADVANCE', 'next_command_goal': 'PATCH_NOW', 'stop_code': None}",
+    "terminal_stop_wrong:{'type': 'ADVANCE', 'next_command_goal': 'PATCH_NOW', 'stop_code': None}",
+    "terminal_next_not_null:{'type': 'ADVANCE', 'next_command_goal': 'PATCH_NOW', 'stop_code': None}"
+  ]
+}
+{
+  "after": {
+    "receipt": "a52e3ebf025839039a5f089d2d11ab47677816bfed350d3176786d2b377babf0"
+  },
+  "before": {
+    "receipt": "a52e3ebf025839039a5f089d2d11ab47677816bfed350d3176786d2b377babf0"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+VERIFY_NO_FORBIDDEN_SOURCE_OR_PRIOR_ARTIFACT_MUTATION
+?? scripts/a0_receipt_to_builder_transition_layer_v0.py
+PRIOR_ARTIFACT_OR_SOURCE_TOUCHED_UNEXPECTEDLY
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

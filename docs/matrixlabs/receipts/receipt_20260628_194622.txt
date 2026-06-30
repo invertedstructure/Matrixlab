@@ -1,0 +1,76 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_194622
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_194622.txt
+
+REPAIR_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_GAP_RESPONSE_REPORT_GAP_OBJECT_AFTER_RUNTIME_ADOPTION_CLOSURE_V0
+
+VERIFY_REPAIR_TARGET_ARTIFACTS_PRESENT
+present data/c8_unit_feedback_hardening_failed_unit_sample_gap_response_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_failed_unit_sample_gap_response_receipt_78fa641a.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_gap_response_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_gap_response_packet_v0.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_gap_response_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_gap_response_options_v0.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_gap_response_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_gap_response_boundary_audit_v0.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_gap_response_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_gap_response_readout_v0.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_gap_response_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_gap_response_report.json
+present scripts/create_c8_unit_feedback_hardening_failed_unit_sample_gap_response_packet_after_runtime_adoption_closure_v0.py
+
+PY_COMPILE_FAILED_UNIT_SAMPLE_GAP_RESPONSE_RUNNER
+
+PATCH_REPORT_GAP_OBJECT_ONLY
+{
+  "changed_keys": [
+    "gap_object"
+  ],
+  "patched_file": "data/c8_unit_feedback_hardening_failed_unit_sample_gap_response_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_gap_response_report.json",
+  "patched_key": "gap_object",
+  "patched_value": "FAILED_UNIT_SAMPLE_ABSENCE",
+  "repair_gate": "PASS",
+  "report_gap_object_after": "FAILED_UNIT_SAMPLE_ABSENCE",
+  "report_gap_object_before": null
+}
+
+RESTAGE_ALLOWED_GAP_RESPONSE_ARTIFACTS
+
+VERIFY_REPAIRED_CONTENT
+{
+  "c8_rerun_authorized_now": false,
+  "failed_unit_sample_count": 0,
+  "failed_unit_sample_discovery_prep_packet_created_now": false,
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "gap_object": "FAILED_UNIT_SAMPLE_ABSENCE",
+  "gap_response_packet_created_now": true,
+  "gate_results_false_count": 0,
+  "instrument_build_authorized_now": false,
+  "packet_id": "c8_unit_feedback_hardening_failed_unit_sample_gap_response_packet_109ffc4d",
+  "probe_executed_now": false,
+  "probe_execution_authorized_now": false,
+  "receipt_id": "c8_unit_feedback_hardening_failed_unit_sample_gap_response_receipt_78fa641a",
+  "repair_content_gate": "PASS",
+  "report_gap_object": "FAILED_UNIT_SAMPLE_ABSENCE",
+  "reusable_schema_authorized_now": false,
+  "sample_discovery_authorized_now": false,
+  "selected_gap_response_kind": "BOUNDED_FAILED_UNIT_SAMPLE_DISCOVERY_PREP"
+}
+
+VERIFY_STAGED_SCOPE_AFTER_REPAIR
+staged_path_count=8
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+failed_unit_sample_gap_response_receipts_staged=['data/c8_unit_feedback_hardening_failed_unit_sample_gap_response_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_failed_unit_sample_gap_response_receipt_78fa641a.json']
+
+REPAIR_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...unit_sample_gap_response_boundary_audit_v0.json |  51 ++
+ ...failed_unit_sample_gap_response_options_v0.json |  17 +
+ ..._failed_unit_sample_gap_response_packet_v0.json |  94 ++++
+ ...failed_unit_sample_gap_response_readout_v0.json |  24 +
+ ...ing_failed_unit_sample_gap_response_report.json |  41 ++
+ ..._unit_sample_gap_response_receipt_78fa641a.json | 134 +++++
+ ...nse_packet_after_runtime_adoption_closure_v0.py | 619 +++++++++++++++++++++
+ 8 files changed, 986 insertions(+)
+
+REPAIR_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_GAP_RESPONSE_REPORT_GAP_OBJECT_AFTER_RUNTIME_ADOPTION_CLOSURE_PASS
+rerun_review_unit=REVIEW_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_GAP_RESPONSE_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

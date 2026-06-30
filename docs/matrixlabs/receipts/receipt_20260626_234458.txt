@@ -1,0 +1,118 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260626_234458
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260626_234458.txt
+
+BOOKKEEPING_COMMIT_R0_AND_DECISION_GRAPH_OBSERVATION_ARCHIVE_V0
+
+VERIFY_RECEIPTS_PRESENT
+
+VERIFY_R0_AND_DECISION_GRAPH_RECEIPTS
+{
+  "decision_graph_archive_id": "decision_graph_observation_archive_5bad839f",
+  "decision_graph_receipt_id": "decision_graph_observation_archive_receipt_e22af4a0",
+  "decision_graph_schema_id": "DG_SCHEMA_ARCHIVE_WRITE_EXECUTION_V0",
+  "decision_graph_status": "TYPED_DECISION_GRAPH_OBSERVATION_ARCHIVE_PASS_READY",
+  "decision_graph_terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DECISION_GRAPH_OBSERVATION_ARCHIVE_READY",
+    "type": "STOP"
+  },
+  "failures": [],
+  "r0_packet_id": "r0_baseline_locked_active_source_packet_c6b87624",
+  "r0_receipt_id": "r0_active_source_packet_receipt_7936a753",
+  "r0_status": "TYPED_R0_BASELINE_LOCKED_ACTIVE_SOURCE_PACKET_PASS_READY",
+  "r0_terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_R0_BASELINE_LOCKED_ACTIVE_SOURCE_PACKET_READY",
+    "type": "STOP"
+  }
+}
+
+VERIFY_GIT_IDENTITY
+
+BOUND_ADD_ONLY_R0_AND_DECISION_GRAPH_ARTIFACTS
+
+VERIFY_NO_OUT_OF_SCOPE_STAGED_PATHS
+staged_path_count=30
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+
+BOOKKEEPING_DIFF_STAT
+ .gitignore                                         |  12 +
+ .../decision_graph_authority_boundary_v0.json      |  20 +
+ .../decision_graph_counterexamples_v0.jsonl        |   0
+ .../decision_graph_known_variants_v0.jsonl         |   0
+ ...decision_graph_minimal_basis_hypothesis_v0.json |  15 +
+ ...ecision_graph_observation_archive_index_v0.json |  31 +
+ ...ision_graph_observation_archive_profile_v0.json |  24 +
+ .../decision_graph_observation_archive_report.json |  32 +
+ ...cision_graph_observation_archive_rollup_v0.json |  25 +
+ ...graph_observation_archive_transition_trace.json |  28 +
+ .../decision_graph_observation_intake_v0.json      | 244 ++++++
+ .../decision_graph_observed_instances_v0.jsonl     |   1 +
+ .../decision_graph_schema_record_v0.json           | 268 +++++++
+ .../decision_graph_supporting_receipt_map_v0.json  |  22 +
+ ...graph_observation_archive_receipt_e22af4a0.json | 139 ++++
+ .../r0_active_source_index_v0.json                 | 472 ++++++++++++
+ .../r0_active_source_packet_v0.json                | 517 +++++++++++++
+ .../r0_active_source_profile_v0.json               |  28 +
+ .../r0_active_source_report.json                   |  25 +
+ .../r0_active_source_rollup_v0.json                |  21 +
+ .../r0_active_source_transition_trace.json         |  27 +
+ .../r0_archived_schema_boundary_v0.json            |  73 ++
+ .../r0_default_inactive_rule_v0.json               |  24 +
+ .../r0_operator_source_selection_binding_v0.json   |  12 +
+ .../r0_operator_source_selection_v0.json           | 487 ++++++++++++
+ .../r0_runtime_authority_denials_v0.json           |  22 +
+ .../r0_source_authority_boundary_v0.json           |  20 +
+ .../r0_active_source_packet_receipt_7936a753.json  | 133 ++++
+ .../build_decision_graph_observation_archive_v0.py | 855 +++++++++++++++++++++
+ ...d_r0_baseline_locked_active_source_packet_v0.py | 789 +++++++++++++++++++
+ 30 files changed, 4366 insertions(+)
+
+BOOKKEEPING_COMMIT
+[master dd71091fe] Lock R0 baseline and archive decision graph observation
+ 30 files changed, 4366 insertions(+)
+ create mode 100644 data/decision_graph_observation_archive_v0/decision_graph_authority_boundary_v0.json
+ create mode 100644 data/decision_graph_observation_archive_v0/decision_graph_counterexamples_v0.jsonl
+ create mode 100644 data/decision_graph_observation_archive_v0/decision_graph_known_variants_v0.jsonl
+ create mode 100644 data/decision_graph_observation_archive_v0/decision_graph_minimal_basis_hypothesis_v0.json
+ create mode 100644 data/decision_graph_observation_archive_v0/decision_graph_observation_archive_index_v0.json
+ create mode 100644 data/decision_graph_observation_archive_v0/decision_graph_observation_archive_profile_v0.json
+ create mode 100644 data/decision_graph_observation_archive_v0/decision_graph_observation_archive_report.json
+ create mode 100644 data/decision_graph_observation_archive_v0/decision_graph_observation_archive_rollup_v0.json
+ create mode 100644 data/decision_graph_observation_archive_v0/decision_graph_observation_archive_transition_trace.json
+ create mode 100644 data/decision_graph_observation_archive_v0/decision_graph_observation_intake_v0.json
+ create mode 100644 data/decision_graph_observation_archive_v0/decision_graph_observed_instances_v0.jsonl
+ create mode 100644 data/decision_graph_observation_archive_v0/decision_graph_schema_record_v0.json
+ create mode 100644 data/decision_graph_observation_archive_v0/decision_graph_supporting_receipt_map_v0.json
+ create mode 100644 data/decision_graph_observation_archive_v0_receipts/decision_graph_observation_archive_receipt_e22af4a0.json
+ create mode 100644 data/r0_baseline_locked_active_source_packet_v0/r0_active_source_index_v0.json
+ create mode 100644 data/r0_baseline_locked_active_source_packet_v0/r0_active_source_packet_v0.json
+ create mode 100644 data/r0_baseline_locked_active_source_packet_v0/r0_active_source_profile_v0.json
+ create mode 100644 data/r0_baseline_locked_active_source_packet_v0/r0_active_source_report.json
+ create mode 100644 data/r0_baseline_locked_active_source_packet_v0/r0_active_source_rollup_v0.json
+ create mode 100644 data/r0_baseline_locked_active_source_packet_v0/r0_active_source_transition_trace.json
+ create mode 100644 data/r0_baseline_locked_active_source_packet_v0/r0_archived_schema_boundary_v0.json
+ create mode 100644 data/r0_baseline_locked_active_source_packet_v0/r0_default_inactive_rule_v0.json
+ create mode 100644 data/r0_baseline_locked_active_source_packet_v0/r0_operator_source_selection_binding_v0.json
+ create mode 100644 data/r0_baseline_locked_active_source_packet_v0/r0_operator_source_selection_v0.json
+ create mode 100644 data/r0_baseline_locked_active_source_packet_v0/r0_runtime_authority_denials_v0.json
+ create mode 100644 data/r0_baseline_locked_active_source_packet_v0/r0_source_authority_boundary_v0.json
+ create mode 100644 data/r0_baseline_locked_active_source_packet_v0_receipts/r0_active_source_packet_receipt_7936a753.json
+ create mode 100755 scripts/build_decision_graph_observation_archive_v0.py
+ create mode 100755 scripts/build_r0_baseline_locked_active_source_packet_v0.py
+
+BOOKKEEPING_COMMIT_RECEIPT
+commit_sha=dd71091fea8349d5e7dcb650d8a8df53fea5b120
+r0_receipt=data/r0_baseline_locked_active_source_packet_v0_receipts/r0_active_source_packet_receipt_7936a753.json
+decision_graph_receipt=data/decision_graph_observation_archive_v0_receipts/decision_graph_observation_archive_receipt_e22af4a0.json
+r0_stop_code=STOP_R0_BASELINE_LOCKED_ACTIVE_SOURCE_PACKET_READY
+decision_graph_stop_code=STOP_DECISION_GRAPH_OBSERVATION_ARCHIVE_READY
+
+STATUS_AFTER_COMMIT_RELEVANT
+
+BOOKKEEPING_COMMIT_R0_AND_DECISION_GRAPH_OBSERVATION_ARCHIVE_COMPLETE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

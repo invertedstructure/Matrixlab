@@ -1,0 +1,1318 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_132530
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_132530.txt
+
+IMPLEMENT_PROCEED_ADAPTER_V0_WITH_DEMO_FIXTURES_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+VERIFY_PROCEED_ADAPTER_IMPLEMENTATION_INPUTS_TRACKED
+tracked data/proceed_adapter_v0_policies/e6b3dcfc.json
+tracked data/proceed_adapter_v0_policy_receipts/e6b3dcfc.json
+tracked data/jurisdiction_runner_v0_2_trace_ledger_hardening_implementation_receipts/cc24a11f.json
+tracked data/jurisdiction_runner_v0_2_trace_schemas/b4887660.json
+tracked data/jurisdiction_runner_v0_2_proposal_ledger_schemas/eee2a318.json
+tracked src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py
+tracked data/local_regime_v1_declarations/25802530.json
+tracked src/matrixlab/jurisdiction_runner_v0_2.py
+
+PATCH_GITIGNORE
+
+WRITE_PROCEED_ADAPTER_IMPLEMENTATION_BUILDER
+
+PY_COMPILE_PROCEED_ADAPTER_IMPLEMENTATION_BUILDER
+
+RUN_PROCEED_ADAPTER_IMPLEMENTATION
+{
+  "acceptance_gate_results": {
+    "P0_source_surface_verified": true,
+    "P1_proceed_contract_declared": true,
+    "P2_unit_schema_and_registry_declared": true,
+    "P3_selector_declared": true,
+    "P4_readout_and_authority_schemas_declared": true,
+    "P5_demo_implementation_required": true,
+    "P6_no_source_runner_or_regime_mutation": true
+  },
+  "adapter_module_path": "src/matrixlab/proceed_adapter_v0.py",
+  "aggregate_metrics": {
+    "demo_case_count": 6,
+    "demo_case_fail_count": 0,
+    "demo_case_pass_count": 6,
+    "demo_receipt_count": 6,
+    "forbidden_input_stop_count": 1,
+    "hidden_continuation_count": 0,
+    "local_gotcha_record_count": 1,
+    "proposal_executed_count": 0,
+    "proposal_promoted_count": 0,
+    "readout_count": 6,
+    "registry_sqlite_write_count": 0,
+    "registry_write_count": 0,
+    "source_ledger_modified_count": 0,
+    "source_receipt_modified_count": 0,
+    "source_regime_modified_count": 0,
+    "source_runner_modified_count": 0,
+    "source_trace_modified_count": 0,
+    "taxonomy_delta_applied_count": 0,
+    "taxonomy_delta_promoted_count": 0,
+    "taxonomy_pressure_recorded_count": 1,
+    "total_units_advanced_count": 5
+  },
+  "artifact_guards": {
+    "adapter_module_path_addressed": true,
+    "ambient_workspace_authority_used": false,
+    "fixtures_path_addressed": true,
+    "latest_or_mtime_selection_used": false,
+    "proceed_policy_receipt_tracked": true,
+    "proceed_policy_tracked": true,
+    "readouts_path_addressed": true,
+    "receipts_path_addressed": true,
+    "schemas_path_addressed": true,
+    "source_ledger_schema_tracked": true,
+    "source_local_regime_v1_tracked": true,
+    "source_trace_ledger_receipt_tracked": true,
+    "source_trace_ledger_runner_tracked": true,
+    "source_trace_schema_tracked": true
+  },
+  "authority_guards": {
+    "adapter_module_implemented": true,
+    "adapter_module_path": "src/matrixlab/proceed_adapter_v0.py",
+    "authority_check_schema_emitted": true,
+    "current_surface_manifest_emitted": true,
+    "current_surface_manifest_schema_emitted": true,
+    "demo_fixtures_created": true,
+    "demo_readouts_emitted": true,
+    "demo_receipts_emitted": true,
+    "final_schema_claimed": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "implementation_receipt_emitted": true,
+    "local_gotcha_schema_emitted": true,
+    "proceed_contract_emitted": true,
+    "proceed_readout_schema_emitted": true,
+    "proceed_selector_emitted": true,
+    "proceed_unit_registry_emitted": true,
+    "proceed_unit_schema_emitted": true,
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_promoted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "source_jurisdiction_runner_v0_1_modified": false,
+    "source_jurisdiction_runner_v0_2_modified": false,
+    "source_ledger_modified": false,
+    "source_local_regime_v1_modified": false,
+    "source_receipt_modified": false,
+    "source_surface_verified": true,
+    "source_trace_ledger_runner_modified": false,
+    "source_trace_modified": false,
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false,
+    "taxonomy_pressure_stub_emitted": true
+  },
+  "case_results": {
+    "PROCEED_ADVANCES_ONE_NAMED_UNIT": {
+      "authority_status": "PASS",
+      "case_name": "PROCEED_ADVANCES_ONE_NAMED_UNIT",
+      "demo_receipt_id": "d960a1bd",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/d960a1bd.json",
+      "fixture_id": "proceed_demo_proceed_advances_one_named_unit",
+      "fixture_path": "data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_advances_one_named_unit.json",
+      "gate": "PASS",
+      "ledger_delta_present": true,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "readout_id": "5a4a1071",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/5a4a1071.json",
+      "receipt_delta_present": true,
+      "registry_written": false,
+      "selected_unit": "proceed.unit.validate_current_surface.v0",
+      "source_artifact_mutation": {
+        "source_ledger_modified": false,
+        "source_receipt_modified": false,
+        "source_regime_modified": false,
+        "source_runner_modified": false,
+        "source_trace_modified": false
+      },
+      "taxonomy_delta_applied": false,
+      "taxonomy_delta_promoted": false,
+      "taxonomy_pressure_status": "NONE",
+      "terminal_result": {
+        "next_unit_id": "proceed.unit.execute_declared_runner_unit.v0",
+        "stop_code": null,
+        "type": "ADVANCE"
+      },
+      "trace_delta_present": true,
+      "units_advanced_count": 1,
+      "visible_gotcha_count": 0
+    },
+    "PROCEED_AUTHORITY_CHECK_REJECTS_FORBIDDEN_INPUTS": {
+      "authority_status": "STOP_AUTHORITY_VIOLATION",
+      "case_name": "PROCEED_AUTHORITY_CHECK_REJECTS_FORBIDDEN_INPUTS",
+      "demo_receipt_id": "12f07222",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/12f07222.json",
+      "fixture_id": "proceed_demo_proceed_authority_check_rejects_forbidden_inputs",
+      "fixture_path": "data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_authority_check_rejects_forbidden_inputs.json",
+      "gate": "PASS",
+      "ledger_delta_present": true,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "readout_id": "9c992ed9",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/9c992ed9.json",
+      "receipt_delta_present": true,
+      "registry_written": false,
+      "selected_unit": "proceed.unit.validate_current_surface.v0",
+      "source_artifact_mutation": {
+        "source_ledger_modified": false,
+        "source_receipt_modified": false,
+        "source_regime_modified": false,
+        "source_runner_modified": false,
+        "source_trace_modified": false
+      },
+      "taxonomy_delta_applied": false,
+      "taxonomy_delta_promoted": false,
+      "taxonomy_pressure_status": "NONE",
+      "terminal_result": {
+        "next_unit_id": null,
+        "stop_code": "STOP_AUTHORITY_VIOLATION",
+        "type": "STOP"
+      },
+      "trace_delta_present": true,
+      "units_advanced_count": 0,
+      "visible_gotcha_count": 0
+    },
+    "PROCEED_LOCAL_GOTCHA_RECORD_ONLY": {
+      "authority_status": "PASS",
+      "case_name": "PROCEED_LOCAL_GOTCHA_RECORD_ONLY",
+      "demo_receipt_id": "665be47d",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/665be47d.json",
+      "fixture_id": "proceed_demo_proceed_local_gotcha_record_only",
+      "fixture_path": "data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_local_gotcha_record_only.json",
+      "gate": "PASS",
+      "ledger_delta_present": true,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "readout_id": "fc290951",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/fc290951.json",
+      "receipt_delta_present": true,
+      "registry_written": false,
+      "selected_unit": "proceed.unit.verify_readout_against_trace.v0",
+      "source_artifact_mutation": {
+        "source_ledger_modified": false,
+        "source_receipt_modified": false,
+        "source_regime_modified": false,
+        "source_runner_modified": false,
+        "source_trace_modified": false
+      },
+      "taxonomy_delta_applied": false,
+      "taxonomy_delta_promoted": false,
+      "taxonomy_pressure_status": "NONE",
+      "terminal_result": {
+        "next_unit_id": "proceed.unit.execute_declared_runner_unit.v0",
+        "stop_code": null,
+        "type": "ADVANCE"
+      },
+      "trace_delta_present": true,
+      "units_advanced_count": 1,
+      "visible_gotcha_count": 1
+    },
+    "PROCEED_READOUT_REFERENCES_TRACE_RECEIPT_LEDGER": {
+      "authority_status": "PASS",
+      "case_name": "PROCEED_READOUT_REFERENCES_TRACE_RECEIPT_LEDGER",
+      "demo_receipt_id": "8ad25853",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/8ad25853.json",
+      "fixture_id": "proceed_demo_proceed_readout_references_trace_receipt_ledger",
+      "fixture_path": "data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_readout_references_trace_receipt_ledger.json",
+      "gate": "PASS",
+      "ledger_delta_present": true,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "readout_id": "1810c921",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/1810c921.json",
+      "receipt_delta_present": true,
+      "registry_written": false,
+      "selected_unit": "proceed.unit.execute_declared_runner_unit.v0",
+      "source_artifact_mutation": {
+        "source_ledger_modified": false,
+        "source_receipt_modified": false,
+        "source_regime_modified": false,
+        "source_runner_modified": false,
+        "source_trace_modified": false
+      },
+      "taxonomy_delta_applied": false,
+      "taxonomy_delta_promoted": false,
+      "taxonomy_pressure_status": "NONE",
+      "terminal_result": {
+        "next_unit_id": "proceed.unit.execute_declared_runner_unit.v0",
+        "stop_code": null,
+        "type": "ADVANCE"
+      },
+      "trace_delta_present": true,
+      "units_advanced_count": 1,
+      "visible_gotcha_count": 0
+    },
+    "PROCEED_TAXONOMY_PRESSURE_RECORDED_ONLY": {
+      "authority_status": "PASS",
+      "case_name": "PROCEED_TAXONOMY_PRESSURE_RECORDED_ONLY",
+      "demo_receipt_id": "fad3d786",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/fad3d786.json",
+      "fixture_id": "proceed_demo_proceed_taxonomy_pressure_recorded_only",
+      "fixture_path": "data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_taxonomy_pressure_recorded_only.json",
+      "gate": "PASS",
+      "ledger_delta_present": true,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "readout_id": "773a7d2b",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/773a7d2b.json",
+      "receipt_delta_present": true,
+      "registry_written": false,
+      "selected_unit": "proceed.unit.emit_next_boundary.v0",
+      "source_artifact_mutation": {
+        "source_ledger_modified": false,
+        "source_receipt_modified": false,
+        "source_regime_modified": false,
+        "source_runner_modified": false,
+        "source_trace_modified": false
+      },
+      "taxonomy_delta_applied": false,
+      "taxonomy_delta_promoted": false,
+      "taxonomy_pressure_status": "RECORDED_ONLY",
+      "terminal_result": {
+        "next_unit_id": null,
+        "stop_code": "STOP_TAXONOMY_GAP",
+        "type": "STOP"
+      },
+      "trace_delta_present": true,
+      "units_advanced_count": 1,
+      "visible_gotcha_count": 0
+    },
+    "PROCEED_TERMINAL_BOUNDARY_NO_IMPLICIT_CONTINUATION": {
+      "authority_status": "PASS",
+      "case_name": "PROCEED_TERMINAL_BOUNDARY_NO_IMPLICIT_CONTINUATION",
+      "demo_receipt_id": "61c9551a",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/61c9551a.json",
+      "fixture_id": "proceed_demo_proceed_terminal_boundary_no_implicit_continuation",
+      "fixture_path": "data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_terminal_boundary_no_implicit_continuation.json",
+      "gate": "PASS",
+      "ledger_delta_present": true,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "readout_id": "8e700878",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/8e700878.json",
+      "receipt_delta_present": true,
+      "registry_written": false,
+      "selected_unit": "proceed.unit.emit_next_boundary.v0",
+      "source_artifact_mutation": {
+        "source_ledger_modified": false,
+        "source_receipt_modified": false,
+        "source_regime_modified": false,
+        "source_runner_modified": false,
+        "source_trace_modified": false
+      },
+      "taxonomy_delta_applied": false,
+      "taxonomy_delta_promoted": false,
+      "taxonomy_pressure_status": "NONE",
+      "terminal_result": {
+        "next_unit_id": null,
+        "stop_code": "STOP_NEXT_MOVE_BOUNDARY",
+        "type": "STOP"
+      },
+      "trace_delta_present": true,
+      "units_advanced_count": 1,
+      "visible_gotcha_count": 0
+    }
+  },
+  "created_at": "2026-06-22T12:25:31.035375+00:00",
+  "demo_receipt_results": {
+    "12f07222": {
+      "case_name": "PROCEED_AUTHORITY_CHECK_REJECTS_FORBIDDEN_INPUTS",
+      "demo_receipt_id": "12f07222",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/12f07222.json",
+      "gate": "PASS",
+      "readout_id": "9c992ed9"
+    },
+    "61c9551a": {
+      "case_name": "PROCEED_TERMINAL_BOUNDARY_NO_IMPLICIT_CONTINUATION",
+      "demo_receipt_id": "61c9551a",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/61c9551a.json",
+      "gate": "PASS",
+      "readout_id": "8e700878"
+    },
+    "665be47d": {
+      "case_name": "PROCEED_LOCAL_GOTCHA_RECORD_ONLY",
+      "demo_receipt_id": "665be47d",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/665be47d.json",
+      "gate": "PASS",
+      "readout_id": "fc290951"
+    },
+    "8ad25853": {
+      "case_name": "PROCEED_READOUT_REFERENCES_TRACE_RECEIPT_LEDGER",
+      "demo_receipt_id": "8ad25853",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/8ad25853.json",
+      "gate": "PASS",
+      "readout_id": "1810c921"
+    },
+    "d960a1bd": {
+      "case_name": "PROCEED_ADVANCES_ONE_NAMED_UNIT",
+      "demo_receipt_id": "d960a1bd",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/d960a1bd.json",
+      "gate": "PASS",
+      "readout_id": "5a4a1071"
+    },
+    "fad3d786": {
+      "case_name": "PROCEED_TAXONOMY_PRESSURE_RECORDED_ONLY",
+      "demo_receipt_id": "fad3d786",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/fad3d786.json",
+      "gate": "PASS",
+      "readout_id": "773a7d2b"
+    }
+  },
+  "failures": [],
+  "gate": "PASS",
+  "readout_results": {
+    "1810c921": {
+      "case_name": "PROCEED_READOUT_REFERENCES_TRACE_RECEIPT_LEDGER",
+      "readout_id": "1810c921",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/1810c921.json",
+      "selected_unit": "proceed.unit.execute_declared_runner_unit.v0",
+      "terminal_result": {
+        "next_unit_id": "proceed.unit.execute_declared_runner_unit.v0",
+        "stop_code": null,
+        "type": "ADVANCE"
+      }
+    },
+    "5a4a1071": {
+      "case_name": "PROCEED_ADVANCES_ONE_NAMED_UNIT",
+      "readout_id": "5a4a1071",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/5a4a1071.json",
+      "selected_unit": "proceed.unit.validate_current_surface.v0",
+      "terminal_result": {
+        "next_unit_id": "proceed.unit.execute_declared_runner_unit.v0",
+        "stop_code": null,
+        "type": "ADVANCE"
+      }
+    },
+    "773a7d2b": {
+      "case_name": "PROCEED_TAXONOMY_PRESSURE_RECORDED_ONLY",
+      "readout_id": "773a7d2b",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/773a7d2b.json",
+      "selected_unit": "proceed.unit.emit_next_boundary.v0",
+      "terminal_result": {
+        "next_unit_id": null,
+        "stop_code": "STOP_TAXONOMY_GAP",
+        "type": "STOP"
+      }
+    },
+    "8e700878": {
+      "case_name": "PROCEED_TERMINAL_BOUNDARY_NO_IMPLICIT_CONTINUATION",
+      "readout_id": "8e700878",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/8e700878.json",
+      "selected_unit": "proceed.unit.emit_next_boundary.v0",
+      "terminal_result": {
+        "next_unit_id": null,
+        "stop_code": "STOP_NEXT_MOVE_BOUNDARY",
+        "type": "STOP"
+      }
+    },
+    "9c992ed9": {
+      "case_name": "PROCEED_AUTHORITY_CHECK_REJECTS_FORBIDDEN_INPUTS",
+      "readout_id": "9c992ed9",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/9c992ed9.json",
+      "selected_unit": "proceed.unit.validate_current_surface.v0",
+      "terminal_result": {
+        "next_unit_id": null,
+        "stop_code": "STOP_AUTHORITY_VIOLATION",
+        "type": "STOP"
+      }
+    },
+    "fc290951": {
+      "case_name": "PROCEED_LOCAL_GOTCHA_RECORD_ONLY",
+      "readout_id": "fc290951",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/fc290951.json",
+      "selected_unit": "proceed.unit.verify_readout_against_trace.v0",
+      "terminal_result": {
+        "next_unit_id": "proceed.unit.execute_declared_runner_unit.v0",
+        "stop_code": null,
+        "type": "ADVANCE"
+      }
+    }
+  },
+  "receipt_id": "363d2f4a",
+  "receipt_type": "PROCEED_ADAPTER_V0_IMPLEMENTATION_RECEIPT",
+  "schema_artifacts": {
+    "authority_check_schema": {
+      "artifact_id": "5b5df66d",
+      "artifact_path": "data/proceed_adapter_v0_authority_check_schemas/5b5df66d.json"
+    },
+    "current_surface_manifest": {
+      "artifact_id": "ba3c287a",
+      "artifact_path": "data/proceed_adapter_v0_surface_manifests/ba3c287a.json"
+    },
+    "current_surface_manifest_schema": {
+      "artifact_id": "8404fb6e",
+      "artifact_path": "data/proceed_adapter_v0_surface_manifest_schemas/8404fb6e.json"
+    },
+    "local_gotcha_record_schema": {
+      "artifact_id": "12beecc9",
+      "artifact_path": "data/proceed_adapter_v0_local_gotcha_schemas/12beecc9.json"
+    },
+    "proceed_contract": {
+      "artifact_id": "93905046",
+      "artifact_path": "data/proceed_adapter_v0_contracts/93905046.json"
+    },
+    "proceed_readout_schema": {
+      "artifact_id": "229dcacb",
+      "artifact_path": "data/proceed_adapter_v0_readout_schemas/229dcacb.json"
+    },
+    "proceed_selector": {
+      "artifact_id": "658db7c0",
+      "artifact_path": "data/proceed_adapter_v0_selectors/658db7c0.json"
+    },
+    "proceed_unit_registry": {
+      "artifact_id": "5ed6be17",
+      "artifact_path": "data/proceed_adapter_v0_unit_registries/5ed6be17.json"
+    },
+    "proceed_unit_schema": {
+      "artifact_id": "9118bcd3",
+      "artifact_path": "data/proceed_adapter_v0_unit_schemas/9118bcd3.json"
+    },
+    "taxonomy_pressure_record_stub": {
+      "artifact_id": "63d43fcb",
+      "artifact_path": "data/proceed_adapter_v0_taxonomy_pressure_stubs/63d43fcb.json"
+    }
+  },
+  "schema_version": "proceed_adapter_v0_implementation_receipt_v0",
+  "source_local_regime_hash": "25802530",
+  "source_local_regime_version": "local_regime.v1",
+  "source_proceed_policy_id": "e6b3dcfc",
+  "source_proceed_policy_receipt_id": "f953a9f0",
+  "source_proposal_ledger_schema_id": "eee2a318",
+  "source_runner_unit_id": "jurisdiction_runner.v0.2.trace_ledger_hardened",
+  "source_trace_ledger_implementation_receipt_id": "cc24a11f",
+  "source_trace_schema_id": "b4887660",
+  "target_adapter_unit_id": "proceed_adapter.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  },
+  "unit_id": "IMPLEMENT_PROCEED_ADAPTER_V0_WITH_DEMO_FIXTURES_V0",
+  "warnings": []
+}
+proceed_adapter_implementation_receipt_id=363d2f4a
+proceed_adapter_implementation_receipt_path=data/proceed_adapter_v0_implementation_receipts/363d2f4a.json
+proceed_adapter_module_path=src/matrixlab/proceed_adapter_v0.py
+schema_artifact_authority_check_schema_id=5b5df66d
+schema_artifact_authority_check_schema_path=data/proceed_adapter_v0_authority_check_schemas/5b5df66d.json
+schema_artifact_current_surface_manifest_id=ba3c287a
+schema_artifact_current_surface_manifest_path=data/proceed_adapter_v0_surface_manifests/ba3c287a.json
+schema_artifact_current_surface_manifest_schema_id=8404fb6e
+schema_artifact_current_surface_manifest_schema_path=data/proceed_adapter_v0_surface_manifest_schemas/8404fb6e.json
+schema_artifact_local_gotcha_record_schema_id=12beecc9
+schema_artifact_local_gotcha_record_schema_path=data/proceed_adapter_v0_local_gotcha_schemas/12beecc9.json
+schema_artifact_proceed_contract_id=93905046
+schema_artifact_proceed_contract_path=data/proceed_adapter_v0_contracts/93905046.json
+schema_artifact_proceed_readout_schema_id=229dcacb
+schema_artifact_proceed_readout_schema_path=data/proceed_adapter_v0_readout_schemas/229dcacb.json
+schema_artifact_proceed_selector_id=658db7c0
+schema_artifact_proceed_selector_path=data/proceed_adapter_v0_selectors/658db7c0.json
+schema_artifact_proceed_unit_registry_id=5ed6be17
+schema_artifact_proceed_unit_registry_path=data/proceed_adapter_v0_unit_registries/5ed6be17.json
+schema_artifact_proceed_unit_schema_id=9118bcd3
+schema_artifact_proceed_unit_schema_path=data/proceed_adapter_v0_unit_schemas/9118bcd3.json
+schema_artifact_taxonomy_pressure_record_stub_id=63d43fcb
+schema_artifact_taxonomy_pressure_record_stub_path=data/proceed_adapter_v0_taxonomy_pressure_stubs/63d43fcb.json
+case_PROCEED_ADVANCES_ONE_NAMED_UNIT_fixture_path=data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_advances_one_named_unit.json
+case_PROCEED_ADVANCES_ONE_NAMED_UNIT_readout_id=5a4a1071
+case_PROCEED_ADVANCES_ONE_NAMED_UNIT_readout_path=data/proceed_adapter_v0_demo_readouts/5a4a1071.json
+case_PROCEED_ADVANCES_ONE_NAMED_UNIT_demo_receipt_id=d960a1bd
+case_PROCEED_ADVANCES_ONE_NAMED_UNIT_demo_receipt_path=data/proceed_adapter_v0_demo_receipts/d960a1bd.json
+case_PROCEED_AUTHORITY_CHECK_REJECTS_FORBIDDEN_INPUTS_fixture_path=data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_authority_check_rejects_forbidden_inputs.json
+case_PROCEED_AUTHORITY_CHECK_REJECTS_FORBIDDEN_INPUTS_readout_id=9c992ed9
+case_PROCEED_AUTHORITY_CHECK_REJECTS_FORBIDDEN_INPUTS_readout_path=data/proceed_adapter_v0_demo_readouts/9c992ed9.json
+case_PROCEED_AUTHORITY_CHECK_REJECTS_FORBIDDEN_INPUTS_demo_receipt_id=12f07222
+case_PROCEED_AUTHORITY_CHECK_REJECTS_FORBIDDEN_INPUTS_demo_receipt_path=data/proceed_adapter_v0_demo_receipts/12f07222.json
+case_PROCEED_LOCAL_GOTCHA_RECORD_ONLY_fixture_path=data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_local_gotcha_record_only.json
+case_PROCEED_LOCAL_GOTCHA_RECORD_ONLY_readout_id=fc290951
+case_PROCEED_LOCAL_GOTCHA_RECORD_ONLY_readout_path=data/proceed_adapter_v0_demo_readouts/fc290951.json
+case_PROCEED_LOCAL_GOTCHA_RECORD_ONLY_demo_receipt_id=665be47d
+case_PROCEED_LOCAL_GOTCHA_RECORD_ONLY_demo_receipt_path=data/proceed_adapter_v0_demo_receipts/665be47d.json
+case_PROCEED_READOUT_REFERENCES_TRACE_RECEIPT_LEDGER_fixture_path=data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_readout_references_trace_receipt_ledger.json
+case_PROCEED_READOUT_REFERENCES_TRACE_RECEIPT_LEDGER_readout_id=1810c921
+case_PROCEED_READOUT_REFERENCES_TRACE_RECEIPT_LEDGER_readout_path=data/proceed_adapter_v0_demo_readouts/1810c921.json
+case_PROCEED_READOUT_REFERENCES_TRACE_RECEIPT_LEDGER_demo_receipt_id=8ad25853
+case_PROCEED_READOUT_REFERENCES_TRACE_RECEIPT_LEDGER_demo_receipt_path=data/proceed_adapter_v0_demo_receipts/8ad25853.json
+case_PROCEED_TAXONOMY_PRESSURE_RECORDED_ONLY_fixture_path=data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_taxonomy_pressure_recorded_only.json
+case_PROCEED_TAXONOMY_PRESSURE_RECORDED_ONLY_readout_id=773a7d2b
+case_PROCEED_TAXONOMY_PRESSURE_RECORDED_ONLY_readout_path=data/proceed_adapter_v0_demo_readouts/773a7d2b.json
+case_PROCEED_TAXONOMY_PRESSURE_RECORDED_ONLY_demo_receipt_id=fad3d786
+case_PROCEED_TAXONOMY_PRESSURE_RECORDED_ONLY_demo_receipt_path=data/proceed_adapter_v0_demo_receipts/fad3d786.json
+case_PROCEED_TERMINAL_BOUNDARY_NO_IMPLICIT_CONTINUATION_fixture_path=data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_terminal_boundary_no_implicit_continuation.json
+case_PROCEED_TERMINAL_BOUNDARY_NO_IMPLICIT_CONTINUATION_readout_id=8e700878
+case_PROCEED_TERMINAL_BOUNDARY_NO_IMPLICIT_CONTINUATION_readout_path=data/proceed_adapter_v0_demo_readouts/8e700878.json
+case_PROCEED_TERMINAL_BOUNDARY_NO_IMPLICIT_CONTINUATION_demo_receipt_id=61c9551a
+case_PROCEED_TERMINAL_BOUNDARY_NO_IMPLICIT_CONTINUATION_demo_receipt_path=data/proceed_adapter_v0_demo_receipts/61c9551a.json
+PROCEED_ADAPTER_IMPLEMENTATION_RECEIPT_ID=363d2f4a
+PROCEED_ADAPTER_IMPLEMENTATION_RECEIPT_PATH=data/proceed_adapter_v0_implementation_receipts/363d2f4a.json
+PROCEED_ADAPTER_MODULE_PATH=src/matrixlab/proceed_adapter_v0.py
+
+ASSERT_PROCEED_ADAPTER_IMPLEMENTATION
+{
+  "acceptance_gate_results": {
+    "P0_source_surface_verified": true,
+    "P1_proceed_contract_declared": true,
+    "P2_unit_schema_and_registry_declared": true,
+    "P3_selector_declared": true,
+    "P4_readout_and_authority_schemas_declared": true,
+    "P5_demo_implementation_required": true,
+    "P6_no_source_runner_or_regime_mutation": true
+  },
+  "aggregate_metrics": {
+    "demo_case_count": 6,
+    "demo_case_fail_count": 0,
+    "demo_case_pass_count": 6,
+    "demo_receipt_count": 6,
+    "forbidden_input_stop_count": 1,
+    "hidden_continuation_count": 0,
+    "local_gotcha_record_count": 1,
+    "proposal_executed_count": 0,
+    "proposal_promoted_count": 0,
+    "readout_count": 6,
+    "registry_sqlite_write_count": 0,
+    "registry_write_count": 0,
+    "source_ledger_modified_count": 0,
+    "source_receipt_modified_count": 0,
+    "source_regime_modified_count": 0,
+    "source_runner_modified_count": 0,
+    "source_trace_modified_count": 0,
+    "taxonomy_delta_applied_count": 0,
+    "taxonomy_delta_promoted_count": 0,
+    "taxonomy_pressure_recorded_count": 1,
+    "total_units_advanced_count": 5
+  },
+  "authority_guards": {
+    "adapter_module_implemented": true,
+    "adapter_module_path": "src/matrixlab/proceed_adapter_v0.py",
+    "authority_check_schema_emitted": true,
+    "current_surface_manifest_emitted": true,
+    "current_surface_manifest_schema_emitted": true,
+    "demo_fixtures_created": true,
+    "demo_readouts_emitted": true,
+    "demo_receipts_emitted": true,
+    "final_schema_claimed": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "implementation_receipt_emitted": true,
+    "local_gotcha_schema_emitted": true,
+    "proceed_contract_emitted": true,
+    "proceed_readout_schema_emitted": true,
+    "proceed_selector_emitted": true,
+    "proceed_unit_registry_emitted": true,
+    "proceed_unit_schema_emitted": true,
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_promoted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "source_jurisdiction_runner_v0_1_modified": false,
+    "source_jurisdiction_runner_v0_2_modified": false,
+    "source_ledger_modified": false,
+    "source_local_regime_v1_modified": false,
+    "source_receipt_modified": false,
+    "source_surface_verified": true,
+    "source_trace_ledger_runner_modified": false,
+    "source_trace_modified": false,
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false,
+    "taxonomy_pressure_stub_emitted": true
+  },
+  "gate": "PASS",
+  "receipt_id": "363d2f4a",
+  "source_runner_unit_id": "jurisdiction_runner.v0.2.trace_ledger_hardened",
+  "target_adapter_unit_id": "proceed_adapter.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROLS_PROCEED_ADAPTER_IMPLEMENTATION_NON_WRITING
+{
+  "case": "source_mutation_gate_fail",
+  "failures": [
+    "acceptance_gate_not_true:P6_no_source_runner_or_regime_mutation:False"
+  ]
+}
+{
+  "case": "hidden_continuation_metric_fail",
+  "failures": [
+    "metric_not_zero:hidden_continuation_count:1"
+  ]
+}
+{
+  "case": "taxonomy_delta_applied_metric_fail",
+  "failures": [
+    "metric_not_zero:taxonomy_delta_applied_count:1"
+  ]
+}
+{
+  "case": "source_trace_modified_guard_fail",
+  "failures": [
+    "authority_guard_not_false:source_trace_modified:True"
+  ]
+}
+{
+  "case": "sqlite_registry_guard_fail",
+  "failures": [
+    "authority_guard_not_false:registry_sqlite_written:True"
+  ]
+}
+{
+  "case": "hidden_next_fail",
+  "failures": [
+    "terminal_next_not_null:{'next_command_goal': 'HIDDEN_NEXT', 'stop_code': 'STOP_DONE', 'type': 'STOP'}"
+  ]
+}
+{
+  "case": "policy_next_goal_fail",
+  "failures": [
+    "policy_terminal_next_wrong:WRONG_NEXT"
+  ]
+}
+{
+  "after": {
+    "implementation_receipt": "9d480f052f910562097b91d6b21b0df1546fd0a310e9483ca77df23d3a5cbb15"
+  },
+  "before": {
+    "implementation_receipt": "9d480f052f910562097b91d6b21b0df1546fd0a310e9483ca77df23d3a5cbb15"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+VERIFY_NO_FORBIDDEN_SOURCE_RUNTIME_OR_REGISTRY_MUTATION
+source runners, source regime, and sqlite registry untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 42 ++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 42 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/implement_proceed_adapter_v0_with_demo_fixtures_v0.py
+?? src/matrixlab/proceed_adapter_v0.py
+
+PACKAGE_PROCEED_ADAPTER_IMPLEMENTATION_ARTIFACTS
+packaged data/proceed_adapter_v0_implementation_receipts/363d2f4a.json
+packaged src/matrixlab/proceed_adapter_v0.py
+
+PACKAGE_PROCEED_ADAPTER_SCHEMA_ARTIFACTS
+packaged data/proceed_adapter_v0_authority_check_schemas/5b5df66d.json
+packaged data/proceed_adapter_v0_surface_manifests/ba3c287a.json
+packaged data/proceed_adapter_v0_surface_manifest_schemas/8404fb6e.json
+packaged data/proceed_adapter_v0_local_gotcha_schemas/12beecc9.json
+packaged data/proceed_adapter_v0_contracts/93905046.json
+packaged data/proceed_adapter_v0_readout_schemas/229dcacb.json
+packaged data/proceed_adapter_v0_selectors/658db7c0.json
+packaged data/proceed_adapter_v0_unit_registries/5ed6be17.json
+packaged data/proceed_adapter_v0_unit_schemas/9118bcd3.json
+packaged data/proceed_adapter_v0_taxonomy_pressure_stubs/63d43fcb.json
+
+PACKAGE_PROCEED_ADAPTER_DEMO_ARTIFACTS
+packaged data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_advances_one_named_unit.json
+packaged data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_authority_check_rejects_forbidden_inputs.json
+packaged data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_local_gotcha_record_only.json
+packaged data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_readout_references_trace_receipt_ledger.json
+packaged data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_taxonomy_pressure_recorded_only.json
+packaged data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_terminal_boundary_no_implicit_continuation.json
+packaged data/proceed_adapter_v0_demo_readouts/5a4a1071.json
+packaged data/proceed_adapter_v0_demo_readouts/9c992ed9.json
+packaged data/proceed_adapter_v0_demo_readouts/fc290951.json
+packaged data/proceed_adapter_v0_demo_readouts/1810c921.json
+packaged data/proceed_adapter_v0_demo_readouts/773a7d2b.json
+packaged data/proceed_adapter_v0_demo_readouts/8e700878.json
+packaged data/proceed_adapter_v0_demo_receipts/d960a1bd.json
+packaged data/proceed_adapter_v0_demo_receipts/12f07222.json
+packaged data/proceed_adapter_v0_demo_receipts/665be47d.json
+packaged data/proceed_adapter_v0_demo_receipts/8ad25853.json
+packaged data/proceed_adapter_v0_demo_receipts/fad3d786.json
+packaged data/proceed_adapter_v0_demo_receipts/61c9551a.json
+[master 04efe0340] implement proceed adapter v0 with demo fixtures
+ 32 files changed, 3256 insertions(+)
+ create mode 100644 data/proceed_adapter_v0_authority_check_schemas/5b5df66d.json
+ create mode 100644 data/proceed_adapter_v0_contracts/93905046.json
+ create mode 100644 data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_advances_one_named_unit.json
+ create mode 100644 data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_authority_check_rejects_forbidden_inputs.json
+ create mode 100644 data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_local_gotcha_record_only.json
+ create mode 100644 data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_readout_references_trace_receipt_ledger.json
+ create mode 100644 data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_taxonomy_pressure_recorded_only.json
+ create mode 100644 data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_terminal_boundary_no_implicit_continuation.json
+ create mode 100644 data/proceed_adapter_v0_demo_readouts/1810c921.json
+ create mode 100644 data/proceed_adapter_v0_demo_readouts/5a4a1071.json
+ create mode 100644 data/proceed_adapter_v0_demo_readouts/773a7d2b.json
+ create mode 100644 data/proceed_adapter_v0_demo_readouts/8e700878.json
+ create mode 100644 data/proceed_adapter_v0_demo_readouts/9c992ed9.json
+ create mode 100644 data/proceed_adapter_v0_demo_readouts/fc290951.json
+ create mode 100644 data/proceed_adapter_v0_demo_receipts/12f07222.json
+ create mode 100644 data/proceed_adapter_v0_demo_receipts/61c9551a.json
+ create mode 100644 data/proceed_adapter_v0_demo_receipts/665be47d.json
+ create mode 100644 data/proceed_adapter_v0_demo_receipts/8ad25853.json
+ create mode 100644 data/proceed_adapter_v0_demo_receipts/d960a1bd.json
+ create mode 100644 data/proceed_adapter_v0_demo_receipts/fad3d786.json
+ create mode 100644 data/proceed_adapter_v0_implementation_receipts/363d2f4a.json
+ create mode 100644 data/proceed_adapter_v0_local_gotcha_schemas/12beecc9.json
+ create mode 100644 data/proceed_adapter_v0_readout_schemas/229dcacb.json
+ create mode 100644 data/proceed_adapter_v0_selectors/658db7c0.json
+ create mode 100644 data/proceed_adapter_v0_surface_manifest_schemas/8404fb6e.json
+ create mode 100644 data/proceed_adapter_v0_surface_manifests/ba3c287a.json
+ create mode 100644 data/proceed_adapter_v0_taxonomy_pressure_stubs/63d43fcb.json
+ create mode 100644 data/proceed_adapter_v0_unit_registries/5ed6be17.json
+ create mode 100644 data/proceed_adapter_v0_unit_schemas/9118bcd3.json
+ create mode 100755 scripts/implement_proceed_adapter_v0_with_demo_fixtures_v0.py
+ create mode 100644 src/matrixlab/proceed_adapter_v0.py
+
+COMMIT_DONE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+NEXT_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+proceed_adapter_implementation_receipt_id=363d2f4a
+proceed_adapter_implementation_receipt_path=data/proceed_adapter_v0_implementation_receipts/363d2f4a.json
+proceed_adapter_module_path=src/matrixlab/proceed_adapter_v0.py
+{
+  "acceptance_gate_results": {
+    "P0_source_surface_verified": true,
+    "P1_proceed_contract_declared": true,
+    "P2_unit_schema_and_registry_declared": true,
+    "P3_selector_declared": true,
+    "P4_readout_and_authority_schemas_declared": true,
+    "P5_demo_implementation_required": true,
+    "P6_no_source_runner_or_regime_mutation": true
+  },
+  "adapter_module_path": "src/matrixlab/proceed_adapter_v0.py",
+  "aggregate_metrics": {
+    "demo_case_count": 6,
+    "demo_case_fail_count": 0,
+    "demo_case_pass_count": 6,
+    "demo_receipt_count": 6,
+    "forbidden_input_stop_count": 1,
+    "hidden_continuation_count": 0,
+    "local_gotcha_record_count": 1,
+    "proposal_executed_count": 0,
+    "proposal_promoted_count": 0,
+    "readout_count": 6,
+    "registry_sqlite_write_count": 0,
+    "registry_write_count": 0,
+    "source_ledger_modified_count": 0,
+    "source_receipt_modified_count": 0,
+    "source_regime_modified_count": 0,
+    "source_runner_modified_count": 0,
+    "source_trace_modified_count": 0,
+    "taxonomy_delta_applied_count": 0,
+    "taxonomy_delta_promoted_count": 0,
+    "taxonomy_pressure_recorded_count": 1,
+    "total_units_advanced_count": 5
+  },
+  "artifact_guards": {
+    "adapter_module_path_addressed": true,
+    "ambient_workspace_authority_used": false,
+    "fixtures_path_addressed": true,
+    "latest_or_mtime_selection_used": false,
+    "proceed_policy_receipt_tracked": true,
+    "proceed_policy_tracked": true,
+    "readouts_path_addressed": true,
+    "receipts_path_addressed": true,
+    "schemas_path_addressed": true,
+    "source_ledger_schema_tracked": true,
+    "source_local_regime_v1_tracked": true,
+    "source_trace_ledger_receipt_tracked": true,
+    "source_trace_ledger_runner_tracked": true,
+    "source_trace_schema_tracked": true
+  },
+  "authority_guards": {
+    "adapter_module_implemented": true,
+    "adapter_module_path": "src/matrixlab/proceed_adapter_v0.py",
+    "authority_check_schema_emitted": true,
+    "current_surface_manifest_emitted": true,
+    "current_surface_manifest_schema_emitted": true,
+    "demo_fixtures_created": true,
+    "demo_readouts_emitted": true,
+    "demo_receipts_emitted": true,
+    "final_schema_claimed": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "implementation_receipt_emitted": true,
+    "local_gotcha_schema_emitted": true,
+    "proceed_contract_emitted": true,
+    "proceed_readout_schema_emitted": true,
+    "proceed_selector_emitted": true,
+    "proceed_unit_registry_emitted": true,
+    "proceed_unit_schema_emitted": true,
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_promoted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "source_jurisdiction_runner_v0_1_modified": false,
+    "source_jurisdiction_runner_v0_2_modified": false,
+    "source_ledger_modified": false,
+    "source_local_regime_v1_modified": false,
+    "source_receipt_modified": false,
+    "source_surface_verified": true,
+    "source_trace_ledger_runner_modified": false,
+    "source_trace_modified": false,
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false,
+    "taxonomy_pressure_stub_emitted": true
+  },
+  "case_results": {
+    "PROCEED_ADVANCES_ONE_NAMED_UNIT": {
+      "authority_status": "PASS",
+      "case_name": "PROCEED_ADVANCES_ONE_NAMED_UNIT",
+      "demo_receipt_id": "d960a1bd",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/d960a1bd.json",
+      "fixture_id": "proceed_demo_proceed_advances_one_named_unit",
+      "fixture_path": "data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_advances_one_named_unit.json",
+      "gate": "PASS",
+      "ledger_delta_present": true,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "readout_id": "5a4a1071",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/5a4a1071.json",
+      "receipt_delta_present": true,
+      "registry_written": false,
+      "selected_unit": "proceed.unit.validate_current_surface.v0",
+      "source_artifact_mutation": {
+        "source_ledger_modified": false,
+        "source_receipt_modified": false,
+        "source_regime_modified": false,
+        "source_runner_modified": false,
+        "source_trace_modified": false
+      },
+      "taxonomy_delta_applied": false,
+      "taxonomy_delta_promoted": false,
+      "taxonomy_pressure_status": "NONE",
+      "terminal_result": {
+        "next_unit_id": "proceed.unit.execute_declared_runner_unit.v0",
+        "stop_code": null,
+        "type": "ADVANCE"
+      },
+      "trace_delta_present": true,
+      "units_advanced_count": 1,
+      "visible_gotcha_count": 0
+    },
+    "PROCEED_AUTHORITY_CHECK_REJECTS_FORBIDDEN_INPUTS": {
+      "authority_status": "STOP_AUTHORITY_VIOLATION",
+      "case_name": "PROCEED_AUTHORITY_CHECK_REJECTS_FORBIDDEN_INPUTS",
+      "demo_receipt_id": "12f07222",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/12f07222.json",
+      "fixture_id": "proceed_demo_proceed_authority_check_rejects_forbidden_inputs",
+      "fixture_path": "data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_authority_check_rejects_forbidden_inputs.json",
+      "gate": "PASS",
+      "ledger_delta_present": true,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "readout_id": "9c992ed9",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/9c992ed9.json",
+      "receipt_delta_present": true,
+      "registry_written": false,
+      "selected_unit": "proceed.unit.validate_current_surface.v0",
+      "source_artifact_mutation": {
+        "source_ledger_modified": false,
+        "source_receipt_modified": false,
+        "source_regime_modified": false,
+        "source_runner_modified": false,
+        "source_trace_modified": false
+      },
+      "taxonomy_delta_applied": false,
+      "taxonomy_delta_promoted": false,
+      "taxonomy_pressure_status": "NONE",
+      "terminal_result": {
+        "next_unit_id": null,
+        "stop_code": "STOP_AUTHORITY_VIOLATION",
+        "type": "STOP"
+      },
+      "trace_delta_present": true,
+      "units_advanced_count": 0,
+      "visible_gotcha_count": 0
+    },
+    "PROCEED_LOCAL_GOTCHA_RECORD_ONLY": {
+      "authority_status": "PASS",
+      "case_name": "PROCEED_LOCAL_GOTCHA_RECORD_ONLY",
+      "demo_receipt_id": "665be47d",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/665be47d.json",
+      "fixture_id": "proceed_demo_proceed_local_gotcha_record_only",
+      "fixture_path": "data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_local_gotcha_record_only.json",
+      "gate": "PASS",
+      "ledger_delta_present": true,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "readout_id": "fc290951",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/fc290951.json",
+      "receipt_delta_present": true,
+      "registry_written": false,
+      "selected_unit": "proceed.unit.verify_readout_against_trace.v0",
+      "source_artifact_mutation": {
+        "source_ledger_modified": false,
+        "source_receipt_modified": false,
+        "source_regime_modified": false,
+        "source_runner_modified": false,
+        "source_trace_modified": false
+      },
+      "taxonomy_delta_applied": false,
+      "taxonomy_delta_promoted": false,
+      "taxonomy_pressure_status": "NONE",
+      "terminal_result": {
+        "next_unit_id": "proceed.unit.execute_declared_runner_unit.v0",
+        "stop_code": null,
+        "type": "ADVANCE"
+      },
+      "trace_delta_present": true,
+      "units_advanced_count": 1,
+      "visible_gotcha_count": 1
+    },
+    "PROCEED_READOUT_REFERENCES_TRACE_RECEIPT_LEDGER": {
+      "authority_status": "PASS",
+      "case_name": "PROCEED_READOUT_REFERENCES_TRACE_RECEIPT_LEDGER",
+      "demo_receipt_id": "8ad25853",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/8ad25853.json",
+      "fixture_id": "proceed_demo_proceed_readout_references_trace_receipt_ledger",
+      "fixture_path": "data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_readout_references_trace_receipt_ledger.json",
+      "gate": "PASS",
+      "ledger_delta_present": true,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "readout_id": "1810c921",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/1810c921.json",
+      "receipt_delta_present": true,
+      "registry_written": false,
+      "selected_unit": "proceed.unit.execute_declared_runner_unit.v0",
+      "source_artifact_mutation": {
+        "source_ledger_modified": false,
+        "source_receipt_modified": false,
+        "source_regime_modified": false,
+        "source_runner_modified": false,
+        "source_trace_modified": false
+      },
+      "taxonomy_delta_applied": false,
+      "taxonomy_delta_promoted": false,
+      "taxonomy_pressure_status": "NONE",
+      "terminal_result": {
+        "next_unit_id": "proceed.unit.execute_declared_runner_unit.v0",
+        "stop_code": null,
+        "type": "ADVANCE"
+      },
+      "trace_delta_present": true,
+      "units_advanced_count": 1,
+      "visible_gotcha_count": 0
+    },
+    "PROCEED_TAXONOMY_PRESSURE_RECORDED_ONLY": {
+      "authority_status": "PASS",
+      "case_name": "PROCEED_TAXONOMY_PRESSURE_RECORDED_ONLY",
+      "demo_receipt_id": "fad3d786",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/fad3d786.json",
+      "fixture_id": "proceed_demo_proceed_taxonomy_pressure_recorded_only",
+      "fixture_path": "data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_taxonomy_pressure_recorded_only.json",
+      "gate": "PASS",
+      "ledger_delta_present": true,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "readout_id": "773a7d2b",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/773a7d2b.json",
+      "receipt_delta_present": true,
+      "registry_written": false,
+      "selected_unit": "proceed.unit.emit_next_boundary.v0",
+      "source_artifact_mutation": {
+        "source_ledger_modified": false,
+        "source_receipt_modified": false,
+        "source_regime_modified": false,
+        "source_runner_modified": false,
+        "source_trace_modified": false
+      },
+      "taxonomy_delta_applied": false,
+      "taxonomy_delta_promoted": false,
+      "taxonomy_pressure_status": "RECORDED_ONLY",
+      "terminal_result": {
+        "next_unit_id": null,
+        "stop_code": "STOP_TAXONOMY_GAP",
+        "type": "STOP"
+      },
+      "trace_delta_present": true,
+      "units_advanced_count": 1,
+      "visible_gotcha_count": 0
+    },
+    "PROCEED_TERMINAL_BOUNDARY_NO_IMPLICIT_CONTINUATION": {
+      "authority_status": "PASS",
+      "case_name": "PROCEED_TERMINAL_BOUNDARY_NO_IMPLICIT_CONTINUATION",
+      "demo_receipt_id": "61c9551a",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/61c9551a.json",
+      "fixture_id": "proceed_demo_proceed_terminal_boundary_no_implicit_continuation",
+      "fixture_path": "data/proceed_adapter_v0_demo_fixtures/proceed_demo_proceed_terminal_boundary_no_implicit_continuation.json",
+      "gate": "PASS",
+      "ledger_delta_present": true,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "readout_id": "8e700878",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/8e700878.json",
+      "receipt_delta_present": true,
+      "registry_written": false,
+      "selected_unit": "proceed.unit.emit_next_boundary.v0",
+      "source_artifact_mutation": {
+        "source_ledger_modified": false,
+        "source_receipt_modified": false,
+        "source_regime_modified": false,
+        "source_runner_modified": false,
+        "source_trace_modified": false
+      },
+      "taxonomy_delta_applied": false,
+      "taxonomy_delta_promoted": false,
+      "taxonomy_pressure_status": "NONE",
+      "terminal_result": {
+        "next_unit_id": null,
+        "stop_code": "STOP_NEXT_MOVE_BOUNDARY",
+        "type": "STOP"
+      },
+      "trace_delta_present": true,
+      "units_advanced_count": 1,
+      "visible_gotcha_count": 0
+    }
+  },
+  "demo_receipt_results": {
+    "12f07222": {
+      "case_name": "PROCEED_AUTHORITY_CHECK_REJECTS_FORBIDDEN_INPUTS",
+      "demo_receipt_id": "12f07222",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/12f07222.json",
+      "gate": "PASS",
+      "readout_id": "9c992ed9"
+    },
+    "61c9551a": {
+      "case_name": "PROCEED_TERMINAL_BOUNDARY_NO_IMPLICIT_CONTINUATION",
+      "demo_receipt_id": "61c9551a",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/61c9551a.json",
+      "gate": "PASS",
+      "readout_id": "8e700878"
+    },
+    "665be47d": {
+      "case_name": "PROCEED_LOCAL_GOTCHA_RECORD_ONLY",
+      "demo_receipt_id": "665be47d",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/665be47d.json",
+      "gate": "PASS",
+      "readout_id": "fc290951"
+    },
+    "8ad25853": {
+      "case_name": "PROCEED_READOUT_REFERENCES_TRACE_RECEIPT_LEDGER",
+      "demo_receipt_id": "8ad25853",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/8ad25853.json",
+      "gate": "PASS",
+      "readout_id": "1810c921"
+    },
+    "d960a1bd": {
+      "case_name": "PROCEED_ADVANCES_ONE_NAMED_UNIT",
+      "demo_receipt_id": "d960a1bd",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/d960a1bd.json",
+      "gate": "PASS",
+      "readout_id": "5a4a1071"
+    },
+    "fad3d786": {
+      "case_name": "PROCEED_TAXONOMY_PRESSURE_RECORDED_ONLY",
+      "demo_receipt_id": "fad3d786",
+      "demo_receipt_path": "data/proceed_adapter_v0_demo_receipts/fad3d786.json",
+      "gate": "PASS",
+      "readout_id": "773a7d2b"
+    }
+  },
+  "gate": "PASS",
+  "readout_results": {
+    "1810c921": {
+      "case_name": "PROCEED_READOUT_REFERENCES_TRACE_RECEIPT_LEDGER",
+      "readout_id": "1810c921",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/1810c921.json",
+      "selected_unit": "proceed.unit.execute_declared_runner_unit.v0",
+      "terminal_result": {
+        "next_unit_id": "proceed.unit.execute_declared_runner_unit.v0",
+        "stop_code": null,
+        "type": "ADVANCE"
+      }
+    },
+    "5a4a1071": {
+      "case_name": "PROCEED_ADVANCES_ONE_NAMED_UNIT",
+      "readout_id": "5a4a1071",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/5a4a1071.json",
+      "selected_unit": "proceed.unit.validate_current_surface.v0",
+      "terminal_result": {
+        "next_unit_id": "proceed.unit.execute_declared_runner_unit.v0",
+        "stop_code": null,
+        "type": "ADVANCE"
+      }
+    },
+    "773a7d2b": {
+      "case_name": "PROCEED_TAXONOMY_PRESSURE_RECORDED_ONLY",
+      "readout_id": "773a7d2b",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/773a7d2b.json",
+      "selected_unit": "proceed.unit.emit_next_boundary.v0",
+      "terminal_result": {
+        "next_unit_id": null,
+        "stop_code": "STOP_TAXONOMY_GAP",
+        "type": "STOP"
+      }
+    },
+    "8e700878": {
+      "case_name": "PROCEED_TERMINAL_BOUNDARY_NO_IMPLICIT_CONTINUATION",
+      "readout_id": "8e700878",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/8e700878.json",
+      "selected_unit": "proceed.unit.emit_next_boundary.v0",
+      "terminal_result": {
+        "next_unit_id": null,
+        "stop_code": "STOP_NEXT_MOVE_BOUNDARY",
+        "type": "STOP"
+      }
+    },
+    "9c992ed9": {
+      "case_name": "PROCEED_AUTHORITY_CHECK_REJECTS_FORBIDDEN_INPUTS",
+      "readout_id": "9c992ed9",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/9c992ed9.json",
+      "selected_unit": "proceed.unit.validate_current_surface.v0",
+      "terminal_result": {
+        "next_unit_id": null,
+        "stop_code": "STOP_AUTHORITY_VIOLATION",
+        "type": "STOP"
+      }
+    },
+    "fc290951": {
+      "case_name": "PROCEED_LOCAL_GOTCHA_RECORD_ONLY",
+      "readout_id": "fc290951",
+      "readout_path": "data/proceed_adapter_v0_demo_readouts/fc290951.json",
+      "selected_unit": "proceed.unit.verify_readout_against_trace.v0",
+      "terminal_result": {
+        "next_unit_id": "proceed.unit.execute_declared_runner_unit.v0",
+        "stop_code": null,
+        "type": "ADVANCE"
+      }
+    }
+  },
+  "schema_artifacts": {
+    "authority_check_schema": {
+      "artifact_id": "5b5df66d",
+      "artifact_path": "data/proceed_adapter_v0_authority_check_schemas/5b5df66d.json"
+    },
+    "current_surface_manifest": {
+      "artifact_id": "ba3c287a",
+      "artifact_path": "data/proceed_adapter_v0_surface_manifests/ba3c287a.json"
+    },
+    "current_surface_manifest_schema": {
+      "artifact_id": "8404fb6e",
+      "artifact_path": "data/proceed_adapter_v0_surface_manifest_schemas/8404fb6e.json"
+    },
+    "local_gotcha_record_schema": {
+      "artifact_id": "12beecc9",
+      "artifact_path": "data/proceed_adapter_v0_local_gotcha_schemas/12beecc9.json"
+    },
+    "proceed_contract": {
+      "artifact_id": "93905046",
+      "artifact_path": "data/proceed_adapter_v0_contracts/93905046.json"
+    },
+    "proceed_readout_schema": {
+      "artifact_id": "229dcacb",
+      "artifact_path": "data/proceed_adapter_v0_readout_schemas/229dcacb.json"
+    },
+    "proceed_selector": {
+      "artifact_id": "658db7c0",
+      "artifact_path": "data/proceed_adapter_v0_selectors/658db7c0.json"
+    },
+    "proceed_unit_registry": {
+      "artifact_id": "5ed6be17",
+      "artifact_path": "data/proceed_adapter_v0_unit_registries/5ed6be17.json"
+    },
+    "proceed_unit_schema": {
+      "artifact_id": "9118bcd3",
+      "artifact_path": "data/proceed_adapter_v0_unit_schemas/9118bcd3.json"
+    },
+    "taxonomy_pressure_record_stub": {
+      "artifact_id": "63d43fcb",
+      "artifact_path": "data/proceed_adapter_v0_taxonomy_pressure_stubs/63d43fcb.json"
+    }
+  },
+  "source_local_regime_hash": "25802530",
+  "source_local_regime_version": "local_regime.v1",
+  "source_proceed_policy_id": "e6b3dcfc",
+  "source_proposal_ledger_schema_id": "eee2a318",
+  "source_runner_unit_id": "jurisdiction_runner.v0.2.trace_ledger_hardened",
+  "source_trace_ledger_implementation_receipt_id": "cc24a11f",
+  "source_trace_schema_id": "b4887660",
+  "target_adapter_unit_id": "proceed_adapter.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  }
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

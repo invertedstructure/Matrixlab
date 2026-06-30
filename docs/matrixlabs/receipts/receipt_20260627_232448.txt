@@ -1,0 +1,102 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_232448
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_232448.txt
+
+BOOKKEEPING_COMMIT_C8_POST_CLOSURE_CONTINUATION_DECISION_PACKET_V0
+
+VERIFY_POST_CLOSURE_CONTINUATION_ARTIFACTS_PRESENT
+present data/c8_post_closure_continuation_decision_v0_receipts/c8_post_closure_continuation_receipt_c2bcd85c.json
+present data/c8_post_closure_continuation_decision_v0/c8_post_closure_continuation_decision_packet_v0.json
+present data/c8_post_closure_continuation_decision_v0/c8_post_closure_admissibility_audit_v0.json
+present data/c8_post_closure_continuation_decision_v0/c8_post_closure_next_unit_candidate_v0.json
+present data/c8_post_closure_continuation_decision_v0/c8_post_closure_continuation_decision_readout_v0.json
+present data/c8_post_closure_continuation_decision_v0/c8_post_closure_continuation_decision_report.json
+present scripts/create_c8_post_closure_continuation_decision_packet_v0.py
+
+PY_COMPILE_POST_CLOSURE_CONTINUATION_RUNNER
+
+VERIFY_POST_CLOSURE_CONTINUATION_RECEIPT
+{
+  "acceptance_gates_false_count": 0,
+  "commit_gate": "PASS",
+  "failures": [],
+  "global_frontier_closed": false,
+  "local_loop_closed": true,
+  "negative_controls_nonzero_count": 0,
+  "new_frontier_selected_now": false,
+  "outcome_class": "C8_POST_CLOSURE_CONTINUATION_DECISION_PACKET_CREATED",
+  "receipt_id": "c8_post_closure_continuation_receipt_c2bcd85c",
+  "recommended_next_unit": "SELECT_ONE_BOUNDED_C8_SUCCESSOR_FRONTIER_SURFACE_V0",
+  "recommended_next_unit_kind": "SELECTION_REVIEW_PACKET",
+  "recommended_next_unit_status": "PROPOSED_ONLY_REQUIRES_REVIEW",
+  "reusable_schema_authorized": false,
+  "source_closure_receipt_id": "c8_local_loop_closure_receipt_cce65018",
+  "status": "TYPED_C8_POST_CLOSURE_CONTINUATION_DECISION_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_POST_CLOSURE_CONTINUATION_DECISION_READY",
+    "type": "STOP"
+  }
+}
+
+VERIFY_GIT_IDENTITY
+
+BOUND_ADD_ONLY_POST_CLOSURE_CONTINUATION_ARTIFACTS
+
+VERIFY_NO_OUT_OF_SCOPE_STAGED_PATHS
+staged_path_count=8
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+post_closure_continuation_receipts_staged=['data/c8_post_closure_continuation_decision_v0_receipts/c8_post_closure_continuation_receipt_c2bcd85c.json']
+
+BOOKKEEPING_DIFF_STAT
+ .gitignore                                         |   6 +
+ .../c8_post_closure_admissibility_audit_v0.json    |  37 ++
+ ...st_closure_continuation_decision_packet_v0.json |  24 ++
+ ...t_closure_continuation_decision_readout_v0.json |  17 +
+ ..._post_closure_continuation_decision_report.json |  23 ++
+ .../c8_post_closure_next_unit_candidate_v0.json    |  25 ++
+ ...post_closure_continuation_receipt_c2bcd85c.json | 104 +++++
+ ...post_closure_continuation_decision_packet_v0.py | 430 +++++++++++++++++++++
+ 8 files changed, 666 insertions(+)
+
+BOOKKEEPING_COMMIT
+[master 046b85d4f] Create C8 post-closure continuation decision
+ 8 files changed, 666 insertions(+)
+ create mode 100644 data/c8_post_closure_continuation_decision_v0/c8_post_closure_admissibility_audit_v0.json
+ create mode 100644 data/c8_post_closure_continuation_decision_v0/c8_post_closure_continuation_decision_packet_v0.json
+ create mode 100644 data/c8_post_closure_continuation_decision_v0/c8_post_closure_continuation_decision_readout_v0.json
+ create mode 100644 data/c8_post_closure_continuation_decision_v0/c8_post_closure_continuation_decision_report.json
+ create mode 100644 data/c8_post_closure_continuation_decision_v0/c8_post_closure_next_unit_candidate_v0.json
+ create mode 100644 data/c8_post_closure_continuation_decision_v0_receipts/c8_post_closure_continuation_receipt_c2bcd85c.json
+ create mode 100755 scripts/create_c8_post_closure_continuation_decision_packet_v0.py
+
+BOOKKEEPING_COMMIT_RECEIPT
+commit_sha=046b85d4f03bce325718a8f9f20cee73fdee57cc
+continuation_receipt=data/c8_post_closure_continuation_decision_v0_receipts/c8_post_closure_continuation_receipt_c2bcd85c.json
+continuation_packet=data/c8_post_closure_continuation_decision_v0/c8_post_closure_continuation_decision_packet_v0.json
+continuation_outcome=C8_POST_CLOSURE_CONTINUATION_DECISION_PACKET_CREATED
+continuation_packet_id=c8_post_closure_continuation_6f2c9733
+candidate_id=c8_successor_surface_selection_candidate_e0f70400
+source_closure_receipt_id=c8_local_loop_closure_receipt_cce65018
+source_closure_packet_id=c8_local_loop_closure_8970734f
+recommended_next_unit=SELECT_ONE_BOUNDED_C8_SUCCESSOR_FRONTIER_SURFACE_V0
+recommended_next_unit_kind=SELECTION_REVIEW_PACKET
+recommended_next_unit_status=PROPOSED_ONLY_REQUIRES_REVIEW
+local_loop_closed=true
+global_frontier_closed=false
+new_frontier_selected_now=false
+new_instrument_build_now=false
+new_c8_rerun_now=false
+new_missing_instrument_proposal_now=false
+reusable_schema_authorized=false
+global_solution_claim=false
+frontier_solved_claim=false
+terminal_stop_code=STOP_C8_POST_CLOSURE_CONTINUATION_DECISION_READY
+
+STATUS_AFTER_COMMIT_RELEVANT
+
+BOOKKEEPING_COMMIT_C8_POST_CLOSURE_CONTINUATION_DECISION_PACKET_COMPLETE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

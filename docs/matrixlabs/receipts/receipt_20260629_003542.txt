@@ -1,0 +1,72 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260629_003542
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260629_003542.txt
+
+REVIEW_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DISCOVERY_EXECUTION_AFTER_RUNTIME_ADOPTION_CLOSURE_V0
+
+VERIFY_FAILED_UNIT_SAMPLE_DISCOVERY_EXECUTION_ARTIFACTS_PRESENT
+present data/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_receipt_c9e0fb77.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_discovery_result_v0.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_discovery_boundary_audit_v0.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_discovery_readout_v0.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_discovery_report.json
+present scripts/execute_c8_unit_feedback_hardening_failed_unit_sample_discovery_once_after_runtime_adoption_closure_v0.py
+
+PY_COMPILE_FAILED_UNIT_SAMPLE_DISCOVERY_EXECUTION_RUNNER
+
+VERIFY_FAILED_UNIT_SAMPLE_DISCOVERY_EXECUTION_RECEIPT
+{
+  "failed_unit_sample_id": "c8_failed_unit_sample_ee4e6092",
+  "failed_unit_sample_source_path": "data/a0_current_receipt_chain_frontier_application_v0_receipts/c1d0f615.json",
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "gate_results_false_count": 0,
+  "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DISCOVERY_FOUND_ONE_SAMPLE",
+  "receipt_id": "c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_receipt_c9e0fb77",
+  "review_gate": "PASS",
+  "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DISCOVERY_EXECUTION_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DISCOVERY_FOUND_ONE_SAMPLE_READY_FOR_REVIEW",
+    "type": "STOP"
+  }
+}
+
+VERIFY_FAILED_UNIT_SAMPLE_DISCOVERY_EXECUTION_CONTENT
+{
+  "boundary_id": "c8_unit_feedback_hardening_failed_unit_sample_discovery_boundary_2ae0e55c",
+  "c8_rerun_authorized_now": false,
+  "content_review_gate": "PASS",
+  "failed_unit_sample_id": "c8_failed_unit_sample_ee4e6092",
+  "failed_unit_sample_source_path": "data/a0_current_receipt_chain_frontier_application_v0_receipts/c1d0f615.json",
+  "failures": [],
+  "instrument_build_authorized_now": false,
+  "probe_executed_now": false,
+  "probe_execution_authorized_now": false,
+  "result_id": "c8_unit_feedback_hardening_failed_unit_sample_discovery_result_67360c26",
+  "reusable_schema_authorized_now": false,
+  "sample_discovery_executed_now": true,
+  "source_status": "MISSING_STATUS_FIELD_WITH_FAILURE_INDICATOR",
+  "source_status_repair_note": "Source artifact has a qualifying failure indicator but no top-level status field; source_status is recorded as an explicit missing-status marker rather than invented source status."
+}
+
+VERIFY_STAGED_SCOPE_FAILED_UNIT_SAMPLE_DISCOVERY_EXECUTION_ONLY
+staged_path_count=7
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+failed_unit_sample_discovery_execution_receipts_staged=['data/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_receipt_c9e0fb77.json']
+
+REVIEW_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...ed_unit_sample_discovery_boundary_audit_v0.json |  46 ++
+ ...ng_failed_unit_sample_discovery_readout_v0.json |  21 +
+ ...dening_failed_unit_sample_discovery_report.json |  74 +++
+ ...ing_failed_unit_sample_discovery_result_v0.json |  78 +++
+ ...ample_discovery_execution_receipt_c9e0fb77.json | 114 +++++
+ ...overy_once_after_runtime_adoption_closure_v0.py | 554 +++++++++++++++++++++
+ 7 files changed, 893 insertions(+)
+
+REVIEW_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DISCOVERY_EXECUTION_AFTER_RUNTIME_ADOPTION_CLOSURE_PASS
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

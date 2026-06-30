@@ -1,0 +1,217 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_203246
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_203246.txt
+
+PREPARE_C8_TARGET_SHAPE_FROM_PRE_C8_INTERLOCK_PAIR_V0
+
+STATUS_BEFORE_RELEVANT
+A  data/post_runtime_observability_sidecar_reference_decision_v0/post_sidecar_reference_decision_basis_v0.json
+A  data/post_runtime_observability_sidecar_reference_decision_v0/post_sidecar_reference_decision_boundary_v0.json
+A  data/post_runtime_observability_sidecar_reference_decision_v0/post_sidecar_reference_decision_profile_v0.json
+A  data/post_runtime_observability_sidecar_reference_decision_v0/post_sidecar_reference_decision_rollup_v0.json
+A  data/post_runtime_observability_sidecar_reference_decision_v0/post_sidecar_reference_decision_transition_trace.json
+A  data/post_runtime_observability_sidecar_reference_decision_v0/post_sidecar_reference_decision_v0.json
+A  data/post_runtime_observability_sidecar_reference_decision_v0/post_sidecar_reference_next_unit_v0.json
+A  data/post_runtime_observability_sidecar_reference_decision_v0_receipts/62ddebf9.json
+A  data/post_runtime_observability_sidecar_reference_decision_v0_receipts/75939743.json
+A  scripts/decide_next_after_runtime_observability_sidecar_reference_closure_v0.py
+?? data/radius_125_slot_execution_summaries/
+
+VERIFY_C8_TARGET_SHAPE_BASIS
+present data/post_runtime_observability_sidecar_reference_decision_v0_receipts/62ddebf9.json
+present data/post_runtime_observability_sidecar_reference_decision_v0/post_sidecar_reference_decision_v0.json
+present data/post_runtime_observability_sidecar_reference_decision_v0/post_sidecar_reference_next_unit_v0.json
+present data/post_runtime_observability_sidecar_reference_decision_v0/post_sidecar_reference_decision_boundary_v0.json
+present data/runtime_observability_sidecar_reference_closure_v0_receipts/bee348a1.json
+present data/runtime_observability_sidecar_reference_closure_v0/runtime_observability_sidecar_reviewed_reference_v0.json
+present data/runtime_observability_sidecar_reference_closure_v0/pre_c8_interlock_completion_reference_v0.json
+present data/runtime_schema_validator_cell_reference_closure_v0_receipts/732016f0.json
+present data/runtime_schema_validator_cell_reference_closure_v0/runtime_schema_validator_reviewed_reference_v0.json
+present data/runtime_schema_validator_cell_reference_closure_v0/runtime_schema_validator_observability_hook_reference_v0.json
+
+PATCH_GITIGNORE
+
+WRITE_C8_TARGET_SHAPE_RUNNER
+
+PY_COMPILE_C8_TARGET_SHAPE_RUNNER
+
+RUN_C8_TARGET_SHAPE_PREP
+{
+  "acceptance_gate_results": {
+    "no_control_path_authority": true,
+    "no_live_hooks": true,
+    "no_runtime_adoption": true,
+    "no_runtime_patch": true,
+    "no_schema_mutation": true,
+    "post_decision_receipt_consumed": true,
+    "pre_c8_interlock_pair_complete": true,
+    "schema_validator_reference_consumed": true,
+    "sidecar_reference_consumed": true,
+    "target_shape_names_boundary": true,
+    "target_shape_names_forbidden_claims": true,
+    "target_shape_names_inputs": true,
+    "target_shape_names_role": true,
+    "target_shape_names_stop_advance_surface": true
+  },
+  "build_mode": "C8_TARGET_SHAPE_PREPARATION_ONLY",
+  "created_at": "2026-06-25T19:32:46.275615+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "RUNTIME / C8 / TARGET_SHAPE",
+  "machine_readable_c8_target_shape_summary": {
+    "admissibility_checked": false,
+    "authorization_verdict_emitted": false,
+    "c8_execution_authorized": false,
+    "c8_runtime_authorized": false,
+    "c8_target_shape_prepared": true,
+    "component_count": 3,
+    "control_path_advanced": false,
+    "control_path_blocked": false,
+    "execution_claimed": false,
+    "hidden_next_command": false,
+    "live_runtime_hooks_installed": false,
+    "load_bearing_edge_field_count": 7,
+    "minimum_shape_field_count": 7,
+    "next_unit_id": "BUILD_OR_FREEZE_C8_TARGET_SHAPE_V0",
+    "pre_c8_interlock_pair_complete": true,
+    "reason_codes": [
+      "C8_TARGET_SHAPE_PREPARED_FROM_PRE_C8_INTERLOCK_PAIR",
+      "POST_SIDECAR_DECISION_RECEIPT_CONSUMED",
+      "SCHEMA_VALIDATOR_REVIEWED_REFERENCE_CONSUMED",
+      "RUNTIME_OBSERVABILITY_SIDECAR_REVIEWED_REFERENCE_CONSUMED",
+      "PRE_C8_INTERLOCK_PAIR_COMPLETE",
+      "TYPE_ONLY_TARGET_SHAPE",
+      "NO_C8_RUNTIME_AUTHORIZATION",
+      "NO_C8_EXECUTION_AUTHORIZATION",
+      "NO_RUNTIME_ADOPTION",
+      "NO_LIVE_HOOK_INSTALL",
+      "NO_RUNTIME_PATCH",
+      "NO_RUNTIME_ROUTING",
+      "NO_VALIDATION_AUTHORITY",
+      "NO_ADMISSIBILITY_AUTHORITY",
+      "NO_AUTHORIZATION_VERDICT",
+      "NO_EXECUTION_CLAIM",
+      "NO_CONTROL_PATH_BLOCK_OR_ADVANCE",
+      "NO_SCHEMA_MUTATION",
+      "NO_REFERENCE_MUTATION",
+      "NO_HIDDEN_NEXT_COMMAND"
+    ],
+    "runtime_adoption_authorized": false,
+    "runtime_observability_sidecar_reference_consumed": true,
+    "runtime_patched": false,
+    "runtime_routing_installed": false,
+    "schema_archive_mutated": false,
+    "schema_created": false,
+    "schema_validator_reference_consumed": true,
+    "source_post_decision_receipt_consumed": true,
+    "status": "TYPED_C8_TARGET_SHAPE_PREPARED_NO_RUNTIME_ADOPTION",
+    "validation_verdict_emitted": false
+  },
+  "mode": "TYPE_ONLY / TARGET_PREP / NO_RUNTIME_ADOPTION",
+  "output_artifacts": {
+    "acceptance_gate": "data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_acceptance_gate_v0.json",
+    "basis": "data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_basis_v0.json",
+    "boundary": "data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_boundary_v0.json",
+    "implementation_receipt": "data/c8_target_shape_from_pre_c8_interlock_pair_v0_receipts/ec404930.json",
+    "interlock_map": "data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_interlock_map_v0.json",
+    "next_surface": "data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_next_surface_v0.json",
+    "non_authorization": "data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_non_authorization_v0.json",
+    "profile": "data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_profile_v0.json",
+    "rollup": "data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_rollup_v0.json",
+    "target_shape": "data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_v0.json",
+    "transition_trace": "data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_transition_trace.json"
+  },
+  "receipt_id": "ec404930",
+  "receipt_type": "TYPED_C8_TARGET_SHAPE_FROM_PRE_C8_INTERLOCK_PAIR_RECEIPT",
+  "schema_version": "c8_target_shape_from_pre_c8_interlock_pair_receipt_v0",
+  "source_post_decision_receipt_id": "62ddebf9",
+  "source_schema_validator_reference_closure_receipt_id": "732016f0",
+  "source_sidecar_closure_receipt_id": "bee348a1",
+  "status": "TYPED_C8_TARGET_SHAPE_PREPARED_NO_RUNTIME_ADOPTION",
+  "target_unit_id": "c8.target_shape.from_pre_c8_interlock_pair.v0",
+  "terminal": {
+    "next_unit_id": "BUILD_OR_FREEZE_C8_TARGET_SHAPE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "unit_id": "PREPARE_C8_TARGET_SHAPE_FROM_PRE_C8_INTERLOCK_PAIR_V0",
+  "warnings": []
+}
+c8_target_shape_receipt_id=ec404930
+c8_target_shape_receipt_path=data/c8_target_shape_from_pre_c8_interlock_pair_v0_receipts/ec404930.json
+c8_target_shape_path=data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_v0.json
+c8_target_shape_next_unit=BUILD_OR_FREEZE_C8_TARGET_SHAPE_V0
+
+ASSERT_C8_TARGET_SHAPE_PREP
+{
+  "c8_runtime_authorized": false,
+  "c8_target_shape_prepared": true,
+  "failures": [],
+  "gate": "PASS",
+  "hidden_next_command": false,
+  "next_unit_id": "BUILD_OR_FREEZE_C8_TARGET_SHAPE_V0",
+  "receipt_id": "ec404930",
+  "runtime_adoption_authorized": false,
+  "runtime_patched": false,
+  "status": "TYPED_C8_TARGET_SHAPE_PREPARED_NO_RUNTIME_ADOPTION",
+  "terminal": {
+    "next_unit_id": "BUILD_OR_FREEZE_C8_TARGET_SHAPE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+SHOW_C8_TARGET_SHAPE_NEXT
+receipt_id=ec404930
+receipt_path=data/c8_target_shape_from_pre_c8_interlock_pair_v0_receipts/ec404930.json
+status=TYPED_C8_TARGET_SHAPE_PREPARED_NO_RUNTIME_ADOPTION
+c8_target_shape_prepared=True
+pre_c8_interlock_pair_complete=True
+component_count=3
+minimum_shape_field_count=7
+load_bearing_edge_field_count=7
+next_unit_id=BUILD_OR_FREEZE_C8_TARGET_SHAPE_V0
+c8_runtime_authorized=False
+runtime_adoption_authorized=False
+runtime_patched=False
+live_runtime_hooks_installed=False
+terminal_type=ADVANCE
+terminal_next_unit_id=BUILD_OR_FREEZE_C8_TARGET_SHAPE_V0
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+MM .gitignore
+A  data/post_runtime_observability_sidecar_reference_decision_v0/post_sidecar_reference_decision_basis_v0.json
+A  data/post_runtime_observability_sidecar_reference_decision_v0/post_sidecar_reference_decision_boundary_v0.json
+A  data/post_runtime_observability_sidecar_reference_decision_v0/post_sidecar_reference_decision_profile_v0.json
+A  data/post_runtime_observability_sidecar_reference_decision_v0/post_sidecar_reference_decision_rollup_v0.json
+A  data/post_runtime_observability_sidecar_reference_decision_v0/post_sidecar_reference_decision_transition_trace.json
+A  data/post_runtime_observability_sidecar_reference_decision_v0/post_sidecar_reference_decision_v0.json
+A  data/post_runtime_observability_sidecar_reference_decision_v0/post_sidecar_reference_next_unit_v0.json
+A  data/post_runtime_observability_sidecar_reference_decision_v0_receipts/62ddebf9.json
+A  data/post_runtime_observability_sidecar_reference_decision_v0_receipts/75939743.json
+A  scripts/decide_next_after_runtime_observability_sidecar_reference_closure_v0.py
+?? scripts/prepare_c8_target_shape_from_pre_c8_interlock_pair_v0.py
+
+PACKAGE_C8_TARGET_SHAPE_ARTIFACTS
+
+C8_TARGET_SHAPE_READY_FOR_COMMIT
+M  .gitignore
+A  data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_acceptance_gate_v0.json
+A  data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_basis_v0.json
+A  data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_boundary_v0.json
+A  data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_interlock_map_v0.json
+A  data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_next_surface_v0.json
+A  data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_non_authorization_v0.json
+A  data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_profile_v0.json
+A  data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_rollup_v0.json
+A  data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_transition_trace.json
+A  data/c8_target_shape_from_pre_c8_interlock_pair_v0/c8_target_shape_v0.json
+A  data/c8_target_shape_from_pre_c8_interlock_pair_v0_receipts/ec404930.json
+A  scripts/prepare_c8_target_shape_from_pre_c8_interlock_pair_v0.py
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

@@ -1,0 +1,637 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_214441
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_214441.txt
+
+CLASSIFY_R1000_CANDIDATE_C_TOP_PRESSURE_GROUP_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+VERIFY_TOP_GROUP_CLASSIFICATION_INPUTS_TRACKED
+tracked data/r1000_pressure_scale_stability_candidate_c_v0_receipts/a121ff40.json
+tracked data/r1000_pressure_scale_stability_candidate_c_v0/r1000_candidate_c_group_rows.jsonl
+tracked data/r1000_pressure_scale_stability_candidate_c_v0/r1000_candidate_c_group_event_membership.jsonl
+tracked data/r1000_pressure_scale_stability_candidate_c_v0/r1000_candidate_c_group_rollup.json
+tracked data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl
+tracked data/r1000_pressure_scale_stability_candidate_c_v0/r250_vs_r1000_candidate_c_comparison_matrix.json
+tracked data/r1000_pressure_scale_stability_candidate_c_v0/r1000_scale_stability_classification.json
+tracked data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_scale_stability_report.json
+tracked data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_scale_stability_decision_packet.json
+tracked data/r250_pressure_candidate_c_interrogation_v0_receipts/fabba052.json
+tracked data/r250_pressure_coarsening_review_v0_receipts/f03689e3.json
+tracked data/r250_pressure_metrics_v0_receipts/f09b8395.json
+
+PATCH_GITIGNORE
+
+WRITE_TOP_GROUP_CLASSIFICATION_BUILDER
+
+PY_COMPILE_TOP_GROUP_CLASSIFICATION_BUILDER
+
+RUN_TOP_GROUP_CLASSIFICATION
+{
+  "acceptance_gate_results": {
+    "TOP_GROUP_CLASSIFY_0_SOURCE_SURFACE_VERIFIED": true,
+    "TOP_GROUP_CLASSIFY_10_DECISION_PACKET_EMITTED": true,
+    "TOP_GROUP_CLASSIFY_11_NO_ACTION_EXECUTED": true,
+    "TOP_GROUP_CLASSIFY_12_NO_SOURCE_MUTATION": true,
+    "TOP_GROUP_CLASSIFY_1_HUMAN_DECISION_RECORDED": true,
+    "TOP_GROUP_CLASSIFY_2_CANDIDATE_C_LENS_VERIFIED": true,
+    "TOP_GROUP_CLASSIFY_3_R1000_SCALE_RESULT_VERIFIED": true,
+    "TOP_GROUP_CLASSIFY_4_TOP_GROUP_SELECTED_DETERMINISTICALLY": true,
+    "TOP_GROUP_CLASSIFY_5_TOP_GROUP_MEMBERSHIP_EXTRACTED": true,
+    "TOP_GROUP_CLASSIFY_6_REPRESENTATIVE_FRAGMENTS_EMITTED": true,
+    "TOP_GROUP_CLASSIFY_7_EVIDENCE_ROLLUP_EMITTED": true,
+    "TOP_GROUP_CLASSIFY_8_TOP_GROUP_CLASSIFIED_EXACTLY_ONCE": true,
+    "TOP_GROUP_CLASSIFY_9_REPAIR_PROPOSAL_ONLY_IF_FIXABLE": true
+  },
+  "accepted_candidate_fields": [
+    "parent_pressure_class",
+    "pressure_subtype",
+    "halt_reason"
+  ],
+  "accepted_candidate_id": "C",
+  "accepted_candidate_name": "parent_plus_subtype_plus_halt_reason",
+  "aggregate_metrics": {
+    "authority_widening_authorized_count": 0,
+    "build_command_emitted_count": 0,
+    "classification": "NOT_ENOUGH_EVIDENCE",
+    "classified_exactly_once": true,
+    "decision_packet_emitted": true,
+    "dominant_margin": 1,
+    "dominant_margin_share": 0.011363636363636364,
+    "extraction_repair_authorized_count": 0,
+    "hidden_next_command_count": 0,
+    "low_margin_warning": true,
+    "membership_count": 25,
+    "next_group_auto_inspection_count": 0,
+    "optimization_authorized_count": 0,
+    "protocol_adoption_authorized_count": 0,
+    "repair_command_emitted_count": 0,
+    "repair_executed_count": 0,
+    "repair_objective_proposal_emitted": false,
+    "representative_fragment_count": 10,
+    "review_only": true,
+    "second_group_count": 24,
+    "second_group_key_hash": "c3fa064d",
+    "source_mutation_count": 0,
+    "source_r1000_batch_id": "r1000_candidate_c_batch_cdd7f676",
+    "source_r1000_scale_stability_receipt_id": "a121ff40",
+    "taxonomy_upgrade_authorized_count": 0,
+    "top_group_count": 25,
+    "top_group_key_hash": "38c604a1",
+    "top_group_rank": 1,
+    "top_group_share": 0.2840909090909091,
+    "top_two_comparison_default_count": 0
+  },
+  "created_at": "2026-06-22T20:44:41.581542+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "human_decision": {
+    "decision": "CLASSIFY_R1000_CANDIDATE_C_TOP_PRESSURE_GROUP",
+    "not_authorized": [
+      "repair_execution",
+      "taxonomy_upgrade",
+      "authority_widening",
+      "burden_optimization",
+      "extraction_repair",
+      "protocol_adoption",
+      "next_group_auto_inspection",
+      "build_command"
+    ],
+    "rank_rule": "stable_rank_authorizes_inspection_order_not_repair",
+    "scope": "top_group_classification_only"
+  },
+  "must_not_infer": [
+    "stable rank authorizes inspection order only",
+    "stable rank does not authorize repair",
+    "do not inspect top two by default",
+    "top-two comparison is fallback only",
+    "do not execute repair",
+    "do not mutate taxonomy",
+    "do not widen authority",
+    "do not optimize burden",
+    "do not repair extraction",
+    "do not adopt protocol globally",
+    "do not auto-skip future groups",
+    "do not auto-open next group",
+    "do not emit build command without human decision"
+  ],
+  "output_artifacts": {
+    "implementation_receipt": "data/r1000_candidate_c_top_group_classification_v0_receipts/7c9718e0.json",
+    "top_group_classification": "data/r1000_candidate_c_top_group_classification_v0/top_group_classification.json",
+    "top_group_decision_packet": "data/r1000_candidate_c_top_group_classification_v0/top_group_decision_packet.json",
+    "top_group_event_membership": "data/r1000_candidate_c_top_group_classification_v0/top_group_event_membership.jsonl",
+    "top_group_evidence_rollup": "data/r1000_candidate_c_top_group_classification_v0/top_group_evidence_rollup.json",
+    "top_group_repair_objective_proposal": "data/r1000_candidate_c_top_group_classification_v0/top_group_repair_objective_proposal.json",
+    "top_group_representative_fragments": "data/r1000_candidate_c_top_group_classification_v0/top_group_representative_fragments.json",
+    "top_group_selection": "data/r1000_candidate_c_top_group_classification_v0/top_group_selection.json"
+  },
+  "receipt_id": "7c9718e0",
+  "receipt_type": "R1000_CANDIDATE_C_TOP_GROUP_CLASSIFICATION_RECEIPT",
+  "schema_version": "r1000_candidate_c_top_group_classification_receipt_v0",
+  "source_candidate_c_interrogation_receipt_id": "fabba052",
+  "source_coarsening_review_receipt_id": "f03689e3",
+  "source_pressure_metrics_repair_receipt_id": "f09b8395",
+  "source_r1000_batch_id": "r1000_candidate_c_batch_cdd7f676",
+  "source_r1000_scale_stability_receipt_id": "a121ff40",
+  "source_r250_pressure_batch_id": "r250_pressure_metrics_batch_1095f5c6",
+  "target_unit_id": "r1000_candidate_c_top_pressure_group_classification.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_HUMAN_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "top_group_classification_guards": {
+    "authority_widening_authorized": false,
+    "build_command_emitted": false,
+    "candidate_c_lens_verified": true,
+    "decision_packet_emitted": true,
+    "evidence_rollup_emitted": true,
+    "extraction_repair_authorized": false,
+    "hidden_next_command": false,
+    "human_decision_recorded": true,
+    "next_group_auto_inspected": false,
+    "optimization_authorized": false,
+    "protocol_adoption_authorized": false,
+    "r1000_scale_result_verified": true,
+    "repair_command_emitted": false,
+    "repair_executed": false,
+    "repair_proposal_only_if_fixable": true,
+    "representative_fragments_emitted": true,
+    "review_only": true,
+    "source_mutation": false,
+    "source_surface_verified": true,
+    "taxonomy_upgrade_authorized": false,
+    "top_group_classified_exactly_once": true,
+    "top_group_membership_extracted": true,
+    "top_group_selected_deterministically": true,
+    "top_two_comparison_by_default": false
+  },
+  "top_group_summary": {
+    "classification": "NOT_ENOUGH_EVIDENCE",
+    "classification_reason": "Top group points to missing-label taxonomy pressure, but taxonomy upgrade or repair is not authorized from pressure alone; fragment review is required before any concrete objective.",
+    "dominant_margin": 1,
+    "halt_reason": "STOP_TAXONOMY_GAP",
+    "parent_pressure_class": "TAXONOMY_PRESSURE",
+    "pressure_subtype": "missing_label",
+    "repair_objective_proposal_emitted": false,
+    "second_group_count": 24,
+    "top_group_count": 25,
+    "top_group_key_hash": "38c604a1"
+  },
+  "unit_id": "CLASSIFY_R1000_CANDIDATE_C_TOP_PRESSURE_GROUP_V0",
+  "warnings": []
+}
+r1000_candidate_c_top_group_classification_receipt_id=7c9718e0
+r1000_candidate_c_top_group_classification_receipt_path=data/r1000_candidate_c_top_group_classification_v0_receipts/7c9718e0.json
+top_group_classification_path=data/r1000_candidate_c_top_group_classification_v0/top_group_classification.json
+top_group_decision_packet_path=data/r1000_candidate_c_top_group_classification_v0/top_group_decision_packet.json
+TOP_GROUP_RECEIPT_ID=7c9718e0
+TOP_GROUP_RECEIPT_PATH=data/r1000_candidate_c_top_group_classification_v0_receipts/7c9718e0.json
+TOP_GROUP_CLASSIFICATION_PATH=data/r1000_candidate_c_top_group_classification_v0/top_group_classification.json
+TOP_GROUP_PACKET_PATH=data/r1000_candidate_c_top_group_classification_v0/top_group_decision_packet.json
+
+ASSERT_TOP_GROUP_CLASSIFICATION
+{
+  "aggregate_metrics": {
+    "authority_widening_authorized_count": 0,
+    "build_command_emitted_count": 0,
+    "classification": "NOT_ENOUGH_EVIDENCE",
+    "classified_exactly_once": true,
+    "decision_packet_emitted": true,
+    "dominant_margin": 1,
+    "dominant_margin_share": 0.011363636363636364,
+    "extraction_repair_authorized_count": 0,
+    "hidden_next_command_count": 0,
+    "low_margin_warning": true,
+    "membership_count": 25,
+    "next_group_auto_inspection_count": 0,
+    "optimization_authorized_count": 0,
+    "protocol_adoption_authorized_count": 0,
+    "repair_command_emitted_count": 0,
+    "repair_executed_count": 0,
+    "repair_objective_proposal_emitted": false,
+    "representative_fragment_count": 10,
+    "review_only": true,
+    "second_group_count": 24,
+    "second_group_key_hash": "c3fa064d",
+    "source_mutation_count": 0,
+    "source_r1000_batch_id": "r1000_candidate_c_batch_cdd7f676",
+    "source_r1000_scale_stability_receipt_id": "a121ff40",
+    "taxonomy_upgrade_authorized_count": 0,
+    "top_group_count": 25,
+    "top_group_key_hash": "38c604a1",
+    "top_group_rank": 1,
+    "top_group_share": 0.2840909090909091,
+    "top_two_comparison_default_count": 0
+  },
+  "gate": "PASS",
+  "receipt_id": "7c9718e0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_HUMAN_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "top_group_summary": {
+    "classification": "NOT_ENOUGH_EVIDENCE",
+    "classification_reason": "Top group points to missing-label taxonomy pressure, but taxonomy upgrade or repair is not authorized from pressure alone; fragment review is required before any concrete objective.",
+    "dominant_margin": 1,
+    "halt_reason": "STOP_TAXONOMY_GAP",
+    "parent_pressure_class": "TAXONOMY_PRESSURE",
+    "pressure_subtype": "missing_label",
+    "repair_objective_proposal_emitted": false,
+    "second_group_count": 24,
+    "top_group_count": 25,
+    "top_group_key_hash": "38c604a1"
+  }
+}
+
+NEGATIVE_CONTROLS_TOP_GROUP_CLASSIFICATION_NON_WRITING
+{
+  "case": "latest_or_mtime_selection_fail",
+  "directory_scan_authority_present": false,
+  "forbidden_latest_string_present": false,
+  "forbidden_mtime_string_present": false
+}
+{
+  "case": "candidate_c_fields_changed_fail",
+  "failures": [
+    "accepted_candidate_fields_wrong"
+  ]
+}
+{
+  "case": "top_group_not_highest_count_fail",
+  "failures": [
+    "top_group_not_highest_count",
+    "evidence_top_group_key_mismatch"
+  ]
+}
+{
+  "case": "tie_breaker_missing_fail",
+  "failures": [
+    "tie_breaker_missing_or_wrong"
+  ]
+}
+{
+  "case": "membership_missing_fail",
+  "failures": [
+    "membership_count_wrong:0 expected 25"
+  ]
+}
+{
+  "case": "representative_fragments_missing_fail",
+  "failures": [
+    "representative_fragments_missing"
+  ]
+}
+{
+  "case": "classification_multiple_classes_fail",
+  "failures": [
+    "classification_multiple_classes_or_zero"
+  ]
+}
+{
+  "case": "fixable_without_concrete_repair_scope_fail",
+  "failures": [
+    "fixable_without_repair_objective_proposal",
+    "fixable_proposal_field_missing:repair_objective_id",
+    "fixable_proposal_field_missing:repair_scope",
+    "fixable_proposal_field_missing:source_evidence_refs",
+    "fixable_proposal_field_missing:files_or_modules_to_inspect",
+    "fixable_proposal_field_missing:expected_acceptance_gates",
+    "fixable_proposal_field_missing:forbidden_scope",
+    "fixable_proposal_field_missing:terminal_rule"
+  ]
+}
+{
+  "case": "healthy_but_repair_proposal_emitted_fail",
+  "failures": [
+    "proposal_emitted_for_non_fixable:HEALTHY_EXPECTED_PRESSURE"
+  ]
+}
+{
+  "case": "not_enough_evidence_but_repair_proposal_emitted_fail",
+  "failures": [
+    "proposal_emitted_for_non_fixable:NOT_ENOUGH_EVIDENCE"
+  ]
+}
+{
+  "case": "repair_command_emitted_fail",
+  "failures": [
+    "repair_command_emitted"
+  ]
+}
+{
+  "case": "taxonomy_upgrade_authorized_fail",
+  "failures": [
+    "classification_guard_not_false:taxonomy_upgrade_authorized:True"
+  ]
+}
+{
+  "case": "authority_widening_authorized_fail",
+  "failures": [
+    "classification_guard_not_false:authority_widening_authorized:True"
+  ]
+}
+{
+  "case": "optimization_authorized_fail",
+  "failures": [
+    "classification_guard_not_false:optimization_authorized:True"
+  ]
+}
+{
+  "case": "extraction_repair_authorized_fail",
+  "failures": [
+    "classification_guard_not_false:extraction_repair_authorized:True"
+  ]
+}
+{
+  "case": "protocol_adoption_authorized_fail",
+  "failures": [
+    "classification_guard_not_false:protocol_adoption_authorized:True"
+  ]
+}
+{
+  "case": "source_mutation_fail",
+  "failures": [
+    "metric_not_zero:source_mutation_count:1"
+  ]
+}
+{
+  "case": "hidden_next_command_fail",
+  "failures": [
+    "terminal_not_STOP:{'type': 'ADVANCE', 'next_command_goal': 'REPAIR_TOP_GROUP', 'stop_code': None}",
+    "terminal_stop_wrong:{'type': 'ADVANCE', 'next_command_goal': 'REPAIR_TOP_GROUP', 'stop_code': None}",
+    "terminal_next_not_null:{'type': 'ADVANCE', 'next_command_goal': 'REPAIR_TOP_GROUP', 'stop_code': None}"
+  ]
+}
+{
+  "case": "top_two_default_fail",
+  "failures": [
+    "packet_top_two_default_true"
+  ]
+}
+{
+  "after": {
+    "receipt": "fa60fa1dc6ae3065a16b5f0ea3688f032c960672a924b0ff512c334cb585fe3a"
+  },
+  "before": {
+    "receipt": "fa60fa1dc6ae3065a16b5f0ea3688f032c960672a924b0ff512c334cb585fe3a"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+VERIFY_NO_FORBIDDEN_SOURCE_RUNTIME_OR_REGISTRY_MUTATION
+source artifacts, runtime modules, and sqlite registry untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/classify_r1000_candidate_c_top_pressure_group_v0.py
+
+PACKAGE_TOP_GROUP_CLASSIFICATION_ARTIFACTS
+packaged data/r1000_candidate_c_top_group_classification_v0_receipts/7c9718e0.json
+packaged data/r1000_candidate_c_top_group_classification_v0/top_group_selection.json
+packaged data/r1000_candidate_c_top_group_classification_v0/top_group_event_membership.jsonl
+packaged data/r1000_candidate_c_top_group_classification_v0/top_group_representative_fragments.json
+packaged data/r1000_candidate_c_top_group_classification_v0/top_group_evidence_rollup.json
+packaged data/r1000_candidate_c_top_group_classification_v0/top_group_classification.json
+packaged data/r1000_candidate_c_top_group_classification_v0/top_group_decision_packet.json
+packaged data/r1000_candidate_c_top_group_classification_v0/top_group_repair_objective_proposal.json
+[master b03d7ba8b] classify R1000 Candidate C top pressure group
+ 10 files changed, 1578 insertions(+)
+ create mode 100644 data/r1000_candidate_c_top_group_classification_v0/top_group_classification.json
+ create mode 100644 data/r1000_candidate_c_top_group_classification_v0/top_group_decision_packet.json
+ create mode 100644 data/r1000_candidate_c_top_group_classification_v0/top_group_event_membership.jsonl
+ create mode 100644 data/r1000_candidate_c_top_group_classification_v0/top_group_evidence_rollup.json
+ create mode 100644 data/r1000_candidate_c_top_group_classification_v0/top_group_repair_objective_proposal.json
+ create mode 100644 data/r1000_candidate_c_top_group_classification_v0/top_group_representative_fragments.json
+ create mode 100644 data/r1000_candidate_c_top_group_classification_v0/top_group_selection.json
+ create mode 100644 data/r1000_candidate_c_top_group_classification_v0_receipts/7c9718e0.json
+ create mode 100755 scripts/classify_r1000_candidate_c_top_pressure_group_v0.py
+
+COMMIT_DONE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+NEXT_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+r1000_candidate_c_top_group_classification_receipt_id=7c9718e0
+r1000_candidate_c_top_group_classification_receipt_path=data/r1000_candidate_c_top_group_classification_v0_receipts/7c9718e0.json
+{
+  "acceptance_gate_results": {
+    "TOP_GROUP_CLASSIFY_0_SOURCE_SURFACE_VERIFIED": true,
+    "TOP_GROUP_CLASSIFY_10_DECISION_PACKET_EMITTED": true,
+    "TOP_GROUP_CLASSIFY_11_NO_ACTION_EXECUTED": true,
+    "TOP_GROUP_CLASSIFY_12_NO_SOURCE_MUTATION": true,
+    "TOP_GROUP_CLASSIFY_1_HUMAN_DECISION_RECORDED": true,
+    "TOP_GROUP_CLASSIFY_2_CANDIDATE_C_LENS_VERIFIED": true,
+    "TOP_GROUP_CLASSIFY_3_R1000_SCALE_RESULT_VERIFIED": true,
+    "TOP_GROUP_CLASSIFY_4_TOP_GROUP_SELECTED_DETERMINISTICALLY": true,
+    "TOP_GROUP_CLASSIFY_5_TOP_GROUP_MEMBERSHIP_EXTRACTED": true,
+    "TOP_GROUP_CLASSIFY_6_REPRESENTATIVE_FRAGMENTS_EMITTED": true,
+    "TOP_GROUP_CLASSIFY_7_EVIDENCE_ROLLUP_EMITTED": true,
+    "TOP_GROUP_CLASSIFY_8_TOP_GROUP_CLASSIFIED_EXACTLY_ONCE": true,
+    "TOP_GROUP_CLASSIFY_9_REPAIR_PROPOSAL_ONLY_IF_FIXABLE": true
+  },
+  "accepted_candidate_fields": [
+    "parent_pressure_class",
+    "pressure_subtype",
+    "halt_reason"
+  ],
+  "accepted_candidate_id": "C",
+  "accepted_candidate_name": "parent_plus_subtype_plus_halt_reason",
+  "aggregate_metrics": {
+    "authority_widening_authorized_count": 0,
+    "build_command_emitted_count": 0,
+    "classification": "NOT_ENOUGH_EVIDENCE",
+    "classified_exactly_once": true,
+    "decision_packet_emitted": true,
+    "dominant_margin": 1,
+    "dominant_margin_share": 0.011363636363636364,
+    "extraction_repair_authorized_count": 0,
+    "hidden_next_command_count": 0,
+    "low_margin_warning": true,
+    "membership_count": 25,
+    "next_group_auto_inspection_count": 0,
+    "optimization_authorized_count": 0,
+    "protocol_adoption_authorized_count": 0,
+    "repair_command_emitted_count": 0,
+    "repair_executed_count": 0,
+    "repair_objective_proposal_emitted": false,
+    "representative_fragment_count": 10,
+    "review_only": true,
+    "second_group_count": 24,
+    "second_group_key_hash": "c3fa064d",
+    "source_mutation_count": 0,
+    "source_r1000_batch_id": "r1000_candidate_c_batch_cdd7f676",
+    "source_r1000_scale_stability_receipt_id": "a121ff40",
+    "taxonomy_upgrade_authorized_count": 0,
+    "top_group_count": 25,
+    "top_group_key_hash": "38c604a1",
+    "top_group_rank": 1,
+    "top_group_share": 0.2840909090909091,
+    "top_two_comparison_default_count": 0
+  },
+  "gate": "PASS",
+  "human_decision": {
+    "decision": "CLASSIFY_R1000_CANDIDATE_C_TOP_PRESSURE_GROUP",
+    "not_authorized": [
+      "repair_execution",
+      "taxonomy_upgrade",
+      "authority_widening",
+      "burden_optimization",
+      "extraction_repair",
+      "protocol_adoption",
+      "next_group_auto_inspection",
+      "build_command"
+    ],
+    "rank_rule": "stable_rank_authorizes_inspection_order_not_repair",
+    "scope": "top_group_classification_only"
+  },
+  "must_not_infer": [
+    "stable rank authorizes inspection order only",
+    "stable rank does not authorize repair",
+    "do not inspect top two by default",
+    "top-two comparison is fallback only",
+    "do not execute repair",
+    "do not mutate taxonomy",
+    "do not widen authority",
+    "do not optimize burden",
+    "do not repair extraction",
+    "do not adopt protocol globally",
+    "do not auto-skip future groups",
+    "do not auto-open next group",
+    "do not emit build command without human decision"
+  ],
+  "output_artifacts": {
+    "implementation_receipt": "data/r1000_candidate_c_top_group_classification_v0_receipts/7c9718e0.json",
+    "top_group_classification": "data/r1000_candidate_c_top_group_classification_v0/top_group_classification.json",
+    "top_group_decision_packet": "data/r1000_candidate_c_top_group_classification_v0/top_group_decision_packet.json",
+    "top_group_event_membership": "data/r1000_candidate_c_top_group_classification_v0/top_group_event_membership.jsonl",
+    "top_group_evidence_rollup": "data/r1000_candidate_c_top_group_classification_v0/top_group_evidence_rollup.json",
+    "top_group_repair_objective_proposal": "data/r1000_candidate_c_top_group_classification_v0/top_group_repair_objective_proposal.json",
+    "top_group_representative_fragments": "data/r1000_candidate_c_top_group_classification_v0/top_group_representative_fragments.json",
+    "top_group_selection": "data/r1000_candidate_c_top_group_classification_v0/top_group_selection.json"
+  },
+  "source_candidate_c_interrogation_receipt_id": "fabba052",
+  "source_coarsening_review_receipt_id": "f03689e3",
+  "source_pressure_metrics_repair_receipt_id": "f09b8395",
+  "source_r1000_batch_id": "r1000_candidate_c_batch_cdd7f676",
+  "source_r1000_scale_stability_receipt_id": "a121ff40",
+  "source_r250_pressure_batch_id": "r250_pressure_metrics_batch_1095f5c6",
+  "target_unit_id": "r1000_candidate_c_top_pressure_group_classification.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_HUMAN_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "top_group_classification_guards": {
+    "authority_widening_authorized": false,
+    "build_command_emitted": false,
+    "candidate_c_lens_verified": true,
+    "decision_packet_emitted": true,
+    "evidence_rollup_emitted": true,
+    "extraction_repair_authorized": false,
+    "hidden_next_command": false,
+    "human_decision_recorded": true,
+    "next_group_auto_inspected": false,
+    "optimization_authorized": false,
+    "protocol_adoption_authorized": false,
+    "r1000_scale_result_verified": true,
+    "repair_command_emitted": false,
+    "repair_executed": false,
+    "repair_proposal_only_if_fixable": true,
+    "representative_fragments_emitted": true,
+    "review_only": true,
+    "source_mutation": false,
+    "source_surface_verified": true,
+    "taxonomy_upgrade_authorized": false,
+    "top_group_classified_exactly_once": true,
+    "top_group_membership_extracted": true,
+    "top_group_selected_deterministically": true,
+    "top_two_comparison_by_default": false
+  },
+  "top_group_summary": {
+    "classification": "NOT_ENOUGH_EVIDENCE",
+    "classification_reason": "Top group points to missing-label taxonomy pressure, but taxonomy upgrade or repair is not authorized from pressure alone; fragment review is required before any concrete objective.",
+    "dominant_margin": 1,
+    "halt_reason": "STOP_TAXONOMY_GAP",
+    "parent_pressure_class": "TAXONOMY_PRESSURE",
+    "pressure_subtype": "missing_label",
+    "repair_objective_proposal_emitted": false,
+    "second_group_count": 24,
+    "top_group_count": 25,
+    "top_group_key_hash": "38c604a1"
+  },
+  "unit_id": "CLASSIFY_R1000_CANDIDATE_C_TOP_PRESSURE_GROUP_V0"
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

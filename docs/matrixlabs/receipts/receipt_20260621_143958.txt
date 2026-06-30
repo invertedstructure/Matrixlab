@@ -1,0 +1,454 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_143958
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_143958.txt
+
+IMPLEMENT_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_RAW_DELTA_COMPACTNESS_DIAGNOSTIC
+
+PY_COMPILE
+
+RUN_RAW_DELTA_COMPACTNESS_DIAGNOSTIC
+{
+  "actual_observer_overhead_ms": 944,
+  "authority_guards": {
+    "candidate_accepted": false,
+    "candidate_created": false,
+    "candidate_design_authorized": false,
+    "case_id_or_cycle_n_primary_identity_patch_used": false,
+    "full_registry_scan_used": false,
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "registry_sqlite_changed": false,
+    "registry_sqlite_read": false,
+    "registry_write_authorized": false,
+    "rowid_or_receipt_hash_patch_used": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_mode_authorized": false
+  },
+  "bounded_source_surface": {
+    "all_bands_total": 266,
+    "full_registry_used": false,
+    "known_failed_bands_total": 10,
+    "registry_sqlite_read": false,
+    "v02_scale_rows_path": "data/stable_delta_signature_candidate_v0_2_scale_band_rows/227e9426.jsonl",
+    "v03_rows_path": "data/stable_delta_signature_candidate_v0_3_rows/bd1beabe.jsonl"
+  },
+  "classification": {
+    "compact_viable_encodings": [
+      "raw_decimal_sig6",
+      "raw_decimal_sig9",
+      "raw_decimal_sig12",
+      "raw_delta_microhash_32"
+    ],
+    "encodings_clearing_known_false_merges": [
+      "raw_decimal_string_exact",
+      "raw_decimal_sig6",
+      "raw_decimal_sig9",
+      "raw_decimal_sig12",
+      "raw_delta_microhash_32"
+    ],
+    "encodings_viable_on_known_failed_bands": [
+      "raw_decimal_string_exact",
+      "raw_decimal_sig6",
+      "raw_decimal_sig9",
+      "raw_decimal_sig12",
+      "raw_delta_microhash_32"
+    ],
+    "exact_viable": true,
+    "interpretation": "At least one compact raw compression_ratio encoding cleared known false merges and stayed below full-receipt burden. This is diagnostic only, not acceptance.",
+    "recommended_next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_POLICY_V0",
+    "terminal_class": "RAW_DELTA_COMPACT_ENCODING_POSSIBLY_VIABLE"
+  },
+  "comparison_to_v02_v03": {
+    "v02_terminal_decision": "FAIL_SCALE_FALSE_MERGE",
+    "v02_worst_burden_ratio_projected": 0.4014251781472684,
+    "v02_worst_false_merge_count": 1,
+    "v03_terminal_decision": "FAIL_V0_3_FALSE_MERGE_PERSISTS",
+    "v03_worst_burden_ratio_projected": 1.1120250685468076,
+    "v03_worst_false_merge_count": 1
+  },
+  "created_at": "2026-06-21T13:39:59.741785+00:00",
+  "decision": {
+    "candidate_accepted": false,
+    "candidate_created": false,
+    "diagnostic_only": true,
+    "do_not_accept_candidate": true,
+    "do_not_change_runtime": true,
+    "do_not_full_registry_scan": true,
+    "do_not_use_case_id_or_cycle_n_as_primary_identity": true,
+    "do_not_use_rowid_or_receipt_hash": true,
+    "primary_result": "RAW_DELTA_COMPACT_ENCODING_POSSIBLY_VIABLE",
+    "recommended_next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_POLICY_V0"
+  },
+  "diagnosis_status": "DIAGNOSED",
+  "diagnostic_id": "74caa0f4",
+  "diagnostic_name": "RAW_DELTA_COMPACTNESS_DIAGNOSTIC_V0",
+  "diagnostic_path": "data/raw_delta_compactness_diagnostics/74caa0f4.json",
+  "diagnostic_rows_path": "data/raw_delta_compactness_rows/74caa0f4.jsonl",
+  "diagnostic_sig8": "74caa0f4",
+  "encoding_summaries": {
+    "raw_decimal_sig12": {
+      "all_band_burden_regression_bands": 0,
+      "all_band_false_merge_bands": 0,
+      "all_bands_clear": true,
+      "bands_total": 266,
+      "encoding_id": "raw_decimal_sig12",
+      "known_failed_all_clear": true,
+      "known_failed_bands_total": 10,
+      "known_failed_burden_regression_bands": 0,
+      "known_failed_false_merge_bands": 0,
+      "total_full_receipt_bytes": 2870426,
+      "total_projected_plus_signature_payload_bytes": 2019339,
+      "total_projected_scale_row_bytes": 1022380,
+      "total_signature_payload_bytes": 996959,
+      "worst_burden_ratio_projected": 0.7161520190023754,
+      "worst_collision_count": 0,
+      "worst_distinguishability_retention_ratio": 1.0,
+      "worst_false_merge_count": 0,
+      "worst_identity_leak_count": 0,
+      "worst_raw_delta_missing_count": 0,
+      "worst_source_surface_regression_count": 0
+    },
+    "raw_decimal_sig6": {
+      "all_band_burden_regression_bands": 0,
+      "all_band_false_merge_bands": 0,
+      "all_bands_clear": true,
+      "bands_total": 266,
+      "encoding_id": "raw_decimal_sig6",
+      "known_failed_all_clear": true,
+      "known_failed_bands_total": 10,
+      "known_failed_burden_regression_bands": 0,
+      "known_failed_false_merge_bands": 0,
+      "total_full_receipt_bytes": 2870426,
+      "total_projected_plus_signature_payload_bytes": 2016041,
+      "total_projected_scale_row_bytes": 1022380,
+      "total_signature_payload_bytes": 993661,
+      "worst_burden_ratio_projected": 0.7149643705463183,
+      "worst_collision_count": 0,
+      "worst_distinguishability_retention_ratio": 1.0,
+      "worst_false_merge_count": 0,
+      "worst_identity_leak_count": 0,
+      "worst_raw_delta_missing_count": 0,
+      "worst_source_surface_regression_count": 0
+    },
+    "raw_decimal_sig9": {
+      "all_band_burden_regression_bands": 0,
+      "all_band_false_merge_bands": 0,
+      "all_bands_clear": true,
+      "bands_total": 266,
+      "encoding_id": "raw_decimal_sig9",
+      "known_failed_all_clear": true,
+      "known_failed_bands_total": 10,
+      "known_failed_burden_regression_bands": 0,
+      "known_failed_false_merge_bands": 0,
+      "total_full_receipt_bytes": 2870426,
+      "total_projected_plus_signature_payload_bytes": 2016041,
+      "total_projected_scale_row_bytes": 1022380,
+      "total_signature_payload_bytes": 993661,
+      "worst_burden_ratio_projected": 0.7149643705463183,
+      "worst_collision_count": 0,
+      "worst_distinguishability_retention_ratio": 1.0,
+      "worst_false_merge_count": 0,
+      "worst_identity_leak_count": 0,
+      "worst_raw_delta_missing_count": 0,
+      "worst_source_surface_regression_count": 0
+    },
+    "raw_decimal_string_exact": {
+      "all_band_burden_regression_bands": 0,
+      "all_band_false_merge_bands": 0,
+      "all_bands_clear": true,
+      "bands_total": 266,
+      "encoding_id": "raw_decimal_string_exact",
+      "known_failed_all_clear": true,
+      "known_failed_bands_total": 10,
+      "known_failed_burden_regression_bands": 0,
+      "known_failed_false_merge_bands": 0,
+      "total_full_receipt_bytes": 2870426,
+      "total_projected_plus_signature_payload_bytes": 2022637,
+      "total_projected_scale_row_bytes": 1022380,
+      "total_signature_payload_bytes": 1000257,
+      "worst_burden_ratio_projected": 0.7173396674584323,
+      "worst_collision_count": 0,
+      "worst_distinguishability_retention_ratio": 1.0,
+      "worst_false_merge_count": 0,
+      "worst_identity_leak_count": 0,
+      "worst_raw_delta_missing_count": 0,
+      "worst_source_surface_regression_count": 0
+    },
+    "raw_delta_microhash_32": {
+      "all_band_burden_regression_bands": 0,
+      "all_band_false_merge_bands": 0,
+      "all_bands_clear": true,
+      "bands_total": 266,
+      "encoding_id": "raw_delta_microhash_32",
+      "known_failed_all_clear": true,
+      "known_failed_bands_total": 10,
+      "known_failed_burden_regression_bands": 0,
+      "known_failed_false_merge_bands": 0,
+      "total_full_receipt_bytes": 2870426,
+      "total_projected_plus_signature_payload_bytes": 2041626,
+      "total_projected_scale_row_bytes": 1022380,
+      "total_signature_payload_bytes": 1019246,
+      "worst_burden_ratio_projected": 0.7256532066508313,
+      "worst_collision_count": 0,
+      "worst_distinguishability_retention_ratio": 1.0,
+      "worst_false_merge_count": 0,
+      "worst_identity_leak_count": 0,
+      "worst_raw_delta_missing_count": 0,
+      "worst_source_surface_regression_count": 0
+    }
+  },
+  "failures": [],
+  "gate": "PASS",
+  "pass_gates": {
+    "authority_containment": true,
+    "bounded_rows_reused": true,
+    "candidate_not_accepted": true,
+    "candidate_not_created": true,
+    "diagnostic_only": true,
+    "no_identity_leak": true,
+    "policy_preconditions": true,
+    "raw_delta_coverage": true,
+    "truth_surface": true
+  },
+  "receipt_id": "c9c6e252",
+  "receipt_sig8": "c9c6e252",
+  "schema_version": "raw_delta_compactness_diagnostic_receipt_v0",
+  "source_policy_id": "445bdd02",
+  "source_v02_scale_probe_id": "227e9426",
+  "source_v03_failure_diagnostic_id": "d0132dd4",
+  "source_v03_probe_id": "bd1beabe",
+  "terminal": {
+    "next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+diagnostic_id=74caa0f4
+diagnostic_json_path=data/raw_delta_compactness_diagnostics/74caa0f4.json
+diagnostic_receipt_path=data/raw_delta_compactness_diagnostic_receipts/74caa0f4.json
+diagnostic_rows_path=data/raw_delta_compactness_rows/74caa0f4.jsonl
+RAW_DELTA_DIAGNOSTIC_ID=74caa0f4
+
+ASSERT_RAW_DELTA_COMPACTNESS_DIAGNOSTIC
+{
+  "authority_guards": {
+    "candidate_accepted": false,
+    "candidate_created": false,
+    "candidate_design_authorized": false,
+    "case_id_or_cycle_n_primary_identity_patch_used": false,
+    "full_registry_scan_used": false,
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "registry_sqlite_changed": false,
+    "registry_sqlite_read": false,
+    "registry_write_authorized": false,
+    "rowid_or_receipt_hash_patch_used": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_mode_authorized": false
+  },
+  "bounded_source_surface": {
+    "all_bands_total": 266,
+    "full_registry_used": false,
+    "known_failed_bands_total": 10,
+    "registry_sqlite_read": false,
+    "v02_scale_rows_path": "data/stable_delta_signature_candidate_v0_2_scale_band_rows/227e9426.jsonl",
+    "v03_rows_path": "data/stable_delta_signature_candidate_v0_3_rows/bd1beabe.jsonl"
+  },
+  "classification": {
+    "compact_viable_encodings": [
+      "raw_decimal_sig6",
+      "raw_decimal_sig9",
+      "raw_decimal_sig12",
+      "raw_delta_microhash_32"
+    ],
+    "encodings_clearing_known_false_merges": [
+      "raw_decimal_string_exact",
+      "raw_decimal_sig6",
+      "raw_decimal_sig9",
+      "raw_decimal_sig12",
+      "raw_delta_microhash_32"
+    ],
+    "encodings_viable_on_known_failed_bands": [
+      "raw_decimal_string_exact",
+      "raw_decimal_sig6",
+      "raw_decimal_sig9",
+      "raw_decimal_sig12",
+      "raw_delta_microhash_32"
+    ],
+    "exact_viable": true,
+    "interpretation": "At least one compact raw compression_ratio encoding cleared known false merges and stayed below full-receipt burden. This is diagnostic only, not acceptance.",
+    "recommended_next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_POLICY_V0",
+    "terminal_class": "RAW_DELTA_COMPACT_ENCODING_POSSIBLY_VIABLE"
+  },
+  "comparison_to_v02_v03": {
+    "v02_terminal_decision": "FAIL_SCALE_FALSE_MERGE",
+    "v02_worst_burden_ratio_projected": 0.4014251781472684,
+    "v02_worst_false_merge_count": 1,
+    "v03_terminal_decision": "FAIL_V0_3_FALSE_MERGE_PERSISTS",
+    "v03_worst_burden_ratio_projected": 1.1120250685468076,
+    "v03_worst_false_merge_count": 1
+  },
+  "decision": {
+    "candidate_accepted": false,
+    "candidate_created": false,
+    "diagnostic_only": true,
+    "do_not_accept_candidate": true,
+    "do_not_change_runtime": true,
+    "do_not_full_registry_scan": true,
+    "do_not_use_case_id_or_cycle_n_as_primary_identity": true,
+    "do_not_use_rowid_or_receipt_hash": true,
+    "primary_result": "RAW_DELTA_COMPACT_ENCODING_POSSIBLY_VIABLE",
+    "recommended_next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_POLICY_V0"
+  },
+  "diagnosis_status": "DIAGNOSED",
+  "diagnostic_id": "74caa0f4",
+  "encoding_summaries": {
+    "raw_decimal_sig12": {
+      "all_band_burden_regression_bands": 0,
+      "all_band_false_merge_bands": 0,
+      "all_bands_clear": true,
+      "bands_total": 266,
+      "encoding_id": "raw_decimal_sig12",
+      "known_failed_all_clear": true,
+      "known_failed_bands_total": 10,
+      "known_failed_burden_regression_bands": 0,
+      "known_failed_false_merge_bands": 0,
+      "total_full_receipt_bytes": 2870426,
+      "total_projected_plus_signature_payload_bytes": 2019339,
+      "total_projected_scale_row_bytes": 1022380,
+      "total_signature_payload_bytes": 996959,
+      "worst_burden_ratio_projected": 0.7161520190023754,
+      "worst_collision_count": 0,
+      "worst_distinguishability_retention_ratio": 1.0,
+      "worst_false_merge_count": 0,
+      "worst_identity_leak_count": 0,
+      "worst_raw_delta_missing_count": 0,
+      "worst_source_surface_regression_count": 0
+    },
+    "raw_decimal_sig6": {
+      "all_band_burden_regression_bands": 0,
+      "all_band_false_merge_bands": 0,
+      "all_bands_clear": true,
+      "bands_total": 266,
+      "encoding_id": "raw_decimal_sig6",
+      "known_failed_all_clear": true,
+      "known_failed_bands_total": 10,
+      "known_failed_burden_regression_bands": 0,
+      "known_failed_false_merge_bands": 0,
+      "total_full_receipt_bytes": 2870426,
+      "total_projected_plus_signature_payload_bytes": 2016041,
+      "total_projected_scale_row_bytes": 1022380,
+      "total_signature_payload_bytes": 993661,
+      "worst_burden_ratio_projected": 0.7149643705463183,
+      "worst_collision_count": 0,
+      "worst_distinguishability_retention_ratio": 1.0,
+      "worst_false_merge_count": 0,
+      "worst_identity_leak_count": 0,
+      "worst_raw_delta_missing_count": 0,
+      "worst_source_surface_regression_count": 0
+    },
+    "raw_decimal_sig9": {
+      "all_band_burden_regression_bands": 0,
+      "all_band_false_merge_bands": 0,
+      "all_bands_clear": true,
+      "bands_total": 266,
+      "encoding_id": "raw_decimal_sig9",
+      "known_failed_all_clear": true,
+      "known_failed_bands_total": 10,
+      "known_failed_burden_regression_bands": 0,
+      "known_failed_false_merge_bands": 0,
+      "total_full_receipt_bytes": 2870426,
+      "total_projected_plus_signature_payload_bytes": 2016041,
+      "total_projected_scale_row_bytes": 1022380,
+      "total_signature_payload_bytes": 993661,
+      "worst_burden_ratio_projected": 0.7149643705463183,
+      "worst_collision_count": 0,
+      "worst_distinguishability_retention_ratio": 1.0,
+      "worst_false_merge_count": 0,
+      "worst_identity_leak_count": 0,
+      "worst_raw_delta_missing_count": 0,
+      "worst_source_surface_regression_count": 0
+    },
+    "raw_decimal_string_exact": {
+      "all_band_burden_regression_bands": 0,
+      "all_band_false_merge_bands": 0,
+      "all_bands_clear": true,
+      "bands_total": 266,
+      "encoding_id": "raw_decimal_string_exact",
+      "known_failed_all_clear": true,
+      "known_failed_bands_total": 10,
+      "known_failed_burden_regression_bands": 0,
+      "known_failed_false_merge_bands": 0,
+      "total_full_receipt_bytes": 2870426,
+      "total_projected_plus_signature_payload_bytes": 2022637,
+      "total_projected_scale_row_bytes": 1022380,
+      "total_signature_payload_bytes": 1000257,
+      "worst_burden_ratio_projected": 0.7173396674584323,
+      "worst_collision_count": 0,
+      "worst_distinguishability_retention_ratio": 1.0,
+      "worst_false_merge_count": 0,
+      "worst_identity_leak_count": 0,
+      "worst_raw_delta_missing_count": 0,
+      "worst_source_surface_regression_count": 0
+    },
+    "raw_delta_microhash_32": {
+      "all_band_burden_regression_bands": 0,
+      "all_band_false_merge_bands": 0,
+      "all_bands_clear": true,
+      "bands_total": 266,
+      "encoding_id": "raw_delta_microhash_32",
+      "known_failed_all_clear": true,
+      "known_failed_bands_total": 10,
+      "known_failed_burden_regression_bands": 0,
+      "known_failed_false_merge_bands": 0,
+      "total_full_receipt_bytes": 2870426,
+      "total_projected_plus_signature_payload_bytes": 2041626,
+      "total_projected_scale_row_bytes": 1022380,
+      "total_signature_payload_bytes": 1019246,
+      "worst_burden_ratio_projected": 0.7256532066508313,
+      "worst_collision_count": 0,
+      "worst_distinguishability_retention_ratio": 1.0,
+      "worst_false_merge_count": 0,
+      "worst_identity_leak_count": 0,
+      "worst_raw_delta_missing_count": 0,
+      "worst_source_surface_regression_count": 0
+    }
+  },
+  "failures": [],
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "pass_gates": {
+    "authority_containment": true,
+    "bounded_rows_reused": true,
+    "candidate_not_accepted": true,
+    "candidate_not_created": true,
+    "diagnostic_only": true,
+    "no_identity_leak": true,
+    "policy_preconditions": true,
+    "raw_delta_coverage": true,
+    "truth_surface": true
+  },
+  "receipt_id": "c9c6e252",
+  "rows_loaded": 16490,
+  "source_policy_id": "445bdd02",
+  "source_v03_failure_diagnostic_id": "d0132dd4",
+  "terminal": {
+    "next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+Traceback (most recent call last):
+  File "<stdin>", line 59, in <module>
+AssertionError
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

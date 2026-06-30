@@ -1,0 +1,135 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_074753
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_074753.txt
+
+BOOKKEEPING_COMMIT_C7_BOUNDED_CONTINUATION_RADIUS_TEST_V0
+
+VERIFY_C7_RECEIPT_PRESENT
+
+VERIFY_C7_RECEIPT
+{
+  "acceptance_gates_false_count": 0,
+  "failures": [],
+  "final_boundary": "AUTHORITY_REQUIRED",
+  "gate": "PASS",
+  "lawful_continuation_depth": 2,
+  "negative_controls_nonzero_count": 0,
+  "observable_continuation_depth": 2,
+  "outcome_class": "C7_RADIUS_EXPANDED_WITH_TYPED_BOUNDARIES",
+  "packetized_continuation_depth": 2,
+  "receipt_id": "c7_bounded_continuation_radius_receipt_826fa798",
+  "run_id": "c7_run_6e14da62",
+  "sequence_policy": "PREDECLARED_SEQUENCE_ONLY",
+  "sequence_scenario": "SEQUENCE_B_AUTHORITY_BOUNDARY_AFTER_LAWFUL_STEPS",
+  "status": "TYPED_C7_BOUNDED_CONTINUATION_RADIUS_PASS",
+  "steps_advanced": 2,
+  "steps_attempted": 3,
+  "steps_halted": 1,
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C7_RADIUS_EXPANDED_WITH_TYPED_BOUNDARIES",
+    "type": "STOP"
+  },
+  "typed_final_boundary": true
+}
+
+VERIFY_GIT_IDENTITY
+
+BOUND_ADD_ONLY_C7_ARTIFACTS
+
+VERIFY_NO_OUT_OF_SCOPE_STAGED_PATHS
+staged_path_count=34
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+
+BOOKKEEPING_DIFF_STAT
+ .gitignore                                         |    6 +
+ .../c7_bounded_continuation_budget_v0.json         |   25 +
+ .../c7_bounded_continuation_radius_profile_v0.json |   29 +
+ .../c7_bounded_continuation_radius_readout_v0.json |   40 +
+ .../c7_bounded_continuation_radius_report.json     |   25 +
+ .../c7_bounded_continuation_radius_rollup_v0.json  |   87 ++
+ ...unded_continuation_radius_transition_trace.json |   92 ++
+ .../c7_bounded_continuation_run_packet_v0.json     |   34 +
+ .../c7_runtime_step_receipts_v0.jsonl              |    3 +
+ .../c7_sequence_manifest_v0.jsonl                  |    3 +
+ .../c7_step_000/c7_admissibility_result_v0.json    |   12 +
+ .../c7_decision_edge_observation_v0.json           |   22 +
+ .../steps/c7_step_000/c7_execution_result_v0.json  |   16 +
+ .../c7_step_000/c7_runtime_step_packet_v0.json     |   30 +
+ .../c7_step_000/c7_runtime_step_receipt_v0.json    |   43 +
+ .../c7_schema_validation_result_v0.json            |   10 +
+ .../steps/c7_step_000/c7_sidecar_event_v0.json     |   24 +
+ .../c7_step_001/c7_admissibility_result_v0.json    |   12 +
+ .../c7_decision_edge_observation_v0.json           |   22 +
+ .../steps/c7_step_001/c7_execution_result_v0.json  |   16 +
+ .../c7_step_001/c7_runtime_step_packet_v0.json     |   30 +
+ .../c7_step_001/c7_runtime_step_receipt_v0.json    |   43 +
+ .../c7_schema_validation_result_v0.json            |   10 +
+ .../steps/c7_step_001/c7_sidecar_event_v0.json     |   24 +
+ .../c7_step_002/c7_admissibility_result_v0.json    |   12 +
+ .../c7_decision_edge_observation_v0.json           |   22 +
+ .../steps/c7_step_002/c7_execution_result_v0.json  |   16 +
+ .../c7_step_002/c7_runtime_step_packet_v0.json     |   30 +
+ .../c7_step_002/c7_runtime_step_receipt_v0.json    |   45 +
+ .../c7_schema_validation_result_v0.json            |   10 +
+ .../steps/c7_step_002/c7_sidecar_event_v0.json     |   24 +
+ .../steps/c7_step_002/c7_unit_feedback_v0.json     |   32 +
+ ...unded_continuation_radius_receipt_826fa798.json |  197 ++++
+ .../run_c7_bounded_continuation_radius_test_v0.py  | 1128 ++++++++++++++++++++
+ 34 files changed, 2174 insertions(+)
+
+BOOKKEEPING_COMMIT
+[master a286c2a13] Run C7 bounded continuation radius test
+ 34 files changed, 2174 insertions(+)
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/c7_bounded_continuation_budget_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/c7_bounded_continuation_radius_profile_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/c7_bounded_continuation_radius_readout_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/c7_bounded_continuation_radius_report.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/c7_bounded_continuation_radius_rollup_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/c7_bounded_continuation_radius_transition_trace.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/c7_bounded_continuation_run_packet_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/c7_runtime_step_receipts_v0.jsonl
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/c7_sequence_manifest_v0.jsonl
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_000/c7_admissibility_result_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_000/c7_decision_edge_observation_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_000/c7_execution_result_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_000/c7_runtime_step_packet_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_000/c7_runtime_step_receipt_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_000/c7_schema_validation_result_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_000/c7_sidecar_event_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_001/c7_admissibility_result_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_001/c7_decision_edge_observation_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_001/c7_execution_result_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_001/c7_runtime_step_packet_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_001/c7_runtime_step_receipt_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_001/c7_schema_validation_result_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_001/c7_sidecar_event_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_002/c7_admissibility_result_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_002/c7_decision_edge_observation_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_002/c7_execution_result_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_002/c7_runtime_step_packet_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_002/c7_runtime_step_receipt_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_002/c7_schema_validation_result_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_002/c7_sidecar_event_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0/steps/c7_step_002/c7_unit_feedback_v0.json
+ create mode 100644 data/c7_bounded_continuation_radius_test_v0_receipts/c7_bounded_continuation_radius_receipt_826fa798.json
+ create mode 100755 scripts/run_c7_bounded_continuation_radius_test_v0.py
+
+BOOKKEEPING_COMMIT_RECEIPT
+commit_sha=a286c2a135cb0015d57566f52043c098c61b1ad3
+c7_receipt=data/c7_bounded_continuation_radius_test_v0_receipts/c7_bounded_continuation_radius_receipt_826fa798.json
+c7_run_id=c7_run_6e14da62
+c7_outcome=C7_RADIUS_EXPANDED_WITH_TYPED_BOUNDARIES
+lawful_continuation_depth=2
+observable_continuation_depth=2
+packetized_continuation_depth=2
+final_boundary=AUTHORITY_REQUIRED
+terminal_stop_code=STOP_C7_RADIUS_EXPANDED_WITH_TYPED_BOUNDARIES
+
+STATUS_AFTER_COMMIT_RELEVANT
+
+BOOKKEEPING_COMMIT_C7_BOUNDED_CONTINUATION_RADIUS_TEST_COMPLETE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

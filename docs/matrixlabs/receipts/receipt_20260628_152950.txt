@@ -1,0 +1,92 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_152950
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_152950.txt
+
+REVIEW_C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_PREP_PACKET_AFTER_REENTRY_V0
+
+VERIFY_RUNTIME_ADOPTION_BOUNDED_PROBE_PREP_ARTIFACTS_PRESENT
+present data/c8_runtime_adoption_surface_bounded_probe_prep_after_reentry_v0_receipts/c8_runtime_adoption_bounded_probe_prep_receipt_0fc181c6.json
+present data/c8_runtime_adoption_surface_bounded_probe_prep_after_reentry_v0/c8_runtime_adoption_surface_bounded_probe_spec_v0.json
+present data/c8_runtime_adoption_surface_bounded_probe_prep_after_reentry_v0/c8_runtime_adoption_surface_bounded_probe_prep_packet_v0.json
+present data/c8_runtime_adoption_surface_bounded_probe_prep_after_reentry_v0/c8_runtime_adoption_surface_bounded_probe_prep_boundary_audit_v0.json
+present data/c8_runtime_adoption_surface_bounded_probe_prep_after_reentry_v0/c8_runtime_adoption_surface_bounded_probe_prep_readout_v0.json
+present data/c8_runtime_adoption_surface_bounded_probe_prep_after_reentry_v0/c8_runtime_adoption_surface_bounded_probe_prep_report.json
+present scripts/create_c8_runtime_adoption_surface_bounded_probe_prep_packet_after_reentry_v0.py
+
+PY_COMPILE_RUNTIME_ADOPTION_BOUNDED_PROBE_PREP_RUNNER
+
+VERIFY_RUNTIME_ADOPTION_BOUNDED_PROBE_PREP_RECEIPT
+{
+  "c8_rerun_now": false,
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "gate_results_false_count": 0,
+  "instrument_built_now": false,
+  "outcome_class": "C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_PREP_PACKET_READY_FOR_REVIEW",
+  "probe_executed_now": false,
+  "probe_execution_authorized_now": false,
+  "probe_id": "c8_runtime_adoption_surface_bounded_probe_after_reentry_v0",
+  "probe_kind": "RUNTIME_ADOPTION_BOUNDARY_PROBE",
+  "probe_prep_packet_created": true,
+  "probe_prepared_for_review": true,
+  "receipt_id": "c8_runtime_adoption_bounded_probe_prep_receipt_0fc181c6",
+  "recommended_review_unit": "REVIEW_C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_PREP_PACKET_AFTER_REENTRY_V0",
+  "requires_review": true,
+  "reusable_schema_authorized": false,
+  "review_gate": "PASS",
+  "selected_surface_id": "c8_successor_surface_runtime_adoption_after_reentry_v0",
+  "selected_surface_kind": "RUNTIME_ADOPTION_SURFACE",
+  "status": "TYPED_C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_PREP_PACKET_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_PREP_PACKET_READY_FOR_REVIEW",
+    "type": "STOP"
+  }
+}
+
+VERIFY_RUNTIME_ADOPTION_BOUNDED_PROBE_PREP_CONTENT
+{
+  "c8_rerun_authorized_now": false,
+  "content_review_gate": "PASS",
+  "failures": [],
+  "instrument_build_authorized_now": false,
+  "probe_executed_now": false,
+  "probe_execution_authorized_now": false,
+  "probe_id": "c8_runtime_adoption_surface_bounded_probe_after_reentry_v0",
+  "probe_kind": "RUNTIME_ADOPTION_BOUNDARY_PROBE",
+  "probe_prep_packet_created": true,
+  "probe_prepared_for_review": true,
+  "recommended_next_decision_options": [
+    "ACCEPT_FOR_BOUNDED_PROBE_EXECUTION",
+    "REJECT_PROBE_PREP_PACKET",
+    "NARROW_PROBE_PREP_PACKET"
+  ],
+  "reusable_schema_authorized_now": false,
+  "runtime_adoption_bounded_probe_prep_boundary_audit_id": "c8_runtime_adoption_bounded_probe_prep_boundary_fe200a33",
+  "runtime_adoption_bounded_probe_prep_packet_id": "c8_runtime_adoption_bounded_probe_prep_packet_23020f7d",
+  "runtime_adoption_bounded_probe_spec_id": "c8_runtime_adoption_bounded_probe_spec_d39f5710",
+  "selected_surface_id": "c8_successor_surface_runtime_adoption_after_reentry_v0",
+  "selected_surface_kind": "RUNTIME_ADOPTION_SURFACE"
+}
+
+VERIFY_STAGED_SCOPE_RUNTIME_ADOPTION_BOUNDED_PROBE_PREP_ONLY
+staged_path_count=8
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+runtime_adoption_bounded_probe_prep_receipts_staged=['data/c8_runtime_adoption_surface_bounded_probe_prep_after_reentry_v0_receipts/c8_runtime_adoption_bounded_probe_prep_receipt_0fc181c6.json']
+
+REVIEW_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...rface_bounded_probe_prep_boundary_audit_v0.json |  44 ++
+ ...ption_surface_bounded_probe_prep_packet_v0.json |  50 ++
+ ...tion_surface_bounded_probe_prep_readout_v0.json |  21 +
+ ...adoption_surface_bounded_probe_prep_report.json |  37 ++
+ ...ime_adoption_surface_bounded_probe_spec_v0.json |  50 ++
+ ...option_bounded_probe_prep_receipt_0fc181c6.json | 123 +++++
+ ...e_bounded_probe_prep_packet_after_reentry_v0.py | 561 +++++++++++++++++++++
+ 8 files changed, 892 insertions(+)
+
+REVIEW_C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_PREP_PACKET_AFTER_REENTRY_PASS
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

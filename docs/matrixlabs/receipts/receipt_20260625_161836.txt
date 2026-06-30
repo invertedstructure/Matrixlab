@@ -1,0 +1,390 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_161836
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_161836.txt
+
+REPAIR_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0
+
+STATUS_BEFORE_RELEVANT
+?? data/radius_125_slot_execution_summaries/
+?? scripts/build_c6_inter_cell_protocol_from_c5_examples_v0.py
+
+VERIFY_C6_PROTOCOL_REPAIR_BASIS
+present scripts/build_c6_inter_cell_protocol_from_c5_examples_v0.py
+present data/c6_inter_cell_protocol_from_c5_examples_v0_receipts/61fceac6.json
+present data/c6_inter_cell_protocol_target_from_c5_examples_v0_receipts/b0df3c9d.json
+
+ASSERT_FAILED_GATE_IS_EXPECTED_ONE
+{
+  "expected_failed_gate": "C6_PROTOCOL_19_VERIFICATION_NOT_CLOSURE",
+  "failed_receipt_id": "61fceac6",
+  "failures": [],
+  "gate": "FAIL",
+  "unexpected_false_gates": []
+}
+
+PATCH_C6_PROTOCOL_BUILD_GATE_19
+patched_gate_19_verification_not_closure
+
+PY_COMPILE_C6_PROTOCOL_BUILD_REPAIRED
+
+RUN_C6_PROTOCOL_BUILD_REPAIRED
+{
+  "acceptance_gate_results": {
+    "C6_PROTOCOL_0_REVIEWED_EXAMPLE_RECEIPT_CONSUMED": true,
+    "C6_PROTOCOL_10_BLOCKED_FEEDBACK_PACKET_SCHEMA_EMITTED": true,
+    "C6_PROTOCOL_11_EDGE_OBSERVATION_SIDECAR_SCHEMA_EMITTED": true,
+    "C6_PROTOCOL_12_UNIT_FEEDBACK_SIDECAR_SCHEMA_EMITTED": true,
+    "C6_PROTOCOL_13_GATE_TABLE_EMITTED": true,
+    "C6_PROTOCOL_14_FORBIDDEN_TRANSITION_TABLE_EMITTED": true,
+    "C6_PROTOCOL_15_PROPOSED_ONLY_NOT_CELL1_CONSUMABLE": true,
+    "C6_PROTOCOL_16_ACCEPTED_PACKET_REQUIRES_REVIEW_RECEIPT": true,
+    "C6_PROTOCOL_17_CELL1_INTAKE_SCOPED": true,
+    "C6_PROTOCOL_18_CELL1_PROBE_OR_BUILD_NOT_VERIFICATION": true,
+    "C6_PROTOCOL_19_VERIFICATION_NOT_CLOSURE": true,
+    "C6_PROTOCOL_1_REVIEWED_EXAMPLE_CATALOG_CONSUMED": true,
+    "C6_PROTOCOL_20_HANDOFF_NOT_HIDDEN_NEXT_COMMAND": true,
+    "C6_PROTOCOL_21_BLOCKED_FEEDBACK_NOT_REPAIR": true,
+    "C6_PROTOCOL_22_EVERY_TRANSITION_OBSERVABLE": true,
+    "C6_PROTOCOL_23_FAILED_OR_BLOCKED_TRANSITIONS_HAVE_FEEDBACK": true,
+    "C6_PROTOCOL_24_DERIVATION_STATUS_RECORDED": true,
+    "C6_PROTOCOL_25_ROLLUP_PROFILE_READOUT_EMITTED": true,
+    "C6_PROTOCOL_26_NO_GENERAL_CELL1_AUTHORITY": true,
+    "C6_PROTOCOL_27_NO_GLOBAL_AUTONOMY_OR_FULL_TRANSFER_CLAIM": true,
+    "C6_PROTOCOL_28_NO_SOURCE_REFERENCE_MUTATION": true,
+    "C6_PROTOCOL_29_NO_LATEST_OR_MTIME_SELECTION": true,
+    "C6_PROTOCOL_2_PACKET_FAMILY_DECLARED": true,
+    "C6_PROTOCOL_30_BAD_COUNTERS_ZERO": true,
+    "C6_PROTOCOL_31_NO_HIDDEN_NEXT_COMMAND": true,
+    "C6_PROTOCOL_32_LOCAL_PROTOCOL_CANDIDATE_ONLY": true,
+    "C6_PROTOCOL_33_NO_C7_AUTHORIZATION": true,
+    "C6_PROTOCOL_3_STATE_MACHINE_EMITTED": true,
+    "C6_PROTOCOL_4_PROPOSED_ONLY_PACKET_SCHEMA_EMITTED": true,
+    "C6_PROTOCOL_5_ACCEPTED_PROPOSAL_PACKET_SCHEMA_EMITTED": true,
+    "C6_PROTOCOL_6_CELL1_INTAKE_PACKET_SCHEMA_EMITTED": true,
+    "C6_PROTOCOL_7_CELL1_PROBE_OR_BUILD_PACKET_SCHEMA_EMITTED": true,
+    "C6_PROTOCOL_8_VERIFICATION_RETURN_PACKET_SCHEMA_EMITTED": true,
+    "C6_PROTOCOL_9_HANDOFF_RETURN_PACKET_SCHEMA_EMITTED": true
+  },
+  "aggregate_metrics": {
+    "build_mode": "C6_INTER_CELL_PROTOCOL_CANDIDATE_BUILD",
+    "layer": "BRIDGE / INTER_CELL_PROTOCOL",
+    "mode": "DEFINE / CERTIFY / LOCAL_PROTOCOL_CANDIDATE",
+    "receipt_backed_claim": "C6 local inter-cell protocol candidate emitted from reviewed C5-to-C6 examples. It defines packet schemas, state machine, gates, forbidden transitions, derivation records, demo packets, rollup/profile/readout, and preserves all authority boundaries.",
+    "recommended_next_handling": "REVIEW_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0",
+    "schema_version": "c6_report_v0",
+    "status": "TYPED_C6_INTER_CELL_PROTOCOL_CANDIDATE_EMITTED",
+    "target_unit_id": "inter_cell.protocol_from_c5_examples.v0",
+    "unit_id": "BUILD_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0"
+  },
+  "build_mode": "C6_INTER_CELL_PROTOCOL_CANDIDATE_BUILD",
+  "created_at": "2026-06-25T15:18:37.165427+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "BRIDGE / INTER_CELL_PROTOCOL",
+  "machine_readable_c6_protocol_summary": {
+    "bad_counters_zero": true,
+    "c6_inter_cell_protocol_candidate_emitted": true,
+    "c7_authorized": false,
+    "demo_packets_emitted": 4,
+    "derivation_status_records_emitted": 14,
+    "forbidden_transition_table_emitted": true,
+    "full_transfer_claimed": false,
+    "gate_table_emitted": true,
+    "general_cell1_authority_claimed": false,
+    "global_autonomy_claimed": false,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "mtime_selection": false,
+    "new_domain_shift_executed": false,
+    "packet_family_declared": 9,
+    "packet_schemas_emitted": 9,
+    "prior_receipt_mutated": false,
+    "recommended_next": "REVIEW_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0",
+    "rollup_profile_readout_emitted": true,
+    "runtime_patched": false,
+    "runtime_wide_enforcement_claimed": false,
+    "schema_claim": "LOCAL_PROTOCOL_CANDIDATE_ONLY",
+    "source_mutated": false,
+    "state_machine_emitted": true,
+    "status": "TYPED_C6_INTER_CELL_PROTOCOL_CANDIDATE_EMITTED"
+  },
+  "mode": "DEFINE / CERTIFY / LOCAL_PROTOCOL_CANDIDATE",
+  "output_artifacts": {
+    "accepted_proposal_packet_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/accepted_proposal_packet_schema_v0.json",
+    "blocked_feedback_packet_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/blocked_feedback_packet_schema_v0.json",
+    "cell1_builder_intake_packet_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/cell1_builder_intake_packet_schema_v0.json",
+    "cell1_probe_or_build_packet_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/cell1_probe_or_build_packet_schema_v0.json",
+    "demo_packets": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_demo_packets_v0.jsonl",
+    "derivation_status_records": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_derivation_status_records_v0.jsonl",
+    "edge_observation_sidecar_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_edge_observation_sidecar_schema_v0.json",
+    "forbidden_transition_table": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_forbidden_transition_table_v0.json",
+    "gate_table": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_gate_table_v0.json",
+    "handoff_return_packet_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/handoff_return_packet_schema_v0.json",
+    "implementation_receipt": "data/c6_inter_cell_protocol_from_c5_examples_v0_receipts/315e0d94.json",
+    "inter_cell_protocol_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_schema_v0.json",
+    "profile": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_profile_v0.json",
+    "proposed_only_packet_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/proposed_only_packet_schema_v0.json",
+    "readout": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_readout_v0.json",
+    "report": "data/c6_inter_cell_protocol_from_c5_examples_v0/c6_report.json",
+    "rollup": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_rollup_v0.json",
+    "state_machine": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_packet_state_machine_v0.json",
+    "transition_trace": "data/c6_inter_cell_protocol_from_c5_examples_v0/c6_transition_trace.json",
+    "unit_feedback_sidecar_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_unit_feedback_sidecar_schema_v0.json",
+    "verification_return_packet_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/verification_return_packet_schema_v0.json"
+  },
+  "receipt_id": "315e0d94",
+  "receipt_type": "TYPED_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_RECEIPT",
+  "schema_version": "c6_inter_cell_protocol_from_c5_examples_receipt_v0",
+  "source_c6_target_design_receipt_id": "b0df3c9d",
+  "target_unit_id": "inter_cell.protocol_from_c5_examples.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C6_INTER_CELL_PROTOCOL_CANDIDATE_EMITTED",
+    "type": "STOP"
+  },
+  "unit_id": "BUILD_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0",
+  "warnings": []
+}
+c6_protocol_receipt_id=315e0d94
+c6_protocol_receipt_path=data/c6_inter_cell_protocol_from_c5_examples_v0_receipts/315e0d94.json
+c6_protocol_schema_path=data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_schema_v0.json
+c6_protocol_rollup_path=data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_rollup_v0.json
+c6_protocol_profile_path=data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_profile_v0.json
+c6_protocol_readout_path=data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_readout_v0.json
+
+ASSERT_C6_PROTOCOL_BUILD_REPAIRED
+{
+  "bad_counters_zero": true,
+  "c7_authorized": false,
+  "demo_packets_emitted": 4,
+  "derivation_status_records_emitted": 14,
+  "failures": [],
+  "gate": "PASS",
+  "gate_19": true,
+  "packet_family_declared": 9,
+  "packet_schemas_emitted": 9,
+  "receipt_id": "315e0d94",
+  "recommended_next": "REVIEW_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0",
+  "runtime_patched": false,
+  "schema_claim": "LOCAL_PROTOCOL_CANDIDATE_ONLY",
+  "status": "TYPED_C6_INTER_CELL_PROTOCOL_CANDIDATE_EMITTED",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C6_INTER_CELL_PROTOCOL_CANDIDATE_EMITTED",
+    "type": "STOP"
+  }
+}
+
+VERIFY_C6_PROTOCOL_BUILD_REPAIRED_BOUNDARY
+allowed_status_lines_checked
+C6 local protocol candidate emitted after gate-19 repair; verification return is not closure; no runtime patch; no C7
+
+SHOW_C6_PROTOCOL_BUILD_REPAIRED_NEXT
+status=TYPED_C6_INTER_CELL_PROTOCOL_CANDIDATE_EMITTED
+c6_inter_cell_protocol_candidate_emitted=True
+schema_claim=LOCAL_PROTOCOL_CANDIDATE_ONLY
+packet_family_declared=9
+packet_schemas_emitted=9
+state_machine_emitted=True
+gate_table_emitted=True
+forbidden_transition_table_emitted=True
+derivation_status_records_emitted=14
+demo_packets_emitted=4
+rollup_profile_readout_emitted=True
+bad_counters_zero=True
+runtime_patched=False
+c7_authorized=False
+new_domain_shift_executed=False
+general_cell1_authority_claimed=False
+global_autonomy_claimed=False
+full_transfer_claimed=False
+runtime_wide_enforcement_claimed=False
+source_mutated=False
+prior_receipt_mutated=False
+hidden_next_command=False
+latest_file_guessing=False
+mtime_selection=False
+recommended_next=REVIEW_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+?? data/radius_125_slot_execution_summaries/
+?? scripts/build_c6_inter_cell_protocol_from_c5_examples_v0.py
+
+PACKAGE_C6_PROTOCOL_BUILD_REPAIRED_ARTIFACTS
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_schema_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_packet_state_machine_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/proposed_only_packet_schema_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/accepted_proposal_packet_schema_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/cell1_builder_intake_packet_schema_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/cell1_probe_or_build_packet_schema_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/verification_return_packet_schema_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/handoff_return_packet_schema_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/blocked_feedback_packet_schema_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_edge_observation_sidecar_schema_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_unit_feedback_sidecar_schema_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_gate_table_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_forbidden_transition_table_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_derivation_status_records_v0.jsonl
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_demo_packets_v0.jsonl
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_rollup_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_profile_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_readout_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/c6_report.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_v0/c6_transition_trace.json
+[master 8f997e64f] repair and build C6 inter-cell protocol from C5 examples
+ 23 files changed, 1822 insertions(+)
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/accepted_proposal_packet_schema_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/blocked_feedback_packet_schema_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/c6_report.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/c6_transition_trace.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/cell1_builder_intake_packet_schema_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/cell1_probe_or_build_packet_schema_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/handoff_return_packet_schema_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_derivation_status_records_v0.jsonl
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_edge_observation_sidecar_schema_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_forbidden_transition_table_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_packet_state_machine_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_demo_packets_v0.jsonl
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_gate_table_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_profile_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_readout_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_rollup_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_schema_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_unit_feedback_sidecar_schema_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/proposed_only_packet_schema_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0/verification_return_packet_schema_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_v0_receipts/315e0d94.json
+ create mode 100755 scripts/build_c6_inter_cell_protocol_from_c5_examples_v0.py
+
+COMMIT_DONE_RELEVANT
+?? data/radius_125_slot_execution_summaries/
+
+C6_PROTOCOL_BUILD_REPAIRED_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+c6_protocol_receipt_id=315e0d94
+c6_protocol_receipt_path=data/c6_inter_cell_protocol_from_c5_examples_v0_receipts/315e0d94.json
+{
+  "acceptance_gate_results": {
+    "C6_PROTOCOL_0_REVIEWED_EXAMPLE_RECEIPT_CONSUMED": true,
+    "C6_PROTOCOL_10_BLOCKED_FEEDBACK_PACKET_SCHEMA_EMITTED": true,
+    "C6_PROTOCOL_11_EDGE_OBSERVATION_SIDECAR_SCHEMA_EMITTED": true,
+    "C6_PROTOCOL_12_UNIT_FEEDBACK_SIDECAR_SCHEMA_EMITTED": true,
+    "C6_PROTOCOL_13_GATE_TABLE_EMITTED": true,
+    "C6_PROTOCOL_14_FORBIDDEN_TRANSITION_TABLE_EMITTED": true,
+    "C6_PROTOCOL_15_PROPOSED_ONLY_NOT_CELL1_CONSUMABLE": true,
+    "C6_PROTOCOL_16_ACCEPTED_PACKET_REQUIRES_REVIEW_RECEIPT": true,
+    "C6_PROTOCOL_17_CELL1_INTAKE_SCOPED": true,
+    "C6_PROTOCOL_18_CELL1_PROBE_OR_BUILD_NOT_VERIFICATION": true,
+    "C6_PROTOCOL_19_VERIFICATION_NOT_CLOSURE": true,
+    "C6_PROTOCOL_1_REVIEWED_EXAMPLE_CATALOG_CONSUMED": true,
+    "C6_PROTOCOL_20_HANDOFF_NOT_HIDDEN_NEXT_COMMAND": true,
+    "C6_PROTOCOL_21_BLOCKED_FEEDBACK_NOT_REPAIR": true,
+    "C6_PROTOCOL_22_EVERY_TRANSITION_OBSERVABLE": true,
+    "C6_PROTOCOL_23_FAILED_OR_BLOCKED_TRANSITIONS_HAVE_FEEDBACK": true,
+    "C6_PROTOCOL_24_DERIVATION_STATUS_RECORDED": true,
+    "C6_PROTOCOL_25_ROLLUP_PROFILE_READOUT_EMITTED": true,
+    "C6_PROTOCOL_26_NO_GENERAL_CELL1_AUTHORITY": true,
+    "C6_PROTOCOL_27_NO_GLOBAL_AUTONOMY_OR_FULL_TRANSFER_CLAIM": true,
+    "C6_PROTOCOL_28_NO_SOURCE_REFERENCE_MUTATION": true,
+    "C6_PROTOCOL_29_NO_LATEST_OR_MTIME_SELECTION": true,
+    "C6_PROTOCOL_2_PACKET_FAMILY_DECLARED": true,
+    "C6_PROTOCOL_30_BAD_COUNTERS_ZERO": true,
+    "C6_PROTOCOL_31_NO_HIDDEN_NEXT_COMMAND": true,
+    "C6_PROTOCOL_32_LOCAL_PROTOCOL_CANDIDATE_ONLY": true,
+    "C6_PROTOCOL_33_NO_C7_AUTHORIZATION": true,
+    "C6_PROTOCOL_3_STATE_MACHINE_EMITTED": true,
+    "C6_PROTOCOL_4_PROPOSED_ONLY_PACKET_SCHEMA_EMITTED": true,
+    "C6_PROTOCOL_5_ACCEPTED_PROPOSAL_PACKET_SCHEMA_EMITTED": true,
+    "C6_PROTOCOL_6_CELL1_INTAKE_PACKET_SCHEMA_EMITTED": true,
+    "C6_PROTOCOL_7_CELL1_PROBE_OR_BUILD_PACKET_SCHEMA_EMITTED": true,
+    "C6_PROTOCOL_8_VERIFICATION_RETURN_PACKET_SCHEMA_EMITTED": true,
+    "C6_PROTOCOL_9_HANDOFF_RETURN_PACKET_SCHEMA_EMITTED": true
+  },
+  "aggregate_metrics": {
+    "build_mode": "C6_INTER_CELL_PROTOCOL_CANDIDATE_BUILD",
+    "layer": "BRIDGE / INTER_CELL_PROTOCOL",
+    "mode": "DEFINE / CERTIFY / LOCAL_PROTOCOL_CANDIDATE",
+    "receipt_backed_claim": "C6 local inter-cell protocol candidate emitted from reviewed C5-to-C6 examples. It defines packet schemas, state machine, gates, forbidden transitions, derivation records, demo packets, rollup/profile/readout, and preserves all authority boundaries.",
+    "recommended_next_handling": "REVIEW_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0",
+    "schema_version": "c6_report_v0",
+    "status": "TYPED_C6_INTER_CELL_PROTOCOL_CANDIDATE_EMITTED",
+    "target_unit_id": "inter_cell.protocol_from_c5_examples.v0",
+    "unit_id": "BUILD_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0"
+  },
+  "build_mode": "C6_INTER_CELL_PROTOCOL_CANDIDATE_BUILD",
+  "created_at": "2026-06-25T15:18:37.165427+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "BRIDGE / INTER_CELL_PROTOCOL",
+  "machine_readable_c6_protocol_summary": {
+    "bad_counters_zero": true,
+    "c6_inter_cell_protocol_candidate_emitted": true,
+    "c7_authorized": false,
+    "demo_packets_emitted": 4,
+    "derivation_status_records_emitted": 14,
+    "forbidden_transition_table_emitted": true,
+    "full_transfer_claimed": false,
+    "gate_table_emitted": true,
+    "general_cell1_authority_claimed": false,
+    "global_autonomy_claimed": false,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "mtime_selection": false,
+    "new_domain_shift_executed": false,
+    "packet_family_declared": 9,
+    "packet_schemas_emitted": 9,
+    "prior_receipt_mutated": false,
+    "recommended_next": "REVIEW_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0",
+    "rollup_profile_readout_emitted": true,
+    "runtime_patched": false,
+    "runtime_wide_enforcement_claimed": false,
+    "schema_claim": "LOCAL_PROTOCOL_CANDIDATE_ONLY",
+    "source_mutated": false,
+    "state_machine_emitted": true,
+    "status": "TYPED_C6_INTER_CELL_PROTOCOL_CANDIDATE_EMITTED"
+  },
+  "mode": "DEFINE / CERTIFY / LOCAL_PROTOCOL_CANDIDATE",
+  "output_artifacts": {
+    "accepted_proposal_packet_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/accepted_proposal_packet_schema_v0.json",
+    "blocked_feedback_packet_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/blocked_feedback_packet_schema_v0.json",
+    "cell1_builder_intake_packet_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/cell1_builder_intake_packet_schema_v0.json",
+    "cell1_probe_or_build_packet_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/cell1_probe_or_build_packet_schema_v0.json",
+    "demo_packets": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_demo_packets_v0.jsonl",
+    "derivation_status_records": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_derivation_status_records_v0.jsonl",
+    "edge_observation_sidecar_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_edge_observation_sidecar_schema_v0.json",
+    "forbidden_transition_table": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_forbidden_transition_table_v0.json",
+    "gate_table": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_gate_table_v0.json",
+    "handoff_return_packet_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/handoff_return_packet_schema_v0.json",
+    "implementation_receipt": "data/c6_inter_cell_protocol_from_c5_examples_v0_receipts/315e0d94.json",
+    "inter_cell_protocol_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_schema_v0.json",
+    "profile": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_profile_v0.json",
+    "proposed_only_packet_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/proposed_only_packet_schema_v0.json",
+    "readout": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_readout_v0.json",
+    "report": "data/c6_inter_cell_protocol_from_c5_examples_v0/c6_report.json",
+    "rollup": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_rollup_v0.json",
+    "state_machine": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_packet_state_machine_v0.json",
+    "transition_trace": "data/c6_inter_cell_protocol_from_c5_examples_v0/c6_transition_trace.json",
+    "unit_feedback_sidecar_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_unit_feedback_sidecar_schema_v0.json",
+    "verification_return_packet_schema": "data/c6_inter_cell_protocol_from_c5_examples_v0/verification_return_packet_schema_v0.json"
+  },
+  "receipt_id": "315e0d94",
+  "receipt_type": "TYPED_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_RECEIPT",
+  "schema_version": "c6_inter_cell_protocol_from_c5_examples_receipt_v0",
+  "source_c6_target_design_receipt_id": "b0df3c9d",
+  "target_unit_id": "inter_cell.protocol_from_c5_examples.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C6_INTER_CELL_PROTOCOL_CANDIDATE_EMITTED",
+    "type": "STOP"
+  },
+  "unit_id": "BUILD_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0",
+  "warnings": []
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

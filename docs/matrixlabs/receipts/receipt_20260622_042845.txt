@@ -1,0 +1,754 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_042845
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_042845.txt
+
+IMPLEMENT_JURISDICTION_RUNNER_V0_2_PROPOSITION_SURFACE_UPGRADE_WITH_FIXTURES_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+VERIFY_V0_2_IMPLEMENTATION_INPUTS_TRACKED
+tracked data/jurisdiction_runner_v0_2_proposition_surface_upgrade_policies/d76f7ceb.json
+tracked data/jurisdiction_runner_v0_2_proposition_surface_upgrade_policy_receipts/d76f7ceb.json
+tracked data/jurisdiction_runner_v0_1_proposition_surface_human_decisions/cef49876.json
+tracked data/jurisdiction_runner_v0_1_proposition_surface_probe_delta_proposals/6e4ee1ea.json
+tracked data/jurisdiction_runner_v0_1_proposition_surface_probe_run_receipts/0d2f03d4.json
+tracked data/jurisdiction_runner_v0_1_halt_surface_probe_run_receipts/5030948f.json
+tracked data/jurisdiction_runner_v0_1_implementation_receipts/04c0692d.json
+tracked data/local_regime_v0_declarations/097d620c.json
+tracked src/matrixlab/jurisdiction_runner_v0_1.py
+
+PATCH_GITIGNORE
+
+WRITE_V0_2_IMPLEMENTATION_RUNNER
+
+PY_COMPILE_V0_2_IMPLEMENTATION_RUNNER
+
+RUN_V0_2_IMPLEMENTATION
+{
+  "acceptance_gate_results": {
+    "S0_source_chain_verified": true,
+    "S1_local_regime_v1_declared": true,
+    "S2_runner_v0_2_implemented": true,
+    "S3_halt_with_proposal_fixture_passes": true,
+    "S4_proposal_non_execution_passes": true,
+    "S5_duplicate_unresolved_proposal_guard_passes": true,
+    "S6_no_hidden_continuation": true,
+    "S7_no_registry_or_global_taxonomy": true
+  },
+  "aggregate_metrics": {
+    "case_count": 6,
+    "case_fail_count": 0,
+    "case_pass_count": 6,
+    "duplicate_unresolved_proposal_count": 1,
+    "local_regime_mutation_count": 0,
+    "proposal_receipt_count": 3,
+    "proposal_withheld_count": 3,
+    "registry_write_count": 0,
+    "runner_module_change_count": 1,
+    "runtime_proposal_emitted_count": 3,
+    "runtime_proposal_executed_count": 0,
+    "runtime_proposal_promoted_count": 0
+  },
+  "artifact_guards": {
+    "ambient_workspace_authority_used": false,
+    "latest_or_mtime_selection_used": false,
+    "local_regime_v1_path_addressed": true,
+    "outputs_path_addressed": true,
+    "outputs_receipt_referenced": true,
+    "runner_v0_2_path_addressed": true,
+    "source_local_regime_v0_tracked": true,
+    "source_runner_v0_1_tracked": true,
+    "upgrade_policy_receipt_tracked": true,
+    "upgrade_policy_tracked": true
+  },
+  "authority_guards": {
+    "case_receipts_emitted": true,
+    "final_schema_claimed": false,
+    "fixtures_created": true,
+    "fixtures_executed": true,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "implementation_receipt_emitted": true,
+    "local_regime_runtime_mutated": false,
+    "local_regime_v0_replaced": false,
+    "local_regime_v1_declared": true,
+    "local_regime_v1_path": "data/local_regime_v1_declarations/25802530.json",
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_promoted": false,
+    "proposal_receipts_emitted": true,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_v0_1_modified": false,
+    "runner_v0_2_implemented": true,
+    "runner_v0_2_path": "src/matrixlab/jurisdiction_runner_v0_2.py",
+    "source_chain_verified": true
+  },
+  "case_results": {
+    "AUTHORITY_VIOLATION_NO_PROPOSAL_PROMOTION": {
+      "case_name": "AUTHORITY_VIOLATION_NO_PROPOSAL_PROMOTION",
+      "case_receipt_id": "39553192",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/39553192.json",
+      "duplicate_unresolved_proposal": false,
+      "expected_transcript_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_authority_violation_no_proposal_promotion.json",
+      "fixture_id": "v0_2_upgrade_authority_violation_no_proposal_promotion",
+      "fixture_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_authority_violation_no_proposal_promotion.json",
+      "gate": "PASS",
+      "halt_code": "STOP_AUTHORITY_VIOLATION",
+      "no_proposal_reason": "OUT_OF_SCOPE",
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "proposal_receipt_id": null,
+      "proposal_receipt_path": null,
+      "proposal_status": "NONE",
+      "proposal_type": null
+    },
+    "DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_FIRST": {
+      "case_name": "DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_FIRST",
+      "case_receipt_id": "852b929f",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/852b929f.json",
+      "duplicate_unresolved_proposal": false,
+      "expected_transcript_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_duplicate_unresolved_proposal_guard_first.json",
+      "fixture_id": "v0_2_upgrade_duplicate_unresolved_proposal_guard_first",
+      "fixture_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_duplicate_unresolved_proposal_guard_first.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "no_proposal_reason": null,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "proposal_receipt_id": "805aa63a",
+      "proposal_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/805aa63a.json",
+      "proposal_status": "EMITTED_REVIEW_REQUIRED",
+      "proposal_type": "LOCAL_MOVE_ADMISSIBILITY_DELTA_PROPOSAL"
+    },
+    "DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_SECOND": {
+      "case_name": "DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_SECOND",
+      "case_receipt_id": "07fe8af9",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/07fe8af9.json",
+      "duplicate_unresolved_proposal": true,
+      "expected_transcript_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_duplicate_unresolved_proposal_guard_second.json",
+      "fixture_id": "v0_2_upgrade_duplicate_unresolved_proposal_guard_second",
+      "fixture_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_duplicate_unresolved_proposal_guard_second.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "no_proposal_reason": "DUPLICATE_UNRESOLVED",
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "proposal_receipt_id": null,
+      "proposal_receipt_path": null,
+      "proposal_status": "WITHHELD_DUPLICATE_UNRESOLVED",
+      "proposal_type": "LOCAL_MOVE_ADMISSIBILITY_DELTA_PROPOSAL"
+    },
+    "HALT_WITH_PROPOSAL_ON_NO_APPLICABLE_MOVE": {
+      "case_name": "HALT_WITH_PROPOSAL_ON_NO_APPLICABLE_MOVE",
+      "case_receipt_id": "4cf04e18",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/4cf04e18.json",
+      "duplicate_unresolved_proposal": false,
+      "expected_transcript_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_halt_with_proposal_on_no_applicable_move.json",
+      "fixture_id": "v0_2_upgrade_halt_with_proposal_on_no_applicable_move",
+      "fixture_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_halt_with_proposal_on_no_applicable_move.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "no_proposal_reason": null,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "proposal_receipt_id": "a247f939",
+      "proposal_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/a247f939.json",
+      "proposal_status": "EMITTED_REVIEW_REQUIRED",
+      "proposal_type": "LOCAL_MOVE_ADMISSIBILITY_DELTA_PROPOSAL"
+    },
+    "NO_PROPOSAL_WHEN_INSUFFICIENT_EVIDENCE": {
+      "case_name": "NO_PROPOSAL_WHEN_INSUFFICIENT_EVIDENCE",
+      "case_receipt_id": "e952a541",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/e952a541.json",
+      "duplicate_unresolved_proposal": false,
+      "expected_transcript_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_no_proposal_when_insufficient_evidence.json",
+      "fixture_id": "v0_2_upgrade_no_proposal_when_insufficient_evidence",
+      "fixture_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_no_proposal_when_insufficient_evidence.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "no_proposal_reason": "INSUFFICIENT_EVIDENCE",
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "proposal_receipt_id": null,
+      "proposal_receipt_path": null,
+      "proposal_status": "NONE",
+      "proposal_type": null
+    },
+    "PROPOSAL_NON_EXECUTION_GUARD": {
+      "case_name": "PROPOSAL_NON_EXECUTION_GUARD",
+      "case_receipt_id": "3ed5cac3",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/3ed5cac3.json",
+      "duplicate_unresolved_proposal": false,
+      "expected_transcript_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_proposal_non_execution_guard.json",
+      "fixture_id": "v0_2_upgrade_proposal_non_execution_guard",
+      "fixture_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_proposal_non_execution_guard.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "no_proposal_reason": null,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "proposal_receipt_id": "b35a2fb5",
+      "proposal_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/b35a2fb5.json",
+      "proposal_status": "EMITTED_REVIEW_REQUIRED",
+      "proposal_type": "LOCAL_MOVE_ADMISSIBILITY_DELTA_PROPOSAL"
+    }
+  },
+  "created_at": "2026-06-22T03:28:45.721705+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "local_regime_v1_hash": "25802530",
+  "local_regime_v1_path": "data/local_regime_v1_declarations/25802530.json",
+  "proposal_receipt_results": {
+    "805aa63a": {
+      "case_name": "DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_FIRST",
+      "gate": "PASS",
+      "proposal_id": "f8c949ae",
+      "proposal_receipt_id": "805aa63a",
+      "proposal_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/805aa63a.json"
+    },
+    "a247f939": {
+      "case_name": "HALT_WITH_PROPOSAL_ON_NO_APPLICABLE_MOVE",
+      "gate": "PASS",
+      "proposal_id": "dbcb41a9",
+      "proposal_receipt_id": "a247f939",
+      "proposal_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/a247f939.json"
+    },
+    "b35a2fb5": {
+      "case_name": "PROPOSAL_NON_EXECUTION_GUARD",
+      "gate": "PASS",
+      "proposal_id": "c2c26153",
+      "proposal_receipt_id": "b35a2fb5",
+      "proposal_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/b35a2fb5.json"
+    }
+  },
+  "receipt_id": "6b90ca5e",
+  "receipt_type": "JURISDICTION_RUNNER_V0_2_PROPOSITION_SURFACE_UPGRADE_IMPLEMENTATION_RECEIPT",
+  "runner_v0_2_path": "src/matrixlab/jurisdiction_runner_v0_2.py",
+  "schema_version": "jurisdiction_runner_v0_2_proposition_surface_upgrade_implementation_receipt_v0",
+  "source_delta_proposal_id": "6e4ee1ea",
+  "source_human_decision_id": "cef49876",
+  "source_local_regime_hash": "097d620c",
+  "source_local_regime_version": "local_regime.v0",
+  "source_proposition_surface_probe_run_receipt_id": "0d2f03d4",
+  "source_runner_unit_id": "jurisdiction_runner.v0.1",
+  "source_upgrade_policy_id": "d76f7ceb",
+  "source_upgrade_policy_receipt_id": "a3b2c208",
+  "target_local_regime_version": "local_regime.v1",
+  "target_runner_unit_id": "jurisdiction_runner.v0.2",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  },
+  "unit_id": "IMPLEMENT_JURISDICTION_RUNNER_V0_2_PROPOSITION_SURFACE_UPGRADE_WITH_FIXTURES_V0",
+  "warnings": []
+}
+v0_2_implementation_receipt_id=6b90ca5e
+v0_2_implementation_receipt_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_implementation_receipts/6b90ca5e.json
+local_regime_v1_hash=25802530
+local_regime_v1_path=data/local_regime_v1_declarations/25802530.json
+runner_v0_2_path=src/matrixlab/jurisdiction_runner_v0_2.py
+case_AUTHORITY_VIOLATION_NO_PROPOSAL_PROMOTION_fixture_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_authority_violation_no_proposal_promotion.json
+case_AUTHORITY_VIOLATION_NO_PROPOSAL_PROMOTION_expected_transcript_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_authority_violation_no_proposal_promotion.json
+case_AUTHORITY_VIOLATION_NO_PROPOSAL_PROMOTION_receipt_id=39553192
+case_AUTHORITY_VIOLATION_NO_PROPOSAL_PROMOTION_receipt_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/39553192.json
+case_DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_FIRST_fixture_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_duplicate_unresolved_proposal_guard_first.json
+case_DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_FIRST_expected_transcript_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_duplicate_unresolved_proposal_guard_first.json
+case_DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_FIRST_receipt_id=852b929f
+case_DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_FIRST_receipt_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/852b929f.json
+case_DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_FIRST_proposal_receipt_id=805aa63a
+case_DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_FIRST_proposal_receipt_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/805aa63a.json
+case_DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_SECOND_fixture_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_duplicate_unresolved_proposal_guard_second.json
+case_DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_SECOND_expected_transcript_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_duplicate_unresolved_proposal_guard_second.json
+case_DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_SECOND_receipt_id=07fe8af9
+case_DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_SECOND_receipt_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/07fe8af9.json
+case_HALT_WITH_PROPOSAL_ON_NO_APPLICABLE_MOVE_fixture_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_halt_with_proposal_on_no_applicable_move.json
+case_HALT_WITH_PROPOSAL_ON_NO_APPLICABLE_MOVE_expected_transcript_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_halt_with_proposal_on_no_applicable_move.json
+case_HALT_WITH_PROPOSAL_ON_NO_APPLICABLE_MOVE_receipt_id=4cf04e18
+case_HALT_WITH_PROPOSAL_ON_NO_APPLICABLE_MOVE_receipt_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/4cf04e18.json
+case_HALT_WITH_PROPOSAL_ON_NO_APPLICABLE_MOVE_proposal_receipt_id=a247f939
+case_HALT_WITH_PROPOSAL_ON_NO_APPLICABLE_MOVE_proposal_receipt_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/a247f939.json
+case_NO_PROPOSAL_WHEN_INSUFFICIENT_EVIDENCE_fixture_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_no_proposal_when_insufficient_evidence.json
+case_NO_PROPOSAL_WHEN_INSUFFICIENT_EVIDENCE_expected_transcript_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_no_proposal_when_insufficient_evidence.json
+case_NO_PROPOSAL_WHEN_INSUFFICIENT_EVIDENCE_receipt_id=e952a541
+case_NO_PROPOSAL_WHEN_INSUFFICIENT_EVIDENCE_receipt_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/e952a541.json
+case_PROPOSAL_NON_EXECUTION_GUARD_fixture_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_proposal_non_execution_guard.json
+case_PROPOSAL_NON_EXECUTION_GUARD_expected_transcript_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_proposal_non_execution_guard.json
+case_PROPOSAL_NON_EXECUTION_GUARD_receipt_id=3ed5cac3
+case_PROPOSAL_NON_EXECUTION_GUARD_receipt_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/3ed5cac3.json
+case_PROPOSAL_NON_EXECUTION_GUARD_proposal_receipt_id=b35a2fb5
+case_PROPOSAL_NON_EXECUTION_GUARD_proposal_receipt_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/b35a2fb5.json
+V0_2_IMPLEMENTATION_RECEIPT_ID=6b90ca5e
+V0_2_IMPLEMENTATION_RECEIPT_PATH=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_implementation_receipts/6b90ca5e.json
+LOCAL_REGIME_V1_HASH=25802530
+LOCAL_REGIME_V1_PATH=data/local_regime_v1_declarations/25802530.json
+RUNNER_V0_2_PATH=src/matrixlab/jurisdiction_runner_v0_2.py
+
+ASSERT_V0_2_IMPLEMENTATION
+{
+  "acceptance_gate_results": {
+    "S0_source_chain_verified": true,
+    "S1_local_regime_v1_declared": true,
+    "S2_runner_v0_2_implemented": true,
+    "S3_halt_with_proposal_fixture_passes": true,
+    "S4_proposal_non_execution_passes": true,
+    "S5_duplicate_unresolved_proposal_guard_passes": true,
+    "S6_no_hidden_continuation": true,
+    "S7_no_registry_or_global_taxonomy": true
+  },
+  "aggregate_metrics": {
+    "case_count": 6,
+    "case_fail_count": 0,
+    "case_pass_count": 6,
+    "duplicate_unresolved_proposal_count": 1,
+    "local_regime_mutation_count": 0,
+    "proposal_receipt_count": 3,
+    "proposal_withheld_count": 3,
+    "registry_write_count": 0,
+    "runner_module_change_count": 1,
+    "runtime_proposal_emitted_count": 3,
+    "runtime_proposal_executed_count": 0,
+    "runtime_proposal_promoted_count": 0
+  },
+  "authority_guards": {
+    "case_receipts_emitted": true,
+    "final_schema_claimed": false,
+    "fixtures_created": true,
+    "fixtures_executed": true,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "implementation_receipt_emitted": true,
+    "local_regime_runtime_mutated": false,
+    "local_regime_v0_replaced": false,
+    "local_regime_v1_declared": true,
+    "local_regime_v1_path": "data/local_regime_v1_declarations/25802530.json",
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_promoted": false,
+    "proposal_receipts_emitted": true,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_v0_1_modified": false,
+    "runner_v0_2_implemented": true,
+    "runner_v0_2_path": "src/matrixlab/jurisdiction_runner_v0_2.py",
+    "source_chain_verified": true
+  },
+  "gate": "PASS",
+  "local_regime_v1_hash": "25802530",
+  "receipt_id": "6b90ca5e",
+  "source_runner_unit_id": "jurisdiction_runner.v0.1",
+  "target_local_regime_version": "local_regime.v1",
+  "target_runner_unit_id": "jurisdiction_runner.v0.2",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROLS_V0_2_IMPLEMENTATION_NON_WRITING
+{
+  "case": "acceptance_gate_false_fail",
+  "failures": [
+    "acceptance_gate_not_true:S4_proposal_non_execution_passes:False"
+  ]
+}
+{
+  "case": "proposal_executed_metric_fail",
+  "failures": [
+    "runtime_proposal_executed_count_nonzero:1"
+  ]
+}
+{
+  "case": "registry_guard_fail",
+  "failures": [
+    "authority_guard_not_false:registry_sqlite_written:True"
+  ]
+}
+{
+  "case": "hidden_next_fail",
+  "failures": [
+    "terminal_next_not_null:{'next_command_goal': 'HIDDEN_NEXT', 'stop_code': 'STOP_DONE', 'type': 'STOP'}"
+  ]
+}
+{
+  "case": "policy_next_goal_fail",
+  "failures": [
+    "policy_terminal_next_wrong:WRONG_NEXT"
+  ]
+}
+{
+  "after": {
+    "implementation_receipt": "95d9b2aa39df37bacfd0d29df8fdb2fded8d3bcbf5e4c0a0999e7a1487160e58"
+  },
+  "before": {
+    "implementation_receipt": "95d9b2aa39df37bacfd0d29df8fdb2fded8d3bcbf5e4c0a0999e7a1487160e58"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+VERIFY_NO_FORBIDDEN_RUNTIME_OR_REGISTRY_MUTATION
+runner v0.1 and sqlite registry untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/implement_jurisdiction_runner_v0_2_proposition_surface_upgrade_with_fixtures_v0.py
+?? src/matrixlab/jurisdiction_runner_v0_2.py
+
+PACKAGE_V0_2_IMPLEMENTATION_ARTIFACTS
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_implementation_receipts/6b90ca5e.json
+packaged data/local_regime_v1_declarations/25802530.json
+packaged src/matrixlab/jurisdiction_runner_v0_2.py
+
+PACKAGE_V0_2_CASE_ARTIFACTS
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_authority_violation_no_proposal_promotion.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_duplicate_unresolved_proposal_guard_first.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_duplicate_unresolved_proposal_guard_second.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_halt_with_proposal_on_no_applicable_move.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_no_proposal_when_insufficient_evidence.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_proposal_non_execution_guard.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_authority_violation_no_proposal_promotion.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_duplicate_unresolved_proposal_guard_first.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_duplicate_unresolved_proposal_guard_second.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_halt_with_proposal_on_no_applicable_move.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_no_proposal_when_insufficient_evidence.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_proposal_non_execution_guard.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/39553192.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/852b929f.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/805aa63a.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/07fe8af9.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/4cf04e18.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/a247f939.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/e952a541.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/3ed5cac3.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/b35a2fb5.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/805aa63a.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/a247f939.json
+packaged data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/b35a2fb5.json
+[master 0a54af6ac] implement jurisdiction runner v0.2 proposition surface upgrade
+ 26 files changed, 3138 insertions(+)
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/07fe8af9.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/39553192.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/3ed5cac3.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/4cf04e18.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/852b929f.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/e952a541.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_authority_violation_no_proposal_promotion.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_duplicate_unresolved_proposal_guard_first.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_duplicate_unresolved_proposal_guard_second.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_halt_with_proposal_on_no_applicable_move.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_no_proposal_when_insufficient_evidence.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_proposal_non_execution_guard.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_authority_violation_no_proposal_promotion.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_duplicate_unresolved_proposal_guard_first.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_duplicate_unresolved_proposal_guard_second.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_halt_with_proposal_on_no_applicable_move.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_no_proposal_when_insufficient_evidence.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_proposal_non_execution_guard.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_implementation_receipts/6b90ca5e.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/805aa63a.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/a247f939.json
+ create mode 100644 data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/b35a2fb5.json
+ create mode 100644 data/local_regime_v1_declarations/25802530.json
+ create mode 100755 scripts/implement_jurisdiction_runner_v0_2_proposition_surface_upgrade_with_fixtures_v0.py
+ create mode 100644 src/matrixlab/jurisdiction_runner_v0_2.py
+
+COMMIT_DONE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+NEXT_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+v0_2_implementation_receipt_id=6b90ca5e
+v0_2_implementation_receipt_path=data/jurisdiction_runner_v0_2_proposition_surface_upgrade_implementation_receipts/6b90ca5e.json
+local_regime_v1_hash=25802530
+local_regime_v1_path=data/local_regime_v1_declarations/25802530.json
+runner_v0_2_path=src/matrixlab/jurisdiction_runner_v0_2.py
+{
+  "acceptance_gate_results": {
+    "S0_source_chain_verified": true,
+    "S1_local_regime_v1_declared": true,
+    "S2_runner_v0_2_implemented": true,
+    "S3_halt_with_proposal_fixture_passes": true,
+    "S4_proposal_non_execution_passes": true,
+    "S5_duplicate_unresolved_proposal_guard_passes": true,
+    "S6_no_hidden_continuation": true,
+    "S7_no_registry_or_global_taxonomy": true
+  },
+  "aggregate_metrics": {
+    "case_count": 6,
+    "case_fail_count": 0,
+    "case_pass_count": 6,
+    "duplicate_unresolved_proposal_count": 1,
+    "local_regime_mutation_count": 0,
+    "proposal_receipt_count": 3,
+    "proposal_withheld_count": 3,
+    "registry_write_count": 0,
+    "runner_module_change_count": 1,
+    "runtime_proposal_emitted_count": 3,
+    "runtime_proposal_executed_count": 0,
+    "runtime_proposal_promoted_count": 0
+  },
+  "artifact_guards": {
+    "ambient_workspace_authority_used": false,
+    "latest_or_mtime_selection_used": false,
+    "local_regime_v1_path_addressed": true,
+    "outputs_path_addressed": true,
+    "outputs_receipt_referenced": true,
+    "runner_v0_2_path_addressed": true,
+    "source_local_regime_v0_tracked": true,
+    "source_runner_v0_1_tracked": true,
+    "upgrade_policy_receipt_tracked": true,
+    "upgrade_policy_tracked": true
+  },
+  "authority_guards": {
+    "case_receipts_emitted": true,
+    "final_schema_claimed": false,
+    "fixtures_created": true,
+    "fixtures_executed": true,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "implementation_receipt_emitted": true,
+    "local_regime_runtime_mutated": false,
+    "local_regime_v0_replaced": false,
+    "local_regime_v1_declared": true,
+    "local_regime_v1_path": "data/local_regime_v1_declarations/25802530.json",
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_promoted": false,
+    "proposal_receipts_emitted": true,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_v0_1_modified": false,
+    "runner_v0_2_implemented": true,
+    "runner_v0_2_path": "src/matrixlab/jurisdiction_runner_v0_2.py",
+    "source_chain_verified": true
+  },
+  "case_results": {
+    "AUTHORITY_VIOLATION_NO_PROPOSAL_PROMOTION": {
+      "case_name": "AUTHORITY_VIOLATION_NO_PROPOSAL_PROMOTION",
+      "case_receipt_id": "39553192",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/39553192.json",
+      "duplicate_unresolved_proposal": false,
+      "expected_transcript_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_authority_violation_no_proposal_promotion.json",
+      "fixture_id": "v0_2_upgrade_authority_violation_no_proposal_promotion",
+      "fixture_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_authority_violation_no_proposal_promotion.json",
+      "gate": "PASS",
+      "halt_code": "STOP_AUTHORITY_VIOLATION",
+      "no_proposal_reason": "OUT_OF_SCOPE",
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "proposal_receipt_id": null,
+      "proposal_receipt_path": null,
+      "proposal_status": "NONE",
+      "proposal_type": null
+    },
+    "DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_FIRST": {
+      "case_name": "DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_FIRST",
+      "case_receipt_id": "852b929f",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/852b929f.json",
+      "duplicate_unresolved_proposal": false,
+      "expected_transcript_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_duplicate_unresolved_proposal_guard_first.json",
+      "fixture_id": "v0_2_upgrade_duplicate_unresolved_proposal_guard_first",
+      "fixture_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_duplicate_unresolved_proposal_guard_first.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "no_proposal_reason": null,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "proposal_receipt_id": "805aa63a",
+      "proposal_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/805aa63a.json",
+      "proposal_status": "EMITTED_REVIEW_REQUIRED",
+      "proposal_type": "LOCAL_MOVE_ADMISSIBILITY_DELTA_PROPOSAL"
+    },
+    "DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_SECOND": {
+      "case_name": "DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_SECOND",
+      "case_receipt_id": "07fe8af9",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/07fe8af9.json",
+      "duplicate_unresolved_proposal": true,
+      "expected_transcript_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_duplicate_unresolved_proposal_guard_second.json",
+      "fixture_id": "v0_2_upgrade_duplicate_unresolved_proposal_guard_second",
+      "fixture_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_duplicate_unresolved_proposal_guard_second.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "no_proposal_reason": "DUPLICATE_UNRESOLVED",
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "proposal_receipt_id": null,
+      "proposal_receipt_path": null,
+      "proposal_status": "WITHHELD_DUPLICATE_UNRESOLVED",
+      "proposal_type": "LOCAL_MOVE_ADMISSIBILITY_DELTA_PROPOSAL"
+    },
+    "HALT_WITH_PROPOSAL_ON_NO_APPLICABLE_MOVE": {
+      "case_name": "HALT_WITH_PROPOSAL_ON_NO_APPLICABLE_MOVE",
+      "case_receipt_id": "4cf04e18",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/4cf04e18.json",
+      "duplicate_unresolved_proposal": false,
+      "expected_transcript_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_halt_with_proposal_on_no_applicable_move.json",
+      "fixture_id": "v0_2_upgrade_halt_with_proposal_on_no_applicable_move",
+      "fixture_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_halt_with_proposal_on_no_applicable_move.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "no_proposal_reason": null,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "proposal_receipt_id": "a247f939",
+      "proposal_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/a247f939.json",
+      "proposal_status": "EMITTED_REVIEW_REQUIRED",
+      "proposal_type": "LOCAL_MOVE_ADMISSIBILITY_DELTA_PROPOSAL"
+    },
+    "NO_PROPOSAL_WHEN_INSUFFICIENT_EVIDENCE": {
+      "case_name": "NO_PROPOSAL_WHEN_INSUFFICIENT_EVIDENCE",
+      "case_receipt_id": "e952a541",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/e952a541.json",
+      "duplicate_unresolved_proposal": false,
+      "expected_transcript_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_no_proposal_when_insufficient_evidence.json",
+      "fixture_id": "v0_2_upgrade_no_proposal_when_insufficient_evidence",
+      "fixture_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_no_proposal_when_insufficient_evidence.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "no_proposal_reason": "INSUFFICIENT_EVIDENCE",
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "proposal_receipt_id": null,
+      "proposal_receipt_path": null,
+      "proposal_status": "NONE",
+      "proposal_type": null
+    },
+    "PROPOSAL_NON_EXECUTION_GUARD": {
+      "case_name": "PROPOSAL_NON_EXECUTION_GUARD",
+      "case_receipt_id": "3ed5cac3",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_case_receipts/3ed5cac3.json",
+      "duplicate_unresolved_proposal": false,
+      "expected_transcript_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_expected_transcripts/v0_2_upgrade_proposal_non_execution_guard.json",
+      "fixture_id": "v0_2_upgrade_proposal_non_execution_guard",
+      "fixture_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_fixtures/v0_2_upgrade_proposal_non_execution_guard.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "no_proposal_reason": null,
+      "proposal_executed": false,
+      "proposal_promoted": false,
+      "proposal_receipt_id": "b35a2fb5",
+      "proposal_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/b35a2fb5.json",
+      "proposal_status": "EMITTED_REVIEW_REQUIRED",
+      "proposal_type": "LOCAL_MOVE_ADMISSIBILITY_DELTA_PROPOSAL"
+    }
+  },
+  "gate": "PASS",
+  "local_regime_v1_hash": "25802530",
+  "proposal_receipt_results": {
+    "805aa63a": {
+      "case_name": "DUPLICATE_UNRESOLVED_PROPOSAL_GUARD_FIRST",
+      "gate": "PASS",
+      "proposal_id": "f8c949ae",
+      "proposal_receipt_id": "805aa63a",
+      "proposal_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/805aa63a.json"
+    },
+    "a247f939": {
+      "case_name": "HALT_WITH_PROPOSAL_ON_NO_APPLICABLE_MOVE",
+      "gate": "PASS",
+      "proposal_id": "dbcb41a9",
+      "proposal_receipt_id": "a247f939",
+      "proposal_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/a247f939.json"
+    },
+    "b35a2fb5": {
+      "case_name": "PROPOSAL_NON_EXECUTION_GUARD",
+      "gate": "PASS",
+      "proposal_id": "c2c26153",
+      "proposal_receipt_id": "b35a2fb5",
+      "proposal_receipt_path": "data/jurisdiction_runner_v0_2_proposition_surface_upgrade_proposal_receipts/b35a2fb5.json"
+    }
+  },
+  "source_local_regime_hash": "097d620c",
+  "source_local_regime_version": "local_regime.v0",
+  "source_runner_unit_id": "jurisdiction_runner.v0.1",
+  "source_upgrade_policy_id": "d76f7ceb",
+  "target_local_regime_version": "local_regime.v1",
+  "target_runner_unit_id": "jurisdiction_runner.v0.2",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  }
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

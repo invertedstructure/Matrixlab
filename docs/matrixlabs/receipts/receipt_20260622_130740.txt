@@ -1,0 +1,971 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_130740
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_130740.txt
+
+IMPLEMENT_JURISDICTION_RUNNER_V0_2_TRACE_AND_PROPOSAL_LEDGER_HARDENING_WITH_FIXTURES_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+VERIFY_TRACE_LEDGER_IMPLEMENTATION_INPUTS_TRACKED
+tracked data/jurisdiction_runner_v0_2_trace_and_proposal_ledger_hardening_policies/b98866ad.json
+tracked data/jurisdiction_runner_v0_2_trace_and_proposal_ledger_hardening_policy_receipts/b98866ad.json
+tracked data/jurisdiction_runner_v0_2_proposition_surface_upgrade_implementation_receipts/6b90ca5e.json
+tracked data/local_regime_v1_declarations/25802530.json
+tracked src/matrixlab/jurisdiction_runner_v0_2.py
+tracked data/jurisdiction_runner_v0_2_proposition_surface_upgrade_policies/d76f7ceb.json
+tracked data/local_regime_v0_declarations/097d620c.json
+
+PATCH_GITIGNORE
+
+WRITE_TRACE_LEDGER_IMPLEMENTATION_RUNNER
+
+PY_COMPILE_TRACE_LEDGER_IMPLEMENTATION_RUNNER
+
+RUN_TRACE_LEDGER_HARDENING_IMPLEMENTATION
+{
+  "acceptance_gate_results": {
+    "H0_source_chain_verified": true,
+    "H1_trace_schema_declared": true,
+    "H2_proposal_ledger_schema_declared": true,
+    "H3_trace_hardened_runner_implemented": true,
+    "H4_trace_files_emitted_for_cases": true,
+    "H5_receipts_reference_traces": true,
+    "H6_unresolved_proposal_ledger_artifact_used": true,
+    "H7_v0_2_regression_preserved": true
+  },
+  "aggregate_metrics": {
+    "case_receipt_trace_consistency_fail_count": 0,
+    "duplicate_unresolved_proposal_count": 1,
+    "hardening_case_count": 6,
+    "hardening_case_fail_count": 0,
+    "hardening_case_pass_count": 6,
+    "ledger_artifact_count": 6,
+    "local_regime_mutation_count": 0,
+    "proposal_withheld_count": 3,
+    "registry_write_count": 0,
+    "runtime_proposal_emitted_count": 3,
+    "runtime_proposal_executed_count": 0,
+    "runtime_proposal_promoted_count": 0,
+    "trace_file_count": 6
+  },
+  "artifact_guards": {
+    "ambient_workspace_authority_used": false,
+    "hardening_policy_receipt_tracked": true,
+    "hardening_policy_tracked": true,
+    "latest_or_mtime_selection_used": false,
+    "ledger_schema_path_addressed": true,
+    "outputs_path_addressed": true,
+    "outputs_receipt_referenced": true,
+    "source_local_regime_v1_tracked": true,
+    "source_runner_v0_2_tracked": true,
+    "source_v0_2_implementation_receipt_tracked": true,
+    "trace_ledger_runner_path_addressed": true,
+    "trace_schema_path_addressed": true
+  },
+  "authority_guards": {
+    "case_receipts_emitted": true,
+    "final_schema_claimed": false,
+    "fixtures_created": true,
+    "fixtures_executed": true,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "implementation_receipt_emitted": true,
+    "jurisdiction_runner_v0_1_modified": false,
+    "jurisdiction_runner_v0_2_modified": false,
+    "local_regime_runtime_mutated": false,
+    "local_regime_v1_replaced": false,
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_ledger_artifacts_emitted": true,
+    "proposal_ledger_schema_emitted": true,
+    "proposal_promoted": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "source_chain_verified": true,
+    "trace_files_emitted": true,
+    "trace_ledger_runner_implemented": true,
+    "trace_ledger_runner_path": "src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py",
+    "trace_schema_emitted": true
+  },
+  "case_results": {
+    "LEDGER_RECORDS_FIRST_UNRESOLVED_PROPOSAL": {
+      "case_name": "LEDGER_RECORDS_FIRST_UNRESOLVED_PROPOSAL",
+      "case_receipt_id": "9b7af1ef",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/9b7af1ef.json",
+      "duplicate_unresolved_proposal": false,
+      "fixture_id": "trace_ledger_ledger_records_first_unresolved_proposal",
+      "fixture_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_ledger_records_first_unresolved_proposal.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "ledger_id": "e183d74e",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/e183d74e.json",
+      "no_proposal_reason": null,
+      "proposal_executed": false,
+      "proposal_id": "025c05e3",
+      "proposal_promoted": false,
+      "proposal_receipt_id": "776dcdd7",
+      "proposal_status": "EMITTED_REVIEW_REQUIRED",
+      "trace_id": "3857da28",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/3857da28.json",
+      "trace_receipt_consistent": true
+    },
+    "LEDGER_SUPPRESSES_DUPLICATE_UNRESOLVED_PROPOSAL": {
+      "case_name": "LEDGER_SUPPRESSES_DUPLICATE_UNRESOLVED_PROPOSAL",
+      "case_receipt_id": "da854e41",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/da854e41.json",
+      "duplicate_unresolved_proposal": true,
+      "fixture_id": "trace_ledger_ledger_suppresses_duplicate_unresolved_proposal",
+      "fixture_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_ledger_suppresses_duplicate_unresolved_proposal.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "ledger_id": "33db614a",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/33db614a.json",
+      "no_proposal_reason": "DUPLICATE_UNRESOLVED",
+      "proposal_executed": false,
+      "proposal_id": "025c05e3",
+      "proposal_promoted": false,
+      "proposal_receipt_id": null,
+      "proposal_status": "WITHHELD_DUPLICATE_UNRESOLVED",
+      "trace_id": "28b45d4b",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/28b45d4b.json",
+      "trace_receipt_consistent": true
+    },
+    "RECEIPT_TRACE_CONSISTENCY": {
+      "case_name": "RECEIPT_TRACE_CONSISTENCY",
+      "case_receipt_id": "a48f57b1",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/a48f57b1.json",
+      "duplicate_unresolved_proposal": false,
+      "fixture_id": "trace_ledger_receipt_trace_consistency",
+      "fixture_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_receipt_trace_consistency.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "ledger_id": "70bd11df",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/70bd11df.json",
+      "no_proposal_reason": null,
+      "proposal_executed": false,
+      "proposal_id": "2aafced6",
+      "proposal_promoted": false,
+      "proposal_receipt_id": "3d4a03ad",
+      "proposal_status": "EMITTED_REVIEW_REQUIRED",
+      "trace_id": "844b453f",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/844b453f.json",
+      "trace_receipt_consistent": true
+    },
+    "REGRESSION_V0_2_NON_EXECUTION_AND_NO_REGISTRY": {
+      "case_name": "REGRESSION_V0_2_NON_EXECUTION_AND_NO_REGISTRY",
+      "case_receipt_id": "6f1ab634",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/6f1ab634.json",
+      "duplicate_unresolved_proposal": false,
+      "fixture_id": "trace_ledger_regression_v0_2_non_execution_and_no_registry",
+      "fixture_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_regression_v0_2_non_execution_and_no_registry.json",
+      "gate": "PASS",
+      "halt_code": "STOP_AUTHORITY_VIOLATION",
+      "ledger_id": "643cc955",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/643cc955.json",
+      "no_proposal_reason": "OUT_OF_SCOPE",
+      "proposal_executed": false,
+      "proposal_id": null,
+      "proposal_promoted": false,
+      "proposal_receipt_id": null,
+      "proposal_status": "NONE",
+      "trace_id": "5caf4011",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/5caf4011.json",
+      "trace_receipt_consistent": true
+    },
+    "TRACE_PRESENT_FOR_HALT_WITH_PROPOSAL": {
+      "case_name": "TRACE_PRESENT_FOR_HALT_WITH_PROPOSAL",
+      "case_receipt_id": "201f2d8f",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/201f2d8f.json",
+      "duplicate_unresolved_proposal": false,
+      "fixture_id": "trace_ledger_trace_present_for_halt_with_proposal",
+      "fixture_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_trace_present_for_halt_with_proposal.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "ledger_id": "7fe12905",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/7fe12905.json",
+      "no_proposal_reason": null,
+      "proposal_executed": false,
+      "proposal_id": "bb01a801",
+      "proposal_promoted": false,
+      "proposal_receipt_id": "d04042cd",
+      "proposal_status": "EMITTED_REVIEW_REQUIRED",
+      "trace_id": "1c1e2bc9",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/1c1e2bc9.json",
+      "trace_receipt_consistent": true
+    },
+    "TRACE_PRESENT_FOR_NO_PROPOSAL_INSUFFICIENT_EVIDENCE": {
+      "case_name": "TRACE_PRESENT_FOR_NO_PROPOSAL_INSUFFICIENT_EVIDENCE",
+      "case_receipt_id": "2efad221",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/2efad221.json",
+      "duplicate_unresolved_proposal": false,
+      "fixture_id": "trace_ledger_trace_present_for_no_proposal_insufficient_evidence",
+      "fixture_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_trace_present_for_no_proposal_insufficient_evidence.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "ledger_id": "bb3481d5",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/bb3481d5.json",
+      "no_proposal_reason": "INSUFFICIENT_EVIDENCE",
+      "proposal_executed": false,
+      "proposal_id": null,
+      "proposal_promoted": false,
+      "proposal_receipt_id": null,
+      "proposal_status": "NONE",
+      "trace_id": "99b8d404",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/99b8d404.json",
+      "trace_receipt_consistent": true
+    }
+  },
+  "created_at": "2026-06-22T12:07:41.250107+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "ledger_results": {
+    "33db614a": {
+      "case_name": "LEDGER_SUPPRESSES_DUPLICATE_UNRESOLVED_PROPOSAL",
+      "created_by_receipt_id": "da854e41",
+      "ledger_entry_count": 1,
+      "ledger_id": "33db614a",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/33db614a.json"
+    },
+    "643cc955": {
+      "case_name": "REGRESSION_V0_2_NON_EXECUTION_AND_NO_REGISTRY",
+      "created_by_receipt_id": "6f1ab634",
+      "ledger_entry_count": 0,
+      "ledger_id": "643cc955",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/643cc955.json"
+    },
+    "70bd11df": {
+      "case_name": "RECEIPT_TRACE_CONSISTENCY",
+      "created_by_receipt_id": "a48f57b1",
+      "ledger_entry_count": 1,
+      "ledger_id": "70bd11df",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/70bd11df.json"
+    },
+    "7fe12905": {
+      "case_name": "TRACE_PRESENT_FOR_HALT_WITH_PROPOSAL",
+      "created_by_receipt_id": "201f2d8f",
+      "ledger_entry_count": 1,
+      "ledger_id": "7fe12905",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/7fe12905.json"
+    },
+    "bb3481d5": {
+      "case_name": "TRACE_PRESENT_FOR_NO_PROPOSAL_INSUFFICIENT_EVIDENCE",
+      "created_by_receipt_id": "2efad221",
+      "ledger_entry_count": 0,
+      "ledger_id": "bb3481d5",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/bb3481d5.json"
+    },
+    "e183d74e": {
+      "case_name": "LEDGER_RECORDS_FIRST_UNRESOLVED_PROPOSAL",
+      "created_by_receipt_id": "9b7af1ef",
+      "ledger_entry_count": 1,
+      "ledger_id": "e183d74e",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/e183d74e.json"
+    }
+  },
+  "proposal_ledger_schema_id": "eee2a318",
+  "proposal_ledger_schema_path": "data/jurisdiction_runner_v0_2_proposal_ledger_schemas/eee2a318.json",
+  "receipt_id": "cc24a11f",
+  "receipt_type": "JURISDICTION_RUNNER_V0_2_TRACE_AND_PROPOSAL_LEDGER_HARDENING_IMPLEMENTATION_RECEIPT",
+  "schema_version": "jurisdiction_runner_v0_2_trace_and_proposal_ledger_hardening_implementation_receipt_v0",
+  "source_hardening_policy_id": "b98866ad",
+  "source_hardening_policy_receipt_id": "f28e04c1",
+  "source_local_regime_hash": "25802530",
+  "source_local_regime_version": "local_regime.v1",
+  "source_runner_unit_id": "jurisdiction_runner.v0.2",
+  "source_v0_2_implementation_receipt_id": "6b90ca5e",
+  "target_runner_unit_id": "jurisdiction_runner.v0.2.trace_ledger_hardened",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  },
+  "trace_ledger_runner_path": "src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py",
+  "trace_results": {
+    "1c1e2bc9": {
+      "case_name": "TRACE_PRESENT_FOR_HALT_WITH_PROPOSAL",
+      "entry_count": 1,
+      "final_halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "receipt_id": "201f2d8f",
+      "trace_id": "1c1e2bc9",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/1c1e2bc9.json"
+    },
+    "28b45d4b": {
+      "case_name": "LEDGER_SUPPRESSES_DUPLICATE_UNRESOLVED_PROPOSAL",
+      "entry_count": 1,
+      "final_halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "receipt_id": "da854e41",
+      "trace_id": "28b45d4b",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/28b45d4b.json"
+    },
+    "3857da28": {
+      "case_name": "LEDGER_RECORDS_FIRST_UNRESOLVED_PROPOSAL",
+      "entry_count": 1,
+      "final_halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "receipt_id": "9b7af1ef",
+      "trace_id": "3857da28",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/3857da28.json"
+    },
+    "5caf4011": {
+      "case_name": "REGRESSION_V0_2_NON_EXECUTION_AND_NO_REGISTRY",
+      "entry_count": 1,
+      "final_halt_code": "STOP_AUTHORITY_VIOLATION",
+      "receipt_id": "6f1ab634",
+      "trace_id": "5caf4011",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/5caf4011.json"
+    },
+    "844b453f": {
+      "case_name": "RECEIPT_TRACE_CONSISTENCY",
+      "entry_count": 1,
+      "final_halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "receipt_id": "a48f57b1",
+      "trace_id": "844b453f",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/844b453f.json"
+    },
+    "99b8d404": {
+      "case_name": "TRACE_PRESENT_FOR_NO_PROPOSAL_INSUFFICIENT_EVIDENCE",
+      "entry_count": 1,
+      "final_halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "receipt_id": "2efad221",
+      "trace_id": "99b8d404",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/99b8d404.json"
+    }
+  },
+  "trace_schema_id": "b4887660",
+  "trace_schema_path": "data/jurisdiction_runner_v0_2_trace_schemas/b4887660.json",
+  "unit_id": "IMPLEMENT_JURISDICTION_RUNNER_V0_2_TRACE_AND_PROPOSAL_LEDGER_HARDENING_WITH_FIXTURES_V0",
+  "warnings": []
+}
+trace_ledger_implementation_receipt_id=cc24a11f
+trace_ledger_implementation_receipt_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_implementation_receipts/cc24a11f.json
+trace_schema_id=b4887660
+trace_schema_path=data/jurisdiction_runner_v0_2_trace_schemas/b4887660.json
+proposal_ledger_schema_id=eee2a318
+proposal_ledger_schema_path=data/jurisdiction_runner_v0_2_proposal_ledger_schemas/eee2a318.json
+trace_ledger_runner_path=src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py
+case_LEDGER_RECORDS_FIRST_UNRESOLVED_PROPOSAL_fixture_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_ledger_records_first_unresolved_proposal.json
+case_LEDGER_RECORDS_FIRST_UNRESOLVED_PROPOSAL_receipt_id=9b7af1ef
+case_LEDGER_RECORDS_FIRST_UNRESOLVED_PROPOSAL_receipt_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/9b7af1ef.json
+case_LEDGER_RECORDS_FIRST_UNRESOLVED_PROPOSAL_trace_id=3857da28
+case_LEDGER_RECORDS_FIRST_UNRESOLVED_PROPOSAL_trace_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/3857da28.json
+case_LEDGER_RECORDS_FIRST_UNRESOLVED_PROPOSAL_ledger_id=e183d74e
+case_LEDGER_RECORDS_FIRST_UNRESOLVED_PROPOSAL_ledger_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/e183d74e.json
+case_LEDGER_SUPPRESSES_DUPLICATE_UNRESOLVED_PROPOSAL_fixture_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_ledger_suppresses_duplicate_unresolved_proposal.json
+case_LEDGER_SUPPRESSES_DUPLICATE_UNRESOLVED_PROPOSAL_receipt_id=da854e41
+case_LEDGER_SUPPRESSES_DUPLICATE_UNRESOLVED_PROPOSAL_receipt_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/da854e41.json
+case_LEDGER_SUPPRESSES_DUPLICATE_UNRESOLVED_PROPOSAL_trace_id=28b45d4b
+case_LEDGER_SUPPRESSES_DUPLICATE_UNRESOLVED_PROPOSAL_trace_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/28b45d4b.json
+case_LEDGER_SUPPRESSES_DUPLICATE_UNRESOLVED_PROPOSAL_ledger_id=33db614a
+case_LEDGER_SUPPRESSES_DUPLICATE_UNRESOLVED_PROPOSAL_ledger_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/33db614a.json
+case_RECEIPT_TRACE_CONSISTENCY_fixture_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_receipt_trace_consistency.json
+case_RECEIPT_TRACE_CONSISTENCY_receipt_id=a48f57b1
+case_RECEIPT_TRACE_CONSISTENCY_receipt_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/a48f57b1.json
+case_RECEIPT_TRACE_CONSISTENCY_trace_id=844b453f
+case_RECEIPT_TRACE_CONSISTENCY_trace_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/844b453f.json
+case_RECEIPT_TRACE_CONSISTENCY_ledger_id=70bd11df
+case_RECEIPT_TRACE_CONSISTENCY_ledger_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/70bd11df.json
+case_REGRESSION_V0_2_NON_EXECUTION_AND_NO_REGISTRY_fixture_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_regression_v0_2_non_execution_and_no_registry.json
+case_REGRESSION_V0_2_NON_EXECUTION_AND_NO_REGISTRY_receipt_id=6f1ab634
+case_REGRESSION_V0_2_NON_EXECUTION_AND_NO_REGISTRY_receipt_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/6f1ab634.json
+case_REGRESSION_V0_2_NON_EXECUTION_AND_NO_REGISTRY_trace_id=5caf4011
+case_REGRESSION_V0_2_NON_EXECUTION_AND_NO_REGISTRY_trace_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/5caf4011.json
+case_REGRESSION_V0_2_NON_EXECUTION_AND_NO_REGISTRY_ledger_id=643cc955
+case_REGRESSION_V0_2_NON_EXECUTION_AND_NO_REGISTRY_ledger_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/643cc955.json
+case_TRACE_PRESENT_FOR_HALT_WITH_PROPOSAL_fixture_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_trace_present_for_halt_with_proposal.json
+case_TRACE_PRESENT_FOR_HALT_WITH_PROPOSAL_receipt_id=201f2d8f
+case_TRACE_PRESENT_FOR_HALT_WITH_PROPOSAL_receipt_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/201f2d8f.json
+case_TRACE_PRESENT_FOR_HALT_WITH_PROPOSAL_trace_id=1c1e2bc9
+case_TRACE_PRESENT_FOR_HALT_WITH_PROPOSAL_trace_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/1c1e2bc9.json
+case_TRACE_PRESENT_FOR_HALT_WITH_PROPOSAL_ledger_id=7fe12905
+case_TRACE_PRESENT_FOR_HALT_WITH_PROPOSAL_ledger_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/7fe12905.json
+case_TRACE_PRESENT_FOR_NO_PROPOSAL_INSUFFICIENT_EVIDENCE_fixture_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_trace_present_for_no_proposal_insufficient_evidence.json
+case_TRACE_PRESENT_FOR_NO_PROPOSAL_INSUFFICIENT_EVIDENCE_receipt_id=2efad221
+case_TRACE_PRESENT_FOR_NO_PROPOSAL_INSUFFICIENT_EVIDENCE_receipt_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/2efad221.json
+case_TRACE_PRESENT_FOR_NO_PROPOSAL_INSUFFICIENT_EVIDENCE_trace_id=99b8d404
+case_TRACE_PRESENT_FOR_NO_PROPOSAL_INSUFFICIENT_EVIDENCE_trace_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/99b8d404.json
+case_TRACE_PRESENT_FOR_NO_PROPOSAL_INSUFFICIENT_EVIDENCE_ledger_id=bb3481d5
+case_TRACE_PRESENT_FOR_NO_PROPOSAL_INSUFFICIENT_EVIDENCE_ledger_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/bb3481d5.json
+TRACE_LEDGER_IMPLEMENTATION_RECEIPT_ID=cc24a11f
+TRACE_LEDGER_IMPLEMENTATION_RECEIPT_PATH=data/jurisdiction_runner_v0_2_trace_ledger_hardening_implementation_receipts/cc24a11f.json
+TRACE_SCHEMA_ID=b4887660
+TRACE_SCHEMA_PATH=data/jurisdiction_runner_v0_2_trace_schemas/b4887660.json
+PROPOSAL_LEDGER_SCHEMA_ID=eee2a318
+PROPOSAL_LEDGER_SCHEMA_PATH=data/jurisdiction_runner_v0_2_proposal_ledger_schemas/eee2a318.json
+TRACE_LEDGER_RUNNER_PATH=src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py
+
+ASSERT_TRACE_LEDGER_HARDENING_IMPLEMENTATION
+{
+  "acceptance_gate_results": {
+    "H0_source_chain_verified": true,
+    "H1_trace_schema_declared": true,
+    "H2_proposal_ledger_schema_declared": true,
+    "H3_trace_hardened_runner_implemented": true,
+    "H4_trace_files_emitted_for_cases": true,
+    "H5_receipts_reference_traces": true,
+    "H6_unresolved_proposal_ledger_artifact_used": true,
+    "H7_v0_2_regression_preserved": true
+  },
+  "aggregate_metrics": {
+    "case_receipt_trace_consistency_fail_count": 0,
+    "duplicate_unresolved_proposal_count": 1,
+    "hardening_case_count": 6,
+    "hardening_case_fail_count": 0,
+    "hardening_case_pass_count": 6,
+    "ledger_artifact_count": 6,
+    "local_regime_mutation_count": 0,
+    "proposal_withheld_count": 3,
+    "registry_write_count": 0,
+    "runtime_proposal_emitted_count": 3,
+    "runtime_proposal_executed_count": 0,
+    "runtime_proposal_promoted_count": 0,
+    "trace_file_count": 6
+  },
+  "authority_guards": {
+    "case_receipts_emitted": true,
+    "final_schema_claimed": false,
+    "fixtures_created": true,
+    "fixtures_executed": true,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "implementation_receipt_emitted": true,
+    "jurisdiction_runner_v0_1_modified": false,
+    "jurisdiction_runner_v0_2_modified": false,
+    "local_regime_runtime_mutated": false,
+    "local_regime_v1_replaced": false,
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_ledger_artifacts_emitted": true,
+    "proposal_ledger_schema_emitted": true,
+    "proposal_promoted": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "source_chain_verified": true,
+    "trace_files_emitted": true,
+    "trace_ledger_runner_implemented": true,
+    "trace_ledger_runner_path": "src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py",
+    "trace_schema_emitted": true
+  },
+  "gate": "PASS",
+  "proposal_ledger_schema_id": "eee2a318",
+  "receipt_id": "cc24a11f",
+  "source_runner_unit_id": "jurisdiction_runner.v0.2",
+  "target_runner_unit_id": "jurisdiction_runner.v0.2.trace_ledger_hardened",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  },
+  "trace_schema_id": "b4887660"
+}
+
+NEGATIVE_CONTROLS_TRACE_LEDGER_HARDENING_IMPLEMENTATION_NON_WRITING
+{
+  "case": "trace_consistency_gate_fail",
+  "failures": [
+    "acceptance_gate_not_true:H5_receipts_reference_traces:False"
+  ]
+}
+{
+  "case": "trace_consistency_metric_fail",
+  "failures": [
+    "trace_consistency_fail_count_nonzero:1"
+  ]
+}
+{
+  "case": "proposal_execution_metric_fail",
+  "failures": [
+    "metric_not_zero:runtime_proposal_executed_count:1"
+  ]
+}
+{
+  "case": "sqlite_registry_guard_fail",
+  "failures": [
+    "authority_guard_not_false:registry_sqlite_written:True"
+  ]
+}
+{
+  "case": "hidden_next_fail",
+  "failures": [
+    "terminal_next_not_null:{'next_command_goal': 'HIDDEN_NEXT', 'stop_code': 'STOP_DONE', 'type': 'STOP'}"
+  ]
+}
+{
+  "case": "policy_next_goal_fail",
+  "failures": [
+    "policy_terminal_next_wrong:WRONG_NEXT"
+  ]
+}
+{
+  "after": {
+    "implementation_receipt": "f5452f9be35346d68f0e3e01fa1108137c7ce98a9a2c36e1af6e11981cb581bc"
+  },
+  "before": {
+    "implementation_receipt": "f5452f9be35346d68f0e3e01fa1108137c7ce98a9a2c36e1af6e11981cb581bc"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+VERIFY_NO_FORBIDDEN_RUNTIME_OR_REGISTRY_MUTATION
+source runners and sqlite registry untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/implement_jurisdiction_runner_v0_2_trace_and_proposal_ledger_hardening_with_fixtures_v0.py
+?? src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py
+
+PACKAGE_TRACE_LEDGER_HARDENING_IMPLEMENTATION_ARTIFACTS
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_implementation_receipts/cc24a11f.json
+packaged data/jurisdiction_runner_v0_2_trace_schemas/b4887660.json
+packaged data/jurisdiction_runner_v0_2_proposal_ledger_schemas/eee2a318.json
+packaged src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py
+
+PACKAGE_TRACE_LEDGER_HARDENING_CASE_ARTIFACTS
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_ledger_records_first_unresolved_proposal.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_ledger_suppresses_duplicate_unresolved_proposal.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_receipt_trace_consistency.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_regression_v0_2_non_execution_and_no_registry.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_trace_present_for_halt_with_proposal.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_trace_present_for_no_proposal_insufficient_evidence.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/9b7af1ef.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/da854e41.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/a48f57b1.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/6f1ab634.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/201f2d8f.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/2efad221.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/3857da28.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/28b45d4b.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/844b453f.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/5caf4011.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/1c1e2bc9.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/99b8d404.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/e183d74e.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/33db614a.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/70bd11df.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/643cc955.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/7fe12905.json
+packaged data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/bb3481d5.json
+[master 5b7dd09a3] implement jurisdiction runner v0.2 trace ledger hardening
+ 30 files changed, 3214 insertions(+)
+ create mode 100644 data/jurisdiction_runner_v0_2_proposal_ledger_schemas/eee2a318.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/201f2d8f.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/2efad221.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/6f1ab634.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/9b7af1ef.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/a48f57b1.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/da854e41.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_ledger_records_first_unresolved_proposal.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_ledger_suppresses_duplicate_unresolved_proposal.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_receipt_trace_consistency.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_regression_v0_2_non_execution_and_no_registry.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_trace_present_for_halt_with_proposal.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_trace_present_for_no_proposal_insufficient_evidence.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_implementation_receipts/cc24a11f.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/33db614a.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/643cc955.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/70bd11df.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/7fe12905.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/bb3481d5.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/e183d74e.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/1c1e2bc9.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/28b45d4b.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/3857da28.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/5caf4011.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/844b453f.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/99b8d404.json
+ create mode 100644 data/jurisdiction_runner_v0_2_trace_schemas/b4887660.json
+ create mode 100755 scripts/implement_jurisdiction_runner_v0_2_trace_and_proposal_ledger_hardening_with_fixtures_v0.py
+ create mode 100644 src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py
+
+COMMIT_DONE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+NEXT_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+trace_ledger_implementation_receipt_id=cc24a11f
+trace_ledger_implementation_receipt_path=data/jurisdiction_runner_v0_2_trace_ledger_hardening_implementation_receipts/cc24a11f.json
+trace_schema_id=b4887660
+trace_schema_path=data/jurisdiction_runner_v0_2_trace_schemas/b4887660.json
+proposal_ledger_schema_id=eee2a318
+proposal_ledger_schema_path=data/jurisdiction_runner_v0_2_proposal_ledger_schemas/eee2a318.json
+trace_ledger_runner_path=src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py
+{
+  "acceptance_gate_results": {
+    "H0_source_chain_verified": true,
+    "H1_trace_schema_declared": true,
+    "H2_proposal_ledger_schema_declared": true,
+    "H3_trace_hardened_runner_implemented": true,
+    "H4_trace_files_emitted_for_cases": true,
+    "H5_receipts_reference_traces": true,
+    "H6_unresolved_proposal_ledger_artifact_used": true,
+    "H7_v0_2_regression_preserved": true
+  },
+  "aggregate_metrics": {
+    "case_receipt_trace_consistency_fail_count": 0,
+    "duplicate_unresolved_proposal_count": 1,
+    "hardening_case_count": 6,
+    "hardening_case_fail_count": 0,
+    "hardening_case_pass_count": 6,
+    "ledger_artifact_count": 6,
+    "local_regime_mutation_count": 0,
+    "proposal_withheld_count": 3,
+    "registry_write_count": 0,
+    "runtime_proposal_emitted_count": 3,
+    "runtime_proposal_executed_count": 0,
+    "runtime_proposal_promoted_count": 0,
+    "trace_file_count": 6
+  },
+  "artifact_guards": {
+    "ambient_workspace_authority_used": false,
+    "hardening_policy_receipt_tracked": true,
+    "hardening_policy_tracked": true,
+    "latest_or_mtime_selection_used": false,
+    "ledger_schema_path_addressed": true,
+    "outputs_path_addressed": true,
+    "outputs_receipt_referenced": true,
+    "source_local_regime_v1_tracked": true,
+    "source_runner_v0_2_tracked": true,
+    "source_v0_2_implementation_receipt_tracked": true,
+    "trace_ledger_runner_path_addressed": true,
+    "trace_schema_path_addressed": true
+  },
+  "authority_guards": {
+    "case_receipts_emitted": true,
+    "final_schema_claimed": false,
+    "fixtures_created": true,
+    "fixtures_executed": true,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "implementation_receipt_emitted": true,
+    "jurisdiction_runner_v0_1_modified": false,
+    "jurisdiction_runner_v0_2_modified": false,
+    "local_regime_runtime_mutated": false,
+    "local_regime_v1_replaced": false,
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_ledger_artifacts_emitted": true,
+    "proposal_ledger_schema_emitted": true,
+    "proposal_promoted": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "source_chain_verified": true,
+    "trace_files_emitted": true,
+    "trace_ledger_runner_implemented": true,
+    "trace_ledger_runner_path": "src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py",
+    "trace_schema_emitted": true
+  },
+  "case_results": {
+    "LEDGER_RECORDS_FIRST_UNRESOLVED_PROPOSAL": {
+      "case_name": "LEDGER_RECORDS_FIRST_UNRESOLVED_PROPOSAL",
+      "case_receipt_id": "9b7af1ef",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/9b7af1ef.json",
+      "duplicate_unresolved_proposal": false,
+      "fixture_id": "trace_ledger_ledger_records_first_unresolved_proposal",
+      "fixture_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_ledger_records_first_unresolved_proposal.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "ledger_id": "e183d74e",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/e183d74e.json",
+      "no_proposal_reason": null,
+      "proposal_executed": false,
+      "proposal_id": "025c05e3",
+      "proposal_promoted": false,
+      "proposal_receipt_id": "776dcdd7",
+      "proposal_status": "EMITTED_REVIEW_REQUIRED",
+      "trace_id": "3857da28",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/3857da28.json",
+      "trace_receipt_consistent": true
+    },
+    "LEDGER_SUPPRESSES_DUPLICATE_UNRESOLVED_PROPOSAL": {
+      "case_name": "LEDGER_SUPPRESSES_DUPLICATE_UNRESOLVED_PROPOSAL",
+      "case_receipt_id": "da854e41",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/da854e41.json",
+      "duplicate_unresolved_proposal": true,
+      "fixture_id": "trace_ledger_ledger_suppresses_duplicate_unresolved_proposal",
+      "fixture_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_ledger_suppresses_duplicate_unresolved_proposal.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "ledger_id": "33db614a",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/33db614a.json",
+      "no_proposal_reason": "DUPLICATE_UNRESOLVED",
+      "proposal_executed": false,
+      "proposal_id": "025c05e3",
+      "proposal_promoted": false,
+      "proposal_receipt_id": null,
+      "proposal_status": "WITHHELD_DUPLICATE_UNRESOLVED",
+      "trace_id": "28b45d4b",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/28b45d4b.json",
+      "trace_receipt_consistent": true
+    },
+    "RECEIPT_TRACE_CONSISTENCY": {
+      "case_name": "RECEIPT_TRACE_CONSISTENCY",
+      "case_receipt_id": "a48f57b1",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/a48f57b1.json",
+      "duplicate_unresolved_proposal": false,
+      "fixture_id": "trace_ledger_receipt_trace_consistency",
+      "fixture_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_receipt_trace_consistency.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "ledger_id": "70bd11df",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/70bd11df.json",
+      "no_proposal_reason": null,
+      "proposal_executed": false,
+      "proposal_id": "2aafced6",
+      "proposal_promoted": false,
+      "proposal_receipt_id": "3d4a03ad",
+      "proposal_status": "EMITTED_REVIEW_REQUIRED",
+      "trace_id": "844b453f",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/844b453f.json",
+      "trace_receipt_consistent": true
+    },
+    "REGRESSION_V0_2_NON_EXECUTION_AND_NO_REGISTRY": {
+      "case_name": "REGRESSION_V0_2_NON_EXECUTION_AND_NO_REGISTRY",
+      "case_receipt_id": "6f1ab634",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/6f1ab634.json",
+      "duplicate_unresolved_proposal": false,
+      "fixture_id": "trace_ledger_regression_v0_2_non_execution_and_no_registry",
+      "fixture_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_regression_v0_2_non_execution_and_no_registry.json",
+      "gate": "PASS",
+      "halt_code": "STOP_AUTHORITY_VIOLATION",
+      "ledger_id": "643cc955",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/643cc955.json",
+      "no_proposal_reason": "OUT_OF_SCOPE",
+      "proposal_executed": false,
+      "proposal_id": null,
+      "proposal_promoted": false,
+      "proposal_receipt_id": null,
+      "proposal_status": "NONE",
+      "trace_id": "5caf4011",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/5caf4011.json",
+      "trace_receipt_consistent": true
+    },
+    "TRACE_PRESENT_FOR_HALT_WITH_PROPOSAL": {
+      "case_name": "TRACE_PRESENT_FOR_HALT_WITH_PROPOSAL",
+      "case_receipt_id": "201f2d8f",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/201f2d8f.json",
+      "duplicate_unresolved_proposal": false,
+      "fixture_id": "trace_ledger_trace_present_for_halt_with_proposal",
+      "fixture_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_trace_present_for_halt_with_proposal.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "ledger_id": "7fe12905",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/7fe12905.json",
+      "no_proposal_reason": null,
+      "proposal_executed": false,
+      "proposal_id": "bb01a801",
+      "proposal_promoted": false,
+      "proposal_receipt_id": "d04042cd",
+      "proposal_status": "EMITTED_REVIEW_REQUIRED",
+      "trace_id": "1c1e2bc9",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/1c1e2bc9.json",
+      "trace_receipt_consistent": true
+    },
+    "TRACE_PRESENT_FOR_NO_PROPOSAL_INSUFFICIENT_EVIDENCE": {
+      "case_name": "TRACE_PRESENT_FOR_NO_PROPOSAL_INSUFFICIENT_EVIDENCE",
+      "case_receipt_id": "2efad221",
+      "case_receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_case_receipts/2efad221.json",
+      "duplicate_unresolved_proposal": false,
+      "fixture_id": "trace_ledger_trace_present_for_no_proposal_insufficient_evidence",
+      "fixture_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_fixtures/trace_ledger_trace_present_for_no_proposal_insufficient_evidence.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "ledger_id": "bb3481d5",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/bb3481d5.json",
+      "no_proposal_reason": "INSUFFICIENT_EVIDENCE",
+      "proposal_executed": false,
+      "proposal_id": null,
+      "proposal_promoted": false,
+      "proposal_receipt_id": null,
+      "proposal_status": "NONE",
+      "trace_id": "99b8d404",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/99b8d404.json",
+      "trace_receipt_consistent": true
+    }
+  },
+  "gate": "PASS",
+  "ledger_results": {
+    "33db614a": {
+      "case_name": "LEDGER_SUPPRESSES_DUPLICATE_UNRESOLVED_PROPOSAL",
+      "created_by_receipt_id": "da854e41",
+      "ledger_entry_count": 1,
+      "ledger_id": "33db614a",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/33db614a.json"
+    },
+    "643cc955": {
+      "case_name": "REGRESSION_V0_2_NON_EXECUTION_AND_NO_REGISTRY",
+      "created_by_receipt_id": "6f1ab634",
+      "ledger_entry_count": 0,
+      "ledger_id": "643cc955",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/643cc955.json"
+    },
+    "70bd11df": {
+      "case_name": "RECEIPT_TRACE_CONSISTENCY",
+      "created_by_receipt_id": "a48f57b1",
+      "ledger_entry_count": 1,
+      "ledger_id": "70bd11df",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/70bd11df.json"
+    },
+    "7fe12905": {
+      "case_name": "TRACE_PRESENT_FOR_HALT_WITH_PROPOSAL",
+      "created_by_receipt_id": "201f2d8f",
+      "ledger_entry_count": 1,
+      "ledger_id": "7fe12905",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/7fe12905.json"
+    },
+    "bb3481d5": {
+      "case_name": "TRACE_PRESENT_FOR_NO_PROPOSAL_INSUFFICIENT_EVIDENCE",
+      "created_by_receipt_id": "2efad221",
+      "ledger_entry_count": 0,
+      "ledger_id": "bb3481d5",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/bb3481d5.json"
+    },
+    "e183d74e": {
+      "case_name": "LEDGER_RECORDS_FIRST_UNRESOLVED_PROPOSAL",
+      "created_by_receipt_id": "9b7af1ef",
+      "ledger_entry_count": 1,
+      "ledger_id": "e183d74e",
+      "ledger_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_ledgers/e183d74e.json"
+    }
+  },
+  "proposal_ledger_schema_id": "eee2a318",
+  "source_hardening_policy_id": "b98866ad",
+  "source_local_regime_hash": "25802530",
+  "source_local_regime_version": "local_regime.v1",
+  "source_runner_unit_id": "jurisdiction_runner.v0.2",
+  "target_runner_unit_id": "jurisdiction_runner.v0.2.trace_ledger_hardened",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  },
+  "trace_results": {
+    "1c1e2bc9": {
+      "case_name": "TRACE_PRESENT_FOR_HALT_WITH_PROPOSAL",
+      "entry_count": 1,
+      "final_halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "receipt_id": "201f2d8f",
+      "trace_id": "1c1e2bc9",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/1c1e2bc9.json"
+    },
+    "28b45d4b": {
+      "case_name": "LEDGER_SUPPRESSES_DUPLICATE_UNRESOLVED_PROPOSAL",
+      "entry_count": 1,
+      "final_halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "receipt_id": "da854e41",
+      "trace_id": "28b45d4b",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/28b45d4b.json"
+    },
+    "3857da28": {
+      "case_name": "LEDGER_RECORDS_FIRST_UNRESOLVED_PROPOSAL",
+      "entry_count": 1,
+      "final_halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "receipt_id": "9b7af1ef",
+      "trace_id": "3857da28",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/3857da28.json"
+    },
+    "5caf4011": {
+      "case_name": "REGRESSION_V0_2_NON_EXECUTION_AND_NO_REGISTRY",
+      "entry_count": 1,
+      "final_halt_code": "STOP_AUTHORITY_VIOLATION",
+      "receipt_id": "6f1ab634",
+      "trace_id": "5caf4011",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/5caf4011.json"
+    },
+    "844b453f": {
+      "case_name": "RECEIPT_TRACE_CONSISTENCY",
+      "entry_count": 1,
+      "final_halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "receipt_id": "a48f57b1",
+      "trace_id": "844b453f",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/844b453f.json"
+    },
+    "99b8d404": {
+      "case_name": "TRACE_PRESENT_FOR_NO_PROPOSAL_INSUFFICIENT_EVIDENCE",
+      "entry_count": 1,
+      "final_halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "receipt_id": "2efad221",
+      "trace_id": "99b8d404",
+      "trace_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_traces/99b8d404.json"
+    }
+  },
+  "trace_schema_id": "b4887660"
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

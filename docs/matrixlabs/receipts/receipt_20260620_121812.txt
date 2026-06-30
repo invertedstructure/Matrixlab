@@ -1,0 +1,413 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_121812
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_121812.txt
+
+ADD_RADIUS_EXPANSION_BURDEN_POLICY_V0
+
+STATUS_BEFORE
+
+BACKUP
+CLI_SIG=ec121463429a
+BACKUP=/tmp/matrixlab_cli_before_radius_expansion_burden_policy_ec121463429a.py
+
+PATCH_GITIGNORE
+
+PATCH_CLI_RADIUS_EXPANSION_BURDEN_POLICY
+
+PY_COMPILE
+
+HELP_SMOKE
+help smoke ok
+
+BUILD_RADIUS_EXPANSION_BURDEN_POLICY_POSITIVE
+{
+  "allowed": [
+    "use_verified_rollup_for_operator_summary",
+    "use_verified_rollup_for_coarse_profile_delta",
+    "use_verified_rollup_for_burden_watch",
+    "use_verified_rollup_for_radius_decision_support",
+    "build_candidate_decision_artifact",
+    "estimate_candidate_receipt_burden"
+  ],
+  "budget_rules": {
+    "baseline_r100_receipts": 87552,
+    "baseline_radius": 100,
+    "baseline_verified_envelope_receipts": 157752,
+    "budget_meaning": "Future candidate execution must fail closed unless a candidate decision supplies an explicit receipt estimate, runtime/operator budget, and exact radius license.",
+    "hard_stop_receipt_over_radius_ratio": 1.75,
+    "hard_stop_receipt_ratio_vs_r100": 2.0,
+    "hard_stop_total_receipts": 175104,
+    "soft_watch_total_receipts": 100000
+  },
+  "candidate_decision_requirements": [
+    "source_policy_id",
+    "exact_next_radius",
+    "candidate_radius_not_above_125_for_v0",
+    "preflight_receipt_estimate",
+    "preflight_receipt_estimate_method",
+    "hard_stop_total_receipts",
+    "runtime_budget_statement",
+    "operator_budget_statement",
+    "slot_separated_full_trace_commitment",
+    "no_execution_skipping_commitment",
+    "no_receipt_deletion_commitment",
+    "post_run_burden_comparison_commitment",
+    "explicit_terminal_authority"
+  ],
+  "current_state": {
+    "burden_class": "BURDEN_SUPERLINEAR_REQUIRES_GUARD",
+    "current_radius_ceiling": 100,
+    "curve_class": "SHAPE_STABLE_R50_R75_R100",
+    "r100_coarse": 9,
+    "r100_raw": 902,
+    "r100_receipts": 87552,
+    "r50_coarse": 9,
+    "r50_raw": 451,
+    "r50_receipts": 21348,
+    "r50_to_r100_burden_class": "BURDEN_SUPERLINEAR_REQUIRES_GUARD",
+    "r75_coarse": 9,
+    "r75_raw": 676,
+    "r75_receipts": 48852,
+    "r75_to_r100_burden_class": "BURDEN_SUPERLINEAR_WATCH",
+    "radius_expansion_state": "FROZEN_AT_R100",
+    "raw_class": "RAW_APPROX_RADIUS_LINEAR",
+    "total_receipt_rows_in_verified_envelope": 157752
+  },
+  "failures": [],
+  "forbidden": {
+    "R125_execution_by_policy_alone": true,
+    "execution_skipping": true,
+    "gate_semantics_change": true,
+    "hidden_trust_upgrade": true,
+    "ontology_expansion": true,
+    "raw_replay_replacement": true,
+    "receipt_deletion": true,
+    "representative_subset": true,
+    "run_semantics_change": true,
+    "theorem_layer": true
+  },
+  "gate": "PASS",
+  "known_limits": [
+    "policy is conservative because R50_to_R100 burden is guard-level",
+    "policy licenses candidate-decision construction only",
+    "policy does not license radius execution",
+    "future radius requires separate exact-radius decision"
+  ],
+  "non_claims": [
+    "does_not_solve_global_scalability",
+    "does_not_reduce_execution_cost",
+    "does_not_reduce_raw_receipt_generation",
+    "does_not_authorize_R125",
+    "does_not_create_theorem_content",
+    "does_not_replace_raw_replay"
+  ],
+  "policy_kind": "POST_R100_RADIUS_EXPANSION_BURDEN_POLICY",
+  "policy_rules": {
+    "candidate_operator_budget_required": true,
+    "candidate_preflight_estimate_required": true,
+    "candidate_runtime_budget_required": true,
+    "default_candidate_radius": 125,
+    "future_radius_decision_schema": "radius_expansion_candidate_decision_v0",
+    "future_radius_requires_exact_decision_artifact": true,
+    "max_candidate_radius_v0": 125,
+    "max_radius_increment_v0": 25,
+    "policy_authorizes_R125": false,
+    "policy_authorizes_execution": false,
+    "post_run_burden_comparison_required": true,
+    "raw_receipts_required": true,
+    "slot_separated_full_trace_required": true,
+    "verified_rollup_required_before_future_decision": true
+  },
+  "policy_scope": "RADIUS_EXPANSION_BURDEN_POLICY::49a22583",
+  "radius_expansion_burden_policy_id": "534f967f",
+  "radius_expansion_burden_policy_schema_version": "radius_expansion_burden_policy_v0",
+  "radius_expansion_burden_policy_sig8": "534f967f",
+  "source_r100_scale_decision": {
+    "decision": "FREEZE_RADIUS_AT_R100_AND_BUILD_BURDEN_POLICY",
+    "gate": "PASS",
+    "id": "49a22583",
+    "path": "data/r100_scale_decisions/49a22583.json",
+    "recomputed_sig": "49a22583",
+    "stored_sig": "49a22583"
+  },
+  "source_verified_r100_burden_rollup": {
+    "gate": "PASS",
+    "id": "279d289c",
+    "path": "data/verified_burden_rollups/279d289c.json",
+    "recomputed_sig": "279d289c",
+    "stored_sig": "279d289c",
+    "trust_label": "RAW_FULL_WITH_VERIFIED_ROLLUP"
+  },
+  "stop_rules": [
+    "STOP_IF_NO_EXACT_NEXT_RADIUS",
+    "STOP_IF_NO_CANDIDATE_DECISION_ARTIFACT",
+    "STOP_IF_NO_PREFLIGHT_RECEIPT_ESTIMATE",
+    "STOP_IF_ESTIMATED_TOTAL_RECEIPTS_GT_HARD_STOP_TOTAL_RECEIPTS",
+    "STOP_IF_ESTIMATED_RECEIPT_RATIO_GT_HARD_STOP_RATIO_VS_R100",
+    "STOP_IF_ESTIMATED_RECEIPT_OVER_RADIUS_RATIO_GT_POLICY_LIMIT",
+    "STOP_IF_NO_RUNTIME_BUDGET",
+    "STOP_IF_NO_OPERATOR_BUDGET",
+    "STOP_IF_NOT_SLOT_SEPARATED_FULL_TRACE",
+    "STOP_IF_ANY_EXECUTION_SKIPPING",
+    "STOP_IF_ANY_RECEIPT_DELETION",
+    "STOP_IF_ANY_REPRESENTATIVE_SUBSET",
+    "STOP_IF_NO_POST_RUN_BURDEN_COMPARISON"
+  ],
+  "terminal": {
+    "next_command_goal": "BUILD_RADIUS_EXPANSION_CANDIDATE_DECISION_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [],
+  "watch_rules": [
+    "WATCH_IF_ESTIMATED_TOTAL_RECEIPTS_GT_SOFT_WATCH_TOTAL_RECEIPTS",
+    "WATCH_IF_ESTIMATED_RECEIPT_RATIO_GT_RADIUS_RATIO",
+    "WATCH_IF_RUNTIME_EXCEEDS_R100_SLOT_RUNTIME_ENVELOPE",
+    "WATCH_IF_ROLLUP_REDUCES_READING_BUT_NOT_EXECUTION_BURDEN"
+  ]
+}
+radius_expansion_burden_policy_path: data/radius_expansion_burden_policies/534f967f.json
+POLICY_ID=534f967f
+
+VERIFY_RADIUS_EXPANSION_BURDEN_POLICY_POSITIVE
+{
+  "current_radius_ceiling": 100,
+  "failures": [],
+  "gate": "PASS",
+  "input_policy": "534f967f",
+  "policy_authorizes_R125": false,
+  "policy_authorizes_execution": false,
+  "radius_expansion_burden_policy_id": "534f967f",
+  "radius_expansion_burden_policy_path": "data/radius_expansion_burden_policies/534f967f.json",
+  "radius_expansion_burden_policy_recomputed_sig8": "534f967f",
+  "radius_expansion_burden_policy_sig8": "534f967f",
+  "radius_expansion_burden_policy_verification_id": "e6e258fe",
+  "radius_expansion_burden_policy_verification_schema_version": "radius_expansion_burden_policy_verification_v0",
+  "radius_expansion_burden_policy_verification_sig8": "e6e258fe",
+  "source_r100_scale_decision_id": "49a22583",
+  "terminal": {
+    "next_command_goal": "BUILD_RADIUS_EXPANSION_CANDIDATE_DECISION_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "verification_result": {
+    "failures": [],
+    "gate": "PASS",
+    "warnings": []
+  },
+  "warnings": []
+}
+radius_expansion_burden_policy_verification_path: data/radius_expansion_burden_policy_verifications/e6e258fe.json
+
+ASSERT_RADIUS_EXPANSION_BURDEN_POLICY_POSITIVE
+{
+  "candidate_operator_budget_required": true,
+  "candidate_preflight_estimate_required": true,
+  "candidate_runtime_budget_required": true,
+  "current_radius_ceiling": 100,
+  "default_candidate_radius": 125,
+  "gate": "PASS",
+  "hard_stop_receipt_over_radius_ratio": 1.75,
+  "hard_stop_receipt_ratio_vs_r100": 2.0,
+  "hard_stop_total_receipts": 175104,
+  "max_candidate_radius_v0": 125,
+  "policy_authorizes_R125": false,
+  "policy_authorizes_execution": false,
+  "r100_receipts": 87552,
+  "r50_to_r100_burden_class": "BURDEN_SUPERLINEAR_REQUIRES_GUARD",
+  "radius_expansion_burden_policy_id": "534f967f",
+  "radius_expansion_state": "FROZEN_AT_R100",
+  "recomputed_sig": "534f967f",
+  "sig_matches": true,
+  "source_r100_scale_decision_id": "49a22583",
+  "source_verified_r100_burden_rollup_id": "279d289c",
+  "stored_sig": "534f967f",
+  "terminal": {
+    "next_command_goal": "BUILD_RADIUS_EXPANSION_CANDIDATE_DECISION_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+positive policy verify core ok
+
+NEGATIVE_CONTROLS_FOR_POLICY_CORE
+{
+  "case": "execution_authority_fails",
+  "expected_fragment": "policy_illegally_authorizes_execution",
+  "failures": [
+    "policy_illegally_authorizes_execution"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "r125_authority_fails",
+  "expected_fragment": "policy_illegally_authorizes_R125",
+  "failures": [
+    "policy_illegally_authorizes_R125"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "missing_exact_decision_fails",
+  "expected_fragment": "exact_decision_artifact_not_required",
+  "failures": [
+    "exact_decision_artifact_not_required"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "missing_preflight_estimate_fails",
+  "expected_fragment": "preflight_estimate_not_required",
+  "failures": [
+    "preflight_estimate_not_required"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "bad_budget_fails",
+  "expected_fragment": "hard_stop_total_below_baseline",
+  "failures": [
+    "hard_stop_total_below_baseline"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "receipt_deletion_clause_fails",
+  "expected_fragment": "forbidden_clause_missing:receipt_deletion",
+  "failures": [
+    "forbidden_clause_missing:receipt_deletion"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "candidate_requirement_fails",
+  "expected_fragment": "candidate_requirement_missing:explicit_terminal_authority",
+  "failures": [
+    "candidate_requirement_missing:explicit_terminal_authority"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+NEGATIVE_CONTROL_MISSING_R100_DECISION_BUILD
+{
+  "failures": [
+    "radius_expansion_burden_policy_build_failed:could not resolve 'definitely_missing_r100_decision' under data/r100_scale_decisions"
+  ],
+  "gate": "FAIL",
+  "policy_kind": "POST_R100_RADIUS_EXPANSION_BURDEN_POLICY",
+  "radius_expansion_burden_policy_id": "41f7395f",
+  "radius_expansion_burden_policy_schema_version": "radius_expansion_burden_policy_v0",
+  "radius_expansion_burden_policy_sig8": "41f7395f",
+  "source_r100_scale_decision": {
+    "id": "definitely_missing_r100_decision"
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_RADIUS_EXPANSION_BURDEN_POLICY_FAIL",
+    "type": "STOP"
+  },
+  "warnings": []
+}
+radius_expansion_burden_policy_path: data/radius_expansion_burden_policies/41f7395f.json
+
+ASSERT_NEGATIVE_MISSING_R100_DECISION_BUILD
+{
+  "failures": [
+    "radius_expansion_burden_policy_build_failed:could not resolve 'definitely_missing_r100_decision' under data/r100_scale_decisions"
+  ],
+  "gate": "FAIL",
+  "path": "data/radius_expansion_burden_policies/41f7395f.json",
+  "radius_expansion_burden_policy_id": "41f7395f",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_RADIUS_EXPANSION_BURDEN_POLICY_FAIL",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROL_MISSING_POLICY_VERIFY
+{
+  "current_radius_ceiling": null,
+  "failures": [
+    "radius_expansion_burden_policy_unresolved:definitely_missing_policy:could not resolve 'definitely_missing_policy' under data/radius_expansion_burden_policies"
+  ],
+  "gate": "FAIL",
+  "input_policy": "definitely_missing_policy",
+  "policy_authorizes_R125": null,
+  "policy_authorizes_execution": null,
+  "radius_expansion_burden_policy_id": "definitely_missing_policy",
+  "radius_expansion_burden_policy_path": null,
+  "radius_expansion_burden_policy_recomputed_sig8": null,
+  "radius_expansion_burden_policy_sig8": null,
+  "radius_expansion_burden_policy_verification_id": "28c34e73",
+  "radius_expansion_burden_policy_verification_schema_version": "radius_expansion_burden_policy_verification_v0",
+  "radius_expansion_burden_policy_verification_sig8": "28c34e73",
+  "source_r100_scale_decision_id": null,
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_GATE_FAIL",
+    "type": "STOP"
+  },
+  "verification_result": {
+    "failures": [
+      "radius_expansion_burden_policy_unresolved:definitely_missing_policy:could not resolve 'definitely_missing_policy' under data/radius_expansion_burden_policies"
+    ],
+    "gate": "FAIL",
+    "warnings": []
+  },
+  "warnings": []
+}
+radius_expansion_burden_policy_verification_path: data/radius_expansion_burden_policy_verifications/28c34e73.json
+
+ASSERT_NEGATIVE_VERIFY
+{
+  "failures": [
+    "radius_expansion_burden_policy_unresolved:definitely_missing_policy:could not resolve 'definitely_missing_policy' under data/radius_expansion_burden_policies"
+  ],
+  "gate": "FAIL",
+  "path": "data/radius_expansion_burden_policy_verifications/28c34e73.json",
+  "radius_expansion_burden_policy_verification_id": "28c34e73",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_GATE_FAIL",
+    "type": "STOP"
+  }
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_053951_296201
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    98 │
+│ total_receipts │  9800 │
+│ receipt_rows   │  9800 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    98 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore           |   6 +
+ src/matrixlab/cli.py | 461 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 467 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+ M src/matrixlab/cli.py
+[master 2b55a2837] add radius expansion burden policy
+ 2 files changed, 467 insertions(+)
+
+COMMIT_DONE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

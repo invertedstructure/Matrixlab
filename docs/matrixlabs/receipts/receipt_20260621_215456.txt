@@ -1,0 +1,260 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_215456
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_215456.txt
+
+RUN_RAW_DELTA_SIGNATURE_CANDIDATE_APPROVED_NEW_BOUNDED_SURFACE_PROBE_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_APPROVED_NEW_SURFACE_PROBE_RUNNER
+
+PY_COMPILE_PROBE_RUNNER
+
+RUN_APPROVED_NEW_SURFACE_PROBE
+{
+  "authority_guards": {
+    "ambient_workspace_inference_used": false,
+    "audit_or_debug_payload_in_signature_payload": false,
+    "candidate_accepted": false,
+    "candidate_rows_created": false,
+    "case_id_or_cycle_n_identity_patch_used": false,
+    "full_occurrence_key_in_signature_payload": false,
+    "full_registry_scan_used": false,
+    "latest_or_mtime_selection_used": false,
+    "microhash_as_proof_used": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_written": false,
+    "rowid_or_receipt_hash_truth_surface_used": false,
+    "runner_executed": false,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "runtime_semantic_changed": false,
+    "scale_mode_authorized": false,
+    "synthetic_fake_validation_rows_used": false,
+    "transition_compression_probe_run": true
+  },
+  "burden_ratio_candidate_payload_to_source_rows": 0.20409546821492516,
+  "burden_ratio_payload_to_source_rows": 0.15107688563630992,
+  "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+  "candidate_signature_payload_bytes": 117410,
+  "collision_count": 0,
+  "created_at": "2026-06-21T20:54:56.810238+00:00",
+  "distinct_candidate_delta_signatures": 500,
+  "distinct_full_occurrence_keys": 500,
+  "failures": [],
+  "false_merge_count": 0,
+  "false_split_count": 0,
+  "gate": "PASS",
+  "pass_conditions": {
+    "authority_guards_clean": true,
+    "candidate_signatures_equal_rows": true,
+    "collision_count_zero": true,
+    "false_merge_count_zero": true,
+    "false_split_count_zero": true,
+    "full_occurrence_keys_equal_rows": true,
+    "payload_schema_valid": true,
+    "policy_valid": true,
+    "retention_equal_1": true,
+    "rows_equal_500": true,
+    "source_valid": true
+  },
+  "policy_id": "a4e4d744",
+  "policy_receipt_id": "9061c1fb",
+  "probe_id": "87b4a010",
+  "probe_name": "RAW_DELTA_SIGNATURE_CANDIDATE_APPROVED_NEW_BOUNDED_SURFACE_PROBE_V0",
+  "receipt_id": "812ae591",
+  "receipt_sig8": "812ae591",
+  "receipt_type": "APPROVED_NEW_BOUNDED_SURFACE_PROBE_RECEIPT",
+  "retention": 1.0,
+  "rows_total": 500,
+  "schema_version": "raw_delta_signature_candidate_approved_new_bounded_surface_probe_receipt_v0",
+  "signature_payload_bytes": 86910,
+  "source_rows_bytes": 575270,
+  "source_run_id": "run_20260621_183812_136149",
+  "source_surface_id": "4427ba4b",
+  "source_surface_receipt_id": "e5022cd2",
+  "terminal": {
+    "next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_APPROVED_NEW_BOUNDED_SURFACE_REVIEW_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_class": "PASS_APPROVED_NEW_BOUNDED_SURFACE_PROBE",
+  "warnings": []
+}
+probe_id=87b4a010
+probe_receipt_id=812ae591
+probe_path=data/raw_delta_signature_candidate_approved_new_bounded_surface_probe_results/87b4a010.json
+probe_receipt_path=data/raw_delta_signature_candidate_approved_new_bounded_surface_probe_receipts/87b4a010.json
+PROBE_ID=87b4a010
+PROBE_RECEIPT_ID=812ae591
+
+ASSERT_APPROVED_NEW_SURFACE_PROBE_PASS
+{
+  "authority_guards": {
+    "ambient_workspace_inference_used": false,
+    "audit_or_debug_payload_in_signature_payload": false,
+    "candidate_accepted": false,
+    "candidate_rows_created": false,
+    "case_id_or_cycle_n_identity_patch_used": false,
+    "full_occurrence_key_in_signature_payload": false,
+    "full_registry_scan_used": false,
+    "latest_or_mtime_selection_used": false,
+    "microhash_as_proof_used": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_written": false,
+    "rowid_or_receipt_hash_truth_surface_used": false,
+    "runner_executed": false,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "runtime_semantic_changed": false,
+    "scale_mode_authorized": false,
+    "synthetic_fake_validation_rows_used": false,
+    "transition_compression_probe_run": true
+  },
+  "burden_ratio_candidate_payload_to_source_rows": 0.20409546821492516,
+  "burden_ratio_payload_to_source_rows": 0.15107688563630992,
+  "candidate_signature_payload_bytes": 117410,
+  "collision_count": 0,
+  "distinct_candidate_delta_signatures": 500,
+  "distinct_full_occurrence_keys": 500,
+  "false_merge_count": 0,
+  "false_split_count": 0,
+  "gate": "PASS",
+  "probe_id": "87b4a010",
+  "receipt_id": "812ae591",
+  "retention": 1.0,
+  "rows_total": 500,
+  "signature_payload_bytes": 86910,
+  "source_rows_bytes": 575270,
+  "terminal": {
+    "next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_APPROVED_NEW_BOUNDED_SURFACE_REVIEW_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_class": "PASS_APPROVED_NEW_BOUNDED_SURFACE_PROBE"
+}
+
+NEGATIVE_CONTROLS_PROBE_RUNNER_NON_WRITING
+{
+  "case": "policy_gate_fail",
+  "expected": "policy_gate_not_PASS",
+  "failures": [
+    "policy_gate_not_PASS:FAIL"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "policy_status_fail",
+  "expected": "policy_status_wrong",
+  "failures": [
+    "policy_status_wrong:EXECUTED"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "candidate_acceptance_forbidden_fail",
+  "expected": "forbidden_operation_not_true:candidate_acceptance",
+  "failures": [
+    "forbidden_operation_not_true:candidate_acceptance:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "payload_contract_fail",
+  "expected": "required_payload_fields_wrong",
+  "failures": [
+    "required_payload_fields_wrong:['cv', 'state_hash_before', 'move_id', 'state_hash_after', 'raw_compression_ratio_sig6', 'case_id']"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "policy_receipt_registry_guard_fail",
+  "expected": "policy_receipt_authority_guard_not_false:registry_sqlite_read",
+  "failures": [
+    "policy_receipt_authority_guard_not_false:registry_sqlite_read:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "after": {
+    "receipt": "5adc1607e63b3bb8c9acdf2192fd7c92b2e08290f88b4ff8a145e9dd4b6a47d2",
+    "result": "18c21f83ac3994d02479f8871b33f9750dc578e4ef1159125185ce6016c0530b"
+  },
+  "before": {
+    "receipt": "5adc1607e63b3bb8c9acdf2192fd7c92b2e08290f88b4ff8a145e9dd4b6a47d2",
+    "result": "18c21f83ac3994d02479f8871b33f9750dc578e4ef1159125185ce6016c0530b"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+PROBE_HEAD_JSON
+{
+  "burden_ratio_candidate_payload_to_source_rows": 0.20409546821492516,
+  "burden_ratio_payload_to_source_rows": 0.15107688563630992,
+  "collision_count": 0,
+  "distinct_candidate_delta_signatures": 500,
+  "distinct_full_occurrence_keys": 500,
+  "false_merge_count": 0,
+  "false_split_count": 0,
+  "gate": "PASS",
+  "probe_id": "87b4a010",
+  "receipt_id": "812ae591",
+  "retention": 1.0,
+  "rows_total": 500,
+  "terminal": {
+    "next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_APPROVED_NEW_BOUNDED_SURFACE_REVIEW_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_class": "PASS_APPROVED_NEW_BOUNDED_SURFACE_PROBE"
+}
+
+VERIFY_RUNTIME_AND_PRIOR_PROBES_UNTOUCHED
+.gitignore
+runtime/prior probes untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/run_raw_delta_signature_candidate_approved_new_bounded_surface_probe_v0.py
+[master 700bb9458] run approved new bounded surface probe
+ 2 files changed, 649 insertions(+)
+ create mode 100755 scripts/run_raw_delta_signature_candidate_approved_new_bounded_surface_probe_v0.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

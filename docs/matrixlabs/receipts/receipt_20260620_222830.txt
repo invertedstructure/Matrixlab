@@ -1,0 +1,383 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_222830
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_222830.txt
+
+REPAIR_FRONTIER_DEPTH_REVERT_AFTER_COMPARISON_CYCLE_GUARD_V0
+
+STATUS_BEFORE
+ M .gitignore
+?? data/
+?? scripts/compare_frontier_depth_revert_after_profile.py
+
+VERIFY_FAILURE_CLASS
+{
+  "comparison_id": "43b40c7a",
+  "cycle_period_compression_field_present": true,
+  "failures": [
+    "cycle_period_semantics_guard_missing",
+    "cycle_period_receipt_guard_missing"
+  ],
+  "frontier_depth_probe_field_absent": true,
+  "gate": "FAIL",
+  "revert_metric_classification": "REVERT_DEPTH_ELAPSED_NON_WORSE_VS_REJECTED_PATCH",
+  "target_delta": {
+    "after_revert_delta_vs_bad_after_ms": -204,
+    "after_revert_delta_vs_pre_frontier_ms": 26,
+    "after_revert_elapsed_ms": 4215,
+    "after_revert_ratio_vs_bad_after": 0.953836,
+    "after_revert_ratio_vs_pre_frontier": 1.006207,
+    "after_revert_receipts_per_sec": 81.850534,
+    "bad_after_elapsed_ms": 4419,
+    "pre_frontier_elapsed_ms": 4189
+  }
+}
+
+PATCH_COMPARISON_SCRIPT_CYCLE_GUARD
+patched stale cycle guard names
+
+PY_COMPILE
+
+RERUN_FRONTIER_DEPTH_REVERT_AFTER_COMPARISON
+{
+  "after_revert_profile_id": "b6609f93",
+  "bad_after_profile_id": "26966e56",
+  "comparison_id": "a1bd75a8",
+  "comparison_path": "data/frontier_depth_probe_revert_after_comparisons/a1bd75a8.json",
+  "comparison_sig8": "a1bd75a8",
+  "created_at": "2026-06-20T21:28:31.114315+00:00",
+  "cycle_period_compression_field_present": true,
+  "failures": [],
+  "frontier_depth_probe_field_absent": true,
+  "gate": "PASS",
+  "pre_frontier_profile_id": "45cd7660",
+  "receipt_id": "3f51594a",
+  "receipt_sig8": "3f51594a",
+  "revert_metric_classification": "REVERT_DEPTH_ELAPSED_NON_WORSE_VS_REJECTED_PATCH",
+  "schema_version": "frontier_depth_probe_revert_after_comparison_receipt_v0",
+  "source_decision_id": "22d0002e",
+  "source_plan_id": "ce040a69",
+  "source_revert_application_id": "b3471a41",
+  "target_burden_class": "BURDEN_DEPTH_SCAN",
+  "target_delta": {
+    "after_revert_delta_vs_bad_after_ms": -204,
+    "after_revert_delta_vs_pre_frontier_ms": 26,
+    "after_revert_elapsed_ms": 4215,
+    "after_revert_ratio_vs_bad_after": 0.953836,
+    "after_revert_ratio_vs_pre_frontier": 1.006207,
+    "after_revert_receipts_per_sec": 81.850534,
+    "bad_after_elapsed_ms": 4419,
+    "pre_frontier_elapsed_ms": 4189
+  },
+  "target_depth_slots_preserved": true,
+  "target_receipts_preserved": true,
+  "target_rows_preserved": true,
+  "terminal": {
+    "next_command_goal": "DECIDE_AFTER_FRONTIER_DEPTH_REVERT_NEXT_BURDEN_CLASS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+comparison_json_path=data/frontier_depth_probe_revert_after_comparisons/a1bd75a8.json
+comparison_receipt_path=data/frontier_depth_probe_revert_after_comparison_receipts/a1bd75a8.json
+REVERT_COMPARISON_ID=a1bd75a8
+
+ASSERT_REPAIRED_REVERT_AFTER_COMPARISON
+{
+  "after_revert_profile_id": "b6609f93",
+  "authorization": {
+    "authorizes_data_artifact_deletion": false,
+    "authorizes_depth_range_change": false,
+    "authorizes_halt_law_gate_run_semantics_change": false,
+    "authorizes_more_frontier_depth_patching": false,
+    "authorizes_next_burden_decision": true,
+    "authorizes_next_burden_policy": false,
+    "authorizes_observability_freeze": false,
+    "authorizes_radius_expansion": false,
+    "authorizes_reapplying_frontier_depth_patch": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_reopening_accepted_burden_classes": false
+  },
+  "bad_after_profile_id": "26966e56",
+  "comparison_id": "a1bd75a8",
+  "comparison_sig8": "a1bd75a8",
+  "failures": [],
+  "gate": "PASS",
+  "gate_rules": {
+    "after_revert_family_coverage_A_E_preserved": true,
+    "after_revert_profile_gate_pass": true,
+    "after_revert_profile_receipt_total_preserved": true,
+    "after_revert_receipt_totals_match_registry": true,
+    "after_revert_same_row_count": true,
+    "cycle_period_compression_field_present": true,
+    "cycle_period_observation_preserved": true,
+    "frontier_depth_probe_field_absent": true,
+    "no_execution_skipping": true,
+    "no_gate_semantics_changed": true,
+    "no_law_semantics_changed": true,
+    "no_receipt_compression": true,
+    "no_receipt_deletion": true,
+    "no_runner_semantics_changed": true,
+    "passive_observability_layer_preserved": true,
+    "revert_application_gate_pass": true,
+    "target_depth_slots_preserved": true,
+    "target_receipts_preserved": true,
+    "target_row_keys_match_pre_frontier": true,
+    "target_rows_preserved": true
+  },
+  "pre_frontier_profile_id": "45cd7660",
+  "profile_surface": {
+    "after_revert_db_receipt_delta": 1457,
+    "after_revert_families_seen": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "after_revert_gate": "MICRO_BURDEN_PROFILE_PASS",
+    "after_revert_profile_receipts_total": 1457,
+    "after_revert_rows": 25,
+    "cycle_period_certificate_kind": "cycle_period_observation_certificate",
+    "cycle_period_compression_field_present": true,
+    "cycle_period_status": "APPLIED_POST_EXECUTION_METADATA_ONLY",
+    "frontier_depth_probe_field_absent": true
+  },
+  "receipt_gate": "PASS",
+  "receipt_id": "3f51594a",
+  "revert_metric_classification": "REVERT_DEPTH_ELAPSED_NON_WORSE_VS_REJECTED_PATCH",
+  "source_decision_id": "22d0002e",
+  "source_plan_id": "ce040a69",
+  "source_revert_application_id": "b3471a41",
+  "target_after_revert": {
+    "elapsed_ms": 4215,
+    "receipts": 345,
+    "receipts_per_sec": 81.850534,
+    "rows": 5,
+    "slots": [
+      "MICRO_03_DEPTH_PRESSURE_A",
+      "MICRO_03_DEPTH_PRESSURE_B",
+      "MICRO_03_DEPTH_PRESSURE_C",
+      "MICRO_03_DEPTH_PRESSURE_D",
+      "MICRO_03_DEPTH_PRESSURE_E"
+    ]
+  },
+  "target_burden_class": "BURDEN_DEPTH_SCAN",
+  "target_delta": {
+    "after_revert_delta_vs_bad_after_ms": -204,
+    "after_revert_delta_vs_pre_frontier_ms": 26,
+    "after_revert_elapsed_ms": 4215,
+    "after_revert_ratio_vs_bad_after": 0.953836,
+    "after_revert_ratio_vs_pre_frontier": 1.006207,
+    "after_revert_receipts_per_sec": 81.850534,
+    "bad_after_elapsed_ms": 4419,
+    "pre_frontier_elapsed_ms": 4189
+  },
+  "terminal": {
+    "next_command_goal": "DECIDE_AFTER_FRONTIER_DEPTH_REVERT_NEXT_BURDEN_CLASS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+
+NEGATIVE_CONTROLS_REVERT_AFTER_COMPARISON_REPAIR
+{
+  "case": "frontier_field_present_fail",
+  "expected": "frontier_depth_probe_field_still_present_after_revert",
+  "failures": [
+    "frontier_depth_probe_field_still_present_after_revert"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "cycle_missing_fail",
+  "expected": "cycle_period_compression_missing_after_revert",
+  "failures": [
+    "cycle_period_compression_missing_after_revert",
+    "cycle_period_status_wrong:None",
+    "cycle_period_certificate_kind_wrong:None",
+    "cycle_period_certificate_scope_wrong:None",
+    "cycle_period_semantics_guard_missing",
+    "cycle_period_receipt_guard_missing"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "cycle_semantics_guard_fail",
+  "expected": "cycle_period_semantics_guard_missing",
+  "failures": [
+    "cycle_period_semantics_guard_missing"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "cycle_receipt_guard_fail",
+  "expected": "cycle_period_receipt_guard_missing",
+  "failures": [
+    "cycle_period_receipt_guard_missing"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "profile_total_fail",
+  "expected": "after_revert_profile_total_not_1457",
+  "failures": [
+    "after_revert_profile_total_not_1457:1458",
+    "after_revert_receipt_total_mismatch_registry"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "revert_app_deleted_receipts_fail",
+  "expected": "revert_app_deleted_receipts",
+  "failures": [
+    "revert_app_deleted_receipts"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "revert_app_radius_semantics_fail",
+  "expected": "revert_app_semantics_not_preserved:radius_expansion",
+  "failures": [
+    "revert_app_semantics_not_preserved:radius_expansion:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "plan_next_burden_authority_fail",
+  "expected": "plan_illegally_authorizes_next_burden",
+  "failures": [
+    "plan_illegally_authorizes_next_burden"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+REVERT_COMPARISON_HEAD_JSON
+{
+  "after_revert_profile_id": "b6609f93",
+  "authorization": {
+    "authorizes_data_artifact_deletion": false,
+    "authorizes_depth_range_change": false,
+    "authorizes_halt_law_gate_run_semantics_change": false,
+    "authorizes_more_frontier_depth_patching": false,
+    "authorizes_next_burden_decision": true,
+    "authorizes_next_burden_policy": false,
+    "authorizes_observability_freeze": false,
+    "authorizes_radius_expansion": false,
+    "authorizes_reapplying_frontier_depth_patch": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_reopening_accepted_burden_classes": false
+  },
+  "bad_after_profile_id": "26966e56",
+  "comparison_id": "a1bd75a8",
+  "gate": "PASS",
+  "gate_rules": {
+    "after_revert_family_coverage_A_E_preserved": true,
+    "after_revert_profile_gate_pass": true,
+    "after_revert_profile_receipt_total_preserved": true,
+    "after_revert_receipt_totals_match_registry": true,
+    "after_revert_same_row_count": true,
+    "cycle_period_compression_field_present": true,
+    "cycle_period_observation_preserved": true,
+    "frontier_depth_probe_field_absent": true,
+    "no_execution_skipping": true,
+    "no_gate_semantics_changed": true,
+    "no_law_semantics_changed": true,
+    "no_receipt_compression": true,
+    "no_receipt_deletion": true,
+    "no_runner_semantics_changed": true,
+    "passive_observability_layer_preserved": true,
+    "revert_application_gate_pass": true,
+    "target_depth_slots_preserved": true,
+    "target_receipts_preserved": true,
+    "target_row_keys_match_pre_frontier": true,
+    "target_rows_preserved": true
+  },
+  "pre_frontier_profile_id": "45cd7660",
+  "profile_surface": {
+    "after_revert_db_receipt_delta": 1457,
+    "after_revert_families_seen": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "after_revert_gate": "MICRO_BURDEN_PROFILE_PASS",
+    "after_revert_profile_receipts_total": 1457,
+    "after_revert_rows": 25,
+    "cycle_period_certificate_kind": "cycle_period_observation_certificate",
+    "cycle_period_compression_field_present": true,
+    "cycle_period_status": "APPLIED_POST_EXECUTION_METADATA_ONLY",
+    "frontier_depth_probe_field_absent": true
+  },
+  "revert_metric_classification": "REVERT_DEPTH_ELAPSED_NON_WORSE_VS_REJECTED_PATCH",
+  "source_decision_id": "22d0002e",
+  "source_plan_id": "ce040a69",
+  "source_revert_application_id": "b3471a41",
+  "target_burden_class": "BURDEN_DEPTH_SCAN",
+  "target_delta": {
+    "after_revert_delta_vs_bad_after_ms": -204,
+    "after_revert_delta_vs_pre_frontier_ms": 26,
+    "after_revert_elapsed_ms": 4215,
+    "after_revert_ratio_vs_bad_after": 0.953836,
+    "after_revert_ratio_vs_pre_frontier": 1.006207,
+    "after_revert_receipts_per_sec": 81.850534,
+    "bad_after_elapsed_ms": 4419,
+    "pre_frontier_elapsed_ms": 4189
+  },
+  "terminal": {
+    "next_command_goal": "DECIDE_AFTER_FRONTIER_DEPTH_REVERT_NEXT_BURDEN_CLASS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_212701_361810
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/compare_frontier_depth_revert_after_profile.py
+[master 52a39f154] repair frontier depth revert after comparison
+ 2 files changed, 453 insertions(+)
+ create mode 100755 scripts/compare_frontier_depth_revert_after_profile.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

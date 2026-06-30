@@ -1,0 +1,525 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_000252
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_000252.txt
+
+IMPLEMENT_CANONICAL_TRANSITION_SURFACE_PROBE_V0
+
+STATUS_BEFORE
+?? data/
+
+WRITE_CANONICAL_TRANSITION_SURFACE_PROBE
+
+PY_COMPILE
+
+RUN_CANONICAL_TRANSITION_SURFACE_PROBE
+{
+  "authority_guards": {
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "registry_sqlite_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_band_run_authorized": false,
+    "scale_mode_authorized": false,
+    "stable_delta_candidate_acceptance_authorized": false
+  },
+  "failures": [],
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "negative_claims": {
+    "does_not_accept_stable_delta_candidate": true,
+    "does_not_authorize_scale_mode": true,
+    "does_not_change_runtime_receipt_emission": true,
+    "does_not_create_compression_candidate": true,
+    "does_not_run_scale_bands": true,
+    "does_not_use_raw_receipt_hash_as_truth_surface": true,
+    "does_not_use_rowid_as_transition_identity": true,
+    "does_not_write_registry_sqlite": true
+  },
+  "pass_gates": {
+    "authority_containment": true,
+    "no_compression_candidate_created": true,
+    "no_scale_bands": true,
+    "occurrence_anchoring": true,
+    "raw_hash_not_used_as_truth_surface": true,
+    "rowid_not_used_as_transition_identity": true,
+    "source_surface_honesty": true,
+    "transition_surface_completeness": false,
+    "within_case_discriminator": false
+  },
+  "probe_id": "ebbd990f",
+  "receipt_id": "ff10010f",
+  "registry_surface": {
+    "max_receipts": null,
+    "max_runs": 1,
+    "payload_json_rows": 0,
+    "receipt_columns": [
+      "run_id",
+      "case_id",
+      "family",
+      "depth",
+      "cycle_n",
+      "move_id",
+      "registered_moves_total",
+      "moves_reused",
+      "new_move_required",
+      "rows",
+      "cols",
+      "cells",
+      "rank_before",
+      "rank_after",
+      "compression_ratio",
+      "trajectory_signature",
+      "halt_reason",
+      "state_sig8_before",
+      "state_sig8_after",
+      "receipt_path",
+      "move_profile_id",
+      "row_delta",
+      "col_delta",
+      "rank_delta",
+      "support_delta",
+      "distinct_column_types_before",
+      "distinct_column_types_after",
+      "new_column_types_added",
+      "law_id",
+      "law_ok",
+      "law_fail_reason"
+    ],
+    "receipt_rows_inspected": 176,
+    "registry_path": "data/runs/registry.sqlite",
+    "registry_sha256_after": "443ef0e5041c84d8dc723ad45ec6a3f63e303df99f1c19765a49597ece1899d7",
+    "registry_sha256_before": "443ef0e5041c84d8dc723ad45ec6a3f63e303df99f1c19765a49597ece1899d7",
+    "registry_sqlite_changed": false,
+    "runs_columns": [
+      "run_id",
+      "created_utc",
+      "status",
+      "families",
+      "depth_min",
+      "depth_max",
+      "cycles_per_case",
+      "max_cells",
+      "total_cases",
+      "total_receipts"
+    ]
+  },
+  "selected_run_ids": [
+    "run_20260620_214806_723967"
+  ],
+  "source_policy_id": "c7d3d021",
+  "summary": {
+    "case_only_surface": true,
+    "move_id_discriminative": false,
+    "move_id_present": true,
+    "source_surface_honesty_status": "PACKAGING_NOISE_ONLY",
+    "state_hash_after_present": false,
+    "state_hash_before_present": false,
+    "transition_id_discriminative": false,
+    "transition_id_present": false,
+    "transition_surface_sufficient": false,
+    "within_case_discriminator_present": false
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_SOURCE_SURFACE_EXTENSION_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_decision": "FAIL_PACKAGING_NOISE_ONLY",
+  "transition_surface": {
+    "case_id_discriminative": true,
+    "case_id_present": true,
+    "case_only_surface": true,
+    "full_transition_tuple_discriminative": false,
+    "full_transition_tuple_present": false,
+    "lawful_transition_discriminator_present": false,
+    "move_id_discriminative": false,
+    "move_id_present": true,
+    "rowid_allowed_as_transition_identity": false,
+    "rowid_available_as_audit_locator": true,
+    "source_surface_honesty_status": "PACKAGING_NOISE_ONLY",
+    "state_hash_after_present": false,
+    "state_hash_before_present": false,
+    "transition_id_discriminative": false,
+    "transition_id_packaging_noise": false,
+    "transition_id_present": false,
+    "transition_surface_sufficient": false,
+    "within_case_discriminator_packaging_noise": true,
+    "within_case_discriminator_present": false
+  },
+  "warnings": []
+}
+probe_id=ebbd990f
+surface_rows_path=data/canonical_transition_surface_probe_rows/ebbd990f.jsonl
+probe_receipt_path=data/canonical_transition_surface_probe_receipts/ebbd990f.json
+CANONICAL_SURFACE_PROBE_ID=ebbd990f
+
+ASSERT_CANONICAL_TRANSITION_SURFACE_PROBE
+{
+  "authority_guards": {
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "registry_sqlite_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_band_run_authorized": false,
+    "scale_mode_authorized": false,
+    "stable_delta_candidate_acceptance_authorized": false
+  },
+  "failures": [],
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "negative_claims": {
+    "does_not_accept_stable_delta_candidate": true,
+    "does_not_authorize_scale_mode": true,
+    "does_not_change_runtime_receipt_emission": true,
+    "does_not_create_compression_candidate": true,
+    "does_not_run_scale_bands": true,
+    "does_not_use_raw_receipt_hash_as_truth_surface": true,
+    "does_not_use_rowid_as_transition_identity": true,
+    "does_not_write_registry_sqlite": true
+  },
+  "pass_gates": {
+    "authority_containment": true,
+    "no_compression_candidate_created": true,
+    "no_scale_bands": true,
+    "occurrence_anchoring": true,
+    "raw_hash_not_used_as_truth_surface": true,
+    "rowid_not_used_as_transition_identity": true,
+    "source_surface_honesty": true,
+    "transition_surface_completeness": false,
+    "within_case_discriminator": false
+  },
+  "probe_id": "ebbd990f",
+  "receipt_id": "ff10010f",
+  "registry_surface": {
+    "max_receipts": null,
+    "max_runs": 1,
+    "payload_json_rows": 0,
+    "receipt_columns": [
+      "run_id",
+      "case_id",
+      "family",
+      "depth",
+      "cycle_n",
+      "move_id",
+      "registered_moves_total",
+      "moves_reused",
+      "new_move_required",
+      "rows",
+      "cols",
+      "cells",
+      "rank_before",
+      "rank_after",
+      "compression_ratio",
+      "trajectory_signature",
+      "halt_reason",
+      "state_sig8_before",
+      "state_sig8_after",
+      "receipt_path",
+      "move_profile_id",
+      "row_delta",
+      "col_delta",
+      "rank_delta",
+      "support_delta",
+      "distinct_column_types_before",
+      "distinct_column_types_after",
+      "new_column_types_added",
+      "law_id",
+      "law_ok",
+      "law_fail_reason"
+    ],
+    "receipt_rows_inspected": 176,
+    "registry_path": "data/runs/registry.sqlite",
+    "registry_sha256_after": "443ef0e5041c84d8dc723ad45ec6a3f63e303df99f1c19765a49597ece1899d7",
+    "registry_sha256_before": "443ef0e5041c84d8dc723ad45ec6a3f63e303df99f1c19765a49597ece1899d7",
+    "registry_sqlite_changed": false,
+    "runs_columns": [
+      "run_id",
+      "created_utc",
+      "status",
+      "families",
+      "depth_min",
+      "depth_max",
+      "cycles_per_case",
+      "max_cells",
+      "total_cases",
+      "total_receipts"
+    ]
+  },
+  "rows_loaded": 176,
+  "selected_run_ids": [
+    "run_20260620_214806_723967"
+  ],
+  "source_policy_id": "c7d3d021",
+  "summary": {
+    "case_only_surface": true,
+    "move_id_discriminative": false,
+    "move_id_present": true,
+    "source_surface_honesty_status": "PACKAGING_NOISE_ONLY",
+    "state_hash_after_present": false,
+    "state_hash_before_present": false,
+    "transition_id_discriminative": false,
+    "transition_id_present": false,
+    "transition_surface_sufficient": false,
+    "within_case_discriminator_present": false
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_SOURCE_SURFACE_EXTENSION_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_decision": "FAIL_PACKAGING_NOISE_ONLY",
+  "transition_surface": {
+    "case_id_discriminative": true,
+    "case_id_present": true,
+    "case_only_surface": true,
+    "full_transition_tuple_discriminative": false,
+    "full_transition_tuple_present": false,
+    "lawful_transition_discriminator_present": false,
+    "move_id_discriminative": false,
+    "move_id_present": true,
+    "rowid_allowed_as_transition_identity": false,
+    "rowid_available_as_audit_locator": true,
+    "source_surface_honesty_status": "PACKAGING_NOISE_ONLY",
+    "state_hash_after_present": false,
+    "state_hash_before_present": false,
+    "transition_id_discriminative": false,
+    "transition_id_packaging_noise": false,
+    "transition_id_present": false,
+    "transition_surface_sufficient": false,
+    "within_case_discriminator_packaging_noise": true,
+    "within_case_discriminator_present": false
+  }
+}
+
+NEGATIVE_CONTROLS_CANONICAL_TRANSITION_SURFACE_PROBE
+{
+  "case": "scale_mode_policy_fail",
+  "expected": "policy_illegal_authority:authorizes_scale_mode",
+  "failures": [
+    "policy_illegal_authority:authorizes_scale_mode:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "raw_hash_policy_fail",
+  "expected": "policy_illegal_authority:authorizes_raw_receipt_hash_truth_surface",
+  "failures": [
+    "policy_illegal_authority:authorizes_raw_receipt_hash_truth_surface:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "touch_scope_policy_fail",
+  "expected": "touch_scope_wrong",
+  "failures": [
+    "touch_scope_wrong:['scripts/stable_delta_signature_candidate_v0_1_probe.py']"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "rowid_behavior_policy_fail",
+  "expected": "required_probe_behavior_missing:must_not_use_rowid_as_signature_identity",
+  "failures": [
+    "required_probe_behavior_missing:must_not_use_rowid_as_signature_identity:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_fm_transition_missing_policy_fail",
+  "expected": "fm_decision_transition_surface_missing_not_true",
+  "failures": [
+    "fm_decision_transition_surface_missing_not_true"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_candidate_terminal_policy_fail",
+  "expected": "candidate_terminal_wrong",
+  "failures": [
+    "candidate_terminal_wrong:NEEDS_MORE_SCALE_AFTER_LOCAL_PASS"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "rowid_transition_packaging_noise_direct_control",
+  "rowid_allowed_as_transition_identity": false,
+  "source_surface_honesty_status": "TRANSITION_SURFACE_MISSING",
+  "transition_id_is_packaging_noise": true,
+  "transition_surface_sufficient": false
+}
+negative controls ok
+
+CANONICAL_TRANSITION_SURFACE_PROBE_HEAD_JSON
+{
+  "actual_observer_overhead_ms": 8883,
+  "authority_guards": {
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "registry_sqlite_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_band_run_authorized": false,
+    "scale_mode_authorized": false,
+    "stable_delta_candidate_acceptance_authorized": false
+  },
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "pass_gates": {
+    "authority_containment": true,
+    "no_compression_candidate_created": true,
+    "no_scale_bands": true,
+    "occurrence_anchoring": true,
+    "raw_hash_not_used_as_truth_surface": true,
+    "rowid_not_used_as_transition_identity": true,
+    "source_surface_honesty": true,
+    "transition_surface_completeness": false,
+    "within_case_discriminator": false
+  },
+  "probe_id": "ebbd990f",
+  "receipt_id": "ff10010f",
+  "registry_surface": {
+    "max_receipts": null,
+    "max_runs": 1,
+    "payload_json_rows": 0,
+    "receipt_columns": [
+      "run_id",
+      "case_id",
+      "family",
+      "depth",
+      "cycle_n",
+      "move_id",
+      "registered_moves_total",
+      "moves_reused",
+      "new_move_required",
+      "rows",
+      "cols",
+      "cells",
+      "rank_before",
+      "rank_after",
+      "compression_ratio",
+      "trajectory_signature",
+      "halt_reason",
+      "state_sig8_before",
+      "state_sig8_after",
+      "receipt_path",
+      "move_profile_id",
+      "row_delta",
+      "col_delta",
+      "rank_delta",
+      "support_delta",
+      "distinct_column_types_before",
+      "distinct_column_types_after",
+      "new_column_types_added",
+      "law_id",
+      "law_ok",
+      "law_fail_reason"
+    ],
+    "receipt_rows_inspected": 176,
+    "registry_path": "data/runs/registry.sqlite",
+    "registry_sha256_after": "443ef0e5041c84d8dc723ad45ec6a3f63e303df99f1c19765a49597ece1899d7",
+    "registry_sha256_before": "443ef0e5041c84d8dc723ad45ec6a3f63e303df99f1c19765a49597ece1899d7",
+    "registry_sqlite_changed": false,
+    "runs_columns": [
+      "run_id",
+      "created_utc",
+      "status",
+      "families",
+      "depth_min",
+      "depth_max",
+      "cycles_per_case",
+      "max_cells",
+      "total_cases",
+      "total_receipts"
+    ]
+  },
+  "selected_run_ids": [
+    "run_20260620_214806_723967"
+  ],
+  "source_policy_id": "c7d3d021",
+  "summary": {
+    "case_only_surface": true,
+    "move_id_discriminative": false,
+    "move_id_present": true,
+    "source_surface_honesty_status": "PACKAGING_NOISE_ONLY",
+    "state_hash_after_present": false,
+    "state_hash_before_present": false,
+    "transition_id_discriminative": false,
+    "transition_id_present": false,
+    "transition_surface_sufficient": false,
+    "within_case_discriminator_present": false
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_SOURCE_SURFACE_EXTENSION_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_decision": "FAIL_PACKAGING_NOISE_ONLY",
+  "transition_surface": {
+    "case_id_discriminative": true,
+    "case_id_present": true,
+    "case_only_surface": true,
+    "full_transition_tuple_discriminative": false,
+    "full_transition_tuple_present": false,
+    "lawful_transition_discriminator_present": false,
+    "move_id_discriminative": false,
+    "move_id_present": true,
+    "rowid_allowed_as_transition_identity": false,
+    "rowid_available_as_audit_locator": true,
+    "source_surface_honesty_status": "PACKAGING_NOISE_ONLY",
+    "state_hash_after_present": false,
+    "state_hash_before_present": false,
+    "transition_id_discriminative": false,
+    "transition_id_packaging_noise": false,
+    "transition_id_present": false,
+    "transition_surface_sufficient": false,
+    "within_case_discriminator_packaging_noise": true,
+    "within_case_discriminator_present": false
+  }
+}
+
+VERIFY_TOUCH_SCOPE_ONLY_CANONICAL_SURFACE_PROBE_SCRIPT
+tracked touch scope ok
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+
+STATUS_AFTER
+?? data/
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	data/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

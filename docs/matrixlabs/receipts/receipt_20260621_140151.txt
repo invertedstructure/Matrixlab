@@ -1,0 +1,400 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_140151
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_140151.txt
+
+DIAGNOSE_BOUNDED_SCALE_FALSE_MERGES_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_BOUNDED_SCALE_FALSE_MERGE_DIAGNOSTIC
+
+PY_COMPILE
+
+RUN_BOUNDED_SCALE_FALSE_MERGE_DIAGNOSTIC
+{
+  "authority": {
+    "authorizes_candidate_acceptance": false,
+    "authorizes_case_id_or_cycle_n_primary_identity_patch": false,
+    "authorizes_full_registry_scan": false,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_registry_write": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_mode": false,
+    "observer_only": true
+  },
+  "classification": {
+    "all_collision_records_share_candidate_signature_payload": true,
+    "differing_debug_field_frequency": {
+      "case_id_debug_only": 10,
+      "compact_delta_debug": 10,
+      "depth_debug_only": 10,
+      "full_occurrence_key": 10
+    },
+    "interpretation": "v0.2 encodes transition identity, not occurrence identity, when the same state_before/move/state_after tuple recurs within a bounded scale band.",
+    "primary_class": "REPEATED_TRANSITION_SIGNATURE_COLLAPSES_DISTINCT_OCCURRENCES"
+  },
+  "created_at": "2026-06-21T13:01:52.809600+00:00",
+  "decision": {
+    "authority_side_clean": true,
+    "burden_side_remains_viable": true,
+    "candidate_v0_2_rejected_for_scale_acceptance": true,
+    "do_not_accept_candidate": true,
+    "do_not_change_runtime": true,
+    "do_not_full_registry_scan": true,
+    "do_not_patch_by_adding_case_id_or_cycle_n_as_primary_identity": true,
+    "identity_leak_absent": true,
+    "next_design_pressure": "Need a lawful occurrence-level discriminator or equivalence policy; v0.2 transition tuple alone is insufficient across bounded scale.",
+    "primary_blocker": "FALSE_MERGE_UNDER_BOUNDED_SCALE",
+    "recommended_next_command_goal": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_POLICY",
+    "source_surface_clean": true
+  },
+  "diagnosis_status": "DIAGNOSED",
+  "diagnostic_id": "62c8d96c",
+  "diagnostic_name": "DIAGNOSE_BOUNDED_SCALE_FALSE_MERGES_V0",
+  "diagnostic_path": "data/bounded_scale_false_merge_diagnostics/62c8d96c.json",
+  "diagnostic_sig8": "62c8d96c",
+  "failures": [],
+  "gate": "PASS",
+  "receipt_id": "b88d3818",
+  "receipt_sig8": "b88d3818",
+  "schema_version": "bounded_scale_false_merge_diagnostic_receipt_v0",
+  "source_policy_id": "b79955ce",
+  "source_probe_id": "227e9426",
+  "source_receipt_id": "0ae57255",
+  "source_v02_probe_id": "bcdb3d93",
+  "summary": {
+    "bands_failed": 10,
+    "bands_passed": 256,
+    "bands_total": 266,
+    "bounded_default_used": true,
+    "collision_group_count": 10,
+    "collision_rows_total": 20,
+    "collision_signature_count": 1,
+    "compatible_run_count": 10,
+    "failed_axis_counts": {
+      "available_run_ids": 2,
+      "cycle_n": 2,
+      "family": 2,
+      "raw/cell size fields if present": 2,
+      "receipt_count": 2
+    },
+    "failed_reason_counts": {
+      "false_merge": 10
+    },
+    "failed_run_counts": {
+      "run_20260620_214801_788938": 5,
+      "run_20260620_214802_646955": 5
+    },
+    "full_registry_used": false,
+    "source_policy_id": "b79955ce",
+    "source_probe_id": "227e9426",
+    "source_receipt_id": "0ae57255",
+    "source_terminal_decision": "FAIL_SCALE_FALSE_MERGE",
+    "worst_burden_ratio_projected": 0.4014251781472684,
+    "worst_collision_count": 1,
+    "worst_distinguishability_retention_ratio": 0.8333333333333334,
+    "worst_false_merge_count": 1
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_POLICY",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+diagnostic_id=62c8d96c
+diagnostic_json_path=data/bounded_scale_false_merge_diagnostics/62c8d96c.json
+diagnostic_receipt_path=data/bounded_scale_false_merge_diagnostic_receipts/62c8d96c.json
+DIAGNOSTIC_ID=62c8d96c
+
+ASSERT_BOUNDED_SCALE_FALSE_MERGE_DIAGNOSTIC
+{
+  "authority": {
+    "authorizes_candidate_acceptance": false,
+    "authorizes_case_id_or_cycle_n_primary_identity_patch": false,
+    "authorizes_full_registry_scan": false,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_registry_write": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_mode": false,
+    "observer_only": true
+  },
+  "classification": {
+    "all_collision_records_share_candidate_signature_payload": true,
+    "differing_debug_field_frequency": {
+      "case_id_debug_only": 10,
+      "compact_delta_debug": 10,
+      "depth_debug_only": 10,
+      "full_occurrence_key": 10
+    },
+    "interpretation": "v0.2 encodes transition identity, not occurrence identity, when the same state_before/move/state_after tuple recurs within a bounded scale band.",
+    "primary_class": "REPEATED_TRANSITION_SIGNATURE_COLLAPSES_DISTINCT_OCCURRENCES"
+  },
+  "decision": {
+    "authority_side_clean": true,
+    "burden_side_remains_viable": true,
+    "candidate_v0_2_rejected_for_scale_acceptance": true,
+    "do_not_accept_candidate": true,
+    "do_not_change_runtime": true,
+    "do_not_full_registry_scan": true,
+    "do_not_patch_by_adding_case_id_or_cycle_n_as_primary_identity": true,
+    "identity_leak_absent": true,
+    "next_design_pressure": "Need a lawful occurrence-level discriminator or equivalence policy; v0.2 transition tuple alone is insufficient across bounded scale.",
+    "primary_blocker": "FALSE_MERGE_UNDER_BOUNDED_SCALE",
+    "recommended_next_command_goal": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_POLICY",
+    "source_surface_clean": true
+  },
+  "diagnosis_status": "DIAGNOSED",
+  "diagnostic_id": "62c8d96c",
+  "failures": [],
+  "gate": "PASS",
+  "receipt_id": "b88d3818",
+  "source_policy_id": "b79955ce",
+  "source_probe_id": "227e9426",
+  "source_receipt_id": "0ae57255",
+  "summary": {
+    "bands_failed": 10,
+    "bands_passed": 256,
+    "bands_total": 266,
+    "bounded_default_used": true,
+    "collision_group_count": 10,
+    "collision_rows_total": 20,
+    "collision_signature_count": 1,
+    "compatible_run_count": 10,
+    "failed_axis_counts": {
+      "available_run_ids": 2,
+      "cycle_n": 2,
+      "family": 2,
+      "raw/cell size fields if present": 2,
+      "receipt_count": 2
+    },
+    "failed_reason_counts": {
+      "false_merge": 10
+    },
+    "failed_run_counts": {
+      "run_20260620_214801_788938": 5,
+      "run_20260620_214802_646955": 5
+    },
+    "full_registry_used": false,
+    "source_policy_id": "b79955ce",
+    "source_probe_id": "227e9426",
+    "source_receipt_id": "0ae57255",
+    "source_terminal_decision": "FAIL_SCALE_FALSE_MERGE",
+    "worst_burden_ratio_projected": 0.4014251781472684,
+    "worst_collision_count": 1,
+    "worst_distinguishability_retention_ratio": 0.8333333333333334,
+    "worst_false_merge_count": 1
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_POLICY",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_BOUNDED_SCALE_FALSE_MERGE_DIAGNOSTIC
+{
+  "case": "source_terminal_not_failure_fail",
+  "expected": "source_terminal_not_FAIL_SCALE_FALSE_MERGE",
+  "failures": [
+    "source_terminal_not_FAIL_SCALE_FALSE_MERGE:PASS_SCALE_BANDS_OBSERVER_ONLY"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_full_registry_used_fail",
+  "expected": "source_used_full_registry",
+  "failures": [
+    "source_used_full_registry"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_false_merge_erased_fail",
+  "expected": "source_has_no_false_merge",
+  "failures": [
+    "source_has_no_false_merge:0"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_collision_erased_fail",
+  "expected": "source_has_no_collision",
+  "failures": [
+    "source_has_no_collision:0"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_false_merge_gate_hidden_fail",
+  "expected": "source_false_merge_gate_not_false",
+  "failures": [
+    "source_false_merge_gate_not_false:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_scale_mode_authority_fail",
+  "expected": "source_authority_or_mutation_not_false:scale_mode_authorized",
+  "failures": [
+    "source_authority_or_mutation_not_false:scale_mode_authorized:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_registry_mutation_fail",
+  "expected": "source_authority_or_mutation_not_false:registry_sqlite_changed",
+  "failures": [
+    "source_authority_or_mutation_not_false:registry_sqlite_changed:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "classifier_repeated_transition_collision",
+  "classification": {
+    "all_collision_records_share_candidate_signature_payload": true,
+    "differing_debug_field_frequency": {
+      "case_id_debug_only": 1,
+      "full_occurrence_key": 1
+    },
+    "interpretation": "v0.2 encodes transition identity, not occurrence identity, when the same state_before/move/state_after tuple recurs within a bounded scale band.",
+    "primary_class": "REPEATED_TRANSITION_SIGNATURE_COLLAPSES_DISTINCT_OCCURRENCES"
+  },
+  "gate": "PASS"
+}
+negative controls ok
+
+BOUNDED_SCALE_FALSE_MERGE_DIAGNOSTIC_HEAD_JSON
+{
+  "authority": {
+    "authorizes_candidate_acceptance": false,
+    "authorizes_case_id_or_cycle_n_primary_identity_patch": false,
+    "authorizes_full_registry_scan": false,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_registry_write": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_mode": false,
+    "observer_only": true
+  },
+  "classification": {
+    "all_collision_records_share_candidate_signature_payload": true,
+    "differing_debug_field_frequency": {
+      "case_id_debug_only": 10,
+      "compact_delta_debug": 10,
+      "depth_debug_only": 10,
+      "full_occurrence_key": 10
+    },
+    "interpretation": "v0.2 encodes transition identity, not occurrence identity, when the same state_before/move/state_after tuple recurs within a bounded scale band.",
+    "primary_class": "REPEATED_TRANSITION_SIGNATURE_COLLAPSES_DISTINCT_OCCURRENCES"
+  },
+  "decision": {
+    "authority_side_clean": true,
+    "burden_side_remains_viable": true,
+    "candidate_v0_2_rejected_for_scale_acceptance": true,
+    "do_not_accept_candidate": true,
+    "do_not_change_runtime": true,
+    "do_not_full_registry_scan": true,
+    "do_not_patch_by_adding_case_id_or_cycle_n_as_primary_identity": true,
+    "identity_leak_absent": true,
+    "next_design_pressure": "Need a lawful occurrence-level discriminator or equivalence policy; v0.2 transition tuple alone is insufficient across bounded scale.",
+    "primary_blocker": "FALSE_MERGE_UNDER_BOUNDED_SCALE",
+    "recommended_next_command_goal": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_POLICY",
+    "source_surface_clean": true
+  },
+  "diagnosis_status": "DIAGNOSED",
+  "diagnostic_id": "62c8d96c",
+  "gate": "PASS",
+  "receipt_id": "b88d3818",
+  "source_probe_id": "227e9426",
+  "summary": {
+    "bands_failed": 10,
+    "bands_passed": 256,
+    "bands_total": 266,
+    "bounded_default_used": true,
+    "collision_group_count": 10,
+    "collision_rows_total": 20,
+    "collision_signature_count": 1,
+    "compatible_run_count": 10,
+    "failed_axis_counts": {
+      "available_run_ids": 2,
+      "cycle_n": 2,
+      "family": 2,
+      "raw/cell size fields if present": 2,
+      "receipt_count": 2
+    },
+    "failed_reason_counts": {
+      "false_merge": 10
+    },
+    "failed_run_counts": {
+      "run_20260620_214801_788938": 5,
+      "run_20260620_214802_646955": 5
+    },
+    "full_registry_used": false,
+    "source_policy_id": "b79955ce",
+    "source_probe_id": "227e9426",
+    "source_receipt_id": "0ae57255",
+    "source_terminal_decision": "FAIL_SCALE_FALSE_MERGE",
+    "worst_burden_ratio_projected": 0.4014251781472684,
+    "worst_collision_count": 1,
+    "worst_distinguishability_retention_ratio": 0.8333333333333334,
+    "worst_false_merge_count": 1
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_3_POLICY",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_RUNTIME_AND_PROBE_UNTOUCHED
+.gitignore
+runtime/probe untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/diagnose_bounded_scale_false_merges_v0.py
+[master 7b2c493c7] diagnose bounded scale false merges
+ 2 files changed, 474 insertions(+)
+ create mode 100755 scripts/diagnose_bounded_scale_false_merges_v0.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

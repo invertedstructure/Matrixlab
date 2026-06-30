@@ -1,0 +1,350 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260619_133851
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260619_133851.txt
+
+BUILD_CELL_TRANSFER_CONTRACT_V0
+
+STATUS_BEFORE
+
+BACKUP
+CLI_SIG=77507e9d1ef7
+BACKUP=/tmp/matrixlab_cli_before_cell_transfer_contract_77507e9d1ef7.py
+
+PATCH_GITIGNORE
+
+PATCH_CLI_CELL_TRANSFER_CONTRACT
+
+PY_COMPILE
+
+HELP_SMOKE
+help smoke ok:
+  /tmp/matrixlab_cli_help_after_cell_transfer_contract.txt
+  /tmp/matrixlab_cell_transfer_contract_help.txt
+
+RUN_CELL_TRANSFER_CONTRACT
+{
+  "cell_transfer_contract_id": "50a01dcd",
+  "cell_transfer_contract_payload_sig8": "50a01dcd",
+  "cell_transfer_contract_schema_version": "cell_transfer_contract_v0",
+  "failures": [],
+  "gate": "PASS",
+  "identity_locks": {
+    "cheat_adversarial_schema_version": "agent_cheat_adversarial_receipt_v0",
+    "cheat_check_schema_version": "agent_cheat_check_receipt_v0",
+    "cheat_harness_identity": "agent-cheat-check+d478_style_and_agent-cheat-adversarial_temp_db_mutations",
+    "cli_sha256_after_contract_command": "3a5b791e66a3e33effe9b10b57e87026e0664ed834be6718e569cca300ef024b",
+    "evaluator_identity": "current_cli_agent_eval_no_delta_allowed",
+    "halt_vocabulary_identity": "current_cli_halt_vocabulary_no_delta_allowed",
+    "law_checker_identity": "current_cli_law_checker_no_delta_allowed",
+    "profile_classifier_identity": "current_cli_coarse_profile_classifier_no_delta_allowed",
+    "receipt_schema_identity": "registry_sqlite_receipts_table_and_json_receipts_current",
+    "source_ledger_schema_version": "agent_cycle_ledger_receipt_v1"
+  },
+  "input_cheat_adversarial": "cbebf089",
+  "input_cheat_adversarial_path": "data/agent_cheat_adversarial/cbebf089.json",
+  "input_cheat_check": "d4780808",
+  "input_cheat_check_path": "data/agent_cheat_checks/d4780808.json",
+  "input_source_ledger": "73c696a5",
+  "input_source_ledger_path": "data/agent_cycle_ledgers/73c696a5.json",
+  "measurement_trust": {
+    "adversarial_checks": {
+      "temp_db_law_failure_mutation": true,
+      "temp_db_profile_novelty_insert_mutation": true,
+      "temp_db_receipt_delete_mutation": true,
+      "temp_db_unknown_law_mutation": true,
+      "temp_ledger_previous_run_chain_mutation": true
+    },
+    "cheat_adversarial_gate": "PASS",
+    "cheat_adversarial_id": "cbebf089",
+    "cheat_adversarial_payload_sig8": "cbebf089",
+    "cheat_check_gate": "PASS",
+    "cheat_check_id": "d4780808",
+    "cheat_check_payload_sig8": "d4780808",
+    "recomputed_cheat_adversarial_payload_sig8": "cbebf089",
+    "recomputed_cheat_check_payload_sig8": "d4780808",
+    "symbolic_checks": {
+      "fake_law_failure": true,
+      "fake_novelty": true,
+      "fake_orphan_receipt": true,
+      "fake_previous_run_chain_break": true,
+      "fake_receipt_count_mismatch": true
+    }
+  },
+  "not_transferred": [
+    "empirical_boundedness_claim",
+    "coarse_profile_total_value",
+    "raw_profile_growth_rate",
+    "radius_threshold",
+    "domain_specific_halt_distribution",
+    "future_domain_conclusion_strength"
+  ],
+  "source_baseline": {
+    "coarse_profiles_total": 9,
+    "cycle_count": 5,
+    "eval_id": "a1ddb75b",
+    "ledger_id": "73c696a5",
+    "ledger_payload_sig8": "73c696a5",
+    "radius": 250,
+    "raw_profiles_total": 1010,
+    "recomputed_ledger_payload_sig8": "73c696a5",
+    "registered_moves_total": 250,
+    "run_id": "run_20260619_090132_512800",
+    "stop_reason": "MARGINAL_INFORMATION_FLATTENED_FOR_RADIUS_EXPANSION",
+    "verdict": "BOUNDED_VOCABULARY_CONTINUATION"
+  },
+  "source_cell": "CELL_0",
+  "target_cell": "CELL_1",
+  "target_cell_definition": {
+    "allowed_to_change": [
+      "seed_object_distribution",
+      "move_family_schedule",
+      "composition_pattern_of_existing_registered_moves",
+      "depth_radius_profile",
+      "stress_shape_built_from_existing_registered_moves"
+    ],
+    "domain_shift_definition": "generator_manifest_delta > 0 AND registered_move_id_set_delta = 0 AND law_checker_identity_delta = 0 AND receipt_schema_delta = 0 AND profile_classifier_identity_delta = 0 AND halt_vocabulary_delta = 0 AND evaluator_identity_delta = 0",
+    "forbidden_to_change": [
+      "move_ontology",
+      "law_checker_semantics",
+      "receipt_schema",
+      "profile_classifier_semantics",
+      "coarse_profile_vocabulary_definition",
+      "halt_vocabulary",
+      "evaluator_meaning",
+      "cheat_harness_meaning"
+    ],
+    "outcomes": [
+      "MEASUREMENT_TRANSFER_STABLE_CURVE",
+      "MEASUREMENT_TRANSFER_DIFFERENT_CURVE",
+      "STOP_DOMAIN_REQUIRES_ONTOLOGY_SHIFT",
+      "FAIL_MEASUREMENT_TRUST"
+    ],
+    "target_rule": "target_cell_must_earn_its_own_curve_under_imported_ruler"
+  },
+  "target_probe_kind": "DOMAIN_SHIFT_PROBE",
+  "terminal": {
+    "next_command_goal": "BUILD_DOMAIN_SHIFT_GENERATOR_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transfer_kind": "MEASUREMENT_DISCIPLINE_ONLY",
+  "transferred": [
+    "receipt_counting_discipline",
+    "law_failure_detection",
+    "unknown_law_detection",
+    "profile_novelty_detection",
+    "ledger_chain_validation",
+    "symbolic_cheat_check",
+    "real_temp_db_adversarial_cheat_harness",
+    "marginal_information_stop_rule",
+    "baseline_comparison_format"
+  ],
+  "warnings": []
+}
+cell_transfer_contract_path: data/cell_transfer_contracts/50a01dcd.json
+
+VERIFY_CELL_TRANSFER_CONTRACT
+{
+  "cell_transfer_contract_id": "50a01dcd",
+  "cheat_adversarial_gate": "PASS",
+  "cheat_check_gate": "PASS",
+  "gate": "PASS",
+  "id_matches_filename": true,
+  "not_transferred": [
+    "empirical_boundedness_claim",
+    "coarse_profile_total_value",
+    "raw_profile_growth_rate",
+    "radius_threshold",
+    "domain_specific_halt_distribution",
+    "future_domain_conclusion_strength"
+  ],
+  "path": "data/cell_transfer_contracts/50a01dcd.json",
+  "recomputed_sig": "50a01dcd",
+  "sig_matches": true,
+  "source_baseline": {
+    "coarse_profiles_total": 9,
+    "cycle_count": 5,
+    "eval_id": "a1ddb75b",
+    "ledger_id": "73c696a5",
+    "ledger_payload_sig8": "73c696a5",
+    "radius": 250,
+    "raw_profiles_total": 1010,
+    "recomputed_ledger_payload_sig8": "73c696a5",
+    "registered_moves_total": 250,
+    "run_id": "run_20260619_090132_512800",
+    "stop_reason": "MARGINAL_INFORMATION_FLATTENED_FOR_RADIUS_EXPANSION",
+    "verdict": "BOUNDED_VOCABULARY_CONTINUATION"
+  },
+  "source_cell": "CELL_0",
+  "stored_sig": "50a01dcd",
+  "target_cell": "CELL_1",
+  "terminal": {
+    "next_command_goal": "BUILD_DOMAIN_SHIFT_GENERATOR_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transfer_kind": "MEASUREMENT_DISCIPLINE_ONLY"
+}
+
+RUN_CELL_TRANSFER_CONTRACT_FAIL_NEGATIVE_BAD_CHEAT
+{
+  "cell_transfer_contract_id": "16891c2d",
+  "cell_transfer_contract_payload_sig8": "16891c2d",
+  "cell_transfer_contract_schema_version": "cell_transfer_contract_v0",
+  "failures": [
+    "cheat_check_gate_not_PASS",
+    "cheat_check_baseline_ledger_mismatch:3b3fa6bd!=73c696a5",
+    "cheat_check_baseline_run_mismatch:run_20260618_235807_638720!=run_20260619_090132_512800",
+    "cheat_check_baseline_eval_mismatch:0a9048aa!=a1ddb75b",
+    "cheat_check_baseline_radius_mismatch:150!=250"
+  ],
+  "gate": "FAIL",
+  "identity_locks": {
+    "cheat_adversarial_schema_version": "agent_cheat_adversarial_receipt_v0",
+    "cheat_check_schema_version": "agent_cheat_check_receipt_v0",
+    "cheat_harness_identity": "agent-cheat-check+d478_style_and_agent-cheat-adversarial_temp_db_mutations",
+    "cli_sha256_after_contract_command": "3a5b791e66a3e33effe9b10b57e87026e0664ed834be6718e569cca300ef024b",
+    "evaluator_identity": "current_cli_agent_eval_no_delta_allowed",
+    "halt_vocabulary_identity": "current_cli_halt_vocabulary_no_delta_allowed",
+    "law_checker_identity": "current_cli_law_checker_no_delta_allowed",
+    "profile_classifier_identity": "current_cli_coarse_profile_classifier_no_delta_allowed",
+    "receipt_schema_identity": "registry_sqlite_receipts_table_and_json_receipts_current",
+    "source_ledger_schema_version": "agent_cycle_ledger_receipt_v1"
+  },
+  "input_cheat_adversarial": "cbebf089",
+  "input_cheat_adversarial_path": "data/agent_cheat_adversarial/cbebf089.json",
+  "input_cheat_check": "c37c567e",
+  "input_cheat_check_path": "data/agent_cheat_checks/c37c567e.json",
+  "input_source_ledger": "73c696a5",
+  "input_source_ledger_path": "data/agent_cycle_ledgers/73c696a5.json",
+  "measurement_trust": {
+    "adversarial_checks": {
+      "temp_db_law_failure_mutation": true,
+      "temp_db_profile_novelty_insert_mutation": true,
+      "temp_db_receipt_delete_mutation": true,
+      "temp_db_unknown_law_mutation": true,
+      "temp_ledger_previous_run_chain_mutation": true
+    },
+    "cheat_adversarial_gate": "PASS",
+    "cheat_adversarial_id": "cbebf089",
+    "cheat_adversarial_payload_sig8": "cbebf089",
+    "cheat_check_gate": "FAIL",
+    "cheat_check_id": "c37c567e",
+    "cheat_check_payload_sig8": "c37c567e",
+    "recomputed_cheat_adversarial_payload_sig8": "cbebf089",
+    "recomputed_cheat_check_payload_sig8": "c37c567e",
+    "symbolic_checks": {
+      "fake_law_failure": true,
+      "fake_novelty": true,
+      "fake_orphan_receipt": true,
+      "fake_previous_run_chain_break": true,
+      "fake_receipt_count_mismatch": true
+    }
+  },
+  "not_transferred": [
+    "empirical_boundedness_claim",
+    "coarse_profile_total_value",
+    "raw_profile_growth_rate",
+    "radius_threshold",
+    "domain_specific_halt_distribution",
+    "future_domain_conclusion_strength"
+  ],
+  "source_baseline": {
+    "coarse_profiles_total": 9,
+    "cycle_count": 5,
+    "eval_id": "a1ddb75b",
+    "ledger_id": "73c696a5",
+    "ledger_payload_sig8": "73c696a5",
+    "radius": 250,
+    "raw_profiles_total": 1010,
+    "recomputed_ledger_payload_sig8": "73c696a5",
+    "registered_moves_total": 250,
+    "run_id": "run_20260619_090132_512800",
+    "stop_reason": "MARGINAL_INFORMATION_FLATTENED_FOR_RADIUS_EXPANSION",
+    "verdict": "BOUNDED_VOCABULARY_CONTINUATION"
+  },
+  "source_cell": "CELL_0",
+  "target_cell": "CELL_1",
+  "target_cell_definition": {
+    "allowed_to_change": [
+      "seed_object_distribution",
+      "move_family_schedule",
+      "composition_pattern_of_existing_registered_moves",
+      "depth_radius_profile",
+      "stress_shape_built_from_existing_registered_moves"
+    ],
+    "domain_shift_definition": "generator_manifest_delta > 0 AND registered_move_id_set_delta = 0 AND law_checker_identity_delta = 0 AND receipt_schema_delta = 0 AND profile_classifier_identity_delta = 0 AND halt_vocabulary_delta = 0 AND evaluator_identity_delta = 0",
+    "forbidden_to_change": [
+      "move_ontology",
+      "law_checker_semantics",
+      "receipt_schema",
+      "profile_classifier_semantics",
+      "coarse_profile_vocabulary_definition",
+      "halt_vocabulary",
+      "evaluator_meaning",
+      "cheat_harness_meaning"
+    ],
+    "outcomes": [
+      "MEASUREMENT_TRANSFER_STABLE_CURVE",
+      "MEASUREMENT_TRANSFER_DIFFERENT_CURVE",
+      "STOP_DOMAIN_REQUIRES_ONTOLOGY_SHIFT",
+      "FAIL_MEASUREMENT_TRUST"
+    ],
+    "target_rule": "target_cell_must_earn_its_own_curve_under_imported_ruler"
+  },
+  "target_probe_kind": "DOMAIN_SHIFT_PROBE",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "cell_transfer_contract_failed",
+    "type": "STOP"
+  },
+  "transfer_kind": "MEASUREMENT_DISCIPLINE_ONLY",
+  "transferred": [
+    "receipt_counting_discipline",
+    "law_failure_detection",
+    "unknown_law_detection",
+    "profile_novelty_detection",
+    "ledger_chain_validation",
+    "symbolic_cheat_check",
+    "real_temp_db_adversarial_cheat_harness",
+    "marginal_information_stop_rule",
+    "baseline_comparison_format"
+  ],
+  "warnings": []
+}
+cell_transfer_contract_path: data/cell_transfer_contracts/16891c2d.json
+
+VERIFY_NEGATIVE_BAD_CHEAT_FAILED
+{
+  "cell_transfer_contract_id": "16891c2d",
+  "failures": [
+    "cheat_check_gate_not_PASS",
+    "cheat_check_baseline_ledger_mismatch:3b3fa6bd!=73c696a5",
+    "cheat_check_baseline_run_mismatch:run_20260618_235807_638720!=run_20260619_090132_512800",
+    "cheat_check_baseline_eval_mismatch:0a9048aa!=a1ddb75b",
+    "cheat_check_baseline_radius_mismatch:150!=250"
+  ],
+  "gate": "FAIL",
+  "path": "data/cell_transfer_contracts/16891c2d.json",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "cell_transfer_contract_failed",
+    "type": "STOP"
+  }
+}
+
+DIFF_STAT
+ .gitignore           |   3 +
+ src/matrixlab/cli.py | 328 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 331 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+ M src/matrixlab/cli.py
+[master b9138530a] add cell transfer contract command
+ 2 files changed, 331 insertions(+)
+
+COMMIT_DONE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

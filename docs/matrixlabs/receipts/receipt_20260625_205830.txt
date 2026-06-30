@@ -1,0 +1,228 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_205830
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_205830.txt
+
+PREPARE_C7_RUNTIME_RADIUS_CONTRACTS_AND_BUDGET_V0
+
+STATUS_BEFORE_RELEVANT
+M  .gitignore
+A  data/c7_practical_runtime_radius_readiness_v0/c7_contract_targets_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_missing_or_weak_surfaces_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_negative_counter_targets_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_readiness_audit_basis_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_readiness_audit_profile_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_readiness_audit_rollup_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_readiness_audit_transition_trace.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_required_surface_inventory_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_sequence_to_test_runs_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_test_fixture_plan_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0_receipts/49b3f28b.json
+A  scripts/audit_c7_practical_runtime_radius_readiness_v0.py
+
+VERIFY_C7_CONTRACTS_BASIS
+present data/c7_practical_runtime_radius_readiness_v0_receipts/49b3f28b.json
+present data/c7_practical_runtime_radius_readiness_v0/c7_contract_targets_v0.json
+present data/c7_practical_runtime_radius_readiness_v0/c7_missing_or_weak_surfaces_v0.json
+present data/c7_practical_runtime_radius_readiness_v0/c7_negative_counter_targets_v0.json
+present data/c7_practical_runtime_radius_readiness_v0/c7_sequence_to_test_runs_v0.json
+present data/c7_practical_runtime_radius_readiness_v0/c7_test_fixture_plan_v0.json
+present data/c7_practical_runtime_radius_readiness_v0/c7_required_surface_inventory_v0.json
+present data/c7_practical_runtime_radius_readiness_v0/c7_readiness_audit_rollup_v0.json
+
+PATCH_GITIGNORE
+
+WRITE_C7_CONTRACTS_RUNNER
+
+PY_COMPILE_C7_CONTRACTS_RUNNER
+
+RUN_C7_CONTRACTS_AND_BUDGET
+{
+  "acceptance_gate_results": {
+    "C7_CONTRACTS_0_READINESS_RECEIPT_CONSUMED": true,
+    "C7_CONTRACTS_1_STEP_PACKET_CONTRACT_PREPARED": true,
+    "C7_CONTRACTS_2_STOP_PACKET_CONTRACT_PREPARED": true,
+    "C7_CONTRACTS_3_BUDGET_PREPARED": true,
+    "C7_CONTRACTS_4_UNIT_FEEDBACK_CONTRACT_PREPARED": true,
+    "C7_CONTRACTS_5_NEGATIVE_COUNTER_CONTRACT_PREPARED": true,
+    "C7_CONTRACTS_6_ROLLUP_READOUT_CONTRACTS_PREPARED": true,
+    "C7_CONTRACTS_7_FIXTURES_NEXT": true,
+    "C7_CONTRACTS_8_NO_RUNTIME_RUN": true,
+    "C7_CONTRACTS_9_NO_HIDDEN_NEXT_COMMAND": true
+  },
+  "build_mode": "C7_RUNTIME_RADIUS_CONTRACTS_AND_BUDGET_ONLY",
+  "created_at": "2026-06-25T19:58:31.146851+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "RUNTIME / C7 / CONTRACTS",
+  "machine_readable_c7_contracts_and_budget_summary": {
+    "admissibility_checked": false,
+    "authorization_verdict_emitted": false,
+    "budget_prepared": true,
+    "c7_contracts_and_budget_prepared": true,
+    "c7_runtime_run_authorized": false,
+    "cell0_lawful_admissibility_surface_preserved_as_cell0": true,
+    "contract_count": 7,
+    "control_path_advanced": false,
+    "control_path_blocked": false,
+    "critical_negative_counter_count": 5,
+    "execution_claimed": false,
+    "hidden_next_command": false,
+    "live_runtime_hooks_installed": false,
+    "negative_counter_count": 20,
+    "next_unit_id": "BUILD_C7_SYNTHETIC_RUNTIME_RADIUS_FIXTURES_V0",
+    "ready_for_c7_test_run": false,
+    "ready_for_fixture_build": true,
+    "reason_codes": [
+      "C7_RUNTIME_RADIUS_CONTRACTS_AND_BUDGET_PREPARED",
+      "READINESS_AUDIT_RECEIPT_CONSUMED",
+      "CELL0_LAWFUL_ADMISSIBILITY_SURFACE_PRESERVED_AS_CELL0",
+      "RUNTIME_STEP_PACKET_CONTRACT_PREPARED",
+      "RUNTIME_RADIUS_STOP_PACKET_CONTRACT_PREPARED",
+      "RUNTIME_RADIUS_BUDGET_PREPARED",
+      "UNIT_FEEDBACK_RECORD_CONTRACT_PREPARED",
+      "NEGATIVE_COUNTER_CONTRACT_PREPARED",
+      "ROLLUP_AND_READOUT_CONTRACTS_PREPARED",
+      "FIXTURES_ARE_NEXT_TYPED_UNIT",
+      "NO_C7_RUNTIME_RUN",
+      "NO_RUNTIME_ADOPTION",
+      "NO_RUNTIME_PATCH",
+      "NO_LIVE_HOOK_INSTALL",
+      "NO_SCHEMA_MUTATION",
+      "NO_CONTROL_PATH_AUTHORITY",
+      "NO_HIDDEN_NEXT_COMMAND"
+    ],
+    "runtime_adoption_authorized": false,
+    "runtime_patched": false,
+    "runtime_routing_installed": false,
+    "schema_archive_mutated": false,
+    "schema_created": false,
+    "source_c7_readiness_receipt_consumed": true,
+    "status": "TYPED_C7_RUNTIME_RADIUS_CONTRACTS_AND_BUDGET_PREPARED_FIXTURES_NEXT",
+    "validation_verdict_emitted": false
+  },
+  "mode": "DEFINE_CONTRACTS / FREEZE_BUDGET / NO_RUNTIME_RUN",
+  "output_artifacts": {
+    "basis": "data/c7_runtime_radius_contracts_and_budget_v0/c7_contracts_and_budget_basis_v0.json",
+    "budget": "data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_budget_v0.json",
+    "contract_index": "data/c7_runtime_radius_contracts_and_budget_v0/c7_contract_index_v0.json",
+    "fixture_build_target": "data/c7_runtime_radius_contracts_and_budget_v0/c7_fixture_build_target_v0.json",
+    "implementation_receipt": "data/c7_runtime_radius_contracts_and_budget_v0_receipts/2c5d3c62.json",
+    "negative_counter_contract": "data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_negative_counter_contract_v0.json",
+    "profile": "data/c7_runtime_radius_contracts_and_budget_v0/c7_contracts_and_budget_profile_v0.json",
+    "readout_contract": "data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_readout_contract_v0.json",
+    "rollup": "data/c7_runtime_radius_contracts_and_budget_v0/c7_contracts_and_budget_rollup_v0.json",
+    "rollup_contract": "data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_rollup_contract_v0.json",
+    "step_packet_contract": "data/c7_runtime_radius_contracts_and_budget_v0/runtime_step_packet_contract_v0.json",
+    "stop_packet_contract": "data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_stop_packet_contract_v0.json",
+    "transition_trace": "data/c7_runtime_radius_contracts_and_budget_v0/c7_contracts_and_budget_transition_trace.json",
+    "unit_feedback_contract": "data/c7_runtime_radius_contracts_and_budget_v0/unit_feedback_record_contract_v0.json"
+  },
+  "receipt_id": "2c5d3c62",
+  "receipt_type": "TYPED_C7_RUNTIME_RADIUS_CONTRACTS_AND_BUDGET_RECEIPT",
+  "schema_version": "c7_contracts_and_budget_receipt_v0",
+  "source_c7_readiness_receipt_id": "49b3f28b",
+  "status": "TYPED_C7_RUNTIME_RADIUS_CONTRACTS_AND_BUDGET_PREPARED_FIXTURES_NEXT",
+  "target_unit_id": "runtime.practical_radius_expansion.contracts_and_budget.v0",
+  "terminal": {
+    "next_unit_id": "BUILD_C7_SYNTHETIC_RUNTIME_RADIUS_FIXTURES_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "unit_id": "PREPARE_C7_RUNTIME_RADIUS_CONTRACTS_AND_BUDGET_V0",
+  "warnings": []
+}
+c7_contracts_and_budget_receipt_id=2c5d3c62
+c7_contracts_and_budget_receipt_path=data/c7_runtime_radius_contracts_and_budget_v0_receipts/2c5d3c62.json
+c7_contracts_next_unit=BUILD_C7_SYNTHETIC_RUNTIME_RADIUS_FIXTURES_V0
+
+ASSERT_C7_CONTRACTS_AND_BUDGET
+{
+  "contract_count": 7,
+  "failures": [],
+  "gate": "PASS",
+  "hidden_next_command": false,
+  "negative_counter_count": 20,
+  "next_unit_id": "BUILD_C7_SYNTHETIC_RUNTIME_RADIUS_FIXTURES_V0",
+  "ready_for_c7_test_run": false,
+  "ready_for_fixture_build": true,
+  "receipt_id": "2c5d3c62",
+  "runtime_adoption_authorized": false,
+  "runtime_patched": false,
+  "status": "TYPED_C7_RUNTIME_RADIUS_CONTRACTS_AND_BUDGET_PREPARED_FIXTURES_NEXT",
+  "terminal": {
+    "next_unit_id": "BUILD_C7_SYNTHETIC_RUNTIME_RADIUS_FIXTURES_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+SHOW_C7_CONTRACTS_NEXT
+receipt_id=2c5d3c62
+receipt_path=data/c7_runtime_radius_contracts_and_budget_v0_receipts/2c5d3c62.json
+status=TYPED_C7_RUNTIME_RADIUS_CONTRACTS_AND_BUDGET_PREPARED_FIXTURES_NEXT
+c7_contracts_and_budget_prepared=True
+contract_count=7
+budget_prepared=True
+negative_counter_count=20
+critical_negative_counter_count=5
+ready_for_fixture_build=True
+ready_for_c7_test_run=False
+next_unit_id=BUILD_C7_SYNTHETIC_RUNTIME_RADIUS_FIXTURES_V0
+c7_runtime_run_authorized=False
+runtime_adoption_authorized=False
+runtime_patched=False
+live_runtime_hooks_installed=False
+terminal_type=ADVANCE
+terminal_next_unit_id=BUILD_C7_SYNTHETIC_RUNTIME_RADIUS_FIXTURES_V0
+
+SHOW_C7_CONTRACT_INDEX
+runtime_step_packet_contract_v0=data/c7_runtime_radius_contracts_and_budget_v0/runtime_step_packet_contract_v0.json
+runtime_radius_stop_packet_contract_v0=data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_stop_packet_contract_v0.json
+runtime_radius_budget_v0=data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_budget_v0.json
+unit_feedback_record_contract_v0=data/c7_runtime_radius_contracts_and_budget_v0/unit_feedback_record_contract_v0.json
+runtime_radius_negative_counter_contract_v0=data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_negative_counter_contract_v0.json
+runtime_radius_rollup_contract_v0=data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_rollup_contract_v0.json
+runtime_radius_readout_contract_v0=data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_readout_contract_v0.json
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+MM .gitignore
+A  data/c7_practical_runtime_radius_readiness_v0/c7_contract_targets_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_missing_or_weak_surfaces_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_negative_counter_targets_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_readiness_audit_basis_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_readiness_audit_profile_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_readiness_audit_rollup_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_readiness_audit_transition_trace.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_required_surface_inventory_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_sequence_to_test_runs_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0/c7_test_fixture_plan_v0.json
+A  data/c7_practical_runtime_radius_readiness_v0_receipts/49b3f28b.json
+A  scripts/audit_c7_practical_runtime_radius_readiness_v0.py
+?? scripts/prepare_c7_runtime_radius_contracts_and_budget_v0.py
+
+PACKAGE_C7_CONTRACTS_AND_BUDGET_ARTIFACTS
+
+C7_CONTRACTS_AND_BUDGET_READY_FOR_COMMIT
+M  .gitignore
+A  data/c7_runtime_radius_contracts_and_budget_v0/c7_contract_index_v0.json
+A  data/c7_runtime_radius_contracts_and_budget_v0/c7_contracts_and_budget_basis_v0.json
+A  data/c7_runtime_radius_contracts_and_budget_v0/c7_contracts_and_budget_profile_v0.json
+A  data/c7_runtime_radius_contracts_and_budget_v0/c7_contracts_and_budget_rollup_v0.json
+A  data/c7_runtime_radius_contracts_and_budget_v0/c7_contracts_and_budget_transition_trace.json
+A  data/c7_runtime_radius_contracts_and_budget_v0/c7_fixture_build_target_v0.json
+A  data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_budget_v0.json
+A  data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_negative_counter_contract_v0.json
+A  data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_readout_contract_v0.json
+A  data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_rollup_contract_v0.json
+A  data/c7_runtime_radius_contracts_and_budget_v0/runtime_radius_stop_packet_contract_v0.json
+A  data/c7_runtime_radius_contracts_and_budget_v0/runtime_step_packet_contract_v0.json
+A  data/c7_runtime_radius_contracts_and_budget_v0/unit_feedback_record_contract_v0.json
+A  data/c7_runtime_radius_contracts_and_budget_v0_receipts/2c5d3c62.json
+A  scripts/prepare_c7_runtime_radius_contracts_and_budget_v0.py
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

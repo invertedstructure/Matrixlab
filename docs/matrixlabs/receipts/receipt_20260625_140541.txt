@@ -1,0 +1,467 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_140541
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_140541.txt
+
+REVIEW_C5_FULL_DOMAIN_SHIFT_TRANSITION_V0
+
+STATUS_BEFORE_RELEVANT
+?? data/radius_125_slot_execution_summaries/
+
+VERIFY_C5_REVIEW_BASIS
+present data/c5_full_domain_shift_transition_v0_receipts/b4acefb6.json
+present data/c5_full_domain_shift_transition_v0/domain_shift_contract_schema_v0.json
+present data/c5_full_domain_shift_transition_v0/domain_shift_contract_v0.json
+present data/c5_full_domain_shift_transition_v0/domain_shift_fixture_record_schema_v0.json
+present data/c5_full_domain_shift_transition_v0/domain_shift_fixture_records_v0.jsonl
+present data/c5_full_domain_shift_transition_v0/domain_shift_cell0_loop_trace_schema_v0.json
+present data/c5_full_domain_shift_transition_v0/domain_shift_cell0_loop_traces_v0.jsonl
+present data/c5_full_domain_shift_transition_v0/domain_shift_label_audit_schema_v0.json
+present data/c5_full_domain_shift_transition_v0/domain_shift_label_audits_v0.jsonl
+present data/c5_full_domain_shift_transition_v0/domain_shift_proposal_packets_v0.jsonl
+present data/c5_full_domain_shift_transition_v0/domain_shift_cell1_build_receipt_schema_v0.json
+present data/c5_full_domain_shift_transition_v0/domain_shift_cell1_build_receipts_v0.jsonl
+present data/c5_full_domain_shift_transition_v0/domain_shift_verification_receipt_schema_v0.json
+present data/c5_full_domain_shift_transition_v0/domain_shift_verification_receipts_v0.jsonl
+present data/c5_full_domain_shift_transition_v0/domain_shift_handoff_record_schema_v0.json
+present data/c5_full_domain_shift_transition_v0/domain_shift_handoff_records_v0.jsonl
+present data/c5_full_domain_shift_transition_v0/domain_shift_outcome_enum_v0.json
+present data/c5_full_domain_shift_transition_v0/decision_edge_observation_records_v0.jsonl
+present data/c5_full_domain_shift_transition_v0/unit_feedback_records_v0.jsonl
+present data/c5_full_domain_shift_transition_v0/domain_shift_rollup_v0.json
+present data/c5_full_domain_shift_transition_v0/domain_shift_readout_v0.json
+present data/c5_full_domain_shift_transition_v0/c5_transition_profile_v0.json
+present data/c5_full_domain_shift_transition_v0/c5_transition_trace.json
+present data/c5_full_domain_shift_transition_v0/c5_report.json
+
+PATCH_GITIGNORE
+
+WRITE_C5_DOMAIN_SHIFT_REVIEW_RUNNER
+
+PY_COMPILE_C5_DOMAIN_SHIFT_REVIEW
+
+RUN_C5_DOMAIN_SHIFT_REVIEW
+{
+  "acceptance_gate_results": {
+    "C5_REVIEW_0_BUILD_RECEIPT_CONSUMED": true,
+    "C5_REVIEW_10_OUTCOME_EXPLICIT": true,
+    "C5_REVIEW_11_CLOSE_CANDIDATE_READY": true,
+    "C5_REVIEW_12_NO_TRANSFER_RESEARCH_AUTONOMY_CLAIMS": true,
+    "C5_REVIEW_13_NO_SOURCE_OR_PRIOR_RECEIPT_MUTATION": true,
+    "C5_REVIEW_14_NO_HIDDEN_NEXT_COMMAND": true,
+    "C5_REVIEW_15_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "C5_REVIEW_1_REVIEW_BASIS_EMITTED": true,
+    "C5_REVIEW_2_FIXTURE_MATRIX_REVIEWED": true,
+    "C5_REVIEW_3_CELL0_LOOP_REVIEWED": true,
+    "C5_REVIEW_4_LABEL_AUDITS_REVIEWED": true,
+    "C5_REVIEW_5_PROPOSAL_BOUNDARY_REVIEWED": true,
+    "C5_REVIEW_6_CELL1_ACCEPTED_PATH_REVIEWED": true,
+    "C5_REVIEW_7_VERIFICATION_HANDOFF_REVIEWED": true,
+    "C5_REVIEW_8_EDGE_FEEDBACK_REVIEWED": true,
+    "C5_REVIEW_9_BAD_COUNTERS_ZERO_CONFIRMED": true
+  },
+  "aggregate_metrics": {
+    "build_mode": "C5_FULL_DOMAIN_SHIFT_TRANSITION_REVIEW_ONLY",
+    "domain_id": "artifact_claim_review_v0",
+    "dominant_gap_class": "INSUFFICIENT_EVIDENCE_REQUIRES_BOUNDED_REVIEWED_PROPOSAL",
+    "layer": "OUTER / DOMAIN_SHIFT_TRANSITION / REVIEW",
+    "mode": "REVIEW / VERIFY_C5_TRANSITION_RECEIPTS / NO_NEW_DOMAIN_EXECUTION",
+    "outcome_class": "DOMAIN_SHIFT_PASS_WITH_GAPS",
+    "reason_codes": [
+      "C5_DOMAIN_SHIFT_REVIEW_COMPLETE",
+      "C5_BUILD_RECEIPT_CONSUMED",
+      "DOMAIN_CONTRACT_REVIEWED",
+      "FIXTURE_MATRIX_REVIEWED",
+      "CELL0_LOOP_REVIEWED",
+      "LABEL_AUDITS_REVIEWED",
+      "PROPOSAL_BOUNDARY_REVIEWED",
+      "CELL1_ACCEPTED_PROPOSAL_PATH_REVIEWED",
+      "VERIFICATION_AND_HANDOFF_REVIEWED",
+      "EDGE_OBSERVATIONS_REVIEWED",
+      "UNIT_FEEDBACK_REVIEWED",
+      "PASS_WITH_GAPS_CONFIRMED",
+      "BAD_COUNTERS_ZERO_CONFIRMED",
+      "NO_FULL_TRANSFER_CLAIM",
+      "NO_RESEARCH_LAB_CLAIM",
+      "NO_GLOBAL_AUTONOMY_CLAIM",
+      "NO_CELL1_FREEBUILD",
+      "NO_HIDDEN_NEXT_COMMAND"
+    ],
+    "receipt_backed_claim": "C5 domain shift build reviewed clean as pass-with-gaps. The artifact_claim_review_v0 transition preserved decision discipline, verified one accepted Cell 1 path, emitted edge observations and useful feedback, and avoided forbidden transfer/research/autonomy/freebuild claims.",
+    "recommended_next_handling": "CLOSE_C5_FULL_DOMAIN_SHIFT_TRANSITION_AS_REVIEWED_REFERENCE_V0",
+    "schema_version": "c5_domain_shift_review_report_v0",
+    "status": "TYPED_C5_FULL_DOMAIN_SHIFT_TRANSITION_REVIEWED_PASS_WITH_GAPS_CLOSE_READY",
+    "target_unit_id": "domain_shift.full_transition_review.v0",
+    "unit_id": "REVIEW_C5_FULL_DOMAIN_SHIFT_TRANSITION_V0"
+  },
+  "build_mode": "C5_FULL_DOMAIN_SHIFT_TRANSITION_REVIEW_ONLY",
+  "created_at": "2026-06-25T13:05:41.617225+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OUTER / DOMAIN_SHIFT_TRANSITION / REVIEW",
+  "machine_readable_c5_full_domain_shift_transition_review_summary": {
+    "bad_counters_zero": true,
+    "c5_domain_shift_review_complete": true,
+    "c5_domain_shift_review_pass": true,
+    "cell0_loop_runs": 5,
+    "cell1_auto_chain_count": 0,
+    "cell1_builds_attempted": 1,
+    "cell1_builds_verified": 1,
+    "cell1_freebuild_count": 0,
+    "close_candidate_ready": true,
+    "domain_id": "artifact_claim_review_v0",
+    "domain_shift_pass_claimed": false,
+    "dominant_gap_class": "INSUFFICIENT_EVIDENCE_REQUIRES_BOUNDED_REVIEWED_PROPOSAL",
+    "edge_observations_emitted": 45,
+    "fixtures_blocked": 2,
+    "fixtures_passed": 3,
+    "fixtures_total": 5,
+    "full_transfer_claimed": false,
+    "general_cell1_authority_claimed": false,
+    "global_autonomy_claimed": false,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "local_decision_grammar_survived": true,
+    "mtime_selection": false,
+    "outcome_class": "DOMAIN_SHIFT_PASS_WITH_GAPS",
+    "prior_receipt_mutated": false,
+    "proposal_applied_without_review_count": 0,
+    "proposal_packets_accepted": 1,
+    "proposal_packets_emitted": 2,
+    "reason_codes": [
+      "C5_DOMAIN_SHIFT_REVIEW_COMPLETE",
+      "C5_BUILD_RECEIPT_CONSUMED",
+      "DOMAIN_CONTRACT_REVIEWED",
+      "FIXTURE_MATRIX_REVIEWED",
+      "CELL0_LOOP_REVIEWED",
+      "LABEL_AUDITS_REVIEWED",
+      "PROPOSAL_BOUNDARY_REVIEWED",
+      "CELL1_ACCEPTED_PROPOSAL_PATH_REVIEWED",
+      "VERIFICATION_AND_HANDOFF_REVIEWED",
+      "EDGE_OBSERVATIONS_REVIEWED",
+      "UNIT_FEEDBACK_REVIEWED",
+      "PASS_WITH_GAPS_CONFIRMED",
+      "BAD_COUNTERS_ZERO_CONFIRMED",
+      "NO_FULL_TRANSFER_CLAIM",
+      "NO_RESEARCH_LAB_CLAIM",
+      "NO_GLOBAL_AUTONOMY_CLAIM",
+      "NO_CELL1_FREEBUILD",
+      "NO_HIDDEN_NEXT_COMMAND"
+    ],
+    "recommended_next": "CLOSE_C5_FULL_DOMAIN_SHIFT_TRANSITION_AS_REVIEWED_REFERENCE_V0",
+    "research_lab_readiness_claimed": false,
+    "source_mutated": false,
+    "status": "TYPED_C5_FULL_DOMAIN_SHIFT_TRANSITION_REVIEWED_PASS_WITH_GAPS_CLOSE_READY",
+    "typed_stops": 2,
+    "unbounded_payload_inspection_count": 0,
+    "unit_feedback_records_emitted": 2
+  },
+  "mode": "REVIEW / VERIFY_C5_TRANSITION_RECEIPTS / NO_NEW_DOMAIN_EXECUTION",
+  "output_artifacts": {
+    "authority_boundary": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_authority_boundary_v0.json",
+    "bad_counter_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_bad_counter_review_v0.json",
+    "cell0_loop_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_cell0_loop_review_v0.json",
+    "cell1_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_cell1_review_v0.json",
+    "classification": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_classification_v0.json",
+    "close_candidate": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_reviewed_reference_close_candidate_v0.json",
+    "edge_feedback_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_edge_feedback_review_v0.json",
+    "fixture_matrix_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_fixture_matrix_review_v0.json",
+    "implementation_receipt": "data/c5_full_domain_shift_transition_review_v0_receipts/efc12ac0.json",
+    "label_audit_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_label_audit_review_v0.json",
+    "outcome_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_outcome_review_v0.json",
+    "profile": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_profile_v0.json",
+    "proposal_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_proposal_review_v0.json",
+    "report": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_report.json",
+    "review_basis": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_basis_v0.json",
+    "rollup": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_rollup_v0.json",
+    "transition_trace": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_transition_trace.json",
+    "verification_handoff_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_verification_handoff_review_v0.json"
+  },
+  "receipt_id": "efc12ac0",
+  "receipt_type": "TYPED_C5_FULL_DOMAIN_SHIFT_TRANSITION_REVIEW_RECEIPT",
+  "schema_version": "c5_full_domain_shift_transition_review_receipt_v0",
+  "source_c5_build_receipt_id": "b4acefb6",
+  "target_unit_id": "domain_shift.full_transition_review.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_C5_FULL_DOMAIN_SHIFT_TRANSITION_REVIEWED_PASS_WITH_GAPS_CLOSE_READY",
+    "type": "STOP"
+  },
+  "unit_id": "REVIEW_C5_FULL_DOMAIN_SHIFT_TRANSITION_V0",
+  "warnings": []
+}
+c5_domain_shift_review_receipt_id=efc12ac0
+c5_domain_shift_review_receipt_path=data/c5_full_domain_shift_transition_review_v0_receipts/efc12ac0.json
+c5_domain_shift_review_basis_path=data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_basis_v0.json
+c5_domain_shift_review_close_candidate_path=data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_reviewed_reference_close_candidate_v0.json
+c5_domain_shift_review_rollup_path=data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_rollup_v0.json
+c5_domain_shift_review_profile_path=data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_profile_v0.json
+
+ASSERT_C5_DOMAIN_SHIFT_REVIEW
+{
+  "bad_counters_zero": true,
+  "close_candidate_ready": true,
+  "domain_id": "artifact_claim_review_v0",
+  "dominant_gap_class": "INSUFFICIENT_EVIDENCE_REQUIRES_BOUNDED_REVIEWED_PROPOSAL",
+  "failures": [],
+  "gate": "PASS",
+  "outcome_class": "DOMAIN_SHIFT_PASS_WITH_GAPS",
+  "receipt_id": "efc12ac0",
+  "recommended_next": "CLOSE_C5_FULL_DOMAIN_SHIFT_TRANSITION_AS_REVIEWED_REFERENCE_V0",
+  "status": "TYPED_C5_FULL_DOMAIN_SHIFT_TRANSITION_REVIEWED_PASS_WITH_GAPS_CLOSE_READY",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_C5_FULL_DOMAIN_SHIFT_TRANSITION_REVIEWED_PASS_WITH_GAPS_CLOSE_READY",
+    "type": "STOP"
+  }
+}
+
+VERIFY_C5_REVIEW_CLOSE_CANDIDATE_AND_BOUNDARY
+allowed_status_lines_checked
+C5 review confirms pass-with-gaps; close candidate ready; no transfer/research/autonomy/freebuild claims
+
+SHOW_C5_DOMAIN_SHIFT_REVIEW_NEXT
+status=TYPED_C5_FULL_DOMAIN_SHIFT_TRANSITION_REVIEWED_PASS_WITH_GAPS_CLOSE_READY
+reason_codes=C5_DOMAIN_SHIFT_REVIEW_COMPLETE,C5_BUILD_RECEIPT_CONSUMED,DOMAIN_CONTRACT_REVIEWED,FIXTURE_MATRIX_REVIEWED,CELL0_LOOP_REVIEWED,LABEL_AUDITS_REVIEWED,PROPOSAL_BOUNDARY_REVIEWED,CELL1_ACCEPTED_PROPOSAL_PATH_REVIEWED,VERIFICATION_AND_HANDOFF_REVIEWED,EDGE_OBSERVATIONS_REVIEWED,UNIT_FEEDBACK_REVIEWED,PASS_WITH_GAPS_CONFIRMED,BAD_COUNTERS_ZERO_CONFIRMED,NO_FULL_TRANSFER_CLAIM,NO_RESEARCH_LAB_CLAIM,NO_GLOBAL_AUTONOMY_CLAIM,NO_CELL1_FREEBUILD,NO_HIDDEN_NEXT_COMMAND
+c5_domain_shift_review_complete=True
+c5_domain_shift_review_pass=True
+close_candidate_ready=True
+domain_id=artifact_claim_review_v0
+outcome_class=DOMAIN_SHIFT_PASS_WITH_GAPS
+dominant_gap_class=INSUFFICIENT_EVIDENCE_REQUIRES_BOUNDED_REVIEWED_PROPOSAL
+fixtures_total=5
+fixtures_passed=3
+fixtures_blocked=2
+cell0_loop_runs=5
+cell1_builds_attempted=1
+cell1_builds_verified=1
+proposal_packets_emitted=2
+proposal_packets_accepted=1
+typed_stops=2
+edge_observations_emitted=45
+unit_feedback_records_emitted=2
+bad_counters_zero=True
+local_decision_grammar_survived=True
+domain_shift_pass_claimed=False
+full_transfer_claimed=False
+research_lab_readiness_claimed=False
+global_autonomy_claimed=False
+general_cell1_authority_claimed=False
+cell1_freebuild_count=0
+cell1_auto_chain_count=0
+unbounded_payload_inspection_count=0
+proposal_applied_without_review_count=0
+source_mutated=False
+prior_receipt_mutated=False
+hidden_next_command=False
+latest_file_guessing=False
+mtime_selection=False
+recommended_next=CLOSE_C5_FULL_DOMAIN_SHIFT_TRANSITION_AS_REVIEWED_REFERENCE_V0
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+?? data/radius_125_slot_execution_summaries/
+?? scripts/review_c5_full_domain_shift_transition_v0.py
+
+PACKAGE_C5_DOMAIN_SHIFT_REVIEW_ARTIFACTS
+packaged data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_basis_v0.json
+packaged data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_fixture_matrix_review_v0.json
+packaged data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_cell0_loop_review_v0.json
+packaged data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_label_audit_review_v0.json
+packaged data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_proposal_review_v0.json
+packaged data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_cell1_review_v0.json
+packaged data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_verification_handoff_review_v0.json
+packaged data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_edge_feedback_review_v0.json
+packaged data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_bad_counter_review_v0.json
+packaged data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_outcome_review_v0.json
+packaged data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_reviewed_reference_close_candidate_v0.json
+packaged data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_authority_boundary_v0.json
+packaged data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_classification_v0.json
+packaged data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_rollup_v0.json
+packaged data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_profile_v0.json
+packaged data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_report.json
+packaged data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_transition_trace.json
+[master c067615d3] review C5 full domain shift transition
+ 20 files changed, 1209 insertions(+)
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_bad_counter_review_v0.json
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_cell0_loop_review_v0.json
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_cell1_review_v0.json
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_edge_feedback_review_v0.json
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_fixture_matrix_review_v0.json
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_label_audit_review_v0.json
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_outcome_review_v0.json
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_proposal_review_v0.json
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_authority_boundary_v0.json
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_basis_v0.json
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_classification_v0.json
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_profile_v0.json
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_report.json
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_rollup_v0.json
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_transition_trace.json
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_reviewed_reference_close_candidate_v0.json
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_verification_handoff_review_v0.json
+ create mode 100644 data/c5_full_domain_shift_transition_review_v0_receipts/efc12ac0.json
+ create mode 100755 scripts/review_c5_full_domain_shift_transition_v0.py
+
+COMMIT_DONE_RELEVANT
+?? data/radius_125_slot_execution_summaries/
+
+C5_DOMAIN_SHIFT_REVIEW_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+c5_domain_shift_review_receipt_id=efc12ac0
+c5_domain_shift_review_receipt_path=data/c5_full_domain_shift_transition_review_v0_receipts/efc12ac0.json
+{
+  "acceptance_gate_results": {
+    "C5_REVIEW_0_BUILD_RECEIPT_CONSUMED": true,
+    "C5_REVIEW_10_OUTCOME_EXPLICIT": true,
+    "C5_REVIEW_11_CLOSE_CANDIDATE_READY": true,
+    "C5_REVIEW_12_NO_TRANSFER_RESEARCH_AUTONOMY_CLAIMS": true,
+    "C5_REVIEW_13_NO_SOURCE_OR_PRIOR_RECEIPT_MUTATION": true,
+    "C5_REVIEW_14_NO_HIDDEN_NEXT_COMMAND": true,
+    "C5_REVIEW_15_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "C5_REVIEW_1_REVIEW_BASIS_EMITTED": true,
+    "C5_REVIEW_2_FIXTURE_MATRIX_REVIEWED": true,
+    "C5_REVIEW_3_CELL0_LOOP_REVIEWED": true,
+    "C5_REVIEW_4_LABEL_AUDITS_REVIEWED": true,
+    "C5_REVIEW_5_PROPOSAL_BOUNDARY_REVIEWED": true,
+    "C5_REVIEW_6_CELL1_ACCEPTED_PATH_REVIEWED": true,
+    "C5_REVIEW_7_VERIFICATION_HANDOFF_REVIEWED": true,
+    "C5_REVIEW_8_EDGE_FEEDBACK_REVIEWED": true,
+    "C5_REVIEW_9_BAD_COUNTERS_ZERO_CONFIRMED": true
+  },
+  "aggregate_metrics": {
+    "build_mode": "C5_FULL_DOMAIN_SHIFT_TRANSITION_REVIEW_ONLY",
+    "domain_id": "artifact_claim_review_v0",
+    "dominant_gap_class": "INSUFFICIENT_EVIDENCE_REQUIRES_BOUNDED_REVIEWED_PROPOSAL",
+    "layer": "OUTER / DOMAIN_SHIFT_TRANSITION / REVIEW",
+    "mode": "REVIEW / VERIFY_C5_TRANSITION_RECEIPTS / NO_NEW_DOMAIN_EXECUTION",
+    "outcome_class": "DOMAIN_SHIFT_PASS_WITH_GAPS",
+    "reason_codes": [
+      "C5_DOMAIN_SHIFT_REVIEW_COMPLETE",
+      "C5_BUILD_RECEIPT_CONSUMED",
+      "DOMAIN_CONTRACT_REVIEWED",
+      "FIXTURE_MATRIX_REVIEWED",
+      "CELL0_LOOP_REVIEWED",
+      "LABEL_AUDITS_REVIEWED",
+      "PROPOSAL_BOUNDARY_REVIEWED",
+      "CELL1_ACCEPTED_PROPOSAL_PATH_REVIEWED",
+      "VERIFICATION_AND_HANDOFF_REVIEWED",
+      "EDGE_OBSERVATIONS_REVIEWED",
+      "UNIT_FEEDBACK_REVIEWED",
+      "PASS_WITH_GAPS_CONFIRMED",
+      "BAD_COUNTERS_ZERO_CONFIRMED",
+      "NO_FULL_TRANSFER_CLAIM",
+      "NO_RESEARCH_LAB_CLAIM",
+      "NO_GLOBAL_AUTONOMY_CLAIM",
+      "NO_CELL1_FREEBUILD",
+      "NO_HIDDEN_NEXT_COMMAND"
+    ],
+    "receipt_backed_claim": "C5 domain shift build reviewed clean as pass-with-gaps. The artifact_claim_review_v0 transition preserved decision discipline, verified one accepted Cell 1 path, emitted edge observations and useful feedback, and avoided forbidden transfer/research/autonomy/freebuild claims.",
+    "recommended_next_handling": "CLOSE_C5_FULL_DOMAIN_SHIFT_TRANSITION_AS_REVIEWED_REFERENCE_V0",
+    "schema_version": "c5_domain_shift_review_report_v0",
+    "status": "TYPED_C5_FULL_DOMAIN_SHIFT_TRANSITION_REVIEWED_PASS_WITH_GAPS_CLOSE_READY",
+    "target_unit_id": "domain_shift.full_transition_review.v0",
+    "unit_id": "REVIEW_C5_FULL_DOMAIN_SHIFT_TRANSITION_V0"
+  },
+  "build_mode": "C5_FULL_DOMAIN_SHIFT_TRANSITION_REVIEW_ONLY",
+  "created_at": "2026-06-25T13:05:41.617225+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OUTER / DOMAIN_SHIFT_TRANSITION / REVIEW",
+  "machine_readable_c5_full_domain_shift_transition_review_summary": {
+    "bad_counters_zero": true,
+    "c5_domain_shift_review_complete": true,
+    "c5_domain_shift_review_pass": true,
+    "cell0_loop_runs": 5,
+    "cell1_auto_chain_count": 0,
+    "cell1_builds_attempted": 1,
+    "cell1_builds_verified": 1,
+    "cell1_freebuild_count": 0,
+    "close_candidate_ready": true,
+    "domain_id": "artifact_claim_review_v0",
+    "domain_shift_pass_claimed": false,
+    "dominant_gap_class": "INSUFFICIENT_EVIDENCE_REQUIRES_BOUNDED_REVIEWED_PROPOSAL",
+    "edge_observations_emitted": 45,
+    "fixtures_blocked": 2,
+    "fixtures_passed": 3,
+    "fixtures_total": 5,
+    "full_transfer_claimed": false,
+    "general_cell1_authority_claimed": false,
+    "global_autonomy_claimed": false,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "local_decision_grammar_survived": true,
+    "mtime_selection": false,
+    "outcome_class": "DOMAIN_SHIFT_PASS_WITH_GAPS",
+    "prior_receipt_mutated": false,
+    "proposal_applied_without_review_count": 0,
+    "proposal_packets_accepted": 1,
+    "proposal_packets_emitted": 2,
+    "reason_codes": [
+      "C5_DOMAIN_SHIFT_REVIEW_COMPLETE",
+      "C5_BUILD_RECEIPT_CONSUMED",
+      "DOMAIN_CONTRACT_REVIEWED",
+      "FIXTURE_MATRIX_REVIEWED",
+      "CELL0_LOOP_REVIEWED",
+      "LABEL_AUDITS_REVIEWED",
+      "PROPOSAL_BOUNDARY_REVIEWED",
+      "CELL1_ACCEPTED_PROPOSAL_PATH_REVIEWED",
+      "VERIFICATION_AND_HANDOFF_REVIEWED",
+      "EDGE_OBSERVATIONS_REVIEWED",
+      "UNIT_FEEDBACK_REVIEWED",
+      "PASS_WITH_GAPS_CONFIRMED",
+      "BAD_COUNTERS_ZERO_CONFIRMED",
+      "NO_FULL_TRANSFER_CLAIM",
+      "NO_RESEARCH_LAB_CLAIM",
+      "NO_GLOBAL_AUTONOMY_CLAIM",
+      "NO_CELL1_FREEBUILD",
+      "NO_HIDDEN_NEXT_COMMAND"
+    ],
+    "recommended_next": "CLOSE_C5_FULL_DOMAIN_SHIFT_TRANSITION_AS_REVIEWED_REFERENCE_V0",
+    "research_lab_readiness_claimed": false,
+    "source_mutated": false,
+    "status": "TYPED_C5_FULL_DOMAIN_SHIFT_TRANSITION_REVIEWED_PASS_WITH_GAPS_CLOSE_READY",
+    "typed_stops": 2,
+    "unbounded_payload_inspection_count": 0,
+    "unit_feedback_records_emitted": 2
+  },
+  "mode": "REVIEW / VERIFY_C5_TRANSITION_RECEIPTS / NO_NEW_DOMAIN_EXECUTION",
+  "output_artifacts": {
+    "authority_boundary": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_authority_boundary_v0.json",
+    "bad_counter_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_bad_counter_review_v0.json",
+    "cell0_loop_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_cell0_loop_review_v0.json",
+    "cell1_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_cell1_review_v0.json",
+    "classification": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_classification_v0.json",
+    "close_candidate": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_reviewed_reference_close_candidate_v0.json",
+    "edge_feedback_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_edge_feedback_review_v0.json",
+    "fixture_matrix_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_fixture_matrix_review_v0.json",
+    "implementation_receipt": "data/c5_full_domain_shift_transition_review_v0_receipts/efc12ac0.json",
+    "label_audit_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_label_audit_review_v0.json",
+    "outcome_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_outcome_review_v0.json",
+    "profile": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_profile_v0.json",
+    "proposal_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_proposal_review_v0.json",
+    "report": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_report.json",
+    "review_basis": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_basis_v0.json",
+    "rollup": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_rollup_v0.json",
+    "transition_trace": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_review_transition_trace.json",
+    "verification_handoff_review": "data/c5_full_domain_shift_transition_review_v0/c5_domain_shift_verification_handoff_review_v0.json"
+  },
+  "receipt_id": "efc12ac0",
+  "receipt_type": "TYPED_C5_FULL_DOMAIN_SHIFT_TRANSITION_REVIEW_RECEIPT",
+  "schema_version": "c5_full_domain_shift_transition_review_receipt_v0",
+  "source_c5_build_receipt_id": "b4acefb6",
+  "target_unit_id": "domain_shift.full_transition_review.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_C5_FULL_DOMAIN_SHIFT_TRANSITION_REVIEWED_PASS_WITH_GAPS_CLOSE_READY",
+    "type": "STOP"
+  },
+  "unit_id": "REVIEW_C5_FULL_DOMAIN_SHIFT_TRANSITION_V0",
+  "warnings": []
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

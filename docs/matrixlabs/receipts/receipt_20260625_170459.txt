@@ -1,0 +1,433 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_170459
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_170459.txt
+
+REVIEW_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0
+
+STATUS_BEFORE_RELEVANT
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/radius_125_slot_execution_summaries/
+
+VERIFY_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEW_BASIS
+present data/c6_bounded_protocol_adoption_probe_v0_receipts/6ecaeaf8.json
+present data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_fixture_v0.json
+present data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_packet_trace_v0.jsonl
+present data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_edge_observations_v0.jsonl
+present data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_unit_feedback_v0.jsonl
+present data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_negative_control_results_v0.jsonl
+present data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_rollup_v0.json
+present data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_profile_v0.json
+present data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_report.json
+present data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_transition_trace.json
+present data/c6_bounded_protocol_adoption_probe_design_v0_receipts/e0078630.json
+present data/c6_inter_cell_protocol_from_c5_examples_reference_closure_v0_receipts/50849d13.json
+present data/c6_inter_cell_protocol_post_reference_decision_v0_receipts/5a07dcbb.json
+present data/c6_inter_cell_protocol_from_c5_examples_reference_closure_v0/c6_inter_cell_protocol_reviewed_reference_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_reference_closure_v0/c6_inter_cell_packet_law_reference_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_reference_closure_v0/c6_inter_cell_protocol_surface_reference_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_reference_closure_v0/c6_inter_cell_protocol_gate19_repair_reference_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_design_basis_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_scope_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_flow_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_acceptance_gates_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_negative_controls_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_feedback_requirements_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_observation_requirements_v0.json
+
+PATCH_GITIGNORE
+
+WRITE_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEW_RUNNER
+
+PY_COMPILE_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEW
+
+RUN_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEW
+{
+  "acceptance_gate_results": {
+    "ADOPTION_PROBE_REVIEW_0_PROBE_RECEIPT_CONSUMED": true,
+    "ADOPTION_PROBE_REVIEW_10_NO_TRANSFER_AUTONOMY_GENERAL_AUTHORITY_OR_RUNTIME_ENFORCEMENT_CLAIMS": true,
+    "ADOPTION_PROBE_REVIEW_11_NO_SOURCE_OR_REFERENCE_MUTATION": true,
+    "ADOPTION_PROBE_REVIEW_12_NO_HIDDEN_NEXT_COMMAND": true,
+    "ADOPTION_PROBE_REVIEW_13_NO_LATEST_OR_MTIME": true,
+    "ADOPTION_PROBE_REVIEW_14_CLOSE_CANDIDATE_READY": true,
+    "ADOPTION_PROBE_REVIEW_15_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "ADOPTION_PROBE_REVIEW_1_PROBE_GATE_PASS": true,
+    "ADOPTION_PROBE_REVIEW_2_PACKET_TRACE_REVIEWED": true,
+    "ADOPTION_PROBE_REVIEW_3_EDGE_OBSERVATIONS_REVIEWED": true,
+    "ADOPTION_PROBE_REVIEW_4_UNIT_FEEDBACK_REVIEWED": true,
+    "ADOPTION_PROBE_REVIEW_5_NEGATIVE_CONTROLS_REVIEWED": true,
+    "ADOPTION_PROBE_REVIEW_6_PACKET_LAW_DISTINCTIONS_CONFIRMED": true,
+    "ADOPTION_PROBE_REVIEW_7_BAD_COUNTERS_ZERO": true,
+    "ADOPTION_PROBE_REVIEW_8_NO_RUNTIME_EFFECT_OR_PATCH": true,
+    "ADOPTION_PROBE_REVIEW_9_NO_C7": true
+  },
+  "aggregate_metrics": {
+    "build_mode": "C6_BOUNDED_PROTOCOL_ADOPTION_PROBE_REVIEW_ONLY",
+    "layer": "BRIDGE / INTER_CELL_PROTOCOL / BOUNDED_ADOPTION_PROBE / REVIEW",
+    "mode": "REVIEW_ONLY / VERIFY_SYNTHETIC_PROTOCOL_PROBE / NO_RUNTIME_PATCH",
+    "reason_codes": [
+      "BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEW_COMPLETE",
+      "PROBE_RECEIPT_CONSUMED",
+      "SYNTHETIC_PROTOCOL_ONLY_CONFIRMED",
+      "PACKET_TRACE_REVIEWED",
+      "EDGE_OBSERVATIONS_REVIEWED",
+      "UNIT_FEEDBACK_REVIEWED",
+      "NEGATIVE_CONTROLS_REVIEWED_FAIL_CLOSED",
+      "PACKET_LAW_DISTINCTIONS_CONFIRMED",
+      "BAD_COUNTERS_ZERO",
+      "NO_RUNTIME_EFFECT",
+      "NO_RUNTIME_PATCH",
+      "NO_C7_AUTHORIZATION",
+      "NO_TRANSFER_AUTONOMY_GENERAL_AUTHORITY_OR_RUNTIME_ENFORCEMENT_CLAIMS",
+      "NO_SOURCE_OR_REFERENCE_MUTATION",
+      "NO_HIDDEN_NEXT_COMMAND",
+      "CLOSE_CANDIDATE_READY"
+    ],
+    "receipt_backed_claim": "The bounded synthetic C6 adoption probe reviewed clean. It confirms one bounded inter-cell packet-law flow with 9 packet trace entries, 7 edge observations, 4 unit feedback sidecars, 15 fail-closed negative controls, and no runtime/C7/transfer/autonomy/general-authority boundary breach.",
+    "recommended_next_handling": "CLOSE_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_AS_REVIEWED_REFERENCE_V0",
+    "schema_version": "bounded_adoption_probe_review_report_v0",
+    "status": "TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEWED_CLOSE_READY",
+    "target_unit_id": "c6.protocol_adoption_probe.review.v0",
+    "unit_id": "REVIEW_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0"
+  },
+  "build_mode": "C6_BOUNDED_PROTOCOL_ADOPTION_PROBE_REVIEW_ONLY",
+  "created_at": "2026-06-25T16:04:59.758046+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "BRIDGE / INTER_CELL_PROTOCOL / BOUNDED_ADOPTION_PROBE / REVIEW",
+  "machine_readable_bounded_c6_adoption_probe_review_summary": {
+    "bad_counters_zero": true,
+    "bounded_c6_protocol_adoption_probe_review_complete": true,
+    "bounded_c6_protocol_adoption_probe_review_pass": true,
+    "c6_reviewed_reference_mutated": false,
+    "c7_authorized": false,
+    "close_candidate_ready": true,
+    "edge_observation_count": 7,
+    "full_transfer_claimed": false,
+    "general_cell1_authority_claimed": false,
+    "global_autonomy_claimed": false,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "mtime_selection": false,
+    "negative_control_count": 15,
+    "negative_controls_passed": true,
+    "new_domain_shift_executed": false,
+    "packet_law_distinctions_confirmed": true,
+    "packet_trace_count": 9,
+    "prior_receipt_mutated": false,
+    "reason_codes": [
+      "BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEW_COMPLETE",
+      "PROBE_RECEIPT_CONSUMED",
+      "SYNTHETIC_PROTOCOL_ONLY_CONFIRMED",
+      "PACKET_TRACE_REVIEWED",
+      "EDGE_OBSERVATIONS_REVIEWED",
+      "UNIT_FEEDBACK_REVIEWED",
+      "NEGATIVE_CONTROLS_REVIEWED_FAIL_CLOSED",
+      "PACKET_LAW_DISTINCTIONS_CONFIRMED",
+      "BAD_COUNTERS_ZERO",
+      "NO_RUNTIME_EFFECT",
+      "NO_RUNTIME_PATCH",
+      "NO_C7_AUTHORIZATION",
+      "NO_TRANSFER_AUTONOMY_GENERAL_AUTHORITY_OR_RUNTIME_ENFORCEMENT_CLAIMS",
+      "NO_SOURCE_OR_REFERENCE_MUTATION",
+      "NO_HIDDEN_NEXT_COMMAND",
+      "CLOSE_CANDIDATE_READY"
+    ],
+    "recommended_next": "CLOSE_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_AS_REVIEWED_REFERENCE_V0",
+    "runtime_effect": false,
+    "runtime_patched": false,
+    "runtime_wide_enforcement_claimed": false,
+    "source_mutated": false,
+    "source_probe_built": true,
+    "status": "TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEWED_CLOSE_READY",
+    "synthetic_protocol_only": true,
+    "unit_feedback_count": 4
+  },
+  "mode": "REVIEW_ONLY / VERIFY_SYNTHETIC_PROTOCOL_PROBE / NO_RUNTIME_PATCH",
+  "output_artifacts": {
+    "authority_boundary": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_authority_boundary_v0.json",
+    "boundary_review": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_boundary_review_v0.json",
+    "classification": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_classification_v0.json",
+    "close_candidate": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_reviewed_reference_close_candidate_v0.json",
+    "edge_observation_review": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_edge_observation_review_v0.json",
+    "implementation_receipt": "data/c6_bounded_protocol_adoption_probe_review_v0_receipts/94c34bc4.json",
+    "negative_control_review": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_negative_control_review_v0.json",
+    "packet_trace_review": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_packet_trace_review_v0.json",
+    "profile": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_profile_v0.json",
+    "report": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_report.json",
+    "review_basis": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_basis_v0.json",
+    "rollup": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_rollup_v0.json",
+    "source_receipt_review": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_source_receipt_review_v0.json",
+    "transition_trace": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_transition_trace.json",
+    "unit_feedback_review": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_unit_feedback_review_v0.json"
+  },
+  "receipt_id": "94c34bc4",
+  "receipt_type": "TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEW_RECEIPT",
+  "schema_version": "bounded_c6_protocol_adoption_probe_review_receipt_v0",
+  "source_c6_protocol_reference_closure_receipt_id": "50849d13",
+  "source_probe_design_receipt_id": "e0078630",
+  "source_probe_receipt_id": "6ecaeaf8",
+  "target_unit_id": "c6.protocol_adoption_probe.review.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEWED_CLOSE_READY",
+    "type": "STOP"
+  },
+  "unit_id": "REVIEW_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0",
+  "warnings": []
+}
+bounded_c6_protocol_adoption_probe_review_receipt_id=94c34bc4
+bounded_c6_protocol_adoption_probe_review_receipt_path=data/c6_bounded_protocol_adoption_probe_review_v0_receipts/94c34bc4.json
+bounded_c6_protocol_adoption_probe_review_close_candidate_path=data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_reviewed_reference_close_candidate_v0.json
+bounded_c6_protocol_adoption_probe_review_rollup_path=data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_rollup_v0.json
+bounded_c6_protocol_adoption_probe_review_profile_path=data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_profile_v0.json
+
+ASSERT_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEW
+{
+  "c7_authorized": false,
+  "close_candidate_ready": true,
+  "edge_observation_count": 7,
+  "failures": [],
+  "gate": "PASS",
+  "negative_control_count": 15,
+  "negative_controls_passed": true,
+  "packet_trace_count": 9,
+  "receipt_id": "94c34bc4",
+  "recommended_next": "CLOSE_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_AS_REVIEWED_REFERENCE_V0",
+  "review_pass": true,
+  "runtime_patched": false,
+  "status": "TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEWED_CLOSE_READY",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEWED_CLOSE_READY",
+    "type": "STOP"
+  },
+  "unit_feedback_count": 4
+}
+
+VERIFY_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEW_BOUNDARY
+allowed_status_lines_checked
+Bounded C6 adoption probe reviewed clean; close candidate ready; no runtime patch; no C7
+
+SHOW_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEW_NEXT
+status=TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEWED_CLOSE_READY
+reason_codes=BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEW_COMPLETE,PROBE_RECEIPT_CONSUMED,SYNTHETIC_PROTOCOL_ONLY_CONFIRMED,PACKET_TRACE_REVIEWED,EDGE_OBSERVATIONS_REVIEWED,UNIT_FEEDBACK_REVIEWED,NEGATIVE_CONTROLS_REVIEWED_FAIL_CLOSED,PACKET_LAW_DISTINCTIONS_CONFIRMED,BAD_COUNTERS_ZERO,NO_RUNTIME_EFFECT,NO_RUNTIME_PATCH,NO_C7_AUTHORIZATION,NO_TRANSFER_AUTONOMY_GENERAL_AUTHORITY_OR_RUNTIME_ENFORCEMENT_CLAIMS,NO_SOURCE_OR_REFERENCE_MUTATION,NO_HIDDEN_NEXT_COMMAND,CLOSE_CANDIDATE_READY
+bounded_c6_protocol_adoption_probe_review_complete=True
+bounded_c6_protocol_adoption_probe_review_pass=True
+close_candidate_ready=True
+source_probe_built=True
+synthetic_protocol_only=True
+runtime_effect=False
+packet_trace_count=9
+edge_observation_count=7
+unit_feedback_count=4
+negative_control_count=15
+negative_controls_passed=True
+packet_law_distinctions_confirmed=True
+runtime_patched=False
+c7_authorized=False
+new_domain_shift_executed=False
+general_cell1_authority_claimed=False
+global_autonomy_claimed=False
+full_transfer_claimed=False
+runtime_wide_enforcement_claimed=False
+source_mutated=False
+prior_receipt_mutated=False
+c6_reviewed_reference_mutated=False
+hidden_next_command=False
+latest_file_guessing=False
+mtime_selection=False
+bad_counters_zero=True
+recommended_next=CLOSE_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_AS_REVIEWED_REFERENCE_V0
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/radius_125_slot_execution_summaries/
+?? scripts/review_bounded_c6_protocol_adoption_probe_from_reviewed_reference_v0.py
+
+PACKAGE_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEW_ARTIFACTS
+packaged data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_basis_v0.json
+packaged data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_source_receipt_review_v0.json
+packaged data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_packet_trace_review_v0.json
+packaged data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_edge_observation_review_v0.json
+packaged data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_unit_feedback_review_v0.json
+packaged data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_negative_control_review_v0.json
+packaged data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_boundary_review_v0.json
+packaged data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_reviewed_reference_close_candidate_v0.json
+packaged data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_authority_boundary_v0.json
+packaged data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_classification_v0.json
+packaged data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_rollup_v0.json
+packaged data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_profile_v0.json
+packaged data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_report.json
+packaged data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_transition_trace.json
+[master 4f3117d83] review bounded C6 protocol adoption probe
+ 17 files changed, 1260 insertions(+)
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_boundary_review_v0.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_edge_observation_review_v0.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_negative_control_review_v0.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_packet_trace_review_v0.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_authority_boundary_v0.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_basis_v0.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_classification_v0.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_profile_v0.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_report.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_rollup_v0.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_transition_trace.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_reviewed_reference_close_candidate_v0.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_source_receipt_review_v0.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_unit_feedback_review_v0.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_review_v0_receipts/94c34bc4.json
+ create mode 100755 scripts/review_bounded_c6_protocol_adoption_probe_from_reviewed_reference_v0.py
+
+COMMIT_DONE_RELEVANT
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/radius_125_slot_execution_summaries/
+
+BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEW_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+bounded_c6_protocol_adoption_probe_review_receipt_id=94c34bc4
+bounded_c6_protocol_adoption_probe_review_receipt_path=data/c6_bounded_protocol_adoption_probe_review_v0_receipts/94c34bc4.json
+{
+  "acceptance_gate_results": {
+    "ADOPTION_PROBE_REVIEW_0_PROBE_RECEIPT_CONSUMED": true,
+    "ADOPTION_PROBE_REVIEW_10_NO_TRANSFER_AUTONOMY_GENERAL_AUTHORITY_OR_RUNTIME_ENFORCEMENT_CLAIMS": true,
+    "ADOPTION_PROBE_REVIEW_11_NO_SOURCE_OR_REFERENCE_MUTATION": true,
+    "ADOPTION_PROBE_REVIEW_12_NO_HIDDEN_NEXT_COMMAND": true,
+    "ADOPTION_PROBE_REVIEW_13_NO_LATEST_OR_MTIME": true,
+    "ADOPTION_PROBE_REVIEW_14_CLOSE_CANDIDATE_READY": true,
+    "ADOPTION_PROBE_REVIEW_15_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "ADOPTION_PROBE_REVIEW_1_PROBE_GATE_PASS": true,
+    "ADOPTION_PROBE_REVIEW_2_PACKET_TRACE_REVIEWED": true,
+    "ADOPTION_PROBE_REVIEW_3_EDGE_OBSERVATIONS_REVIEWED": true,
+    "ADOPTION_PROBE_REVIEW_4_UNIT_FEEDBACK_REVIEWED": true,
+    "ADOPTION_PROBE_REVIEW_5_NEGATIVE_CONTROLS_REVIEWED": true,
+    "ADOPTION_PROBE_REVIEW_6_PACKET_LAW_DISTINCTIONS_CONFIRMED": true,
+    "ADOPTION_PROBE_REVIEW_7_BAD_COUNTERS_ZERO": true,
+    "ADOPTION_PROBE_REVIEW_8_NO_RUNTIME_EFFECT_OR_PATCH": true,
+    "ADOPTION_PROBE_REVIEW_9_NO_C7": true
+  },
+  "aggregate_metrics": {
+    "build_mode": "C6_BOUNDED_PROTOCOL_ADOPTION_PROBE_REVIEW_ONLY",
+    "layer": "BRIDGE / INTER_CELL_PROTOCOL / BOUNDED_ADOPTION_PROBE / REVIEW",
+    "mode": "REVIEW_ONLY / VERIFY_SYNTHETIC_PROTOCOL_PROBE / NO_RUNTIME_PATCH",
+    "reason_codes": [
+      "BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEW_COMPLETE",
+      "PROBE_RECEIPT_CONSUMED",
+      "SYNTHETIC_PROTOCOL_ONLY_CONFIRMED",
+      "PACKET_TRACE_REVIEWED",
+      "EDGE_OBSERVATIONS_REVIEWED",
+      "UNIT_FEEDBACK_REVIEWED",
+      "NEGATIVE_CONTROLS_REVIEWED_FAIL_CLOSED",
+      "PACKET_LAW_DISTINCTIONS_CONFIRMED",
+      "BAD_COUNTERS_ZERO",
+      "NO_RUNTIME_EFFECT",
+      "NO_RUNTIME_PATCH",
+      "NO_C7_AUTHORIZATION",
+      "NO_TRANSFER_AUTONOMY_GENERAL_AUTHORITY_OR_RUNTIME_ENFORCEMENT_CLAIMS",
+      "NO_SOURCE_OR_REFERENCE_MUTATION",
+      "NO_HIDDEN_NEXT_COMMAND",
+      "CLOSE_CANDIDATE_READY"
+    ],
+    "receipt_backed_claim": "The bounded synthetic C6 adoption probe reviewed clean. It confirms one bounded inter-cell packet-law flow with 9 packet trace entries, 7 edge observations, 4 unit feedback sidecars, 15 fail-closed negative controls, and no runtime/C7/transfer/autonomy/general-authority boundary breach.",
+    "recommended_next_handling": "CLOSE_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_AS_REVIEWED_REFERENCE_V0",
+    "schema_version": "bounded_adoption_probe_review_report_v0",
+    "status": "TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEWED_CLOSE_READY",
+    "target_unit_id": "c6.protocol_adoption_probe.review.v0",
+    "unit_id": "REVIEW_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0"
+  },
+  "build_mode": "C6_BOUNDED_PROTOCOL_ADOPTION_PROBE_REVIEW_ONLY",
+  "created_at": "2026-06-25T16:04:59.758046+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "BRIDGE / INTER_CELL_PROTOCOL / BOUNDED_ADOPTION_PROBE / REVIEW",
+  "machine_readable_bounded_c6_adoption_probe_review_summary": {
+    "bad_counters_zero": true,
+    "bounded_c6_protocol_adoption_probe_review_complete": true,
+    "bounded_c6_protocol_adoption_probe_review_pass": true,
+    "c6_reviewed_reference_mutated": false,
+    "c7_authorized": false,
+    "close_candidate_ready": true,
+    "edge_observation_count": 7,
+    "full_transfer_claimed": false,
+    "general_cell1_authority_claimed": false,
+    "global_autonomy_claimed": false,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "mtime_selection": false,
+    "negative_control_count": 15,
+    "negative_controls_passed": true,
+    "new_domain_shift_executed": false,
+    "packet_law_distinctions_confirmed": true,
+    "packet_trace_count": 9,
+    "prior_receipt_mutated": false,
+    "reason_codes": [
+      "BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEW_COMPLETE",
+      "PROBE_RECEIPT_CONSUMED",
+      "SYNTHETIC_PROTOCOL_ONLY_CONFIRMED",
+      "PACKET_TRACE_REVIEWED",
+      "EDGE_OBSERVATIONS_REVIEWED",
+      "UNIT_FEEDBACK_REVIEWED",
+      "NEGATIVE_CONTROLS_REVIEWED_FAIL_CLOSED",
+      "PACKET_LAW_DISTINCTIONS_CONFIRMED",
+      "BAD_COUNTERS_ZERO",
+      "NO_RUNTIME_EFFECT",
+      "NO_RUNTIME_PATCH",
+      "NO_C7_AUTHORIZATION",
+      "NO_TRANSFER_AUTONOMY_GENERAL_AUTHORITY_OR_RUNTIME_ENFORCEMENT_CLAIMS",
+      "NO_SOURCE_OR_REFERENCE_MUTATION",
+      "NO_HIDDEN_NEXT_COMMAND",
+      "CLOSE_CANDIDATE_READY"
+    ],
+    "recommended_next": "CLOSE_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_AS_REVIEWED_REFERENCE_V0",
+    "runtime_effect": false,
+    "runtime_patched": false,
+    "runtime_wide_enforcement_claimed": false,
+    "source_mutated": false,
+    "source_probe_built": true,
+    "status": "TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEWED_CLOSE_READY",
+    "synthetic_protocol_only": true,
+    "unit_feedback_count": 4
+  },
+  "mode": "REVIEW_ONLY / VERIFY_SYNTHETIC_PROTOCOL_PROBE / NO_RUNTIME_PATCH",
+  "output_artifacts": {
+    "authority_boundary": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_authority_boundary_v0.json",
+    "boundary_review": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_boundary_review_v0.json",
+    "classification": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_classification_v0.json",
+    "close_candidate": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_reviewed_reference_close_candidate_v0.json",
+    "edge_observation_review": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_edge_observation_review_v0.json",
+    "implementation_receipt": "data/c6_bounded_protocol_adoption_probe_review_v0_receipts/94c34bc4.json",
+    "negative_control_review": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_negative_control_review_v0.json",
+    "packet_trace_review": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_packet_trace_review_v0.json",
+    "profile": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_profile_v0.json",
+    "report": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_report.json",
+    "review_basis": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_basis_v0.json",
+    "rollup": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_rollup_v0.json",
+    "source_receipt_review": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_source_receipt_review_v0.json",
+    "transition_trace": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_review_transition_trace.json",
+    "unit_feedback_review": "data/c6_bounded_protocol_adoption_probe_review_v0/bounded_adoption_probe_unit_feedback_review_v0.json"
+  },
+  "receipt_id": "94c34bc4",
+  "receipt_type": "TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEW_RECEIPT",
+  "schema_version": "bounded_c6_protocol_adoption_probe_review_receipt_v0",
+  "source_c6_protocol_reference_closure_receipt_id": "50849d13",
+  "source_probe_design_receipt_id": "e0078630",
+  "source_probe_receipt_id": "6ecaeaf8",
+  "target_unit_id": "c6.protocol_adoption_probe.review.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_REVIEWED_CLOSE_READY",
+    "type": "STOP"
+  },
+  "unit_id": "REVIEW_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0",
+  "warnings": []
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

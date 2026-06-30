@@ -1,0 +1,521 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_134316
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_134316.txt
+
+IMPLEMENT_BOUNDED_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_PROBE
+
+STATUS_BEFORE
+?? data/
+?? scripts/stable_delta_signature_candidate_v0_2_scale_band_probe.py
+
+OVERWRITE_STALE_UNTRACKED_SCALE_BAND_PROBE_WITH_BOUNDED_IMPLEMENTATION
+
+PY_COMPILE
+
+RUN_BOUNDED_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_PROBE
+{
+  "aggregate_measurements": {
+    "actual_observer_overhead_ms": 9047,
+    "bands_failed": 10,
+    "bands_passed": 256,
+    "bands_total": 266,
+    "compatible_run_count": 10,
+    "scale_coverage_status": "BOUNDED_MULTI_RUN_COMPATIBLE",
+    "worst_audit_recoverability_failures": 0,
+    "worst_burden_ratio_projected": 0.4014251781472684,
+    "worst_collision_count": 1,
+    "worst_distinguishability_retention_ratio": 0.8333333333333334,
+    "worst_false_merge_count": 1,
+    "worst_identity_leak_count": 0,
+    "worst_source_surface_regression_count": 0
+  },
+  "authority_guards": {
+    "candidate_acceptance_authorized": false,
+    "full_registry_scan_authorized_by_explicit_flag": false,
+    "full_registry_scan_used": false,
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "registry_sqlite_changed": false,
+    "registry_write_authorized": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_band_run_authorized": false,
+    "scale_mode_authorized": false
+  },
+  "bounded_scale_band_selection": {
+    "bounded_default_max_registry_runs_touched": 11,
+    "default_full_registry_scan": false,
+    "full_registry_requires_explicit_flag": true,
+    "full_registry_used": false,
+    "latest_compatible_runs_requested": 10,
+    "selected_run_count": 10,
+    "selected_run_ids": [
+      "run_20260620_214806_723967",
+      "run_20260620_214805_889885",
+      "run_20260620_214805_045461",
+      "run_20260620_214804_189346",
+      "run_20260620_214803_435904",
+      "run_20260620_214802_646955",
+      "run_20260620_214801_788938",
+      "run_20260620_214801_002049",
+      "run_20260620_214800_214177",
+      "run_20260620_214759_355348"
+    ],
+    "selection_mode": "BOUNDED_BY_DEFAULT",
+    "skipped_compatible_run_count": 254,
+    "source_run_id": "run_20260620_214806_723967",
+    "source_run_included": true,
+    "total_compatible_run_count_estimate_if_known": 264
+  },
+  "candidate_design_id": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2",
+  "compression_version": "stable_delta_signature_v0.2_candidate",
+  "failures": [],
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "negative_claims": {
+    "does_not_authorize_candidate_acceptance": true,
+    "does_not_authorize_scale_mode": true,
+    "does_not_change_runtime_receipt_emission": true,
+    "does_not_include_audit_pointer_in_signature_payload": true,
+    "does_not_include_case_id_as_primary_identity": true,
+    "does_not_include_cycle_n_as_primary_identity": true,
+    "does_not_include_full_occurrence_key_in_signature_payload": true,
+    "does_not_replace_or_suppress_receipts": true,
+    "does_not_scan_all_registry_by_default": true,
+    "does_not_use_raw_receipt_hash_as_truth_surface": true,
+    "does_not_use_rowid_as_signature_identity": true,
+    "does_not_write_registry_sqlite": true
+  },
+  "pass_gates": {
+    "audit_recoverability": true,
+    "authority_containment": true,
+    "bounded_selection": true,
+    "burden_reduction_all_bands": true,
+    "local_precondition_preserved": true,
+    "no_false_merge_all_bands": false,
+    "no_identity_leak": true,
+    "scale_coverage_honesty": true,
+    "source_surface_regression": true,
+    "truth_surface": true
+  },
+  "probe_id": "a62df7ae",
+  "receipt_id": "bc89ca58",
+  "registry_surface": {
+    "compatible_run_count": 10,
+    "compatible_run_ids": [
+      "run_20260620_214806_723967",
+      "run_20260620_214805_889885",
+      "run_20260620_214805_045461",
+      "run_20260620_214804_189346",
+      "run_20260620_214803_435904",
+      "run_20260620_214802_646955",
+      "run_20260620_214801_788938",
+      "run_20260620_214801_002049",
+      "run_20260620_214800_214177",
+      "run_20260620_214759_355348"
+    ],
+    "receipt_columns": [
+      "run_id",
+      "case_id",
+      "family",
+      "depth",
+      "cycle_n",
+      "move_id",
+      "registered_moves_total",
+      "moves_reused",
+      "new_move_required",
+      "rows",
+      "cols",
+      "cells",
+      "rank_before",
+      "rank_after",
+      "compression_ratio",
+      "trajectory_signature",
+      "halt_reason",
+      "state_sig8_before",
+      "state_sig8_after",
+      "receipt_path",
+      "move_profile_id",
+      "row_delta",
+      "col_delta",
+      "rank_delta",
+      "support_delta",
+      "distinct_column_types_before",
+      "distinct_column_types_after",
+      "new_column_types_added",
+      "law_id",
+      "law_ok",
+      "law_fail_reason"
+    ],
+    "registry_path": "data/runs/registry.sqlite",
+    "registry_sha256_after": "443ef0e5041c84d8dc723ad45ec6a3f63e303df99f1c19765a49597ece1899d7",
+    "registry_sha256_before": "443ef0e5041c84d8dc723ad45ec6a3f63e303df99f1c19765a49597ece1899d7",
+    "registry_sqlite_changed": false,
+    "rejected_selected_runs": {},
+    "runs_columns": [
+      "run_id",
+      "created_utc",
+      "status",
+      "families",
+      "depth_min",
+      "depth_max",
+      "cycles_per_case",
+      "max_cells",
+      "total_cases",
+      "total_receipts"
+    ],
+    "selected_run_ids_pre_compatibility": [
+      "run_20260620_214806_723967",
+      "run_20260620_214805_889885",
+      "run_20260620_214805_045461",
+      "run_20260620_214804_189346",
+      "run_20260620_214803_435904",
+      "run_20260620_214802_646955",
+      "run_20260620_214801_788938",
+      "run_20260620_214801_002049",
+      "run_20260620_214800_214177",
+      "run_20260620_214759_355348"
+    ]
+  },
+  "scale_coverage": {
+    "band_axes": [
+      "available_run_ids",
+      "case_id",
+      "cycle_n",
+      "depth",
+      "family",
+      "local_run_replay",
+      "raw/cell size fields if present",
+      "receipt_count"
+    ],
+    "bands_total": 266,
+    "bounded_default_used": true,
+    "compatible_run_count": 10,
+    "compatible_run_ids": [
+      "run_20260620_214806_723967",
+      "run_20260620_214805_889885",
+      "run_20260620_214805_045461",
+      "run_20260620_214804_189346",
+      "run_20260620_214803_435904",
+      "run_20260620_214802_646955",
+      "run_20260620_214801_788938",
+      "run_20260620_214801_002049",
+      "run_20260620_214800_214177",
+      "run_20260620_214759_355348"
+    ],
+    "full_registry_used": false,
+    "local_replay_included": true,
+    "scale_coverage_status": "BOUNDED_MULTI_RUN_COMPATIBLE"
+  },
+  "signature_contract": {
+    "candidate_signature_payload_forbidden_fields": [
+      "audit_pointer",
+      "case_id_as_primary_identity",
+      "created_at",
+      "created_utc",
+      "cycle_n_as_primary_identity",
+      "debug_payload",
+      "file_path",
+      "full_occurrence_key",
+      "full_receipt_hash",
+      "observer_notes",
+      "path",
+      "raw_full_receipt_hash",
+      "receipt_hash",
+      "receipt_path",
+      "receipt_rowid",
+      "receipt_sig8",
+      "rowid",
+      "timestamp"
+    ],
+    "candidate_signature_payload_required_fields": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after"
+    ],
+    "case_id_in_signature_payload": false,
+    "compact_delta_columns_measured_in_debug": [
+      "row_delta",
+      "col_delta",
+      "rank_delta",
+      "support_delta",
+      "distinct_column_types_before",
+      "distinct_column_types_after",
+      "new_column_types_added",
+      "compression_ratio"
+    ],
+    "cycle_n_in_signature_payload": false,
+    "truth_surface": "full_occurrence_key_to_candidate_delta_signature"
+  },
+  "source_policy_id": "b79955ce",
+  "source_v02_probe_id": "bcdb3d93",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "FAIL_SCALE_FALSE_MERGE",
+    "type": "STOP"
+  },
+  "terminal_decision": "FAIL_SCALE_FALSE_MERGE",
+  "warnings": []
+}
+probe_id=a62df7ae
+scale_band_rows_path=data/stable_delta_signature_candidate_v0_2_scale_band_rows/a62df7ae.jsonl
+scale_band_receipt_path=data/stable_delta_signature_candidate_v0_2_scale_band_receipts/a62df7ae.json
+SCALE_BAND_PROBE_ID=a62df7ae
+
+ASSERT_BOUNDED_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_PROBE
+{
+  "aggregate_measurements": {
+    "actual_observer_overhead_ms": 9047,
+    "bands_failed": 10,
+    "bands_passed": 256,
+    "bands_total": 266,
+    "compatible_run_count": 10,
+    "scale_coverage_status": "BOUNDED_MULTI_RUN_COMPATIBLE",
+    "worst_audit_recoverability_failures": 0,
+    "worst_burden_ratio_projected": 0.4014251781472684,
+    "worst_collision_count": 1,
+    "worst_distinguishability_retention_ratio": 0.8333333333333334,
+    "worst_false_merge_count": 1,
+    "worst_identity_leak_count": 0,
+    "worst_source_surface_regression_count": 0
+  },
+  "authority_guards": {
+    "candidate_acceptance_authorized": false,
+    "full_registry_scan_authorized_by_explicit_flag": false,
+    "full_registry_scan_used": false,
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "registry_sqlite_changed": false,
+    "registry_write_authorized": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_band_run_authorized": false,
+    "scale_mode_authorized": false
+  },
+  "bounded_scale_band_selection": {
+    "bounded_default_max_registry_runs_touched": 11,
+    "default_full_registry_scan": false,
+    "full_registry_requires_explicit_flag": true,
+    "full_registry_used": false,
+    "latest_compatible_runs_requested": 10,
+    "selected_run_count": 10,
+    "selected_run_ids": [
+      "run_20260620_214806_723967",
+      "run_20260620_214805_889885",
+      "run_20260620_214805_045461",
+      "run_20260620_214804_189346",
+      "run_20260620_214803_435904",
+      "run_20260620_214802_646955",
+      "run_20260620_214801_788938",
+      "run_20260620_214801_002049",
+      "run_20260620_214800_214177",
+      "run_20260620_214759_355348"
+    ],
+    "selection_mode": "BOUNDED_BY_DEFAULT",
+    "skipped_compatible_run_count": 254,
+    "source_run_id": "run_20260620_214806_723967",
+    "source_run_included": true,
+    "total_compatible_run_count_estimate_if_known": 264
+  },
+  "candidate_design_id": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2",
+  "compression_version": "stable_delta_signature_v0.2_candidate",
+  "failures": [],
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "negative_claims": {
+    "does_not_authorize_candidate_acceptance": true,
+    "does_not_authorize_scale_mode": true,
+    "does_not_change_runtime_receipt_emission": true,
+    "does_not_include_audit_pointer_in_signature_payload": true,
+    "does_not_include_case_id_as_primary_identity": true,
+    "does_not_include_cycle_n_as_primary_identity": true,
+    "does_not_include_full_occurrence_key_in_signature_payload": true,
+    "does_not_replace_or_suppress_receipts": true,
+    "does_not_scan_all_registry_by_default": true,
+    "does_not_use_raw_receipt_hash_as_truth_surface": true,
+    "does_not_use_rowid_as_signature_identity": true,
+    "does_not_write_registry_sqlite": true
+  },
+  "pass_gates": {
+    "audit_recoverability": true,
+    "authority_containment": true,
+    "bounded_selection": true,
+    "burden_reduction_all_bands": true,
+    "local_precondition_preserved": true,
+    "no_false_merge_all_bands": false,
+    "no_identity_leak": true,
+    "scale_coverage_honesty": true,
+    "source_surface_regression": true,
+    "truth_surface": true
+  },
+  "probe_id": "a62df7ae",
+  "receipt_id": "bc89ca58",
+  "registry_surface": {
+    "compatible_run_count": 10,
+    "compatible_run_ids": [
+      "run_20260620_214806_723967",
+      "run_20260620_214805_889885",
+      "run_20260620_214805_045461",
+      "run_20260620_214804_189346",
+      "run_20260620_214803_435904",
+      "run_20260620_214802_646955",
+      "run_20260620_214801_788938",
+      "run_20260620_214801_002049",
+      "run_20260620_214800_214177",
+      "run_20260620_214759_355348"
+    ],
+    "receipt_columns": [
+      "run_id",
+      "case_id",
+      "family",
+      "depth",
+      "cycle_n",
+      "move_id",
+      "registered_moves_total",
+      "moves_reused",
+      "new_move_required",
+      "rows",
+      "cols",
+      "cells",
+      "rank_before",
+      "rank_after",
+      "compression_ratio",
+      "trajectory_signature",
+      "halt_reason",
+      "state_sig8_before",
+      "state_sig8_after",
+      "receipt_path",
+      "move_profile_id",
+      "row_delta",
+      "col_delta",
+      "rank_delta",
+      "support_delta",
+      "distinct_column_types_before",
+      "distinct_column_types_after",
+      "new_column_types_added",
+      "law_id",
+      "law_ok",
+      "law_fail_reason"
+    ],
+    "registry_path": "data/runs/registry.sqlite",
+    "registry_sha256_after": "443ef0e5041c84d8dc723ad45ec6a3f63e303df99f1c19765a49597ece1899d7",
+    "registry_sha256_before": "443ef0e5041c84d8dc723ad45ec6a3f63e303df99f1c19765a49597ece1899d7",
+    "registry_sqlite_changed": false,
+    "rejected_selected_runs": {},
+    "runs_columns": [
+      "run_id",
+      "created_utc",
+      "status",
+      "families",
+      "depth_min",
+      "depth_max",
+      "cycles_per_case",
+      "max_cells",
+      "total_cases",
+      "total_receipts"
+    ],
+    "selected_run_ids_pre_compatibility": [
+      "run_20260620_214806_723967",
+      "run_20260620_214805_889885",
+      "run_20260620_214805_045461",
+      "run_20260620_214804_189346",
+      "run_20260620_214803_435904",
+      "run_20260620_214802_646955",
+      "run_20260620_214801_788938",
+      "run_20260620_214801_002049",
+      "run_20260620_214800_214177",
+      "run_20260620_214759_355348"
+    ]
+  },
+  "rows_loaded": 3298,
+  "scale_coverage": {
+    "band_axes": [
+      "available_run_ids",
+      "case_id",
+      "cycle_n",
+      "depth",
+      "family",
+      "local_run_replay",
+      "raw/cell size fields if present",
+      "receipt_count"
+    ],
+    "bands_total": 266,
+    "bounded_default_used": true,
+    "compatible_run_count": 10,
+    "compatible_run_ids": [
+      "run_20260620_214806_723967",
+      "run_20260620_214805_889885",
+      "run_20260620_214805_045461",
+      "run_20260620_214804_189346",
+      "run_20260620_214803_435904",
+      "run_20260620_214802_646955",
+      "run_20260620_214801_788938",
+      "run_20260620_214801_002049",
+      "run_20260620_214800_214177",
+      "run_20260620_214759_355348"
+    ],
+    "full_registry_used": false,
+    "local_replay_included": true,
+    "scale_coverage_status": "BOUNDED_MULTI_RUN_COMPATIBLE"
+  },
+  "signature_contract": {
+    "candidate_signature_payload_forbidden_fields": [
+      "audit_pointer",
+      "case_id_as_primary_identity",
+      "created_at",
+      "created_utc",
+      "cycle_n_as_primary_identity",
+      "debug_payload",
+      "file_path",
+      "full_occurrence_key",
+      "full_receipt_hash",
+      "observer_notes",
+      "path",
+      "raw_full_receipt_hash",
+      "receipt_hash",
+      "receipt_path",
+      "receipt_rowid",
+      "receipt_sig8",
+      "rowid",
+      "timestamp"
+    ],
+    "candidate_signature_payload_required_fields": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after"
+    ],
+    "case_id_in_signature_payload": false,
+    "compact_delta_columns_measured_in_debug": [
+      "row_delta",
+      "col_delta",
+      "rank_delta",
+      "support_delta",
+      "distinct_column_types_before",
+      "distinct_column_types_after",
+      "new_column_types_added",
+      "compression_ratio"
+    ],
+    "cycle_n_in_signature_payload": false,
+    "truth_surface": "full_occurrence_key_to_candidate_delta_signature"
+  },
+  "source_policy_id": "b79955ce",
+  "source_v02_probe_id": "bcdb3d93",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "FAIL_SCALE_FALSE_MERGE",
+    "type": "STOP"
+  },
+  "terminal_decision": "FAIL_SCALE_FALSE_MERGE"
+}
+Traceback (most recent call last):
+  File "<stdin>", line 78, in <module>
+AssertionError
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

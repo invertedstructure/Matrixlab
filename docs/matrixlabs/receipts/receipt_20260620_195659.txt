@@ -1,0 +1,238 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_195659
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_195659.txt
+
+REPAIR_DB_WRITE_WAL_WRAPPER_RECURSION_V0
+
+STATUS_BEFORE
+ M src/matrixlab/cli.py
+?? data/
+
+VERIFY_BROKEN_STATE_IS_EXPECTED
+{
+  "candidate_exists": true,
+  "has_recursive_bug": true,
+  "has_sqlite_import": true,
+  "has_wrapper": true
+}
+
+REPAIR_WRAPPER_RECURSION_ONLY
+{
+  "bad_count_before": 1,
+  "gate": "PASS",
+  "repair": "WRAPPER_RECURSION_REPLACED_WITH_SQLITE3_CONNECT",
+  "semantics": {
+    "execution_skipping": false,
+    "gate_semantics_change": false,
+    "law_semantics_change": false,
+    "receipt_compression": false,
+    "receipt_deletion": false,
+    "receipt_schema_change": false,
+    "run_semantics_change": false
+  }
+}
+
+PY_COMPILE
+
+VERIFY_WRAPPER_NO_RECURSION
+{
+  "wrapper_calls_sqlite3_connect": true,
+  "wrapper_configures_connection": true,
+  "wrapper_recursive": false,
+  "wrapper_returns_connection": true
+}
+
+SMOKE_RUN_AFTER_REPAIR
+MatrixLab run started: run_20260620_185702_328363
+Families: ['one_sided_suspension']
+Depths: 3..4
+Cycles per case: 2
+Max cells per matrix: 10000
+Done.
+{
+  "run_id": "run_20260620_185702_328363",
+  "created_utc": "2026-06-20T18:57:02.621269+00:00",
+  "families": [
+    "one_sided_suspension"
+  ],
+  "depth_min": 3,
+  "depth_max": 4,
+  "cycles_per_case": 2,
+  "max_cells": 10000,
+  "total_cases": 2,
+  "total_receipts": 4,
+  "halt_counts": {
+    "CYCLES_COMPLETE": 2
+  },
+  "max_registered_moves": 1,
+  "max_compression_ratio": 2.0,
+  "max_matrix_cells": 24,
+  "max_registered_move_profiles": 1
+}
+SMOKE_RUN_ID=run_20260620_185702_328363
+
+GATE_SMOKE_RUN
+      Gate checks /       
+run_20260620_185702_328363
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │     2 │
+│ total_receipts │     4 │
+│ receipt_rows   │     4 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │     2 │
+└─────────────────┴───────┘
+GATE_PASS
+
+VERIFY_PATCH_DID_NOT_DELETE_RECEIPTS_OR_CHANGE_GATE
+{
+  "journal_mode_after_wrapped_smoke": "wal",
+  "receipt_rows": 4,
+  "receipt_rows_match_run_total": true,
+  "run_id": "run_20260620_185702_328363",
+  "run_status": "DONE",
+  "run_total_receipts": 4,
+  "synchronous_after_wrapped_smoke": 2
+}
+
+BUILD_APPLICATION_RECEIPT
+APPLICATION_ID=ff45a8b0
+{
+  "application_id": "ff45a8b0",
+  "application_kind": "DB_WRITE_WAL_BATCHED_RECEIPT_WRITE_FIX_APPLICATION",
+  "application_sig8": "ff45a8b0",
+  "applied_changes": [
+    "CONFIGURED_SQLITE_CONNECTION_WRAPPER_WITH_WAL_NORMAL_BUSY_TIMEOUT",
+    "REPAIRED_WRAPPER_RECURSION_BEFORE_COMMIT",
+    "PRESERVED_RECEIPT_ROWS_AND_SCHEMA",
+    "PRESERVED_GATE_LAW_RUN_SEMANTICS"
+  ],
+  "created_at": "2026-06-20T18:57:21.147080+00:00",
+  "deferred_changes": [
+    {
+      "change_id": "BATCH_RECEIPT_INSERTS_WITH_EXPLICIT_TRANSACTIONS",
+      "reason": "No per-receipt commit rewrite was applied blindly. Retest first with WAL-only wrapper; if DB_WRITE remains proven, authorize a narrower writer-specific batch patch from evidence."
+    }
+  ],
+  "failures": [],
+  "gate": "PASS",
+  "registry_sqlite": {
+    "journal_mode_after_application": "wal",
+    "synchronous_after_application": 2,
+    "total_receipts_after_application": 1620510
+  },
+  "required_retest": {
+    "after_profile_required": true,
+    "before_after_comparison_required": true,
+    "before_profile_id": "c89790f0",
+    "comparison_artifact_schema": "micro_burden_before_after_comparison_v0",
+    "same_micro_suite_required": true,
+    "same_probe_specs_required": true,
+    "same_script": "scripts/wide_burden_profile_microruns.py --execute"
+  },
+  "schema_version": "db_write_wal_batched_receipt_write_fix_application_v0",
+  "semantics": {
+    "execution_skipping": false,
+    "gate_semantics_change": false,
+    "law_semantics_change": false,
+    "radius_expansion": false,
+    "receipt_compression": false,
+    "receipt_deletion": false,
+    "receipt_schema_change": false,
+    "run_semantics_change": false
+  },
+  "source_candidate_gate": "PASS",
+  "source_candidate_id": "2de6e3c2",
+  "target_burden_class": "BURDEN_DB_WRITE",
+  "terminal": {
+    "next_command_goal": "RERUN_MICRO_BURDEN_PROFILE_AFTER_DB_WRITE_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TRANSACTION_BATCHING_NOT_APPLIED_BLINDLY_WRITER_SURFACE_NEEDS_EVIDENCE_IF_WAL_ONLY_INSUFFICIENT"
+  ]
+}
+ASSERT_APPLICATION_RECEIPT
+{
+  "application_id": "ff45a8b0",
+  "application_sig8": "ff45a8b0",
+  "applied_changes": [
+    "CONFIGURED_SQLITE_CONNECTION_WRAPPER_WITH_WAL_NORMAL_BUSY_TIMEOUT",
+    "REPAIRED_WRAPPER_RECURSION_BEFORE_COMMIT",
+    "PRESERVED_RECEIPT_ROWS_AND_SCHEMA",
+    "PRESERVED_GATE_LAW_RUN_SEMANTICS"
+  ],
+  "deferred_changes": [
+    {
+      "change_id": "BATCH_RECEIPT_INSERTS_WITH_EXPLICIT_TRANSACTIONS",
+      "reason": "No per-receipt commit rewrite was applied blindly. Retest first with WAL-only wrapper; if DB_WRITE remains proven, authorize a narrower writer-specific batch patch from evidence."
+    }
+  ],
+  "failures": [],
+  "gate": "PASS",
+  "receipt_gate": "PASS",
+  "receipt_id": "516b4f2a",
+  "semantics": {
+    "execution_skipping": false,
+    "gate_semantics_change": false,
+    "law_semantics_change": false,
+    "radius_expansion": false,
+    "receipt_compression": false,
+    "receipt_deletion": false,
+    "receipt_schema_change": false,
+    "run_semantics_change": false
+  },
+  "source_candidate_id": "2de6e3c2",
+  "target_burden_class": "BURDEN_DB_WRITE",
+  "terminal": {
+    "next_command_goal": "RERUN_MICRO_BURDEN_PROFILE_AFTER_DB_WRITE_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_185702_328363
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │     2 │
+│ total_receipts │     4 │
+│ receipt_rows   │     4 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │     2 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ src/matrixlab/cli.py | 83 +++++++++++++++++++++++++++++++++++++---------------
+ 1 file changed, 59 insertions(+), 24 deletions(-)
+
+STATUS_AFTER
+ M src/matrixlab/cli.py
+?? data/
+[master 6aa6b189c] apply DB write WAL connection wrapper
+ 1 file changed, 59 insertions(+), 24 deletions(-)
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

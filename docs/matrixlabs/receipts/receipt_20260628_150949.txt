@@ -1,0 +1,226 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_150949
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_150949.txt
+
+REPAIR_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_DECISION_PREVIOUS_SURFACE_PROJECTION_V0
+
+VERIFY_REPAIR_INPUTS_PRESENT
+present scripts/create_c8_successor_surface_selection_after_reentry_v0.py
+present data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_packet_v0.json
+present data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_decision_v0.json
+present data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_boundary_audit_v0.json
+present data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_readout_v0.json
+present data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_report.json
+
+DIAGNOSE_KNOWN_REVIEW_FAILURE
+decision_previous_surface_id=None
+decision_previous_surface_kind=None
+decision_previous_surface_label=None
+missing_previous_surface_projection_count=3
+missing_previous_surface_projection_keys=['previous_surface_id', 'previous_surface_kind', 'previous_surface_label']
+
+REMOVE_STALE_SUCCESSOR_SURFACE_SELECTION_RECEIPTS_FROM_WORKTREE_AND_INDEX
+rm 'data/c8_successor_surface_selection_after_reentry_v0_receipts/c8_successor_surface_selection_receipt_5d3bbb94.json'
+
+PATCH_RUNNER_DECISION_PREVIOUS_SURFACE_PROJECTION
+runner_projection_patch_applied=true
+
+PY_COMPILE_REPAIRED_SUCCESSOR_SURFACE_SELECTION_RUNNER
+
+RERUN_REPAIRED_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY
+{
+  "created_at": "2026-06-28T14:09:49.493132+00:00",
+  "failures": [],
+  "forbidden_counters": {
+    "c8_rerun_count": 0,
+    "cell1_build_count": 0,
+    "frontier_solved_claim_count": 0,
+    "general_cell1_authority_count": 0,
+    "global_solution_claim_count": 0,
+    "hidden_next_command_count": 0,
+    "instrument_build_count": 0,
+    "missing_instrument_proposal_count": 0,
+    "probe_authorized_count": 0,
+    "probe_executed_count": 0,
+    "probe_prep_authorized_count": 0,
+    "research_mode_opened_count": 0,
+    "reusable_schema_authorized_count": 0,
+    "selected_surface_accepted_count": 0,
+    "source_artifact_mutation_count": 0,
+    "surface_activated_count": 0,
+    "verification_probe_count": 0
+  },
+  "gate": "PASS",
+  "gate_results": {
+    "SURFACE_SELECTION_0_SOURCE_ACCEPTANCE_RECEIPT_PASS": true,
+    "SURFACE_SELECTION_10_RESULT_REQUIRES_REVIEW": true,
+    "SURFACE_SELECTION_1_REENTRY_ACCEPTED": true,
+    "SURFACE_SELECTION_2_REENTRY_READY_AFTER_REVIEW": true,
+    "SURFACE_SELECTION_3_PREVIOUS_SURFACE_CLOSED": true,
+    "SURFACE_SELECTION_4_SELECTED_SURFACE_REVIEWABLE_ONLY": true,
+    "SURFACE_SELECTION_5_NO_ACCEPTANCE_OR_ACTIVATION": true,
+    "SURFACE_SELECTION_6_NO_PROBE_BUILD_RERUN_SCHEMA": true,
+    "SURFACE_SELECTION_7_NO_GLOBAL_OR_FRONTIER_CLAIM": true,
+    "SURFACE_SELECTION_8_SOURCE_ARTIFACTS_IMMUTABLE": true,
+    "SURFACE_SELECTION_9_FORBIDDEN_COUNTERS_ZERO": true
+  },
+  "machine_readable_selection_summary": {
+    "c8_rerun_now": false,
+    "cell1_built_now": false,
+    "forbidden_counters_zero": true,
+    "frontier_solved_claim": false,
+    "general_cell1_authority": false,
+    "global_solution_claim": false,
+    "instrument_built_now": false,
+    "missing_instrument_proposal_created_now": false,
+    "next_command_goal": null,
+    "previous_surface_closed": true,
+    "previous_surface_id": "c8_successor_surface_reuse_authority_boundary_after_local_closure_v0",
+    "previous_surface_kind": "REUSE_AUTHORITY_BOUNDARY_SURFACE",
+    "previous_surface_label": "C8_POST_CLOSURE_LOCAL_LOOP_REUSE_PRESSURE_SURFACE",
+    "probe_authorized_now": false,
+    "probe_executed_now": false,
+    "probe_prep_authorized_now": false,
+    "recommended_review_unit": "REVIEW_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_V0",
+    "requires_review": true,
+    "research_mode_opened": false,
+    "reusable_schema_authorized": false,
+    "selected_surface_accepted_now": false,
+    "selected_surface_active": false,
+    "selected_surface_id": "c8_successor_surface_runtime_adoption_after_reentry_v0",
+    "selected_surface_kind": "RUNTIME_ADOPTION_SURFACE",
+    "selected_surface_label": "C8_RUNTIME_ADOPTION_AFTER_REUSE_AUTHORITY_CLOSURE_SURFACE",
+    "selected_surface_question": "After the reuse-authority boundary held and surface-selection reentry was accepted, what is the smallest runtime-adoption surface that can expose typed halts, receipt mismatches, projection bugs, missing moves, or gate failures without pre-authorizing build, probe execution, C8 rerun, or reusable schema promotion?",
+    "selected_surface_status": "REVIEWABLE_NOT_ACCEPTED",
+    "source_artifacts_mutated": false,
+    "source_return_to_selection_acceptance_decision_id": "c8_return_to_selection_acceptance_decision_581d0092",
+    "source_return_to_selection_acceptance_packet_id": "c8_return_to_selection_acceptance_packet_6b51e7bf",
+    "source_return_to_selection_acceptance_receipt_id": "c8_return_to_selection_acceptance_receipt_0144408e",
+    "source_surface_selection_reentry_boundary_id": "c8_surface_selection_reentry_boundary_e02a5882",
+    "surface_selection_after_reentry_complete": true,
+    "verification_probe_run_now": false
+  },
+  "milestone": "C8_SUCCESSOR_SURFACE_SELECTION_CREATED_AFTER_REENTRY",
+  "outcome_class": "C8_SUCCESSOR_SURFACE_SELECTION_REVIEWABLE_NOT_ACCEPTED",
+  "output_artifacts": {
+    "boundary_audit": "data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_boundary_audit_v0.json",
+    "readout": "data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_readout_v0.json",
+    "receipt": "data/c8_successor_surface_selection_after_reentry_v0_receipts/c8_successor_surface_selection_receipt_7da4fd41.json",
+    "report": "data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_report.json",
+    "selection_decision": "data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_decision_v0.json",
+    "selection_packet": "data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_packet_v0.json"
+  },
+  "receipt_id": "c8_successor_surface_selection_receipt_7da4fd41",
+  "receipt_type": "TYPED_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_RECEIPT",
+  "schema_version": "c8_successor_surface_selection_after_reentry_receipt_v0",
+  "source_artifact_immutability": {
+    "source_artifacts_mutated": false,
+    "source_hashes_after": {
+      "acceptance_decision": "b13c1e0381a0b5a448c57f4eb0d6ada52e2b113815856200ae0e764e39f748c1",
+      "acceptance_packet": "396020bd90f8ceced52f98a35d0533f466f76fc1cb0410bdff2cb8dfaf893b7b",
+      "acceptance_receipt": "41318ca614c3c0cb1a470901437e94b94ae6a5bcb25dba96d25596c3bd881b6d",
+      "acceptance_report": "4ed5bf28a31bfe32cc701072880ba4aff5cc44a5e8b3d7a08ba65f36e485808c",
+      "reentry_boundary": "d8b1c60478cd5b107e9d0a445db2f7c030f944b9051134bf7975da7a4de67ddc"
+    },
+    "source_hashes_before": {
+      "acceptance_decision": "b13c1e0381a0b5a448c57f4eb0d6ada52e2b113815856200ae0e764e39f748c1",
+      "acceptance_packet": "396020bd90f8ceced52f98a35d0533f466f76fc1cb0410bdff2cb8dfaf893b7b",
+      "acceptance_receipt": "41318ca614c3c0cb1a470901437e94b94ae6a5bcb25dba96d25596c3bd881b6d",
+      "acceptance_report": "4ed5bf28a31bfe32cc701072880ba4aff5cc44a5e8b3d7a08ba65f36e485808c",
+      "reentry_boundary": "d8b1c60478cd5b107e9d0a445db2f7c030f944b9051134bf7975da7a4de67ddc"
+    }
+  },
+  "status": "TYPED_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_PASS",
+  "target_unit_id": "research.c8.successor_surface.selection.after_reentry.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_READY_FOR_REVIEW",
+    "type": "STOP"
+  },
+  "unit_id": "CREATE_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_V0",
+  "warnings": []
+}
+successor_surface_selection_receipt_id=c8_successor_surface_selection_receipt_7da4fd41
+successor_surface_selection_receipt_path=data/c8_successor_surface_selection_after_reentry_v0_receipts/c8_successor_surface_selection_receipt_7da4fd41.json
+successor_surface_selection_packet_path=data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_packet_v0.json
+successor_surface_selection_decision_path=data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_decision_v0.json
+successor_surface_selection_boundary_path=data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_boundary_audit_v0.json
+selected_surface_id=c8_successor_surface_runtime_adoption_after_reentry_v0
+selected_surface_kind=RUNTIME_ADOPTION_SURFACE
+selected_surface_label=C8_RUNTIME_ADOPTION_AFTER_REUSE_AUTHORITY_CLOSURE_SURFACE
+selected_surface_status=REVIEWABLE_NOT_ACCEPTED
+selected_surface_active=false
+selected_surface_accepted_now=false
+probe_prep_authorized_now=false
+probe_authorized_now=false
+reusable_schema_authorized=false
+recommended_review_unit=REVIEW_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_V0
+terminal_stop_code=STOP_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_READY_FOR_REVIEW
+
+ASSERT_REPAIRED_SUCCESSOR_SURFACE_SELECTION_RECEIPT
+{
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "gate_results_false_count": 0,
+  "outcome_class": "C8_SUCCESSOR_SURFACE_SELECTION_REVIEWABLE_NOT_ACCEPTED",
+  "probe_authorized_now": false,
+  "probe_prep_authorized_now": false,
+  "receipt_id": "c8_successor_surface_selection_receipt_7da4fd41",
+  "repair_receipt_gate": "PASS",
+  "reusable_schema_authorized": false,
+  "selected_surface_accepted_now": false,
+  "selected_surface_active": false,
+  "selected_surface_id": "c8_successor_surface_runtime_adoption_after_reentry_v0",
+  "selected_surface_kind": "RUNTIME_ADOPTION_SURFACE",
+  "selected_surface_label": "C8_RUNTIME_ADOPTION_AFTER_REUSE_AUTHORITY_CLOSURE_SURFACE",
+  "selected_surface_status": "REVIEWABLE_NOT_ACCEPTED",
+  "status": "TYPED_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_PASS"
+}
+
+ASSERT_REPAIRED_DECISION_PREVIOUS_SURFACE_PROJECTION
+{
+  "candidate_surface_count": 3,
+  "decision_previous_surface_id": "c8_successor_surface_reuse_authority_boundary_after_local_closure_v0",
+  "decision_previous_surface_kind": "REUSE_AUTHORITY_BOUNDARY_SURFACE",
+  "decision_previous_surface_label": "C8_POST_CLOSURE_LOCAL_LOOP_REUSE_PRESSURE_SURFACE",
+  "failures": [],
+  "probe_authorized_now": false,
+  "probe_prep_authorized_now": false,
+  "repair_content_gate": "PASS",
+  "reusable_schema_authorized_now": false,
+  "selected_surface_accepted_now": false,
+  "selected_surface_active": false,
+  "selected_surface_id": "c8_successor_surface_runtime_adoption_after_reentry_v0",
+  "selected_surface_kind": "RUNTIME_ADOPTION_SURFACE",
+  "selected_surface_label": "C8_RUNTIME_ADOPTION_AFTER_REUSE_AUTHORITY_CLOSURE_SURFACE",
+  "selected_surface_status": "REVIEWABLE_NOT_ACCEPTED",
+  "surface_selection_boundary_audit_id": "c8_successor_surface_selection_boundary_ee54442b",
+  "surface_selection_decision_id": "c8_successor_surface_selection_decision_4f336833",
+  "surface_selection_packet_id": "c8_successor_surface_selection_packet_f7874bf3"
+}
+
+FORCE_STAGE_REPAIRED_SUCCESSOR_SURFACE_SELECTION_ARTIFACTS
+
+VERIFY_STAGED_SCOPE_REPAIRED_SUCCESSOR_SURFACE_SELECTION_ONLY
+staged_path_count=8
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+successor_surface_selection_receipts_staged=['data/c8_successor_surface_selection_after_reentry_v0_receipts/c8_successor_surface_selection_receipt_7da4fd41.json']
+
+REPAIRED_REVIEW_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...cessor_surface_selection_boundary_audit_v0.json |  48 ++
+ ...c8_successor_surface_selection_decision_v0.json |  59 +++
+ .../c8_successor_surface_selection_packet_v0.json  |  40 ++
+ .../c8_successor_surface_selection_readout_v0.json |  18 +
+ .../c8_successor_surface_selection_report.json     |  33 ++
+ ...ccessor_surface_selection_receipt_7da4fd41.json | 112 +++++
+ ...successor_surface_selection_after_reentry_v0.py | 514 +++++++++++++++++++++
+ 8 files changed, 830 insertions(+)
+
+REPAIR_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_DECISION_PREVIOUS_SURFACE_PROJECTION_PASS
+repaired_successor_surface_selection_receipt_id=c8_successor_surface_selection_receipt_7da4fd41
+repaired_successor_surface_selection_receipt_path=data/c8_successor_surface_selection_after_reentry_v0_receipts/c8_successor_surface_selection_receipt_7da4fd41.json
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

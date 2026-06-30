@@ -1,0 +1,92 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_093406
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_093406.txt
+
+REVIEW_C8_SUCCESSOR_SURFACE_BOUNDED_PROBE_PREP_PACKET_REVIEW_V0
+
+VERIFY_PROBE_PREP_PACKET_REVIEW_ARTIFACTS_PRESENT
+present data/c8_successor_surface_bounded_probe_prep_packet_review_v0_receipts/c8_successor_probe_prep_packet_review_receipt_f3acc3a5.json
+present data/c8_successor_surface_bounded_probe_prep_packet_review_v0/c8_successor_surface_bounded_probe_prep_packet_review_packet_v0.json
+present data/c8_successor_surface_bounded_probe_prep_packet_review_v0/c8_successor_surface_bounded_probe_prep_packet_review_decision_v0.json
+present data/c8_successor_surface_bounded_probe_prep_packet_review_v0/c8_successor_surface_bounded_probe_prep_packet_review_audit_v0.json
+present data/c8_successor_surface_bounded_probe_prep_packet_review_v0/c8_successor_surface_bounded_probe_prep_packet_review_readout_v0.json
+present data/c8_successor_surface_bounded_probe_prep_packet_review_v0/c8_successor_surface_bounded_probe_prep_packet_review_report.json
+present scripts/create_c8_successor_surface_bounded_probe_prep_packet_review_v0.py
+
+PY_COMPILE_PROBE_PREP_PACKET_REVIEW_RUNNER
+
+VERIFY_PROBE_PREP_PACKET_REVIEW_RECEIPT
+{
+  "acceptance_gates_false_count": 0,
+  "accepted_for_probe_execution_now": false,
+  "failures": [],
+  "human_decision_required": true,
+  "negative_controls_nonzero_count": 0,
+  "new_c8_rerun": false,
+  "new_instrument_build": false,
+  "outcome_class": "C8_SUCCESSOR_SURFACE_BOUNDED_PROBE_PREP_PACKET_REVIEWABLE_NOT_ACCEPTED",
+  "prep_review_class": "WELL_FORMED_BOUNDED_REUSE_AUTHORITY_PROBE_PREP_PACKET",
+  "probe_executed_now": false,
+  "probe_id": "c8_successor_surface_reuse_authority_boundary_probe_v0",
+  "probe_kind": "REUSE_AUTHORITY_BOUNDARY_PROBE",
+  "receipt_id": "c8_successor_probe_prep_packet_review_receipt_f3acc3a5",
+  "reusable_schema_authorized": false,
+  "review_decision": "REVIEWABLE_NOT_ACCEPTED",
+  "review_gate": "PASS",
+  "source_prep_packet_id": "c8_successor_probe_prep_packet_74a6c209",
+  "status": "TYPED_C8_SUCCESSOR_SURFACE_BOUNDED_PROBE_PREP_PACKET_REVIEW_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_SUCCESSOR_SURFACE_BOUNDED_PROBE_PREP_PACKET_REVIEW_READY_FOR_HUMAN_DECISION",
+    "type": "STOP"
+  }
+}
+
+VERIFY_PROBE_PREP_PACKET_REVIEW_CONTENT
+{
+  "accepted_for_probe_execution": false,
+  "authorized_now": {
+    "c8_rerun": false,
+    "cell1_build": false,
+    "instrument_build": false,
+    "missing_instrument_proposal": false,
+    "probe_execution": false,
+    "research_mode": false,
+    "reusable_schema": false,
+    "verification_probe": false
+  },
+  "content_review_gate": "PASS",
+  "failures": [],
+  "human_decision_required": true,
+  "possible_human_decisions": [
+    "ACCEPT_FOR_BOUNDED_PROBE_EXECUTION",
+    "REJECT_PROBE_PREP_PACKET",
+    "NARROW_PROBE_PREP_PACKET"
+  ],
+  "prep_review_class": "WELL_FORMED_BOUNDED_REUSE_AUTHORITY_PROBE_PREP_PACKET",
+  "review_decision": "REVIEWABLE_NOT_ACCEPTED",
+  "review_decision_id": "c8_successor_probe_prep_packet_review_decision_33245781",
+  "review_packet_id": "c8_successor_probe_prep_packet_review_packet_083dd071"
+}
+
+VERIFY_STAGED_SCOPE_PROBE_PREP_PACKET_REVIEW_ONLY
+staged_path_count=8
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+probe_prep_packet_review_receipts_staged=['data/c8_successor_surface_bounded_probe_prep_packet_review_v0_receipts/c8_successor_probe_prep_packet_review_receipt_f3acc3a5.json']
+
+REVIEW_DIFF_STAT
+ .gitignore                                         |   6 +
+ ..._bounded_probe_prep_packet_review_audit_v0.json |  53 +++
+ ...unded_probe_prep_packet_review_decision_v0.json |  37 ++
+ ...bounded_probe_prep_packet_review_packet_v0.json |  31 ++
+ ...ounded_probe_prep_packet_review_readout_v0.json |  19 +
+ ...ce_bounded_probe_prep_packet_review_report.json |  29 ++
+ ..._probe_prep_packet_review_receipt_f3acc3a5.json | 118 ++++++
+ ..._surface_bounded_probe_prep_packet_review_v0.py | 467 +++++++++++++++++++++
+ 8 files changed, 760 insertions(+)
+
+REVIEW_C8_SUCCESSOR_SURFACE_BOUNDED_PROBE_PREP_PACKET_REVIEW_PASS
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

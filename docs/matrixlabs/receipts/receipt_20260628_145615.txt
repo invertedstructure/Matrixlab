@@ -1,0 +1,85 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_145615
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_145615.txt
+
+REVIEW_C8_RETURN_TO_SURFACE_SELECTION_ACCEPTANCE_AFTER_REUSE_AUTHORITY_CLOSURE_V0
+
+VERIFY_RETURN_TO_SELECTION_ACCEPTANCE_ARTIFACTS_PRESENT
+present data/c8_return_to_surface_selection_acceptance_after_reuse_authority_closure_v0_receipts/c8_return_to_selection_acceptance_receipt_0144408e.json
+present data/c8_return_to_surface_selection_acceptance_after_reuse_authority_closure_v0/c8_return_to_surface_selection_acceptance_decision_v0.json
+present data/c8_return_to_surface_selection_acceptance_after_reuse_authority_closure_v0/c8_return_to_surface_selection_acceptance_packet_v0.json
+present data/c8_return_to_surface_selection_acceptance_after_reuse_authority_closure_v0/c8_surface_selection_reentry_boundary_v0.json
+present data/c8_return_to_surface_selection_acceptance_after_reuse_authority_closure_v0/c8_return_to_surface_selection_acceptance_readout_v0.json
+present data/c8_return_to_surface_selection_acceptance_after_reuse_authority_closure_v0/c8_return_to_surface_selection_acceptance_report.json
+present scripts/accept_c8_return_to_surface_selection_after_reuse_authority_closure_v0.py
+
+PY_COMPILE_RETURN_TO_SELECTION_ACCEPTANCE_RUNNER
+
+VERIFY_RETURN_TO_SELECTION_ACCEPTANCE_RECEIPT
+{
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "gate_results_false_count": 0,
+  "human_decision": "ACCEPT_RETURN_TO_SURFACE_SELECTION",
+  "next_probe_authorized_now": false,
+  "next_surface_selected_now": false,
+  "outcome_class": "C8_RETURN_TO_SURFACE_SELECTION_ACCEPTED_FOR_REENTRY_REVIEW",
+  "previous_surface_id": "c8_successor_surface_reuse_authority_boundary_after_local_closure_v0",
+  "receipt_id": "c8_return_to_selection_acceptance_receipt_0144408e",
+  "recommended_review_unit": "REVIEW_C8_RETURN_TO_SURFACE_SELECTION_ACCEPTANCE_AFTER_REUSE_AUTHORITY_CLOSURE_V0",
+  "requires_review": true,
+  "return_to_surface_selection_accepted": true,
+  "reusable_schema_authorized": false,
+  "review_gate": "PASS",
+  "source_return_to_selection_boundary_id": "c8_return_to_surface_selection_boundary_6b7e2995",
+  "source_return_to_selection_packet_id": "c8_return_to_surface_selection_packet_497f97dd",
+  "source_return_to_selection_receipt_id": "c8_return_to_surface_selection_receipt_e1b23af9",
+  "status": "TYPED_C8_RETURN_TO_SURFACE_SELECTION_ACCEPTANCE_PASS",
+  "surface_selection_executed_now": false,
+  "surface_selection_reentry_accepted": true,
+  "surface_selection_reentry_ready_after_review": true,
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_RETURN_TO_SURFACE_SELECTION_ACCEPTANCE_READY_FOR_REVIEW",
+    "type": "STOP"
+  }
+}
+
+VERIFY_RETURN_TO_SELECTION_ACCEPTANCE_CONTENT
+{
+  "content_review_gate": "PASS",
+  "failures": [],
+  "human_decision": "ACCEPT_RETURN_TO_SURFACE_SELECTION",
+  "next_probe_authorized_now": false,
+  "next_surface_selected_now": false,
+  "return_to_selection_acceptance_decision_id": "c8_return_to_selection_acceptance_decision_581d0092",
+  "return_to_selection_acceptance_packet_id": "c8_return_to_selection_acceptance_packet_6b51e7bf",
+  "return_to_surface_selection_accepted": true,
+  "reusable_schema_authorized_now": false,
+  "surface_selection_executed_now": false,
+  "surface_selection_reentry_accepted": true,
+  "surface_selection_reentry_boundary_id": "c8_surface_selection_reentry_boundary_e02a5882",
+  "surface_selection_reentry_ready_after_review": true
+}
+
+VERIFY_STAGED_SCOPE_RETURN_TO_SELECTION_ACCEPTANCE_ONLY
+staged_path_count=8
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+return_to_selection_acceptance_receipts_staged=['data/c8_return_to_surface_selection_acceptance_after_reuse_authority_closure_v0_receipts/c8_return_to_selection_acceptance_receipt_0144408e.json']
+
+REVIEW_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...o_surface_selection_acceptance_decision_v0.json |  28 ++
+ ..._to_surface_selection_acceptance_packet_v0.json |  29 ++
+ ...to_surface_selection_acceptance_readout_v0.json |  21 +
+ ...urn_to_surface_selection_acceptance_report.json |  33 ++
+ .../c8_surface_selection_reentry_boundary_v0.json  |  47 +++
+ ...n_to_selection_acceptance_receipt_0144408e.json | 110 +++++
+ ...e_selection_after_reuse_authority_closure_v0.py | 455 +++++++++++++++++++++
+ 8 files changed, 729 insertions(+)
+
+REVIEW_C8_RETURN_TO_SURFACE_SELECTION_ACCEPTANCE_AFTER_REUSE_AUTHORITY_CLOSURE_PASS
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

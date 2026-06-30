@@ -1,0 +1,406 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_214407
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_214407.txt
+
+BUILD_FRONTIER_DEPTH_PROBE_FIX_CANDIDATE_POLICY_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_FRONTIER_DEPTH_POLICY_SCRIPT
+
+PY_COMPILE
+
+BUILD_FRONTIER_DEPTH_POLICY
+{
+  "authorized_fix_candidate_ids": [
+    "FIX_CANDIDATE_FRONTIER_DEPTH_PROBE_PLAN_V0"
+  ],
+  "authorizes_depth_probe_skipping": false,
+  "authorizes_depth_range_change": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_frontier_case_skipping": false,
+  "authorizes_patch_application": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_synthetic_depth_receipts": false,
+  "created_at": "2026-06-20T20:44:08.054462+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "policy_id": "42028fa3",
+  "policy_path": "data/frontier_depth_probe_fix_candidate_policies/42028fa3.json",
+  "policy_sig8": "42028fa3",
+  "receipt_id": "0f055d0d",
+  "receipt_sig8": "0f055d0d",
+  "schema_version": "frontier_depth_probe_fix_candidate_policy_receipt_v0",
+  "slot_identity_matches_expected": true,
+  "source_after_profile_id": "45cd7660",
+  "source_decision_id": "118d66ca",
+  "target_burden_class": "BURDEN_DEPTH_SCAN",
+  "target_elapsed_ms": 4189,
+  "target_receipts": 345,
+  "target_rows": 5,
+  "terminal": {
+    "next_command_goal": "BUILD_FRONTIER_DEPTH_PROBE_FIX_CANDIDATE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+policy_json_path=data/frontier_depth_probe_fix_candidate_policies/42028fa3.json
+policy_receipt_path=data/frontier_depth_probe_fix_candidate_policy_receipts/42028fa3.json
+POLICY_ID=42028fa3
+
+ASSERT_FRONTIER_DEPTH_POLICY
+{
+  "accepted_burden_classes_frozen": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "authorizes_code_change": false,
+  "authorizes_depth_max_change": false,
+  "authorizes_depth_probe_skipping": false,
+  "authorizes_depth_range_change": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_fix_candidate_count": 1,
+  "authorizes_fix_candidate_ids": [
+    "FIX_CANDIDATE_FRONTIER_DEPTH_PROBE_PLAN_V0"
+  ],
+  "authorizes_frontier_case_skipping": false,
+  "authorizes_halt_semantics_change": false,
+  "authorizes_patch_application": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_reopening_accepted_burden_classes": false,
+  "authorizes_reusing_prior_depth_results_as_execution": false,
+  "authorizes_synthetic_depth_receipts": false,
+  "failures": [],
+  "gate": "PASS",
+  "policy_id": "42028fa3",
+  "policy_sig8": "42028fa3",
+  "receipt_gate": "PASS",
+  "receipt_id": "0f055d0d",
+  "slot_identity_matches_expected": true,
+  "source_after_profile_id": "45cd7660",
+  "source_decision_id": "118d66ca",
+  "target_burden_class": "BURDEN_DEPTH_SCAN",
+  "target_burden_class_proven": true,
+  "target_elapsed_ms": 4189,
+  "target_families": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "target_probes": [
+    "MICRO_03_DEPTH_PRESSURE"
+  ],
+  "target_receipts": 345,
+  "target_rows": 5,
+  "target_slots": [
+    "MICRO_03_DEPTH_PRESSURE_A",
+    "MICRO_03_DEPTH_PRESSURE_B",
+    "MICRO_03_DEPTH_PRESSURE_C",
+    "MICRO_03_DEPTH_PRESSURE_D",
+    "MICRO_03_DEPTH_PRESSURE_E"
+  ],
+  "terminal": {
+    "next_command_goal": "BUILD_FRONTIER_DEPTH_PROBE_FIX_CANDIDATE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_FRONTIER_DEPTH_POLICY_SOURCE_MUTATIONS
+{
+  "case": "decision_gate_fail",
+  "expected": "decision_gate_not_PASS",
+  "failures": [
+    "decision_gate_not_PASS"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "wrong_next_burden_fail",
+  "expected": "decision_next_burden_class_mismatch",
+  "failures": [
+    "decision_next_burden_class_mismatch:BURDEN_RECEIPT_VOLUME"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "radius_authority_fail",
+  "expected": "decision_illegally_authorizes_radius_expansion",
+  "failures": [
+    "decision_illegally_authorizes_radius_expansion"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "execution_skipping_authority_fail",
+  "expected": "decision_illegally_authorizes_execution_skipping",
+  "failures": [
+    "decision_illegally_authorizes_execution_skipping"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "accepted_classes_not_excluded_fail",
+  "expected": "accepted_burden_class_not_excluded:BURDEN_CYCLE_SCAN",
+  "failures": [
+    "accepted_burden_class_not_excluded:BURDEN_CYCLE_SCAN",
+    "accepted_burden_class_not_excluded:BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "after_profile_gate_fail",
+  "expected": "after_profile_gate_not_MICRO_BURDEN_PROFILE_PASS",
+  "failures": [
+    "after_profile_gate_not_MICRO_BURDEN_PROFILE_PASS"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "target_not_emitted_fail",
+  "expected": "target_burden_class_not_emitted_by_after_profile",
+  "failures": [
+    "target_burden_class_not_emitted_by_after_profile"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "slot_identity_fail",
+  "expected": "depth_scan_slot_identity_mismatch",
+  "failures": [
+    "depth_scan_slot_identity_mismatch:['MICRO_03_DEPTH_PRESSURE_COLLAPSED', 'MICRO_03_DEPTH_PRESSURE_B', 'MICRO_03_DEPTH_PRESSURE_C', 'MICRO_03_DEPTH_PRESSURE_D', 'MICRO_03_DEPTH_PRESSURE_E']"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "receipt_count_fail",
+  "expected": "depth_scan_receipts_not_345",
+  "failures": [
+    "depth_scan_receipts_not_345:276"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "after_execution_skipped_fail",
+  "expected": "after_profile_execution_skipped",
+  "failures": [
+    "after_profile_execution_skipped"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+POLICY_HEAD_JSON
+{
+  "accepted_burden_classes_frozen": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "authorization": {
+    "authorizes_code_change": false,
+    "authorizes_depth_max_change": false,
+    "authorizes_depth_probe_skipping": false,
+    "authorizes_depth_range_change": false,
+    "authorizes_execution_skipping": false,
+    "authorizes_fix_candidate_count": 1,
+    "authorizes_fix_candidate_ids": [
+      "FIX_CANDIDATE_FRONTIER_DEPTH_PROBE_PLAN_V0"
+    ],
+    "authorizes_fix_candidate_kind": "FRONTIER_DEPTH_PROBE_PROPOSAL",
+    "authorizes_frontier_case_skipping": false,
+    "authorizes_gate_semantics_change": false,
+    "authorizes_halt_semantics_change": false,
+    "authorizes_law_semantics_change": false,
+    "authorizes_patch_application": false,
+    "authorizes_radius_expansion": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_schema_change": false,
+    "authorizes_reopening_accepted_burden_classes": false,
+    "authorizes_reusing_prior_depth_results_as_execution": false,
+    "authorizes_runner_semantics_change": false,
+    "authorizes_synthetic_depth_receipts": false
+  },
+  "authorized_fix_candidate": {
+    "allowed_scope": [
+      "Propose depth/frontier probe planning metadata only.",
+      "Use existing completed depth-pressure observations to build a frontier certificate after normal execution.",
+      "Allow process-local deterministic planning helpers for depth-pressure probes.",
+      "Preserve existing depth-pressure probe specs and depth range during retest.",
+      "Preserve one real execution per depth-pressure family case.",
+      "Preserve raw receipt writes and row keys."
+    ],
+    "expected_metric_direction": {
+      "expected_elapsed_ms": "decrease_or_non_worse",
+      "expected_receipts_per_sec": "increase_or_non_worse",
+      "must_not_change_depth_range": true,
+      "must_not_change_halt_law_gate_run_semantics": true,
+      "must_preserve_depth_pressure_probe_identity": true,
+      "must_preserve_family_coverage_A_E": true,
+      "must_preserve_receipt_total_match_registry": true,
+      "must_preserve_rows": 5,
+      "must_preserve_slots": [
+        "MICRO_03_DEPTH_PRESSURE_A",
+        "MICRO_03_DEPTH_PRESSURE_B",
+        "MICRO_03_DEPTH_PRESSURE_C",
+        "MICRO_03_DEPTH_PRESSURE_D",
+        "MICRO_03_DEPTH_PRESSURE_E"
+      ],
+      "must_preserve_target_receipts": 345,
+      "primary_metric": "elapsed_ms",
+      "secondary_metric": "receipts_per_sec",
+      "target_rows": "rows with burden_class == BURDEN_DEPTH_SCAN"
+    },
+    "fix_candidate_id": "FIX_CANDIDATE_FRONTIER_DEPTH_PROBE_PLAN_V0",
+    "fix_candidate_kind": "FRONTIER_DEPTH_PROBE_PROPOSAL",
+    "forbidden_scope": [
+      "skip depth-pressure execution",
+      "skip frontier cases",
+      "change depth_max",
+      "change depth_min",
+      "expand radius",
+      "reuse prior depth results as current execution",
+      "emit synthetic receipts for unexecuted depth probes",
+      "delete receipts",
+      "compress raw receipts",
+      "change halt semantics",
+      "change law semantics",
+      "change gate semantics",
+      "change run semantics",
+      "reopen accepted burden classes without an explicit new failure"
+    ],
+    "next_command_goal": "BUILD_FRONTIER_DEPTH_PROBE_FIX_CANDIDATE_V0",
+    "target_burden_class": "BURDEN_DEPTH_SCAN"
+  },
+  "gate": "PASS",
+  "policy_id": "42028fa3",
+  "required_retest": {
+    "after_profile_required": true,
+    "before_profile_id": "45cd7660",
+    "comparison_artifact_schema": "frontier_depth_probe_before_after_comparison_v0",
+    "comparison_required": true,
+    "pass_condition": [
+      "after profile gate MICRO_BURDEN_PROFILE_PASS",
+      "receipt totals match registry.sqlite",
+      "all five probes complete",
+      "family coverage A-E preserved",
+      "depth-scan row keys preserved",
+      "depth-scan receipts preserved",
+      "depth-scan slots preserved",
+      "depth-pressure probe identity preserved",
+      "no depth range change",
+      "no radius expansion",
+      "no gate semantics change",
+      "no law semantics change",
+      "no halt semantics change",
+      "no run semantics change",
+      "no execution skipping",
+      "no depth probe skipping",
+      "no frontier case skipping",
+      "no synthetic depth receipts",
+      "BURDEN_DEPTH_SCAN target rows show non-worse elapsed_ms or explicit failure classification"
+    ],
+    "same_micro_suite_required": true,
+    "same_probe_specs_required": true,
+    "same_script": "scripts/wide_burden_profile_microruns.py --execute"
+  },
+  "source_after_profile": {
+    "db_receipt_delta": 1457,
+    "gate": "MICRO_BURDEN_PROFILE_PASS",
+    "profile_id": "45cd7660",
+    "profile_receipts_total": 1457,
+    "profile_sig8": "45cd7660"
+  },
+  "source_decision": {
+    "decision_id": "118d66ca",
+    "decision_sig8": "118d66ca",
+    "gate": "PASS",
+    "path": "data/cycle_period_compression_fix_outcome_decisions/118d66ca.json"
+  },
+  "target_burden_class": "BURDEN_DEPTH_SCAN",
+  "target_evidence": {
+    "burden_class": "BURDEN_DEPTH_SCAN",
+    "elapsed_ms": 4189,
+    "families": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "probes": [
+      "MICRO_03_DEPTH_PRESSURE"
+    ],
+    "receipts": 345,
+    "receipts_per_sec": 82.358558,
+    "rows": 5,
+    "slot_identity_expected": [
+      "MICRO_03_DEPTH_PRESSURE_A",
+      "MICRO_03_DEPTH_PRESSURE_B",
+      "MICRO_03_DEPTH_PRESSURE_C",
+      "MICRO_03_DEPTH_PRESSURE_D",
+      "MICRO_03_DEPTH_PRESSURE_E"
+    ],
+    "slot_identity_matches_expected": true,
+    "slots": [
+      "MICRO_03_DEPTH_PRESSURE_A",
+      "MICRO_03_DEPTH_PRESSURE_B",
+      "MICRO_03_DEPTH_PRESSURE_C",
+      "MICRO_03_DEPTH_PRESSURE_D",
+      "MICRO_03_DEPTH_PRESSURE_E"
+    ]
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_FRONTIER_DEPTH_PROBE_FIX_CANDIDATE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_194137_027873
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/build_frontier_depth_probe_fix_candidate_policy.py
+[master fb5733a74] add frontier depth probe policy
+ 2 files changed, 400 insertions(+)
+ create mode 100755 scripts/build_frontier_depth_probe_fix_candidate_policy.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

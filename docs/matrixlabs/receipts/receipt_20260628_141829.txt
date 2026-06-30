@@ -1,0 +1,123 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_141829
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_141829.txt
+
+BOOKKEEPING_COMMIT_C8_SUCCESSOR_SURFACE_BOUNDED_REUSE_AUTHORITY_PROBE_CLOSURE_PACKET_V0
+
+VERIFY_PROBE_CLOSURE_PACKET_ARTIFACTS_PRESENT
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_v0_receipts/c8_successor_reuse_authority_probe_closure_receipt_c7e8a286.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_v0/c8_successor_surface_bounded_reuse_authority_probe_closure_packet_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_v0/c8_successor_surface_bounded_reuse_authority_probe_closure_decision_options_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_v0/c8_successor_surface_bounded_reuse_authority_probe_closure_audit_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_v0/c8_successor_surface_bounded_reuse_authority_probe_closure_readout_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_v0/c8_successor_surface_bounded_reuse_authority_probe_closure_report.json
+present scripts/create_c8_successor_surface_bounded_reuse_authority_probe_closure_v0.py
+
+PY_COMPILE_PROBE_CLOSURE_PACKET_RUNNER
+
+VERIFY_PROBE_CLOSURE_PACKET_RECEIPT_AND_CONTENT
+{
+  "additional_probe_authorized_now": false,
+  "closure_accepted_now": false,
+  "closure_audit_id": "c8_successor_reuse_authority_probe_closure_audit_ed03e30a",
+  "closure_class": "BOUNDED_PROBE_RESULT_REVIEWED_REUSE_BOUNDARY_HELD",
+  "closure_decision_options_id": "c8_successor_reuse_authority_probe_closure_options_d6633e1d",
+  "closure_gates_false_count": 0,
+  "closure_packet_id": "c8_successor_reuse_authority_probe_closure_packet_bfa70151",
+  "commit_gate": "PASS",
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "human_decision_required": true,
+  "new_authority_needed_now": false,
+  "outcome_class": "C8_SUCCESSOR_SURFACE_REUSE_AUTHORITY_PROBE_CLOSURE_READY_FOR_HUMAN_DECISION",
+  "possible_human_decisions": [
+    "ACCEPT_CLOSURE_NO_NEW_AUTHORITY",
+    "REJECT_CLOSURE_PACKET",
+    "REQUEST_NARROWER_CLOSURE_REVIEW"
+  ],
+  "probe_id": "c8_successor_surface_reuse_authority_boundary_probe_v0",
+  "probe_kind": "REUSE_AUTHORITY_BOUNDARY_PROBE",
+  "probe_output_class": "REUSE_BOUNDARY_HELD_NO_NEW_AUTHORITY_NEEDED",
+  "receipt_id": "c8_successor_reuse_authority_probe_closure_receipt_c7e8a286",
+  "recommended_human_decision": "ACCEPT_CLOSURE_NO_NEW_AUTHORITY",
+  "reusable_schema_authorized": false,
+  "reuse_boundary_held": true,
+  "source_probe_receipt_id": "c8_successor_reuse_authority_probe_receipt_803165de",
+  "source_probe_result_id": "c8_successor_reuse_authority_probe_result_3260762c",
+  "status": "TYPED_C8_SUCCESSOR_SURFACE_BOUNDED_REUSE_AUTHORITY_PROBE_CLOSURE_PACKET_PASS"
+}
+
+VERIFY_GIT_IDENTITY
+
+BOUND_ADD_ONLY_PROBE_CLOSURE_PACKET_ARTIFACTS
+
+VERIFY_NO_OUT_OF_SCOPE_STAGED_PATHS
+staged_path_count=8
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+probe_closure_receipts_staged=['data/c8_successor_surface_bounded_reuse_authority_probe_closure_v0_receipts/c8_successor_reuse_authority_probe_closure_receipt_c7e8a286.json']
+
+BOOKKEEPING_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...ded_reuse_authority_probe_closure_audit_v0.json |  54 +++
+ ...uthority_probe_closure_decision_options_v0.json |  18 +
+ ...ed_reuse_authority_probe_closure_packet_v0.json |  35 ++
+ ...d_reuse_authority_probe_closure_readout_v0.json |  16 +
+ ...unded_reuse_authority_probe_closure_report.json |  33 ++
+ ...e_authority_probe_closure_receipt_c7e8a286.json | 121 +++++
+ ...ace_bounded_reuse_authority_probe_closure_v0.py | 487 +++++++++++++++++++++
+ 8 files changed, 770 insertions(+)
+
+BOOKKEEPING_COMMIT
+[master c10081aee] Create C8 successor reuse-authority probe closure packet
+ 8 files changed, 770 insertions(+)
+ create mode 100644 data/c8_successor_surface_bounded_reuse_authority_probe_closure_v0/c8_successor_surface_bounded_reuse_authority_probe_closure_audit_v0.json
+ create mode 100644 data/c8_successor_surface_bounded_reuse_authority_probe_closure_v0/c8_successor_surface_bounded_reuse_authority_probe_closure_decision_options_v0.json
+ create mode 100644 data/c8_successor_surface_bounded_reuse_authority_probe_closure_v0/c8_successor_surface_bounded_reuse_authority_probe_closure_packet_v0.json
+ create mode 100644 data/c8_successor_surface_bounded_reuse_authority_probe_closure_v0/c8_successor_surface_bounded_reuse_authority_probe_closure_readout_v0.json
+ create mode 100644 data/c8_successor_surface_bounded_reuse_authority_probe_closure_v0/c8_successor_surface_bounded_reuse_authority_probe_closure_report.json
+ create mode 100644 data/c8_successor_surface_bounded_reuse_authority_probe_closure_v0_receipts/c8_successor_reuse_authority_probe_closure_receipt_c7e8a286.json
+ create mode 100755 scripts/create_c8_successor_surface_bounded_reuse_authority_probe_closure_v0.py
+
+BOOKKEEPING_COMMIT_RECEIPT
+commit_sha=c10081aeeedd0f92c43bc654a623fd9f77c06961
+closure_receipt=data/c8_successor_surface_bounded_reuse_authority_probe_closure_v0_receipts/c8_successor_reuse_authority_probe_closure_receipt_c7e8a286.json
+closure_packet=data/c8_successor_surface_bounded_reuse_authority_probe_closure_v0/c8_successor_surface_bounded_reuse_authority_probe_closure_packet_v0.json
+closure_decision_options=data/c8_successor_surface_bounded_reuse_authority_probe_closure_v0/c8_successor_surface_bounded_reuse_authority_probe_closure_decision_options_v0.json
+closure_audit=data/c8_successor_surface_bounded_reuse_authority_probe_closure_v0/c8_successor_surface_bounded_reuse_authority_probe_closure_audit_v0.json
+closure_outcome=C8_SUCCESSOR_SURFACE_REUSE_AUTHORITY_PROBE_CLOSURE_READY_FOR_HUMAN_DECISION
+closure_receipt_id=c8_successor_reuse_authority_probe_closure_receipt_c7e8a286
+closure_packet_id=c8_successor_reuse_authority_probe_closure_packet_bfa70151
+closure_decision_options_id=c8_successor_reuse_authority_probe_closure_options_d6633e1d
+closure_audit_id=c8_successor_reuse_authority_probe_closure_audit_ed03e30a
+source_probe_receipt_id=c8_successor_reuse_authority_probe_receipt_803165de
+source_probe_result_id=c8_successor_reuse_authority_probe_result_3260762c
+source_probe_evidence_id=c8_successor_reuse_authority_probe_evidence_4f51ca49
+source_probe_boundary_audit_id=c8_successor_reuse_authority_probe_boundary_72e5fd07
+probe_id=c8_successor_surface_reuse_authority_boundary_probe_v0
+probe_kind=REUSE_AUTHORITY_BOUNDARY_PROBE
+selected_surface_id=c8_successor_surface_reuse_authority_boundary_after_local_closure_v0
+closure_class=BOUNDED_PROBE_RESULT_REVIEWED_REUSE_BOUNDARY_HELD
+probe_execution_count=1
+allowed_probe_execution_count=1
+probe_output_class=REUSE_BOUNDARY_HELD_NO_NEW_AUTHORITY_NEEDED
+reuse_boundary_held=true
+new_authority_needed_now=false
+recommended_human_decision=ACCEPT_CLOSURE_NO_NEW_AUTHORITY
+possible_human_decisions=ACCEPT_CLOSURE_NO_NEW_AUTHORITY,REJECT_CLOSURE_PACKET,REQUEST_NARROWER_CLOSURE_REVIEW
+human_decision_required=true
+closure_accepted_now=false
+additional_probe_authorized_now=false
+instrument_built_now=false
+c8_rerun_now=false
+reusable_schema_authorized=false
+global_solution_claim=false
+frontier_solved_claim=false
+terminal_stop_code=STOP_C8_SUCCESSOR_SURFACE_REUSE_AUTHORITY_PROBE_CLOSURE_PACKET_READY_FOR_REVIEW
+
+STATUS_AFTER_COMMIT_RELEVANT
+
+BOOKKEEPING_COMMIT_C8_SUCCESSOR_SURFACE_BOUNDED_REUSE_AUTHORITY_PROBE_CLOSURE_PACKET_COMPLETE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

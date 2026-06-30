@@ -1,0 +1,138 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260619_224018
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260619_224018.txt
+
+FIX_AND_COMMIT_MATRIXLAB_PROGRESS_REPORTING_V0
+
+STATUS_BEFORE
+ M src/matrixlab/cli.py
+
+BACKUP
+CLI_SIG=59d03b993785
+BACKUP=/tmp/matrixlab_cli_before_progress_repair_59d03b993785.py
+
+PATCH_PROGRESS_REPAIR
+
+SHOW_PATCH_LOCATIONS
+497:    value = os.environ.get("MATRIXLAB_PROGRESS", "1").strip().lower()
+505:        return max(0.0, float(os.environ.get("MATRIXLAB_PROGRESS_INTERVAL_SEC", "5")))
+514:        return max(1, int(os.environ.get("MATRIXLAB_PROGRESS_EVERY_RECEIPTS", "500")))
+559:        "MATRIXLAB_PROGRESS",
+862:    _ml_progress_run_config(locals())
+710:    _ml_progress_after_receipt(receipt)
+1098:    _ml_progress_phase("POST_PROCESSING", extra="stress_execute_run_returned")
+1099:    _ml_progress_phase("COMPLETED", extra="stress_command_done")
+
+PY_COMPILE
+
+PROGRESS_SMOKE_RUN_SMALL
+MATRIXLAB_PROGRESS phase=STARTING run_id=? receipts=0/~15 pct~=0.0 cases~=3 
+families=A depth=3..5 cycles=5 elapsed=0.0s
+MatrixLab run started: run_20260619_214019_754159
+Families: ['one_sided_suspension']
+Depths: 3..5
+Cycles per case: 5
+Max cells per matrix: 1000
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_214019_754159 
+receipts=1/~15 pct~=6.7 cases~=3 families=A depth=3..5 cycles=5 
+last_family=one_sided_suspension last_depth=3 last_cycle=1 elapsed=0.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_214019_754159 
+receipts=2/~15 pct~=13.3 cases~=3 families=A depth=3..5 cycles=5 
+last_family=one_sided_suspension last_depth=3 last_cycle=2 elapsed=0.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_214019_754159 
+receipts=3/~15 pct~=20.0 cases~=3 families=A depth=3..5 cycles=5 
+last_family=one_sided_suspension last_depth=3 last_cycle=3 elapsed=0.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_214019_754159 
+receipts=4/~15 pct~=26.7 cases~=3 families=A depth=3..5 cycles=5 
+last_family=one_sided_suspension last_depth=3 last_cycle=4 elapsed=0.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_214019_754159 
+receipts=5/~15 pct~=33.3 cases~=3 families=A depth=3..5 cycles=5 
+last_family=one_sided_suspension last_depth=3 last_cycle=5 elapsed=0.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_214019_754159 
+receipts=6/~15 pct~=40.0 cases~=3 families=A depth=3..5 cycles=5 
+last_family=one_sided_suspension last_depth=4 last_cycle=1 elapsed=0.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_214019_754159 
+receipts=7/~15 pct~=46.7 cases~=3 families=A depth=3..5 cycles=5 
+last_family=one_sided_suspension last_depth=4 last_cycle=2 elapsed=0.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_214019_754159 
+receipts=8/~15 pct~=53.3 cases~=3 families=A depth=3..5 cycles=5 
+last_family=one_sided_suspension last_depth=4 last_cycle=3 elapsed=1.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_214019_754159 
+receipts=9/~15 pct~=60.0 cases~=3 families=A depth=3..5 cycles=5 
+last_family=one_sided_suspension last_depth=4 last_cycle=4 elapsed=1.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_214019_754159 
+receipts=10/~15 pct~=66.7 cases~=3 families=A depth=3..5 cycles=5 
+last_family=one_sided_suspension last_depth=4 last_cycle=5 elapsed=1.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_214019_754159 
+receipts=11/~15 pct~=73.3 cases~=3 families=A depth=3..5 cycles=5 
+last_family=one_sided_suspension last_depth=5 last_cycle=1 elapsed=1.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_214019_754159 
+receipts=12/~15 pct~=80.0 cases~=3 families=A depth=3..5 cycles=5 
+last_family=one_sided_suspension last_depth=5 last_cycle=2 elapsed=1.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_214019_754159 
+receipts=13/~15 pct~=86.7 cases~=3 families=A depth=3..5 cycles=5 
+last_family=one_sided_suspension last_depth=5 last_cycle=3 elapsed=1.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_214019_754159 
+receipts=14/~15 pct~=93.3 cases~=3 families=A depth=3..5 cycles=5 
+last_family=one_sided_suspension last_depth=5 last_cycle=4 elapsed=1.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_214019_754159 
+receipts=15/~15 pct~=100.0 cases~=3 families=A depth=3..5 cycles=5 
+last_family=one_sided_suspension last_depth=5 last_cycle=5 elapsed=2.0s
+Done.
+{
+  "run_id": "run_20260619_214019_754159",
+  "created_utc": "2026-06-19T21:40:21.902349+00:00",
+  "families": [
+    "one_sided_suspension"
+  ],
+  "depth_min": 3,
+  "depth_max": 5,
+  "cycles_per_case": 5,
+  "max_cells": 1000,
+  "total_cases": 3,
+  "total_receipts": 15,
+  "halt_counts": {
+    "CYCLES_COMPLETE": 3
+  },
+  "max_registered_moves": 1,
+  "max_compression_ratio": 5.0,
+  "max_matrix_cells": 50,
+  "max_registered_move_profiles": 1
+}
+MATRIXLAB_PROGRESS phase=POST_PROCESSING run_id=run_20260619_214019_754159 
+receipts=15/~15 pct~=100.0 cases~=3 families=A depth=3..5 cycles=5 
+last_family=one_sided_suspension last_depth=5 last_cycle=5 elapsed=2.3s 
+note=stress_execute_run_returned
+MATRIXLAB_PROGRESS phase=COMPLETED run_id=run_20260619_214019_754159 
+receipts=15/~15 pct~=100.0 cases~=3 families=A depth=3..5 cycles=5 
+last_family=one_sided_suspension last_depth=5 last_cycle=5 elapsed=2.3s 
+note=stress_command_done
+
+VERIFY_PROGRESS_MARKERS
+progress markers ok
+
+VERIFY_PROGRESS_SMOKE_RUN_GATE
+      Gate checks /       
+run_20260619_214019_754159
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │     3 │
+│ total_receipts │    15 │
+│ receipt_rows   │    15 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │     3 │
+└─────────────────┴───────┘
+GATE_PASS
+
+VERIFY_INTERRUPTED_MARKER_STATIC
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

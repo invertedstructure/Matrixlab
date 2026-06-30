@@ -1,0 +1,883 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260619_214610
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260619_214610.txt
+
+EXECUTE_DOMAIN_SHIFT_D1_SLOT_SEPARATED_RADIUS_50
+
+STATUS_BEFORE
+
+PROCESS_CHECK
+no active MatrixLab stress process
+
+RUN_SLOT_SEPARATED_RADIUS_50
+DOMAIN_SHIFT_SLOT slot_01_E1 relabel_symmetry_stress occurrence=1
+MatrixLab run started: run_20260619_204612_694098
+Families: ['relabel_symmetry_stress']
+Depths: 3..50
+Cycles per case: 50
+Max cells per matrix: 50000
+Done.
+{
+  "run_id": "run_20260619_204612_694098",
+  "created_utc": "2026-06-19T20:52:19.417273+00:00",
+  "families": [
+    "relabel_symmetry_stress"
+  ],
+  "depth_min": 3,
+  "depth_max": 50,
+  "cycles_per_case": 50,
+  "max_cells": 50000,
+  "total_cases": 48,
+  "total_receipts": 2316,
+  "halt_counts": {
+    "REPEATED_STATE_PERIODIC": 2,
+    "CYCLES_COMPLETE": 46
+  },
+  "max_registered_moves": 8,
+  "max_compression_ratio": 12.5,
+  "max_matrix_cells": 2500,
+  "max_registered_move_profiles": 8
+}
+
+      Gate checks /       
+run_20260619_204612_694098
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    48 │
+│ total_receipts │  2316 │
+│ receipt_rows   │  2316 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │    46 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+{
+  "classification": {
+    "compression_signal": "MIXED",
+    "continuation_radius_growth": "down",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "down",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": -7,
+    "continuation_radius_delta": -200,
+    "current_run_id": "run_20260619_204612_694098",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260619_090132_512800",
+    "raw_move_profiles_delta": -960,
+    "registered_moves_delta": -242,
+    "total_receipts_delta": -307018,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "9a778e0b",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260619_204612_694098",
+    "run_20260619_090132_512800"
+  ],
+  "metrics": {
+    "coarse_move_profiles_total": 2,
+    "cycles_per_case": 50,
+    "depth_max": 50,
+    "depth_min": 3,
+    "families": "relabel_symmetry_stress",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 46,
+      "REPEATED_STATE_PERIODIC": 2
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 50,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 50,
+    "receipt_rows": 2316,
+    "receipt_sig8": "73c0c8d4",
+    "registered_moves_total": 8,
+    "reused_shape": true,
+    "status": "DONE",
+    "total_cases": 48,
+    "total_receipts": 2316,
+    "unknown_laws": 0
+  },
+  "previous_vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 27.777778,
+    "continuation_per_raw_profile": 0.247525,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 250,
+    "raw_move_profiles_total": 1010,
+    "receipts_per_case": 249.462903,
+    "receipts_per_coarse_profile": 34370.444444,
+    "receipts_per_raw_profile": 306.271287,
+    "receipts_per_registered_move": 1237.336,
+    "registered_moves_total": 250
+  },
+  "profile_summary": {
+    "by_family": {
+      "relabel_symmetry_stress": 2316
+    },
+    "by_move": {
+      "deterministic_row_col_relabel": 2316
+    },
+    "coarse_profiles": {
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=0": 15,
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=many": 2301
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "vocabulary_growth_score": {
+    "coarse_move_profiles_total": 2,
+    "continuation_per_coarse_profile": 25.0,
+    "continuation_per_raw_profile": 1.0,
+    "continuation_per_registered_move": 6.25,
+    "continuation_radius": 50,
+    "raw_move_profiles_total": 50,
+    "receipts_per_case": 48.25,
+    "receipts_per_coarse_profile": 1158.0,
+    "receipts_per_raw_profile": 46.32,
+    "receipts_per_registered_move": 289.5,
+    "registered_moves_total": 8
+  }
+}
+eval_path: data/evals/9a778e0b.json
+
+DOMAIN_SHIFT_SLOT slot_02_E2 relabel_symmetry_stress occurrence=2
+MatrixLab run started: run_20260619_205240_208343
+Families: ['relabel_symmetry_stress']
+Depths: 3..50
+Cycles per case: 50
+Max cells per matrix: 50000
+Done.
+{
+  "run_id": "run_20260619_205240_208343",
+  "created_utc": "2026-06-19T20:58:46.967490+00:00",
+  "families": [
+    "relabel_symmetry_stress"
+  ],
+  "depth_min": 3,
+  "depth_max": 50,
+  "cycles_per_case": 50,
+  "max_cells": 50000,
+  "total_cases": 48,
+  "total_receipts": 2316,
+  "halt_counts": {
+    "REPEATED_STATE_PERIODIC": 2,
+    "CYCLES_COMPLETE": 46
+  },
+  "max_registered_moves": 8,
+  "max_compression_ratio": 12.5,
+  "max_matrix_cells": 2500,
+  "max_registered_move_profiles": 8
+}
+
+      Gate checks /       
+run_20260619_205240_208343
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    48 │
+│ total_receipts │  2316 │
+│ receipt_rows   │  2316 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │    46 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+{
+  "classification": {
+    "compression_signal": "MIXED",
+    "continuation_radius_growth": "down",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "down",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": -7,
+    "continuation_radius_delta": -200,
+    "current_run_id": "run_20260619_205240_208343",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260619_090132_512800",
+    "raw_move_profiles_delta": -960,
+    "registered_moves_delta": -242,
+    "total_receipts_delta": -307018,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "9a2b7aef",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260619_205240_208343",
+    "run_20260619_090132_512800"
+  ],
+  "metrics": {
+    "coarse_move_profiles_total": 2,
+    "cycles_per_case": 50,
+    "depth_max": 50,
+    "depth_min": 3,
+    "families": "relabel_symmetry_stress",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 46,
+      "REPEATED_STATE_PERIODIC": 2
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 50,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 50,
+    "receipt_rows": 2316,
+    "receipt_sig8": "3b6fe1bd",
+    "registered_moves_total": 8,
+    "reused_shape": true,
+    "status": "DONE",
+    "total_cases": 48,
+    "total_receipts": 2316,
+    "unknown_laws": 0
+  },
+  "previous_vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 27.777778,
+    "continuation_per_raw_profile": 0.247525,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 250,
+    "raw_move_profiles_total": 1010,
+    "receipts_per_case": 249.462903,
+    "receipts_per_coarse_profile": 34370.444444,
+    "receipts_per_raw_profile": 306.271287,
+    "receipts_per_registered_move": 1237.336,
+    "registered_moves_total": 250
+  },
+  "profile_summary": {
+    "by_family": {
+      "relabel_symmetry_stress": 2316
+    },
+    "by_move": {
+      "deterministic_row_col_relabel": 2316
+    },
+    "coarse_profiles": {
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=0": 15,
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=many": 2301
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "vocabulary_growth_score": {
+    "coarse_move_profiles_total": 2,
+    "continuation_per_coarse_profile": 25.0,
+    "continuation_per_raw_profile": 1.0,
+    "continuation_per_registered_move": 6.25,
+    "continuation_radius": 50,
+    "raw_move_profiles_total": 50,
+    "receipts_per_case": 48.25,
+    "receipts_per_coarse_profile": 1158.0,
+    "receipts_per_raw_profile": 46.32,
+    "receipts_per_registered_move": 289.5,
+    "registered_moves_total": 8
+  }
+}
+eval_path: data/evals/9a2b7aef.json
+
+DOMAIN_SHIFT_SLOT slot_03_E3 relabel_symmetry_stress occurrence=3
+MatrixLab run started: run_20260619_205908_913939
+Families: ['relabel_symmetry_stress']
+Depths: 3..50
+Cycles per case: 50
+Max cells per matrix: 50000
+Done.
+{
+  "run_id": "run_20260619_205908_913939",
+  "created_utc": "2026-06-19T21:05:18.785155+00:00",
+  "families": [
+    "relabel_symmetry_stress"
+  ],
+  "depth_min": 3,
+  "depth_max": 50,
+  "cycles_per_case": 50,
+  "max_cells": 50000,
+  "total_cases": 48,
+  "total_receipts": 2316,
+  "halt_counts": {
+    "REPEATED_STATE_PERIODIC": 2,
+    "CYCLES_COMPLETE": 46
+  },
+  "max_registered_moves": 8,
+  "max_compression_ratio": 12.5,
+  "max_matrix_cells": 2500,
+  "max_registered_move_profiles": 8
+}
+
+      Gate checks /       
+run_20260619_205908_913939
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    48 │
+│ total_receipts │  2316 │
+│ receipt_rows   │  2316 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │    46 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+{
+  "classification": {
+    "compression_signal": "MIXED",
+    "continuation_radius_growth": "down",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "down",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": -7,
+    "continuation_radius_delta": -200,
+    "current_run_id": "run_20260619_205908_913939",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260619_090132_512800",
+    "raw_move_profiles_delta": -960,
+    "registered_moves_delta": -242,
+    "total_receipts_delta": -307018,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "c1e01f9a",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260619_205908_913939",
+    "run_20260619_090132_512800"
+  ],
+  "metrics": {
+    "coarse_move_profiles_total": 2,
+    "cycles_per_case": 50,
+    "depth_max": 50,
+    "depth_min": 3,
+    "families": "relabel_symmetry_stress",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 46,
+      "REPEATED_STATE_PERIODIC": 2
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 50,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 50,
+    "receipt_rows": 2316,
+    "receipt_sig8": "4292e89b",
+    "registered_moves_total": 8,
+    "reused_shape": true,
+    "status": "DONE",
+    "total_cases": 48,
+    "total_receipts": 2316,
+    "unknown_laws": 0
+  },
+  "previous_vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 27.777778,
+    "continuation_per_raw_profile": 0.247525,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 250,
+    "raw_move_profiles_total": 1010,
+    "receipts_per_case": 249.462903,
+    "receipts_per_coarse_profile": 34370.444444,
+    "receipts_per_raw_profile": 306.271287,
+    "receipts_per_registered_move": 1237.336,
+    "registered_moves_total": 250
+  },
+  "profile_summary": {
+    "by_family": {
+      "relabel_symmetry_stress": 2316
+    },
+    "by_move": {
+      "deterministic_row_col_relabel": 2316
+    },
+    "coarse_profiles": {
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=0": 15,
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=many": 2301
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "vocabulary_growth_score": {
+    "coarse_move_profiles_total": 2,
+    "continuation_per_coarse_profile": 25.0,
+    "continuation_per_raw_profile": 1.0,
+    "continuation_per_registered_move": 6.25,
+    "continuation_radius": 50,
+    "raw_move_profiles_total": 50,
+    "receipts_per_case": 48.25,
+    "receipts_per_coarse_profile": 1158.0,
+    "receipts_per_raw_profile": 46.32,
+    "receipts_per_registered_move": 289.5,
+    "registered_moves_total": 8
+  }
+}
+eval_path: data/evals/c1e01f9a.json
+
+DOMAIN_SHIFT_SLOT slot_04_D1 projection_quotient occurrence=1
+MatrixLab run started: run_20260619_210540_056975
+Families: ['projection_quotient']
+Depths: 3..50
+Cycles per case: 50
+Max cells per matrix: 50000
+Done.
+{
+  "run_id": "run_20260619_210540_056975",
+  "created_utc": "2026-06-19T21:12:00.862284+00:00",
+  "families": [
+    "projection_quotient"
+  ],
+  "depth_min": 3,
+  "depth_max": 50,
+  "cycles_per_case": 50,
+  "max_cells": 50000,
+  "total_cases": 48,
+  "total_receipts": 2400,
+  "halt_counts": {
+    "CYCLES_COMPLETE": 48
+  },
+  "max_registered_moves": 27,
+  "max_compression_ratio": 16.6667,
+  "max_matrix_cells": 2550,
+  "max_registered_move_profiles": 27
+}
+
+      Gate checks /       
+run_20260619_210540_056975
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    48 │
+│ total_receipts │  2400 │
+│ receipt_rows   │  2400 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    48 │
+└─────────────────┴───────┘
+GATE_PASS
+
+{
+  "classification": {
+    "compression_signal": "MIXED",
+    "continuation_radius_growth": "down",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "down",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": -6,
+    "continuation_radius_delta": -200,
+    "current_run_id": "run_20260619_210540_056975",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260619_090132_512800",
+    "raw_move_profiles_delta": -960,
+    "registered_moves_delta": -223,
+    "total_receipts_delta": -306934,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "da7a7786",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260619_210540_056975",
+    "run_20260619_090132_512800"
+  ],
+  "metrics": {
+    "coarse_move_profiles_total": 3,
+    "cycles_per_case": 50,
+    "depth_max": 50,
+    "depth_min": 3,
+    "families": "projection_quotient",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 48
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 50,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 50,
+    "receipt_rows": 2400,
+    "receipt_sig8": "a9dfb023",
+    "registered_moves_total": 27,
+    "reused_shape": true,
+    "status": "DONE",
+    "total_cases": 48,
+    "total_receipts": 2400,
+    "unknown_laws": 0
+  },
+  "previous_vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 27.777778,
+    "continuation_per_raw_profile": 0.247525,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 250,
+    "raw_move_profiles_total": 1010,
+    "receipts_per_case": 249.462903,
+    "receipts_per_coarse_profile": 34370.444444,
+    "receipts_per_raw_profile": 306.271287,
+    "receipts_per_registered_move": 1237.336,
+    "registered_moves_total": 250
+  },
+  "profile_summary": {
+    "by_family": {
+      "projection_quotient": 2400
+    },
+    "by_move": {
+      "append_zero_column": 1500,
+      "quotient_merge_last_row": 900
+    },
+    "coarse_profiles": {
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=0": 1452,
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=1": 48,
+      "quotient_merge_last_row|dr=-1|dc=0|rank=-1|supp=-|newcols=many": 900
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "vocabulary_growth_score": {
+    "coarse_move_profiles_total": 3,
+    "continuation_per_coarse_profile": 16.666667,
+    "continuation_per_raw_profile": 1.0,
+    "continuation_per_registered_move": 1.851852,
+    "continuation_radius": 50,
+    "raw_move_profiles_total": 50,
+    "receipts_per_case": 50.0,
+    "receipts_per_coarse_profile": 800.0,
+    "receipts_per_raw_profile": 48.0,
+    "receipts_per_registered_move": 88.888889,
+    "registered_moves_total": 27
+  }
+}
+eval_path: data/evals/da7a7786.json
+
+DOMAIN_SHIFT_SLOT slot_05_D2 projection_quotient occurrence=2
+MatrixLab run started: run_20260619_211224_299887
+Families: ['projection_quotient']
+Depths: 3..50
+Cycles per case: 50
+Max cells per matrix: 50000
+Done.
+{
+  "run_id": "run_20260619_211224_299887",
+  "created_utc": "2026-06-19T21:18:50.946661+00:00",
+  "families": [
+    "projection_quotient"
+  ],
+  "depth_min": 3,
+  "depth_max": 50,
+  "cycles_per_case": 50,
+  "max_cells": 50000,
+  "total_cases": 48,
+  "total_receipts": 2400,
+  "halt_counts": {
+    "CYCLES_COMPLETE": 48
+  },
+  "max_registered_moves": 27,
+  "max_compression_ratio": 16.6667,
+  "max_matrix_cells": 2550,
+  "max_registered_move_profiles": 27
+}
+
+      Gate checks /       
+run_20260619_211224_299887
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    48 │
+│ total_receipts │  2400 │
+│ receipt_rows   │  2400 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    48 │
+└─────────────────┴───────┘
+GATE_PASS
+
+{
+  "classification": {
+    "compression_signal": "MIXED",
+    "continuation_radius_growth": "down",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "down",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": -6,
+    "continuation_radius_delta": -200,
+    "current_run_id": "run_20260619_211224_299887",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260619_090132_512800",
+    "raw_move_profiles_delta": -960,
+    "registered_moves_delta": -223,
+    "total_receipts_delta": -306934,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "f0cffe38",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260619_211224_299887",
+    "run_20260619_090132_512800"
+  ],
+  "metrics": {
+    "coarse_move_profiles_total": 3,
+    "cycles_per_case": 50,
+    "depth_max": 50,
+    "depth_min": 3,
+    "families": "projection_quotient",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 48
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 50,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 50,
+    "receipt_rows": 2400,
+    "receipt_sig8": "4564dc1a",
+    "registered_moves_total": 27,
+    "reused_shape": true,
+    "status": "DONE",
+    "total_cases": 48,
+    "total_receipts": 2400,
+    "unknown_laws": 0
+  },
+  "previous_vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 27.777778,
+    "continuation_per_raw_profile": 0.247525,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 250,
+    "raw_move_profiles_total": 1010,
+    "receipts_per_case": 249.462903,
+    "receipts_per_coarse_profile": 34370.444444,
+    "receipts_per_raw_profile": 306.271287,
+    "receipts_per_registered_move": 1237.336,
+    "registered_moves_total": 250
+  },
+  "profile_summary": {
+    "by_family": {
+      "projection_quotient": 2400
+    },
+    "by_move": {
+      "append_zero_column": 1500,
+      "quotient_merge_last_row": 900
+    },
+    "coarse_profiles": {
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=0": 1452,
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=1": 48,
+      "quotient_merge_last_row|dr=-1|dc=0|rank=-1|supp=-|newcols=many": 900
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "vocabulary_growth_score": {
+    "coarse_move_profiles_total": 3,
+    "continuation_per_coarse_profile": 16.666667,
+    "continuation_per_raw_profile": 1.0,
+    "continuation_per_registered_move": 1.851852,
+    "continuation_radius": 50,
+    "raw_move_profiles_total": 50,
+    "receipts_per_case": 50.0,
+    "receipts_per_coarse_profile": 800.0,
+    "receipts_per_raw_profile": 48.0,
+    "receipts_per_registered_move": 88.888889,
+    "registered_moves_total": 27
+  }
+}
+eval_path: data/evals/f0cffe38.json
+
+DOMAIN_SHIFT_SLOT slot_06_B1 two_sided_suspension occurrence=1
+MatrixLab run started: run_20260619_211912_548798
+Families: ['two_sided_suspension']
+Depths: 3..50
+Cycles per case: 50
+Max cells per matrix: 50000
+Done.
+{
+  "run_id": "run_20260619_211912_548798",
+  "created_utc": "2026-06-19T21:25:50.632003+00:00",
+  "families": [
+    "two_sided_suspension"
+  ],
+  "depth_min": 3,
+  "depth_max": 50,
+  "cycles_per_case": 50,
+  "max_cells": 50000,
+  "total_cases": 48,
+  "total_receipts": 2400,
+  "halt_counts": {
+    "CYCLES_COMPLETE": 48
+  },
+  "max_registered_moves": 50,
+  "max_compression_ratio": 1.0,
+  "max_matrix_cells": 10000,
+  "max_registered_move_profiles": 50
+}
+
+      Gate checks /       
+run_20260619_211912_548798
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    48 │
+│ total_receipts │  2400 │
+│ receipt_rows   │  2400 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    48 │
+└─────────────────┴───────┘
+GATE_PASS
+
+{
+  "classification": {
+    "compression_signal": "MIXED",
+    "continuation_radius_growth": "down",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "down",
+    "new_shape_required": true,
+    "reused_shape": false
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": -8,
+    "continuation_radius_delta": -200,
+    "current_run_id": "run_20260619_211912_548798",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260619_090132_512800",
+    "raw_move_profiles_delta": -913,
+    "registered_moves_delta": -200,
+    "total_receipts_delta": -306934,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "b362abb1",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260619_211912_548798",
+    "run_20260619_090132_512800"
+  ],
+  "metrics": {
+    "coarse_move_profiles_total": 1,
+    "cycles_per_case": 50,
+    "depth_max": 50,
+    "depth_min": 3,
+    "families": "two_sided_suspension",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 48
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 50,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 97,
+    "receipt_rows": 2400,
+    "receipt_sig8": "ca494d3e",
+    "registered_moves_total": 50,
+    "reused_shape": false,
+    "status": "DONE",
+    "total_cases": 48,
+    "total_receipts": 2400,
+    "unknown_laws": 0
+  },
+  "previous_vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 27.777778,
+    "continuation_per_raw_profile": 0.247525,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 250,
+    "raw_move_profiles_total": 1010,
+    "receipts_per_case": 249.462903,
+    "receipts_per_coarse_profile": 34370.444444,
+    "receipts_per_raw_profile": 306.271287,
+    "receipts_per_registered_move": 1237.336,
+    "registered_moves_total": 250
+  },
+  "profile_summary": {
+    "by_family": {
+      "two_sided_suspension": 2400
+    },
+    "by_move": {
+      "add_row_and_link_column": 2400
+    },
+    "coarse_profiles": {
+      "add_row_and_link_column|dr=1|dc=1|rank=1|supp=+|newcols=many": 2400
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "vocabulary_growth_score": {
+    "coarse_move_profiles_total": 1,
+    "continuation_per_coarse_profile": 50.0,
+    "continuation_per_raw_profile": 0.515464,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 50,
+    "raw_move_profiles_total": 97,
+    "receipts_per_case": 50.0,
+    "receipts_per_coarse_profile": 2400.0,
+    "receipts_per_raw_profile": 24.742268,
+    "receipts_per_registered_move": 48.0,
+    "registered_moves_total": 50
+  }
+}
+eval_path: data/evals/b362abb1.json
+
+DOMAIN_SHIFT_SLOT slot_07_B2 two_sided_suspension occurrence=2

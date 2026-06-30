@@ -1,0 +1,525 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_145320
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_145320.txt
+
+BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_POLICY_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_RAW_DELTA_SIGNATURE_CANDIDATE_POLICY_BUILDER
+
+PY_COMPILE
+
+BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_POLICY
+{
+  "authority": {
+    "authorized_next_command_goal": "IMPLEMENT_RAW_DELTA_SIGNATURE_CANDIDATE_PROBE_V0",
+    "authorizes_audit_pointer_in_payload": false,
+    "authorizes_bounded_candidate_probe_execution": true,
+    "authorizes_candidate_acceptance": false,
+    "authorizes_candidate_design_policy_only": true,
+    "authorizes_case_id_or_cycle_n_primary_identity_patch": false,
+    "authorizes_debug_payload_in_payload": false,
+    "authorizes_full_occurrence_key_in_payload": false,
+    "authorizes_full_registry_scan": false,
+    "authorizes_microhash_as_proof": false,
+    "authorizes_next_candidate_probe_implementation": true,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_receipt_suppression": false,
+    "authorizes_registry_sqlite_read": false,
+    "authorizes_registry_write": false,
+    "authorizes_rowid_or_receipt_hash_patch": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_mode": false,
+    "observer_only": true
+  },
+  "candidate_contract_summary": {
+    "all_bands_clear": true,
+    "candidate_acceptance_forbidden": true,
+    "full_registry_forbidden": true,
+    "known_failed_all_clear": true,
+    "selected_encoding_id": "raw_decimal_sig6",
+    "selected_target_raw_delta_field": "compression_ratio",
+    "signature_payload_required_fields": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after",
+      "raw_compression_ratio_sig6"
+    ],
+    "worst_burden_ratio_projected": 0.7149643705463183,
+    "worst_distinguishability_retention_ratio": 1.0,
+    "worst_false_merge_count": 0
+  },
+  "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+  "created_at": "2026-06-21T13:53:22.304946+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "implementation_constraints": {
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_runtime_receipt_emission": true,
+    "must_not_full_registry_scan": true,
+    "must_not_modify_files": [
+      "src/",
+      "app/",
+      "matrixlab/",
+      "scripts/raw_delta_compactness_diagnostic_v0.py",
+      "scripts/build_raw_delta_compactness_diagnostic_policy_v0.py",
+      "scripts/stable_delta_signature_candidate_v0_3_probe.py",
+      "scripts/diagnose_v0_3_failure_v0.py",
+      "scripts/stable_delta_signature_candidate_v0_2_scale_band_probe.py",
+      "scripts/stable_delta_signature_candidate_v0_2_probe.py"
+    ],
+    "must_not_read_registry_sqlite": true,
+    "must_not_write_registry": true,
+    "must_reuse_existing_bounded_rows": true,
+    "must_touch_only_files": [
+      "scripts/raw_delta_signature_candidate_probe_v0.py"
+    ]
+  },
+  "policy_id": "3b8eb867",
+  "policy_name": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_POLICY_V0",
+  "policy_path": "data/raw_delta_signature_candidate_policies/3b8eb867.json",
+  "policy_sig8": "3b8eb867",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_id": "6778ef03",
+  "receipt_sig8": "6778ef03",
+  "schema_version": "raw_delta_signature_candidate_policy_receipt_v0",
+  "source_raw_delta_diagnostic_id": "74caa0f4",
+  "source_raw_delta_diagnostic_receipt_id": "129e9a76",
+  "source_raw_delta_policy_id": "445bdd02",
+  "source_v02_scale_probe_id": "227e9426",
+  "source_v03_failure_diagnostic_id": "d0132dd4",
+  "source_v03_probe_id": "bd1beabe",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_RAW_DELTA_SIGNATURE_CANDIDATE_PROBE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+policy_id=3b8eb867
+policy_json_path=data/raw_delta_signature_candidate_policies/3b8eb867.json
+policy_receipt_path=data/raw_delta_signature_candidate_policy_receipts/3b8eb867.json
+RAW_DELTA_CANDIDATE_POLICY_ID=3b8eb867
+
+ASSERT_RAW_DELTA_SIGNATURE_CANDIDATE_POLICY
+{
+  "authority": {
+    "authorized_next_command_goal": "IMPLEMENT_RAW_DELTA_SIGNATURE_CANDIDATE_PROBE_V0",
+    "authorizes_audit_pointer_in_payload": false,
+    "authorizes_bounded_candidate_probe_execution": true,
+    "authorizes_candidate_acceptance": false,
+    "authorizes_candidate_design_policy_only": true,
+    "authorizes_case_id_or_cycle_n_primary_identity_patch": false,
+    "authorizes_debug_payload_in_payload": false,
+    "authorizes_full_occurrence_key_in_payload": false,
+    "authorizes_full_registry_scan": false,
+    "authorizes_microhash_as_proof": false,
+    "authorizes_next_candidate_probe_implementation": true,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_receipt_suppression": false,
+    "authorizes_registry_sqlite_read": false,
+    "authorizes_registry_write": false,
+    "authorizes_rowid_or_receipt_hash_patch": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_mode": false,
+    "observer_only": true
+  },
+  "candidate_contract": {
+    "bounded_probe_surface": {
+      "all_bands_total": 266,
+      "full_registry_forbidden": true,
+      "known_failed_bands_total": 10,
+      "must_reuse_raw_delta_diagnostic_rows_path": "data/raw_delta_compactness_rows/74caa0f4.jsonl",
+      "must_reuse_v02_scale_rows_path": "data/stable_delta_signature_candidate_v0_2_scale_band_rows/227e9426.jsonl",
+      "must_reuse_v03_rows_path": "data/stable_delta_signature_candidate_v0_3_rows/bd1beabe.jsonl",
+      "registry_sqlite_read_forbidden": true
+    },
+    "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+    "candidate_probe_required_measurements": {
+      "all_band_false_merge_count": true,
+      "comparison_to_v02_v03_and_raw_delta_diagnostic": true,
+      "distinguishability_retention_ratio": true,
+      "identity_leak_check": true,
+      "known_failed_false_merge_count": true,
+      "projected_burden_ratio": true,
+      "raw_delta_coverage": true,
+      "signature_payload_bytes": true
+    },
+    "candidate_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+    "explicit_non_authorizations": [
+      "No candidate acceptance.",
+      "No scale mode.",
+      "No runtime receipt emission change.",
+      "No registry write.",
+      "No full-registry scan.",
+      "No registry.sqlite read.",
+      "No receipt replacement, deletion, compression, or suppression.",
+      "No case_id or cycle_n as primary identity.",
+      "No rowid, receipt hash, or full occurrence key in payload.",
+      "No raw_delta_microhash_32 as proof of identity."
+    ],
+    "pass_gates_for_next_probe": {
+      "authority_containment": "observer-only, no candidate acceptance, no scale mode, no registry write, no runtime change",
+      "bounded_surface_reused": "use only the existing bounded diagnostic/source rows",
+      "burden_reduction": "projected burden must remain below full receipt burden",
+      "no_false_merge_all_bands": "candidate must clear false merges across all 266 bounded bands",
+      "no_identity_leak": "payload excludes case_id/cycle_n/rowid/receipt hash/full occurrence key/audit pointer/debug payload",
+      "raw_delta_coverage": "raw compression_ratio must be present for all evaluated rows",
+      "truth_surface": "compare full_occurrence_key to candidate signature, not receipt hashes"
+    },
+    "selected_encoding_id": "raw_decimal_sig6",
+    "selected_target_raw_delta_field": "compression_ratio",
+    "selection_reason": "Lowest-burden non-hash compact viable encoding on the bounded diagnostic surface.",
+    "signature_payload_field_definitions": {
+      "cv": "constant candidate version marker raw_delta_signature_v0",
+      "move_id": "move identifier from existing bounded source rows",
+      "raw_compression_ratio_sig6": "canonical 6-significant-digit decimal encoding of v02 compact_delta_debug.compression_ratio.raw",
+      "state_hash_after": "audit-derived state_sig8_after surfaced through existing v02/v03 rows",
+      "state_hash_before": "audit-derived state_sig8_before surfaced through existing v02/v03 rows"
+    },
+    "signature_payload_forbidden_fields": [
+      "full_occurrence_key",
+      "raw_full_receipt_hash",
+      "full_receipt_hash",
+      "receipt_hash",
+      "receipt_sig8",
+      "receipt_rowid",
+      "rowid",
+      "audit_pointer",
+      "debug_payload",
+      "observer_notes",
+      "created_at",
+      "created_utc",
+      "timestamp",
+      "path",
+      "receipt_path",
+      "file_path",
+      "case_id",
+      "cycle_n",
+      "case_id_as_primary_identity",
+      "cycle_n_as_primary_identity",
+      "depth_as_primary_identity",
+      "raw_delta_microhash_32_as_proof"
+    ],
+    "signature_payload_required_fields": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after",
+      "raw_compression_ratio_sig6"
+    ],
+    "source_evidence": {
+      "comparison_to_v02_v03": {
+        "v02_terminal_decision": "FAIL_SCALE_FALSE_MERGE",
+        "v02_worst_burden_ratio_projected": 0.4014251781472684,
+        "v02_worst_false_merge_count": 1,
+        "v03_terminal_decision": "FAIL_V0_3_FALSE_MERGE_PERSISTS",
+        "v03_worst_burden_ratio_projected": 1.1120250685468076,
+        "v03_worst_false_merge_count": 1
+      },
+      "raw_delta_diagnostic_id": "74caa0f4",
+      "raw_delta_diagnostic_receipt_id": "129e9a76",
+      "selected_encoding_summary": {
+        "all_band_burden_regression_bands": 0,
+        "all_band_false_merge_bands": 0,
+        "all_bands_clear": true,
+        "bands_total": 266,
+        "encoding_id": "raw_decimal_sig6",
+        "known_failed_all_clear": true,
+        "known_failed_bands_total": 10,
+        "known_failed_burden_regression_bands": 0,
+        "known_failed_false_merge_bands": 0,
+        "total_full_receipt_bytes": 2870426,
+        "total_projected_plus_signature_payload_bytes": 2016041,
+        "total_projected_scale_row_bytes": 1022380,
+        "total_signature_payload_bytes": 993661,
+        "worst_burden_ratio_projected": 0.7149643705463183,
+        "worst_collision_count": 0,
+        "worst_distinguishability_retention_ratio": 1.0,
+        "worst_false_merge_count": 0,
+        "worst_identity_leak_count": 0,
+        "worst_raw_delta_missing_count": 0,
+        "worst_source_surface_regression_count": 0
+      }
+    },
+    "terminal_decisions_for_next_probe": {
+      "FAIL_RAW_DELTA_SIGNATURE_AUTHORITY": "Observer-only containment is violated.",
+      "FAIL_RAW_DELTA_SIGNATURE_BURDEN": "Candidate burden is not below full receipts.",
+      "FAIL_RAW_DELTA_SIGNATURE_FALSE_MERGE": "Candidate still has false merges.",
+      "FAIL_RAW_DELTA_SIGNATURE_IDENTITY_LEAK": "Forbidden identity/audit/receipt fields entered payload.",
+      "FAIL_RAW_DELTA_SIGNATURE_SOURCE_SURFACE": "Raw compression_ratio or transition tuple cannot be reconstructed from bounded rows.",
+      "PASS_RAW_DELTA_SIGNATURE_CANDIDATE_BOUNDED_PROBE": "Candidate clears bounded false merges and burden stays below full receipts; still no acceptance."
+    },
+    "truth_surface": "full_occurrence_key_to_candidate_delta_signature"
+  },
+  "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+  "failures": [],
+  "gate": "PASS",
+  "implementation_constraints": {
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_runtime_receipt_emission": true,
+    "must_not_full_registry_scan": true,
+    "must_not_modify_files": [
+      "src/",
+      "app/",
+      "matrixlab/",
+      "scripts/raw_delta_compactness_diagnostic_v0.py",
+      "scripts/build_raw_delta_compactness_diagnostic_policy_v0.py",
+      "scripts/stable_delta_signature_candidate_v0_3_probe.py",
+      "scripts/diagnose_v0_3_failure_v0.py",
+      "scripts/stable_delta_signature_candidate_v0_2_scale_band_probe.py",
+      "scripts/stable_delta_signature_candidate_v0_2_probe.py"
+    ],
+    "must_not_read_registry_sqlite": true,
+    "must_not_write_registry": true,
+    "must_reuse_existing_bounded_rows": true,
+    "must_touch_only_files": [
+      "scripts/raw_delta_signature_candidate_probe_v0.py"
+    ]
+  },
+  "policy_id": "3b8eb867",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_id": "6778ef03",
+  "source_raw_delta_diagnostic_id": "74caa0f4",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_RAW_DELTA_SIGNATURE_CANDIDATE_PROBE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_RAW_DELTA_SIGNATURE_CANDIDATE_POLICY
+{
+  "case": "raw_delta_not_viable_fail",
+  "expected": "terminal_class_wrong",
+  "failures": [
+    "terminal_class_wrong:RAW_DELTA_NOT_VIABLE"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "wrong_next_goal_fail",
+  "expected": "recommended_next_goal_wrong",
+  "failures": [
+    "recommended_next_goal_wrong:OTHER"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "selected_not_compact_viable_fail",
+  "expected": "selected_encoding_not_compact_viable",
+  "failures": [
+    "selected_encoding_not_compact_viable:['raw_decimal_sig9', 'raw_decimal_sig12', 'raw_delta_microhash_32']"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "selected_all_bands_not_clear_fail",
+  "expected": "selected_all_bands_not_clear",
+  "failures": [
+    "selected_all_bands_not_clear:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "selected_known_failed_not_clear_fail",
+  "expected": "selected_known_failed_not_clear",
+  "failures": [
+    "selected_known_failed_not_clear:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "selected_false_merge_fail",
+  "expected": "selected_worst_false_merge_not_0",
+  "failures": [
+    "selected_worst_false_merge_not_0:1"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "selected_burden_fail",
+  "expected": "selected_burden_not_below_full",
+  "failures": [
+    "selected_burden_not_below_full:1.1"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "selected_identity_leak_fail",
+  "expected": "selected_identity_leak",
+  "failures": [
+    "selected_identity_leak:1"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "case_cycle_guard_fail",
+  "expected": "decision_expected_true:do_not_use_case_id_or_cycle_n_as_primary_identity",
+  "failures": [
+    "decision_expected_true:do_not_use_case_id_or_cycle_n_as_primary_identity:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "candidate_created_guard_fail",
+  "expected": "raw_diag_authority_guard_not_false:candidate_created",
+  "failures": [
+    "raw_diag_authority_guard_not_false:candidate_created:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "registry_read_guard_fail",
+  "expected": "raw_diag_authority_guard_not_false:registry_sqlite_read",
+  "failures": [
+    "raw_diag_authority_guard_not_false:registry_sqlite_read:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_policy_acceptance_authority_fail",
+  "expected": "raw_policy_authorized_candidate_acceptance_unexpectedly",
+  "failures": [
+    "raw_policy_authorized_candidate_acceptance_unexpectedly"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+RAW_DELTA_SIGNATURE_CANDIDATE_POLICY_HEAD_JSON
+{
+  "authority": {
+    "authorized_next_command_goal": "IMPLEMENT_RAW_DELTA_SIGNATURE_CANDIDATE_PROBE_V0",
+    "authorizes_audit_pointer_in_payload": false,
+    "authorizes_bounded_candidate_probe_execution": true,
+    "authorizes_candidate_acceptance": false,
+    "authorizes_candidate_design_policy_only": true,
+    "authorizes_case_id_or_cycle_n_primary_identity_patch": false,
+    "authorizes_debug_payload_in_payload": false,
+    "authorizes_full_occurrence_key_in_payload": false,
+    "authorizes_full_registry_scan": false,
+    "authorizes_microhash_as_proof": false,
+    "authorizes_next_candidate_probe_implementation": true,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_receipt_suppression": false,
+    "authorizes_registry_sqlite_read": false,
+    "authorizes_registry_write": false,
+    "authorizes_rowid_or_receipt_hash_patch": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_mode": false,
+    "observer_only": true
+  },
+  "candidate_contract_summary": {
+    "all_bands_clear": true,
+    "candidate_acceptance_forbidden": true,
+    "full_registry_forbidden": true,
+    "known_failed_all_clear": true,
+    "selected_encoding_id": "raw_decimal_sig6",
+    "selected_target_raw_delta_field": "compression_ratio",
+    "signature_payload_required_fields": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after",
+      "raw_compression_ratio_sig6"
+    ],
+    "worst_burden_ratio_projected": 0.7149643705463183,
+    "worst_distinguishability_retention_ratio": 1.0,
+    "worst_false_merge_count": 0
+  },
+  "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+  "gate": "PASS",
+  "implementation_constraints": {
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_runtime_receipt_emission": true,
+    "must_not_full_registry_scan": true,
+    "must_not_modify_files": [
+      "src/",
+      "app/",
+      "matrixlab/",
+      "scripts/raw_delta_compactness_diagnostic_v0.py",
+      "scripts/build_raw_delta_compactness_diagnostic_policy_v0.py",
+      "scripts/stable_delta_signature_candidate_v0_3_probe.py",
+      "scripts/diagnose_v0_3_failure_v0.py",
+      "scripts/stable_delta_signature_candidate_v0_2_scale_band_probe.py",
+      "scripts/stable_delta_signature_candidate_v0_2_probe.py"
+    ],
+    "must_not_read_registry_sqlite": true,
+    "must_not_write_registry": true,
+    "must_reuse_existing_bounded_rows": true,
+    "must_touch_only_files": [
+      "scripts/raw_delta_signature_candidate_probe_v0.py"
+    ]
+  },
+  "policy_id": "3b8eb867",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_id": "6778ef03",
+  "source_raw_delta_diagnostic_id": "74caa0f4",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_RAW_DELTA_SIGNATURE_CANDIDATE_PROBE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_RUNTIME_AND_PRIOR_PROBES_UNTOUCHED
+.gitignore
+runtime/prior probes untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/build_raw_delta_signature_candidate_policy_v0.py
+[master df505ac86] build raw delta signature candidate policy
+ 2 files changed, 524 insertions(+)
+ create mode 100755 scripts/build_raw_delta_signature_candidate_policy_v0.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

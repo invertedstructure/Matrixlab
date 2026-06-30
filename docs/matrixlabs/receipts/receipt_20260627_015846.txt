@@ -1,0 +1,89 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_015846
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_015846.txt
+
+BOOKKEEPING_COMMIT_RUNTIME_OBSERVABILITY_AND_FEEDBACK_ATTACHMENT_V0
+
+VERIFY_RUNTIME_ATTACHMENT_RECEIPT_PRESENT
+
+VERIFY_RUNTIME_ATTACHMENT_RECEIPT
+{
+  "acceptance_gates_false_count": 0,
+  "attachment_run_id": "runtime_attachment_run_1e446747",
+  "decision_edge_observations_emitted": 6,
+  "failures": [],
+  "negative_controls_nonzero_count": 0,
+  "observability_degradation_records_emitted": 1,
+  "outcome_class": "RUNTIME_ATTACHMENT_PASS",
+  "receipt_id": "runtime_observability_feedback_attachment_receipt_f06ba9ce",
+  "runtime_step_receipts_emitted": 6,
+  "runtime_steps_total": 6,
+  "sidecar_events_emitted": 6,
+  "status": "TYPED_RUNTIME_OBSERVABILITY_FEEDBACK_ATTACHMENT_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_RUNTIME_OBSERVABILITY_AND_FEEDBACK_ATTACHED",
+    "type": "STOP"
+  },
+  "unit_feedback_emitted": 4,
+  "unit_feedback_required": 4
+}
+
+VERIFY_GIT_IDENTITY
+
+BOUND_ADD_ONLY_RUNTIME_ATTACHMENT_ARTIFACTS
+
+VERIFY_NO_OUT_OF_SCOPE_STAGED_PATHS
+staged_path_count=15
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+
+BOOKKEEPING_DIFF_STAT
+ .gitignore                                         |    6 +
+ .../decision_edge_observation_records_v0.jsonl     |    6 +
+ .../observability_degradation_records_v0.jsonl     |    1 +
+ .../observability_sidecar_events_v0.jsonl          |    6 +
+ .../runtime_attachment_intake_v0.json              |   55 +
+ .../runtime_observability_feedback_profile_v0.json |   27 +
+ .../runtime_observability_feedback_readout_v0.json |   22 +
+ .../runtime_observability_feedback_report.json     |   32 +
+ .../runtime_observability_feedback_rollup_v0.json  |   64 +
+ ...me_observability_feedback_transition_trace.json |   62 +
+ .../runtime_step_bundles_v0.jsonl                  |    6 +
+ .../runtime_step_receipts_v0.jsonl                 |    6 +
+ .../unit_feedback_records_v0.jsonl                 |    4 +
+ ...ility_feedback_attachment_receipt_f06ba9ce.json |  187 +++
+ ...ime_observability_and_feedback_attachment_v0.py | 1329 ++++++++++++++++++++
+ 15 files changed, 1813 insertions(+)
+
+BOOKKEEPING_COMMIT
+[master 72a60464c] Attach runtime observability and feedback
+ 15 files changed, 1813 insertions(+)
+ create mode 100644 data/runtime_observability_feedback_attachment_v0/decision_edge_observation_records_v0.jsonl
+ create mode 100644 data/runtime_observability_feedback_attachment_v0/observability_degradation_records_v0.jsonl
+ create mode 100644 data/runtime_observability_feedback_attachment_v0/observability_sidecar_events_v0.jsonl
+ create mode 100644 data/runtime_observability_feedback_attachment_v0/runtime_attachment_intake_v0.json
+ create mode 100644 data/runtime_observability_feedback_attachment_v0/runtime_observability_feedback_profile_v0.json
+ create mode 100644 data/runtime_observability_feedback_attachment_v0/runtime_observability_feedback_readout_v0.json
+ create mode 100644 data/runtime_observability_feedback_attachment_v0/runtime_observability_feedback_report.json
+ create mode 100644 data/runtime_observability_feedback_attachment_v0/runtime_observability_feedback_rollup_v0.json
+ create mode 100644 data/runtime_observability_feedback_attachment_v0/runtime_observability_feedback_transition_trace.json
+ create mode 100644 data/runtime_observability_feedback_attachment_v0/runtime_step_bundles_v0.jsonl
+ create mode 100644 data/runtime_observability_feedback_attachment_v0/runtime_step_receipts_v0.jsonl
+ create mode 100644 data/runtime_observability_feedback_attachment_v0/unit_feedback_records_v0.jsonl
+ create mode 100644 data/runtime_observability_feedback_attachment_v0_receipts/runtime_observability_feedback_attachment_receipt_f06ba9ce.json
+ create mode 100755 scripts/build_runtime_observability_and_feedback_attachment_v0.py
+
+BOOKKEEPING_COMMIT_RECEIPT
+commit_sha=72a60464ccd28b445bcaea5c26bfe63db930fb6e
+runtime_attachment_receipt=data/runtime_observability_feedback_attachment_v0_receipts/runtime_observability_feedback_attachment_receipt_f06ba9ce.json
+attachment_run_id=runtime_attachment_run_1e446747
+source_double_sieve_receipt_id=double_sieve_fixture_suite_receipt_462668ee
+terminal_stop_code=STOP_RUNTIME_OBSERVABILITY_AND_FEEDBACK_ATTACHED
+
+STATUS_AFTER_COMMIT_RELEVANT
+
+BOOKKEEPING_COMMIT_RUNTIME_OBSERVABILITY_AND_FEEDBACK_ATTACHMENT_COMPLETE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

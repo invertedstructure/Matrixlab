@@ -1,0 +1,436 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260619_134113
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260619_134113.txt
+
+BUILD_DOMAIN_SHIFT_GENERATOR_V0
+
+STATUS_BEFORE
+
+BACKUP
+CLI_SIG=3a5b791e66a3
+BACKUP=/tmp/matrixlab_cli_before_domain_shift_generator_3a5b791e66a3.py
+
+PATCH_GITIGNORE
+
+PATCH_CLI_DOMAIN_SHIFT_GENERATOR
+
+PY_COMPILE
+
+HELP_SMOKE
+help smoke ok:
+  /tmp/matrixlab_cli_help_after_domain_shift_generator.txt
+  /tmp/matrixlab_domain_shift_generator_help.txt
+
+RUN_DOMAIN_SHIFT_GENERATOR
+{
+  "domain_shift_generator_id": "206ef0af",
+  "domain_shift_generator_payload_sig8": "206ef0af",
+  "domain_shift_generator_schema_version": "domain_shift_generator_v0",
+  "domain_shift_predicate": {
+    "evaluator_delta_zero": true,
+    "generator_manifest_delta_gt_zero": true,
+    "halt_vocabulary_delta_zero": true,
+    "law_delta_zero": true,
+    "ontology_delta_zero": true,
+    "profile_classifier_delta_zero": true,
+    "receipt_schema_delta_zero": true,
+    "registered_move_id_set_delta_zero": true
+  },
+  "failures": [],
+  "forbidden_change_check": {
+    "cheat_harness_meaning_changed": false,
+    "coarse_profile_vocabulary_definition_changed": false,
+    "evaluator_meaning_changed": false,
+    "halt_vocabulary_changed": false,
+    "law_checker_semantics_changed": false,
+    "move_ontology_changed": false,
+    "profile_classifier_semantics_changed": false,
+    "receipt_schema_changed": false
+  },
+  "gate": "PASS",
+  "identity_locks": {
+    "cheat_adversarial_schema_version": "agent_cheat_adversarial_receipt_v0",
+    "cheat_check_schema_version": "agent_cheat_check_receipt_v0",
+    "cheat_harness_identity": "agent-cheat-check+d478_style_and_agent-cheat-adversarial_temp_db_mutations",
+    "cli_sha256_after_contract_command": "3a5b791e66a3e33effe9b10b57e87026e0664ed834be6718e569cca300ef024b",
+    "evaluator_identity": "current_cli_agent_eval_no_delta_allowed",
+    "halt_vocabulary_identity": "current_cli_halt_vocabulary_no_delta_allowed",
+    "law_checker_identity": "current_cli_law_checker_no_delta_allowed",
+    "profile_classifier_identity": "current_cli_coarse_profile_classifier_no_delta_allowed",
+    "receipt_schema_identity": "registry_sqlite_receipts_table_and_json_receipts_current",
+    "source_ledger_schema_version": "agent_cycle_ledger_receipt_v1"
+  },
+  "input_transfer_contract": "50a01dcd",
+  "input_transfer_contract_path": "data/cell_transfer_contracts/50a01dcd.json",
+  "not_transferred_from_source_cell": [
+    "empirical_boundedness_claim",
+    "coarse_profile_total_value",
+    "raw_profile_growth_rate",
+    "radius_threshold",
+    "domain_specific_halt_distribution",
+    "future_domain_conclusion_strength"
+  ],
+  "recomputed_transfer_contract_payload_sig8": "50a01dcd",
+  "shift_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+  "source_baseline": {
+    "coarse_profiles_total": 9,
+    "cycle_count": 5,
+    "eval_id": "a1ddb75b",
+    "ledger_id": "73c696a5",
+    "ledger_payload_sig8": "73c696a5",
+    "radius": 250,
+    "raw_profiles_total": 1010,
+    "recomputed_ledger_payload_sig8": "73c696a5",
+    "registered_moves_total": 250,
+    "run_id": "run_20260619_090132_512800",
+    "stop_reason": "MARGINAL_INFORMATION_FLATTENED_FOR_RADIUS_EXPANSION",
+    "verdict": "BOUNDED_VOCABULARY_CONTINUATION"
+  },
+  "source_cell": "CELL_0",
+  "source_generator_manifest": {
+    "cell": "CELL_0",
+    "cycles_per_case": 250,
+    "depth_max": 250,
+    "depth_min": 3,
+    "families": "one_sided_suspension,two_sided_suspension,suspension_plus_repair,projection_quotient,relabel_symmetry_stress",
+    "generator_kind": "BASELINE_UNIFORM_FAMILY_DEPTH_SWEEP_V0",
+    "max_cells": null,
+    "observed_coarse_profiles_total": 9,
+    "observed_move_id_set": [
+      "add_row_and_link_column",
+      "append_zero_column",
+      "deterministic_row_col_relabel",
+      "duplicate_existing_column",
+      "quotient_merge_last_row",
+      "xor_repair_column"
+    ],
+    "observed_radius": 250,
+    "observed_raw_profiles_total": 1010,
+    "observed_registered_moves_total": 250,
+    "schedule_description": "uniform depth sweep over imported families under Cell 0 runner"
+  },
+  "target_cell": "CELL_1",
+  "target_generator_manifest": {
+    "allowed_family_set": [
+      "one_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "projection_quotient",
+      "relabel_symmetry_stress"
+    ],
+    "cell": "CELL_1",
+    "composition_pattern": "frontload_relabel_and_projection_then_apply_growth_and_repair_using_existing_moves_only",
+    "cycles_per_case": 250,
+    "depth_max": 250,
+    "depth_min": 3,
+    "domain_shift_axis": "move_family_schedule_and_composition_pattern",
+    "domain_shift_label": "D1_schedule_reweight_existing_moves",
+    "evaluator_delta": 0,
+    "execution_support_status": "MANIFEST_ONLY_NEEDS_RUNNER_SUPPORT",
+    "generator_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+    "generator_manifest_delta": 1,
+    "halt_vocabulary_delta": 0,
+    "law_delta": 0,
+    "max_cells": 300000,
+    "new_classifier_categories_allowed": false,
+    "new_halt_reasons_allowed": false,
+    "new_laws_allowed": false,
+    "new_move_types_allowed": false,
+    "ontology_delta": 0,
+    "profile_classifier_delta": 0,
+    "radius": 250,
+    "receipt_schema_delta": 0,
+    "registered_move_id_set": [
+      "add_row_and_link_column",
+      "append_zero_column",
+      "deterministic_row_col_relabel",
+      "duplicate_existing_column",
+      "quotient_merge_last_row",
+      "xor_repair_column"
+    ],
+    "registered_move_id_set_delta": 0,
+    "shifted_family_schedule": [
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "shifted_family_weights": {
+      "one_sided_suspension": 1,
+      "projection_quotient": 2,
+      "relabel_symmetry_stress": 3,
+      "suspension_plus_repair": 1,
+      "two_sided_suspension": 2
+    }
+  },
+  "target_probe_kind": "DOMAIN_SHIFT_PROBE",
+  "target_test_plan": {
+    "curve_goal": "PUSH_UNTIL_MARGINAL_INFORMATION_FLATTENS_FOR_TARGET_METRIC",
+    "outcome_set": [
+      "MEASUREMENT_TRANSFER_STABLE_CURVE",
+      "MEASUREMENT_TRANSFER_DIFFERENT_CURVE",
+      "STOP_DOMAIN_REQUIRES_ONTOLOGY_SHIFT",
+      "FAIL_MEASUREMENT_TRUST"
+    ],
+    "post_run_goal": "RUN_CHEAT_HARNESS_ON_TARGET_RECEIPTS",
+    "precheck_goal": "VERIFY_IMPORTED_RULER_IDENTITIES_BEFORE_RUN",
+    "run_goal": "RUN_SHIFTED_DOMAIN_UNDER_IMPORTED_EVALUATOR",
+    "runner_support_goal": "BUILD_DOMAIN_SHIFT_RUNNER_SUPPORT_V0"
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_DOMAIN_SHIFT_RUNNER_SUPPORT_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transfer_contract_id": "50a01dcd",
+  "transfer_contract_payload_sig8": "50a01dcd",
+  "transfer_kind": "MEASUREMENT_DISCIPLINE_ONLY",
+  "warnings": []
+}
+domain_shift_generator_path: data/domain_shift_generators/206ef0af.json
+
+VERIFY_DOMAIN_SHIFT_GENERATOR
+{
+  "domain_shift_axis": "move_family_schedule_and_composition_pattern",
+  "domain_shift_generator_id": "206ef0af",
+  "domain_shift_label": "D1_schedule_reweight_existing_moves",
+  "domain_shift_predicate": {
+    "evaluator_delta_zero": true,
+    "generator_manifest_delta_gt_zero": true,
+    "halt_vocabulary_delta_zero": true,
+    "law_delta_zero": true,
+    "ontology_delta_zero": true,
+    "profile_classifier_delta_zero": true,
+    "receipt_schema_delta_zero": true,
+    "registered_move_id_set_delta_zero": true
+  },
+  "execution_support_status": "MANIFEST_ONLY_NEEDS_RUNNER_SUPPORT",
+  "forbidden_change_check": {
+    "cheat_harness_meaning_changed": false,
+    "coarse_profile_vocabulary_definition_changed": false,
+    "evaluator_meaning_changed": false,
+    "halt_vocabulary_changed": false,
+    "law_checker_semantics_changed": false,
+    "move_ontology_changed": false,
+    "profile_classifier_semantics_changed": false,
+    "receipt_schema_changed": false
+  },
+  "gate": "PASS",
+  "generator_manifest_delta": 1,
+  "id_matches_filename": true,
+  "path": "data/domain_shift_generators/206ef0af.json",
+  "recomputed_sig": "206ef0af",
+  "registered_move_id_set_delta": 0,
+  "shift_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+  "sig_matches": true,
+  "stored_sig": "206ef0af",
+  "terminal": {
+    "next_command_goal": "BUILD_DOMAIN_SHIFT_RUNNER_SUPPORT_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transfer_contract_id": "50a01dcd"
+}
+
+RUN_DOMAIN_SHIFT_GENERATOR_FAIL_NEGATIVE_BAD_CONTRACT
+{
+  "domain_shift_generator_id": "df77e9cf",
+  "domain_shift_generator_payload_sig8": "df77e9cf",
+  "domain_shift_generator_schema_version": "domain_shift_generator_v0",
+  "domain_shift_predicate": {
+    "evaluator_delta_zero": true,
+    "generator_manifest_delta_gt_zero": true,
+    "halt_vocabulary_delta_zero": true,
+    "law_delta_zero": true,
+    "ontology_delta_zero": true,
+    "profile_classifier_delta_zero": true,
+    "receipt_schema_delta_zero": true,
+    "registered_move_id_set_delta_zero": true
+  },
+  "failures": [
+    "transfer_contract_gate_not_PASS"
+  ],
+  "forbidden_change_check": {
+    "cheat_harness_meaning_changed": false,
+    "coarse_profile_vocabulary_definition_changed": false,
+    "evaluator_meaning_changed": false,
+    "halt_vocabulary_changed": false,
+    "law_checker_semantics_changed": false,
+    "move_ontology_changed": false,
+    "profile_classifier_semantics_changed": false,
+    "receipt_schema_changed": false
+  },
+  "gate": "FAIL",
+  "identity_locks": {
+    "cheat_adversarial_schema_version": "agent_cheat_adversarial_receipt_v0",
+    "cheat_check_schema_version": "agent_cheat_check_receipt_v0",
+    "cheat_harness_identity": "agent-cheat-check+d478_style_and_agent-cheat-adversarial_temp_db_mutations",
+    "cli_sha256_after_contract_command": "3a5b791e66a3e33effe9b10b57e87026e0664ed834be6718e569cca300ef024b",
+    "evaluator_identity": "current_cli_agent_eval_no_delta_allowed",
+    "halt_vocabulary_identity": "current_cli_halt_vocabulary_no_delta_allowed",
+    "law_checker_identity": "current_cli_law_checker_no_delta_allowed",
+    "profile_classifier_identity": "current_cli_coarse_profile_classifier_no_delta_allowed",
+    "receipt_schema_identity": "registry_sqlite_receipts_table_and_json_receipts_current",
+    "source_ledger_schema_version": "agent_cycle_ledger_receipt_v1"
+  },
+  "input_transfer_contract": "16891c2d",
+  "input_transfer_contract_path": "data/cell_transfer_contracts/16891c2d.json",
+  "not_transferred_from_source_cell": [
+    "empirical_boundedness_claim",
+    "coarse_profile_total_value",
+    "raw_profile_growth_rate",
+    "radius_threshold",
+    "domain_specific_halt_distribution",
+    "future_domain_conclusion_strength"
+  ],
+  "recomputed_transfer_contract_payload_sig8": "16891c2d",
+  "shift_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+  "source_baseline": {
+    "coarse_profiles_total": 9,
+    "cycle_count": 5,
+    "eval_id": "a1ddb75b",
+    "ledger_id": "73c696a5",
+    "ledger_payload_sig8": "73c696a5",
+    "radius": 250,
+    "raw_profiles_total": 1010,
+    "recomputed_ledger_payload_sig8": "73c696a5",
+    "registered_moves_total": 250,
+    "run_id": "run_20260619_090132_512800",
+    "stop_reason": "MARGINAL_INFORMATION_FLATTENED_FOR_RADIUS_EXPANSION",
+    "verdict": "BOUNDED_VOCABULARY_CONTINUATION"
+  },
+  "source_cell": "CELL_0",
+  "source_generator_manifest": {
+    "cell": "CELL_0",
+    "cycles_per_case": 250,
+    "depth_max": 250,
+    "depth_min": 3,
+    "families": "one_sided_suspension,two_sided_suspension,suspension_plus_repair,projection_quotient,relabel_symmetry_stress",
+    "generator_kind": "BASELINE_UNIFORM_FAMILY_DEPTH_SWEEP_V0",
+    "max_cells": null,
+    "observed_coarse_profiles_total": 9,
+    "observed_move_id_set": [
+      "add_row_and_link_column",
+      "append_zero_column",
+      "deterministic_row_col_relabel",
+      "duplicate_existing_column",
+      "quotient_merge_last_row",
+      "xor_repair_column"
+    ],
+    "observed_radius": 250,
+    "observed_raw_profiles_total": 1010,
+    "observed_registered_moves_total": 250,
+    "schedule_description": "uniform depth sweep over imported families under Cell 0 runner"
+  },
+  "target_cell": "CELL_1",
+  "target_generator_manifest": {
+    "allowed_family_set": [
+      "one_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "projection_quotient",
+      "relabel_symmetry_stress"
+    ],
+    "cell": "CELL_1",
+    "composition_pattern": "frontload_relabel_and_projection_then_apply_growth_and_repair_using_existing_moves_only",
+    "cycles_per_case": 250,
+    "depth_max": 250,
+    "depth_min": 3,
+    "domain_shift_axis": "move_family_schedule_and_composition_pattern",
+    "domain_shift_label": "D1_schedule_reweight_existing_moves",
+    "evaluator_delta": 0,
+    "execution_support_status": "MANIFEST_ONLY_NEEDS_RUNNER_SUPPORT",
+    "generator_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+    "generator_manifest_delta": 1,
+    "halt_vocabulary_delta": 0,
+    "law_delta": 0,
+    "max_cells": 300000,
+    "new_classifier_categories_allowed": false,
+    "new_halt_reasons_allowed": false,
+    "new_laws_allowed": false,
+    "new_move_types_allowed": false,
+    "ontology_delta": 0,
+    "profile_classifier_delta": 0,
+    "radius": 250,
+    "receipt_schema_delta": 0,
+    "registered_move_id_set": [
+      "add_row_and_link_column",
+      "append_zero_column",
+      "deterministic_row_col_relabel",
+      "duplicate_existing_column",
+      "quotient_merge_last_row",
+      "xor_repair_column"
+    ],
+    "registered_move_id_set_delta": 0,
+    "shifted_family_schedule": [
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "shifted_family_weights": {
+      "one_sided_suspension": 1,
+      "projection_quotient": 2,
+      "relabel_symmetry_stress": 3,
+      "suspension_plus_repair": 1,
+      "two_sided_suspension": 2
+    }
+  },
+  "target_probe_kind": "DOMAIN_SHIFT_PROBE",
+  "target_test_plan": {
+    "curve_goal": "PUSH_UNTIL_MARGINAL_INFORMATION_FLATTENS_FOR_TARGET_METRIC",
+    "outcome_set": [
+      "MEASUREMENT_TRANSFER_STABLE_CURVE",
+      "MEASUREMENT_TRANSFER_DIFFERENT_CURVE",
+      "STOP_DOMAIN_REQUIRES_ONTOLOGY_SHIFT",
+      "FAIL_MEASUREMENT_TRUST"
+    ],
+    "post_run_goal": "RUN_CHEAT_HARNESS_ON_TARGET_RECEIPTS",
+    "precheck_goal": "VERIFY_IMPORTED_RULER_IDENTITIES_BEFORE_RUN",
+    "run_goal": "RUN_SHIFTED_DOMAIN_UNDER_IMPORTED_EVALUATOR",
+    "runner_support_goal": "BUILD_DOMAIN_SHIFT_RUNNER_SUPPORT_V0"
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "domain_shift_generator_failed",
+    "type": "STOP"
+  },
+  "transfer_contract_id": "16891c2d",
+  "transfer_contract_payload_sig8": "16891c2d",
+  "transfer_kind": "MEASUREMENT_DISCIPLINE_ONLY",
+  "warnings": []
+}
+domain_shift_generator_path: data/domain_shift_generators/df77e9cf.json
+
+VERIFY_NEGATIVE_BAD_CONTRACT_FAILED
+{
+  "domain_shift_generator_id": "df77e9cf",
+  "failures": [
+    "transfer_contract_gate_not_PASS"
+  ],
+  "gate": "FAIL",
+  "path": "data/domain_shift_generators/df77e9cf.json",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "domain_shift_generator_failed",
+    "type": "STOP"
+  }
+}
+
+DIFF_STAT
+ .gitignore           |   3 +
+ src/matrixlab/cli.py | 241 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 244 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+ M src/matrixlab/cli.py
+[master ff57c6505] add domain shift generator manifest command
+ 2 files changed, 244 insertions(+)
+
+COMMIT_DONE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

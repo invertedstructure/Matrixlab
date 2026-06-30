@@ -1,0 +1,87 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_143234
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_143234.txt
+
+REVIEW_C8_SUCCESSOR_SURFACE_BOUNDED_REUSE_AUTHORITY_PROBE_CLOSURE_ACCEPTANCE_V0
+
+VERIFY_CLOSURE_ACCEPTANCE_ARTIFACTS_PRESENT
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_acceptance_v0_receipts/c8_successor_reuse_authority_probe_closure_acceptance_receipt_f125ee2c.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_acceptance_v0/c8_successor_surface_reuse_authority_probe_closure_acceptance_decision_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_acceptance_v0/c8_successor_surface_reuse_authority_probe_closure_acceptance_packet_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_acceptance_v0/c8_successor_surface_reuse_authority_probe_final_closure_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_acceptance_v0/c8_successor_surface_reuse_authority_probe_closure_acceptance_boundary_audit_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_acceptance_v0/c8_successor_surface_reuse_authority_probe_closure_acceptance_readout_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_acceptance_v0/c8_successor_surface_reuse_authority_probe_closure_acceptance_report.json
+present scripts/accept_c8_successor_surface_bounded_reuse_authority_probe_closure_no_new_authority_v0.py
+
+PY_COMPILE_CLOSURE_ACCEPTANCE_RUNNER
+
+VERIFY_CLOSURE_ACCEPTANCE_RECEIPT
+{
+  "acceptance_gates_false_count": 0,
+  "additional_probe_authorized_now": false,
+  "closed_with_no_new_authority": true,
+  "closure_accepted": true,
+  "current_successor_surface_closed": true,
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "human_decision": "ACCEPT_CLOSURE_NO_NEW_AUTHORITY",
+  "new_authority_needed_now": false,
+  "next_surface_selected_now": false,
+  "outcome_class": "C8_SUCCESSOR_SURFACE_CLOSED_NO_NEW_AUTHORITY",
+  "probe_id": "c8_successor_surface_reuse_authority_boundary_probe_v0",
+  "probe_kind": "REUSE_AUTHORITY_BOUNDARY_PROBE",
+  "receipt_id": "c8_successor_reuse_authority_probe_closure_acceptance_receipt_f125ee2c",
+  "return_to_surface_selection_allowed_after_review": true,
+  "reusable_schema_authorized": false,
+  "reuse_boundary_held": true,
+  "review_gate": "PASS",
+  "source_closure_packet_id": "c8_successor_reuse_authority_probe_closure_packet_bfa70151",
+  "source_closure_receipt_id": "c8_successor_reuse_authority_probe_closure_receipt_c7e8a286",
+  "source_probe_receipt_id": "c8_successor_reuse_authority_probe_receipt_803165de",
+  "status": "TYPED_C8_SUCCESSOR_SURFACE_BOUNDED_REUSE_AUTHORITY_PROBE_CLOSURE_ACCEPTANCE_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_SUCCESSOR_SURFACE_CLOSED_NO_NEW_AUTHORITY_READY_FOR_REVIEW",
+    "type": "STOP"
+  }
+}
+
+VERIFY_CLOSURE_ACCEPTANCE_CONTENT
+{
+  "additional_probe_authorized_now": false,
+  "boundary_audit_id": "c8_successor_reuse_authority_probe_closure_acceptance_boundary_718592b4",
+  "closed_with_no_new_authority": true,
+  "closure_acceptance_decision_id": "c8_successor_reuse_authority_probe_closure_acceptance_decision_71bde511",
+  "closure_acceptance_packet_id": "c8_successor_reuse_authority_probe_closure_acceptance_packet_e53aa534",
+  "closure_accepted": true,
+  "closure_boundary": {
+    "may_authorize_reusable_schema_now": false,
+    "may_build_cell1_now": false,
+    "may_build_instrument_now": false,
+    "may_claim_frontier_solved": false,
+    "may_claim_global_solution": false,
+    "may_create_missing_instrument_proposal_now": false,
+    "may_execute_additional_probe_now": false,
+    "may_mark_current_successor_surface_closed": true,
+    "may_rerun_c8_now": false,
+    "may_return_to_surface_selection_after_review": true,
+    "may_run_verification_probe_now": false,
+    "may_select_next_surface_now": false
+  },
+  "content_review_gate": "FAIL",
+  "current_successor_surface_closed": true,
+  "failures": [
+    "report_selected_surface_id_wrong:None!=c8_successor_surface_reuse_authority_boundary_after_local_closure_v0",
+    "report_selected_surface_kind_wrong:None!=REUSE_AUTHORITY_BOUNDARY_SURFACE",
+    "report_selected_surface_label_wrong:None!=C8_POST_CLOSURE_LOCAL_LOOP_REUSE_PRESSURE_SURFACE"
+  ],
+  "final_closure_id": "c8_successor_reuse_authority_probe_final_closure_3e0797f9",
+  "human_decision": "ACCEPT_CLOSURE_NO_NEW_AUTHORITY",
+  "next_surface_selected_now": false,
+  "return_to_surface_selection_allowed_after_review": true,
+  "reusable_schema_authorized_now": false
+}
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

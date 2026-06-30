@@ -1,0 +1,119 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_084501
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_084501.txt
+
+BOOKKEEPING_COMMIT_C8_BASIC_RESEARCH_LOOP_SPECIMEN_V0
+
+VERIFY_C8_RECEIPT_PRESENT
+
+VERIFY_OLD_DUPLICATE_RECEIPT_ABSENT
+
+VERIFY_C8_RECEIPT
+{
+  "acceptance_gates_false_count": 0,
+  "bounded_probes_run": 1,
+  "failures": [],
+  "frontier_surfaces_loaded": 1,
+  "gate": "PASS",
+  "instrument_built": false,
+  "missing_instrument_proposal_status": "PROPOSED_ONLY",
+  "negative_controls_nonzero_count": 0,
+  "outcome_class": "C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED",
+  "proposal_only_first_pass": true,
+  "receipt_id": "c8_basic_research_loop_specimen_receipt_6e5dafcf",
+  "repeat_once_completed": false,
+  "run_id": "c8_specimen_16b05ccf",
+  "status": "TYPED_C8_BASIC_RESEARCH_LOOP_SPECIMEN_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED",
+    "type": "STOP"
+  },
+  "transition_classification": "MISSING_INSTRUMENT_EXPOSED"
+}
+
+VERIFY_GIT_IDENTITY
+
+BOUND_ADD_ONLY_C8_ARTIFACTS
+
+VERIFY_NO_OUT_OF_SCOPE_STAGED_PATHS
+staged_path_count=24
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+c8_receipts_staged=['data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_6e5dafcf.json']
+
+BOOKKEEPING_DIFF_STAT
+ .gitignore                                         |    6 +
+ .../accepted_instrument_build_packet_v0.json       |   15 +
+ .../bounded_probe_receipt_v0.json                  |   52 +
+ .../bounded_research_probe_packet_v0.json          |   33 +
+ .../c8_basic_research_loop_specimen_budget_v0.json |   18 +
+ ...c8_basic_research_loop_specimen_profile_v0.json |   28 +
+ ...c8_basic_research_loop_specimen_readout_v0.json |   38 +
+ .../c8_basic_research_loop_specimen_report.json    |   24 +
+ .../c8_basic_research_loop_specimen_rollup_v0.json |   65 ++
+ ...ic_research_loop_specimen_transition_trace.json |   63 ++
+ .../c8_decision_edge_observations_v0.jsonl         |    1 +
+ .../c8_probe_admissibility_result_v0.json          |   13 +
+ .../c8_probe_schema_validation_result_v0.json      |    9 +
+ .../c8_repeat_once_packet_v0.json                  |   14 +
+ .../c8_runtime_step_receipts_v0.jsonl              |    1 +
+ .../c8_sidecar_events_v0.jsonl                     |    1 +
+ .../c8_specimen_open_decision_packet_v0.json       |   38 +
+ .../c8_unit_feedback_records_v0.jsonl              |    0
+ .../frontier_surface_contract_v0.json              |   55 ++
+ .../instrument_verification_receipt_v0.json        |   14 +
+ .../missing_instrument_proposal_v0.json            |   30 +
+ .../research_transition_classification_v0.json     |   23 +
+ ...ic_research_loop_specimen_receipt_6e5dafcf.json |  177 ++++
+ scripts/run_c8_basic_research_loop_specimen_v0.py  | 1004 ++++++++++++++++++++
+ 24 files changed, 1722 insertions(+)
+
+BOOKKEEPING_COMMIT
+[master 27514fa34] Run C8 basic research-loop specimen
+ 24 files changed, 1722 insertions(+)
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/accepted_instrument_build_packet_v0.json
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/bounded_probe_receipt_v0.json
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/bounded_research_probe_packet_v0.json
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_budget_v0.json
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_profile_v0.json
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_readout_v0.json
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_report.json
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_rollup_v0.json
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_transition_trace.json
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/c8_decision_edge_observations_v0.jsonl
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/c8_probe_admissibility_result_v0.json
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/c8_probe_schema_validation_result_v0.json
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/c8_repeat_once_packet_v0.json
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/c8_runtime_step_receipts_v0.jsonl
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/c8_sidecar_events_v0.jsonl
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/c8_specimen_open_decision_packet_v0.json
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/c8_unit_feedback_records_v0.jsonl
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/frontier_surface_contract_v0.json
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/instrument_verification_receipt_v0.json
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/missing_instrument_proposal_v0.json
+ create mode 100644 data/c8_basic_research_loop_specimen_v0/research_transition_classification_v0.json
+ create mode 100644 data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_6e5dafcf.json
+ create mode 100755 scripts/run_c8_basic_research_loop_specimen_v0.py
+
+BOOKKEEPING_COMMIT_RECEIPT
+commit_sha=27514fa3402e87817cd0b87c1af970686e2d35c7
+c8_receipt=data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_6e5dafcf.json
+c8_run_id=c8_specimen_16b05ccf
+c8_outcome=C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED
+proposal_only_first_pass=true
+frontier_surfaces_loaded=1
+bounded_probes_run=1
+transition_classification=MISSING_INSTRUMENT_EXPOSED
+missing_instrument_proposal_status=PROPOSED_ONLY
+instrument_built=false
+local_verification_emitted=false
+repeat_once_completed=false
+terminal_stop_code=STOP_C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED
+
+STATUS_AFTER_COMMIT_RELEVANT
+
+BOOKKEEPING_COMMIT_C8_BASIC_RESEARCH_LOOP_SPECIMEN_COMPLETE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

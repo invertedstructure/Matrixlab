@@ -1,0 +1,465 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_223555
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_223555.txt
+
+BUILD_RECEIPT_VOLUME_FIX_CANDIDATE_POLICY_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_RECEIPT_VOLUME_POLICY_SCRIPT
+
+PY_COMPILE
+
+BUILD_RECEIPT_VOLUME_POLICY
+{
+  "accepted_burden_classes_frozen": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "authorized_fix_candidate_id": "FIX_CANDIDATE_RECEIPT_VOLUME_WRITE_PRESSURE_PLAN_V0",
+  "authorized_fix_candidate_kind": "RECEIPT_VOLUME_FIX_CANDIDATE",
+  "authorizes_code_change_now": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_fix_candidate_count": 1,
+  "authorizes_patch_application": false,
+  "authorizes_raw_receipt_write_suppression": false,
+  "authorizes_receipt_compression": false,
+  "authorizes_receipt_deletion": false,
+  "authorizes_registry_sqlite_total_mismatch": false,
+  "authorizes_synthetic_receipts": false,
+  "created_at": "2026-06-20T21:35:55.527380+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "policy_id": "2e6aa9d6",
+  "policy_path": "data/receipt_volume_fix_candidate_policies/2e6aa9d6.json",
+  "policy_sig8": "2e6aa9d6",
+  "receipt_id": "5a3d2bf0",
+  "receipt_sig8": "5a3d2bf0",
+  "rejected_or_deferred_burden_classes_frozen": [
+    "BURDEN_DEPTH_SCAN"
+  ],
+  "schema_version": "receipt_volume_fix_candidate_policy_receipt_v0",
+  "source_after_revert_profile_id": "b6609f93",
+  "source_next_burden_decision_id": "25bf9c59",
+  "target_burden_class": "BURDEN_RECEIPT_VOLUME",
+  "target_elapsed_ms": 1005,
+  "target_probe": "MICRO_05_RECEIPT_WRITE_PRESSURE",
+  "target_receipts": 176,
+  "target_receipts_per_sec": 175.124378,
+  "target_rows": 1,
+  "target_slot": "MICRO_05_RECEIPT_WRITE_PRESSURE_E",
+  "terminal": {
+    "next_command_goal": "BUILD_RECEIPT_VOLUME_FIX_CANDIDATE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+policy_json_path=data/receipt_volume_fix_candidate_policies/2e6aa9d6.json
+policy_receipt_path=data/receipt_volume_fix_candidate_policy_receipts/2e6aa9d6.json
+POLICY_ID=2e6aa9d6
+
+ASSERT_RECEIPT_VOLUME_POLICY
+{
+  "accepted_burden_classes_frozen": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "authorized_fix_candidate_id": "FIX_CANDIDATE_RECEIPT_VOLUME_WRITE_PRESSURE_PLAN_V0",
+  "authorized_fix_candidate_kind": "RECEIPT_VOLUME_FIX_CANDIDATE",
+  "authorizes_code_change_now": false,
+  "authorizes_exactly_one_fix_candidate": true,
+  "authorizes_execution_skipping": false,
+  "authorizes_fix_candidate_count": 1,
+  "authorizes_fix_candidate_ids": [
+    "FIX_CANDIDATE_RECEIPT_VOLUME_WRITE_PRESSURE_PLAN_V0"
+  ],
+  "authorizes_fix_candidate_kind": "RECEIPT_VOLUME_FIX_CANDIDATE",
+  "authorizes_patch_application": false,
+  "authorizes_raw_receipt_write_suppression": false,
+  "authorizes_receipt_compression": false,
+  "authorizes_receipt_deletion": false,
+  "authorizes_registry_sqlite_total_mismatch": false,
+  "authorizes_reopening_accepted_burden_classes": false,
+  "authorizes_reopening_frontier_depth": false,
+  "authorizes_synthetic_receipts": false,
+  "candidate_must_preserve_micro_profile_receipt_total": 1457,
+  "candidate_must_preserve_raw_receipt_writes": true,
+  "candidate_must_preserve_receipt_rows": true,
+  "candidate_must_preserve_receipts": 176,
+  "candidate_target_identity": {
+    "burden_class": "BURDEN_RECEIPT_VOLUME",
+    "family_compact": "E",
+    "probe_id": "MICRO_05_RECEIPT_WRITE_PRESSURE",
+    "rows": 1,
+    "slot_id": "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+  },
+  "failures": [],
+  "gate": "PASS",
+  "policy_id": "2e6aa9d6",
+  "policy_only_no_patch_application": true,
+  "policy_sig8": "2e6aa9d6",
+  "receipt_gate": "PASS",
+  "receipt_id": "5a3d2bf0",
+  "rejected_or_deferred_burden_classes_frozen": [
+    "BURDEN_DEPTH_SCAN"
+  ],
+  "source_after_revert_profile_id": "b6609f93",
+  "source_next_burden_decision_id": "25bf9c59",
+  "target_burden_class": "BURDEN_RECEIPT_VOLUME",
+  "target_elapsed_ms": 1005,
+  "target_families": [
+    "E"
+  ],
+  "target_probes": [
+    "MICRO_05_RECEIPT_WRITE_PRESSURE"
+  ],
+  "target_receipts": 176,
+  "target_receipts_per_sec": 175.124378,
+  "target_rows": 1,
+  "target_slots": [
+    "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+  ],
+  "terminal": {
+    "next_command_goal": "BUILD_RECEIPT_VOLUME_FIX_CANDIDATE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+
+NEGATIVE_CONTROLS_RECEIPT_VOLUME_POLICY
+{
+  "case": "decision_gate_fail",
+  "expected": "decision_gate_not_PASS",
+  "failures": [
+    "decision_gate_not_PASS"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "patch_authority_fail",
+  "expected": "decision_illegal_authorization:authorizes_patch_application",
+  "failures": [
+    "decision_illegal_authorization:authorizes_patch_application:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "receipt_deletion_authority_fail",
+  "expected": "decision_illegal_authorization:authorizes_receipt_deletion",
+  "failures": [
+    "decision_illegal_authorization:authorizes_receipt_deletion:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "receipt_compression_authority_fail",
+  "expected": "decision_illegal_authorization:authorizes_receipt_compression",
+  "failures": [
+    "decision_illegal_authorization:authorizes_receipt_compression:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "target_burden_mismatch_fail",
+  "expected": "selected_next_burden_mismatch",
+  "failures": [
+    "selected_next_burden_mismatch:BURDEN_DEPTH_SCAN"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "rejected_depth_reopen_fail",
+  "expected": "rejected_depth_reopen_allowed",
+  "failures": [
+    "rejected_depth_reopen_allowed"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "frontier_field_present_fail",
+  "expected": "profile_frontier_depth_probe_field_present",
+  "failures": [
+    "profile_frontier_depth_probe_field_present"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "profile_total_fail",
+  "expected": "profile_total_not_1457",
+  "failures": [
+    "profile_total_not_1457:1458",
+    "profile_total_mismatch_registry"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "target_receipts_fail",
+  "expected": "target_receipts_not_176",
+  "failures": [
+    "target_receipts_not_176:175"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "target_slot_fail",
+  "expected": "target_slot_mismatch",
+  "failures": [
+    "target_slot_mismatch:['MICRO_05_RECEIPT_WRITE_PRESSURE_COLLAPSED']"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+POLICY_HEAD_JSON
+{
+  "accepted_burden_classes_frozen": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "allowed_candidate_design_space": [
+    {
+      "description": "Cache deterministic receipt-write pressure plan metadata, not receipt rows/results, within one profile execution.",
+      "design_id": "RECEIPT_WRITE_VOLUME_PLAN_CACHE_METADATA_ONLY",
+      "hard_constraint": "No receipt row may be deleted, suppressed, summarized, compressed, or reused as execution output."
+    },
+    {
+      "description": "Add explicit post-execution accounting for receipt-volume pressure so future comparisons cannot confuse receipt volume reduction with receipt loss.",
+      "design_id": "RECEIPT_VOLUME_WRITE_PATH_ACCOUNTING_CERTIFICATE",
+      "hard_constraint": "Accounting certificate is observational only and cannot authorize fewer receipts."
+    },
+    {
+      "description": "Consider a future candidate that batches write-path operations while preserving exact receipt count, payload durability, and registry totals.",
+      "design_id": "RECEIPT_WRITE_PRESSURE_BATCHING_PROPOSAL_ONLY",
+      "hard_constraint": "Batching cannot alter receipt schema, receipt count, registry rows, halt/law/gate/run semantics, or raw receipt availability."
+    }
+  ],
+  "authorization": {
+    "authorizes_code_change_now": false,
+    "authorizes_data_artifact_deletion": false,
+    "authorizes_depth_range_change": false,
+    "authorizes_execution_skipping": false,
+    "authorizes_fix_candidate_count": 1,
+    "authorizes_fix_candidate_ids": [
+      "FIX_CANDIDATE_RECEIPT_VOLUME_WRITE_PRESSURE_PLAN_V0"
+    ],
+    "authorizes_fix_candidate_kind": "RECEIPT_VOLUME_FIX_CANDIDATE",
+    "authorizes_gate_semantics_change": false,
+    "authorizes_halt_semantics_change": false,
+    "authorizes_law_semantics_change": false,
+    "authorizes_more_frontier_depth_patching": false,
+    "authorizes_patch_application": false,
+    "authorizes_probe_skipping": false,
+    "authorizes_radius_expansion": false,
+    "authorizes_raw_receipt_write_suppression": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_lossy_summary": false,
+    "authorizes_receipt_write_pressure_skipping": false,
+    "authorizes_registry_sqlite_total_mismatch": false,
+    "authorizes_reopening_accepted_burden_classes": false,
+    "authorizes_reopening_frontier_depth": false,
+    "authorizes_reusing_prior_receipt_volume_results_as_execution": false,
+    "authorizes_run_semantics_change": false,
+    "authorizes_synthetic_receipts": false
+  },
+  "candidate_requirements": {
+    "candidate_must_include_negative_controls_for": [
+      "receipt deletion authority",
+      "receipt compression authority",
+      "raw receipt suppression authority",
+      "registry total mismatch authority",
+      "synthetic receipt authority",
+      "execution skipping authority",
+      "receipt write pressure skipping authority",
+      "target row identity drift",
+      "profile total drift",
+      "accepted class reopening",
+      "frontier-depth reopening"
+    ],
+    "candidate_must_not_modify_or_reopen": {
+      "accepted_burden_classes": [
+        "BURDEN_CYCLE_SCAN",
+        "BURDEN_DB_WRITE",
+        "BURDEN_REPEATED_SLOT_WORK"
+      ],
+      "rejected_depth_scan": true
+    },
+    "candidate_must_preserve_all_non_unknown_burden_classes": [
+      "BURDEN_CYCLE_SCAN",
+      "BURDEN_DB_WRITE",
+      "BURDEN_DEPTH_SCAN",
+      "BURDEN_RECEIPT_VOLUME",
+      "BURDEN_REPEATED_SLOT_WORK"
+    ],
+    "candidate_must_preserve_families_seen": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "candidate_must_preserve_micro_profile_receipt_total": 1457,
+    "candidate_must_preserve_receipts": 176,
+    "candidate_must_preserve_target_row_identity": {
+      "burden_class": "BURDEN_RECEIPT_VOLUME",
+      "family_compact": "E",
+      "probe_id": "MICRO_05_RECEIPT_WRITE_PRESSURE",
+      "rows": 1,
+      "slot_id": "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+    },
+    "candidate_must_target_burden_class": "BURDEN_RECEIPT_VOLUME",
+    "candidate_must_use_source_decision_id": "25bf9c59",
+    "candidate_must_use_source_policy_id": "2e6aa9d6",
+    "candidate_must_use_source_profile_id": "b6609f93",
+    "candidate_status_must_be": "PROPOSAL_ONLY_NOT_APPLIED"
+  },
+  "forbidden_candidate_design_space": [
+    "delete receipt rows",
+    "compress receipt rows",
+    "replace receipts with summaries",
+    "skip receipt write pressure probe",
+    "emit synthetic receipts",
+    "reuse prior receipt-volume outputs as execution",
+    "change registry.sqlite accounting",
+    "change receipt schema",
+    "change halt/law/gate/run semantics",
+    "change depth range",
+    "expand radius",
+    "reopen BURDEN_DEPTH_SCAN",
+    "reopen accepted burden classes"
+  ],
+  "gate": "PASS",
+  "policy_id": "2e6aa9d6",
+  "policy_scope": {
+    "authorized_fix_candidate_id": "FIX_CANDIDATE_RECEIPT_VOLUME_WRITE_PRESSURE_PLAN_V0",
+    "authorized_fix_candidate_kind": "RECEIPT_VOLUME_FIX_CANDIDATE",
+    "authorized_target_burden_class": "BURDEN_RECEIPT_VOLUME",
+    "authorizes_exactly_one_fix_candidate": true,
+    "candidate_must_preserve_profile_total_1457": true,
+    "candidate_must_preserve_raw_receipt_writes": true,
+    "candidate_must_preserve_receipt_payload_durability": true,
+    "candidate_must_preserve_receipt_rows": true,
+    "candidate_must_preserve_registry_sqlite_totals": true,
+    "policy_only_no_patch_application": true
+  },
+  "rejected_or_deferred_burden_classes_frozen": [
+    "BURDEN_DEPTH_SCAN"
+  ],
+  "required_retest_if_candidate_later_applied": {
+    "after_profile_required": true,
+    "before_profile_id": "b6609f93",
+    "comparison_artifact_schema": "receipt_volume_before_after_comparison_v0",
+    "comparison_required": true,
+    "pass_condition": [
+      "after profile gate MICRO_BURDEN_PROFILE_PASS",
+      "receipt totals match registry.sqlite",
+      "profile receipt total preserved at 1457",
+      "target row remains MICRO_05_RECEIPT_WRITE_PRESSURE_E",
+      "target receipts preserved at 176",
+      "target burden class remains BURDEN_RECEIPT_VOLUME",
+      "raw receipt rows preserved",
+      "no receipt deletion",
+      "no receipt compression",
+      "no receipt schema change",
+      "no synthetic receipts",
+      "no execution skipping",
+      "no receipt write pressure probe skipping",
+      "no registry total mismatch",
+      "no halt/law/gate/run semantics change",
+      "no depth range change",
+      "no radius expansion",
+      "no accepted burden class reopening",
+      "no frontier-depth reopening",
+      "BURDEN_RECEIPT_VOLUME elapsed_ms non-worse or explicit failure classification"
+    ],
+    "same_micro_suite_required": true,
+    "same_probe_specs_required": true,
+    "same_script": "scripts/wide_burden_profile_microruns.py --execute"
+  },
+  "source_after_revert_profile_id": "b6609f93",
+  "source_next_burden_decision_id": "25bf9c59",
+  "target_burden_class": "BURDEN_RECEIPT_VOLUME",
+  "target_burden_evidence": {
+    "elapsed_ms": 1005,
+    "families": [
+      "E"
+    ],
+    "probes": [
+      "MICRO_05_RECEIPT_WRITE_PRESSURE"
+    ],
+    "receipts": 176,
+    "receipts_per_sec": 175.124378,
+    "row_keys": [
+      {
+        "burden_class": "BURDEN_RECEIPT_VOLUME",
+        "family_compact": "E",
+        "probe_id": "MICRO_05_RECEIPT_WRITE_PRESSURE",
+        "slot_id": "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+      }
+    ],
+    "rows": 1,
+    "slots": [
+      "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+    ]
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_RECEIPT_VOLUME_FIX_CANDIDATE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_212701_361810
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/build_receipt_volume_fix_candidate_policy.py
+[master 3915ca671] add receipt volume fix candidate policy
+ 2 files changed, 519 insertions(+)
+ create mode 100755 scripts/build_receipt_volume_fix_candidate_policy.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

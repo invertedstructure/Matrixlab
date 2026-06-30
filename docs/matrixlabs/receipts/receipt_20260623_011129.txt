@@ -1,0 +1,279 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260623_011129
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260623_011129.txt
+
+APPLY_CURRENT_SURFACE_PRESSURE_HANDLING_LOOP_TO_R1000_PRESSURE_QUEUE_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+VERIFY_R1000_CURRENT_SURFACE_APPLICATION_INPUTS_TRACKED
+tracked data/current_surface_pressure_handling_loop_protocol_v0_receipts/e3371951.json
+tracked data/current_surface_pressure_handling_loop_protocol_v0/current_surface_pressure_loop_protocol.json
+tracked data/current_surface_pressure_handling_loop_protocol_v0/surface_state_record_schema.json
+tracked data/current_surface_pressure_handling_loop_protocol_v0/surface_transition_decision_table.json
+tracked data/current_surface_pressure_handling_loop_protocol_v0/capability_stop_packet_schema.json
+tracked data/current_surface_pressure_handling_loop_protocol_v0/pressure_loop_acceptance_gates.json
+tracked data/field_introduced_surface_expected_source_content_limit_v0_receipts/cbde4b69.json
+tracked data/field_introduced_surface_expected_source_content_limit_v0/expected_source_content_limit_marker.json
+tracked data/field_introduced_surface_expected_source_content_limit_v0/expected_source_content_limit_closure_record.json
+tracked data/r1000_pressure_scale_stability_candidate_c_v0_receipts/a121ff40.json
+tracked data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl
+tracked data/r1000_candidate_c_top_group_classification_v0_receipts/7c9718e0.json
+tracked data/pressure_loop_applications/r1000_top_group_taxonomy_gap_v0_receipts/be19f438.json
+tracked data/pressure_handling_loop_protocol_v0_receipts/6148b4fa.json
+
+PATCH_GITIGNORE
+
+WRITE_R1000_CURRENT_SURFACE_APPLICATION_RUNNER
+
+PY_COMPILE_R1000_CURRENT_SURFACE_APPLICATION_RUNNER
+
+RUN_R1000_CURRENT_SURFACE_APPLICATION
+{
+  "acceptance_gate_results": {
+    "R1000_CURRENT_SURFACE_0_PROTOCOL_CONSUMED": true,
+    "R1000_CURRENT_SURFACE_10_NO_NEXT_GROUP_AUTO_OPEN": true,
+    "R1000_CURRENT_SURFACE_11_NO_HIDDEN_NEXT_COMMAND": true,
+    "R1000_CURRENT_SURFACE_1_QUEUE_MATERIALIZED": true,
+    "R1000_CURRENT_SURFACE_2_CLOSED_BRANCH_EXCLUDED": false,
+    "R1000_CURRENT_SURFACE_3_SURFACE_RECORDS_EMITTED": true,
+    "R1000_CURRENT_SURFACE_4_SELECTED_GROUP_IDENTIFIED_OR_EMPTY_QUEUE_STOP": true,
+    "R1000_CURRENT_SURFACE_5_TRANSITION_TRACE_EMITTED": true,
+    "R1000_CURRENT_SURFACE_6_CAPABILITY_STOP_EMITTED_FOR_UNKNOWN_CAPABILITY": true,
+    "R1000_CURRENT_SURFACE_7_NO_R1000_RUN_OR_REPAIR_EXECUTED": true,
+    "R1000_CURRENT_SURFACE_8_NO_VALUE_OR_TAXONOMY_ACTION": true,
+    "R1000_CURRENT_SURFACE_9_NO_SOURCE_OR_RECEIPT_MUTATION": true
+  },
+  "aggregate_metrics": {
+    "capability_stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+    "capability_stop_packet_emitted_count": 1,
+    "capability_stop_required": true,
+    "closed_branch_excluded_count": 0,
+    "closed_group_count": 0,
+    "existing_receipt_mutation_count": 0,
+    "field_value_invention_count": 0,
+    "group_specific_inspection_executed_count": 0,
+    "hidden_next_command_count": 0,
+    "next_group_auto_opened_count": 0,
+    "open_group_count": 5,
+    "r1000_run_executed_count": 0,
+    "recommended_next_handling": "AUTHORIZE_GROUP_SPECIFIC_INSPECTION_CAPABILITY_OR_REQUEST_NARROWER_SELECTED_GROUP_INSPECTION_PLAN",
+    "repair_executed_count": 0,
+    "selected_group_count": 1,
+    "selected_group_hash_candidates": {
+      "candidate_key_hash": "2c4572c1",
+      "legacy_join_hash": "77f872bb",
+      "raw_tuple_hash": "c41f3ac7"
+    },
+    "selected_group_key": {
+      "halt_reason": "STOP_TAXONOMY_GAP",
+      "parent_pressure_class": "TAXONOMY_PRESSURE",
+      "pressure_subtype": "missing_label"
+    },
+    "selected_group_row_count": 25,
+    "source_current_surface_protocol_receipt_id": "e3371951",
+    "source_expected_limit_receipt_id": "cbde4b69",
+    "source_mutation_count": 0,
+    "source_pressure_loop_application_receipt_id": "be19f438",
+    "source_r1000_scale_stability_receipt_id": "a121ff40",
+    "source_top_group_classification_receipt_id": "7c9718e0",
+    "surface_state_records_emitted_count": 3,
+    "taxonomy_delta_proposal_emitted_count": 0,
+    "taxonomy_label_creation_count": 0,
+    "taxonomy_upgrade_authorized_count": 0,
+    "total_group_count": 5,
+    "total_pressure_row_count": 88,
+    "transition_trace_emitted_count": 1
+  },
+  "created_at": "2026-06-23T00:11:30.066019+00:00",
+  "failures": [
+    "closed_group_not_detected",
+    "acceptance_gate_failed:R1000_CURRENT_SURFACE_2_CLOSED_BRANCH_EXCLUDED:False",
+    "receipt_gate_not_PASS:FAIL",
+    "acceptance_gate_not_true:R1000_CURRENT_SURFACE_2_CLOSED_BRANCH_EXCLUDED:False",
+    "metric_closed_branch_not_excluded"
+  ],
+  "gate": "FAIL",
+  "human_decision": {
+    "authorized": [
+      "read existing tracked R1000 pressure event rows",
+      "materialize current-surface pressure queue summary",
+      "exclude already closed pressure branch",
+      "select next remaining pressure group for inspection",
+      "emit surface-state records",
+      "emit transition trace",
+      "stop at capability layer if the next move requires a capability not yet present"
+    ],
+    "decision": "APPLY_CURRENT_SURFACE_PRESSURE_HANDLING_LOOP_TO_R1000_PRESSURE_QUEUE",
+    "not_authorized": [
+      "running new R1000 pressure generation",
+      "opening next group for execution",
+      "repairing selected group",
+      "inventing values",
+      "creating labels",
+      "upgrading taxonomy",
+      "mutating source rows",
+      "mutating existing receipts",
+      "claiming unlimited capability",
+      "hiding next command"
+    ],
+    "scope": "apply the frozen current-surface pressure loop to the existing tracked R1000 pressure queue, excluding the already closed expected-limit branch, without running a new R1000 computation or auto-opening a next group",
+    "source_current_surface_protocol_receipt_id": "e3371951",
+    "source_expected_limit_receipt_id": "cbde4b69"
+  },
+  "output_artifacts": {
+    "implementation_receipt": "data/current_surface_pressure_loop_r1000_application_v0_receipts/7ae5e47f.json",
+    "r1000_current_surface_capability_stop_packet": "data/current_surface_pressure_loop_r1000_application_v0/r1000_current_surface_capability_stop_packet.json",
+    "r1000_current_surface_pressure_loop_application_report": "data/current_surface_pressure_loop_r1000_application_v0/r1000_current_surface_pressure_loop_application_report.json",
+    "r1000_current_surface_pressure_queue_summary": "data/current_surface_pressure_loop_r1000_application_v0/r1000_current_surface_pressure_queue_summary.json",
+    "r1000_current_surface_selected_pressure_group": "data/current_surface_pressure_loop_r1000_application_v0/r1000_current_surface_selected_pressure_group.json",
+    "r1000_current_surface_state_records": "data/current_surface_pressure_loop_r1000_application_v0/r1000_current_surface_state_records.jsonl",
+    "r1000_current_surface_transition_trace": "data/current_surface_pressure_loop_r1000_application_v0/r1000_current_surface_transition_trace.json"
+  },
+  "r1000_current_surface_application_guards": {
+    "capability_stop_emitted": true,
+    "closed_branch_excluded": false,
+    "existing_receipts_mutated": false,
+    "group_specific_inspection_executed": false,
+    "hidden_next_command": false,
+    "next_group_auto_opened": false,
+    "protocol_consumed": true,
+    "queue_materialized": true,
+    "r1000_run_executed": false,
+    "repair_executed": false,
+    "selected_group_identified": true,
+    "source_mutated": false,
+    "taxonomy_delta_proposal_emitted": false,
+    "taxonomy_label_created": false,
+    "taxonomy_upgrade_authorized": false,
+    "values_invented": false
+  },
+  "r1000_current_surface_application_summary": {
+    "capability_stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+    "capability_stop_required": true,
+    "closed_group_count": 0,
+    "open_group_count": 5,
+    "recommended_next_handling": "AUTHORIZE_GROUP_SPECIFIC_INSPECTION_CAPABILITY_OR_REQUEST_NARROWER_SELECTED_GROUP_INSPECTION_PLAN",
+    "selected_group": {
+      "halt_reason": "STOP_TAXONOMY_GAP",
+      "parent_pressure_class": "TAXONOMY_PRESSURE",
+      "pressure_subtype": "missing_label"
+    },
+    "selected_group_count": 1,
+    "selected_group_row_count": 25,
+    "total_group_count": 5,
+    "total_pressure_row_count": 88
+  },
+  "receipt_id": "7ae5e47f",
+  "receipt_type": "CURRENT_SURFACE_PRESSURE_LOOP_R1000_APPLICATION_RECEIPT",
+  "schema_version": "current_surface_pressure_loop_r1000_application_receipt_v0",
+  "source_current_surface_protocol_receipt_id": "e3371951",
+  "source_expected_limit_receipt_id": "cbde4b69",
+  "source_pressure_loop_application_receipt_id": "be19f438",
+  "source_r1000_scale_stability_receipt_id": "a121ff40",
+  "source_top_group_classification_receipt_id": "7c9718e0",
+  "target_unit_id": "current_surface_pressure_loop_r1000_application.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_GATE_FAIL",
+    "type": "STOP"
+  },
+  "unit_id": "APPLY_CURRENT_SURFACE_PRESSURE_HANDLING_LOOP_TO_R1000_PRESSURE_QUEUE_V0",
+  "warnings": []
+}
+r1000_current_surface_application_receipt_id=7ae5e47f
+r1000_current_surface_application_receipt_path=data/current_surface_pressure_loop_r1000_application_v0_receipts/7ae5e47f.json
+r1000_current_surface_selected_group_path=data/current_surface_pressure_loop_r1000_application_v0/r1000_current_surface_selected_pressure_group.json
+r1000_current_surface_capability_stop_packet_path=data/current_surface_pressure_loop_r1000_application_v0/r1000_current_surface_capability_stop_packet.json
+R1000_CURRENT_SURFACE_RECEIPT_ID=7ae5e47f
+R1000_CURRENT_SURFACE_RECEIPT_PATH=data/current_surface_pressure_loop_r1000_application_v0_receipts/7ae5e47f.json
+R1000_CURRENT_SURFACE_SELECTED_GROUP_PATH=data/current_surface_pressure_loop_r1000_application_v0/r1000_current_surface_selected_pressure_group.json
+R1000_CURRENT_SURFACE_CAPABILITY_STOP_PACKET_PATH=data/current_surface_pressure_loop_r1000_application_v0/r1000_current_surface_capability_stop_packet.json
+
+ASSERT_R1000_CURRENT_SURFACE_APPLICATION
+{
+  "aggregate_metrics": {
+    "capability_stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+    "capability_stop_packet_emitted_count": 1,
+    "capability_stop_required": true,
+    "closed_branch_excluded_count": 0,
+    "closed_group_count": 0,
+    "existing_receipt_mutation_count": 0,
+    "field_value_invention_count": 0,
+    "group_specific_inspection_executed_count": 0,
+    "hidden_next_command_count": 0,
+    "next_group_auto_opened_count": 0,
+    "open_group_count": 5,
+    "r1000_run_executed_count": 0,
+    "recommended_next_handling": "AUTHORIZE_GROUP_SPECIFIC_INSPECTION_CAPABILITY_OR_REQUEST_NARROWER_SELECTED_GROUP_INSPECTION_PLAN",
+    "repair_executed_count": 0,
+    "selected_group_count": 1,
+    "selected_group_hash_candidates": {
+      "candidate_key_hash": "2c4572c1",
+      "legacy_join_hash": "77f872bb",
+      "raw_tuple_hash": "c41f3ac7"
+    },
+    "selected_group_key": {
+      "halt_reason": "STOP_TAXONOMY_GAP",
+      "parent_pressure_class": "TAXONOMY_PRESSURE",
+      "pressure_subtype": "missing_label"
+    },
+    "selected_group_row_count": 25,
+    "source_current_surface_protocol_receipt_id": "e3371951",
+    "source_expected_limit_receipt_id": "cbde4b69",
+    "source_mutation_count": 0,
+    "source_pressure_loop_application_receipt_id": "be19f438",
+    "source_r1000_scale_stability_receipt_id": "a121ff40",
+    "source_top_group_classification_receipt_id": "7c9718e0",
+    "surface_state_records_emitted_count": 3,
+    "taxonomy_delta_proposal_emitted_count": 0,
+    "taxonomy_label_creation_count": 0,
+    "taxonomy_upgrade_authorized_count": 0,
+    "total_group_count": 5,
+    "total_pressure_row_count": 88,
+    "transition_trace_emitted_count": 1
+  },
+  "gate": "FAIL",
+  "r1000_current_surface_application_summary": {
+    "capability_stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+    "capability_stop_required": true,
+    "closed_group_count": 0,
+    "open_group_count": 5,
+    "recommended_next_handling": "AUTHORIZE_GROUP_SPECIFIC_INSPECTION_CAPABILITY_OR_REQUEST_NARROWER_SELECTED_GROUP_INSPECTION_PLAN",
+    "selected_group": {
+      "halt_reason": "STOP_TAXONOMY_GAP",
+      "parent_pressure_class": "TAXONOMY_PRESSURE",
+      "pressure_subtype": "missing_label"
+    },
+    "selected_group_count": 1,
+    "selected_group_row_count": 25,
+    "total_group_count": 5,
+    "total_pressure_row_count": 88
+  },
+  "receipt_id": "7ae5e47f",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_GATE_FAIL",
+    "type": "STOP"
+  }
+}
+Traceback (most recent call last):
+  File "<stdin>", line 15, in <module>
+AssertionError: ['closed_group_not_detected', 'acceptance_gate_failed:R1000_CURRENT_SURFACE_2_CLOSED_BRANCH_EXCLUDED:False', 'receipt_gate_not_PASS:FAIL', 'acceptance_gate_not_true:R1000_CURRENT_SURFACE_2_CLOSED_BRANCH_EXCLUDED:False', 'metric_closed_branch_not_excluded']
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

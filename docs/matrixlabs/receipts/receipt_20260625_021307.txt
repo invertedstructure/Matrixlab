@@ -1,0 +1,432 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_021307
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_021307.txt
+
+CLOSE_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_AS_REVIEWED_REFERENCE_V0
+
+STATUS_BEFORE_RELEVANT
+
+VERIFY_O1_CLOSURE_BASIS
+present data/o1_decision_edge_observability_surface_review_v0_receipts/24c72b48.json
+present data/o1_decision_edge_observability_surface_review_v0/o1_decision_edge_observability_surface_review_assessment_v0.json
+present data/o1_decision_edge_observability_surface_review_v0/o1_observation_record_integrity_review_v0.json
+present data/o1_decision_edge_observability_surface_review_v0/o1_candidate_handle_provisionality_review_v0.json
+present data/o1_decision_edge_observability_surface_review_v0/o1_rollup_profile_readout_review_v0.json
+present data/o1_decision_edge_observability_surface_review_v0/o1_source_surface_review_v0.json
+present data/o1_decision_edge_observability_surface_review_v0/o1_nonauthority_safety_review_v0.json
+present data/o1_decision_edge_observability_surface_review_v0/o1_decision_edge_observability_surface_closure_candidate_v0.json
+present data/o1_decision_edge_observability_surface_review_v0/o1_surface_review_downstream_decision_table_v0.json
+present data/o1_decision_edge_observability_surface_review_v0/o1_surface_review_classification_v0.json
+present data/o1_decision_edge_observability_surface_review_v0/o1_surface_review_authority_boundary_v0.json
+present data/o1_decision_edge_observability_surface_review_v0/o1_surface_review_rollup_v0.json
+present data/o1_decision_edge_observability_surface_review_v0/o1_surface_review_profile_v0.json
+present data/o1_decision_edge_observability_surface_review_v0/o1_surface_review_report.json
+present data/o1_decision_edge_observability_surface_review_v0/o1_surface_review_transition_trace.json
+present data/o1_decision_edge_observability_surface_v0_receipts/9048434d.json
+present data/o1_decision_edge_observability_surface_v0/decision_edge_observation_records_v0.jsonl
+present data/o1_decision_edge_observability_surface_v0/decision_edge_observation_rollup_v0.json
+present data/o1_decision_edge_observability_surface_v0/decision_edge_observation_profile_v0.json
+present data/o1_decision_edge_observability_surface_v0/decision_edge_observation_readout_v0.json
+present data/o1_decision_edge_observability_surface_v0/o1_source_surface_v0.json
+
+PATCH_GITIGNORE
+
+WRITE_O1_SURFACE_CLOSURE_RUNNER
+
+PY_COMPILE_O1_SURFACE_CLOSURE
+
+RUN_O1_SURFACE_CLOSURE
+{
+  "acceptance_gate_results": {
+    "O1_CLOSE_0_REVIEW_RECEIPT_CONSUMED": true,
+    "O1_CLOSE_10_NO_O2_EXECUTED": true,
+    "O1_CLOSE_11_NO_GRAPH_SCHEMA_CLAIM": true,
+    "O1_CLOSE_12_NO_GRAPH_TRACKER": true,
+    "O1_CLOSE_13_NO_ARCHITECTURE_CHANGE": true,
+    "O1_CLOSE_14_NO_SOURCE_RECEIPT_MUTATION": true,
+    "O1_CLOSE_15_NO_AUTHORITY_EXPANSION": true,
+    "O1_CLOSE_16_NO_TARGET_SELECTED_FOR_BUILD": true,
+    "O1_CLOSE_17_NO_RUNTIME_PATCH": true,
+    "O1_CLOSE_18_NO_C5_OPENED": true,
+    "O1_CLOSE_19_NO_COMMAND_EMITTED": true,
+    "O1_CLOSE_1_CLOSURE_RECORD_EMITTED": true,
+    "O1_CLOSE_20_NO_LATEST_OR_MTIME": true,
+    "O1_CLOSE_21_NO_HIDDEN_NEXT_COMMAND": true,
+    "O1_CLOSE_22_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "O1_CLOSE_2_REVIEWED_REFERENCE_EMITTED": true,
+    "O1_CLOSE_3_REFERENCE_FREEZE_EMITTED": true,
+    "O1_CLOSE_4_RECEIPT_CHAIN_EMITTED": true,
+    "O1_CLOSE_5_BOUNDARY_LOCK_EMITTED": true,
+    "O1_CLOSE_6_EIGHT_OBSERVATIONS_FROZEN": true,
+    "O1_CLOSE_7_FIVE_SOURCE_RECEIPTS_FROZEN": true,
+    "O1_CLOSE_8_THIRTEEN_PROVISIONAL_HANDLES_FROZEN": true,
+    "O1_CLOSE_9_O2_DESIGN_READY_SURFACE_EMITTED": true
+  },
+  "aggregate_metrics": {
+    "bad_counters_zero": true,
+    "build_mode": "O1_SURFACE_CLOSURE_ONLY",
+    "candidate_handle_count": 13,
+    "layer": "OBSERVATION_HARDENING / DECISION_EDGE_VISIBILITY / CLOSURE",
+    "mode": "CLOSE / FREEZE_REVIEWED_REFERENCE / O2_DESIGN_READY",
+    "observations_frozen": 8,
+    "reason_codes": [
+      "O1_SURFACE_CLOSED_AS_REVIEWED_REFERENCE",
+      "O1_SURFACE_REVIEW_RECEIPT_CONSUMED",
+      "EIGHT_OBSERVATION_SIDECARS_FROZEN_AS_REVIEWED_REFERENCE",
+      "FIVE_SOURCE_RECEIPTS_FROZEN_IN_SOURCE_SURFACE",
+      "THIRTEEN_CANDIDATE_HANDLES_FROZEN_AS_PROVISIONAL_REFERENCE",
+      "ROLLUP_PROFILE_READOUT_FROZEN",
+      "NONAUTHORITY_BOUNDARY_LOCKED",
+      "O2_UNIT_FEEDBACK_HARDENING_DESIGN_READY",
+      "NO_O2_EXECUTED",
+      "NO_GRAPH_SCHEMA_CLAIMED",
+      "NO_GRAPH_TRACKER_CREATED",
+      "NO_ARCHITECTURE_CHANGE",
+      "NO_SOURCE_RECEIPT_MUTATION",
+      "NO_AUTHORITY_EXPANSION",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_C5_OPENED"
+    ],
+    "receipt_backed_claim": "O1 was closed as a reviewed observability reference. Eight reviewed decision-edge sidecars, five explicit source receipts, thirteen provisional candidate handles, rollup/profile/readout, source surface, review, and receipt chain are frozen as reference context. This closure authorizes the next O2 target-design unit only. It does not execute O2, extract a graph schema, create a graph tracker, mutate sources, expand authority, select a target, patch runtime, or open C5.",
+    "recommended_next_handling": "DESIGN_UNIT_FEEDBACK_HARDENING_TARGET_V0",
+    "schema_version": "o1_surface_closure_report_v0",
+    "source_receipt_count": 5,
+    "status": "TYPED_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_CLOSED_AS_REVIEWED_REFERENCE_O2_DESIGN_READY",
+    "target_unit_id": "observation.decision_edge_observability_surface_closure.v0",
+    "unit_id": "CLOSE_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_AS_REVIEWED_REFERENCE_V0"
+  },
+  "build_mode": "O1_SURFACE_CLOSURE_ONLY",
+  "created_at": "2026-06-25T01:13:08.027928+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OBSERVATION_HARDENING / DECISION_EDGE_VISIBILITY / CLOSURE",
+  "machine_readable_o1_surface_closure_summary": {
+    "architecture_change": false,
+    "authority_expansion": false,
+    "bad_counters_zero": true,
+    "c5_opened": false,
+    "candidate_handle_count": 13,
+    "candidate_handles_remain_provisional": true,
+    "closed_as_reviewed_reference": true,
+    "collection_status": "OBSERVATION_ONLY",
+    "command_emitted": false,
+    "graph_schema_claimed": false,
+    "graph_tracker_created": false,
+    "latest_file_guessing": false,
+    "mtime_selection": false,
+    "o1_surface_closed": true,
+    "o2_design_ready": true,
+    "o2_executed": false,
+    "observations_frozen": 8,
+    "reason_codes": [
+      "O1_SURFACE_CLOSED_AS_REVIEWED_REFERENCE",
+      "O1_SURFACE_REVIEW_RECEIPT_CONSUMED",
+      "EIGHT_OBSERVATION_SIDECARS_FROZEN_AS_REVIEWED_REFERENCE",
+      "FIVE_SOURCE_RECEIPTS_FROZEN_IN_SOURCE_SURFACE",
+      "THIRTEEN_CANDIDATE_HANDLES_FROZEN_AS_PROVISIONAL_REFERENCE",
+      "ROLLUP_PROFILE_READOUT_FROZEN",
+      "NONAUTHORITY_BOUNDARY_LOCKED",
+      "O2_UNIT_FEEDBACK_HARDENING_DESIGN_READY",
+      "NO_O2_EXECUTED",
+      "NO_GRAPH_SCHEMA_CLAIMED",
+      "NO_GRAPH_TRACKER_CREATED",
+      "NO_ARCHITECTURE_CHANGE",
+      "NO_SOURCE_RECEIPT_MUTATION",
+      "NO_AUTHORITY_EXPANSION",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_C5_OPENED"
+    ],
+    "recommended_next": "DESIGN_UNIT_FEEDBACK_HARDENING_TARGET_V0",
+    "reviewed_reference_emitted": true,
+    "runtime_patch_applied": false,
+    "schema_claim": "NONE",
+    "source_receipt_count": 5,
+    "source_receipt_mutated": false,
+    "status": "TYPED_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_CLOSED_AS_REVIEWED_REFERENCE_O2_DESIGN_READY",
+    "target_selected_for_build": false
+  },
+  "mode": "CLOSE / FREEZE_REVIEWED_REFERENCE / O2_DESIGN_READY",
+  "output_artifacts": {
+    "authority_boundary": "data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_authority_boundary_v0.json",
+    "boundary_lock": "data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_boundary_lock_v0.json",
+    "classification": "data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_classification_v0.json",
+    "closure_record": "data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_closure_record_v0.json",
+    "downstream_decision_table": "data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_downstream_decision_table_v0.json",
+    "implementation_receipt": "data/o1_decision_edge_observability_surface_closure_v0_receipts/e9d2dcf5.json",
+    "o2_design_ready_surface": "data/o1_decision_edge_observability_surface_closure_v0/o1_post_closure_o2_design_ready_surface_v0.json",
+    "profile": "data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_profile_v0.json",
+    "receipt_chain": "data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_receipt_chain_v0.json",
+    "reference_freeze": "data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_reference_freeze_v0.json",
+    "report": "data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_report.json",
+    "reviewed_reference": "data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_reviewed_reference_v0.json",
+    "rollup": "data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_rollup_v0.json",
+    "transition_trace": "data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_transition_trace.json"
+  },
+  "receipt_id": "e9d2dcf5",
+  "receipt_type": "TYPED_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_CLOSURE_RECEIPT",
+  "schema_version": "o1_surface_closure_receipt_v0",
+  "source_o1_review_receipt_id": "24c72b48",
+  "target_unit_id": "observation.decision_edge_observability_surface_closure.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_CLOSED_AS_REVIEWED_REFERENCE_O2_DESIGN_READY",
+    "type": "STOP"
+  },
+  "unit_id": "CLOSE_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_AS_REVIEWED_REFERENCE_V0",
+  "warnings": []
+}
+o1_surface_closure_receipt_id=e9d2dcf5
+o1_surface_closure_receipt_path=data/o1_decision_edge_observability_surface_closure_v0_receipts/e9d2dcf5.json
+o1_surface_closure_record_path=data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_closure_record_v0.json
+o1_surface_reviewed_reference_path=data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_reviewed_reference_v0.json
+o1_surface_reference_freeze_path=data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_reference_freeze_v0.json
+o1_surface_receipt_chain_path=data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_receipt_chain_v0.json
+o1_surface_boundary_lock_path=data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_boundary_lock_v0.json
+o1_o2_design_ready_surface_path=data/o1_decision_edge_observability_surface_closure_v0/o1_post_closure_o2_design_ready_surface_v0.json
+o1_surface_closure_rollup_path=data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_rollup_v0.json
+o1_surface_closure_profile_path=data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_profile_v0.json
+
+ASSERT_O1_SURFACE_CLOSURE
+{
+  "bad_counters_zero": true,
+  "candidate_handles_remain_provisional": true,
+  "failures": [],
+  "gate": "PASS",
+  "o1_surface_closed": true,
+  "o2_design_ready": true,
+  "o2_executed": false,
+  "observations_frozen": 8,
+  "receipt_id": "e9d2dcf5",
+  "recommended_next": "DESIGN_UNIT_FEEDBACK_HARDENING_TARGET_V0",
+  "status": "TYPED_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_CLOSED_AS_REVIEWED_REFERENCE_O2_DESIGN_READY",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_CLOSED_AS_REVIEWED_REFERENCE_O2_DESIGN_READY",
+    "type": "STOP"
+  }
+}
+
+VERIFY_O1_SURFACE_CLOSURE_ONLY_NO_O2_EXECUTION_NO_GRAPH_NO_TRACKER_NO_TARGET_NO_PATCH_NO_C5
+allowed_status_lines_checked
+O1 closed as reviewed observability reference; O2 target design ready only; no O2 execution/no graph/no tracker/no source mutation/no authority expansion/no target/no patch/no C5
+
+SHOW_O1_SURFACE_CLOSURE_NEXT
+status=TYPED_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_CLOSED_AS_REVIEWED_REFERENCE_O2_DESIGN_READY
+reason_codes=O1_SURFACE_CLOSED_AS_REVIEWED_REFERENCE,O1_SURFACE_REVIEW_RECEIPT_CONSUMED,EIGHT_OBSERVATION_SIDECARS_FROZEN_AS_REVIEWED_REFERENCE,FIVE_SOURCE_RECEIPTS_FROZEN_IN_SOURCE_SURFACE,THIRTEEN_CANDIDATE_HANDLES_FROZEN_AS_PROVISIONAL_REFERENCE,ROLLUP_PROFILE_READOUT_FROZEN,NONAUTHORITY_BOUNDARY_LOCKED,O2_UNIT_FEEDBACK_HARDENING_DESIGN_READY,NO_O2_EXECUTED,NO_GRAPH_SCHEMA_CLAIMED,NO_GRAPH_TRACKER_CREATED,NO_ARCHITECTURE_CHANGE,NO_SOURCE_RECEIPT_MUTATION,NO_AUTHORITY_EXPANSION,NO_TARGET_SELECTED_FOR_BUILD,NO_RUNTIME_PATCH_APPLIED,NO_C5_OPENED
+o1_surface_closed=True
+closed_as_reviewed_reference=True
+reviewed_reference_emitted=True
+observations_frozen=8
+source_receipt_count=5
+candidate_handle_count=13
+candidate_handles_remain_provisional=True
+o2_design_ready=True
+o2_executed=False
+collection_status=OBSERVATION_ONLY
+schema_claim=NONE
+graph_schema_claimed=False
+graph_tracker_created=False
+architecture_change=False
+source_receipt_mutated=False
+authority_expansion=False
+target_selected_for_build=False
+runtime_patch_applied=False
+c5_opened=False
+command_emitted=False
+latest_file_guessing=False
+mtime_selection=False
+bad_counters_zero=True
+recommended_next=DESIGN_UNIT_FEEDBACK_HARDENING_TARGET_V0
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+?? scripts/close_o1_decision_edge_observability_surface_as_reviewed_reference_v0.py
+
+PACKAGE_O1_SURFACE_CLOSURE_ARTIFACTS
+packaged data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_closure_record_v0.json
+packaged data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_reviewed_reference_v0.json
+packaged data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_reference_freeze_v0.json
+packaged data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_receipt_chain_v0.json
+packaged data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_boundary_lock_v0.json
+packaged data/o1_decision_edge_observability_surface_closure_v0/o1_post_closure_o2_design_ready_surface_v0.json
+packaged data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_downstream_decision_table_v0.json
+packaged data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_classification_v0.json
+packaged data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_authority_boundary_v0.json
+packaged data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_rollup_v0.json
+packaged data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_profile_v0.json
+packaged data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_report.json
+packaged data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_transition_trace.json
+[master cb0feb13a] close O1 decision edge observability surface as reviewed reference
+ 16 files changed, 1155 insertions(+)
+ create mode 100644 data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_boundary_lock_v0.json
+ create mode 100644 data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_closure_record_v0.json
+ create mode 100644 data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_receipt_chain_v0.json
+ create mode 100644 data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_reference_freeze_v0.json
+ create mode 100644 data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_reviewed_reference_v0.json
+ create mode 100644 data/o1_decision_edge_observability_surface_closure_v0/o1_post_closure_o2_design_ready_surface_v0.json
+ create mode 100644 data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_authority_boundary_v0.json
+ create mode 100644 data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_classification_v0.json
+ create mode 100644 data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_downstream_decision_table_v0.json
+ create mode 100644 data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_profile_v0.json
+ create mode 100644 data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_report.json
+ create mode 100644 data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_rollup_v0.json
+ create mode 100644 data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_transition_trace.json
+ create mode 100644 data/o1_decision_edge_observability_surface_closure_v0_receipts/e9d2dcf5.json
+ create mode 100755 scripts/close_o1_decision_edge_observability_surface_as_reviewed_reference_v0.py
+
+COMMIT_DONE_RELEVANT
+
+O1_SURFACE_CLOSURE_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+o1_surface_closure_receipt_id=e9d2dcf5
+o1_surface_closure_receipt_path=data/o1_decision_edge_observability_surface_closure_v0_receipts/e9d2dcf5.json
+{
+  "acceptance_gate_results": {
+    "O1_CLOSE_0_REVIEW_RECEIPT_CONSUMED": true,
+    "O1_CLOSE_10_NO_O2_EXECUTED": true,
+    "O1_CLOSE_11_NO_GRAPH_SCHEMA_CLAIM": true,
+    "O1_CLOSE_12_NO_GRAPH_TRACKER": true,
+    "O1_CLOSE_13_NO_ARCHITECTURE_CHANGE": true,
+    "O1_CLOSE_14_NO_SOURCE_RECEIPT_MUTATION": true,
+    "O1_CLOSE_15_NO_AUTHORITY_EXPANSION": true,
+    "O1_CLOSE_16_NO_TARGET_SELECTED_FOR_BUILD": true,
+    "O1_CLOSE_17_NO_RUNTIME_PATCH": true,
+    "O1_CLOSE_18_NO_C5_OPENED": true,
+    "O1_CLOSE_19_NO_COMMAND_EMITTED": true,
+    "O1_CLOSE_1_CLOSURE_RECORD_EMITTED": true,
+    "O1_CLOSE_20_NO_LATEST_OR_MTIME": true,
+    "O1_CLOSE_21_NO_HIDDEN_NEXT_COMMAND": true,
+    "O1_CLOSE_22_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "O1_CLOSE_2_REVIEWED_REFERENCE_EMITTED": true,
+    "O1_CLOSE_3_REFERENCE_FREEZE_EMITTED": true,
+    "O1_CLOSE_4_RECEIPT_CHAIN_EMITTED": true,
+    "O1_CLOSE_5_BOUNDARY_LOCK_EMITTED": true,
+    "O1_CLOSE_6_EIGHT_OBSERVATIONS_FROZEN": true,
+    "O1_CLOSE_7_FIVE_SOURCE_RECEIPTS_FROZEN": true,
+    "O1_CLOSE_8_THIRTEEN_PROVISIONAL_HANDLES_FROZEN": true,
+    "O1_CLOSE_9_O2_DESIGN_READY_SURFACE_EMITTED": true
+  },
+  "aggregate_metrics": {
+    "bad_counters_zero": true,
+    "build_mode": "O1_SURFACE_CLOSURE_ONLY",
+    "candidate_handle_count": 13,
+    "layer": "OBSERVATION_HARDENING / DECISION_EDGE_VISIBILITY / CLOSURE",
+    "mode": "CLOSE / FREEZE_REVIEWED_REFERENCE / O2_DESIGN_READY",
+    "observations_frozen": 8,
+    "reason_codes": [
+      "O1_SURFACE_CLOSED_AS_REVIEWED_REFERENCE",
+      "O1_SURFACE_REVIEW_RECEIPT_CONSUMED",
+      "EIGHT_OBSERVATION_SIDECARS_FROZEN_AS_REVIEWED_REFERENCE",
+      "FIVE_SOURCE_RECEIPTS_FROZEN_IN_SOURCE_SURFACE",
+      "THIRTEEN_CANDIDATE_HANDLES_FROZEN_AS_PROVISIONAL_REFERENCE",
+      "ROLLUP_PROFILE_READOUT_FROZEN",
+      "NONAUTHORITY_BOUNDARY_LOCKED",
+      "O2_UNIT_FEEDBACK_HARDENING_DESIGN_READY",
+      "NO_O2_EXECUTED",
+      "NO_GRAPH_SCHEMA_CLAIMED",
+      "NO_GRAPH_TRACKER_CREATED",
+      "NO_ARCHITECTURE_CHANGE",
+      "NO_SOURCE_RECEIPT_MUTATION",
+      "NO_AUTHORITY_EXPANSION",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_C5_OPENED"
+    ],
+    "receipt_backed_claim": "O1 was closed as a reviewed observability reference. Eight reviewed decision-edge sidecars, five explicit source receipts, thirteen provisional candidate handles, rollup/profile/readout, source surface, review, and receipt chain are frozen as reference context. This closure authorizes the next O2 target-design unit only. It does not execute O2, extract a graph schema, create a graph tracker, mutate sources, expand authority, select a target, patch runtime, or open C5.",
+    "recommended_next_handling": "DESIGN_UNIT_FEEDBACK_HARDENING_TARGET_V0",
+    "schema_version": "o1_surface_closure_report_v0",
+    "source_receipt_count": 5,
+    "status": "TYPED_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_CLOSED_AS_REVIEWED_REFERENCE_O2_DESIGN_READY",
+    "target_unit_id": "observation.decision_edge_observability_surface_closure.v0",
+    "unit_id": "CLOSE_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_AS_REVIEWED_REFERENCE_V0"
+  },
+  "build_mode": "O1_SURFACE_CLOSURE_ONLY",
+  "created_at": "2026-06-25T01:13:08.027928+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OBSERVATION_HARDENING / DECISION_EDGE_VISIBILITY / CLOSURE",
+  "machine_readable_o1_surface_closure_summary": {
+    "architecture_change": false,
+    "authority_expansion": false,
+    "bad_counters_zero": true,
+    "c5_opened": false,
+    "candidate_handle_count": 13,
+    "candidate_handles_remain_provisional": true,
+    "closed_as_reviewed_reference": true,
+    "collection_status": "OBSERVATION_ONLY",
+    "command_emitted": false,
+    "graph_schema_claimed": false,
+    "graph_tracker_created": false,
+    "latest_file_guessing": false,
+    "mtime_selection": false,
+    "o1_surface_closed": true,
+    "o2_design_ready": true,
+    "o2_executed": false,
+    "observations_frozen": 8,
+    "reason_codes": [
+      "O1_SURFACE_CLOSED_AS_REVIEWED_REFERENCE",
+      "O1_SURFACE_REVIEW_RECEIPT_CONSUMED",
+      "EIGHT_OBSERVATION_SIDECARS_FROZEN_AS_REVIEWED_REFERENCE",
+      "FIVE_SOURCE_RECEIPTS_FROZEN_IN_SOURCE_SURFACE",
+      "THIRTEEN_CANDIDATE_HANDLES_FROZEN_AS_PROVISIONAL_REFERENCE",
+      "ROLLUP_PROFILE_READOUT_FROZEN",
+      "NONAUTHORITY_BOUNDARY_LOCKED",
+      "O2_UNIT_FEEDBACK_HARDENING_DESIGN_READY",
+      "NO_O2_EXECUTED",
+      "NO_GRAPH_SCHEMA_CLAIMED",
+      "NO_GRAPH_TRACKER_CREATED",
+      "NO_ARCHITECTURE_CHANGE",
+      "NO_SOURCE_RECEIPT_MUTATION",
+      "NO_AUTHORITY_EXPANSION",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_C5_OPENED"
+    ],
+    "recommended_next": "DESIGN_UNIT_FEEDBACK_HARDENING_TARGET_V0",
+    "reviewed_reference_emitted": true,
+    "runtime_patch_applied": false,
+    "schema_claim": "NONE",
+    "source_receipt_count": 5,
+    "source_receipt_mutated": false,
+    "status": "TYPED_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_CLOSED_AS_REVIEWED_REFERENCE_O2_DESIGN_READY",
+    "target_selected_for_build": false
+  },
+  "mode": "CLOSE / FREEZE_REVIEWED_REFERENCE / O2_DESIGN_READY",
+  "output_artifacts": {
+    "authority_boundary": "data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_authority_boundary_v0.json",
+    "boundary_lock": "data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_boundary_lock_v0.json",
+    "classification": "data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_classification_v0.json",
+    "closure_record": "data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_closure_record_v0.json",
+    "downstream_decision_table": "data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_downstream_decision_table_v0.json",
+    "implementation_receipt": "data/o1_decision_edge_observability_surface_closure_v0_receipts/e9d2dcf5.json",
+    "o2_design_ready_surface": "data/o1_decision_edge_observability_surface_closure_v0/o1_post_closure_o2_design_ready_surface_v0.json",
+    "profile": "data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_profile_v0.json",
+    "receipt_chain": "data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_receipt_chain_v0.json",
+    "reference_freeze": "data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_reference_freeze_v0.json",
+    "report": "data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_report.json",
+    "reviewed_reference": "data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_reviewed_reference_v0.json",
+    "rollup": "data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_rollup_v0.json",
+    "transition_trace": "data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_transition_trace.json"
+  },
+  "receipt_id": "e9d2dcf5",
+  "receipt_type": "TYPED_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_CLOSURE_RECEIPT",
+  "schema_version": "o1_surface_closure_receipt_v0",
+  "source_o1_review_receipt_id": "24c72b48",
+  "target_unit_id": "observation.decision_edge_observability_surface_closure.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_CLOSED_AS_REVIEWED_REFERENCE_O2_DESIGN_READY",
+    "type": "STOP"
+  },
+  "unit_id": "CLOSE_O1_DECISION_EDGE_OBSERVABILITY_SURFACE_AS_REVIEWED_REFERENCE_V0",
+  "warnings": []
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

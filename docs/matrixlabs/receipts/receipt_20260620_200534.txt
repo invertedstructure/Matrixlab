@@ -1,0 +1,130 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_200534
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_200534.txt
+
+BUILD_REPEATED_SLOT_EXECUTION_PLAN_CACHE_FIX_CANDIDATE_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_REPEATED_SLOT_FIX_CANDIDATE_SCRIPT
+
+PY_COMPILE
+
+BUILD_REPEATED_SLOT_FIX_CANDIDATE
+{
+  "authorizes_execution_skipping": false,
+  "authorizes_patch_application": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_reusing_prior_run_results_as_execution": false,
+  "authorizes_slot_identity_collapse": false,
+  "authorizes_slot_receipt_merge": false,
+  "candidate_id": "011e608f",
+  "candidate_name": "FIX_CANDIDATE_REPEATED_SLOT_EXECUTION_PLAN_CACHE_V0",
+  "candidate_path": "data/repeated_slot_execution_plan_cache_fix_candidates/011e608f.json",
+  "candidate_sig8": "011e608f",
+  "candidate_status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "created_at": "2026-06-20T19:05:34.505083+00:00",
+  "failures": [],
+  "receipt_id": "2fe20e13",
+  "receipt_sig8": "2fe20e13",
+  "required_retest": {
+    "after_profile_required": true,
+    "before_profile_id": "00a75664",
+    "comparison_artifact_schema": "repeated_slot_plan_cache_before_after_comparison_v0",
+    "comparison_required": true,
+    "pass_condition": [
+      "after profile gate MICRO_BURDEN_PROFILE_PASS",
+      "receipt totals match registry.sqlite",
+      "all five probes complete",
+      "family coverage A-E preserved",
+      "repeated slot identity preserved exactly",
+      "same repeated-slot row keys preserved",
+      "no gate semantics change",
+      "no law semantics change",
+      "no run semantics change",
+      "no execution skipping",
+      "BURDEN_REPEATED_SLOT_WORK target rows show non-worse elapsed_ms or explicit failure classification"
+    ],
+    "same_micro_suite_required": true,
+    "same_probe_specs_required": true,
+    "same_script": "scripts/wide_burden_profile_microruns.py --execute"
+  },
+  "schema_version": "repeated_slot_execution_plan_cache_fix_candidate_receipt_v0",
+  "source_after_profile_id": "00a75664",
+  "source_policy_id": "4207ab96",
+  "target_burden_class": "BURDEN_REPEATED_SLOT_WORK",
+  "target_elapsed_ms": 8243,
+  "target_receipts": 270,
+  "target_rows": 9,
+  "terminal": {
+    "next_command_goal": "APPLY_REPEATED_SLOT_EXECUTION_PLAN_CACHE_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+candidate_json_path=data/repeated_slot_execution_plan_cache_fix_candidates/011e608f.json
+candidate_receipt_path=data/repeated_slot_execution_plan_cache_fix_candidate_receipts/011e608f.json
+CANDIDATE_ID=011e608f
+
+ASSERT_REPEATED_SLOT_FIX_CANDIDATE
+{
+  "authorizes_code_change_now": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_patch_application": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_reusing_prior_run_results_as_execution": false,
+  "authorizes_slot_identity_collapse": false,
+  "authorizes_slot_receipt_merge": false,
+  "cache_scope": "within_one_micro_profile_execution_only",
+  "candidate_id": "011e608f",
+  "candidate_name": "FIX_CANDIDATE_REPEATED_SLOT_EXECUTION_PLAN_CACHE_V0",
+  "candidate_sig8": "011e608f",
+  "candidate_status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "expected_repeated_slot_ids": [
+    "slot_01_E1",
+    "slot_02_E2",
+    "slot_03_E3",
+    "slot_04_D1",
+    "slot_05_D2",
+    "slot_06_B1",
+    "slot_07_B2",
+    "slot_08_C1",
+    "slot_09_A1"
+  ],
+  "fail_closed_if_slot_identity_changes": true,
+  "failures": [],
+  "gate": "PASS",
+  "intended_change_count": 4,
+  "must_not_cache": [
+    "run_id",
+    "receipt rows",
+    "receipt counts as substitutes for execution",
+    "law results",
+    "gate results",
+    "halt results",
+    "stdout/stderr from a prior run",
+    "any prior execution result"
+  ],
+  "patch_plan_kind": "REPEATED_SLOT_EXECUTION_PLAN_CACHE_PATCH_PLAN",
+  "receipt_gate": null,
+  "receipt_id": "2fe20e13",
+  "source_after_profile_id": "00a75664",
+  "source_policy_id": "4207ab96",
+  "target_burden_class": "BURDEN_REPEATED_SLOT_WORK",
+  "target_burden_class_proven": true,
+  "terminal": {
+    "next_command_goal": "APPLY_REPEATED_SLOT_EXECUTION_PLAN_CACHE_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+Traceback (most recent call last):
+  File "<stdin>", line 47, in <module>
+AssertionError
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

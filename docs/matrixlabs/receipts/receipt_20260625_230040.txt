@@ -1,0 +1,260 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_230040
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_230040.txt
+
+DECIDE_NEXT_AFTER_RUNTIME_DEFERRED_PRESSURE_TEST_SUITE_V0
+
+STATUS_BEFORE_RELEVANT
+M  .gitignore
+A  data/runtime_deferred_pressure_test_suite_v0/case_inputs/01_deferred_case_t3_schema_validation_failure_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/case_inputs/02_deferred_case_t3_admissibility_block_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/case_inputs/03_deferred_case_t4_required_observability_gap_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/case_receipts/01_deferred_case_t3_schema_validation_failure_v0__0ee4a514.json
+A  data/runtime_deferred_pressure_test_suite_v0/case_receipts/02_deferred_case_t3_admissibility_block_v0__569c6a0f.json
+A  data/runtime_deferred_pressure_test_suite_v0/case_receipts/03_deferred_case_t4_required_observability_gap_v0__4ab210b1.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_basis_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_case_input_index_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_case_receipt_index_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_decision_target_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_manifest_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_profile_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_rollup_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_runner_spec_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_transition_trace.json
+A  data/runtime_deferred_pressure_test_suite_v0_receipts/be061c52.json
+A  scripts/build_outer_runtime_deferred_pressure_test_suite_v0.py
+
+VERIFY_DEFERRED_PRESSURE_SUITE_DECISION_BASIS
+present data/runtime_deferred_pressure_test_suite_v0_receipts/be061c52.json
+present data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_manifest_v0.json
+present data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_rollup_v0.json
+present data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_profile_v0.json
+present data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_case_receipt_index_v0.json
+present data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_decision_target_v0.json
+present data/runtime_deferred_cases_t6_move_tie_surface_audit_v0_receipts/eb20d76b.json
+present data/runtime_deferred_cases_t6_move_tie_surface_audit_v0/runtime_t6_move_tie_surface_classification_v0.json
+
+PATCH_GITIGNORE
+
+WRITE_DEFERRED_PRESSURE_SUITE_DECISION
+
+PY_COMPILE_DEFERRED_PRESSURE_SUITE_DECISION
+
+RUN_DEFERRED_PRESSURE_SUITE_DECISION
+{
+  "acceptance_gate_results": {
+    "DPSD_0_SUITE_RECEIPT_CONSUMED": true,
+    "DPSD_1_ALL_CASES_PASSED_EXPECTED_PRESSURE": true,
+    "DPSD_2_CANDIDATES_CLASSIFIED": true,
+    "DPSD_3_EXPECTED_PRESSURE_CLOSED_AS_COVERAGE": true,
+    "DPSD_4_T6_PRESERVED_FOR_LATER": true,
+    "DPSD_5_NO_REPAIR": true,
+    "DPSD_6_NO_MOVE_ADDITION": true,
+    "DPSD_7_NO_RUNTIME_PATCH": true,
+    "DPSD_8_SOURCE_INPUTS_NOT_MUTATED": true,
+    "DPSD_9_NO_HIDDEN_NEXT_COMMAND": true
+  },
+  "build_mode": "DEFERRED_PRESSURE_SUITE_DECISION_ONLY",
+  "created_at": "2026-06-25T22:00:40.596189+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OUTER / RUNTIME_ADOPTION / DEFERRED_PRESSURE_SUITE / DECISION",
+  "machine_readable_deferred_pressure_suite_decision_summary": {
+    "architecture_widened": false,
+    "branch_closed": true,
+    "c8_authorized": false,
+    "candidate_count": 3,
+    "closed_case_count": 3,
+    "closed_expected_negative_coverage_count": 3,
+    "decision_kind": "CLOSE_DEFERRED_PRESSURE_SUITE_AS_EXPECTED_PRESSURE_COVERAGE",
+    "fixture_expanded_by_default": false,
+    "hidden_next_command": false,
+    "live_runtime_hooks_installed": false,
+    "move_addition_authorized": false,
+    "next_unit_id": null,
+    "ready_for_live_runtime_adoption": false,
+    "real_move_addition_pressure_count": 0,
+    "real_repair_pressure_count": 0,
+    "real_runtime_patch_pressure_count": 0,
+    "reason_codes": [
+      "DEFERRED_PRESSURE_SUITE_RECEIPT_CONSUMED",
+      "ALL_CASES_ALREADY_PASSED_EXPECTED_PRESSURE",
+      "EXPECTED_PRESSURE_CLASSIFIED_AS_COVERAGE",
+      "CANDIDATES_CLOSED_AS_EXPECTED_NEGATIVE_COVERAGE",
+      "NO_REPAIR_PRESSURE",
+      "NO_MOVE_ADDITION_PRESSURE",
+      "NO_RUNTIME_PATCH_PRESSURE",
+      "T6_PRESERVED_FOR_LATER_OBJECTIVE",
+      "BRANCH_CLOSED",
+      "NO_LIVE_RUNTIME_ADOPTION",
+      "NO_C8_AUTHORIZATION",
+      "NO_HIDDEN_NEXT_COMMAND"
+    ],
+    "repair_authorized": false,
+    "runtime_adoption_authorized": false,
+    "runtime_patched": false,
+    "schema_archive_mutated": false,
+    "schema_created": false,
+    "status": "TYPED_RUNTIME_DEFERRED_PRESSURE_SUITE_DECISION_CLOSED_EXPECTED_PRESSURE_COVERAGE",
+    "suite_id": "runtime_deferred_pressure_suite_acdfd50f",
+    "t6_preserved_for_later": true,
+    "taxonomy_created": false
+  },
+  "mode": "DECIDE_ONLY / EXPECTED_PRESSURE_COVERAGE_CLOSURE / NO_TEST_RUN",
+  "output_artifacts": {
+    "basis": "data/runtime_deferred_pressure_suite_decision_v0/runtime_deferred_pressure_suite_decision_basis_v0.json",
+    "candidate_classification": "data/runtime_deferred_pressure_suite_decision_v0/runtime_deferred_pressure_suite_candidate_classification_v0.json",
+    "closure": "data/runtime_deferred_pressure_suite_decision_v0/runtime_deferred_pressure_suite_closure_v0.json",
+    "implementation_receipt": "data/runtime_deferred_pressure_suite_decision_v0_receipts/04c2a4f0.json",
+    "profile": "data/runtime_deferred_pressure_suite_decision_v0/runtime_deferred_pressure_suite_decision_profile_v0.json",
+    "rollup": "data/runtime_deferred_pressure_suite_decision_v0/runtime_deferred_pressure_suite_decision_rollup_v0.json",
+    "t6_preservation": "data/runtime_deferred_pressure_suite_decision_v0/runtime_t6_later_objective_preservation_v0.json",
+    "transition_trace": "data/runtime_deferred_pressure_suite_decision_v0/runtime_deferred_pressure_suite_decision_transition_trace.json"
+  },
+  "receipt_id": "04c2a4f0",
+  "receipt_type": "TYPED_RUNTIME_DEFERRED_PRESSURE_SUITE_DECISION_RECEIPT",
+  "schema_version": "runtime_deferred_pressure_suite_decision_receipt_v0",
+  "source_suite_receipt_id": "be061c52",
+  "status": "TYPED_RUNTIME_DEFERRED_PRESSURE_SUITE_DECISION_CLOSED_EXPECTED_PRESSURE_COVERAGE",
+  "target_unit_id": "outer.runtime_adoption.deferred_pressure_suite_decision_v0",
+  "terminal": {
+    "next_unit_id": null,
+    "stop_code": "STOP_RUNTIME_DEFERRED_PRESSURE_SUITE_BRANCH_COMPLETE",
+    "type": "STOP"
+  },
+  "unit_id": "DECIDE_NEXT_AFTER_RUNTIME_DEFERRED_PRESSURE_TEST_SUITE_V0",
+  "warnings": []
+}
+runtime_deferred_pressure_suite_decision_receipt_id=04c2a4f0
+runtime_deferred_pressure_suite_decision_receipt_path=data/runtime_deferred_pressure_suite_decision_v0_receipts/04c2a4f0.json
+runtime_deferred_pressure_suite_decision_next_unit=NONE
+
+ASSERT_DEFERRED_PRESSURE_SUITE_DECISION
+{
+  "branch_closed": true,
+  "c8_authorized": false,
+  "candidate_count": 3,
+  "closed_case_count": 3,
+  "closed_expected_negative_coverage_count": 3,
+  "decision_kind": "CLOSE_DEFERRED_PRESSURE_SUITE_AS_EXPECTED_PRESSURE_COVERAGE",
+  "failures": [],
+  "gate": "PASS",
+  "hidden_next_command": false,
+  "move_addition_authorized": false,
+  "next_unit_id": null,
+  "real_move_addition_pressure_count": 0,
+  "real_repair_pressure_count": 0,
+  "real_runtime_patch_pressure_count": 0,
+  "receipt_id": "04c2a4f0",
+  "repair_authorized": false,
+  "runtime_adoption_authorized": false,
+  "runtime_patched": false,
+  "status": "TYPED_RUNTIME_DEFERRED_PRESSURE_SUITE_DECISION_CLOSED_EXPECTED_PRESSURE_COVERAGE",
+  "suite_id": "runtime_deferred_pressure_suite_acdfd50f",
+  "t6_preserved_for_later": true,
+  "terminal": {
+    "next_unit_id": null,
+    "stop_code": "STOP_RUNTIME_DEFERRED_PRESSURE_SUITE_BRANCH_COMPLETE",
+    "type": "STOP"
+  }
+}
+
+SHOW_DEFERRED_PRESSURE_SUITE_DECISION_SUMMARY
+receipt_id=04c2a4f0
+receipt_path=data/runtime_deferred_pressure_suite_decision_v0_receipts/04c2a4f0.json
+status=TYPED_RUNTIME_DEFERRED_PRESSURE_SUITE_DECISION_CLOSED_EXPECTED_PRESSURE_COVERAGE
+decision_kind=CLOSE_DEFERRED_PRESSURE_SUITE_AS_EXPECTED_PRESSURE_COVERAGE
+suite_id=runtime_deferred_pressure_suite_acdfd50f
+branch_closed=True
+closed_case_count=3
+candidate_count=3
+closed_expected_negative_coverage_count=3
+real_repair_pressure_count=0
+real_move_addition_pressure_count=0
+real_runtime_patch_pressure_count=0
+t6_preserved_for_later=True
+next_unit_id=None
+repair_authorized=False
+move_addition_authorized=False
+runtime_adoption_authorized=False
+runtime_patched=False
+fixture_expanded_by_default=False
+architecture_widened=False
+hidden_next_command=False
+c8_authorized=False
+terminal_type=STOP
+terminal_stop_code=STOP_RUNTIME_DEFERRED_PRESSURE_SUITE_BRANCH_COMPLETE
+terminal_next_unit_id=None
+
+SHOW_CANDIDATE_CLASSIFICATION
+classification_status=TYPED_RUNTIME_DEFERRED_PRESSURE_SUITE_DECISION_CLOSED_EXPECTED_PRESSURE_COVERAGE
+candidate_count=3
+closed_expected_negative_coverage_count=3
+real_repair_pressure_count=0
+T3.schema_validation_failure:SCHEMA_VALIDATION_FAIL:EXPECTED_NEGATIVE_COVERAGE:closed=True
+T3.admissibility_block:LAWFUL_ADMISSIBILITY_FAIL:EXPECTED_NEGATIVE_COVERAGE:closed=True
+T4.full_observability_required_gap:RUNTIME_OBSERVABILITY_GAP:EXPECTED_NEGATIVE_COVERAGE:closed=True
+
+SHOW_T6_PRESERVATION
+preservation_status=PRESERVED_FOR_LATER_OBJECTIVE
+t6_cases=T6.step_cap_loop_shape,T6.move_tie_unresolved
+later_objective_rule=Open T6 later only as a new bounded registry/trigger objective, not as continuation pressure from this closed deferred suite.
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+MM .gitignore
+A  data/runtime_deferred_pressure_test_suite_v0/case_inputs/01_deferred_case_t3_schema_validation_failure_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/case_inputs/02_deferred_case_t3_admissibility_block_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/case_inputs/03_deferred_case_t4_required_observability_gap_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/case_receipts/01_deferred_case_t3_schema_validation_failure_v0__0ee4a514.json
+A  data/runtime_deferred_pressure_test_suite_v0/case_receipts/02_deferred_case_t3_admissibility_block_v0__569c6a0f.json
+A  data/runtime_deferred_pressure_test_suite_v0/case_receipts/03_deferred_case_t4_required_observability_gap_v0__4ab210b1.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_basis_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_case_input_index_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_case_receipt_index_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_decision_target_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_manifest_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_profile_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_rollup_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_runner_spec_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_transition_trace.json
+A  data/runtime_deferred_pressure_test_suite_v0_receipts/be061c52.json
+A  scripts/build_outer_runtime_deferred_pressure_test_suite_v0.py
+?? scripts/decide_next_after_runtime_deferred_pressure_test_suite_v0.py
+
+PACKAGE_DEFERRED_PRESSURE_SUITE_DECISION_ARTIFACTS
+
+DEFERRED_PRESSURE_SUITE_DECISION_READY_FOR_COMMIT
+M  .gitignore
+A  data/runtime_deferred_pressure_suite_decision_v0/runtime_deferred_pressure_suite_candidate_classification_v0.json
+A  data/runtime_deferred_pressure_suite_decision_v0/runtime_deferred_pressure_suite_closure_v0.json
+A  data/runtime_deferred_pressure_suite_decision_v0/runtime_deferred_pressure_suite_decision_basis_v0.json
+A  data/runtime_deferred_pressure_suite_decision_v0/runtime_deferred_pressure_suite_decision_profile_v0.json
+A  data/runtime_deferred_pressure_suite_decision_v0/runtime_deferred_pressure_suite_decision_rollup_v0.json
+A  data/runtime_deferred_pressure_suite_decision_v0/runtime_deferred_pressure_suite_decision_transition_trace.json
+A  data/runtime_deferred_pressure_suite_decision_v0/runtime_t6_later_objective_preservation_v0.json
+A  data/runtime_deferred_pressure_suite_decision_v0_receipts/04c2a4f0.json
+A  data/runtime_deferred_pressure_test_suite_v0/case_inputs/01_deferred_case_t3_schema_validation_failure_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/case_inputs/02_deferred_case_t3_admissibility_block_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/case_inputs/03_deferred_case_t4_required_observability_gap_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/case_receipts/01_deferred_case_t3_schema_validation_failure_v0__0ee4a514.json
+A  data/runtime_deferred_pressure_test_suite_v0/case_receipts/02_deferred_case_t3_admissibility_block_v0__569c6a0f.json
+A  data/runtime_deferred_pressure_test_suite_v0/case_receipts/03_deferred_case_t4_required_observability_gap_v0__4ab210b1.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_basis_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_case_input_index_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_case_receipt_index_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_decision_target_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_manifest_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_profile_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_rollup_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_runner_spec_v0.json
+A  data/runtime_deferred_pressure_test_suite_v0/runtime_deferred_pressure_suite_transition_trace.json
+A  data/runtime_deferred_pressure_test_suite_v0_receipts/be061c52.json
+A  scripts/build_outer_runtime_deferred_pressure_test_suite_v0.py
+A  scripts/decide_next_after_runtime_deferred_pressure_test_suite_v0.py
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

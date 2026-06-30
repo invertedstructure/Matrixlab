@@ -1,0 +1,592 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260619_132241
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260619_132241.txt
+
+FIX_AGENT_CHEAT_ADVERSARIAL_TEMP_DB_VISIBILITY
+
+STATUS_BEFORE
+ M .gitignore
+ M src/matrixlab/cli.py
+
+PATCH_TEMP_DB_MUTATION_VISIBILITY
+
+PY_COMPILE
+
+RUN_CHEAT_ADVERSARIAL_BASELINE_LEDGER_AFTER_FIX
+{
+  "adversarial_results": [
+    {
+      "detail": {
+        "baseline_law_failures": 0,
+        "detector": "independent_sql_law_failures_must_remain_zero",
+        "mutated_law_failures": 1
+      },
+      "detected": true,
+      "name": "temp_db_law_failure_mutation"
+    },
+    {
+      "detail": {
+        "baseline_unknown_laws": 0,
+        "detector": "independent_sql_unknown_laws_must_remain_zero",
+        "mutated_unknown_laws": 1
+      },
+      "detected": true,
+      "name": "temp_db_unknown_law_mutation"
+    },
+    {
+      "detail": {
+        "baseline_eval_receipt_rows": 309334,
+        "baseline_sql_receipt_rows": 309334,
+        "detector": "independent_sql_receipt_rows_must_match_eval_receipt_rows",
+        "mutated_sql_receipt_rows": 309333
+      },
+      "detected": true,
+      "name": "temp_db_receipt_delete_mutation"
+    },
+    {
+      "detail": {
+        "baseline_coarse_profiles_total": 9,
+        "baseline_raw_profiles_total": 1010,
+        "detector": "independent_sql_profile_counts_must_not_grow_under_same_baseline",
+        "mutated_coarse_profiles_total": 10,
+        "mutated_raw_profiles_total": 1011
+      },
+      "detected": true,
+      "name": "temp_db_profile_novelty_insert_mutation"
+    },
+    {
+      "detail": {
+        "detector": "cycle_previous_run_id_must_equal_prior_cycle_run_id",
+        "mutated_last_previous_run_id": "CHEAT_FAKE_PREVIOUS_RUN"
+      },
+      "detected": true,
+      "name": "temp_ledger_previous_run_chain_mutation"
+    }
+  ],
+  "agent_cheat_adversarial_id": "cbebf089",
+  "agent_cheat_adversarial_payload_sig8": "cbebf089",
+  "agent_cheat_adversarial_schema_version": "agent_cheat_adversarial_receipt_v0",
+  "baseline_coarse_profiles_total": 9,
+  "baseline_eval_id": "a1ddb75b",
+  "baseline_eval_path": "data/evals/a1ddb75b.json",
+  "baseline_ledger_id": "73c696a5",
+  "baseline_ledger_payload_sig8": "73c696a5",
+  "baseline_radius": 250,
+  "baseline_raw_profiles_total": 1010,
+  "baseline_registered_moves_total": 250,
+  "baseline_run_id": "run_20260619_090132_512800",
+  "baseline_sql_summary": {
+    "coarse_move_profiles_total": 9,
+    "halt_reason_counts": [
+      {
+        "halt_reason": null,
+        "n": 308094
+      },
+      {
+        "halt_reason": "CYCLES_COMPLETE",
+        "n": 1237
+      },
+      {
+        "halt_reason": "REPEATED_STATE_PERIODIC",
+        "n": 3
+      }
+    ],
+    "law_failures": 0,
+    "max_matrix_cells": 250000,
+    "max_moves_applied_before_halt": 250,
+    "raw_move_profiles_total": 1010,
+    "receipt_rows": 309334,
+    "registered_moves_total": 250,
+    "run_row": {
+      "created_utc": "2026-06-19T09:01:32.555275+00:00",
+      "cycles_per_case": 250,
+      "depth_max": 250,
+      "depth_min": 3,
+      "families": "one_sided_suspension,two_sided_suspension,suspension_plus_repair,projection_quotient,relabel_symmetry_stress",
+      "max_cells": 300000,
+      "run_id": "run_20260619_090132_512800",
+      "status": "DONE",
+      "total_cases": 1240,
+      "total_receipts": 309334
+    },
+    "unknown_laws": 0
+  },
+  "baseline_total_receipts": 309334,
+  "failures": [],
+  "gate": "PASS",
+  "input_cycle_ledger": "73c696a5",
+  "input_cycle_ledger_path": "data/agent_cycle_ledgers/73c696a5.json",
+  "production_modification_check": {
+    "after": {
+      "data/agent_cheat_checks": {
+        "direct_child_count": 3,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781871569323589069
+      },
+      "data/agent_cycle_ledgers": {
+        "direct_child_count": 6,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781869491407587241
+      },
+      "data/agent_cycle_next": {
+        "direct_child_count": 5,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781859692235534511
+      },
+      "data/agent_cycle_observations": {
+        "direct_child_count": 5,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781869214155587122
+      },
+      "data/evals": {
+        "direct_child_count": 11,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781869213795587131
+      },
+      "data/receipts": {
+        "direct_child_count": 35,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781859692551534316
+      },
+      "data/runs/registry.sqlite": {
+        "exists": true,
+        "kind": "file",
+        "mtime_ns": 1781869198871587344,
+        "size": 515395584
+      },
+      "src/matrixlab/cli.py": {
+        "exists": true,
+        "kind": "file",
+        "mtime_ns": 1781871761519358356,
+        "size": 186604
+      }
+    },
+    "before": {
+      "data/agent_cheat_checks": {
+        "direct_child_count": 3,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781871569323589069
+      },
+      "data/agent_cycle_ledgers": {
+        "direct_child_count": 6,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781869491407587241
+      },
+      "data/agent_cycle_next": {
+        "direct_child_count": 5,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781859692235534511
+      },
+      "data/agent_cycle_observations": {
+        "direct_child_count": 5,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781869214155587122
+      },
+      "data/evals": {
+        "direct_child_count": 11,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781869213795587131
+      },
+      "data/receipts": {
+        "direct_child_count": 35,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781859692551534316
+      },
+      "data/runs/registry.sqlite": {
+        "exists": true,
+        "kind": "file",
+        "mtime_ns": 1781869198871587344,
+        "size": 515395584
+      },
+      "src/matrixlab/cli.py": {
+        "exists": true,
+        "kind": "file",
+        "mtime_ns": 1781871761519358356,
+        "size": 186604
+      }
+    },
+    "modified_targets": []
+  },
+  "recomputed_baseline_ledger_payload_sig8": "73c696a5",
+  "temp_db_summary": {
+    "coarse_move_profiles_total": 9,
+    "halt_reason_counts": [
+      {
+        "halt_reason": null,
+        "n": 308094
+      },
+      {
+        "halt_reason": "CYCLES_COMPLETE",
+        "n": 1237
+      },
+      {
+        "halt_reason": "REPEATED_STATE_PERIODIC",
+        "n": 3
+      }
+    ],
+    "law_failures": 0,
+    "max_matrix_cells": 250000,
+    "max_moves_applied_before_halt": 250,
+    "raw_move_profiles_total": 1010,
+    "receipt_rows": 309334,
+    "registered_moves_total": 250,
+    "run_row": {
+      "created_utc": "2026-06-19T09:01:32.555275+00:00",
+      "cycles_per_case": 250,
+      "depth_max": 250,
+      "depth_min": 3,
+      "families": "one_sided_suspension,two_sided_suspension,suspension_plus_repair,projection_quotient,relabel_symmetry_stress",
+      "max_cells": 300000,
+      "run_id": "run_20260619_090132_512800",
+      "status": "DONE",
+      "total_cases": 1240,
+      "total_receipts": 309334
+    },
+    "unknown_laws": 0
+  },
+  "terminal": {
+    "next_command_goal": "FREEZE_MEASUREMENT_TRUST_AND_START_DOMAIN_SHIFT_PROBE",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+agent_cheat_adversarial_path: data/agent_cheat_adversarial/cbebf089.json
+
+VERIFY_CHEAT_ADVERSARIAL_RECEIPT_AFTER_FIX
+{
+  "agent_cheat_adversarial_id": "cbebf089",
+  "baseline_coarse_profiles_total": 9,
+  "baseline_eval_id": "a1ddb75b",
+  "baseline_ledger_id": "73c696a5",
+  "baseline_radius": 250,
+  "baseline_raw_profiles_total": 1010,
+  "baseline_run_id": "run_20260619_090132_512800",
+  "detected_adversarial_mutations": {
+    "temp_db_law_failure_mutation": true,
+    "temp_db_profile_novelty_insert_mutation": true,
+    "temp_db_receipt_delete_mutation": true,
+    "temp_db_unknown_law_mutation": true,
+    "temp_ledger_previous_run_chain_mutation": true
+  },
+  "gate": "PASS",
+  "id_matches_filename": true,
+  "modified_protected_targets": [],
+  "path": "data/agent_cheat_adversarial/cbebf089.json",
+  "recomputed_sig": "cbebf089",
+  "sig_matches": true,
+  "stored_sig": "cbebf089",
+  "terminal": {
+    "next_command_goal": "FREEZE_MEASUREMENT_TRUST_AND_START_DOMAIN_SHIFT_PROBE",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+RUN_CHEAT_ADVERSARIAL_FAIL_NEGATIVE_BAD_LEDGER
+{
+  "adversarial_results": [
+    {
+      "detail": {
+        "baseline_law_failures": 0,
+        "detector": "independent_sql_law_failures_must_remain_zero",
+        "mutated_law_failures": 1
+      },
+      "detected": true,
+      "name": "temp_db_law_failure_mutation"
+    },
+    {
+      "detail": {
+        "baseline_unknown_laws": 0,
+        "detector": "independent_sql_unknown_laws_must_remain_zero",
+        "mutated_unknown_laws": 1
+      },
+      "detected": true,
+      "name": "temp_db_unknown_law_mutation"
+    },
+    {
+      "detail": {
+        "baseline_eval_receipt_rows": 107708,
+        "baseline_sql_receipt_rows": 107708,
+        "detector": "independent_sql_receipt_rows_must_match_eval_receipt_rows",
+        "mutated_sql_receipt_rows": 107707
+      },
+      "detected": true,
+      "name": "temp_db_receipt_delete_mutation"
+    },
+    {
+      "detail": {
+        "baseline_coarse_profiles_total": 9,
+        "baseline_raw_profiles_total": 531,
+        "detector": "independent_sql_profile_counts_must_not_grow_under_same_baseline",
+        "mutated_coarse_profiles_total": 10,
+        "mutated_raw_profiles_total": 532
+      },
+      "detected": true,
+      "name": "temp_db_profile_novelty_insert_mutation"
+    },
+    {
+      "detail": {
+        "detector": "cycle_previous_run_id_must_equal_prior_cycle_run_id",
+        "mutated_last_previous_run_id": "CHEAT_FAKE_PREVIOUS_RUN"
+      },
+      "detected": true,
+      "name": "temp_ledger_previous_run_chain_mutation"
+    }
+  ],
+  "agent_cheat_adversarial_id": "4dcb89c4",
+  "agent_cheat_adversarial_payload_sig8": "4dcb89c4",
+  "agent_cheat_adversarial_schema_version": "agent_cheat_adversarial_receipt_v0",
+  "baseline_coarse_profiles_total": 9,
+  "baseline_eval_id": "0a9048aa",
+  "baseline_eval_path": "data/evals/0a9048aa.json",
+  "baseline_ledger_id": "3b3fa6bd",
+  "baseline_ledger_payload_sig8": "3b3fa6bd",
+  "baseline_radius": 150,
+  "baseline_raw_profiles_total": 531,
+  "baseline_registered_moves_total": 150,
+  "baseline_run_id": "run_20260618_235807_638720",
+  "baseline_sql_summary": {
+    "coarse_move_profiles_total": 9,
+    "halt_reason_counts": [
+      {
+        "halt_reason": null,
+        "n": 106968
+      },
+      {
+        "halt_reason": "CYCLES_COMPLETE",
+        "n": 660
+      },
+      {
+        "halt_reason": "MAX_CELLS_EXCEEDED",
+        "n": 77
+      },
+      {
+        "halt_reason": "REPEATED_STATE_PERIODIC",
+        "n": 3
+      }
+    ],
+    "law_failures": 0,
+    "max_matrix_cells": 50176,
+    "max_moves_applied_before_halt": 150,
+    "raw_move_profiles_total": 531,
+    "receipt_rows": 107708,
+    "registered_moves_total": 150,
+    "run_row": {
+      "created_utc": "2026-06-18T23:58:07.646979+00:00",
+      "cycles_per_case": 150,
+      "depth_max": 150,
+      "depth_min": 3,
+      "families": "one_sided_suspension,two_sided_suspension,suspension_plus_repair,projection_quotient,relabel_symmetry_stress",
+      "max_cells": 50000,
+      "run_id": "run_20260618_235807_638720",
+      "status": "DONE",
+      "total_cases": 740,
+      "total_receipts": 107708
+    },
+    "unknown_laws": 0
+  },
+  "baseline_total_receipts": 107708,
+  "failures": [
+    "cycle_ledger_gate_not_PASS",
+    "cycle_ledger_has_boundary_events"
+  ],
+  "gate": "FAIL",
+  "input_cycle_ledger": "3b3fa6bd",
+  "input_cycle_ledger_path": "data/agent_cycle_ledgers/3b3fa6bd.json",
+  "production_modification_check": {
+    "after": {
+      "data/agent_cheat_checks": {
+        "direct_child_count": 3,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781871569323589069
+      },
+      "data/agent_cycle_ledgers": {
+        "direct_child_count": 6,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781869491407587241
+      },
+      "data/agent_cycle_next": {
+        "direct_child_count": 5,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781859692235534511
+      },
+      "data/agent_cycle_observations": {
+        "direct_child_count": 5,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781869214155587122
+      },
+      "data/evals": {
+        "direct_child_count": 11,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781869213795587131
+      },
+      "data/receipts": {
+        "direct_child_count": 35,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781859692551534316
+      },
+      "data/runs/registry.sqlite": {
+        "exists": true,
+        "kind": "file",
+        "mtime_ns": 1781869198871587344,
+        "size": 515395584
+      },
+      "src/matrixlab/cli.py": {
+        "exists": true,
+        "kind": "file",
+        "mtime_ns": 1781871761519358356,
+        "size": 186604
+      }
+    },
+    "before": {
+      "data/agent_cheat_checks": {
+        "direct_child_count": 3,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781871569323589069
+      },
+      "data/agent_cycle_ledgers": {
+        "direct_child_count": 6,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781869491407587241
+      },
+      "data/agent_cycle_next": {
+        "direct_child_count": 5,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781859692235534511
+      },
+      "data/agent_cycle_observations": {
+        "direct_child_count": 5,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781869214155587122
+      },
+      "data/evals": {
+        "direct_child_count": 11,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781869213795587131
+      },
+      "data/receipts": {
+        "direct_child_count": 35,
+        "exists": true,
+        "kind": "dir",
+        "mtime_ns": 1781859692551534316
+      },
+      "data/runs/registry.sqlite": {
+        "exists": true,
+        "kind": "file",
+        "mtime_ns": 1781869198871587344,
+        "size": 515395584
+      },
+      "src/matrixlab/cli.py": {
+        "exists": true,
+        "kind": "file",
+        "mtime_ns": 1781871761519358356,
+        "size": 186604
+      }
+    },
+    "modified_targets": []
+  },
+  "recomputed_baseline_ledger_payload_sig8": "3b3fa6bd",
+  "temp_db_summary": {
+    "coarse_move_profiles_total": 9,
+    "halt_reason_counts": [
+      {
+        "halt_reason": null,
+        "n": 106968
+      },
+      {
+        "halt_reason": "CYCLES_COMPLETE",
+        "n": 660
+      },
+      {
+        "halt_reason": "MAX_CELLS_EXCEEDED",
+        "n": 77
+      },
+      {
+        "halt_reason": "REPEATED_STATE_PERIODIC",
+        "n": 3
+      }
+    ],
+    "law_failures": 0,
+    "max_matrix_cells": 50176,
+    "max_moves_applied_before_halt": 150,
+    "raw_move_profiles_total": 531,
+    "receipt_rows": 107708,
+    "registered_moves_total": 150,
+    "run_row": {
+      "created_utc": "2026-06-18T23:58:07.646979+00:00",
+      "cycles_per_case": 150,
+      "depth_max": 150,
+      "depth_min": 3,
+      "families": "one_sided_suspension,two_sided_suspension,suspension_plus_repair,projection_quotient,relabel_symmetry_stress",
+      "max_cells": 50000,
+      "run_id": "run_20260618_235807_638720",
+      "status": "DONE",
+      "total_cases": 740,
+      "total_receipts": 107708
+    },
+    "unknown_laws": 0
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "cheat_adversarial_failed",
+    "type": "STOP"
+  },
+  "warnings": []
+}
+agent_cheat_adversarial_path: data/agent_cheat_adversarial/4dcb89c4.json
+
+VERIFY_NEGATIVE_BAD_LEDGER_FAILED
+{
+  "agent_cheat_adversarial_id": "4dcb89c4",
+  "failures": [
+    "cycle_ledger_gate_not_PASS",
+    "cycle_ledger_has_boundary_events"
+  ],
+  "gate": "FAIL",
+  "path": "data/agent_cheat_adversarial/4dcb89c4.json",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "cheat_adversarial_failed",
+    "type": "STOP"
+  }
+}
+
+DIFF_STAT
+ .gitignore           |   3 +
+ src/matrixlab/cli.py | 513 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 516 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+ M src/matrixlab/cli.py
+[master ab9383212] add adversarial cheat harness command
+ 2 files changed, 516 insertions(+)
+
+COMMIT_DONE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

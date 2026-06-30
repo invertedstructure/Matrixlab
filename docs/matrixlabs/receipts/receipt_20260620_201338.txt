@@ -1,0 +1,257 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_201338
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_201338.txt
+
+REPAIR_REPEATED_SLOT_PLAN_CACHE_SELF_TEST_IMPORT_V0
+
+STATUS_BEFORE
+ M .gitignore
+ M scripts/wide_burden_profile_microruns.py
+?? data/
+
+VERIFY_PATCH_PRESENT_UNCOMMITTED
+{
+  "has_dataclass_import": true,
+  "has_forbidden_cache_markers": true,
+  "has_lru_cache_import": true,
+  "has_metadata_only_profile_field": true,
+  "has_plan_cache_helper": true,
+  "has_repeated_slot_identity_guard": true,
+  "has_slot_execution_plan": true,
+  "script_exists": true
+}
+
+PY_COMPILE
+
+PLAN_CACHE_SELF_TEST_WITH_REGISTERED_IMPORT
+{
+  "all_cmds_are_stress": true,
+  "cache_info_after": {
+    "currsize": 9,
+    "hits": 9,
+    "maxsize": null,
+    "misses": 9
+  },
+  "cache_info_before": {
+    "currsize": 0,
+    "hits": 0,
+    "maxsize": null,
+    "misses": 0
+  },
+  "cache_info_middle": {
+    "currsize": 9,
+    "hits": 0,
+    "maxsize": null,
+    "misses": 9
+  },
+  "expected_repeated_slot_ids": [
+    "slot_01_E1",
+    "slot_02_E2",
+    "slot_03_E3",
+    "slot_04_D1",
+    "slot_05_D2",
+    "slot_06_B1",
+    "slot_07_B2",
+    "slot_08_C1",
+    "slot_09_A1"
+  ],
+  "forbidden_attrs_present": [],
+  "import_repair": "REGISTERED_MODULE_IN_SYS_MODULES_BEFORE_EXEC",
+  "plan_count": 9,
+  "same_plan_objects_on_second_build": true,
+  "slots": [
+    "slot_01_E1",
+    "slot_02_E2",
+    "slot_03_E3",
+    "slot_04_D1",
+    "slot_05_D2",
+    "slot_06_B1",
+    "slot_07_B2",
+    "slot_08_C1",
+    "slot_09_A1"
+  ]
+}
+
+SMOKE_METADATA_PLAN_CACHE_NO_EXECUTION_SKIP
+MatrixLab run started: run_20260620_191339_748921
+Families: ['one_sided_suspension']
+Depths: 3..4
+Cycles per case: 2
+Max cells per matrix: 10000
+Done.
+{
+  "run_id": "run_20260620_191339_748921",
+  "created_utc": "2026-06-20T19:13:39.966955+00:00",
+  "families": [
+    "one_sided_suspension"
+  ],
+  "depth_min": 3,
+  "depth_max": 4,
+  "cycles_per_case": 2,
+  "max_cells": 10000,
+  "total_cases": 2,
+  "total_receipts": 4,
+  "halt_counts": {
+    "CYCLES_COMPLETE": 2
+  },
+  "max_registered_moves": 1,
+  "max_compression_ratio": 2.0,
+  "max_matrix_cells": 24,
+  "max_registered_move_profiles": 1
+}
+SMOKE_RUN_ID=run_20260620_191339_748921
+
+GATE_SMOKE_RUN
+      Gate checks /       
+run_20260620_191339_748921
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │     2 │
+│ total_receipts │     4 │
+│ receipt_rows   │     4 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │     2 │
+└─────────────────┴───────┘
+GATE_PASS
+
+VERIFY_SMOKE_RECEIPTS_MATCH
+{
+  "receipt_rows": 4,
+  "receipt_rows_match_run_total": true,
+  "run_id": "run_20260620_191339_748921",
+  "run_status": "DONE",
+  "run_total_receipts": 4
+}
+
+BUILD_APPLICATION_RECEIPT
+APPLICATION_ID=2233c46c
+{
+  "application_id": "2233c46c",
+  "application_path": "data/repeated_slot_execution_plan_cache_fix_applications/2233c46c.json",
+  "application_sig8": "2233c46c",
+  "applied_changes": [
+    "ADDED_IMMUTABLE_SLOT_EXECUTION_PLAN_OBJECT",
+    "ADDED_PROCESS_LOCAL_METADATA_ONLY_PLAN_CACHE",
+    "ADDED_REPEATED_SLOT_IDENTITY_GUARD",
+    "PRESERVED_MICRO_PROFILE_RETEST_COMPARABILITY",
+    "REPAIRED_DYNAMIC_IMPORT_SELF_TEST_BY_REGISTERING_SYS_MODULES"
+  ],
+  "authorizes_execution_skipping": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_reusing_prior_run_results_as_execution": false,
+  "authorizes_slot_identity_collapse": false,
+  "authorizes_slot_receipt_merge": false,
+  "before_profile_id": "00a75664",
+  "created_at": "2026-06-20T19:13:40.554092+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "receipt_id": "8f933351",
+  "receipt_sig8": "8f933351",
+  "required_retest": {
+    "after_profile_required": true,
+    "before_after_comparison_required": true,
+    "before_profile_id": "00a75664",
+    "comparison_artifact_schema": "repeated_slot_plan_cache_before_after_comparison_v0",
+    "same_micro_suite_required": true,
+    "same_probe_specs_required": true,
+    "same_script": "scripts/wide_burden_profile_microruns.py --execute"
+  },
+  "same_plan_objects_on_second_build": true,
+  "schema_version": "repeated_slot_execution_plan_cache_fix_application_receipt_v0",
+  "slot_identity_matches_expected": true,
+  "source_candidate_id": "57f6e627",
+  "target_burden_class": "BURDEN_REPEATED_SLOT_WORK",
+  "terminal": {
+    "next_command_goal": "RERUN_MICRO_BURDEN_PROFILE_AFTER_REPEATED_SLOT_PLAN_CACHE_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+ASSERT_APPLICATION_RECEIPT
+{
+  "application_id": "2233c46c",
+  "application_sig8": "2233c46c",
+  "applied_changes": [
+    "ADDED_IMMUTABLE_SLOT_EXECUTION_PLAN_OBJECT",
+    "ADDED_PROCESS_LOCAL_METADATA_ONLY_PLAN_CACHE",
+    "ADDED_REPEATED_SLOT_IDENTITY_GUARD",
+    "PRESERVED_MICRO_PROFILE_RETEST_COMPARABILITY",
+    "REPAIRED_DYNAMIC_IMPORT_SELF_TEST_BY_REGISTERING_SYS_MODULES"
+  ],
+  "before_profile_id": "00a75664",
+  "failures": [],
+  "gate": "PASS",
+  "receipt_gate": "PASS",
+  "receipt_id": "8f933351",
+  "same_plan_objects_on_second_build": true,
+  "semantics": {
+    "execution_skipping": false,
+    "gate_semantics_change": false,
+    "halt_semantics_change": false,
+    "law_semantics_change": false,
+    "radius_expansion": false,
+    "receipt_compression": false,
+    "receipt_deletion": false,
+    "receipt_schema_change": false,
+    "reusing_prior_run_results_as_execution": false,
+    "run_semantics_change": false,
+    "slot_identity_collapse": false,
+    "slot_receipt_merge": false
+  },
+  "slot_identity_matches_expected": true,
+  "source_candidate_id": "57f6e627",
+  "target_burden_class": "BURDEN_REPEATED_SLOT_WORK",
+  "terminal": {
+    "next_command_goal": "RERUN_MICRO_BURDEN_PROFILE_AFTER_REPEATED_SLOT_PLAN_CACHE_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_191339_748921
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │     2 │
+│ total_receipts │     4 │
+│ receipt_rows   │     4 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │     2 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore                               |   6 ++
+ scripts/wide_burden_profile_microruns.py | 161 ++++++++++++++++++++++++++++---
+ 2 files changed, 151 insertions(+), 16 deletions(-)
+
+STATUS_AFTER
+ M .gitignore
+ M scripts/wide_burden_profile_microruns.py
+?? data/
+[master 1aa338417] apply repeated slot metadata plan cache
+ 2 files changed, 151 insertions(+), 16 deletions(-)
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

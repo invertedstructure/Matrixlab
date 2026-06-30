@@ -1,0 +1,94 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_100040
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_100040.txt
+
+BOOKKEEPING_COMMIT_C8_LOCAL_TRANSITION_FAMILY_DISCRIMINATOR_BUILD_V0
+
+VERIFY_DISCRIMINATOR_BUILD_ARTIFACTS_PRESENT
+present data/c8_local_transition_family_discriminator_v0_receipts/c8_discriminator_build_receipt_81ea20cb.json
+present data/c8_local_transition_family_discriminator_v0/local_transition_family_discriminator_candidate_v0.json
+present data/c8_local_transition_family_discriminator_v0/local_transition_family_discriminator_build_receipt_v0.json
+present data/c8_local_transition_family_discriminator_v0/local_transition_family_discriminator_verification_cases_v0.json
+present data/c8_local_transition_family_discriminator_v0/local_transition_family_discriminator_verification_receipt_v0.json
+present data/c8_local_transition_family_discriminator_v0/c8_local_transition_family_discriminator_readout_v0.json
+present data/c8_local_transition_family_discriminator_v0/c8_local_transition_family_discriminator_report.json
+present scripts/build_one_bounded_local_transition_family_discriminator_v0.py
+
+PY_COMPILE_DISCRIMINATOR_RUNNER
+
+VERIFY_DISCRIMINATOR_BUILD_RECEIPT
+{
+  "acceptance_gates_false_count": 0,
+  "c8_rerun_performed": false,
+  "cell1_build_consumed": true,
+  "commit_gate": "PASS",
+  "failures": [],
+  "instrument_built": true,
+  "instrument_id": "local_transition_family_discriminator_2deb5cd1",
+  "local_verification_status": "PASS",
+  "negative_controls_nonzero_count": 0,
+  "outcome_class": "C8_LOCAL_TRANSITION_FAMILY_DISCRIMINATOR_BUILT_AND_LOCALLY_VERIFIED",
+  "receipt_id": "c8_discriminator_build_receipt_81ea20cb",
+  "status": "TYPED_C8_LOCAL_TRANSITION_FAMILY_DISCRIMINATOR_BUILD_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_LOCAL_TRANSITION_FAMILY_DISCRIMINATOR_BUILT_READY_FOR_C8_RERUN",
+    "type": "STOP"
+  },
+  "verification_cases_passed": 3
+}
+
+VERIFY_GIT_IDENTITY
+
+BOUND_ADD_ONLY_DISCRIMINATOR_BUILD_ARTIFACTS
+
+VERIFY_NO_OUT_OF_SCOPE_STAGED_PATHS
+staged_path_count=9
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+discriminator_build_receipts_staged=['data/c8_local_transition_family_discriminator_v0_receipts/c8_discriminator_build_receipt_81ea20cb.json']
+
+BOOKKEEPING_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...transition_family_discriminator_readout_v0.json |  16 +
+ ...cal_transition_family_discriminator_report.json |  22 +
+ ...tion_family_discriminator_build_receipt_v0.json |  30 ++
+ ...ansition_family_discriminator_candidate_v0.json |  71 +++
+ ...family_discriminator_verification_cases_v0.json |  32 ++
+ ...mily_discriminator_verification_receipt_v0.json |  57 ++
+ .../c8_discriminator_build_receipt_81ea20cb.json   | 123 +++++
+ ...ded_local_transition_family_discriminator_v0.py | 596 +++++++++++++++++++++
+ 9 files changed, 953 insertions(+)
+
+BOOKKEEPING_COMMIT
+[master ff61b5494] Build C8 local transition family discriminator
+ 9 files changed, 953 insertions(+)
+ create mode 100644 data/c8_local_transition_family_discriminator_v0/c8_local_transition_family_discriminator_readout_v0.json
+ create mode 100644 data/c8_local_transition_family_discriminator_v0/c8_local_transition_family_discriminator_report.json
+ create mode 100644 data/c8_local_transition_family_discriminator_v0/local_transition_family_discriminator_build_receipt_v0.json
+ create mode 100644 data/c8_local_transition_family_discriminator_v0/local_transition_family_discriminator_candidate_v0.json
+ create mode 100644 data/c8_local_transition_family_discriminator_v0/local_transition_family_discriminator_verification_cases_v0.json
+ create mode 100644 data/c8_local_transition_family_discriminator_v0/local_transition_family_discriminator_verification_receipt_v0.json
+ create mode 100644 data/c8_local_transition_family_discriminator_v0_receipts/c8_discriminator_build_receipt_81ea20cb.json
+ create mode 100755 scripts/build_one_bounded_local_transition_family_discriminator_v0.py
+
+BOOKKEEPING_COMMIT_RECEIPT
+commit_sha=ff61b549406617188dca857052ef8d0ed416317a
+discriminator_build_receipt=data/c8_local_transition_family_discriminator_v0_receipts/c8_discriminator_build_receipt_81ea20cb.json
+build_outcome=C8_LOCAL_TRANSITION_FAMILY_DISCRIMINATOR_BUILT_AND_LOCALLY_VERIFIED
+instrument_id=local_transition_family_discriminator_2deb5cd1
+accepted_build_packet_id=accepted_instrument_build_packet_2e67943c
+proposal_id=missing_instrument_d56acf49
+instrument_built=true
+cell1_build_consumed=true
+local_verification_status=PASS
+verification_cases_passed=3
+c8_rerun_performed=false
+terminal_stop_code=STOP_C8_LOCAL_TRANSITION_FAMILY_DISCRIMINATOR_BUILT_READY_FOR_C8_RERUN
+
+STATUS_AFTER_COMMIT_RELEVANT
+
+BOOKKEEPING_COMMIT_C8_LOCAL_TRANSITION_FAMILY_DISCRIMINATOR_BUILD_COMPLETE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

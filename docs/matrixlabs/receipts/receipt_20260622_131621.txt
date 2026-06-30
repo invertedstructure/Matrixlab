@@ -1,0 +1,1141 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_131621
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_131621.txt
+
+BUILD_PROCEED_ADAPTER_V0_POLICY_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+VERIFY_PROCEED_ADAPTER_POLICY_INPUTS_TRACKED
+tracked data/jurisdiction_runner_v0_2_trace_ledger_hardening_implementation_receipts/cc24a11f.json
+tracked data/jurisdiction_runner_v0_2_trace_schemas/b4887660.json
+tracked data/jurisdiction_runner_v0_2_proposal_ledger_schemas/eee2a318.json
+tracked src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py
+tracked data/jurisdiction_runner_v0_2_trace_and_proposal_ledger_hardening_policies/b98866ad.json
+tracked data/local_regime_v1_declarations/25802530.json
+tracked data/jurisdiction_runner_v0_2_proposition_surface_upgrade_implementation_receipts/6b90ca5e.json
+tracked src/matrixlab/jurisdiction_runner_v0_2.py
+
+PATCH_GITIGNORE
+
+WRITE_PROCEED_ADAPTER_POLICY_BUILDER
+
+PY_COMPILE_PROCEED_ADAPTER_POLICY_BUILDER
+
+RUN_PROCEED_ADAPTER_POLICY_BUILDER
+{
+  "acceptance_gates": {
+    "P0_source_surface_verified": {
+      "description": "Source trace-ledger implementation, runner, local_regime.v1, trace schema, and ledger schema are tracked and path-addressed.",
+      "required": true
+    },
+    "P1_proceed_contract_declared": {
+      "description": "Proceed contract declares one-unit-only semantics and forbids implicit continuation/architecture widening.",
+      "required": true
+    },
+    "P2_unit_schema_and_registry_declared": {
+      "description": "Proceed unit schema and minimal unit registry are declared.",
+      "required": true
+    },
+    "P3_selector_declared": {
+      "description": "Smallest-lawful-unit selector is declared.",
+      "required": true
+    },
+    "P4_readout_and_authority_schemas_declared": {
+      "description": "Proceed readout, authority check, local gotcha, and taxonomy pressure schemas are declared.",
+      "required": true
+    },
+    "P5_demo_implementation_required": {
+      "description": "Next unit must implement demo fixtures proving one-unit proceed semantics.",
+      "required": true
+    },
+    "P6_no_source_runner_or_regime_mutation": {
+      "description": "Policy does not mutate source runner, source regime, traces, receipts, ledgers, or registry.",
+      "required": true
+    }
+  },
+  "authority_check_schema": {
+    "allowed_inputs": [
+      "declared_current_surface_manifest",
+      "declared_runner_module",
+      "declared_local_regime",
+      "declared_trace_schema",
+      "declared_proposal_ledger_schema",
+      "declared_receipt_ref",
+      "declared_trace_ref",
+      "declared_ledger_ref",
+      "declared_proceed_unit_registry",
+      "declared_halt_vocabulary"
+    ],
+    "forbidden_inputs": [
+      "latest_file_guessing",
+      "mtime_selection",
+      "ambient_workspace_inference",
+      "hidden_memory_authority",
+      "prose_only_promotion",
+      "unregistered_moves",
+      "architecture_widening_by_convenience"
+    ],
+    "required_fields": [
+      "allowed_inputs_used",
+      "forbidden_inputs_detected",
+      "authority_status"
+    ],
+    "schema_version": "authority_check_schema_v0"
+  },
+  "authority_guards": {
+    "adapter_executed_by_policy": false,
+    "adapter_implemented_by_policy": false,
+    "final_schema_claimed": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "ledger_modified_by_policy": false,
+    "proceed_policy_built": true,
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_promoted": false,
+    "readout_emitted_by_policy": false,
+    "receipt_modified_by_policy": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "source_regime_modified_by_policy": false,
+    "source_regime_read": true,
+    "source_runner_modified_by_policy": false,
+    "source_runner_read": true,
+    "source_trace_ledger_surface_consumed": true,
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false,
+    "trace_modified_by_policy": false
+  },
+  "authorized_operations_next": {
+    "emit_demo_readouts": true,
+    "emit_demo_receipts": true,
+    "emit_implementation_receipt": true,
+    "execute_proceed_adapter_demo_fixtures": true,
+    "read_current_surface_manifest": true,
+    "read_proceed_policy": true,
+    "read_proceed_policy_receipt": true,
+    "read_source_local_regime_v1": true,
+    "read_source_trace_ledger_runner": true,
+    "write_authority_check_schema": true,
+    "write_current_surface_manifest_schema": true,
+    "write_demo_fixtures": true,
+    "write_local_gotcha_record_schema": true,
+    "write_proceed_adapter_module": true,
+    "write_proceed_contract": true,
+    "write_proceed_readout_schema": true,
+    "write_proceed_selector": true,
+    "write_proceed_unit_registry": true,
+    "write_proceed_unit_schema": true,
+    "write_taxonomy_pressure_record_stub": true
+  },
+  "created_at": "2026-06-22T12:16:22.946758+00:00",
+  "current_surface_manifest": {
+    "authority_boundary": {
+      "ambient_workspace_authority_allowed": false,
+      "latest_or_mtime_selection_allowed": false,
+      "path_addressed_only": true
+    },
+    "current_ledger_ref": null,
+    "current_receipt_ref": {
+      "receipt_id": "cc24a11f",
+      "receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_implementation_receipts/cc24a11f.json"
+    },
+    "current_trace_ref": null,
+    "schema_version": "current_surface_manifest_v0",
+    "source_implementation_receipt_id": "cc24a11f",
+    "source_implementation_receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_implementation_receipts/cc24a11f.json",
+    "source_local_regime_hash": "25802530",
+    "source_local_regime_version": "local_regime.v1",
+    "source_proposal_ledger_schema_id": "eee2a318",
+    "source_proposal_ledger_schema_path": "data/jurisdiction_runner_v0_2_proposal_ledger_schemas/eee2a318.json",
+    "source_runner_module_path": "src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py",
+    "source_runner_unit_id": "jurisdiction_runner.v0.2.trace_ledger_hardened",
+    "source_trace_schema_id": "b4887660",
+    "source_trace_schema_path": "data/jurisdiction_runner_v0_2_trace_schemas/b4887660.json",
+    "surface_manifest_id": "1fe70f89"
+  },
+  "current_surface_manifest_schema": {
+    "authority_boundary": "all refs must be path-addressed; latest/mtime/ambient inference forbidden",
+    "required_fields": [
+      "source_runner_unit_id",
+      "source_runner_module_path",
+      "source_local_regime_version",
+      "source_local_regime_hash",
+      "source_trace_schema_id",
+      "source_trace_schema_path",
+      "source_proposal_ledger_schema_id",
+      "source_proposal_ledger_schema_path",
+      "source_implementation_receipt_id",
+      "current_receipt_ref",
+      "current_trace_ref",
+      "current_ledger_ref"
+    ],
+    "schema_version": "current_surface_manifest_schema_v0"
+  },
+  "failures": [],
+  "forbidden_operations_next": {
+    "accept_taxonomy_delta": true,
+    "alter_source_ledger": true,
+    "alter_source_receipt": true,
+    "alter_source_trace": true,
+    "ambient_workspace_authority": true,
+    "execute_or_apply_proposal": true,
+    "final_schema_claim": true,
+    "full_registry_scan": true,
+    "global_taxonomy_design": true,
+    "hidden_continuation_after_terminal": true,
+    "latest_or_mtime_selection": true,
+    "modify_jurisdiction_runner_v0_1": true,
+    "modify_jurisdiction_runner_v0_2": true,
+    "modify_source_trace_ledger_runner": true,
+    "mutate_local_regime_at_runtime": true,
+    "promote_proposal_without_human_review": true,
+    "promote_taxonomy_delta": true,
+    "proof_claim": true,
+    "replace_local_regime_v1": true,
+    "sqlite_registry_read": true,
+    "sqlite_registry_write": true
+  },
+  "gate": "PASS",
+  "local_gotcha_record_schema": {
+    "law": {
+      "may_alter_readout_or_projection_artifact": true,
+      "may_alter_source_ledger": false,
+      "may_alter_source_receipt": false,
+      "may_alter_source_regime": false,
+      "may_alter_source_runner": false,
+      "may_alter_source_trace": false
+    },
+    "required_fields": [
+      "gotcha_id",
+      "kind",
+      "observed",
+      "corrected_to",
+      "basis",
+      "semantic_widening",
+      "source_trace_modified",
+      "source_receipt_modified",
+      "source_ledger_modified",
+      "source_runner_modified",
+      "source_regime_modified"
+    ],
+    "schema_version": "local_gotcha_record_schema_v0"
+  },
+  "policy_id": "e6b3dcfc",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "policy_summary": {
+    "core_law": "proceed advances exactly one smallest lawful unit from the current typed surface.",
+    "non_goal": "no architecture widening, rich jurisdiction, full taxonomy evolution, hidden authority, or implicit continuation",
+    "purpose": "Make proceed a bounded executable adapter command over the hardened trace-ledger runner surface."
+  },
+  "proceed_contract": {
+    "authority_rule": "use only declared current surface manifest",
+    "command": "proceed",
+    "contract_id": "proceed_contract.v0",
+    "core_law": {
+      "proceed_is_not_continue_forever": true,
+      "proceed_is_not_missing_architecture_inference": true,
+      "proceed_is_not_redesign": true,
+      "proceed_is_not_silent_semantic_repair": true,
+      "proceed_is_one_smallest_lawful_advancement": true
+    },
+    "meaning": "advance one smallest lawful unit from the current typed surface",
+    "output_rule": "emit proceed readout, trace delta, receipt/projection delta, ledger delta, or typed stop",
+    "repair_rule": "local visible gotchas only; no semantic widening",
+    "schema_version": "proceed_contract_v0",
+    "taxonomy_rule": "taxonomy pressure may be recorded but not self-accepted",
+    "terminal_rule": "ADVANCE(next_unit_id) or STOP(stop_code)",
+    "unit_rule": "one unit only"
+  },
+  "proceed_readout_schema": {
+    "required_fields": [
+      "readout_id",
+      "schema_version",
+      "unit_id",
+      "source_surface_manifest_ref",
+      "start_state_sig8",
+      "final_state_sig8",
+      "selected_unit",
+      "selected_move_or_repair",
+      "reason",
+      "state_change",
+      "visible_gotchas_fixed",
+      "trace_delta",
+      "receipt_or_projection_delta",
+      "ledger_delta",
+      "authority_check",
+      "taxonomy_pressure",
+      "terminal_result"
+    ],
+    "schema_version": "proceed_readout_schema_v0",
+    "terminal_result_law": {
+      "ADVANCE_requires_next_unit_id_non_null_and_stop_code_null": true,
+      "STOP_requires_stop_code_non_null_and_next_unit_id_null": true
+    }
+  },
+  "proceed_selector": {
+    "schema_version": "proceed_selector_v0",
+    "selection_law": [
+      "if projection/readout mismatch exists select repair_projection_unit",
+      "else if receipt/trace mismatch exists select repair_receipt_unit",
+      "else if declared unit is incomplete select declared_unit",
+      "else if blocking object is under-typed STOP_UNDERTYPED_OBJECT",
+      "else if halt vocabulary cannot classify stop STOP_TAXONOMY_GAP",
+      "else if next move is missing STOP_NEEDS_NEW_MOVE",
+      "else STOP_NEXT_MOVE_BOUNDARY or STOP_DONE"
+    ],
+    "selection_order": [
+      "repair visible projection/readout mismatch",
+      "repair visible receipt/trace mismatch",
+      "complete already-declared unit",
+      "type under-typed object blocking movement",
+      "record smallest halt/taxonomy pressure forced by failure",
+      "stop if next move is missing",
+      "stop at next move boundary or done"
+    ],
+    "selector_id": "proceed_selector.smallest_lawful_unit.v0"
+  },
+  "proceed_stop_set": [
+    "STOP_DONE",
+    "STOP_NEXT_MOVE_BOUNDARY",
+    "STOP_VISIBLE_GOTCHA",
+    "STOP_PROJECTION_BUG",
+    "STOP_RECEIPT_MISMATCH",
+    "STOP_UNTYPED_UNIT",
+    "STOP_UNDERTYPED_OBJECT",
+    "STOP_TAXONOMY_GAP",
+    "STOP_NEEDS_NEW_MOVE",
+    "STOP_NEEDS_EXTRACTION",
+    "STOP_AUTHORITY_VIOLATION",
+    "STOP_LAYER_COLLAPSE",
+    "STOP_GATE_FAIL"
+  ],
+  "proceed_unit_registry": {
+    "registry_id": "proceed_unit_registry.v0",
+    "schema_version": "proceed_unit_registry_v0",
+    "units": [
+      {
+        "advance_on_pass": "proceed.unit.execute_declared_runner_unit.v0",
+        "possible_stops": [
+          "STOP_UNTYPED_UNIT",
+          "STOP_DEPENDENCY_MISSING",
+          "STOP_AUTHORITY_VIOLATION"
+        ],
+        "priority": 10,
+        "purpose": "Check declared current surface manifest and source artifacts.",
+        "unit_id": "proceed.unit.validate_current_surface.v0"
+      },
+      {
+        "advance_on_pass": "proceed.unit.verify_readout_against_trace.v0",
+        "possible_stops": [
+          "STOP_GATE_FAIL",
+          "STOP_RECEIPT_MISMATCH",
+          "STOP_NEXT_MOVE_BOUNDARY"
+        ],
+        "priority": 20,
+        "purpose": "Execute exactly one declared runner/adapter unit using allowed inputs only.",
+        "unit_id": "proceed.unit.execute_declared_runner_unit.v0"
+      },
+      {
+        "advance_on_pass": "proceed.unit.emit_next_boundary.v0",
+        "possible_stops": [
+          "STOP_PROJECTION_BUG",
+          "STOP_RECEIPT_MISMATCH",
+          "STOP_VISIBLE_GOTCHA"
+        ],
+        "priority": 30,
+        "purpose": "Verify visible proceed readout agrees with trace, receipt, and ledger deltas.",
+        "unit_id": "proceed.unit.verify_readout_against_trace.v0"
+      },
+      {
+        "advance_on_pass": null,
+        "possible_stops": [
+          "STOP_DONE",
+          "STOP_NEXT_MOVE_BOUNDARY",
+          "STOP_TAXONOMY_GAP",
+          "STOP_NEEDS_NEW_MOVE"
+        ],
+        "priority": 40,
+        "purpose": "Emit terminal boundary and prevent implicit continuation.",
+        "unit_id": "proceed.unit.emit_next_boundary.v0"
+      }
+    ]
+  },
+  "proceed_unit_schema": {
+    "required_fields": [
+      "unit_id",
+      "unit_scope",
+      "layer",
+      "mode",
+      "active_object",
+      "current_surface_manifest_ref",
+      "allowed_inputs",
+      "forbidden_inputs",
+      "lawful_move_or_repair_target",
+      "expected_readout",
+      "terminal_condition"
+    ],
+    "schema_version": "proceed_unit_schema_v0",
+    "unit_scope_required_fields": [
+      "layer",
+      "active_object",
+      "may_read",
+      "may_write",
+      "must_not_touch"
+    ]
+  },
+  "receipt_id": "f953a9f0",
+  "receipt_type": "PROCEED_ADAPTER_V0_POLICY_RECEIPT",
+  "required_demo_cases": {
+    "PROCEED_ADVANCES_ONE_NAMED_UNIT": {
+      "expected_selected_unit": "proceed.unit.validate_current_surface.v0",
+      "expected_units_advanced_count": 1,
+      "purpose": "Proceed selects exactly one named unit from the declared current surface."
+    },
+    "PROCEED_AUTHORITY_CHECK_REJECTS_FORBIDDEN_INPUTS": {
+      "expected_forbidden_input_stop": "STOP_AUTHORITY_VIOLATION",
+      "purpose": "Proceed readout records allowed inputs and stops on forbidden latest/mtime/ambient authority."
+    },
+    "PROCEED_LOCAL_GOTCHA_RECORD_ONLY": {
+      "expected_semantic_widening": false,
+      "purpose": "Visible local gotcha can be recorded/fixed only in readout/projection, without changing source trace/receipt/ledger/runner/regime."
+    },
+    "PROCEED_READOUT_REFERENCES_TRACE_RECEIPT_LEDGER": {
+      "expected_ledger_delta_present": true,
+      "expected_receipt_delta_present": true,
+      "expected_trace_delta_present": true,
+      "purpose": "Proceed readout references trace, receipt/projection, and ledger deltas from declared surface."
+    },
+    "PROCEED_TAXONOMY_PRESSURE_RECORDED_ONLY": {
+      "expected_taxonomy_delta_applied": false,
+      "expected_taxonomy_status": "RECORDED_ONLY",
+      "purpose": "Taxonomy pressure may be recorded but not accepted, promoted, or applied."
+    },
+    "PROCEED_TERMINAL_BOUNDARY_NO_IMPLICIT_CONTINUATION": {
+      "expected_hidden_continuation": false,
+      "purpose": "Proceed terminates as ADVANCE(next_unit_id) or STOP(stop_code), never hidden continuation."
+    }
+  },
+  "required_implementation_artifacts": {
+    "adapter_module": "src/matrixlab/proceed_adapter_v0.py",
+    "authority_check_schema": "data/proceed_adapter_v0_authority_check_schemas/<schema_id>.json",
+    "current_surface_manifest_schema": "data/proceed_adapter_v0_surface_manifest_schemas/<schema_id>.json",
+    "demo_fixtures": "data/proceed_adapter_v0_demo_fixtures/*.json",
+    "demo_readouts": "data/proceed_adapter_v0_demo_readouts/*.json",
+    "demo_receipts": "data/proceed_adapter_v0_demo_receipts/*.json",
+    "implementation_receipt": "data/proceed_adapter_v0_implementation_receipts/<receipt_id>.json",
+    "local_gotcha_schema": "data/proceed_adapter_v0_local_gotcha_schemas/<schema_id>.json",
+    "proceed_contract": "data/proceed_adapter_v0_contracts/<contract_id>.json",
+    "proceed_readout_schema": "data/proceed_adapter_v0_readout_schemas/<schema_id>.json",
+    "proceed_selector": "data/proceed_adapter_v0_selectors/<selector_id>.json",
+    "proceed_unit_registry": "data/proceed_adapter_v0_unit_registries/<registry_id>.json",
+    "proceed_unit_schema": "data/proceed_adapter_v0_unit_schemas/<schema_id>.json",
+    "taxonomy_pressure_stub": "data/proceed_adapter_v0_taxonomy_pressure_stubs/<stub_id>.json"
+  },
+  "safety_clauses": {
+    "does_not_accept_or_promote_taxonomy_delta": true,
+    "does_not_apply_or_promote_proposal": true,
+    "does_not_claim_final_taxonomy": true,
+    "does_not_claim_global_correctness": true,
+    "does_not_claim_theorem_closure": true,
+    "does_not_emit_readout": true,
+    "does_not_execute_adapter": true,
+    "does_not_implement_adapter": true,
+    "does_not_modify_source_regime": true,
+    "does_not_modify_source_runner": true,
+    "does_not_modify_source_trace_receipt_or_ledger": true,
+    "does_not_write_registry": true,
+    "next_unit_required_for_implementation": true,
+    "policy_only": true
+  },
+  "schema_version": "proceed_adapter_v0_policy_receipt_v0",
+  "source_local_regime_hash": "25802530",
+  "source_local_regime_version": "local_regime.v1",
+  "source_proposal_ledger_schema_id": "eee2a318",
+  "source_runner_unit_id": "jurisdiction_runner.v0.2.trace_ledger_hardened",
+  "source_trace_ledger_implementation_receipt_id": "cc24a11f",
+  "source_trace_schema_id": "b4887660",
+  "target_adapter_unit_id": "proceed_adapter.v0",
+  "taxonomy_pressure_record_stub": {
+    "allowed_status": [
+      "NONE",
+      "RECORDED_ONLY"
+    ],
+    "law": {
+      "may_accept_taxonomy_delta": false,
+      "may_add_new_move_automatically": false,
+      "may_mutate_taxonomy_registry": false,
+      "may_promote_new_halt_vocab": false,
+      "may_record_pressure": true
+    },
+    "required_fields": [
+      "detected",
+      "trigger_halt",
+      "observed_pressure",
+      "status",
+      "taxonomy_delta_applied",
+      "taxonomy_delta_promoted"
+    ],
+    "schema_version": "taxonomy_pressure_record_stub_v0"
+  },
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_PROCEED_ADAPTER_V0_WITH_DEMO_FIXTURES_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "unit_id": "BUILD_PROCEED_ADAPTER_V0_POLICY_V0",
+  "warnings": []
+}
+proceed_adapter_policy_id=e6b3dcfc
+proceed_adapter_policy_receipt_id=f953a9f0
+proceed_adapter_policy_path=data/proceed_adapter_v0_policies/e6b3dcfc.json
+proceed_adapter_policy_receipt_path=data/proceed_adapter_v0_policy_receipts/e6b3dcfc.json
+PROCEED_ADAPTER_POLICY_ID=e6b3dcfc
+PROCEED_ADAPTER_POLICY_RECEIPT_ID=f953a9f0
+
+ASSERT_PROCEED_ADAPTER_POLICY
+{
+  "acceptance_gates": [
+    "P0_source_surface_verified",
+    "P1_proceed_contract_declared",
+    "P2_unit_schema_and_registry_declared",
+    "P3_selector_declared",
+    "P4_readout_and_authority_schemas_declared",
+    "P5_demo_implementation_required",
+    "P6_no_source_runner_or_regime_mutation"
+  ],
+  "authority_guards": {
+    "adapter_executed_by_policy": false,
+    "adapter_implemented_by_policy": false,
+    "final_schema_claimed": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "ledger_modified_by_policy": false,
+    "proceed_policy_built": true,
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_promoted": false,
+    "readout_emitted_by_policy": false,
+    "receipt_modified_by_policy": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "source_regime_modified_by_policy": false,
+    "source_regime_read": true,
+    "source_runner_modified_by_policy": false,
+    "source_runner_read": true,
+    "source_trace_ledger_surface_consumed": true,
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false,
+    "trace_modified_by_policy": false
+  },
+  "gate": "PASS",
+  "policy_id": "e6b3dcfc",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "policy_summary": {
+    "core_law": "proceed advances exactly one smallest lawful unit from the current typed surface.",
+    "non_goal": "no architecture widening, rich jurisdiction, full taxonomy evolution, hidden authority, or implicit continuation",
+    "purpose": "Make proceed a bounded executable adapter command over the hardened trace-ledger runner surface."
+  },
+  "receipt_id": "f953a9f0",
+  "required_demo_cases": [
+    "PROCEED_ADVANCES_ONE_NAMED_UNIT",
+    "PROCEED_AUTHORITY_CHECK_REJECTS_FORBIDDEN_INPUTS",
+    "PROCEED_LOCAL_GOTCHA_RECORD_ONLY",
+    "PROCEED_READOUT_REFERENCES_TRACE_RECEIPT_LEDGER",
+    "PROCEED_TAXONOMY_PRESSURE_RECORDED_ONLY",
+    "PROCEED_TERMINAL_BOUNDARY_NO_IMPLICIT_CONTINUATION"
+  ],
+  "source_proposal_ledger_schema_id": "eee2a318",
+  "source_runner_unit_id": "jurisdiction_runner.v0.2.trace_ledger_hardened",
+  "source_trace_schema_id": "b4887660",
+  "target_adapter_unit_id": "proceed_adapter.v0",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_PROCEED_ADAPTER_V0_WITH_DEMO_FIXTURES_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_PROCEED_ADAPTER_POLICY_NON_WRITING
+{
+  "case": "source_hidden_next_fail",
+  "failures": [
+    "trace_ledger_terminal_next_not_null:{'next_command_goal': 'HIDDEN_NEXT', 'stop_code': 'STOP_DONE', 'type': 'STOP'}"
+  ]
+}
+{
+  "case": "source_trace_consistency_fail",
+  "failures": [
+    "trace_consistency_failures_nonzero:1"
+  ]
+}
+{
+  "case": "source_proposal_executed_fail",
+  "failures": [
+    "trace_ledger_metric_not_zero:runtime_proposal_executed_count:1"
+  ]
+}
+{
+  "case": "ledger_scope_fail",
+  "failures": [
+    "ledger_scope_wrong:sqlite authority"
+  ]
+}
+{
+  "case": "local_regime_hash_fail",
+  "failures": [
+    "local_regime_v1_hash_wrong:badbad00"
+  ]
+}
+{
+  "after": {
+    "policy": "77ef76cf9ae16f3a564a847c75a005685849f1d6bb68992a99199440cfdd0e4d",
+    "receipt": "be678069c93f42c5a74cf7f3e178427b9c5891e4887758a403925cda68946f97"
+  },
+  "before": {
+    "policy": "77ef76cf9ae16f3a564a847c75a005685849f1d6bb68992a99199440cfdd0e4d",
+    "receipt": "be678069c93f42c5a74cf7f3e178427b9c5891e4887758a403925cda68946f97"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+VERIFY_NO_RUNTIME_OR_REGISTRY_MUTATION
+.gitignore
+runtime and sqlite registry untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/build_proceed_adapter_v0_policy_v0.py
+
+PACKAGE_PROCEED_ADAPTER_POLICY_ARTIFACTS
+packaged data/proceed_adapter_v0_policies/e6b3dcfc.json
+packaged data/proceed_adapter_v0_policy_receipts/e6b3dcfc.json
+[master 63c98db37] build proceed adapter v0 policy
+ 4 files changed, 1722 insertions(+)
+ create mode 100644 data/proceed_adapter_v0_policies/e6b3dcfc.json
+ create mode 100644 data/proceed_adapter_v0_policy_receipts/e6b3dcfc.json
+ create mode 100755 scripts/build_proceed_adapter_v0_policy_v0.py
+
+COMMIT_DONE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+NEXT_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+proceed_adapter_policy_id=e6b3dcfc
+proceed_adapter_policy_receipt_id=f953a9f0
+proceed_adapter_policy_path=data/proceed_adapter_v0_policies/e6b3dcfc.json
+proceed_adapter_policy_receipt_path=data/proceed_adapter_v0_policy_receipts/e6b3dcfc.json
+{
+  "acceptance_gates": {
+    "P0_source_surface_verified": {
+      "description": "Source trace-ledger implementation, runner, local_regime.v1, trace schema, and ledger schema are tracked and path-addressed.",
+      "required": true
+    },
+    "P1_proceed_contract_declared": {
+      "description": "Proceed contract declares one-unit-only semantics and forbids implicit continuation/architecture widening.",
+      "required": true
+    },
+    "P2_unit_schema_and_registry_declared": {
+      "description": "Proceed unit schema and minimal unit registry are declared.",
+      "required": true
+    },
+    "P3_selector_declared": {
+      "description": "Smallest-lawful-unit selector is declared.",
+      "required": true
+    },
+    "P4_readout_and_authority_schemas_declared": {
+      "description": "Proceed readout, authority check, local gotcha, and taxonomy pressure schemas are declared.",
+      "required": true
+    },
+    "P5_demo_implementation_required": {
+      "description": "Next unit must implement demo fixtures proving one-unit proceed semantics.",
+      "required": true
+    },
+    "P6_no_source_runner_or_regime_mutation": {
+      "description": "Policy does not mutate source runner, source regime, traces, receipts, ledgers, or registry.",
+      "required": true
+    }
+  },
+  "authority_check_schema": {
+    "allowed_inputs": [
+      "declared_current_surface_manifest",
+      "declared_runner_module",
+      "declared_local_regime",
+      "declared_trace_schema",
+      "declared_proposal_ledger_schema",
+      "declared_receipt_ref",
+      "declared_trace_ref",
+      "declared_ledger_ref",
+      "declared_proceed_unit_registry",
+      "declared_halt_vocabulary"
+    ],
+    "forbidden_inputs": [
+      "latest_file_guessing",
+      "mtime_selection",
+      "ambient_workspace_inference",
+      "hidden_memory_authority",
+      "prose_only_promotion",
+      "unregistered_moves",
+      "architecture_widening_by_convenience"
+    ],
+    "required_fields": [
+      "allowed_inputs_used",
+      "forbidden_inputs_detected",
+      "authority_status"
+    ],
+    "schema_version": "authority_check_schema_v0"
+  },
+  "authority_guards": {
+    "adapter_executed_by_policy": false,
+    "adapter_implemented_by_policy": false,
+    "final_schema_claimed": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "ledger_modified_by_policy": false,
+    "proceed_policy_built": true,
+    "proof_claimed": false,
+    "proposal_executed": false,
+    "proposal_promoted": false,
+    "readout_emitted_by_policy": false,
+    "receipt_modified_by_policy": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "source_regime_modified_by_policy": false,
+    "source_regime_read": true,
+    "source_runner_modified_by_policy": false,
+    "source_runner_read": true,
+    "source_trace_ledger_surface_consumed": true,
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false,
+    "trace_modified_by_policy": false
+  },
+  "authorized_operations_next": {
+    "emit_demo_readouts": true,
+    "emit_demo_receipts": true,
+    "emit_implementation_receipt": true,
+    "execute_proceed_adapter_demo_fixtures": true,
+    "read_current_surface_manifest": true,
+    "read_proceed_policy": true,
+    "read_proceed_policy_receipt": true,
+    "read_source_local_regime_v1": true,
+    "read_source_trace_ledger_runner": true,
+    "write_authority_check_schema": true,
+    "write_current_surface_manifest_schema": true,
+    "write_demo_fixtures": true,
+    "write_local_gotcha_record_schema": true,
+    "write_proceed_adapter_module": true,
+    "write_proceed_contract": true,
+    "write_proceed_readout_schema": true,
+    "write_proceed_selector": true,
+    "write_proceed_unit_registry": true,
+    "write_proceed_unit_schema": true,
+    "write_taxonomy_pressure_record_stub": true
+  },
+  "current_surface_manifest": {
+    "authority_boundary": {
+      "ambient_workspace_authority_allowed": false,
+      "latest_or_mtime_selection_allowed": false,
+      "path_addressed_only": true
+    },
+    "current_ledger_ref": null,
+    "current_receipt_ref": {
+      "receipt_id": "cc24a11f",
+      "receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_implementation_receipts/cc24a11f.json"
+    },
+    "current_trace_ref": null,
+    "schema_version": "current_surface_manifest_v0",
+    "source_implementation_receipt_id": "cc24a11f",
+    "source_implementation_receipt_path": "data/jurisdiction_runner_v0_2_trace_ledger_hardening_implementation_receipts/cc24a11f.json",
+    "source_local_regime_hash": "25802530",
+    "source_local_regime_version": "local_regime.v1",
+    "source_proposal_ledger_schema_id": "eee2a318",
+    "source_proposal_ledger_schema_path": "data/jurisdiction_runner_v0_2_proposal_ledger_schemas/eee2a318.json",
+    "source_runner_module_path": "src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py",
+    "source_runner_unit_id": "jurisdiction_runner.v0.2.trace_ledger_hardened",
+    "source_trace_schema_id": "b4887660",
+    "source_trace_schema_path": "data/jurisdiction_runner_v0_2_trace_schemas/b4887660.json",
+    "surface_manifest_id": "1fe70f89"
+  },
+  "forbidden_operations_next": {
+    "accept_taxonomy_delta": true,
+    "alter_source_ledger": true,
+    "alter_source_receipt": true,
+    "alter_source_trace": true,
+    "ambient_workspace_authority": true,
+    "execute_or_apply_proposal": true,
+    "final_schema_claim": true,
+    "full_registry_scan": true,
+    "global_taxonomy_design": true,
+    "hidden_continuation_after_terminal": true,
+    "latest_or_mtime_selection": true,
+    "modify_jurisdiction_runner_v0_1": true,
+    "modify_jurisdiction_runner_v0_2": true,
+    "modify_source_trace_ledger_runner": true,
+    "mutate_local_regime_at_runtime": true,
+    "promote_proposal_without_human_review": true,
+    "promote_taxonomy_delta": true,
+    "proof_claim": true,
+    "replace_local_regime_v1": true,
+    "sqlite_registry_read": true,
+    "sqlite_registry_write": true
+  },
+  "gate": "PASS",
+  "local_gotcha_record_schema": {
+    "law": {
+      "may_alter_readout_or_projection_artifact": true,
+      "may_alter_source_ledger": false,
+      "may_alter_source_receipt": false,
+      "may_alter_source_regime": false,
+      "may_alter_source_runner": false,
+      "may_alter_source_trace": false
+    },
+    "required_fields": [
+      "gotcha_id",
+      "kind",
+      "observed",
+      "corrected_to",
+      "basis",
+      "semantic_widening",
+      "source_trace_modified",
+      "source_receipt_modified",
+      "source_ledger_modified",
+      "source_runner_modified",
+      "source_regime_modified"
+    ],
+    "schema_version": "local_gotcha_record_schema_v0"
+  },
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "policy_summary": {
+    "core_law": "proceed advances exactly one smallest lawful unit from the current typed surface.",
+    "non_goal": "no architecture widening, rich jurisdiction, full taxonomy evolution, hidden authority, or implicit continuation",
+    "purpose": "Make proceed a bounded executable adapter command over the hardened trace-ledger runner surface."
+  },
+  "proceed_contract": {
+    "authority_rule": "use only declared current surface manifest",
+    "command": "proceed",
+    "contract_id": "proceed_contract.v0",
+    "core_law": {
+      "proceed_is_not_continue_forever": true,
+      "proceed_is_not_missing_architecture_inference": true,
+      "proceed_is_not_redesign": true,
+      "proceed_is_not_silent_semantic_repair": true,
+      "proceed_is_one_smallest_lawful_advancement": true
+    },
+    "meaning": "advance one smallest lawful unit from the current typed surface",
+    "output_rule": "emit proceed readout, trace delta, receipt/projection delta, ledger delta, or typed stop",
+    "repair_rule": "local visible gotchas only; no semantic widening",
+    "schema_version": "proceed_contract_v0",
+    "taxonomy_rule": "taxonomy pressure may be recorded but not self-accepted",
+    "terminal_rule": "ADVANCE(next_unit_id) or STOP(stop_code)",
+    "unit_rule": "one unit only"
+  },
+  "proceed_readout_schema": {
+    "required_fields": [
+      "readout_id",
+      "schema_version",
+      "unit_id",
+      "source_surface_manifest_ref",
+      "start_state_sig8",
+      "final_state_sig8",
+      "selected_unit",
+      "selected_move_or_repair",
+      "reason",
+      "state_change",
+      "visible_gotchas_fixed",
+      "trace_delta",
+      "receipt_or_projection_delta",
+      "ledger_delta",
+      "authority_check",
+      "taxonomy_pressure",
+      "terminal_result"
+    ],
+    "schema_version": "proceed_readout_schema_v0",
+    "terminal_result_law": {
+      "ADVANCE_requires_next_unit_id_non_null_and_stop_code_null": true,
+      "STOP_requires_stop_code_non_null_and_next_unit_id_null": true
+    }
+  },
+  "proceed_selector": {
+    "schema_version": "proceed_selector_v0",
+    "selection_law": [
+      "if projection/readout mismatch exists select repair_projection_unit",
+      "else if receipt/trace mismatch exists select repair_receipt_unit",
+      "else if declared unit is incomplete select declared_unit",
+      "else if blocking object is under-typed STOP_UNDERTYPED_OBJECT",
+      "else if halt vocabulary cannot classify stop STOP_TAXONOMY_GAP",
+      "else if next move is missing STOP_NEEDS_NEW_MOVE",
+      "else STOP_NEXT_MOVE_BOUNDARY or STOP_DONE"
+    ],
+    "selection_order": [
+      "repair visible projection/readout mismatch",
+      "repair visible receipt/trace mismatch",
+      "complete already-declared unit",
+      "type under-typed object blocking movement",
+      "record smallest halt/taxonomy pressure forced by failure",
+      "stop if next move is missing",
+      "stop at next move boundary or done"
+    ],
+    "selector_id": "proceed_selector.smallest_lawful_unit.v0"
+  },
+  "proceed_stop_set": [
+    "STOP_DONE",
+    "STOP_NEXT_MOVE_BOUNDARY",
+    "STOP_VISIBLE_GOTCHA",
+    "STOP_PROJECTION_BUG",
+    "STOP_RECEIPT_MISMATCH",
+    "STOP_UNTYPED_UNIT",
+    "STOP_UNDERTYPED_OBJECT",
+    "STOP_TAXONOMY_GAP",
+    "STOP_NEEDS_NEW_MOVE",
+    "STOP_NEEDS_EXTRACTION",
+    "STOP_AUTHORITY_VIOLATION",
+    "STOP_LAYER_COLLAPSE",
+    "STOP_GATE_FAIL"
+  ],
+  "proceed_unit_registry": {
+    "registry_id": "proceed_unit_registry.v0",
+    "schema_version": "proceed_unit_registry_v0",
+    "units": [
+      {
+        "advance_on_pass": "proceed.unit.execute_declared_runner_unit.v0",
+        "possible_stops": [
+          "STOP_UNTYPED_UNIT",
+          "STOP_DEPENDENCY_MISSING",
+          "STOP_AUTHORITY_VIOLATION"
+        ],
+        "priority": 10,
+        "purpose": "Check declared current surface manifest and source artifacts.",
+        "unit_id": "proceed.unit.validate_current_surface.v0"
+      },
+      {
+        "advance_on_pass": "proceed.unit.verify_readout_against_trace.v0",
+        "possible_stops": [
+          "STOP_GATE_FAIL",
+          "STOP_RECEIPT_MISMATCH",
+          "STOP_NEXT_MOVE_BOUNDARY"
+        ],
+        "priority": 20,
+        "purpose": "Execute exactly one declared runner/adapter unit using allowed inputs only.",
+        "unit_id": "proceed.unit.execute_declared_runner_unit.v0"
+      },
+      {
+        "advance_on_pass": "proceed.unit.emit_next_boundary.v0",
+        "possible_stops": [
+          "STOP_PROJECTION_BUG",
+          "STOP_RECEIPT_MISMATCH",
+          "STOP_VISIBLE_GOTCHA"
+        ],
+        "priority": 30,
+        "purpose": "Verify visible proceed readout agrees with trace, receipt, and ledger deltas.",
+        "unit_id": "proceed.unit.verify_readout_against_trace.v0"
+      },
+      {
+        "advance_on_pass": null,
+        "possible_stops": [
+          "STOP_DONE",
+          "STOP_NEXT_MOVE_BOUNDARY",
+          "STOP_TAXONOMY_GAP",
+          "STOP_NEEDS_NEW_MOVE"
+        ],
+        "priority": 40,
+        "purpose": "Emit terminal boundary and prevent implicit continuation.",
+        "unit_id": "proceed.unit.emit_next_boundary.v0"
+      }
+    ]
+  },
+  "proceed_unit_schema": {
+    "required_fields": [
+      "unit_id",
+      "unit_scope",
+      "layer",
+      "mode",
+      "active_object",
+      "current_surface_manifest_ref",
+      "allowed_inputs",
+      "forbidden_inputs",
+      "lawful_move_or_repair_target",
+      "expected_readout",
+      "terminal_condition"
+    ],
+    "schema_version": "proceed_unit_schema_v0",
+    "unit_scope_required_fields": [
+      "layer",
+      "active_object",
+      "may_read",
+      "may_write",
+      "must_not_touch"
+    ]
+  },
+  "required_demo_cases": {
+    "PROCEED_ADVANCES_ONE_NAMED_UNIT": {
+      "expected_selected_unit": "proceed.unit.validate_current_surface.v0",
+      "expected_units_advanced_count": 1,
+      "purpose": "Proceed selects exactly one named unit from the declared current surface."
+    },
+    "PROCEED_AUTHORITY_CHECK_REJECTS_FORBIDDEN_INPUTS": {
+      "expected_forbidden_input_stop": "STOP_AUTHORITY_VIOLATION",
+      "purpose": "Proceed readout records allowed inputs and stops on forbidden latest/mtime/ambient authority."
+    },
+    "PROCEED_LOCAL_GOTCHA_RECORD_ONLY": {
+      "expected_semantic_widening": false,
+      "purpose": "Visible local gotcha can be recorded/fixed only in readout/projection, without changing source trace/receipt/ledger/runner/regime."
+    },
+    "PROCEED_READOUT_REFERENCES_TRACE_RECEIPT_LEDGER": {
+      "expected_ledger_delta_present": true,
+      "expected_receipt_delta_present": true,
+      "expected_trace_delta_present": true,
+      "purpose": "Proceed readout references trace, receipt/projection, and ledger deltas from declared surface."
+    },
+    "PROCEED_TAXONOMY_PRESSURE_RECORDED_ONLY": {
+      "expected_taxonomy_delta_applied": false,
+      "expected_taxonomy_status": "RECORDED_ONLY",
+      "purpose": "Taxonomy pressure may be recorded but not accepted, promoted, or applied."
+    },
+    "PROCEED_TERMINAL_BOUNDARY_NO_IMPLICIT_CONTINUATION": {
+      "expected_hidden_continuation": false,
+      "purpose": "Proceed terminates as ADVANCE(next_unit_id) or STOP(stop_code), never hidden continuation."
+    }
+  },
+  "required_implementation_artifacts": {
+    "adapter_module": "src/matrixlab/proceed_adapter_v0.py",
+    "authority_check_schema": "data/proceed_adapter_v0_authority_check_schemas/<schema_id>.json",
+    "current_surface_manifest_schema": "data/proceed_adapter_v0_surface_manifest_schemas/<schema_id>.json",
+    "demo_fixtures": "data/proceed_adapter_v0_demo_fixtures/*.json",
+    "demo_readouts": "data/proceed_adapter_v0_demo_readouts/*.json",
+    "demo_receipts": "data/proceed_adapter_v0_demo_receipts/*.json",
+    "implementation_receipt": "data/proceed_adapter_v0_implementation_receipts/<receipt_id>.json",
+    "local_gotcha_schema": "data/proceed_adapter_v0_local_gotcha_schemas/<schema_id>.json",
+    "proceed_contract": "data/proceed_adapter_v0_contracts/<contract_id>.json",
+    "proceed_readout_schema": "data/proceed_adapter_v0_readout_schemas/<schema_id>.json",
+    "proceed_selector": "data/proceed_adapter_v0_selectors/<selector_id>.json",
+    "proceed_unit_registry": "data/proceed_adapter_v0_unit_registries/<registry_id>.json",
+    "proceed_unit_schema": "data/proceed_adapter_v0_unit_schemas/<schema_id>.json",
+    "taxonomy_pressure_stub": "data/proceed_adapter_v0_taxonomy_pressure_stubs/<stub_id>.json"
+  },
+  "safety_clauses": {
+    "does_not_accept_or_promote_taxonomy_delta": true,
+    "does_not_apply_or_promote_proposal": true,
+    "does_not_claim_final_taxonomy": true,
+    "does_not_claim_global_correctness": true,
+    "does_not_claim_theorem_closure": true,
+    "does_not_emit_readout": true,
+    "does_not_execute_adapter": true,
+    "does_not_implement_adapter": true,
+    "does_not_modify_source_regime": true,
+    "does_not_modify_source_runner": true,
+    "does_not_modify_source_trace_receipt_or_ledger": true,
+    "does_not_write_registry": true,
+    "next_unit_required_for_implementation": true,
+    "policy_only": true
+  },
+  "source_local_regime_hash": "25802530",
+  "source_local_regime_version": "local_regime.v1",
+  "source_proposal_ledger_schema_id": "eee2a318",
+  "source_runner_unit_id": "jurisdiction_runner.v0.2.trace_ledger_hardened",
+  "source_trace_ledger_implementation_receipt_id": "cc24a11f",
+  "source_trace_schema_id": "b4887660",
+  "target_adapter_unit_id": "proceed_adapter.v0",
+  "taxonomy_pressure_record_stub": {
+    "allowed_status": [
+      "NONE",
+      "RECORDED_ONLY"
+    ],
+    "law": {
+      "may_accept_taxonomy_delta": false,
+      "may_add_new_move_automatically": false,
+      "may_mutate_taxonomy_registry": false,
+      "may_promote_new_halt_vocab": false,
+      "may_record_pressure": true
+    },
+    "required_fields": [
+      "detected",
+      "trigger_halt",
+      "observed_pressure",
+      "status",
+      "taxonomy_delta_applied",
+      "taxonomy_delta_promoted"
+    ],
+    "schema_version": "taxonomy_pressure_record_stub_v0"
+  },
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_PROCEED_ADAPTER_V0_WITH_DEMO_FIXTURES_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

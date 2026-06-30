@@ -1,0 +1,100 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_005403
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_005403.txt
+
+BOOKKEEPING_COMMIT_DOUBLE_SIEVE_FIXTURE_SUITE_V0
+
+VERIFY_DOUBLE_SIEVE_RECEIPT_PRESENT
+
+VERIFY_DOUBLE_SIEVE_RECEIPT
+{
+  "acceptance_gates_false_count": 0,
+  "failures": [],
+  "fixtures_failed": 0,
+  "fixtures_passed": 6,
+  "fixtures_total": 6,
+  "negative_controls_nonzero_count": 0,
+  "outcome_class": "DOUBLE_SIEVE_PASS",
+  "receipt_id": "double_sieve_fixture_suite_receipt_462668ee",
+  "run_id": "double_sieve_suite_run_57568b4b",
+  "status": "TYPED_DOUBLE_SIEVE_FIXTURE_SUITE_PASS",
+  "suite_id": "double_sieve_fixture_suite_5e583552",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DOUBLE_SIEVE_FIXTURE_SUITE_PASS",
+    "type": "STOP"
+  }
+}
+
+VERIFY_GIT_IDENTITY
+
+BOUND_ADD_ONLY_DOUBLE_SIEVE_ARTIFACTS
+
+VERIFY_NO_OUT_OF_SCOPE_STAGED_PATHS
+staged_path_count=22
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+
+BOOKKEEPING_DIFF_STAT
+ .gitignore                                         |   6 +
+ .../double_sieve_fixture_manifest_v0.jsonl         |   6 +
+ .../double_sieve_fixture_suite_contract_v0.json    |  44 ++
+ .../double_sieve_fixture_suite_profile_v0.json     |  22 +
+ .../double_sieve_fixture_suite_readout_v0.json     |  45 ++
+ .../double_sieve_fixture_suite_report.json         |  29 +
+ .../double_sieve_fixture_suite_rollup_v0.json      |  77 ++
+ ...ouble_sieve_fixture_suite_transition_trace.json |  36 +
+ .../double_sieve_fixture_receipt_v0.json           | 160 ++++
+ .../F1_VALID_ADMISSIBLE/fixture_packet_v0.json     |  84 +++
+ .../double_sieve_fixture_receipt_v0.json           | 162 +++++
+ .../F2_INVALID_SCHEMA/fixture_packet_v0.json       |  79 ++
+ .../double_sieve_fixture_receipt_v0.json           | 160 ++++
+ .../F3_AUTHORITY_REQUIRED/fixture_packet_v0.json   |  84 +++
+ .../double_sieve_fixture_receipt_v0.json           | 161 ++++
+ .../F4_FORBIDDEN_INPUT/fixture_packet_v0.json      |  84 +++
+ .../double_sieve_fixture_receipt_v0.json           | 184 +++++
+ .../fixture_packet_v0.json                         |  84 +++
+ .../double_sieve_fixture_receipt_v0.json           | 166 +++++
+ .../fixture_packet_v0.json                         |  84 +++
+ ...ouble_sieve_fixture_suite_receipt_462668ee.json | 159 ++++
+ scripts/run_double_sieve_fixture_suite_v0.py       | 806 +++++++++++++++++++++
+ 22 files changed, 2722 insertions(+)
+
+BOOKKEEPING_COMMIT
+[master 729c35c57] Run Double-Sieve fixture suite
+ 22 files changed, 2722 insertions(+)
+ create mode 100644 data/double_sieve_fixture_suite_v0/double_sieve_fixture_manifest_v0.jsonl
+ create mode 100644 data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_contract_v0.json
+ create mode 100644 data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_profile_v0.json
+ create mode 100644 data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_readout_v0.json
+ create mode 100644 data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_report.json
+ create mode 100644 data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_rollup_v0.json
+ create mode 100644 data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_transition_trace.json
+ create mode 100644 data/double_sieve_fixture_suite_v0/fixtures/F1_VALID_ADMISSIBLE/double_sieve_fixture_receipt_v0.json
+ create mode 100644 data/double_sieve_fixture_suite_v0/fixtures/F1_VALID_ADMISSIBLE/fixture_packet_v0.json
+ create mode 100644 data/double_sieve_fixture_suite_v0/fixtures/F2_INVALID_SCHEMA/double_sieve_fixture_receipt_v0.json
+ create mode 100644 data/double_sieve_fixture_suite_v0/fixtures/F2_INVALID_SCHEMA/fixture_packet_v0.json
+ create mode 100644 data/double_sieve_fixture_suite_v0/fixtures/F3_AUTHORITY_REQUIRED/double_sieve_fixture_receipt_v0.json
+ create mode 100644 data/double_sieve_fixture_suite_v0/fixtures/F3_AUTHORITY_REQUIRED/fixture_packet_v0.json
+ create mode 100644 data/double_sieve_fixture_suite_v0/fixtures/F4_FORBIDDEN_INPUT/double_sieve_fixture_receipt_v0.json
+ create mode 100644 data/double_sieve_fixture_suite_v0/fixtures/F4_FORBIDDEN_INPUT/fixture_packet_v0.json
+ create mode 100644 data/double_sieve_fixture_suite_v0/fixtures/F5_EXECUTION_FAILURE_TYPED_FEEDBACK/double_sieve_fixture_receipt_v0.json
+ create mode 100644 data/double_sieve_fixture_suite_v0/fixtures/F5_EXECUTION_FAILURE_TYPED_FEEDBACK/fixture_packet_v0.json
+ create mode 100644 data/double_sieve_fixture_suite_v0/fixtures/F6_SIDECAR_PARTIAL_OBSERVABILITY/double_sieve_fixture_receipt_v0.json
+ create mode 100644 data/double_sieve_fixture_suite_v0/fixtures/F6_SIDECAR_PARTIAL_OBSERVABILITY/fixture_packet_v0.json
+ create mode 100644 data/double_sieve_fixture_suite_v0_receipts/double_sieve_fixture_suite_receipt_462668ee.json
+ create mode 100755 scripts/run_double_sieve_fixture_suite_v0.py
+
+BOOKKEEPING_COMMIT_RECEIPT
+commit_sha=729c35c57a87ce68404c45960d8eed0534d187d4
+double_sieve_receipt=data/double_sieve_fixture_suite_v0_receipts/double_sieve_fixture_suite_receipt_462668ee.json
+suite_id=double_sieve_fixture_suite_5e583552
+run_id=double_sieve_suite_run_57568b4b
+terminal_stop_code=STOP_DOUBLE_SIEVE_FIXTURE_SUITE_PASS
+
+STATUS_AFTER_COMMIT_RELEVANT
+
+BOOKKEEPING_COMMIT_DOUBLE_SIEVE_FIXTURE_SUITE_COMPLETE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

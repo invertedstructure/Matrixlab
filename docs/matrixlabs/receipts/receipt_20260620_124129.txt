@@ -1,0 +1,164 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_124129
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_124129.txt
+
+REPAIR_RUN_RADIUS_125_SLOT_SEPARATED_WITH_CLI_INTROSPECTION_V0
+
+STATUS_BEFORE
+
+VERIFY_CANDIDATE_DECISION_AUTHORITY
+{
+  "authorization": {
+    "authorizes_R125_execution": true,
+    "authorizes_any_other_radius": false,
+    "authorizes_exact_radius": 125,
+    "authorizes_execution_skipping": false,
+    "authorizes_gate_semantics_change": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_representative_subset": false,
+    "authorizes_run_semantics_change": false
+  },
+  "decision": "LICENSE_R125_WITH_BURDEN_WATCH",
+  "exact_next_radius": 125,
+  "failures": [],
+  "gate": "PASS",
+  "input_decision": "6c5424ae",
+  "preflight_receipt_estimate": {
+    "baseline": {
+      "r100_raw": 902,
+      "r100_receipts": 87552,
+      "r50_raw": 451,
+      "r50_receipts": 21348,
+      "r75_raw": 676,
+      "r75_receipts": 48852
+    },
+    "candidate_radius": 125,
+    "estimate_method": "quadratic_delta_extrapolation_from_R50_R75_R100_v0",
+    "estimated_coarse_total": 9,
+    "estimated_raw_total": 1129,
+    "estimated_total_receipts": 137448,
+    "hard_stop_receipt_over_radius_ratio": 1.75,
+    "hard_stop_receipt_ratio_vs_r100": 2.0,
+    "hard_stop_total_receipts": 175104,
+    "radius_ratio_vs_r100": 1.25,
+    "raw_delta_model": {
+      "delta_growth": 1,
+      "projected_next_delta": 227,
+      "r50_to_r75_delta": 225,
+      "r75_to_r100_delta": 226
+    },
+    "raw_ratio_vs_r100": 1.251663,
+    "receipt_delta_model": {
+      "delta_growth": 11196,
+      "projected_next_delta": 49896,
+      "r50_to_r75_delta": 27504,
+      "r75_to_r100_delta": 38700
+    },
+    "receipt_over_radius_ratio": 1.255921,
+    "receipt_ratio_vs_r100": 1.569901,
+    "soft_watch_total_receipts": 100000,
+    "stop_reasons": [],
+    "watch_reasons": [
+      "ESTIMATED_TOTAL_RECEIPTS_GT_SOFT_WATCH_TOTAL_RECEIPTS",
+      "ESTIMATED_RECEIPT_RATIO_GT_RADIUS_RATIO"
+    ]
+  },
+  "radius_expansion_candidate_decision_id": "6c5424ae",
+  "radius_expansion_candidate_decision_path": "data/radius_expansion_candidate_decisions/6c5424ae.json",
+  "radius_expansion_candidate_decision_recomputed_sig8": "6c5424ae",
+  "radius_expansion_candidate_decision_sig8": "6c5424ae",
+  "radius_expansion_candidate_decision_verification_id": "12200bf1",
+  "radius_expansion_candidate_decision_verification_schema_version": "radius_expansion_candidate_decision_verification_v0",
+  "radius_expansion_candidate_decision_verification_sig8": "12200bf1",
+  "source_policy_id": "534f967f",
+  "terminal": {
+    "next_command_goal": "RUN_RADIUS_125_SLOT_SEPARATED_WITH_BURDEN_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "verification_result": {
+    "failures": [],
+    "gate": "PASS",
+    "warnings": []
+  },
+  "warnings": []
+}
+radius_expansion_candidate_decision_verification_path: data/radius_expansion_candidate_decision_verifications/12200bf1.json
+
+ASSERT_CANDIDATE_DECISION_LICENSES_ONLY_R125
+{
+  "authorizes_R125_execution": true,
+  "authorizes_any_other_radius": false,
+  "authorizes_exact_radius": 125,
+  "authorizes_execution_skipping": false,
+  "authorizes_receipt_deletion": false,
+  "candidate_decision_id": "6c5424ae",
+  "core_gate": "PASS",
+  "decision": "LICENSE_R125_WITH_BURDEN_WATCH",
+  "estimated_total_receipts": 137448,
+  "exact_next_radius": 125,
+  "hard_stop_total_receipts": 175104,
+  "sig_matches": true,
+  "stop_reasons": [],
+  "terminal": {
+    "next_command_goal": "RUN_RADIUS_125_SLOT_SEPARATED_WITH_BURDEN_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "watch_reasons": [
+    "ESTIMATED_TOTAL_RECEIPTS_GT_SOFT_WATCH_TOTAL_RECEIPTS",
+    "ESTIMATED_RECEIPT_RATIO_GT_RADIUS_RATIO"
+  ]
+}
+
+INTROSPECT_STRESS_CLI
+                                                                                
+ Usage: cli.py stress [OPTIONS]                                                 
+                                                                                
+ Deliberately push the runner until halt reasons appear.                        
+                                                                                
+╭─ Options ────────────────────────────────────────────────────────────────────╮
+│ --depth-max                              INTEGER  Push depth upward.         │
+│                                                   [default: 100]             │
+│ --cycles-per-case                        INTEGER  Push cycles upward.        │
+│                                                   [default: 100]             │
+│ --max-cells                              INTEGER  Hard matrix cell limit.    │
+│                                                   [default: 250000]          │
+│ --strict-laws        --no-strict-laws             Halt immediately on law    │
+│                                                   failure.                   │
+│                                                   [default: no-strict-laws]  │
+│ --families                               TEXT     Family letters.            │
+│                                                   [default: A,B,C,D,E]       │
+│ --help                                            Show this message and      │
+│                                                   exit.                      │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+PREPARE_R125_SLOT_EXECUTION
+RADIUS=125
+DEPTH_MIN=3
+DEPTH_MAX=125
+CYCLES_PER_CASE=125
+MAX_CELLS=250000
+RUNS_JSONL=/tmp/matrixlab_r125_slot_runs.jsonl
+STRESS_FAMILY_STYLE=OPTION_FAMILIES
+HAS_DEPTH_MIN=0
+HAS_DEPTH_MAX=1
+HAS_CYCLES_PER_CASE=1
+HAS_CYCLES=1
+HAS_MAX_CELLS=1
+
+RUN_SLOT slot_01_E1 family=relabel_symmetry_stress compact=E
+STRESS_CMD: uv run python src/matrixlab/cli.py stress --families relabel_symmetry_stress --depth-max 125 --cycles-per-case 125 --max-cells 250000
+MATRIXLAB_PROGRESS phase=STARTING run_id=? receipts=0/~353625 pct~=0.0 
+cases~=2829 families=r,e,l,a,b,e,l,_,s,y,m,m,e,t,r,y,_,s,t,r,e,s,s depth=3..125 
+cycles=125 elapsed=0.0s
+Usage: cli.py stress [OPTIONS]
+Try 'cli.py stress --help' for help.
+╭─ Error ──────────────────────────────────────────────────────────────────────╮
+│ Invalid value: Unknown family letters: ['RELABEL_SYMMETRY_STRESS']           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+FAILED_TO_CAPTURE_RUN_ID slot=slot_01_E1 family=relabel_symmetry_stress
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

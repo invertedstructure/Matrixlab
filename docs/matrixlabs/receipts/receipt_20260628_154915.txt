@@ -1,0 +1,123 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_154915
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_154915.txt
+
+BOOKKEEPING_COMMIT_C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_RESULT_AFTER_REENTRY_V0
+
+VERIFY_RUNTIME_ADOPTION_BOUNDED_PROBE_RESULT_ARTIFACTS_PRESENT
+present data/c8_runtime_adoption_bounded_probe_execution_after_reentry_v0_receipts/c8_runtime_adoption_bounded_probe_execution_receipt_ed8c0509.json
+present data/c8_runtime_adoption_bounded_probe_execution_after_reentry_v0/c8_runtime_adoption_bounded_probe_result_v0.json
+present data/c8_runtime_adoption_bounded_probe_execution_after_reentry_v0/c8_runtime_adoption_bounded_probe_evidence_v0.json
+present data/c8_runtime_adoption_bounded_probe_execution_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_boundary_audit_v0.json
+present data/c8_runtime_adoption_bounded_probe_execution_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_readout_v0.json
+present data/c8_runtime_adoption_bounded_probe_execution_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_report.json
+present scripts/execute_c8_runtime_adoption_bounded_probe_after_reentry_v0.py
+
+PY_COMPILE_RUNTIME_ADOPTION_BOUNDED_PROBE_EXECUTION_RUNNER
+
+VERIFY_RUNTIME_ADOPTION_BOUNDED_PROBE_RESULT_RECEIPT_AND_CONTENT
+{
+  "bounded_probe_executed": true,
+  "bounded_probe_execution_count": 1,
+  "c8_rerun_now": false,
+  "commit_gate": "PASS",
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "gate_failure_count": 0,
+  "gate_results_false_count": 0,
+  "instrument_built_now": false,
+  "missing_move_signal_count": 0,
+  "outcome_class": "C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_EXECUTED_RESULT_READY_FOR_REVIEW",
+  "probe_id": "c8_runtime_adoption_surface_bounded_probe_after_reentry_v0",
+  "probe_kind": "RUNTIME_ADOPTION_BOUNDARY_PROBE",
+  "probe_output_class": "RUNTIME_ADOPTION_BOUNDARY_PROBE_OBSERVED_NO_DEFECTS",
+  "projection_bug_count": 0,
+  "receipt_id": "c8_runtime_adoption_bounded_probe_execution_receipt_ed8c0509",
+  "receipt_mismatch_count": 0,
+  "reusable_schema_authorized": false,
+  "runtime_adoption_bounded_probe_evidence_id": "c8_runtime_adoption_bounded_probe_evidence_9ad18624",
+  "runtime_adoption_bounded_probe_execution_boundary_audit_id": "c8_runtime_adoption_bounded_probe_execution_boundary_e35341b9",
+  "runtime_adoption_bounded_probe_result_id": "c8_runtime_adoption_bounded_probe_result_a0ec0ebb",
+  "selected_surface_id": "c8_successor_surface_runtime_adoption_after_reentry_v0",
+  "selected_surface_kind": "RUNTIME_ADOPTION_SURFACE",
+  "status": "TYPED_C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_EXECUTION_PASS",
+  "typed_halts_observed_count": 2
+}
+
+VERIFY_GIT_IDENTITY
+
+BOUND_ADD_ONLY_RUNTIME_ADOPTION_BOUNDED_PROBE_RESULT_ARTIFACTS
+
+VERIFY_NO_OUT_OF_SCOPE_STAGED_PATHS
+staged_path_count=8
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+runtime_adoption_bounded_probe_execution_receipts_staged=['data/c8_runtime_adoption_bounded_probe_execution_after_reentry_v0_receipts/c8_runtime_adoption_bounded_probe_execution_receipt_ed8c0509.json']
+
+BOOKKEEPING_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...runtime_adoption_bounded_probe_evidence_v0.json |  53 ++
+ ..._bounded_probe_execution_boundary_audit_v0.json |  40 ++
+ ...doption_bounded_probe_execution_readout_v0.json |  24 +
+ ...me_adoption_bounded_probe_execution_report.json |  39 ++
+ ...8_runtime_adoption_bounded_probe_result_v0.json |  77 +++
+ ...n_bounded_probe_execution_receipt_ed8c0509.json | 124 ++++
+ ...time_adoption_bounded_probe_after_reentry_v0.py | 639 +++++++++++++++++++++
+ 8 files changed, 1002 insertions(+)
+
+BOOKKEEPING_COMMIT
+[master a1910479c] Execute C8 runtime-adoption bounded probe
+ 8 files changed, 1002 insertions(+)
+ create mode 100644 data/c8_runtime_adoption_bounded_probe_execution_after_reentry_v0/c8_runtime_adoption_bounded_probe_evidence_v0.json
+ create mode 100644 data/c8_runtime_adoption_bounded_probe_execution_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_boundary_audit_v0.json
+ create mode 100644 data/c8_runtime_adoption_bounded_probe_execution_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_readout_v0.json
+ create mode 100644 data/c8_runtime_adoption_bounded_probe_execution_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_report.json
+ create mode 100644 data/c8_runtime_adoption_bounded_probe_execution_after_reentry_v0/c8_runtime_adoption_bounded_probe_result_v0.json
+ create mode 100644 data/c8_runtime_adoption_bounded_probe_execution_after_reentry_v0_receipts/c8_runtime_adoption_bounded_probe_execution_receipt_ed8c0509.json
+ create mode 100755 scripts/execute_c8_runtime_adoption_bounded_probe_after_reentry_v0.py
+
+BOOKKEEPING_COMMIT_RECEIPT
+commit_sha=a1910479c4bfefa065bd034140b2d4fe8e1b9115
+runtime_adoption_bounded_probe_execution_receipt=data/c8_runtime_adoption_bounded_probe_execution_after_reentry_v0_receipts/c8_runtime_adoption_bounded_probe_execution_receipt_ed8c0509.json
+runtime_adoption_bounded_probe_result=data/c8_runtime_adoption_bounded_probe_execution_after_reentry_v0/c8_runtime_adoption_bounded_probe_result_v0.json
+runtime_adoption_bounded_probe_evidence=data/c8_runtime_adoption_bounded_probe_execution_after_reentry_v0/c8_runtime_adoption_bounded_probe_evidence_v0.json
+runtime_adoption_bounded_probe_execution_boundary_audit=data/c8_runtime_adoption_bounded_probe_execution_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_boundary_audit_v0.json
+runtime_adoption_bounded_probe_execution_outcome=C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_EXECUTED_RESULT_READY_FOR_REVIEW
+runtime_adoption_bounded_probe_execution_receipt_id=c8_runtime_adoption_bounded_probe_execution_receipt_ed8c0509
+runtime_adoption_bounded_probe_result_id=c8_runtime_adoption_bounded_probe_result_a0ec0ebb
+runtime_adoption_bounded_probe_evidence_id=c8_runtime_adoption_bounded_probe_evidence_9ad18624
+runtime_adoption_bounded_probe_execution_boundary_audit_id=c8_runtime_adoption_bounded_probe_execution_boundary_e35341b9
+selected_surface_id=c8_successor_surface_runtime_adoption_after_reentry_v0
+selected_surface_kind=RUNTIME_ADOPTION_SURFACE
+selected_surface_label=C8_RUNTIME_ADOPTION_AFTER_REUSE_AUTHORITY_CLOSURE_SURFACE
+probe_id=c8_runtime_adoption_surface_bounded_probe_after_reentry_v0
+probe_kind=RUNTIME_ADOPTION_BOUNDARY_PROBE
+probe_label=C8_RUNTIME_ADOPTION_BOUNDED_PROBE_AFTER_REENTRY
+probe_output_class=RUNTIME_ADOPTION_BOUNDARY_PROBE_OBSERVED_NO_DEFECTS
+authorized_future_unit_consumed=EXECUTE_C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_AFTER_REENTRY_V0
+bounded_probe_executed=true
+bounded_probe_execution_count=1
+typed_halts_observed_count=2
+receipt_mismatch_count=0
+projection_bug_count=0
+missing_move_signal_count=0
+gate_failure_count=0
+instrument_built_now=false
+cell1_built_now=false
+verification_probe_run_now=false
+c8_rerun_now=false
+missing_instrument_proposal_created_now=false
+research_mode_opened=false
+general_cell1_authority=false
+reusable_schema_authorized=false
+global_solution_claim=false
+frontier_solved_claim=false
+recommended_review_unit=REVIEW_C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_RESULT_AFTER_REENTRY_V0
+terminal_stop_code=STOP_C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_RESULT_READY_FOR_REVIEW
+
+STATUS_AFTER_COMMIT_RELEVANT
+
+BOOKKEEPING_COMMIT_C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_RESULT_AFTER_REENTRY_COMPLETE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

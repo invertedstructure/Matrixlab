@@ -1,0 +1,496 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_122259
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_122259.txt
+
+REPAIR_RADIUS_EXPANSION_CANDIDATE_DECISION_ASSERTION_AND_COMMIT
+
+STATUS_BEFORE
+ M .gitignore
+ M src/matrixlab/cli.py
+
+PY_COMPILE
+
+FIND_EXISTING_CANDIDATE_DECISION
+CANDIDATE_ID=6c5424ae
+
+VERIFY_RADIUS_EXPANSION_CANDIDATE_DECISION_POSITIVE
+{
+  "authorization": {
+    "authorizes_R125_execution": true,
+    "authorizes_any_other_radius": false,
+    "authorizes_exact_radius": 125,
+    "authorizes_execution_skipping": false,
+    "authorizes_gate_semantics_change": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_representative_subset": false,
+    "authorizes_run_semantics_change": false
+  },
+  "decision": "LICENSE_R125_WITH_BURDEN_WATCH",
+  "exact_next_radius": 125,
+  "failures": [],
+  "gate": "PASS",
+  "input_decision": "6c5424ae",
+  "preflight_receipt_estimate": {
+    "baseline": {
+      "r100_raw": 902,
+      "r100_receipts": 87552,
+      "r50_raw": 451,
+      "r50_receipts": 21348,
+      "r75_raw": 676,
+      "r75_receipts": 48852
+    },
+    "candidate_radius": 125,
+    "estimate_method": "quadratic_delta_extrapolation_from_R50_R75_R100_v0",
+    "estimated_coarse_total": 9,
+    "estimated_raw_total": 1129,
+    "estimated_total_receipts": 137448,
+    "hard_stop_receipt_over_radius_ratio": 1.75,
+    "hard_stop_receipt_ratio_vs_r100": 2.0,
+    "hard_stop_total_receipts": 175104,
+    "radius_ratio_vs_r100": 1.25,
+    "raw_delta_model": {
+      "delta_growth": 1,
+      "projected_next_delta": 227,
+      "r50_to_r75_delta": 225,
+      "r75_to_r100_delta": 226
+    },
+    "raw_ratio_vs_r100": 1.251663,
+    "receipt_delta_model": {
+      "delta_growth": 11196,
+      "projected_next_delta": 49896,
+      "r50_to_r75_delta": 27504,
+      "r75_to_r100_delta": 38700
+    },
+    "receipt_over_radius_ratio": 1.255921,
+    "receipt_ratio_vs_r100": 1.569901,
+    "soft_watch_total_receipts": 100000,
+    "stop_reasons": [],
+    "watch_reasons": [
+      "ESTIMATED_TOTAL_RECEIPTS_GT_SOFT_WATCH_TOTAL_RECEIPTS",
+      "ESTIMATED_RECEIPT_RATIO_GT_RADIUS_RATIO"
+    ]
+  },
+  "radius_expansion_candidate_decision_id": "6c5424ae",
+  "radius_expansion_candidate_decision_path": "data/radius_expansion_candidate_decisions/6c5424ae.json",
+  "radius_expansion_candidate_decision_recomputed_sig8": "6c5424ae",
+  "radius_expansion_candidate_decision_sig8": "6c5424ae",
+  "radius_expansion_candidate_decision_verification_id": "12200bf1",
+  "radius_expansion_candidate_decision_verification_schema_version": "radius_expansion_candidate_decision_verification_v0",
+  "radius_expansion_candidate_decision_verification_sig8": "12200bf1",
+  "source_policy_id": "534f967f",
+  "terminal": {
+    "next_command_goal": "RUN_RADIUS_125_SLOT_SEPARATED_WITH_BURDEN_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "verification_result": {
+    "failures": [],
+    "gate": "PASS",
+    "warnings": []
+  },
+  "warnings": []
+}
+radius_expansion_candidate_decision_verification_path: data/radius_expansion_candidate_decision_verifications/12200bf1.json
+
+ASSERT_RADIUS_EXPANSION_CANDIDATE_DECISION_POSITIVE_TOLERANT
+{
+  "authorizes_R125_execution": true,
+  "authorizes_any_other_radius": false,
+  "authorizes_exact_radius": 125,
+  "authorizes_execution_skipping": false,
+  "authorizes_receipt_deletion": false,
+  "candidate_radius_delta": 25,
+  "decision": "LICENSE_R125_WITH_BURDEN_WATCH",
+  "estimated_raw_total": 1129,
+  "estimated_total_receipts": 137448,
+  "exact_next_radius": 125,
+  "gate": "PASS",
+  "hard_stop_total_receipts": 175104,
+  "operator_budget_status": "DECLARED",
+  "radius_expansion_candidate_decision_id": "6c5424ae",
+  "radius_ratio_vs_r100": 1.25,
+  "receipt_over_radius_ratio": 1.255921,
+  "receipt_ratio_vs_r100": 1.569901,
+  "recomputed_sig": "6c5424ae",
+  "runtime_budget_status": "DECLARED",
+  "sig_matches": true,
+  "source_policy_id": "534f967f",
+  "stop_reasons": [],
+  "stored_sig": "6c5424ae",
+  "terminal": {
+    "next_command_goal": "RUN_RADIUS_125_SLOT_SEPARATED_WITH_BURDEN_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "watch_reasons": [
+    "ESTIMATED_TOTAL_RECEIPTS_GT_SOFT_WATCH_TOTAL_RECEIPTS",
+    "ESTIMATED_RECEIPT_RATIO_GT_RADIUS_RATIO"
+  ]
+}
+positive candidate verify core ok
+
+NEGATIVE_CONTROLS_FOR_CANDIDATE_CORE
+{
+  "case": "wrong_radius_fails",
+  "expected_fragment": "exact_next_radius_not_125",
+  "failures": [
+    "exact_next_radius_not_125:150"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "estimate_hard_stop_fails",
+  "expected_fragment": "estimated_total_receipts_exceeds_hard_stop",
+  "failures": [
+    "estimated_total_receipts_exceeds_hard_stop"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "runtime_budget_missing_fails",
+  "expected_fragment": "runtime_budget_not_declared",
+  "failures": [
+    "runtime_budget_not_declared"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "operator_budget_missing_fails",
+  "expected_fragment": "operator_budget_not_declared",
+  "failures": [
+    "operator_budget_not_declared"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "execution_skipping_commitment_fails",
+  "expected_fragment": "commitment_missing:no_execution_skipping",
+  "failures": [
+    "commitment_missing:no_execution_skipping"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "any_other_radius_authority_fails",
+  "expected_fragment": "illegal_authorization:authorizes_any_other_radius",
+  "failures": [
+    "illegal_authorization:authorizes_any_other_radius"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "receipt_deletion_authority_fails",
+  "expected_fragment": "illegal_authorization:authorizes_receipt_deletion",
+  "failures": [
+    "illegal_authorization:authorizes_receipt_deletion"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "post_run_burden_artifact_missing_fails",
+  "expected_fragment": "post_run_required_artifact_missing:R100_to_R125_burden_comparison",
+  "failures": [
+    "post_run_required_artifact_missing:R100_to_R125_burden_comparison"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+NEGATIVE_CONTROL_RADIUS_150_BUILD
+{
+  "authorization": {
+    "authorizes_R125_execution": false,
+    "authorizes_any_other_radius": false,
+    "authorizes_exact_radius": null,
+    "authorizes_execution_skipping": false,
+    "authorizes_gate_semantics_change": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_representative_subset": false,
+    "authorizes_run_semantics_change": false
+  },
+  "candidate_radius_delta": 50,
+  "commitments": {
+    "no_execution_skipping": true,
+    "no_gate_semantics_change": true,
+    "no_raw_replay_replacement": true,
+    "no_receipt_deletion": true,
+    "no_representative_subset": true,
+    "no_run_semantics_change": true,
+    "post_run_burden_comparison": true,
+    "raw_receipts_required": true,
+    "slot_separated_full_trace": true,
+    "verified_rollup_after_run": true
+  },
+  "current_radius_ceiling": 100,
+  "decision": "STOP_CANDIDATE_DECISION_BUILD_FAIL",
+  "decision_kind": "RADIUS_EXPANSION_CANDIDATE_DECISION",
+  "exact_next_radius": 150,
+  "failures": [
+    "candidate_radius_not_exact_R125_v0:150",
+    "candidate_radius_above_policy_max:150:125"
+  ],
+  "forbidden": {
+    "execution_skipping": true,
+    "gate_semantics_change": true,
+    "hidden_trust_upgrade": true,
+    "ontology_expansion": true,
+    "radius_above_125": true,
+    "raw_replay_replacement": true,
+    "receipt_deletion": true,
+    "representative_subset": true,
+    "run_semantics_change": true,
+    "theorem_layer": true
+  },
+  "gate": "FAIL",
+  "known_limits": [
+    "candidate_decision_licenses_only_exact_radius_125",
+    "candidate_decision_does_not_solve_global_scalability",
+    "candidate_decision_requires_full_raw_trace",
+    "candidate_decision_requires_post_run_burden_comparison",
+    "estimate_is_preflight_not_observation"
+  ],
+  "operator_budget_statement": {
+    "budget_kind": "ROLLUP_BACKED_READING_BUDGET",
+    "manual_review_surface": [
+      "candidate execution receipt",
+      "R125 slot observation",
+      "R100_to_R125 burden comparison",
+      "verified R125 burden rollup",
+      "post R125 decision"
+    ],
+    "requires_post_run_burden_comparison": true,
+    "requires_verified_rollup_after_run": true,
+    "status": "DECLARED"
+  },
+  "policy_limits": {
+    "hard_stop_receipt_over_radius_ratio": 1.75,
+    "hard_stop_receipt_ratio_vs_r100": 2.0,
+    "hard_stop_total_receipts": 175104,
+    "max_candidate_radius_v0": 125,
+    "soft_watch_total_receipts": 100000
+  },
+  "post_run_required_artifacts": [
+    "radius_125_slot_separated_execution_summary",
+    "domain_shift_slot_observation_v0 for radius 125",
+    "R100_to_R125_burden_comparison",
+    "verified_R125_burden_rollup",
+    "post_R125_scale_decision"
+  ],
+  "preflight_receipt_estimate": {
+    "baseline": {
+      "r100_raw": 902,
+      "r100_receipts": 87552,
+      "r50_raw": 451,
+      "r50_receipts": 21348,
+      "r75_raw": 676,
+      "r75_receipts": 48852
+    },
+    "candidate_radius": 150,
+    "estimate_method": "quadratic_delta_extrapolation_from_R50_R75_R100_v0",
+    "estimated_coarse_total": 9,
+    "estimated_raw_total": 1129,
+    "estimated_total_receipts": 137448,
+    "hard_stop_receipt_over_radius_ratio": 1.75,
+    "hard_stop_receipt_ratio_vs_r100": 2.0,
+    "hard_stop_total_receipts": 175104,
+    "radius_ratio_vs_r100": 1.5,
+    "raw_delta_model": {
+      "delta_growth": 1,
+      "projected_next_delta": 227,
+      "r50_to_r75_delta": 225,
+      "r75_to_r100_delta": 226
+    },
+    "raw_ratio_vs_r100": 1.251663,
+    "receipt_delta_model": {
+      "delta_growth": 11196,
+      "projected_next_delta": 49896,
+      "r50_to_r75_delta": 27504,
+      "r75_to_r100_delta": 38700
+    },
+    "receipt_over_radius_ratio": 1.046601,
+    "receipt_ratio_vs_r100": 1.569901,
+    "soft_watch_total_receipts": 100000,
+    "stop_reasons": [],
+    "watch_reasons": [
+      "ESTIMATED_TOTAL_RECEIPTS_GT_SOFT_WATCH_TOTAL_RECEIPTS",
+      "ESTIMATED_RECEIPT_RATIO_GT_RADIUS_RATIO"
+    ]
+  },
+  "radius_expansion_candidate_decision_id": "496528b8",
+  "radius_expansion_candidate_decision_schema_version": "radius_expansion_candidate_decision_v0",
+  "radius_expansion_candidate_decision_sig8": "496528b8",
+  "runtime_budget_statement": {
+    "budget_kind": "OPERATOR_APPROVED_SINGLE_RADIUS_RUN_BUDGET",
+    "candidate_radius": 150,
+    "estimated_total_receipts": 137448,
+    "full_trace_required": true,
+    "hard_stop_total_receipts": 175104,
+    "interruption_recovery_required": true,
+    "progress_reporting_required": true,
+    "slot_count": 9,
+    "status": "DECLARED"
+  },
+  "source_policy": {
+    "gate": "PASS",
+    "id": "534f967f",
+    "path": "data/radius_expansion_burden_policies/534f967f.json",
+    "recomputed_sig": "534f967f",
+    "stored_sig": "534f967f"
+  },
+  "stop_reasons": [],
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CANDIDATE_DECISION_BUILD_FAIL",
+    "type": "STOP"
+  },
+  "warnings": [],
+  "watch_reasons": [
+    "ESTIMATED_TOTAL_RECEIPTS_GT_SOFT_WATCH_TOTAL_RECEIPTS",
+    "ESTIMATED_RECEIPT_RATIO_GT_RADIUS_RATIO"
+  ]
+}
+radius_expansion_candidate_decision_path: data/radius_expansion_candidate_decisions/496528b8.json
+
+ASSERT_NEGATIVE_RADIUS_150_BUILD
+{
+  "decision": "STOP_CANDIDATE_DECISION_BUILD_FAIL",
+  "failures": [
+    "candidate_radius_not_exact_R125_v0:150",
+    "candidate_radius_above_policy_max:150:125"
+  ],
+  "gate": "FAIL",
+  "path": "data/radius_expansion_candidate_decisions/496528b8.json",
+  "radius_expansion_candidate_decision_id": "496528b8",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CANDIDATE_DECISION_BUILD_FAIL",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROL_MISSING_POLICY_BUILD
+{
+  "decision": "STOP_CANDIDATE_DECISION_BUILD_FAIL",
+  "decision_kind": "RADIUS_EXPANSION_CANDIDATE_DECISION",
+  "exact_next_radius": 125,
+  "failures": [
+    "radius_expansion_candidate_decision_build_failed:could not resolve 'definitely_missing_policy' under data/radius_expansion_burden_policies"
+  ],
+  "gate": "FAIL",
+  "radius_expansion_candidate_decision_id": "14edd321",
+  "radius_expansion_candidate_decision_schema_version": "radius_expansion_candidate_decision_v0",
+  "radius_expansion_candidate_decision_sig8": "14edd321",
+  "source_policy": {
+    "id": "definitely_missing_policy"
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CANDIDATE_DECISION_BUILD_FAIL",
+    "type": "STOP"
+  },
+  "warnings": []
+}
+radius_expansion_candidate_decision_path: data/radius_expansion_candidate_decisions/14edd321.json
+
+ASSERT_NEGATIVE_MISSING_POLICY_BUILD
+{
+  "decision": "STOP_CANDIDATE_DECISION_BUILD_FAIL",
+  "failures": [
+    "radius_expansion_candidate_decision_build_failed:could not resolve 'definitely_missing_policy' under data/radius_expansion_burden_policies"
+  ],
+  "gate": "FAIL",
+  "path": "data/radius_expansion_candidate_decisions/14edd321.json",
+  "radius_expansion_candidate_decision_id": "14edd321",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CANDIDATE_DECISION_BUILD_FAIL",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROL_MISSING_CANDIDATE_VERIFY
+{
+  "authorization": null,
+  "decision": null,
+  "exact_next_radius": null,
+  "failures": [
+    "radius_expansion_candidate_decision_unresolved:definitely_missing_candidate_decision:could not resolve 'definitely_missing_candidate_decision' under data/radius_expansion_candidate_decisions"
+  ],
+  "gate": "FAIL",
+  "input_decision": "definitely_missing_candidate_decision",
+  "preflight_receipt_estimate": null,
+  "radius_expansion_candidate_decision_id": "definitely_missing_candidate_decision",
+  "radius_expansion_candidate_decision_path": null,
+  "radius_expansion_candidate_decision_recomputed_sig8": null,
+  "radius_expansion_candidate_decision_sig8": null,
+  "radius_expansion_candidate_decision_verification_id": "cf29ee60",
+  "radius_expansion_candidate_decision_verification_schema_version": "radius_expansion_candidate_decision_verification_v0",
+  "radius_expansion_candidate_decision_verification_sig8": "cf29ee60",
+  "source_policy_id": null,
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_GATE_FAIL",
+    "type": "STOP"
+  },
+  "verification_result": {
+    "failures": [
+      "radius_expansion_candidate_decision_unresolved:definitely_missing_candidate_decision:could not resolve 'definitely_missing_candidate_decision' under data/radius_expansion_candidate_decisions"
+    ],
+    "gate": "FAIL",
+    "warnings": []
+  },
+  "warnings": []
+}
+radius_expansion_candidate_decision_verification_path: data/radius_expansion_candidate_decision_verifications/cf29ee60.json
+
+ASSERT_NEGATIVE_VERIFY
+{
+  "failures": [
+    "radius_expansion_candidate_decision_unresolved:definitely_missing_candidate_decision:could not resolve 'definitely_missing_candidate_decision' under data/radius_expansion_candidate_decisions"
+  ],
+  "gate": "FAIL",
+  "path": "data/radius_expansion_candidate_decision_verifications/cf29ee60.json",
+  "radius_expansion_candidate_decision_verification_id": "cf29ee60",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_GATE_FAIL",
+    "type": "STOP"
+  }
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_053951_296201
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    98 │
+│ total_receipts │  9800 │
+│ receipt_rows   │  9800 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    98 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore           |   6 +
+ src/matrixlab/cli.py | 575 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 581 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+ M src/matrixlab/cli.py
+[master 4faf3f775] add radius expansion candidate decision
+ 2 files changed, 581 insertions(+)
+
+COMMIT_DONE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

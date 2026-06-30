@@ -1,0 +1,212 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_203434
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_203434.txt
+
+NORMALIZE_CYCLE_PERIOD_FIX_CANDIDATE_COMMIT_NOOP_V0
+
+STATUS_BEFORE
+?? data/
+
+VERIFY_CYCLE_PERIOD_CANDIDATE_ARTIFACT
+{
+  "authorizes_code_change_now": false,
+  "authorizes_cycle_execution_skipping": false,
+  "authorizes_early_halt_on_period_detection": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_patch_application": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_reusing_prior_cycle_results_as_execution": false,
+  "authorizes_synthetic_cycle_receipts": false,
+  "cache_scope": "within_one_micro_profile_execution_only",
+  "candidate_id": "7a058351",
+  "candidate_name": "FIX_CANDIDATE_CYCLE_PERIOD_COMPRESSION_V0",
+  "candidate_sig8": "7a058351",
+  "candidate_status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "certificate_scope": "post_execution_observation_metadata_only",
+  "expected_cycle_slot_ids": [
+    "MICRO_02_CYCLE_PRESSURE_A",
+    "MICRO_02_CYCLE_PRESSURE_B",
+    "MICRO_02_CYCLE_PRESSURE_C",
+    "MICRO_02_CYCLE_PRESSURE_D",
+    "MICRO_02_CYCLE_PRESSURE_E"
+  ],
+  "fail_closed_if_cycles_per_case_changes": true,
+  "failures": [],
+  "gate": "PASS",
+  "must_not_cache": [
+    "run_id",
+    "receipt rows",
+    "receipt counts as substitutes for execution",
+    "law results",
+    "gate results",
+    "halt results",
+    "stdout/stderr from a prior run",
+    "any prior execution result",
+    "cycle results as substitute execution"
+  ],
+  "must_not_certify_without_execution": true,
+  "must_not_change_halt_reason": true,
+  "patch_plan_kind": "CYCLE_PERIOD_COMPRESSION_PATCH_PLAN",
+  "receipt_gate": "PASS",
+  "receipt_id": "19186079",
+  "source_after_profile_id": "24ac7037",
+  "source_policy_id": "688b83a9",
+  "target_burden_class": "BURDEN_CYCLE_SCAN",
+  "target_elapsed_ms": 4392,
+  "target_receipts": 576,
+  "target_rows": 5,
+  "terminal": {
+    "next_command_goal": "APPLY_CYCLE_PERIOD_COMPRESSION_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_BUILDER_SCRIPT_STATE
+{
+  "builder_script_exists": true,
+  "builder_script_tracked": true,
+  "candidate_data_untracked_or_ignored_ok": true,
+  "gitignore_exists": true,
+  "gitignore_tracked": true,
+  "receipt_data_untracked_or_ignored_ok": true
+}
+
+PY_COMPILE_BUILDER
+
+NEGATIVE_CONTROLS_STILL_FAIL_CLOSED
+{
+  "case": "policy_gate_fail",
+  "expected": "policy_gate_not_PASS",
+  "failures": [
+    "policy_gate_not_PASS"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "cycle_execution_skipping_authority_fail",
+  "expected": "illegal_policy_authorization:authorizes_cycle_execution_skipping",
+  "failures": [
+    "illegal_policy_authorization:authorizes_cycle_execution_skipping:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "early_halt_authority_fail",
+  "expected": "illegal_policy_authorization:authorizes_early_halt_on_period_detection",
+  "failures": [
+    "illegal_policy_authorization:authorizes_early_halt_on_period_detection:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "synthetic_receipts_authority_fail",
+  "expected": "illegal_policy_authorization:authorizes_synthetic_cycle_receipts",
+  "failures": [
+    "illegal_policy_authorization:authorizes_synthetic_cycle_receipts:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "reuse_prior_cycle_results_authority_fail",
+  "expected": "illegal_policy_authorization:authorizes_reusing_prior_cycle_results_as_execution",
+  "failures": [
+    "illegal_policy_authorization:authorizes_reusing_prior_cycle_results_as_execution:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "target_slot_mismatch_fail",
+  "expected": "target_slots_mismatch",
+  "failures": [
+    "target_slots_mismatch:['MICRO_02_CYCLE_PRESSURE_COLLAPSED', 'MICRO_02_CYCLE_PRESSURE_B', 'MICRO_02_CYCLE_PRESSURE_C', 'MICRO_02_CYCLE_PRESSURE_D', 'MICRO_02_CYCLE_PRESSURE_E']"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "target_receipts_mismatch_fail",
+  "expected": "target_receipts_not_expected_576",
+  "failures": [
+    "target_receipts_not_expected_576:575"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+WRITE_COMMIT_NOOP_NORMALIZATION_RECEIPT
+NORMALIZATION_ID=9238b02d
+{
+  "builder_script_exists": true,
+  "builder_script_tracked": true,
+  "candidate_gate": "PASS",
+  "created_at": "2026-06-20T19:34:34.476759+00:00",
+  "data_artifacts_exist": {
+    "candidate": true,
+    "receipt": true
+  },
+  "failures": [],
+  "gate": "PASS",
+  "gitignore_tracked": true,
+  "normalization_id": "9238b02d",
+  "normalization_kind": "CYCLE_PERIOD_FIX_CANDIDATE_COMMIT_NOOP_ACCEPTANCE",
+  "normalization_sig8": "9238b02d",
+  "schema_version": "cycle_period_fix_candidate_commit_noop_normalization_v0",
+  "semantics": {
+    "code_change_now": false,
+    "cycle_execution_skipping": false,
+    "early_halt_on_period_detection": false,
+    "execution_skipping": false,
+    "patch_application": false,
+    "radius_expansion": false,
+    "reusing_prior_cycle_results_as_execution": false,
+    "synthetic_cycle_receipts": false
+  },
+  "source_candidate_id": "7a058351",
+  "source_policy_id": "688b83a9",
+  "staged_diff_present_before_optional_commit": false,
+  "terminal": {
+    "next_command_goal": "APPLY_CYCLE_PERIOD_COMPRESSION_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "tracked_diff_present_before_optional_commit": false,
+  "warnings": []
+}
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_191652_455272
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+
+STATUS_AFTER_VERIFY
+?? data/
+
+COMMIT_IF_TRACKED_DIFF_EXISTS
+COMMIT_NOOP_ACCEPTED
+
+STATUS_AFTER
+?? data/
+
+NEXT_COMMAND_GOAL
+APPLY_CYCLE_PERIOD_COMPRESSION_FIX_V0
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

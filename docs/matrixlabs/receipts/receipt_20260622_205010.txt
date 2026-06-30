@@ -1,0 +1,275 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_205010
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_205010.txt
+
+REPAIR_R250_CANDIDATE_C_INTERROGATION_GENERATOR_SORT_SYNTAX_V1
+
+STATUS_BEFORE
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/interrogate_r250_pressure_coarsened_candidate_c_groups_v0.py
+
+VERIFY_FAILED_SCRIPT_PRESENT
+
+PATCH_ALL_GENERATOR_SORT_SYNTAX_OCCURRENCES
+patched all generator sort syntax occurrences
+
+VERIFY_NO_UNPARENTHESIZED_SORT_GENERATORS_REMAIN
+no unparenthesized sort generator patterns remain
+
+PY_COMPILE_REPAIRED_CANDIDATE_C_INTERROGATION_BUILDER
+
+RUN_REPAIRED_R250_CANDIDATE_C_INTERROGATION
+{
+  "acceptance_gate_results": {
+    "R250_CANDIDATE_C_0_SOURCE_SURFACE_VERIFIED": true,
+    "R250_CANDIDATE_C_10_NO_SOURCE_MUTATION": true,
+    "R250_CANDIDATE_C_1_HUMAN_ACCEPTANCE_RECORDED": true,
+    "R250_CANDIDATE_C_2_CANDIDATE_C_ACCEPTED_AS_LENS_ONLY": true,
+    "R250_CANDIDATE_C_3_GROUPS_EMITTED": true,
+    "R250_CANDIDATE_C_4_EXACT_SIGNATURES_PRESERVED": true,
+    "R250_CANDIDATE_C_5_GROUP_MEMBERSHIP_EMITTED": true,
+    "R250_CANDIDATE_C_6_REPRESENTATIVE_FRAGMENTS_EMITTED": true,
+    "R250_CANDIDATE_C_7_NO_ACTION_AUTHORIZED": true,
+    "R250_CANDIDATE_C_8_NO_RUNTIME_RERUN": true,
+    "R250_CANDIDATE_C_9_REVIEW_PACKET_EMITTED": true
+  },
+  "accepted_coarsening_candidate_id": "C",
+  "accepted_coarsening_candidate_name": "parent_plus_subtype_plus_halt_reason",
+  "accepted_coarsening_fields": [
+    "parent_pressure_class",
+    "pressure_subtype",
+    "halt_reason"
+  ],
+  "aggregate_metrics": {
+    "authority_widening_authorized_count": 0,
+    "candidate_c_coarsened_fragmentation_ratio": 0.21739130434782608,
+    "candidate_c_dominant_group_count": 7,
+    "candidate_c_dominant_group_margin": 1,
+    "candidate_c_dominant_group_share": 0.30434782608695654,
+    "candidate_c_group_count": 5,
+    "candidate_c_group_size_profile": [
+      7,
+      6,
+      5,
+      4,
+      1
+    ],
+    "candidate_c_interrogation_only": true,
+    "candidate_c_low_margin_warning": true,
+    "candidate_c_membership_count": 23,
+    "candidate_c_repeated_group_count": 4,
+    "candidate_c_second_group_count": 6,
+    "candidate_c_singleton_group_count": 1,
+    "command_authorized_count": 0,
+    "exact_signature_overwrite_count": 0,
+    "optimization_authorized_count": 0,
+    "proposal_authorized_count": 0,
+    "repair_authorized_count": 0,
+    "review_only": true,
+    "review_packet_emitted": true,
+    "runtime_behavior_changed_count": 0,
+    "runtime_rerun_count": 0,
+    "source_mutation_count": 0,
+    "source_pressure_event_count": 23,
+    "sqlite_registry_write_count": 0,
+    "taxonomy_upgrade_authorized_count": 0
+  },
+  "candidate_c_group_summary": {
+    "coarsened_fragmentation_ratio": 0.21739130434782608,
+    "dominant_group_count": 7,
+    "dominant_group_low_margin_warning": true,
+    "dominant_group_margin": 1,
+    "dominant_group_share": 0.30434782608695654,
+    "group_count": 5,
+    "group_size_profile": [
+      7,
+      6,
+      5,
+      4,
+      1
+    ],
+    "repeated_group_count": 4,
+    "second_group_count": 6,
+    "singleton_group_count": 1
+  },
+  "candidate_c_interrogation_guards": {
+    "authority_widening_authorized": false,
+    "candidate_c_groups_emitted": true,
+    "candidate_c_used_as_interrogation_lens_only": true,
+    "command_emitted": false,
+    "exact_signature_overwritten": false,
+    "exact_signatures_preserved": true,
+    "group_membership_emitted": true,
+    "hidden_next_command": false,
+    "human_acceptance_recorded": true,
+    "observer_burden_measured": true,
+    "optimization_authorized": false,
+    "proof_claimed": false,
+    "proposal_emitted": false,
+    "repair_authorized": false,
+    "representative_fragments_emitted": true,
+    "review_only": true,
+    "review_packet_emitted": true,
+    "roadmap_invented": false,
+    "runtime_behavior_changed": false,
+    "runtime_rerun": false,
+    "source_mutation": false,
+    "sqlite_registry_written": false,
+    "taxonomy_upgrade_authorized": false
+  },
+  "created_at": "2026-06-22T19:50:10.911839+00:00",
+  "failures": [
+    "group_size_profile_wrong:[7, 6, 5, 4, 1]",
+    "receipt_gate_not_PASS:FAIL"
+  ],
+  "gate": "FAIL",
+  "human_decision": {
+    "accepted_candidate_id": "C",
+    "accepted_candidate_name": "parent_plus_subtype_plus_halt_reason",
+    "accepted_review_packet_choice": "ACCEPT_COARSENING_LAYER_FOR_NEXT_INTERROGATION",
+    "not_authorized": [
+      "taxonomy_upgrade",
+      "authority_widening",
+      "burden_optimization",
+      "extraction_repair",
+      "objective_proposal",
+      "build_command"
+    ],
+    "scope": "interrogation_lens_only"
+  },
+  "must_not_infer": [
+    "do not infer taxonomy upgrade",
+    "do not infer authority expansion",
+    "do not infer burden optimization",
+    "do not infer extraction repair",
+    "do not emit command from candidate C",
+    "do not emit proposal from candidate C",
+    "do not claim Candidate C is accepted as taxonomy",
+    "do not claim Candidate C proves causality",
+    "do not claim parent pressure is dominant enough for action",
+    "do not overwrite exact signatures",
+    "do not rerun runtime",
+    "do not claim roadmap"
+  ],
+  "output_artifacts": {
+    "candidate_c_group_event_membership": "data/r250_pressure_candidate_c_interrogation_v0/candidate_c_group_event_membership.jsonl",
+    "candidate_c_group_interrogation_rollup": "data/r250_pressure_candidate_c_interrogation_v0/candidate_c_group_interrogation_rollup.json",
+    "candidate_c_group_rows": "data/r250_pressure_candidate_c_interrogation_v0/candidate_c_group_rows.jsonl",
+    "candidate_c_group_schema": "data/r250_pressure_candidate_c_interrogation_v0/candidate_c_group_schema_v0.json",
+    "candidate_c_interrogation_observer_burden": "data/r250_pressure_candidate_c_interrogation_v0/candidate_c_interrogation_observer_burden.json",
+    "candidate_c_representative_fragments": "data/r250_pressure_candidate_c_interrogation_v0/candidate_c_representative_fragments.json",
+    "implementation_receipt": "data/r250_pressure_candidate_c_interrogation_v0_receipts/fabba052.json",
+    "r250_candidate_c_group_interrogation_report": "data/r250_pressure_candidate_c_interrogation_v0/r250_candidate_c_group_interrogation_report.json",
+    "r250_candidate_c_group_review_packet": "data/r250_pressure_candidate_c_interrogation_v0/r250_candidate_c_group_review_packet.json"
+  },
+  "receipt_id": "fabba052",
+  "receipt_type": "R250_PRESSURE_COARSENED_CANDIDATE_C_GROUP_INTERROGATION_RECEIPT",
+  "schema_version": "r250_pressure_coarsened_candidate_c_interrogation_receipt_v0",
+  "source_coarsening_review_receipt_id": "f03689e3",
+  "source_failed_pressure_metrics_receipt_id_optional": "8b82d6a8",
+  "source_pd_interrogation_receipt_id": "1f934d51",
+  "source_pressure_batch_id": "r250_pressure_metrics_batch_1095f5c6",
+  "source_pressure_metrics_repair_receipt_id": "f09b8395",
+  "source_previous_r250_batch_id": "r250_batch_34f560c1",
+  "target_unit_id": "r250_pressure_coarsened_candidate_c_interrogation.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_GATE_FAIL",
+    "type": "STOP"
+  },
+  "unit_id": "INTERROGATE_R250_PRESSURE_COARSENED_CANDIDATE_C_GROUPS_V0",
+  "warnings": []
+}
+r250_candidate_c_interrogation_receipt_id=fabba052
+r250_candidate_c_interrogation_receipt_path=data/r250_pressure_candidate_c_interrogation_v0_receipts/fabba052.json
+r250_candidate_c_interrogation_report_path=data/r250_pressure_candidate_c_interrogation_v0/r250_candidate_c_group_interrogation_report.json
+r250_candidate_c_review_packet_path=data/r250_pressure_candidate_c_interrogation_v0/r250_candidate_c_group_review_packet.json
+R250_CANDIDATE_C_RECEIPT_ID=fabba052
+R250_CANDIDATE_C_RECEIPT_PATH=data/r250_pressure_candidate_c_interrogation_v0_receipts/fabba052.json
+R250_CANDIDATE_C_REPORT_PATH=data/r250_pressure_candidate_c_interrogation_v0/r250_candidate_c_group_interrogation_report.json
+R250_CANDIDATE_C_PACKET_PATH=data/r250_pressure_candidate_c_interrogation_v0/r250_candidate_c_group_review_packet.json
+
+ASSERT_REPAIRED_R250_CANDIDATE_C_INTERROGATION
+{
+  "accepted_coarsening_candidate_id": "C",
+  "aggregate_metrics": {
+    "authority_widening_authorized_count": 0,
+    "candidate_c_coarsened_fragmentation_ratio": 0.21739130434782608,
+    "candidate_c_dominant_group_count": 7,
+    "candidate_c_dominant_group_margin": 1,
+    "candidate_c_dominant_group_share": 0.30434782608695654,
+    "candidate_c_group_count": 5,
+    "candidate_c_group_size_profile": [
+      7,
+      6,
+      5,
+      4,
+      1
+    ],
+    "candidate_c_interrogation_only": true,
+    "candidate_c_low_margin_warning": true,
+    "candidate_c_membership_count": 23,
+    "candidate_c_repeated_group_count": 4,
+    "candidate_c_second_group_count": 6,
+    "candidate_c_singleton_group_count": 1,
+    "command_authorized_count": 0,
+    "exact_signature_overwrite_count": 0,
+    "optimization_authorized_count": 0,
+    "proposal_authorized_count": 0,
+    "repair_authorized_count": 0,
+    "review_only": true,
+    "review_packet_emitted": true,
+    "runtime_behavior_changed_count": 0,
+    "runtime_rerun_count": 0,
+    "source_mutation_count": 0,
+    "source_pressure_event_count": 23,
+    "sqlite_registry_write_count": 0,
+    "taxonomy_upgrade_authorized_count": 0
+  },
+  "candidate_c_group_summary": {
+    "coarsened_fragmentation_ratio": 0.21739130434782608,
+    "dominant_group_count": 7,
+    "dominant_group_low_margin_warning": true,
+    "dominant_group_margin": 1,
+    "dominant_group_share": 0.30434782608695654,
+    "group_count": 5,
+    "group_size_profile": [
+      7,
+      6,
+      5,
+      4,
+      1
+    ],
+    "repeated_group_count": 4,
+    "second_group_count": 6,
+    "singleton_group_count": 1
+  },
+  "gate": "FAIL",
+  "receipt_id": "fabba052",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_GATE_FAIL",
+    "type": "STOP"
+  },
+  "unit_id": "INTERROGATE_R250_PRESSURE_COARSENED_CANDIDATE_C_GROUPS_V0"
+}
+Traceback (most recent call last):
+  File "<stdin>", line 17, in <module>
+AssertionError: ['group_size_profile_wrong:[7, 6, 5, 4, 1]', 'receipt_gate_not_PASS:FAIL']
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

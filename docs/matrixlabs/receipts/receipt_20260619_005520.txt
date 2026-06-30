@@ -1,0 +1,262 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260619_005520
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260619_005520.txt
+
+BUILD_AGENT_CYCLE_NEXT_V1
+
+STATUS_BEFORE
+
+BACKUP
+CLI_SIG=53e1c4a9dd34
+BACKUP=/tmp/matrixlab_cli_before_cycle_next_53e1c4a9dd34.py
+
+PATCH_GITIGNORE
+
+PATCH_CLI_AGENT_CYCLE_NEXT
+
+PY_COMPILE
+
+HELP_SMOKE
+help smoke ok:
+  /tmp/matrixlab_cli_help_after_cycle_next.txt
+  /tmp/matrixlab_cycle_next_help.txt
+
+RUN_CYCLE_NEXT_PASS
+{
+  "command_argvs": [
+    [
+      "uv",
+      "run",
+      "python",
+      "src/matrixlab/cli.py",
+      "stress",
+      "--families",
+      "ABCDE",
+      "--depth-max",
+      "150",
+      "--cycles-per-case",
+      "150",
+      "--max-cells",
+      "50000",
+      "--strict-laws"
+    ],
+    [
+      "uv",
+      "run",
+      "python",
+      "src/matrixlab/cli.py",
+      "gate",
+      "latest"
+    ],
+    [
+      "uv",
+      "run",
+      "python",
+      "src/matrixlab/cli.py",
+      "agent-eval",
+      "latest",
+      "--previous",
+      "run_20260618_205137_932569"
+    ]
+  ],
+  "command_count": 3,
+  "command_kind": "CONTROLLED_CONTINUATION_EXPANSION",
+  "command_lines": [
+    "uv run python src/matrixlab/cli.py stress --families ABCDE --depth-max 150 --cycles-per-case 150 --max-cells 50000 --strict-laws",
+    "uv run python src/matrixlab/cli.py gate latest",
+    "uv run python src/matrixlab/cli.py agent-eval latest --previous run_20260618_205137_932569"
+  ],
+  "command_script": "uv run python src/matrixlab/cli.py stress --families ABCDE --depth-max 150 --cycles-per-case 150 --max-cells 50000 --strict-laws\nuv run python src/matrixlab/cli.py gate latest\nuv run python src/matrixlab/cli.py agent-eval latest --previous run_20260618_205137_932569",
+  "current_radius": 100,
+  "cycle_ledger_id": "56455945",
+  "cycle_ledger_payload_sig8": "56455945",
+  "cycle_next_id": "99e3a4e2",
+  "cycle_next_payload_sig8": "99e3a4e2",
+  "cycle_next_schema_version": "agent_cycle_next_receipt_v1",
+  "depth_step": 50,
+  "failures": [],
+  "families": "ABCDE",
+  "gate": "PASS",
+  "input_cycle_ledger": "56455945",
+  "input_cycle_ledger_path": "data/agent_cycle_ledgers/56455945.json",
+  "last_eval_id": "e13f75e6",
+  "last_run_id": "run_20260618_205137_932569",
+  "ledger_cycle_count": 2,
+  "ledger_gate": "PASS",
+  "ledger_verdict": "REPRODUCED_FLAT_STABILITY",
+  "max_cells": 50000,
+  "next_radius": 150,
+  "recomputed_cycle_ledger_payload_sig8": "56455945",
+  "selected_goal": "RUN_FULL_NORMAL_STRICT_EXPAND_CONTINUATION_RADIUS",
+  "selection_reason": "ledger_is_clean_and_repeated_same_radius_no_longer_adds_information",
+  "strict_laws": true,
+  "terminal": {
+    "next_command_goal": "MANUAL_EXECUTE_CYCLE_NEXT_COMMANDS",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+cycle_next_path: data/agent_cycle_next/99e3a4e2.json
+
+VERIFY_CYCLE_NEXT_RECEIPT
+{
+  "command_count": 3,
+  "command_script": "uv run python src/matrixlab/cli.py stress --families ABCDE --depth-max 150 --cycles-per-case 150 --max-cells 50000 --strict-laws\nuv run python src/matrixlab/cli.py gate latest\nuv run python src/matrixlab/cli.py agent-eval latest --previous run_20260618_205137_932569",
+  "current_radius": 100,
+  "cycle_next_id": "99e3a4e2",
+  "gate": "PASS",
+  "id_matches_filename": true,
+  "last_run_id": "run_20260618_205137_932569",
+  "next_radius": 150,
+  "path": "data/agent_cycle_next/99e3a4e2.json",
+  "recomputed_sig": "99e3a4e2",
+  "selected_goal": "RUN_FULL_NORMAL_STRICT_EXPAND_CONTINUATION_RADIUS",
+  "sig_matches": true,
+  "stored_sig": "99e3a4e2"
+}
+
+RUN_CYCLE_NEXT_FAIL_NEGATIVE
+{
+  "command_argvs": [],
+  "command_count": 0,
+  "command_kind": null,
+  "command_lines": [],
+  "command_script": "",
+  "current_radius": 100,
+  "cycle_ledger_id": "05dc7bd5",
+  "cycle_ledger_payload_sig8": "05dc7bd5",
+  "cycle_next_id": "ecbe3ea9",
+  "cycle_next_payload_sig8": "ecbe3ea9",
+  "cycle_next_schema_version": "agent_cycle_next_receipt_v1",
+  "depth_step": 50,
+  "failures": [
+    "cycle_ledger_gate_not_PASS",
+    "ledger_verdict_not_actionable"
+  ],
+  "families": "ABCDE",
+  "gate": "FAIL",
+  "input_cycle_ledger": "05dc7bd5",
+  "input_cycle_ledger_path": "data/agent_cycle_ledgers/05dc7bd5.json",
+  "last_eval_id": "81aeec46",
+  "last_run_id": "run_20260618_201554_453008",
+  "ledger_cycle_count": 2,
+  "ledger_gate": "FAIL",
+  "ledger_verdict": "FAIL",
+  "max_cells": 50000,
+  "next_radius": 150,
+  "recomputed_cycle_ledger_payload_sig8": "05dc7bd5",
+  "selected_goal": null,
+  "selection_reason": "ledger_verdict_not_actionable:FAIL",
+  "strict_laws": true,
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "cycle_next_failed",
+    "type": "STOP"
+  }
+}
+cycle_next_path: data/agent_cycle_next/ecbe3ea9.json
+
+REPLAY_EXISTING_LEDGER_SMOKE
+{
+  "compression_assessment": {
+    "all_compression_signals": [
+      "FLAT",
+      "FLAT"
+    ],
+    "all_gates_pass": true,
+    "all_laws_clean": true,
+    "coarse_profiles_delta": 0,
+    "continuation_radius_delta": 0,
+    "cycle_count": 2,
+    "first_run_id": "run_20260618_201554_453008",
+    "last_run_id": "run_20260618_205137_932569",
+    "registered_moves_delta": 0,
+    "total_receipts_delta": 0
+  },
+  "cycle_count": 2,
+  "cycle_ledger_id": "56455945",
+  "cycle_ledger_payload_sig8": "56455945",
+  "cycle_ledger_schema_version": "agent_cycle_ledger_receipt_v1",
+  "cycles": [
+    {
+      "coarse_profiles_total": 9,
+      "compression_signal": "FLAT",
+      "cycle_n": 1,
+      "eval_id": "81aeec46",
+      "law_failures": 0,
+      "loop_summary_gate": "PASS",
+      "loop_summary_id": "39bf00a9",
+      "loop_summary_path": "data/agent_loop_summaries/39bf00a9.json",
+      "loop_summary_recomputed_sig8": "39bf00a9",
+      "loop_summary_sig8": "39bf00a9",
+      "max_moves_applied_before_halt": 100,
+      "next_permitted_goal": "READY_FOR_OPERATOR_CONFIRMATION_OR_NEXT_SELECTOR",
+      "orphan_receipt_runs": 0,
+      "post_check_id": "a6b490ae",
+      "previous_run_id": "run_20260618_190804_437290",
+      "raw_profiles_total": 405,
+      "registered_moves_total": 100,
+      "run_id": "run_20260618_201554_453008",
+      "selected_goal": "RUN_FULL_NORMAL_STRICT",
+      "total_cases": 490,
+      "total_receipts": 48784,
+      "unknown_laws": 0
+    },
+    {
+      "coarse_profiles_total": 9,
+      "compression_signal": "FLAT",
+      "cycle_n": 2,
+      "eval_id": "e13f75e6",
+      "law_failures": 0,
+      "loop_summary_gate": "PASS",
+      "loop_summary_id": "b8600efb",
+      "loop_summary_path": "data/agent_loop_summaries/b8600efb.json",
+      "loop_summary_recomputed_sig8": "b8600efb",
+      "loop_summary_sig8": "b8600efb",
+      "max_moves_applied_before_halt": 100,
+      "next_permitted_goal": "READY_FOR_OPERATOR_CONFIRMATION_OR_NEXT_SELECTOR",
+      "orphan_receipt_runs": 0,
+      "post_check_id": "5b084e28",
+      "previous_run_id": "run_20260618_201554_453008",
+      "raw_profiles_total": 405,
+      "registered_moves_total": 100,
+      "run_id": "run_20260618_205137_932569",
+      "selected_goal": "RUN_FULL_NORMAL_STRICT",
+      "total_cases": 490,
+      "total_receipts": 48784,
+      "unknown_laws": 0
+    }
+  ],
+  "failures": [],
+  "gate": "PASS",
+  "input_loop_summaries": [
+    "39bf00a9",
+    "b8600efb"
+  ],
+  "terminal": {
+    "next_command_goal": "USE_LEDGER_FOR_NEXT_AGENT_EVAL_DIRECTION",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "verdict": "REPRODUCED_FLAT_STABILITY"
+}
+cycle_ledger_path: data/agent_cycle_ledgers/56455945.json
+
+VERIFY_GITIGNORE
+.gitignore:39:data/agent_cycle_next/	data/agent_cycle_next/test.json
+
+DIFF_STAT
+ .gitignore           |   3 +
+ src/matrixlab/cli.py | 185 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 188 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+ M src/matrixlab/cli.py
+[master 3655d747c] add agent cycle next command
+ 2 files changed, 188 insertions(+)
+
+COMMIT_DONE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

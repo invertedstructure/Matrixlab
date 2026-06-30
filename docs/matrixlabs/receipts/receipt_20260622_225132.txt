@@ -1,0 +1,638 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_225132
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_225132.txt
+
+CLASSIFY_LOCALIZED_EVIDENCE_SURFACE_REPAIR_ELIGIBILITY_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+VERIFY_LOCALIZED_REPAIR_ELIGIBILITY_INPUTS_TRACKED
+tracked data/taxonomy_gap_evidence_surface_localization_audit_v0_receipts/bea59318.json
+tracked data/taxonomy_gap_evidence_surface_localization_audit_v0/raw_source_field_audit.json
+tracked data/taxonomy_gap_evidence_surface_localization_audit_v0/extractor_logic_audit.json
+tracked data/taxonomy_gap_evidence_surface_localization_audit_v0/schema_slot_audit.json
+tracked data/taxonomy_gap_evidence_surface_localization_audit_v0/surface_localization_candidates.json
+tracked data/taxonomy_gap_evidence_surface_localization_audit_v0/surface_localization_classification.json
+tracked data/taxonomy_gap_evidence_surface_localization_audit_v0/surface_localization_decision_packet.json
+tracked data/taxonomy_gap_evidence_surface_localization_audit_v0/surface_localization_audit_report.json
+tracked data/taxonomy_gap_evidence_surface_deficiency_v0_receipts/707dd84d.json
+tracked data/pressure_loop_applications/r1000_top_group_taxonomy_gap_evidence_extraction_v0_receipts/7ed31808.json
+tracked data/pressure_loop_applications/r1000_top_group_taxonomy_gap_evidence_extraction_v0/taxonomy_gap_missing_label_field_rows.jsonl
+tracked data/pressure_loop_applications/r1000_top_group_taxonomy_gap_evidence_extraction_v0/taxonomy_gap_context_refs.json
+tracked data/pressure_loop_applications/r1000_top_group_taxonomy_gap_v0_receipts/be19f438.json
+tracked data/pressure_handling_loop_protocol_v0_receipts/6148b4fa.json
+tracked data/r1000_candidate_c_top_group_classification_v0_receipts/7c9718e0.json
+tracked data/r1000_pressure_scale_stability_candidate_c_v0_receipts/a121ff40.json
+tracked data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl
+tracked data/r1000_pressure_scale_stability_candidate_c_v0/r1000_candidate_c_group_event_membership.jsonl
+tracked scripts/audit_taxonomy_gap_evidence_surface_localization_v0.py
+tracked scripts/extract_r1000_top_group_taxonomy_gap_missing_label_evidence_v0.py
+
+PATCH_GITIGNORE
+
+WRITE_LOCALIZED_REPAIR_ELIGIBILITY_BUILDER
+
+PY_COMPILE_LOCALIZED_REPAIR_ELIGIBILITY_BUILDER
+
+RUN_LOCALIZED_REPAIR_ELIGIBILITY_BUILDER
+{
+  "acceptance_gate_results": {
+    "REPAIR_ELIGIBILITY_0_SOURCE_SURFACE_VERIFIED": true,
+    "REPAIR_ELIGIBILITY_1_HUMAN_DECISION_RECORDED": true,
+    "REPAIR_ELIGIBILITY_2_LOCALIZATION_CONSUMED": true,
+    "REPAIR_ELIGIBILITY_3_ELIGIBILITY_CLASSIFIED": true,
+    "REPAIR_ELIGIBILITY_4_REPAIR_OBJECTIVE_PROPOSAL_EMITTED": true,
+    "REPAIR_ELIGIBILITY_5_DECISION_PACKET_EMITTED": true,
+    "REPAIR_ELIGIBILITY_6_NO_REPAIR_OR_TAXONOMY_ACTION": true,
+    "REPAIR_ELIGIBILITY_7_NO_SOURCE_MUTATION": true
+  },
+  "aggregate_metrics": {
+    "authority_widening_authorized_count": 0,
+    "build_command_emitted_count": 0,
+    "burden_optimization_authorized_count": 0,
+    "classification": "ELIGIBLE_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "hidden_next_command_count": 0,
+    "localized_surface_refs": [
+      "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl"
+    ],
+    "missing_fields_to_expose": [
+      "missing_label_identifier",
+      "taxonomy_context_ref",
+      "current_label_space_ref",
+      "expected_label_space_ref"
+    ],
+    "next_group_auto_opened_count": 0,
+    "next_if_accepted": "BUILD_REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0",
+    "pressure_group_key_hash": "38c604a1",
+    "proposal_allowed": true,
+    "proposal_emitted": true,
+    "protocol_adoption_authorized_count": 0,
+    "recommended_next_handling": "ACCEPT_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "repair_command_emitted_count": 0,
+    "repair_executed_count": 0,
+    "repair_objective_id": "12d712af",
+    "repair_objective_name": "REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0",
+    "review_only": true,
+    "source_evidence_surface_classification_receipt_id": "707dd84d",
+    "source_localization_audit_receipt_id": "bea59318",
+    "source_mutation_count": 0,
+    "source_taxonomy_gap_evidence_extraction_receipt_id": "7ed31808",
+    "taxonomy_delta_proposal_emitted_count": 0,
+    "taxonomy_upgrade_authorized_count": 0
+  },
+  "created_at": "2026-06-22T21:51:32.518945+00:00",
+  "eligibility_summary": {
+    "classification": "ELIGIBLE_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "classification_reason": "Localized source-event payload surface lacks required evidence fields, while extractor logic and extracted row schema can carry them; a bounded evidence-surface repair objective can be proposed without taxonomy repair or guessing missing labels.",
+    "localized_repair_surface_refs": [
+      "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl"
+    ],
+    "missing_fields_to_expose": [
+      "missing_label_identifier",
+      "taxonomy_context_ref",
+      "current_label_space_ref",
+      "expected_label_space_ref"
+    ],
+    "next_if_accepted": "BUILD_REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0",
+    "pressure_group_key_hash": "38c604a1",
+    "proposal_emitted": true,
+    "recommended_next_handling": "ACCEPT_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "repair_objective_id": "12d712af",
+    "repair_objective_name": "REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0"
+  },
+  "failures": [],
+  "gate": "PASS",
+  "human_decision": {
+    "decision": "CLASSIFY_LOCALIZED_EVIDENCE_SURFACE_REPAIR_ELIGIBILITY",
+    "not_authorized": [
+      "repair_execution",
+      "taxonomy_repair",
+      "taxonomy_upgrade",
+      "taxonomy_delta_proposal",
+      "authority_widening",
+      "burden_optimization",
+      "source_mutation",
+      "protocol_adoption",
+      "next_group_auto_open",
+      "build_command"
+    ],
+    "scope": "classify and package human-reviewable evidence-surface repair objective only",
+    "source_localization_audit_receipt_id": "bea59318",
+    "source_pressure_group_key_hash": "38c604a1"
+  },
+  "must_not_infer": [
+    "repair eligibility is not repair execution",
+    "evidence-surface repair objective is not taxonomy repair",
+    "evidence-surface repair objective is not taxonomy delta proposal",
+    "do not guess missing label values",
+    "do not mutate source rows",
+    "do not widen authority",
+    "do not auto-open next group",
+    "do not emit build command"
+  ],
+  "output_artifacts": {
+    "implementation_receipt": "data/localized_evidence_surface_repair_eligibility_v0_receipts/ecebcd27.json",
+    "localized_evidence_surface_repair_objective_proposal": "data/localized_evidence_surface_repair_eligibility_v0/localized_evidence_surface_repair_objective_proposal.json",
+    "localized_repair_eligibility_classification": "data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_classification.json",
+    "localized_repair_eligibility_decision_packet": "data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_decision_packet.json",
+    "localized_repair_eligibility_input_rollup": "data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_input_rollup.json",
+    "localized_repair_eligibility_report": "data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_report.json"
+  },
+  "receipt_id": "ecebcd27",
+  "receipt_type": "LOCALIZED_EVIDENCE_SURFACE_REPAIR_ELIGIBILITY_RECEIPT",
+  "repair_eligibility_guards": {
+    "authority_widening_authorized": false,
+    "build_command_emitted": false,
+    "burden_optimization_authorized": false,
+    "decision_packet_emitted": true,
+    "eligibility_classified": true,
+    "hidden_next_command": false,
+    "human_decision_recorded": true,
+    "localization_consumed": true,
+    "next_group_auto_opened": false,
+    "protocol_adoption_authorized": false,
+    "repair_command_emitted": false,
+    "repair_executed": false,
+    "repair_objective_proposal_emitted": true,
+    "source_mutation": false,
+    "source_surface_verified": true,
+    "taxonomy_delta_proposal_emitted": false,
+    "taxonomy_upgrade_authorized": false
+  },
+  "schema_version": "localized_evidence_surface_repair_eligibility_receipt_v0",
+  "source_evidence_surface_classification_receipt_id": "707dd84d",
+  "source_localization_audit_receipt_id": "bea59318",
+  "source_loop_application_receipt_id": "be19f438",
+  "source_pressure_group_key_hash": "38c604a1",
+  "source_pressure_loop_protocol_receipt_id": "6148b4fa",
+  "source_r1000_scale_stability_receipt_id": "a121ff40",
+  "source_taxonomy_gap_evidence_extraction_receipt_id": "7ed31808",
+  "source_top_group_classification_receipt_id": "7c9718e0",
+  "target_unit_id": "localized_evidence_surface_repair_eligibility.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_HUMAN_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "unit_id": "CLASSIFY_LOCALIZED_EVIDENCE_SURFACE_REPAIR_ELIGIBILITY_V0",
+  "warnings": []
+}
+localized_evidence_surface_repair_eligibility_receipt_id=ecebcd27
+localized_evidence_surface_repair_eligibility_receipt_path=data/localized_evidence_surface_repair_eligibility_v0_receipts/ecebcd27.json
+localized_repair_eligibility_classification_path=data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_classification.json
+localized_evidence_surface_repair_objective_proposal_path=data/localized_evidence_surface_repair_eligibility_v0/localized_evidence_surface_repair_objective_proposal.json
+localized_repair_eligibility_decision_packet_path=data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_decision_packet.json
+REPAIR_ELIGIBILITY_RECEIPT_ID=ecebcd27
+REPAIR_ELIGIBILITY_RECEIPT_PATH=data/localized_evidence_surface_repair_eligibility_v0_receipts/ecebcd27.json
+REPAIR_ELIGIBILITY_CLASSIFICATION_PATH=data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_classification.json
+REPAIR_OBJECTIVE_PROPOSAL_PATH=data/localized_evidence_surface_repair_eligibility_v0/localized_evidence_surface_repair_objective_proposal.json
+REPAIR_ELIGIBILITY_PACKET_PATH=data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_decision_packet.json
+
+ASSERT_LOCALIZED_REPAIR_ELIGIBILITY
+{
+  "aggregate_metrics": {
+    "authority_widening_authorized_count": 0,
+    "build_command_emitted_count": 0,
+    "burden_optimization_authorized_count": 0,
+    "classification": "ELIGIBLE_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "hidden_next_command_count": 0,
+    "localized_surface_refs": [
+      "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl"
+    ],
+    "missing_fields_to_expose": [
+      "missing_label_identifier",
+      "taxonomy_context_ref",
+      "current_label_space_ref",
+      "expected_label_space_ref"
+    ],
+    "next_group_auto_opened_count": 0,
+    "next_if_accepted": "BUILD_REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0",
+    "pressure_group_key_hash": "38c604a1",
+    "proposal_allowed": true,
+    "proposal_emitted": true,
+    "protocol_adoption_authorized_count": 0,
+    "recommended_next_handling": "ACCEPT_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "repair_command_emitted_count": 0,
+    "repair_executed_count": 0,
+    "repair_objective_id": "12d712af",
+    "repair_objective_name": "REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0",
+    "review_only": true,
+    "source_evidence_surface_classification_receipt_id": "707dd84d",
+    "source_localization_audit_receipt_id": "bea59318",
+    "source_mutation_count": 0,
+    "source_taxonomy_gap_evidence_extraction_receipt_id": "7ed31808",
+    "taxonomy_delta_proposal_emitted_count": 0,
+    "taxonomy_upgrade_authorized_count": 0
+  },
+  "eligibility_summary": {
+    "classification": "ELIGIBLE_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "classification_reason": "Localized source-event payload surface lacks required evidence fields, while extractor logic and extracted row schema can carry them; a bounded evidence-surface repair objective can be proposed without taxonomy repair or guessing missing labels.",
+    "localized_repair_surface_refs": [
+      "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl"
+    ],
+    "missing_fields_to_expose": [
+      "missing_label_identifier",
+      "taxonomy_context_ref",
+      "current_label_space_ref",
+      "expected_label_space_ref"
+    ],
+    "next_if_accepted": "BUILD_REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0",
+    "pressure_group_key_hash": "38c604a1",
+    "proposal_emitted": true,
+    "recommended_next_handling": "ACCEPT_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "repair_objective_id": "12d712af",
+    "repair_objective_name": "REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0"
+  },
+  "gate": "PASS",
+  "receipt_id": "ecebcd27",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_HUMAN_DECISION_REQUIRED",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROLS_LOCALIZED_REPAIR_ELIGIBILITY_NON_WRITING
+{
+  "case": "latest_or_mtime_selection_fail",
+  "directory_scan_authority_present": false,
+  "forbidden_latest_string_present": false,
+  "forbidden_mtime_string_present": false
+}
+{
+  "case": "eligible_without_localized_surface_fail",
+  "failures": [
+    "localized_surface_not_found"
+  ]
+}
+{
+  "case": "eligible_without_surface_refs_fail",
+  "failures": [
+    "localized_surface_refs_wrong"
+  ]
+}
+{
+  "case": "taxonomy_delta_required_fail",
+  "failures": [
+    "taxonomy_delta_required"
+  ]
+}
+{
+  "case": "missing_label_guess_required_fail",
+  "failures": [
+    "missing_label_guess_required"
+  ]
+}
+{
+  "case": "classification_taxonomy_upgrade_required_fail",
+  "failures": [
+    "classification_guard_not_false:taxonomy_upgrade_required:True"
+  ]
+}
+{
+  "case": "classification_repair_executed_fail",
+  "failures": [
+    "classification_guard_not_false:repair_executed:True"
+  ]
+}
+{
+  "case": "proposal_not_emitted_fail",
+  "failures": [
+    "expected_repair_objective_proposal_not_emitted"
+  ]
+}
+{
+  "case": "proposal_repair_executed_fail",
+  "failures": [
+    "proposal_guard_not_false:repair_executed:True"
+  ]
+}
+{
+  "case": "proposal_taxonomy_delta_fail",
+  "failures": [
+    "proposal_guard_not_false:taxonomy_delta_proposal_emitted:True"
+  ]
+}
+{
+  "case": "packet_execute_repair_fail",
+  "failures": [
+    "packet_guard_not_false:may_execute_repair:True"
+  ]
+}
+{
+  "case": "packet_taxonomy_delta_fail",
+  "failures": [
+    "packet_guard_not_false:may_authorize_taxonomy_delta:True"
+  ]
+}
+{
+  "case": "repair_command_emitted_fail",
+  "failures": [
+    "report_guard_not_false:repair_command_emitted:True"
+  ]
+}
+{
+  "case": "build_command_emitted_fail",
+  "failures": [
+    "report_guard_not_false:build_command_emitted:True"
+  ]
+}
+{
+  "case": "repair_executed_fail",
+  "failures": [
+    "report_guard_not_false:repair_executed:True"
+  ]
+}
+{
+  "case": "taxonomy_upgrade_authorized_fail",
+  "failures": [
+    "report_guard_not_false:taxonomy_upgrade_authorized:True"
+  ]
+}
+{
+  "case": "authority_widening_authorized_fail",
+  "failures": [
+    "report_guard_not_false:authority_widening_authorized:True"
+  ]
+}
+{
+  "case": "burden_optimization_authorized_fail",
+  "failures": [
+    "report_guard_not_false:burden_optimization_authorized:True"
+  ]
+}
+{
+  "case": "protocol_adoption_authorized_fail",
+  "failures": [
+    "report_guard_not_false:protocol_adoption_authorized:True"
+  ]
+}
+{
+  "case": "next_group_auto_opened_fail",
+  "failures": [
+    "report_guard_not_false:next_group_auto_opened:True"
+  ]
+}
+{
+  "case": "source_mutation_fail",
+  "failures": [
+    "metric_not_zero:source_mutation_count:1"
+  ]
+}
+{
+  "case": "hidden_next_command_fail",
+  "failures": [
+    "terminal_not_STOP:{'type': 'ADVANCE', 'next_command_goal': 'BUILD_REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0', 'stop_code': None}",
+    "terminal_stop_wrong:{'type': 'ADVANCE', 'next_command_goal': 'BUILD_REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0', 'stop_code': None}",
+    "terminal_next_not_null:{'type': 'ADVANCE', 'next_command_goal': 'BUILD_REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0', 'stop_code': None}"
+  ]
+}
+{
+  "after": {
+    "receipt": "f89279a42ff20ac88b1f99b4554d68cc651bbc3daa8df0f4c76b94a74404a832"
+  },
+  "before": {
+    "receipt": "f89279a42ff20ac88b1f99b4554d68cc651bbc3daa8df0f4c76b94a74404a832"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+VERIFY_NO_FORBIDDEN_SOURCE_RUNTIME_OR_REGISTRY_MUTATION
+source artifacts, runtime modules, and sqlite registry untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/classify_localized_evidence_surface_repair_eligibility_v0.py
+
+PACKAGE_LOCALIZED_REPAIR_ELIGIBILITY_ARTIFACTS
+packaged data/localized_evidence_surface_repair_eligibility_v0_receipts/ecebcd27.json
+packaged data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_input_rollup.json
+packaged data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_classification.json
+packaged data/localized_evidence_surface_repair_eligibility_v0/localized_evidence_surface_repair_objective_proposal.json
+packaged data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_decision_packet.json
+packaged data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_report.json
+[master dd60e90ae] classify localized evidence surface repair eligibility
+ 8 files changed, 1377 insertions(+)
+ create mode 100644 data/localized_evidence_surface_repair_eligibility_v0/localized_evidence_surface_repair_objective_proposal.json
+ create mode 100644 data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_classification.json
+ create mode 100644 data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_decision_packet.json
+ create mode 100644 data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_input_rollup.json
+ create mode 100644 data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_report.json
+ create mode 100644 data/localized_evidence_surface_repair_eligibility_v0_receipts/ecebcd27.json
+ create mode 100755 scripts/classify_localized_evidence_surface_repair_eligibility_v0.py
+
+COMMIT_DONE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+NEXT_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+localized_evidence_surface_repair_eligibility_receipt_id=ecebcd27
+localized_evidence_surface_repair_eligibility_receipt_path=data/localized_evidence_surface_repair_eligibility_v0_receipts/ecebcd27.json
+{
+  "acceptance_gate_results": {
+    "REPAIR_ELIGIBILITY_0_SOURCE_SURFACE_VERIFIED": true,
+    "REPAIR_ELIGIBILITY_1_HUMAN_DECISION_RECORDED": true,
+    "REPAIR_ELIGIBILITY_2_LOCALIZATION_CONSUMED": true,
+    "REPAIR_ELIGIBILITY_3_ELIGIBILITY_CLASSIFIED": true,
+    "REPAIR_ELIGIBILITY_4_REPAIR_OBJECTIVE_PROPOSAL_EMITTED": true,
+    "REPAIR_ELIGIBILITY_5_DECISION_PACKET_EMITTED": true,
+    "REPAIR_ELIGIBILITY_6_NO_REPAIR_OR_TAXONOMY_ACTION": true,
+    "REPAIR_ELIGIBILITY_7_NO_SOURCE_MUTATION": true
+  },
+  "aggregate_metrics": {
+    "authority_widening_authorized_count": 0,
+    "build_command_emitted_count": 0,
+    "burden_optimization_authorized_count": 0,
+    "classification": "ELIGIBLE_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "hidden_next_command_count": 0,
+    "localized_surface_refs": [
+      "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl"
+    ],
+    "missing_fields_to_expose": [
+      "missing_label_identifier",
+      "taxonomy_context_ref",
+      "current_label_space_ref",
+      "expected_label_space_ref"
+    ],
+    "next_group_auto_opened_count": 0,
+    "next_if_accepted": "BUILD_REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0",
+    "pressure_group_key_hash": "38c604a1",
+    "proposal_allowed": true,
+    "proposal_emitted": true,
+    "protocol_adoption_authorized_count": 0,
+    "recommended_next_handling": "ACCEPT_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "repair_command_emitted_count": 0,
+    "repair_executed_count": 0,
+    "repair_objective_id": "12d712af",
+    "repair_objective_name": "REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0",
+    "review_only": true,
+    "source_evidence_surface_classification_receipt_id": "707dd84d",
+    "source_localization_audit_receipt_id": "bea59318",
+    "source_mutation_count": 0,
+    "source_taxonomy_gap_evidence_extraction_receipt_id": "7ed31808",
+    "taxonomy_delta_proposal_emitted_count": 0,
+    "taxonomy_upgrade_authorized_count": 0
+  },
+  "eligibility_summary": {
+    "classification": "ELIGIBLE_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "classification_reason": "Localized source-event payload surface lacks required evidence fields, while extractor logic and extracted row schema can carry them; a bounded evidence-surface repair objective can be proposed without taxonomy repair or guessing missing labels.",
+    "localized_repair_surface_refs": [
+      "data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl"
+    ],
+    "missing_fields_to_expose": [
+      "missing_label_identifier",
+      "taxonomy_context_ref",
+      "current_label_space_ref",
+      "expected_label_space_ref"
+    ],
+    "next_if_accepted": "BUILD_REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0",
+    "pressure_group_key_hash": "38c604a1",
+    "proposal_emitted": true,
+    "recommended_next_handling": "ACCEPT_EVIDENCE_SURFACE_REPAIR_OBJECTIVE",
+    "repair_objective_id": "12d712af",
+    "repair_objective_name": "REPAIR_R1000_PRESSURE_EVENT_TAXONOMY_GAP_FIELD_SURFACE_V0"
+  },
+  "gate": "PASS",
+  "human_decision": {
+    "decision": "CLASSIFY_LOCALIZED_EVIDENCE_SURFACE_REPAIR_ELIGIBILITY",
+    "not_authorized": [
+      "repair_execution",
+      "taxonomy_repair",
+      "taxonomy_upgrade",
+      "taxonomy_delta_proposal",
+      "authority_widening",
+      "burden_optimization",
+      "source_mutation",
+      "protocol_adoption",
+      "next_group_auto_open",
+      "build_command"
+    ],
+    "scope": "classify and package human-reviewable evidence-surface repair objective only",
+    "source_localization_audit_receipt_id": "bea59318",
+    "source_pressure_group_key_hash": "38c604a1"
+  },
+  "must_not_infer": [
+    "repair eligibility is not repair execution",
+    "evidence-surface repair objective is not taxonomy repair",
+    "evidence-surface repair objective is not taxonomy delta proposal",
+    "do not guess missing label values",
+    "do not mutate source rows",
+    "do not widen authority",
+    "do not auto-open next group",
+    "do not emit build command"
+  ],
+  "output_artifacts": {
+    "implementation_receipt": "data/localized_evidence_surface_repair_eligibility_v0_receipts/ecebcd27.json",
+    "localized_evidence_surface_repair_objective_proposal": "data/localized_evidence_surface_repair_eligibility_v0/localized_evidence_surface_repair_objective_proposal.json",
+    "localized_repair_eligibility_classification": "data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_classification.json",
+    "localized_repair_eligibility_decision_packet": "data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_decision_packet.json",
+    "localized_repair_eligibility_input_rollup": "data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_input_rollup.json",
+    "localized_repair_eligibility_report": "data/localized_evidence_surface_repair_eligibility_v0/localized_repair_eligibility_report.json"
+  },
+  "repair_eligibility_guards": {
+    "authority_widening_authorized": false,
+    "build_command_emitted": false,
+    "burden_optimization_authorized": false,
+    "decision_packet_emitted": true,
+    "eligibility_classified": true,
+    "hidden_next_command": false,
+    "human_decision_recorded": true,
+    "localization_consumed": true,
+    "next_group_auto_opened": false,
+    "protocol_adoption_authorized": false,
+    "repair_command_emitted": false,
+    "repair_executed": false,
+    "repair_objective_proposal_emitted": true,
+    "source_mutation": false,
+    "source_surface_verified": true,
+    "taxonomy_delta_proposal_emitted": false,
+    "taxonomy_upgrade_authorized": false
+  },
+  "source_evidence_surface_classification_receipt_id": "707dd84d",
+  "source_localization_audit_receipt_id": "bea59318",
+  "source_loop_application_receipt_id": "be19f438",
+  "source_pressure_group_key_hash": "38c604a1",
+  "source_pressure_loop_protocol_receipt_id": "6148b4fa",
+  "source_r1000_scale_stability_receipt_id": "a121ff40",
+  "source_taxonomy_gap_evidence_extraction_receipt_id": "7ed31808",
+  "source_top_group_classification_receipt_id": "7c9718e0",
+  "target_unit_id": "localized_evidence_surface_repair_eligibility.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_HUMAN_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "unit_id": "CLASSIFY_LOCALIZED_EVIDENCE_SURFACE_REPAIR_ELIGIBILITY_V0"
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

@@ -1,0 +1,668 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260623_012144
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260623_012144.txt
+
+FIX_R1000_CURRENT_SURFACE_CLOSED_BRANCH_EXCLUSION_KEY_MATCH_V0
+
+STATUS_BEFORE
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+
+VERIFY_CLOSED_BRANCH_EXCLUSION_FIX_INPUTS
+local data/current_surface_pressure_loop_r1000_application_v0_receipts/7ae5e47f.json
+local data/current_surface_pressure_loop_r1000_application_v0/r1000_current_surface_selected_pressure_group.json
+local data/current_surface_pressure_loop_r1000_application_v0/r1000_current_surface_capability_stop_packet.json
+tracked data/current_surface_pressure_handling_loop_protocol_v0_receipts/e3371951.json
+tracked data/current_surface_pressure_handling_loop_protocol_v0/current_surface_pressure_loop_protocol.json
+tracked data/current_surface_pressure_handling_loop_protocol_v0/surface_state_record_schema.json
+tracked data/current_surface_pressure_handling_loop_protocol_v0/surface_transition_decision_table.json
+tracked data/current_surface_pressure_handling_loop_protocol_v0/capability_stop_packet_schema.json
+tracked data/current_surface_pressure_handling_loop_protocol_v0/pressure_loop_acceptance_gates.json
+tracked data/field_introduced_surface_expected_source_content_limit_v0_receipts/cbde4b69.json
+tracked data/field_introduced_surface_expected_source_content_limit_v0/expected_source_content_limit_marker.json
+tracked data/field_introduced_surface_expected_source_content_limit_v0/expected_source_content_limit_closure_record.json
+tracked data/r1000_pressure_scale_stability_candidate_c_v0_receipts/a121ff40.json
+tracked data/r1000_pressure_scale_stability_candidate_c_v0/r1000_pressure_event_rows.jsonl
+tracked data/r1000_candidate_c_top_group_classification_v0_receipts/7c9718e0.json
+tracked data/pressure_loop_applications/r1000_top_group_taxonomy_gap_v0_receipts/be19f438.json
+tracked data/pressure_handling_loop_protocol_v0_receipts/6148b4fa.json
+
+PATCH_GITIGNORE
+
+WRITE_CLOSED_BRANCH_EXCLUSION_FIX
+
+PY_COMPILE_CLOSED_BRANCH_EXCLUSION_FIX
+
+RUN_CLOSED_BRANCH_EXCLUSION_FIX
+{
+  "acceptance_gate_results": {
+    "CLOSED_BRANCH_FIX_0_FAILED_RECEIPT_CONSUMED": true,
+    "CLOSED_BRANCH_FIX_10_NO_NEXT_GROUP_AUTO_OPEN": true,
+    "CLOSED_BRANCH_FIX_11_NO_HIDDEN_NEXT_COMMAND": true,
+    "CLOSED_BRANCH_FIX_1_CLOSURE_RECEIPT_CONSUMED": true,
+    "CLOSED_BRANCH_FIX_2_IDENTITY_MAP_EMITTED": true,
+    "CLOSED_BRANCH_FIX_3_SEMANTIC_MATCH_DETECTED": true,
+    "CLOSED_BRANCH_FIX_4_CLOSED_BRANCH_EXCLUDED": true,
+    "CLOSED_BRANCH_FIX_5_RERUN_QUEUE_APPLICATION_FIXED": true,
+    "CLOSED_BRANCH_FIX_6_CAPABILITY_STOP_EMITTED_FOR_NEXT_GROUP": true,
+    "CLOSED_BRANCH_FIX_7_NO_R1000_RUN_OR_REPAIR_EXECUTED": true,
+    "CLOSED_BRANCH_FIX_8_NO_VALUE_OR_TAXONOMY_ACTION": true,
+    "CLOSED_BRANCH_FIX_9_NO_SOURCE_OR_RECEIPT_MUTATION": true
+  },
+  "aggregate_metrics": {
+    "capability_stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+    "capability_stop_packet_emitted_count": 1,
+    "capability_stop_required": true,
+    "closed_branch_excluded_count_after_fix": 1,
+    "closed_branch_identity_map_emitted_count": 1,
+    "closed_branch_match_audit_emitted_count": 1,
+    "closed_branch_source_hash": "38c604a1",
+    "closed_group_count_after_fix": 1,
+    "existing_receipt_mutation_count": 0,
+    "failed_closed_group_count_before": 0,
+    "field_value_invention_count": 0,
+    "group_specific_inspection_executed_count": 0,
+    "hidden_next_command_count": 0,
+    "next_group_auto_opened_count": 0,
+    "open_group_count_after_fix": 4,
+    "r1000_run_executed_count": 0,
+    "recommended_next_handling": "AUTHORIZE_GROUP_SPECIFIC_INSPECTION_CAPABILITY_OR_REQUEST_NARROWER_SELECTED_GROUP_INSPECTION_PLAN",
+    "repair_executed_count": 0,
+    "selected_group_count_after_fix": 1,
+    "selected_group_hash_candidates_after_fix": {
+      "candidate_key_hash": "e6aae8ea",
+      "legacy_join_hash": "125f4d3b",
+      "raw_tuple_hash": "cc2c9c0e"
+    },
+    "selected_group_key_after_fix": {
+      "halt_reason": "STOP_AUTHORITY_BOUNDARY",
+      "parent_pressure_class": "AUTHORITY_BOUNDARY",
+      "pressure_subtype": "healthy_boundary_stop"
+    },
+    "selected_group_row_count_after_fix": 24,
+    "source_current_surface_protocol_receipt_id": "e3371951",
+    "source_expected_limit_receipt_id": "cbde4b69",
+    "source_failed_r1000_current_surface_receipt_id": "7ae5e47f",
+    "source_mutation_count": 0,
+    "source_r1000_scale_stability_receipt_id": "a121ff40",
+    "taxonomy_delta_proposal_emitted_count": 0,
+    "taxonomy_label_creation_count": 0,
+    "taxonomy_upgrade_authorized_count": 0,
+    "total_group_count": 5,
+    "total_pressure_row_count": 88
+  },
+  "closed_branch_exclusion_fix_guards": {
+    "capability_stop_emitted": true,
+    "closed_branch_excluded": true,
+    "closure_receipt_consumed": true,
+    "existing_receipts_mutated": false,
+    "failed_receipt_consumed": true,
+    "group_specific_inspection_executed": false,
+    "hidden_next_command": false,
+    "identity_map_emitted": true,
+    "next_group_auto_opened": false,
+    "r1000_run_executed": false,
+    "repair_executed": false,
+    "semantic_match_detected": true,
+    "source_mutated": false,
+    "taxonomy_delta_proposal_emitted": false,
+    "taxonomy_label_created": false,
+    "taxonomy_upgrade_authorized": false,
+    "values_invented": false
+  },
+  "closed_branch_exclusion_fix_summary": {
+    "capability_stop_required": true,
+    "closed_branch_excluded_count_after_fix": 1,
+    "closed_branch_source_hash": "38c604a1",
+    "closed_group_count_after_fix": 1,
+    "identity_match_rule": "source_hash_plus_semantic_tuple_from_failed_selection",
+    "open_group_count_after_fix": 4,
+    "recommended_next_handling": "AUTHORIZE_GROUP_SPECIFIC_INSPECTION_CAPABILITY_OR_REQUEST_NARROWER_SELECTED_GROUP_INSPECTION_PLAN",
+    "selected_group_after_fix": {
+      "halt_reason": "STOP_AUTHORITY_BOUNDARY",
+      "parent_pressure_class": "AUTHORITY_BOUNDARY",
+      "pressure_subtype": "healthy_boundary_stop"
+    },
+    "selected_group_count_after_fix": 1,
+    "selected_group_row_count_after_fix": 24
+  },
+  "created_at": "2026-06-23T00:21:44.393409+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "human_decision": {
+    "authorized": [
+      "derive closed-branch semantic identity from failed selection and closure receipts",
+      "emit closed-branch identity map",
+      "exclude matching closed branch by semantic tuple",
+      "rerun current-surface queue application on existing tracked R1000 rows",
+      "emit capability-stop packet for next remaining group if capability is unknown"
+    ],
+    "decision": "FIX_R1000_CURRENT_SURFACE_CLOSED_BRANCH_EXCLUSION_KEY_MATCH",
+    "not_authorized": [
+      "running new R1000 pressure generation",
+      "executing group-specific inspection",
+      "repairing selected group",
+      "inventing values",
+      "creating labels",
+      "upgrading taxonomy",
+      "mutating source rows",
+      "mutating existing receipts",
+      "claiming unlimited capability",
+      "hiding next command"
+    ],
+    "scope": "repair closed-branch exclusion by adding explicit semantic-tuple identity matching between the expected-limit closure and R1000 pressure queue groups, then rerun the current-surface application without running R1000 or executing group-specific inspection",
+    "source_current_surface_protocol_receipt_id": "e3371951",
+    "source_expected_limit_receipt_id": "cbde4b69",
+    "source_failed_r1000_current_surface_receipt_id": "7ae5e47f"
+  },
+  "output_artifacts": {
+    "closed_branch_exclusion_key_match_fix_report": "data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0/closed_branch_exclusion_key_match_fix_report.json",
+    "closed_branch_identity_map": "data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0/closed_branch_identity_map.json",
+    "closed_branch_match_audit": "data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0/closed_branch_match_audit.json",
+    "fixed_application_receipt": "data/current_surface_pressure_loop_r1000_application_fixed_v0_receipts/2a16f593.json",
+    "implementation_receipt": "data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0_receipts/4a0cfc09.json",
+    "r1000_current_surface_capability_stop_packet_fixed": "data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_capability_stop_packet.json",
+    "r1000_current_surface_pressure_loop_application_report_fixed": "data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_pressure_loop_application_report.json",
+    "r1000_current_surface_pressure_queue_summary_fixed": "data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_pressure_queue_summary.json",
+    "r1000_current_surface_selected_pressure_group_fixed": "data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_selected_pressure_group.json",
+    "r1000_current_surface_state_records_fixed": "data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_state_records.jsonl",
+    "r1000_current_surface_transition_trace_fixed": "data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_transition_trace.json"
+  },
+  "receipt_id": "4a0cfc09",
+  "receipt_type": "R1000_CURRENT_SURFACE_CLOSED_BRANCH_EXCLUSION_KEY_MATCH_FIX_RECEIPT",
+  "schema_version": "r1000_current_surface_closed_branch_exclusion_key_match_fix_receipt_v0",
+  "source_current_surface_protocol_receipt_id": "e3371951",
+  "source_expected_limit_receipt_id": "cbde4b69",
+  "source_failed_r1000_current_surface_receipt_id": "7ae5e47f",
+  "source_r1000_scale_stability_receipt_id": "a121ff40",
+  "target_unit_id": "r1000_current_surface_closed_branch_exclusion_key_match_fix.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+    "type": "STOP"
+  },
+  "unit_id": "FIX_R1000_CURRENT_SURFACE_CLOSED_BRANCH_EXCLUSION_KEY_MATCH_V0",
+  "warnings": []
+}
+closed_branch_exclusion_fix_receipt_id=4a0cfc09
+closed_branch_exclusion_fix_receipt_path=data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0_receipts/4a0cfc09.json
+r1000_current_surface_fixed_application_receipt_id=2a16f593
+r1000_current_surface_fixed_application_receipt_path=data/current_surface_pressure_loop_r1000_application_fixed_v0_receipts/2a16f593.json
+r1000_current_surface_fixed_selected_group_path=data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_selected_pressure_group.json
+r1000_current_surface_fixed_capability_stop_packet_path=data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_capability_stop_packet.json
+CLOSED_BRANCH_FIX_RECEIPT_ID=4a0cfc09
+CLOSED_BRANCH_FIX_RECEIPT_PATH=data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0_receipts/4a0cfc09.json
+FIXED_APP_RECEIPT_ID=2a16f593
+FIXED_APP_RECEIPT_PATH=data/current_surface_pressure_loop_r1000_application_fixed_v0_receipts/2a16f593.json
+FIXED_SELECTED_GROUP_PATH=data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_selected_pressure_group.json
+FIXED_CAPABILITY_STOP_PACKET_PATH=data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_capability_stop_packet.json
+
+ASSERT_CLOSED_BRANCH_EXCLUSION_FIX
+{
+  "aggregate_metrics": {
+    "capability_stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+    "capability_stop_packet_emitted_count": 1,
+    "capability_stop_required": true,
+    "closed_branch_excluded_count_after_fix": 1,
+    "closed_branch_identity_map_emitted_count": 1,
+    "closed_branch_match_audit_emitted_count": 1,
+    "closed_branch_source_hash": "38c604a1",
+    "closed_group_count_after_fix": 1,
+    "existing_receipt_mutation_count": 0,
+    "failed_closed_group_count_before": 0,
+    "field_value_invention_count": 0,
+    "group_specific_inspection_executed_count": 0,
+    "hidden_next_command_count": 0,
+    "next_group_auto_opened_count": 0,
+    "open_group_count_after_fix": 4,
+    "r1000_run_executed_count": 0,
+    "recommended_next_handling": "AUTHORIZE_GROUP_SPECIFIC_INSPECTION_CAPABILITY_OR_REQUEST_NARROWER_SELECTED_GROUP_INSPECTION_PLAN",
+    "repair_executed_count": 0,
+    "selected_group_count_after_fix": 1,
+    "selected_group_hash_candidates_after_fix": {
+      "candidate_key_hash": "e6aae8ea",
+      "legacy_join_hash": "125f4d3b",
+      "raw_tuple_hash": "cc2c9c0e"
+    },
+    "selected_group_key_after_fix": {
+      "halt_reason": "STOP_AUTHORITY_BOUNDARY",
+      "parent_pressure_class": "AUTHORITY_BOUNDARY",
+      "pressure_subtype": "healthy_boundary_stop"
+    },
+    "selected_group_row_count_after_fix": 24,
+    "source_current_surface_protocol_receipt_id": "e3371951",
+    "source_expected_limit_receipt_id": "cbde4b69",
+    "source_failed_r1000_current_surface_receipt_id": "7ae5e47f",
+    "source_mutation_count": 0,
+    "source_r1000_scale_stability_receipt_id": "a121ff40",
+    "taxonomy_delta_proposal_emitted_count": 0,
+    "taxonomy_label_creation_count": 0,
+    "taxonomy_upgrade_authorized_count": 0,
+    "total_group_count": 5,
+    "total_pressure_row_count": 88
+  },
+  "closed_branch_exclusion_fix_summary": {
+    "capability_stop_required": true,
+    "closed_branch_excluded_count_after_fix": 1,
+    "closed_branch_source_hash": "38c604a1",
+    "closed_group_count_after_fix": 1,
+    "identity_match_rule": "source_hash_plus_semantic_tuple_from_failed_selection",
+    "open_group_count_after_fix": 4,
+    "recommended_next_handling": "AUTHORIZE_GROUP_SPECIFIC_INSPECTION_CAPABILITY_OR_REQUEST_NARROWER_SELECTED_GROUP_INSPECTION_PLAN",
+    "selected_group_after_fix": {
+      "halt_reason": "STOP_AUTHORITY_BOUNDARY",
+      "parent_pressure_class": "AUTHORITY_BOUNDARY",
+      "pressure_subtype": "healthy_boundary_stop"
+    },
+    "selected_group_count_after_fix": 1,
+    "selected_group_row_count_after_fix": 24
+  },
+  "gate": "PASS",
+  "receipt_id": "4a0cfc09",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROLS_CLOSED_BRANCH_EXCLUSION_FIX_NON_WRITING
+{
+  "case": "latest_or_mtime_selection_fail",
+  "directory_scan_authority_present": false,
+  "forbidden_latest_string_present": false,
+  "forbidden_mtime_string_present": false
+}
+{
+  "case": "closed_branch_identity_no_match_fail",
+  "failures": [
+    "closed_branch_identity_no_match"
+  ]
+}
+{
+  "case": "closed_group_not_detected_after_fix_fail",
+  "failures": [
+    "closed_group_not_detected_after_fix",
+    "closed_group_count_unexpected:0",
+    "open_group_count_inconsistent"
+  ]
+}
+{
+  "case": "closed_group_row_count_wrong_fail",
+  "failures": [
+    "closed_group_row_count_unexpected:24"
+  ]
+}
+{
+  "case": "reselected_closed_top_group_fail",
+  "failures": [
+    "selected_group_appears_to_reselect_closed_top_group"
+  ]
+}
+{
+  "case": "capability_stop_missing_fail",
+  "failures": [
+    "capability_stop_missing_for_selected_group"
+  ]
+}
+{
+  "case": "capability_stop_next_command_fail",
+  "failures": [
+    "capability_stop_next_not_null"
+  ]
+}
+{
+  "case": "r1000_run_executed_fail",
+  "failures": [
+    "report_count_not_zero:r1000_run_executed_count:1"
+  ]
+}
+{
+  "case": "group_specific_inspection_executed_fail",
+  "failures": [
+    "report_count_not_zero:group_specific_inspection_executed_count:1"
+  ]
+}
+{
+  "case": "repair_executed_fail",
+  "failures": [
+    "report_count_not_zero:repair_executed_count:1"
+  ]
+}
+{
+  "case": "field_value_invention_fail",
+  "failures": [
+    "report_count_not_zero:field_value_invention_count:1"
+  ]
+}
+{
+  "case": "taxonomy_label_creation_fail",
+  "failures": [
+    "report_count_not_zero:taxonomy_label_creation_count:1"
+  ]
+}
+{
+  "case": "taxonomy_upgrade_authorized_fail",
+  "failures": [
+    "report_count_not_zero:taxonomy_upgrade_authorized_count:1"
+  ]
+}
+{
+  "case": "taxonomy_delta_proposal_fail",
+  "failures": [
+    "report_count_not_zero:taxonomy_delta_proposal_emitted_count:1"
+  ]
+}
+{
+  "case": "source_mutation_fail",
+  "failures": [
+    "report_count_not_zero:source_mutation_count:1"
+  ]
+}
+{
+  "case": "existing_receipt_mutation_fail",
+  "failures": [
+    "report_count_not_zero:existing_receipt_mutation_count:1"
+  ]
+}
+{
+  "case": "next_group_auto_opened_fail",
+  "failures": [
+    "report_count_not_zero:next_group_auto_opened_count:1"
+  ]
+}
+{
+  "case": "hidden_next_command_fail_report",
+  "failures": [
+    "report_count_not_zero:hidden_next_command_count:1"
+  ]
+}
+{
+  "case": "closed_group_after_fix_receipt_fail",
+  "failures": [
+    "metric_closed_group_not_fixed"
+  ]
+}
+{
+  "case": "next_group_auto_opened_receipt_fail",
+  "failures": [
+    "metric_not_zero:next_group_auto_opened_count:1"
+  ]
+}
+{
+  "case": "terminal_hidden_next_command_fail",
+  "failures": [
+    "terminal_not_STOP:{'type': 'ADVANCE', 'next_command_goal': 'INSPECT_SELECTED_GROUP', 'stop_code': None}",
+    "terminal_next_not_null:{'type': 'ADVANCE', 'next_command_goal': 'INSPECT_SELECTED_GROUP', 'stop_code': None}",
+    "terminal_stop_wrong_for_selected_group:{'type': 'ADVANCE', 'next_command_goal': 'INSPECT_SELECTED_GROUP', 'stop_code': None}"
+  ]
+}
+{
+  "after": {
+    "receipt": "be9e51cc4996538d03e8a0843605dc3b5f28138449c5f11f521c7f3d0b446c91"
+  },
+  "before": {
+    "receipt": "be9e51cc4996538d03e8a0843605dc3b5f28138449c5f11f521c7f3d0b446c91"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+VERIFY_NO_FORBIDDEN_SOURCE_OR_REGISTRY_MUTATION
+source artifacts and sqlite registry untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+?? scripts/fix_r1000_current_surface_closed_branch_exclusion_key_match_v0.py
+
+PACKAGE_CLOSED_BRANCH_EXCLUSION_FIX_ARTIFACTS
+packaged data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0_receipts/4a0cfc09.json
+packaged data/current_surface_pressure_loop_r1000_application_fixed_v0_receipts/2a16f593.json
+packaged data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0/closed_branch_identity_map.json
+packaged data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0/closed_branch_match_audit.json
+packaged data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0/closed_branch_exclusion_key_match_fix_report.json
+packaged data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_pressure_queue_summary.json
+packaged data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_state_records.jsonl
+packaged data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_selected_pressure_group.json
+packaged data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_transition_trace.json
+packaged data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_pressure_loop_application_report.json
+packaged data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_capability_stop_packet.json
+[master d267b482b] fix r1000 current surface closed branch exclusion key match
+ 13 files changed, 1650 insertions(+)
+ create mode 100644 data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_capability_stop_packet.json
+ create mode 100644 data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_pressure_loop_application_report.json
+ create mode 100644 data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_pressure_queue_summary.json
+ create mode 100644 data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_selected_pressure_group.json
+ create mode 100644 data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_state_records.jsonl
+ create mode 100644 data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_transition_trace.json
+ create mode 100644 data/current_surface_pressure_loop_r1000_application_fixed_v0_receipts/2a16f593.json
+ create mode 100644 data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0/closed_branch_exclusion_key_match_fix_report.json
+ create mode 100644 data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0/closed_branch_identity_map.json
+ create mode 100644 data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0/closed_branch_match_audit.json
+ create mode 100644 data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0_receipts/4a0cfc09.json
+ create mode 100755 scripts/fix_r1000_current_surface_closed_branch_exclusion_key_match_v0.py
+
+COMMIT_DONE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+
+NEXT_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+closed_branch_exclusion_fix_receipt_id=4a0cfc09
+closed_branch_exclusion_fix_receipt_path=data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0_receipts/4a0cfc09.json
+{
+  "acceptance_gate_results": {
+    "CLOSED_BRANCH_FIX_0_FAILED_RECEIPT_CONSUMED": true,
+    "CLOSED_BRANCH_FIX_10_NO_NEXT_GROUP_AUTO_OPEN": true,
+    "CLOSED_BRANCH_FIX_11_NO_HIDDEN_NEXT_COMMAND": true,
+    "CLOSED_BRANCH_FIX_1_CLOSURE_RECEIPT_CONSUMED": true,
+    "CLOSED_BRANCH_FIX_2_IDENTITY_MAP_EMITTED": true,
+    "CLOSED_BRANCH_FIX_3_SEMANTIC_MATCH_DETECTED": true,
+    "CLOSED_BRANCH_FIX_4_CLOSED_BRANCH_EXCLUDED": true,
+    "CLOSED_BRANCH_FIX_5_RERUN_QUEUE_APPLICATION_FIXED": true,
+    "CLOSED_BRANCH_FIX_6_CAPABILITY_STOP_EMITTED_FOR_NEXT_GROUP": true,
+    "CLOSED_BRANCH_FIX_7_NO_R1000_RUN_OR_REPAIR_EXECUTED": true,
+    "CLOSED_BRANCH_FIX_8_NO_VALUE_OR_TAXONOMY_ACTION": true,
+    "CLOSED_BRANCH_FIX_9_NO_SOURCE_OR_RECEIPT_MUTATION": true
+  },
+  "aggregate_metrics": {
+    "capability_stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+    "capability_stop_packet_emitted_count": 1,
+    "capability_stop_required": true,
+    "closed_branch_excluded_count_after_fix": 1,
+    "closed_branch_identity_map_emitted_count": 1,
+    "closed_branch_match_audit_emitted_count": 1,
+    "closed_branch_source_hash": "38c604a1",
+    "closed_group_count_after_fix": 1,
+    "existing_receipt_mutation_count": 0,
+    "failed_closed_group_count_before": 0,
+    "field_value_invention_count": 0,
+    "group_specific_inspection_executed_count": 0,
+    "hidden_next_command_count": 0,
+    "next_group_auto_opened_count": 0,
+    "open_group_count_after_fix": 4,
+    "r1000_run_executed_count": 0,
+    "recommended_next_handling": "AUTHORIZE_GROUP_SPECIFIC_INSPECTION_CAPABILITY_OR_REQUEST_NARROWER_SELECTED_GROUP_INSPECTION_PLAN",
+    "repair_executed_count": 0,
+    "selected_group_count_after_fix": 1,
+    "selected_group_hash_candidates_after_fix": {
+      "candidate_key_hash": "e6aae8ea",
+      "legacy_join_hash": "125f4d3b",
+      "raw_tuple_hash": "cc2c9c0e"
+    },
+    "selected_group_key_after_fix": {
+      "halt_reason": "STOP_AUTHORITY_BOUNDARY",
+      "parent_pressure_class": "AUTHORITY_BOUNDARY",
+      "pressure_subtype": "healthy_boundary_stop"
+    },
+    "selected_group_row_count_after_fix": 24,
+    "source_current_surface_protocol_receipt_id": "e3371951",
+    "source_expected_limit_receipt_id": "cbde4b69",
+    "source_failed_r1000_current_surface_receipt_id": "7ae5e47f",
+    "source_mutation_count": 0,
+    "source_r1000_scale_stability_receipt_id": "a121ff40",
+    "taxonomy_delta_proposal_emitted_count": 0,
+    "taxonomy_label_creation_count": 0,
+    "taxonomy_upgrade_authorized_count": 0,
+    "total_group_count": 5,
+    "total_pressure_row_count": 88
+  },
+  "closed_branch_exclusion_fix_guards": {
+    "capability_stop_emitted": true,
+    "closed_branch_excluded": true,
+    "closure_receipt_consumed": true,
+    "existing_receipts_mutated": false,
+    "failed_receipt_consumed": true,
+    "group_specific_inspection_executed": false,
+    "hidden_next_command": false,
+    "identity_map_emitted": true,
+    "next_group_auto_opened": false,
+    "r1000_run_executed": false,
+    "repair_executed": false,
+    "semantic_match_detected": true,
+    "source_mutated": false,
+    "taxonomy_delta_proposal_emitted": false,
+    "taxonomy_label_created": false,
+    "taxonomy_upgrade_authorized": false,
+    "values_invented": false
+  },
+  "closed_branch_exclusion_fix_summary": {
+    "capability_stop_required": true,
+    "closed_branch_excluded_count_after_fix": 1,
+    "closed_branch_source_hash": "38c604a1",
+    "closed_group_count_after_fix": 1,
+    "identity_match_rule": "source_hash_plus_semantic_tuple_from_failed_selection",
+    "open_group_count_after_fix": 4,
+    "recommended_next_handling": "AUTHORIZE_GROUP_SPECIFIC_INSPECTION_CAPABILITY_OR_REQUEST_NARROWER_SELECTED_GROUP_INSPECTION_PLAN",
+    "selected_group_after_fix": {
+      "halt_reason": "STOP_AUTHORITY_BOUNDARY",
+      "parent_pressure_class": "AUTHORITY_BOUNDARY",
+      "pressure_subtype": "healthy_boundary_stop"
+    },
+    "selected_group_count_after_fix": 1,
+    "selected_group_row_count_after_fix": 24
+  },
+  "gate": "PASS",
+  "human_decision": {
+    "authorized": [
+      "derive closed-branch semantic identity from failed selection and closure receipts",
+      "emit closed-branch identity map",
+      "exclude matching closed branch by semantic tuple",
+      "rerun current-surface queue application on existing tracked R1000 rows",
+      "emit capability-stop packet for next remaining group if capability is unknown"
+    ],
+    "decision": "FIX_R1000_CURRENT_SURFACE_CLOSED_BRANCH_EXCLUSION_KEY_MATCH",
+    "not_authorized": [
+      "running new R1000 pressure generation",
+      "executing group-specific inspection",
+      "repairing selected group",
+      "inventing values",
+      "creating labels",
+      "upgrading taxonomy",
+      "mutating source rows",
+      "mutating existing receipts",
+      "claiming unlimited capability",
+      "hiding next command"
+    ],
+    "scope": "repair closed-branch exclusion by adding explicit semantic-tuple identity matching between the expected-limit closure and R1000 pressure queue groups, then rerun the current-surface application without running R1000 or executing group-specific inspection",
+    "source_current_surface_protocol_receipt_id": "e3371951",
+    "source_expected_limit_receipt_id": "cbde4b69",
+    "source_failed_r1000_current_surface_receipt_id": "7ae5e47f"
+  },
+  "output_artifacts": {
+    "closed_branch_exclusion_key_match_fix_report": "data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0/closed_branch_exclusion_key_match_fix_report.json",
+    "closed_branch_identity_map": "data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0/closed_branch_identity_map.json",
+    "closed_branch_match_audit": "data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0/closed_branch_match_audit.json",
+    "fixed_application_receipt": "data/current_surface_pressure_loop_r1000_application_fixed_v0_receipts/2a16f593.json",
+    "implementation_receipt": "data/r1000_current_surface_closed_branch_exclusion_key_match_fix_v0_receipts/4a0cfc09.json",
+    "r1000_current_surface_capability_stop_packet_fixed": "data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_capability_stop_packet.json",
+    "r1000_current_surface_pressure_loop_application_report_fixed": "data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_pressure_loop_application_report.json",
+    "r1000_current_surface_pressure_queue_summary_fixed": "data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_pressure_queue_summary.json",
+    "r1000_current_surface_selected_pressure_group_fixed": "data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_selected_pressure_group.json",
+    "r1000_current_surface_state_records_fixed": "data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_state_records.jsonl",
+    "r1000_current_surface_transition_trace_fixed": "data/current_surface_pressure_loop_r1000_application_fixed_v0/r1000_current_surface_transition_trace.json"
+  },
+  "source_current_surface_protocol_receipt_id": "e3371951",
+  "source_expected_limit_receipt_id": "cbde4b69",
+  "source_failed_r1000_current_surface_receipt_id": "7ae5e47f",
+  "source_r1000_scale_stability_receipt_id": "a121ff40",
+  "target_unit_id": "r1000_current_surface_closed_branch_exclusion_key_match_fix.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+    "type": "STOP"
+  },
+  "unit_id": "FIX_R1000_CURRENT_SURFACE_CLOSED_BRANCH_EXCLUSION_KEY_MATCH_V0"
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

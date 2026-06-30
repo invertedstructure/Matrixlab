@@ -1,0 +1,615 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260619_234804
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260619_234804.txt
+
+ADD_DOMAIN_SHIFT_SLOT_OBSERVE_V0
+
+STATUS_BEFORE
+?? data/
+
+BACKUP
+CLI_SIG=8df250e18c08
+BACKUP=/tmp/matrixlab_cli_before_domain_shift_slot_observe_8df250e18c08.py
+
+PATCH_GITIGNORE
+
+PATCH_CLI_DOMAIN_SHIFT_SLOT_OBSERVE
+
+PY_COMPILE
+
+HELP_SMOKE
+help smoke ok: /tmp/matrixlab_domain_shift_slot_observe_help.txt
+
+RUN_DOMAIN_SHIFT_SLOT_OBSERVE_POSITIVE
+{
+  "domain_shift_generator_id": "da466dc2",
+  "domain_shift_slot_observation_id": "566a342b",
+  "domain_shift_slot_observation_payload_sig8": "566a342b",
+  "domain_shift_slot_observation_schema_version": "domain_shift_slot_observation_v0",
+  "failures": [],
+  "gate": "PASS",
+  "input_slot_execution": "74358d77",
+  "observation": {
+    "aggregate_by_family": {
+      "one_sided_suspension": {
+        "coarse_counts": [
+          1
+        ],
+        "eval_ids": [
+          "b57418df"
+        ],
+        "family_code": "A",
+        "raw_counts": [
+          1
+        ],
+        "receipt_rows": 2400,
+        "registered_counts": [
+          1
+        ],
+        "run_ids": [
+          "run_20260619_223630_696427"
+        ],
+        "slot_count": 1,
+        "total_receipts": 2400
+      },
+      "projection_quotient": {
+        "coarse_counts": [
+          3,
+          3
+        ],
+        "eval_ids": [
+          "331d7716",
+          "9c6fa258"
+        ],
+        "family_code": "D",
+        "raw_counts": [
+          50,
+          50
+        ],
+        "receipt_rows": 4800,
+        "registered_counts": [
+          27,
+          27
+        ],
+        "run_ids": [
+          "run_20260619_220230_744709",
+          "run_20260619_220923_816081"
+        ],
+        "slot_count": 2,
+        "total_receipts": 4800
+      },
+      "relabel_symmetry_stress": {
+        "coarse_counts": [
+          2,
+          2,
+          2
+        ],
+        "eval_ids": [
+          "d2f71f29",
+          "c620ec46",
+          "d231d71e"
+        ],
+        "family_code": "E",
+        "raw_counts": [
+          50,
+          50,
+          50
+        ],
+        "receipt_rows": 6948,
+        "registered_counts": [
+          8,
+          8,
+          8
+        ],
+        "run_ids": [
+          "run_20260619_214236_042116",
+          "run_20260619_214911_287182",
+          "run_20260619_215550_946960"
+        ],
+        "slot_count": 3,
+        "total_receipts": 6948
+      },
+      "suspension_plus_repair": {
+        "coarse_counts": [
+          2
+        ],
+        "eval_ids": [
+          "eb0da5d3"
+        ],
+        "family_code": "C",
+        "raw_counts": [
+          6
+        ],
+        "receipt_rows": 2400,
+        "registered_counts": [
+          5
+        ],
+        "run_ids": [
+          "run_20260619_222945_102427"
+        ],
+        "slot_count": 1,
+        "total_receipts": 2400
+      },
+      "two_sided_suspension": {
+        "coarse_counts": [
+          1,
+          1
+        ],
+        "eval_ids": [
+          "90261165",
+          "13d68b7b"
+        ],
+        "family_code": "B",
+        "raw_counts": [
+          97,
+          97
+        ],
+        "receipt_rows": 4800,
+        "registered_counts": [
+          50,
+          50
+        ],
+        "run_ids": [
+          "run_20260619_221602_188302",
+          "run_20260619_222255_493358"
+        ],
+        "slot_count": 2,
+        "total_receipts": 4800
+      }
+    },
+    "aggregate_by_move": {
+      "add_row_and_link_column": 4800,
+      "append_zero_column": 3000,
+      "deterministic_row_col_relabel": 6948,
+      "duplicate_existing_column": 2400,
+      "quotient_merge_last_row": 1800,
+      "xor_repair_column": 2400
+    },
+    "aggregate_coarse_profiles": {
+      "add_row_and_link_column|dr=1|dc=1|rank=1|supp=+|newcols=many": 4800,
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=0": 2904,
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=1": 96,
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=0": 45,
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=many": 6903,
+      "duplicate_existing_column|dr=0|dc=1|rank=0|supp=+|newcols=0": 2400,
+      "quotient_merge_last_row|dr=-1|dc=0|rank=-1|supp=-|newcols=many": 1800,
+      "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=0": 173,
+      "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=1": 2227
+    },
+    "aggregate_coarse_profiles_total": 9,
+    "aggregate_raw_total_by_slot_sum": 451,
+    "confidence_scope": "RADIUS_50_SLOT_SEPARATED_PROBE_ONLY",
+    "domain_shift_generator": {
+      "gate": "PASS",
+      "id": "da466dc2",
+      "path": "data/domain_shift_generators/da466dc2.json",
+      "recomputed_sig": "da466dc2",
+      "stored_sig": "da466dc2"
+    },
+    "eval_ids": [
+      "d2f71f29",
+      "c620ec46",
+      "d231d71e",
+      "331d7716",
+      "9c6fa258",
+      "90261165",
+      "13d68b7b",
+      "eb0da5d3",
+      "b57418df"
+    ],
+    "max_cells": 50000,
+    "measurement_cleanliness": {
+      "boundary_slots": [],
+      "dirty_slots": [],
+      "eval_gate_fail_slots": [],
+      "receipt_mismatch_slots": [],
+      "repeated_family_inconsistencies": {}
+    },
+    "outcome": "MEASUREMENT_TRANSFER_STABLE_CURVE",
+    "radius": 50,
+    "repeated_family_consistency": {
+      "one_sided_suspension": {
+        "coarse_consistent": true,
+        "coarse_counts": [
+          1
+        ],
+        "raw_consistent": true,
+        "raw_counts": [
+          1
+        ],
+        "registered_consistent": true,
+        "registered_counts": [
+          1
+        ],
+        "slot_count": 1
+      },
+      "projection_quotient": {
+        "coarse_consistent": true,
+        "coarse_counts": [
+          3,
+          3
+        ],
+        "raw_consistent": true,
+        "raw_counts": [
+          50,
+          50
+        ],
+        "registered_consistent": true,
+        "registered_counts": [
+          27,
+          27
+        ],
+        "slot_count": 2
+      },
+      "relabel_symmetry_stress": {
+        "coarse_consistent": true,
+        "coarse_counts": [
+          2,
+          2,
+          2
+        ],
+        "raw_consistent": true,
+        "raw_counts": [
+          50,
+          50,
+          50
+        ],
+        "registered_consistent": true,
+        "registered_counts": [
+          8,
+          8,
+          8
+        ],
+        "slot_count": 3
+      },
+      "suspension_plus_repair": {
+        "coarse_consistent": true,
+        "coarse_counts": [
+          2
+        ],
+        "raw_consistent": true,
+        "raw_counts": [
+          6
+        ],
+        "registered_consistent": true,
+        "registered_counts": [
+          5
+        ],
+        "slot_count": 1
+      },
+      "two_sided_suspension": {
+        "coarse_consistent": true,
+        "coarse_counts": [
+          1,
+          1
+        ],
+        "raw_consistent": true,
+        "raw_counts": [
+          97,
+          97
+        ],
+        "registered_consistent": true,
+        "registered_counts": [
+          50,
+          50
+        ],
+        "slot_count": 2
+      }
+    },
+    "run_ids": [
+      "run_20260619_214236_042116",
+      "run_20260619_214911_287182",
+      "run_20260619_215550_946960",
+      "run_20260619_220230_744709",
+      "run_20260619_220923_816081",
+      "run_20260619_221602_188302",
+      "run_20260619_222255_493358",
+      "run_20260619_222945_102427",
+      "run_20260619_223630_696427"
+    ],
+    "semantic_pressure": {
+      "requires_new_classifier_semantics": false,
+      "requires_new_evaluator_semantics": false,
+      "requires_new_halt_vocabulary": false,
+      "requires_new_laws": false,
+      "requires_new_move_types": false
+    },
+    "semantic_pressure_detected": false,
+    "slot_count_expected": 9,
+    "slot_count_observed": 9,
+    "slot_execution": {
+      "gate": "PASS",
+      "id": "74358d77",
+      "input": "74358d77",
+      "path": "data/domain_shift_slot_runs/74358d77.json",
+      "recomputed_id": "74358d77"
+    },
+    "slot_labels": [
+      "slot_01_E1",
+      "slot_02_E2",
+      "slot_03_E3",
+      "slot_04_D1",
+      "slot_05_D2",
+      "slot_06_B1",
+      "slot_07_B2",
+      "slot_08_C1",
+      "slot_09_A1"
+    ],
+    "slot_support": {
+      "gate": "PASS",
+      "id": "54890760",
+      "path": "data/domain_shift_slot_runner_support/54890760.json",
+      "recomputed_sig": "54890760",
+      "stored_sig": "54890760"
+    },
+    "source_coarse_profiles_total": 9,
+    "transfer_contract": {
+      "gate": "PASS",
+      "id": "50a01dcd",
+      "path": "data/cell_transfer_contracts/50a01dcd.json",
+      "recomputed_sig": "50a01dcd",
+      "stored_sig": "50a01dcd"
+    }
+  },
+  "shift_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+  "slot_execution_id": "74358d77",
+  "source_cell": "CELL_0",
+  "source_support_id": "54890760",
+  "target_cell": "CELL_1",
+  "terminal": {
+    "next_command_goal": "DECIDE_SCALE_RADIUS_OR_FREEZE_RADIUS_50_CELL1_OBSERVATION",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transfer_contract_id": "50a01dcd",
+  "warnings": []
+}
+domain_shift_slot_observation_path: data/domain_shift_slot_observations/566a342b.json
+
+VERIFY_DOMAIN_SHIFT_SLOT_OBSERVE_POSITIVE
+{
+  "aggregate_coarse_profiles_total": 9,
+  "aggregate_raw_total_by_slot_sum": 451,
+  "confidence_scope": "RADIUS_50_SLOT_SEPARATED_PROBE_ONLY",
+  "domain_shift_slot_observation_id": "566a342b",
+  "gate": "PASS",
+  "measurement_cleanliness": {
+    "boundary_slots": [],
+    "dirty_slots": [],
+    "eval_gate_fail_slots": [],
+    "receipt_mismatch_slots": [],
+    "repeated_family_inconsistencies": {}
+  },
+  "outcome": "MEASUREMENT_TRANSFER_STABLE_CURVE",
+  "path": "data/domain_shift_slot_observations/566a342b.json",
+  "recomputed_sig": "566a342b",
+  "repeated_family_consistency": {
+    "one_sided_suspension": {
+      "coarse_consistent": true,
+      "coarse_counts": [
+        1
+      ],
+      "raw_consistent": true,
+      "raw_counts": [
+        1
+      ],
+      "registered_consistent": true,
+      "registered_counts": [
+        1
+      ],
+      "slot_count": 1
+    },
+    "projection_quotient": {
+      "coarse_consistent": true,
+      "coarse_counts": [
+        3,
+        3
+      ],
+      "raw_consistent": true,
+      "raw_counts": [
+        50,
+        50
+      ],
+      "registered_consistent": true,
+      "registered_counts": [
+        27,
+        27
+      ],
+      "slot_count": 2
+    },
+    "relabel_symmetry_stress": {
+      "coarse_consistent": true,
+      "coarse_counts": [
+        2,
+        2,
+        2
+      ],
+      "raw_consistent": true,
+      "raw_counts": [
+        50,
+        50,
+        50
+      ],
+      "registered_consistent": true,
+      "registered_counts": [
+        8,
+        8,
+        8
+      ],
+      "slot_count": 3
+    },
+    "suspension_plus_repair": {
+      "coarse_consistent": true,
+      "coarse_counts": [
+        2
+      ],
+      "raw_consistent": true,
+      "raw_counts": [
+        6
+      ],
+      "registered_consistent": true,
+      "registered_counts": [
+        5
+      ],
+      "slot_count": 1
+    },
+    "two_sided_suspension": {
+      "coarse_consistent": true,
+      "coarse_counts": [
+        1,
+        1
+      ],
+      "raw_consistent": true,
+      "raw_counts": [
+        97,
+        97
+      ],
+      "registered_consistent": true,
+      "registered_counts": [
+        50,
+        50
+      ],
+      "slot_count": 2
+    }
+  },
+  "sig_matches": true,
+  "slot_count_expected": 9,
+  "slot_count_observed": 9,
+  "slot_execution_id": "74358d77",
+  "source_coarse_profiles_total": 9,
+  "source_support_id": "54890760",
+  "stored_sig": "566a342b",
+  "terminal": {
+    "next_command_goal": "DECIDE_SCALE_RADIUS_OR_FREEZE_RADIUS_50_CELL1_OBSERVATION",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+RUN_DOMAIN_SHIFT_SLOT_OBSERVE_NEGATIVE_MISSING_EXECUTION
+{
+  "domain_shift_generator_id": null,
+  "domain_shift_slot_observation_id": "500190f4",
+  "domain_shift_slot_observation_payload_sig8": "500190f4",
+  "domain_shift_slot_observation_schema_version": "domain_shift_slot_observation_v0",
+  "failures": [
+    "slot_execution_unresolved:definitely_missing_slot_execution:could not resolve 'definitely_missing_slot_execution' under data/domain_shift_slot_runs",
+    "slot_support_unresolved:None:argument should be a str or an os.PathLike object where __fspath__ returns a str, not 'NoneType'",
+    "domain_shift_generator_unresolved:None:argument should be a str or an os.PathLike object where __fspath__ returns a str, not 'NoneType'",
+    "transfer_contract_unresolved:None:argument should be a str or an os.PathLike object where __fspath__ returns a str, not 'NoneType'",
+    "slot_count_expected_mismatch:execution=None:support=0",
+    "slot_count_observed_mismatch:declared=None:actual=0"
+  ],
+  "gate": "FAIL",
+  "input_slot_execution": "definitely_missing_slot_execution",
+  "observation": {
+    "aggregate_by_family": {},
+    "aggregate_by_move": {},
+    "aggregate_coarse_profiles": {},
+    "aggregate_coarse_profiles_total": 0,
+    "aggregate_raw_total_by_slot_sum": 0,
+    "confidence_scope": "RADIUS_50_SLOT_SEPARATED_PROBE_ONLY",
+    "domain_shift_generator": {
+      "gate": null,
+      "id": null,
+      "path": null,
+      "recomputed_sig": null,
+      "stored_sig": null
+    },
+    "eval_ids": [],
+    "max_cells": null,
+    "measurement_cleanliness": {
+      "boundary_slots": [],
+      "dirty_slots": [],
+      "eval_gate_fail_slots": [],
+      "receipt_mismatch_slots": [],
+      "repeated_family_inconsistencies": {}
+    },
+    "outcome": "FAIL_MEASUREMENT_TRUST",
+    "radius": null,
+    "repeated_family_consistency": {},
+    "run_ids": [],
+    "semantic_pressure": {
+      "requires_new_classifier_semantics": null,
+      "requires_new_evaluator_semantics": null,
+      "requires_new_halt_vocabulary": null,
+      "requires_new_laws": null,
+      "requires_new_move_types": null
+    },
+    "semantic_pressure_detected": false,
+    "slot_count_expected": null,
+    "slot_count_observed": null,
+    "slot_execution": {
+      "gate": null,
+      "id": null,
+      "input": "definitely_missing_slot_execution",
+      "path": null,
+      "recomputed_id": null
+    },
+    "slot_labels": [],
+    "slot_support": {
+      "gate": null,
+      "id": null,
+      "path": null,
+      "recomputed_sig": null,
+      "stored_sig": null
+    },
+    "source_coarse_profiles_total": null,
+    "transfer_contract": {
+      "gate": null,
+      "id": null,
+      "path": null,
+      "recomputed_sig": null,
+      "stored_sig": null
+    }
+  },
+  "shift_kind": null,
+  "slot_execution_id": null,
+  "source_cell": null,
+  "source_support_id": null,
+  "target_cell": null,
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "domain_shift_slot_observation_failed",
+    "type": "STOP"
+  },
+  "transfer_contract_id": null,
+  "warnings": []
+}
+domain_shift_slot_observation_path: data/domain_shift_slot_observations/500190f4.json
+
+VERIFY_DOMAIN_SHIFT_SLOT_OBSERVE_NEGATIVE
+{
+  "domain_shift_slot_observation_id": "500190f4",
+  "failures": [
+    "slot_execution_unresolved:definitely_missing_slot_execution:could not resolve 'definitely_missing_slot_execution' under data/domain_shift_slot_runs",
+    "slot_support_unresolved:None:argument should be a str or an os.PathLike object where __fspath__ returns a str, not 'NoneType'",
+    "domain_shift_generator_unresolved:None:argument should be a str or an os.PathLike object where __fspath__ returns a str, not 'NoneType'",
+    "transfer_contract_unresolved:None:argument should be a str or an os.PathLike object where __fspath__ returns a str, not 'NoneType'",
+    "slot_count_expected_mismatch:execution=None:support=0",
+    "slot_count_observed_mismatch:declared=None:actual=0"
+  ],
+  "gate": "FAIL",
+  "path": "data/domain_shift_slot_observations/500190f4.json",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "domain_shift_slot_observation_failed",
+    "type": "STOP"
+  }
+}
+
+DIFF_STAT
+ .gitignore           |   6 +
+ src/matrixlab/cli.py | 364 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 370 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+ M src/matrixlab/cli.py
+[master fd699b944] add domain shift slot observation command
+ 2 files changed, 370 insertions(+)
+
+COMMIT_DONE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

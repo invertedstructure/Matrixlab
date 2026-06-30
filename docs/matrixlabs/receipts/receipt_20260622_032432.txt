@@ -1,0 +1,41 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_032432
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_032432.txt
+
+REPAIR_AND_RERUN_JURISDICTION_RUNNER_V0_1_HALT_SURFACE_PROBE_VALIDATOR_V0
+
+STATUS_BEFORE
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/run_jurisdiction_runner_v0_1_halt_surface_probe_v0.py
+
+VERIFY_REPAIR_INPUTS_EXIST
+tracked data/jurisdiction_runner_v0_1_halt_surface_probe_policies/cfe745b9.json
+tracked data/jurisdiction_runner_v0_1_halt_surface_probe_policy_receipts/cfe745b9.json
+tracked data/jurisdiction_runner_v0_1_implementation_receipts/04c0692d.json
+tracked data/local_regime_v0_declarations/097d620c.json
+tracked src/matrixlab/jurisdiction_runner_v0_1.py
+
+ENSURE_GITIGNORE
+
+PATCH_HALT_SURFACE_PROBE_VALIDATOR
+validator guard patch applied
+
+PATCH_NEGATIVE_CONTROL_ASSERTION
+PATCH_ANCHOR_NOT_FOUND: negative control assertion block missing
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

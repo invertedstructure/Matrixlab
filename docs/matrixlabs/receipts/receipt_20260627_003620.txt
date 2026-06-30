@@ -1,0 +1,356 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_003620
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_003620.txt
+
+BUILD_DOUBLE_SIEVE_FIXTURE_SUITE_V0
+
+STATUS_BEFORE_RELEVANT
+
+VERIFY_DOUBLE_SIEVE_PREREQS
+present data/r0_baseline_locked_active_source_packet_v0/r0_active_source_packet_v0.json
+present data/r0_baseline_locked_active_source_packet_v0_receipts/r0_active_source_packet_receipt_7936a753.json
+present data/r0_runtime_membranes_executable_v0_receipts/r0_runtime_membranes_executable_receipt_012fe341.json
+present scripts/runtime_membrane_harness_v0.py
+
+VERIFY_RUNTIME_MEMBRANES_COMMITTED
+r0_runtime_membranes_commit_present=580e2beebd39c998985efe7ac424c0f93627b016
+
+PATCH_GITIGNORE
+
+WRITE_OPERATOR_DECLARED_DOUBLE_SIEVE_CONTRACT_AND_FIXTURES
+
+WRITE_DOUBLE_SIEVE_RUNNER
+
+PY_COMPILE_DOUBLE_SIEVE_RUNNER
+
+RUN_DOUBLE_SIEVE_FIXTURE_SUITE
+{
+  "acceptance_gate_results": {
+    "DOUBLE_SIEVE_0_R0_ACTIVE_SOURCE_PACKET_LOADED": true,
+    "DOUBLE_SIEVE_10_F5_EXECUTION_FAILURE_TYPED_FEEDBACK_EMITTED": true,
+    "DOUBLE_SIEVE_11_F6_OBSERVABILITY_DEGRADED_NO_FALSE_CLAIM": true,
+    "DOUBLE_SIEVE_12_INVALID_SCHEMA_NEVER_REACHES_ADMISSIBILITY": true,
+    "DOUBLE_SIEVE_13_SCHEMA_VALID_NOT_TREATED_AS_ADMISSIBILITY_ALLOW": true,
+    "DOUBLE_SIEVE_14_ADMISSIBILITY_DENIAL_NEVER_EXECUTES": true,
+    "DOUBLE_SIEVE_15_FORBIDDEN_INPUT_NEVER_EXECUTES": true,
+    "DOUBLE_SIEVE_16_EXECUTION_FAILURE_NOT_BARE_FAILED": true,
+    "DOUBLE_SIEVE_17_SIDECAR_ZERO_AUTHORITY_PRESERVED": true,
+    "DOUBLE_SIEVE_18_NO_LIVE_MUTATION": true,
+    "DOUBLE_SIEVE_19_NO_RUNTIME_PATCH": true,
+    "DOUBLE_SIEVE_1_RUNTIME_MEMBRANE_RUNNER_LOADED": true,
+    "DOUBLE_SIEVE_20_NO_MOVE_ADDITION": true,
+    "DOUBLE_SIEVE_21_NO_SCHEMA_ARCHIVE_MUTATION": true,
+    "DOUBLE_SIEVE_22_NO_FIXTURE_EXPANSION": true,
+    "DOUBLE_SIEVE_23_C7_NOT_OPENED": true,
+    "DOUBLE_SIEVE_24_C8_NOT_OPENED": true,
+    "DOUBLE_SIEVE_25_FIXTURE_RECEIPTS_EMITTED": true,
+    "DOUBLE_SIEVE_26_SUITE_ROLLUP_READOUT_PROFILE_REPORT_TRACE_EMITTED": true,
+    "DOUBLE_SIEVE_27_SUITE_RECEIPT_EMITTED": true,
+    "DOUBLE_SIEVE_28_BAD_COUNTERS_ZERO": true,
+    "DOUBLE_SIEVE_29_NO_HIDDEN_NEXT_COMMAND": true,
+    "DOUBLE_SIEVE_2_FIXTURE_MANIFEST_DECLARED": true,
+    "DOUBLE_SIEVE_30_RUNTIME_MEMBRANE_RECEIPT_VERIFIED": true,
+    "DOUBLE_SIEVE_31_SELECTED_SCHEMA_SURFACE_BOUND": true,
+    "DOUBLE_SIEVE_32_SELECTED_AUTHORITY_REGIME_BOUND": true,
+    "DOUBLE_SIEVE_33_SELECTED_SIDECAR_SURFACE_BOUND": true,
+    "DOUBLE_SIEVE_34_NO_REPO_WIDE_MEMBRANE_DISCOVERY": true,
+    "DOUBLE_SIEVE_3_EXACTLY_SIX_REQUIRED_FIXTURES": true,
+    "DOUBLE_SIEVE_4_NO_FIXTURE_DISCOVERY": true,
+    "DOUBLE_SIEVE_5_NO_LATEST_OR_MTIME_SELECTION": true,
+    "DOUBLE_SIEVE_6_F1_VALID_ADMISSIBLE_PASS": true,
+    "DOUBLE_SIEVE_7_F2_INVALID_SCHEMA_BLOCKS_BEFORE_ADMISSIBILITY": true,
+    "DOUBLE_SIEVE_8_F3_VALID_AUTHORITY_REQUIRED_BLOCKS_BEFORE_EXECUTION": true,
+    "DOUBLE_SIEVE_9_F4_FORBIDDEN_INPUT_BLOCKS_BEFORE_EXECUTION": true
+  },
+  "created_at": "2026-06-26T23:36:20.451196+00:00",
+  "failures": [],
+  "fixture_receipts": [
+    "data/double_sieve_fixture_suite_v0/fixtures/F1_VALID_ADMISSIBLE/double_sieve_fixture_receipt_v0.json",
+    "data/double_sieve_fixture_suite_v0/fixtures/F2_INVALID_SCHEMA/double_sieve_fixture_receipt_v0.json",
+    "data/double_sieve_fixture_suite_v0/fixtures/F3_AUTHORITY_REQUIRED/double_sieve_fixture_receipt_v0.json",
+    "data/double_sieve_fixture_suite_v0/fixtures/F4_FORBIDDEN_INPUT/double_sieve_fixture_receipt_v0.json",
+    "data/double_sieve_fixture_suite_v0/fixtures/F5_EXECUTION_FAILURE_TYPED_FEEDBACK/double_sieve_fixture_receipt_v0.json",
+    "data/double_sieve_fixture_suite_v0/fixtures/F6_SIDECAR_PARTIAL_OBSERVABILITY/double_sieve_fixture_receipt_v0.json"
+  ],
+  "gate": "PASS",
+  "machine_readable_double_sieve_summary": {
+    "admissibility_results": {
+      "ALLOW": 3,
+      "AUTHORITY_REQUIRED": 1,
+      "FORBIDDEN_INPUT": 1,
+      "NOT_RUN": 1
+    },
+    "bad_counters_zero": true,
+    "c7_opened": false,
+    "c8_opened": false,
+    "execution_failure_typed_feedback_emitted": true,
+    "execution_results": {
+      "CONTROL_RESULT_PRESERVED_WITH_OBSERVABILITY_DEGRADED": 1,
+      "EXECUTION_GATE_OPENED_NO_LIVE_MUTATION": 1,
+      "FAILED_TYPED": 1,
+      "NOT_RUN": 3
+    },
+    "fixture_expansion_authorized": false,
+    "fixtures_failed": 0,
+    "fixtures_passed": 6,
+    "fixtures_total": 6,
+    "forbidden_input_stopped_before_execution": true,
+    "hidden_next_command": false,
+    "invalid_schema_stopped_before_admissibility": true,
+    "live_mutation_authorized": false,
+    "live_mutation_executed": false,
+    "move_addition_authorized": false,
+    "next_command_goal": null,
+    "runtime_membrane_receipt_verified": true,
+    "runtime_mode": "FIXTURE_SUITE_ONLY",
+    "runtime_patch_authorized": false,
+    "schema_archive_mutation_authorized": false,
+    "schema_results": {
+      "MISSING_FIELD": 1,
+      "VALID": 5
+    },
+    "sidecar_degradation_no_false_claim": true,
+    "sidecar_results": {
+      "OBSERVATION_COMPLETE": 5,
+      "OBSERVATION_UNDER_TYPED": 1
+    },
+    "sidecar_zero_authority_preserved": true,
+    "suite_passed": true,
+    "unit_feedback_results": {
+      "EMITTED_ACTIONABLE": 1,
+      "NOT_REQUIRED": 5
+    },
+    "valid_unauthorized_stopped_at_admissibility": true
+  },
+  "milestone": "DOUBLE_SIEVE_FIXTURE_SUITE_PASS",
+  "negative_controls": {
+    "admissibility_denied_executed_count": 0,
+    "authority_required_ignored_count": 0,
+    "bare_failed_status_count": 0,
+    "c7_opened_count": 0,
+    "c8_opened_count": 0,
+    "false_observability_claim_count": 0,
+    "fixture_expansion_count": 0,
+    "forbidden_input_executed_count": 0,
+    "hidden_next_command_count": 0,
+    "invalid_schema_reached_admissibility_count": 0,
+    "latest_file_selection_executed_count": 0,
+    "live_mutation_count": 0,
+    "membrane_receipt_missing_count": 0,
+    "move_registry_addition_count": 0,
+    "mtime_selection_executed_count": 0,
+    "raw_proposal_reached_admissibility_count": 0,
+    "repair_applied_by_feedback_count": 0,
+    "repo_wide_membrane_discovery_count": 0,
+    "runtime_patch_count": 0,
+    "schema_archive_mutation_count": 0,
+    "schema_valid_counted_as_admissible_count": 0,
+    "sidecar_authority_claim_count": 0,
+    "sidecar_authorized_move_count": 0,
+    "sidecar_command_emission_count": 0,
+    "sidecar_control_action_count": 0,
+    "sidecar_denied_move_count": 0,
+    "sidecar_state_mutation_count": 0,
+    "unit_feedback_missing_count": 0,
+    "unselected_authority_regime_used_count": 0,
+    "unselected_schema_surface_used_count": 0,
+    "unselected_sidecar_surface_used_count": 0
+  },
+  "outcome_class": "DOUBLE_SIEVE_PASS",
+  "output_artifacts": {
+    "fixture_manifest": "data/double_sieve_fixture_suite_v0/double_sieve_fixture_manifest_v0.jsonl",
+    "fixtures_dir": "data/double_sieve_fixture_suite_v0/fixtures",
+    "profile": "data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_profile_v0.json",
+    "readout": "data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_readout_v0.json",
+    "receipt": "data/double_sieve_fixture_suite_v0_receipts/double_sieve_fixture_suite_receipt_462668ee.json",
+    "report": "data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_report.json",
+    "rollup": "data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_rollup_v0.json",
+    "suite_contract": "data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_contract_v0.json",
+    "transition_trace": "data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_transition_trace.json"
+  },
+  "receipt_id": "double_sieve_fixture_suite_receipt_462668ee",
+  "receipt_type": "TYPED_DOUBLE_SIEVE_FIXTURE_SUITE_RECEIPT",
+  "run_id": "double_sieve_suite_run_57568b4b",
+  "schema_version": "double_sieve_fixture_suite_receipt_v0",
+  "status": "TYPED_DOUBLE_SIEVE_FIXTURE_SUITE_PASS",
+  "suite_id": "double_sieve_fixture_suite_5e583552",
+  "target_unit_id": "runtime.double_sieve_fixture_suite.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DOUBLE_SIEVE_FIXTURE_SUITE_PASS",
+    "type": "STOP"
+  },
+  "unit_id": "BUILD_DOUBLE_SIEVE_FIXTURE_SUITE_V0",
+  "warnings": []
+}
+double_sieve_fixture_suite_receipt_id=double_sieve_fixture_suite_receipt_462668ee
+double_sieve_fixture_suite_receipt_path=data/double_sieve_fixture_suite_v0_receipts/double_sieve_fixture_suite_receipt_462668ee.json
+double_sieve_fixture_suite_id=double_sieve_fixture_suite_5e583552
+double_sieve_suite_run_id=double_sieve_suite_run_57568b4b
+double_sieve_terminal_stop_code=STOP_DOUBLE_SIEVE_FIXTURE_SUITE_PASS
+
+ASSERT_DOUBLE_SIEVE_SUITE
+{
+  "admissibility_results": {
+    "ALLOW": 3,
+    "AUTHORITY_REQUIRED": 1,
+    "FORBIDDEN_INPUT": 1,
+    "NOT_RUN": 1
+  },
+  "execution_results": {
+    "CONTROL_RESULT_PRESERVED_WITH_OBSERVABILITY_DEGRADED": 1,
+    "EXECUTION_GATE_OPENED_NO_LIVE_MUTATION": 1,
+    "FAILED_TYPED": 1,
+    "NOT_RUN": 3
+  },
+  "failures": [],
+  "fixtures_failed": 0,
+  "fixtures_passed": 6,
+  "fixtures_total": 6,
+  "gate": "PASS",
+  "outcome_class": "DOUBLE_SIEVE_PASS",
+  "receipt_id": "double_sieve_fixture_suite_receipt_462668ee",
+  "run_id": "double_sieve_suite_run_57568b4b",
+  "schema_results": {
+    "MISSING_FIELD": 1,
+    "VALID": 5
+  },
+  "sidecar_results": {
+    "OBSERVATION_COMPLETE": 5,
+    "OBSERVATION_UNDER_TYPED": 1
+  },
+  "status": "TYPED_DOUBLE_SIEVE_FIXTURE_SUITE_PASS",
+  "suite_id": "double_sieve_fixture_suite_5e583552",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DOUBLE_SIEVE_FIXTURE_SUITE_PASS",
+    "type": "STOP"
+  },
+  "unit_feedback_results": {
+    "EMITTED_ACTIONABLE": 1,
+    "NOT_REQUIRED": 5
+  }
+}
+
+SHOW_DOUBLE_SIEVE_SUMMARY
+receipt_id=double_sieve_fixture_suite_receipt_462668ee
+receipt_path=data/double_sieve_fixture_suite_v0_receipts/double_sieve_fixture_suite_receipt_462668ee.json
+status=TYPED_DOUBLE_SIEVE_FIXTURE_SUITE_PASS
+outcome_class=DOUBLE_SIEVE_PASS
+suite_id=double_sieve_fixture_suite_5e583552
+run_id=double_sieve_suite_run_57568b4b
+suite_passed=True
+fixtures_total=6
+fixtures_passed=6
+fixtures_failed=0
+schema_results={"MISSING_FIELD": 1, "VALID": 5}
+admissibility_results={"ALLOW": 3, "AUTHORITY_REQUIRED": 1, "FORBIDDEN_INPUT": 1, "NOT_RUN": 1}
+execution_results={"CONTROL_RESULT_PRESERVED_WITH_OBSERVABILITY_DEGRADED": 1, "EXECUTION_GATE_OPENED_NO_LIVE_MUTATION": 1, "FAILED_TYPED": 1, "NOT_RUN": 3}
+sidecar_results={"OBSERVATION_COMPLETE": 5, "OBSERVATION_UNDER_TYPED": 1}
+unit_feedback_results={"EMITTED_ACTIONABLE": 1, "NOT_REQUIRED": 5}
+invalid_schema_stopped_before_admissibility=True
+valid_unauthorized_stopped_at_admissibility=True
+forbidden_input_stopped_before_execution=True
+execution_failure_typed_feedback_emitted=True
+sidecar_degradation_no_false_claim=True
+sidecar_zero_authority_preserved=True
+runtime_mode=FIXTURE_SUITE_ONLY
+live_mutation_authorized=False
+live_mutation_executed=False
+runtime_patch_authorized=False
+schema_archive_mutation_authorized=False
+move_addition_authorized=False
+fixture_expansion_authorized=False
+c7_opened=False
+c8_opened=False
+hidden_next_command=False
+bad_counters_zero=True
+terminal_type=STOP
+terminal_stop_code=STOP_DOUBLE_SIEVE_FIXTURE_SUITE_PASS
+next_command_goal=None
+
+SHOW_FIXTURE_RECEIPTS
+F1_VALID_ADMISSIBLE gate=PASS schema=VALID admissibility=ALLOW execution=EXECUTION_GATE_OPENED_NO_LIVE_MUTATION sidecar=OBSERVATION_COMPLETE feedback=NOT_REQUIRED terminal=STOP_EXECUTION_GATE_OPENED_NO_LIVE_MUTATION
+F2_INVALID_SCHEMA gate=PASS schema=MISSING_FIELD admissibility=NOT_RUN execution=NOT_RUN sidecar=OBSERVATION_COMPLETE feedback=NOT_REQUIRED terminal=STOP_SCHEMA_VALIDATION_FAILED
+F3_AUTHORITY_REQUIRED gate=PASS schema=VALID admissibility=AUTHORITY_REQUIRED execution=NOT_RUN sidecar=OBSERVATION_COMPLETE feedback=NOT_REQUIRED terminal=STOP_AUTHORITY_REQUIRED
+F4_FORBIDDEN_INPUT gate=PASS schema=VALID admissibility=FORBIDDEN_INPUT execution=NOT_RUN sidecar=OBSERVATION_COMPLETE feedback=NOT_REQUIRED terminal=STOP_FORBIDDEN_INPUT
+F5_EXECUTION_FAILURE_TYPED_FEEDBACK gate=PASS schema=VALID admissibility=ALLOW execution=FAILED_TYPED sidecar=OBSERVATION_COMPLETE feedback=EMITTED_ACTIONABLE terminal=STOP_FIXTURE_EXECUTION_FAILED_TYPED
+F6_SIDECAR_PARTIAL_OBSERVABILITY gate=PASS schema=VALID admissibility=ALLOW execution=CONTROL_RESULT_PRESERVED_WITH_OBSERVABILITY_DEGRADED sidecar=OBSERVATION_UNDER_TYPED feedback=NOT_REQUIRED terminal=STOP_OBSERVABILITY_DEGRADED_NO_FALSE_CLAIM
+
+FORCE_ADD_DOUBLE_SIEVE_ARTIFACTS
+
+DIFF_STAT_RELEVANT
+ .gitignore                                         |   6 +
+ .../double_sieve_fixture_manifest_v0.jsonl         |   6 +
+ .../double_sieve_fixture_suite_contract_v0.json    |  44 ++
+ .../double_sieve_fixture_suite_profile_v0.json     |  22 +
+ .../double_sieve_fixture_suite_readout_v0.json     |  45 ++
+ .../double_sieve_fixture_suite_report.json         |  29 +
+ .../double_sieve_fixture_suite_rollup_v0.json      |  77 ++
+ ...ouble_sieve_fixture_suite_transition_trace.json |  36 +
+ .../double_sieve_fixture_receipt_v0.json           | 160 ++++
+ .../F1_VALID_ADMISSIBLE/fixture_packet_v0.json     |  84 +++
+ .../double_sieve_fixture_receipt_v0.json           | 162 +++++
+ .../F2_INVALID_SCHEMA/fixture_packet_v0.json       |  79 ++
+ .../double_sieve_fixture_receipt_v0.json           | 160 ++++
+ .../F3_AUTHORITY_REQUIRED/fixture_packet_v0.json   |  84 +++
+ .../double_sieve_fixture_receipt_v0.json           | 161 ++++
+ .../F4_FORBIDDEN_INPUT/fixture_packet_v0.json      |  84 +++
+ .../double_sieve_fixture_receipt_v0.json           | 184 +++++
+ .../fixture_packet_v0.json                         |  84 +++
+ .../double_sieve_fixture_receipt_v0.json           | 166 +++++
+ .../fixture_packet_v0.json                         |  84 +++
+ ...ouble_sieve_fixture_suite_receipt_462668ee.json | 159 ++++
+ scripts/run_double_sieve_fixture_suite_v0.py       | 806 +++++++++++++++++++++
+ 22 files changed, 2722 insertions(+)
+
+STATUS_AFTER_RELEVANT
+M  .gitignore
+A  data/double_sieve_fixture_suite_v0/double_sieve_fixture_manifest_v0.jsonl
+A  data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_contract_v0.json
+A  data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_profile_v0.json
+A  data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_readout_v0.json
+A  data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_report.json
+A  data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_rollup_v0.json
+A  data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_transition_trace.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F1_VALID_ADMISSIBLE/double_sieve_fixture_receipt_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F1_VALID_ADMISSIBLE/fixture_packet_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F2_INVALID_SCHEMA/double_sieve_fixture_receipt_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F2_INVALID_SCHEMA/fixture_packet_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F3_AUTHORITY_REQUIRED/double_sieve_fixture_receipt_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F3_AUTHORITY_REQUIRED/fixture_packet_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F4_FORBIDDEN_INPUT/double_sieve_fixture_receipt_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F4_FORBIDDEN_INPUT/fixture_packet_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F5_EXECUTION_FAILURE_TYPED_FEEDBACK/double_sieve_fixture_receipt_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F5_EXECUTION_FAILURE_TYPED_FEEDBACK/fixture_packet_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F6_SIDECAR_PARTIAL_OBSERVABILITY/double_sieve_fixture_receipt_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F6_SIDECAR_PARTIAL_OBSERVABILITY/fixture_packet_v0.json
+A  data/double_sieve_fixture_suite_v0_receipts/double_sieve_fixture_suite_receipt_462668ee.json
+A  scripts/run_double_sieve_fixture_suite_v0.py
+
+DOUBLE_SIEVE_FIXTURE_SUITE_READY_FOR_REVIEW
+M  .gitignore
+A  data/double_sieve_fixture_suite_v0/double_sieve_fixture_manifest_v0.jsonl
+A  data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_contract_v0.json
+A  data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_profile_v0.json
+A  data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_readout_v0.json
+A  data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_report.json
+A  data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_rollup_v0.json
+A  data/double_sieve_fixture_suite_v0/double_sieve_fixture_suite_transition_trace.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F1_VALID_ADMISSIBLE/double_sieve_fixture_receipt_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F1_VALID_ADMISSIBLE/fixture_packet_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F2_INVALID_SCHEMA/double_sieve_fixture_receipt_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F2_INVALID_SCHEMA/fixture_packet_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F3_AUTHORITY_REQUIRED/double_sieve_fixture_receipt_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F3_AUTHORITY_REQUIRED/fixture_packet_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F4_FORBIDDEN_INPUT/double_sieve_fixture_receipt_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F4_FORBIDDEN_INPUT/fixture_packet_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F5_EXECUTION_FAILURE_TYPED_FEEDBACK/double_sieve_fixture_receipt_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F5_EXECUTION_FAILURE_TYPED_FEEDBACK/fixture_packet_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F6_SIDECAR_PARTIAL_OBSERVABILITY/double_sieve_fixture_receipt_v0.json
+A  data/double_sieve_fixture_suite_v0/fixtures/F6_SIDECAR_PARTIAL_OBSERVABILITY/fixture_packet_v0.json
+A  data/double_sieve_fixture_suite_v0_receipts/double_sieve_fixture_suite_receipt_462668ee.json
+A  scripts/run_double_sieve_fixture_suite_v0.py
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

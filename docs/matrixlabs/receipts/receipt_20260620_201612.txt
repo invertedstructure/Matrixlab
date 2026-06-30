@@ -1,0 +1,495 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_201612
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_201612.txt
+
+RERUN_MICRO_BURDEN_PROFILE_AFTER_REPEATED_SLOT_PLAN_CACHE_FIX_V0
+
+STATUS_BEFORE
+?? data/
+
+VERIFY_APPLICATION_AUTHORITY
+{
+  "application_exists": true,
+  "application_gate": "PASS",
+  "application_id": "2233c46c",
+  "application_sig8": "2233c46c",
+  "before_profile_id": "00a75664",
+  "candidate_gate": "PASS",
+  "receipt_gate": "PASS",
+  "same_plan_objects_on_second_build": true,
+  "semantics": {
+    "execution_skipping": false,
+    "gate_semantics_change": false,
+    "halt_semantics_change": false,
+    "law_semantics_change": false,
+    "radius_expansion": false,
+    "receipt_compression": false,
+    "receipt_deletion": false,
+    "receipt_schema_change": false,
+    "reusing_prior_run_results_as_execution": false,
+    "run_semantics_change": false,
+    "slot_identity_collapse": false,
+    "slot_receipt_merge": false
+  },
+  "slot_identity_matches_expected": true,
+  "source_candidate_gate": "PASS",
+  "source_candidate_id": "57f6e627",
+  "target_burden_class": "BURDEN_REPEATED_SLOT_WORK",
+  "terminal": {
+    "next_command_goal": "RERUN_MICRO_BURDEN_PROFILE_AFTER_REPEATED_SLOT_PLAN_CACHE_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+PATCH_GITIGNORE
+
+RERUN_SAME_MICRO_SUITE_AFTER_REPEATED_SLOT_PLAN_CACHE_FIX
+{
+  "burden_class_counts": {
+    "BURDEN_CYCLE_SCAN": 5,
+    "BURDEN_DB_WRITE": 5,
+    "BURDEN_DEPTH_SCAN": 5,
+    "BURDEN_RECEIPT_VOLUME": 1,
+    "BURDEN_REPEATED_SLOT_WORK": 9
+  },
+  "created_at": "2026-06-20T19:16:53.231184+00:00",
+  "csv_path": "data/micro_burden_profiles/24ac7037.csv",
+  "failures": [],
+  "families_seen": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "gate": "MICRO_BURDEN_PROFILE_PASS",
+  "non_unknown_burden_classes": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_DEPTH_SCAN",
+    "BURDEN_RECEIPT_VOLUME",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "probe_completion": {
+    "MICRO_01_WIDE_FAMILY_SMOKE": "PASS",
+    "MICRO_02_CYCLE_PRESSURE": "PASS",
+    "MICRO_03_DEPTH_PRESSURE": "PASS",
+    "MICRO_04_REPEATED_SLOT_PRESSURE": "PASS",
+    "MICRO_05_RECEIPT_WRITE_PRESSURE": "PASS"
+  },
+  "profile_id": "24ac7037",
+  "profile_path": "data/micro_burden_profiles/24ac7037.json",
+  "profile_sig8": "24ac7037",
+  "receipt_id": "985607a0",
+  "receipt_sig8": "985607a0",
+  "receipt_totals": {
+    "after": 1623428,
+    "before": 1621971,
+    "delta": 1457,
+    "matches_registry_sqlite": true,
+    "profile_total": 1457
+  },
+  "schema_version": "wide_burden_profile_microruns_receipt_v0",
+  "semantics": {
+    "execution_skipped": false,
+    "gate_semantics_changed": false,
+    "law_semantics_changed": false,
+    "passive_observability_layer": true,
+    "receipt_rows_deleted": false,
+    "receipts_compressed": false,
+    "runner_semantics_changed": false
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_BURDEN_BACKED_FIX_CANDIDATE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "top_20_receipt_sources_present": true,
+  "top_20_time_sources_present": true,
+  "warnings": []
+}
+profile_json_path=data/micro_burden_profiles/24ac7037.json
+profile_csv_path=data/micro_burden_profiles/24ac7037.csv
+profile_receipt_path=data/micro_burden_profile_receipts/24ac7037.json
+BEFORE_PROFILE_ID=00a75664
+AFTER_PROFILE_ID=24ac7037
+
+ASSERT_AFTER_PROFILE_PASS_AND_PLAN_CACHE_PRESENT
+{
+  "after_db_receipt_delta": 1457,
+  "after_failures": [],
+  "after_families_seen": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "after_gate": "MICRO_BURDEN_PROFILE_PASS",
+  "after_non_unknown_burden_classes": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_DEPTH_SCAN",
+    "BURDEN_RECEIPT_VOLUME",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "after_profile_id": "24ac7037",
+  "after_profile_receipts_total": 1457,
+  "after_rows": 25,
+  "before_profile_id": "00a75664",
+  "cache_does_not_cache": [
+    "run_id",
+    "receipt rows",
+    "receipt counts as substitutes for execution",
+    "law results",
+    "gate results",
+    "halt results",
+    "stdout/stderr from a prior run",
+    "any prior execution result"
+  ],
+  "cache_info": {
+    "currsize": 25,
+    "hits": 0,
+    "misses": 25
+  },
+  "cache_kind": "immutable_slot_execution_plan_metadata",
+  "cache_scope": "within_one_micro_profile_execution_only",
+  "cache_status": "APPLIED_METADATA_ONLY",
+  "expected_repeated_slot_ids": [
+    "slot_01_E1",
+    "slot_02_E2",
+    "slot_03_E3",
+    "slot_04_D1",
+    "slot_05_D2",
+    "slot_06_B1",
+    "slot_07_B2",
+    "slot_08_C1",
+    "slot_09_A1"
+  ],
+  "terminal": {
+    "next_command_goal": "BUILD_BURDEN_BACKED_FIX_CANDIDATE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+WRITE_REPEATED_SLOT_PLAN_CACHE_COMPARISON_SCRIPT
+
+PY_COMPILE_COMPARISON
+
+BUILD_REPEATED_SLOT_PLAN_CACHE_BEFORE_AFTER_COMPARISON
+{
+  "after_profile_id": "24ac7037",
+  "before_profile_id": "00a75664",
+  "comparison_id": "d2ecdf4b",
+  "comparison_path": "data/repeated_slot_plan_cache_before_after_comparisons/d2ecdf4b.json",
+  "comparison_sig8": "d2ecdf4b",
+  "created_at": "2026-06-20T19:16:53.442995+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "metadata_cache_present": true,
+  "receipt_id": "406f89a1",
+  "receipt_sig8": "406f89a1",
+  "repeated_slot_identity_preserved": true,
+  "schema_version": "repeated_slot_plan_cache_before_after_comparison_receipt_v0",
+  "source_application_id": "2233c46c",
+  "source_candidate_id": "57f6e627",
+  "target_burden_class": "BURDEN_REPEATED_SLOT_WORK",
+  "target_delta": {
+    "after_elapsed_ms": 7010,
+    "after_receipts_per_sec": 38.516405,
+    "before_elapsed_ms": 8243,
+    "before_receipts_per_sec": 32.755065,
+    "elapsed_ms_delta": -1233,
+    "elapsed_ratio_after_vs_before": 0.850419,
+    "receipts_per_sec_delta": 5.76134,
+    "speedup_before_over_after": 1.175892
+  },
+  "target_receipts_preserved": true,
+  "target_result": "TARGET_BURDEN_ELAPSED_NON_WORSE",
+  "terminal": {
+    "next_command_goal": "DECIDE_REPEATED_SLOT_PLAN_CACHE_FIX_OUTCOME_OR_NEXT_BURDEN_CLASS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+comparison_json_path=data/repeated_slot_plan_cache_before_after_comparisons/d2ecdf4b.json
+comparison_receipt_path=data/repeated_slot_plan_cache_before_after_comparison_receipts/d2ecdf4b.json
+COMPARISON_ID=d2ecdf4b
+
+ASSERT_REPEATED_SLOT_PLAN_CACHE_COMPARISON
+{
+  "after_profile_id": "24ac7037",
+  "before_profile_id": "00a75664",
+  "comparison_id": "d2ecdf4b",
+  "comparison_sig8": "d2ecdf4b",
+  "failures": [],
+  "gate": "PASS",
+  "gate_rules": {
+    "after_profile_gate_pass": true,
+    "after_receipt_totals_match_registry": true,
+    "application_gate_pass": true,
+    "family_coverage_A_E_preserved": true,
+    "metadata_cache_present": true,
+    "no_execution_skipping": true,
+    "no_gate_semantics_changed": true,
+    "no_law_semantics_changed": true,
+    "no_receipt_deletion": true,
+    "no_runner_semantics_changed": true,
+    "profile_receipt_total_preserved": true,
+    "repeated_slot_identity_preserved": true,
+    "same_row_count": true,
+    "same_target_row_keys": true,
+    "target_receipts_preserved": true,
+    "target_repeated_slot_elapsed_non_worse": true
+  },
+  "receipt_gate": "PASS",
+  "receipt_id": "406f89a1",
+  "source_application_id": "2233c46c",
+  "source_candidate_id": "57f6e627",
+  "target_after": {
+    "burden_class": "BURDEN_REPEATED_SLOT_WORK",
+    "elapsed_ms": 7010,
+    "families": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "probes": [
+      "MICRO_04_REPEATED_SLOT_PRESSURE"
+    ],
+    "receipts": 270,
+    "receipts_per_sec": 38.516405,
+    "rows": 9,
+    "slots": [
+      "slot_01_E1",
+      "slot_02_E2",
+      "slot_03_E3",
+      "slot_04_D1",
+      "slot_05_D2",
+      "slot_06_B1",
+      "slot_07_B2",
+      "slot_08_C1",
+      "slot_09_A1"
+    ]
+  },
+  "target_before": {
+    "burden_class": "BURDEN_REPEATED_SLOT_WORK",
+    "elapsed_ms": 8243,
+    "families": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "probes": [
+      "MICRO_04_REPEATED_SLOT_PRESSURE"
+    ],
+    "receipts": 270,
+    "receipts_per_sec": 32.755065,
+    "rows": 9,
+    "slots": [
+      "slot_01_E1",
+      "slot_02_E2",
+      "slot_03_E3",
+      "slot_04_D1",
+      "slot_05_D2",
+      "slot_06_B1",
+      "slot_07_B2",
+      "slot_08_C1",
+      "slot_09_A1"
+    ]
+  },
+  "target_burden_class": "BURDEN_REPEATED_SLOT_WORK",
+  "target_delta": {
+    "after_elapsed_ms": 7010,
+    "after_receipts_per_sec": 38.516405,
+    "before_elapsed_ms": 8243,
+    "before_receipts_per_sec": 32.755065,
+    "elapsed_ms_delta": -1233,
+    "elapsed_ratio_after_vs_before": 0.850419,
+    "receipts_per_sec_delta": 5.76134,
+    "speedup_before_over_after": 1.175892
+  },
+  "target_result": "TARGET_BURDEN_ELAPSED_NON_WORSE",
+  "terminal": {
+    "next_command_goal": "DECIDE_REPEATED_SLOT_PLAN_CACHE_FIX_OUTCOME_OR_NEXT_BURDEN_CLASS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+COMPARISON_HEAD_JSON
+{
+  "after_profile_id": "24ac7037",
+  "before_profile_id": "00a75664",
+  "cache_observation": {
+    "cache_info": {
+      "currsize": 25,
+      "hits": 0,
+      "misses": 25
+    },
+    "cache_kind": "immutable_slot_execution_plan_metadata",
+    "cache_scope": "within_one_micro_profile_execution_only",
+    "does_not_cache": [
+      "run_id",
+      "receipt rows",
+      "receipt counts as substitutes for execution",
+      "law results",
+      "gate results",
+      "halt results",
+      "stdout/stderr from a prior run",
+      "any prior execution result"
+    ],
+    "expected_repeated_slot_ids": [
+      "slot_01_E1",
+      "slot_02_E2",
+      "slot_03_E3",
+      "slot_04_D1",
+      "slot_05_D2",
+      "slot_06_B1",
+      "slot_07_B2",
+      "slot_08_C1",
+      "slot_09_A1"
+    ],
+    "status": "APPLIED_METADATA_ONLY"
+  },
+  "comparison_id": "d2ecdf4b",
+  "gate": "PASS",
+  "gate_rules": {
+    "after_profile_gate_pass": true,
+    "after_receipt_totals_match_registry": true,
+    "application_gate_pass": true,
+    "family_coverage_A_E_preserved": true,
+    "metadata_cache_present": true,
+    "no_execution_skipping": true,
+    "no_gate_semantics_changed": true,
+    "no_law_semantics_changed": true,
+    "no_receipt_deletion": true,
+    "no_runner_semantics_changed": true,
+    "profile_receipt_total_preserved": true,
+    "repeated_slot_identity_preserved": true,
+    "same_row_count": true,
+    "same_target_row_keys": true,
+    "target_receipts_preserved": true,
+    "target_repeated_slot_elapsed_non_worse": true
+  },
+  "target_after": {
+    "burden_class": "BURDEN_REPEATED_SLOT_WORK",
+    "elapsed_ms": 7010,
+    "families": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "probes": [
+      "MICRO_04_REPEATED_SLOT_PRESSURE"
+    ],
+    "receipts": 270,
+    "receipts_per_sec": 38.516405,
+    "rows": 9,
+    "slots": [
+      "slot_01_E1",
+      "slot_02_E2",
+      "slot_03_E3",
+      "slot_04_D1",
+      "slot_05_D2",
+      "slot_06_B1",
+      "slot_07_B2",
+      "slot_08_C1",
+      "slot_09_A1"
+    ]
+  },
+  "target_before": {
+    "burden_class": "BURDEN_REPEATED_SLOT_WORK",
+    "elapsed_ms": 8243,
+    "families": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "probes": [
+      "MICRO_04_REPEATED_SLOT_PRESSURE"
+    ],
+    "receipts": 270,
+    "receipts_per_sec": 32.755065,
+    "rows": 9,
+    "slots": [
+      "slot_01_E1",
+      "slot_02_E2",
+      "slot_03_E3",
+      "slot_04_D1",
+      "slot_05_D2",
+      "slot_06_B1",
+      "slot_07_B2",
+      "slot_08_C1",
+      "slot_09_A1"
+    ]
+  },
+  "target_burden_class": "BURDEN_REPEATED_SLOT_WORK",
+  "target_delta": {
+    "after_elapsed_ms": 7010,
+    "after_receipts_per_sec": 38.516405,
+    "before_elapsed_ms": 8243,
+    "before_receipts_per_sec": 32.755065,
+    "elapsed_ms_delta": -1233,
+    "elapsed_ratio_after_vs_before": 0.850419,
+    "receipts_per_sec_delta": 5.76134,
+    "speedup_before_over_after": 1.175892
+  },
+  "target_result": "TARGET_BURDEN_ELAPSED_NON_WORSE",
+  "terminal": {
+    "next_command_goal": "DECIDE_REPEATED_SLOT_PLAN_CACHE_FIX_OUTCOME_OR_NEXT_BURDEN_CLASS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_191652_455272
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/compare_repeated_slot_plan_cache_before_after.py
+[master 0fd666ec6] add repeated slot plan cache before after comparison
+ 2 files changed, 364 insertions(+)
+ create mode 100755 scripts/compare_repeated_slot_plan_cache_before_after.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

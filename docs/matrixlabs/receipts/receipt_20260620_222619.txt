@@ -1,0 +1,268 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_222619
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_222619.txt
+
+RERUN_MICRO_BURDEN_PROFILE_AFTER_FRONTIER_DEPTH_REVERT_V0
+
+STATUS_BEFORE
+?? data/
+
+VERIFY_REVERT_APPLICATION_AUTHORITY
+{
+  "comparison_gate": "PASS",
+  "cycle_period_markers_preserved": true,
+  "decision_gate": "PASS",
+  "deleted_data_artifacts": false,
+  "deleted_receipts": false,
+  "failures": [],
+  "frontier_depth_markers_removed": true,
+  "gate": "PASS",
+  "plan_gate": "PASS",
+  "receipt_gate": "PASS",
+  "removed_frontier_depth_patch_only": true,
+  "revert_application_id": "b3471a41",
+  "revert_application_sig8": "b3471a41",
+  "selected_disposition": "REVERT_FRONTIER_DEPTH_METADATA_CERTIFICATE_PATCH",
+  "semantics": {
+    "data_artifact_deletion": false,
+    "depth_max_change": false,
+    "depth_min_change": false,
+    "depth_probe_skipping": false,
+    "depth_range_change": false,
+    "execution_skipping": false,
+    "frontier_case_skipping": false,
+    "gate_semantics_change": false,
+    "halt_semantics_change": false,
+    "law_semantics_change": false,
+    "radius_expansion": false,
+    "receipt_compression": false,
+    "receipt_deletion": false,
+    "reopening_accepted_burden_classes": false,
+    "reusing_prior_depth_results_as_execution": false,
+    "reusing_prior_run_results_as_execution": false,
+    "revert_application": true,
+    "run_semantics_change": false,
+    "synthetic_depth_receipts": false
+  },
+  "smoke": {
+    "receipt_rows": 4,
+    "receipt_rows_match_run_total": true,
+    "run_id": "run_20260620_212142_908620",
+    "status": "DONE",
+    "total_receipts": 4
+  },
+  "source_comparison_id": "ed563880",
+  "source_decision_id": "22d0002e",
+  "source_original_application_id": "f537dd1f",
+  "source_plan_id": "ce040a69",
+  "terminal": {
+    "next_command_goal": "RERUN_MICRO_BURDEN_PROFILE_AFTER_FRONTIER_DEPTH_REVERT_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+PATCH_GITIGNORE
+
+VERIFY_SOURCE_CODE_MARKERS_AFTER_REVERT_BEFORE_RERUN
+{
+  "cycle_markers_present": {
+    "cycle_certificate_kind": true,
+    "cycle_observation_field": true,
+    "cycle_observation_helper": true,
+    "cycle_period_field": true,
+    "cycle_status": true
+  },
+  "frontier_markers_absent": {
+    "certificate_scope": true,
+    "frontier_depth_probe_field": true,
+    "helper_class": true,
+    "observation_helper": true,
+    "profile_field": true,
+    "slot_ids": true,
+    "status": true
+  }
+}
+
+PY_COMPILE
+
+RERUN_SAME_MICRO_SUITE_AFTER_FRONTIER_DEPTH_REVERT
+{
+  "burden_class_counts": {
+    "BURDEN_CYCLE_SCAN": 5,
+    "BURDEN_DB_WRITE": 5,
+    "BURDEN_DEPTH_SCAN": 5,
+    "BURDEN_RECEIPT_VOLUME": 1,
+    "BURDEN_REPEATED_SLOT_WORK": 9
+  },
+  "created_at": "2026-06-20T21:27:02.186085+00:00",
+  "csv_path": "data/micro_burden_profiles/b6609f93.csv",
+  "failures": [],
+  "families_seen": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "gate": "MICRO_BURDEN_PROFILE_PASS",
+  "non_unknown_burden_classes": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_DEPTH_SCAN",
+    "BURDEN_RECEIPT_VOLUME",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "probe_completion": {
+    "MICRO_01_WIDE_FAMILY_SMOKE": "PASS",
+    "MICRO_02_CYCLE_PRESSURE": "PASS",
+    "MICRO_03_DEPTH_PRESSURE": "PASS",
+    "MICRO_04_REPEATED_SLOT_PRESSURE": "PASS",
+    "MICRO_05_RECEIPT_WRITE_PRESSURE": "PASS"
+  },
+  "profile_id": "b6609f93",
+  "profile_path": "data/micro_burden_profiles/b6609f93.json",
+  "profile_sig8": "b6609f93",
+  "receipt_id": "314923d5",
+  "receipt_sig8": "314923d5",
+  "receipt_totals": {
+    "after": 1627811,
+    "before": 1626354,
+    "delta": 1457,
+    "matches_registry_sqlite": true,
+    "profile_total": 1457
+  },
+  "schema_version": "wide_burden_profile_microruns_receipt_v0",
+  "semantics": {
+    "execution_skipped": false,
+    "gate_semantics_changed": false,
+    "law_semantics_changed": false,
+    "passive_observability_layer": true,
+    "receipt_rows_deleted": false,
+    "receipts_compressed": false,
+    "runner_semantics_changed": false
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_BURDEN_BACKED_FIX_CANDIDATE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "top_20_receipt_sources_present": true,
+  "top_20_time_sources_present": true,
+  "warnings": []
+}
+profile_json_path=data/micro_burden_profiles/b6609f93.json
+profile_csv_path=data/micro_burden_profiles/b6609f93.csv
+profile_receipt_path=data/micro_burden_profile_receipts/b6609f93.json
+PRE_FRONTIER_PROFILE_ID=45cd7660
+BAD_AFTER_PROFILE_ID=26966e56
+AFTER_REVERT_PROFILE_ID=b6609f93
+
+ASSERT_AFTER_REVERT_PROFILE_SURFACE
+{
+  "after_revert_db_receipt_delta": 1457,
+  "after_revert_failures": [],
+  "after_revert_families_seen": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "after_revert_gate": "MICRO_BURDEN_PROFILE_PASS",
+  "after_revert_non_unknown_burden_classes": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_DEPTH_SCAN",
+    "BURDEN_RECEIPT_VOLUME",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "after_revert_profile_id": "b6609f93",
+  "after_revert_profile_receipts_total": 1457,
+  "after_revert_rows": 25,
+  "bad_after_profile_id": "26966e56",
+  "cycle_period_certificate_kind": "cycle_period_observation_certificate",
+  "cycle_period_semantics": {
+    "cycle_execution_skipping": false,
+    "early_halt_on_period_detection": false,
+    "execution_skipping": false,
+    "gate_semantics_change": false,
+    "halt_semantics_change": false,
+    "law_semantics_change": false,
+    "radius_expansion": false,
+    "receipt_compression": false,
+    "receipt_deletion": false,
+    "reusing_prior_cycle_results_as_execution": false,
+    "run_semantics_change": false,
+    "synthetic_cycle_receipts": false
+  },
+  "cycle_period_status": "APPLIED_POST_EXECUTION_METADATA_ONLY",
+  "has_cycle_period_compression_field": true,
+  "has_frontier_depth_probe_field": false,
+  "pre_frontier_profile_id": "45cd7660",
+  "profile_semantics": {
+    "execution_skipped": false,
+    "gate_semantics_changed": false,
+    "law_semantics_changed": false,
+    "passive_observability_layer": true,
+    "receipt_rows_deleted": false,
+    "receipts_compressed": false,
+    "runner_semantics_changed": false
+  }
+}
+
+WRITE_FRONTIER_DEPTH_REVERT_AFTER_COMPARISON_SCRIPT
+
+PY_COMPILE_COMPARISON
+
+BUILD_FRONTIER_DEPTH_REVERT_AFTER_COMPARISON
+{
+  "after_revert_profile_id": "b6609f93",
+  "bad_after_profile_id": "26966e56",
+  "comparison_id": "43b40c7a",
+  "comparison_path": "data/frontier_depth_probe_revert_after_comparisons/43b40c7a.json",
+  "comparison_sig8": "43b40c7a",
+  "created_at": "2026-06-20T21:27:02.411479+00:00",
+  "cycle_period_compression_field_present": true,
+  "failures": [
+    "cycle_period_semantics_guard_missing",
+    "cycle_period_receipt_guard_missing"
+  ],
+  "frontier_depth_probe_field_absent": true,
+  "gate": "FAIL",
+  "pre_frontier_profile_id": "45cd7660",
+  "receipt_id": "fac7052b",
+  "receipt_sig8": "fac7052b",
+  "revert_metric_classification": "REVERT_DEPTH_ELAPSED_NON_WORSE_VS_REJECTED_PATCH",
+  "schema_version": "frontier_depth_probe_revert_after_comparison_receipt_v0",
+  "source_decision_id": "22d0002e",
+  "source_plan_id": "ce040a69",
+  "source_revert_application_id": "b3471a41",
+  "target_burden_class": "BURDEN_DEPTH_SCAN",
+  "target_delta": {
+    "after_revert_delta_vs_bad_after_ms": -204,
+    "after_revert_delta_vs_pre_frontier_ms": 26,
+    "after_revert_elapsed_ms": 4215,
+    "after_revert_ratio_vs_bad_after": 0.953836,
+    "after_revert_ratio_vs_pre_frontier": 1.006207,
+    "after_revert_receipts_per_sec": 81.850534,
+    "bad_after_elapsed_ms": 4419,
+    "pre_frontier_elapsed_ms": 4189
+  },
+  "target_depth_slots_preserved": true,
+  "target_receipts_preserved": true,
+  "target_rows_preserved": true,
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_FRONTIER_DEPTH_REVERT_AFTER_COMPARISON_FAILED",
+    "type": "STOP"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+comparison_json_path=data/frontier_depth_probe_revert_after_comparisons/43b40c7a.json
+comparison_receipt_path=data/frontier_depth_probe_revert_after_comparison_receipts/43b40c7a.json
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

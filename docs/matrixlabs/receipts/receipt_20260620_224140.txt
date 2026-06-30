@@ -1,0 +1,618 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_224140
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_224140.txt
+
+REPAIR_RECEIPT_VOLUME_CANDIDATE_SOURCE_INSPECTION_V0
+
+STATUS_BEFORE
+ M .gitignore
+?? data/
+?? scripts/build_receipt_volume_fix_candidate.py
+
+VERIFY_FAILURE_CLASS
+{
+  "candidate_id": "c47caed0",
+  "candidate_status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "failures": [
+    "source_inspection_receipt_volume_slot_missing"
+  ],
+  "gate": "FAIL",
+  "source_inspection": {
+    "cycle_period_compression_field_present": true,
+    "exists": true,
+    "file": "scripts/wide_burden_profile_microruns.py",
+    "frontier_depth_probe_field_present": false,
+    "profile_total_literal_1457_present": false,
+    "receipt_volume_probe_marker_present": true,
+    "receipt_volume_slot_marker_present": false
+  },
+  "target_burden_class": "BURDEN_RECEIPT_VOLUME",
+  "target_receipts": 176,
+  "target_slot": "MICRO_05_RECEIPT_WRITE_PRESSURE_E",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_RECEIPT_VOLUME_CANDIDATE_INVALID",
+    "type": "STOP"
+  }
+}
+
+PATCH_CANDIDATE_SOURCE_INSPECTION
+patched source inspection: slot identity now profile-derived, not source literal
+
+PY_COMPILE
+
+RERUN_RECEIPT_VOLUME_CANDIDATE
+{
+  "accepted_burden_classes_frozen": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "authorized_next_command_goal": "APPLY_RECEIPT_VOLUME_FIX_CANDIDATE_V0",
+  "authorizes_application_next": true,
+  "authorizes_code_change_now": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_patch_application_now": false,
+  "authorizes_raw_receipt_write_suppression": false,
+  "authorizes_receipt_compression": false,
+  "authorizes_receipt_deletion": false,
+  "authorizes_registry_sqlite_total_mismatch": false,
+  "authorizes_synthetic_receipts": false,
+  "candidate_id": "17e6ee4e",
+  "candidate_kind": "RECEIPT_VOLUME_FIX_CANDIDATE",
+  "candidate_name": "FIX_CANDIDATE_RECEIPT_VOLUME_WRITE_PRESSURE_PLAN_V0",
+  "candidate_path": "data/receipt_volume_fix_candidates/17e6ee4e.json",
+  "candidate_sig8": "17e6ee4e",
+  "candidate_status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "created_at": "2026-06-20T21:41:40.252784+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "proposed_design_id": "RECEIPT_WRITE_PRESSURE_PLAN_CACHE_AND_ACCOUNTING_CERTIFICATE_V0",
+  "receipt_id": "c31ce46b",
+  "receipt_sig8": "c31ce46b",
+  "rejected_or_deferred_burden_classes_frozen": [
+    "BURDEN_DEPTH_SCAN"
+  ],
+  "schema_version": "receipt_volume_fix_candidate_receipt_v0",
+  "source_after_revert_profile_id": "b6609f93",
+  "source_next_burden_decision_id": "25bf9c59",
+  "source_policy_id": "2e6aa9d6",
+  "target_burden_class": "BURDEN_RECEIPT_VOLUME",
+  "target_elapsed_ms": 1005,
+  "target_probe": "MICRO_05_RECEIPT_WRITE_PRESSURE",
+  "target_receipts": 176,
+  "target_receipts_per_sec": 175.124378,
+  "target_rows": 1,
+  "target_slot": "MICRO_05_RECEIPT_WRITE_PRESSURE_E",
+  "terminal": {
+    "next_command_goal": "APPLY_RECEIPT_VOLUME_FIX_CANDIDATE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+candidate_json_path=data/receipt_volume_fix_candidates/17e6ee4e.json
+candidate_receipt_path=data/receipt_volume_fix_candidate_receipts/17e6ee4e.json
+CANDIDATE_ID=17e6ee4e
+
+ASSERT_REPAIRED_RECEIPT_VOLUME_CANDIDATE
+{
+  "accepted_burden_classes_frozen": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "authorized_next_command_goal": "APPLY_RECEIPT_VOLUME_FIX_CANDIDATE_V0",
+  "authorizes_application_next": true,
+  "authorizes_code_change_now": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_patch_application_now": false,
+  "authorizes_raw_receipt_write_suppression": false,
+  "authorizes_receipt_compression": false,
+  "authorizes_receipt_deletion": false,
+  "authorizes_registry_sqlite_total_mismatch": false,
+  "authorizes_reopening_accepted_burden_classes": false,
+  "authorizes_reopening_frontier_depth": false,
+  "authorizes_synthetic_receipts": false,
+  "candidate_id": "17e6ee4e",
+  "candidate_kind": "RECEIPT_VOLUME_FIX_CANDIDATE",
+  "candidate_name": "FIX_CANDIDATE_RECEIPT_VOLUME_WRITE_PRESSURE_PLAN_V0",
+  "candidate_sig8": "17e6ee4e",
+  "candidate_status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "design_id": "RECEIPT_WRITE_PRESSURE_PLAN_CACHE_AND_ACCOUNTING_CERTIFICATE_V0",
+  "failures": [],
+  "future_patch_scope": [
+    "scripts/wide_burden_profile_microruns.py"
+  ],
+  "gate": "PASS",
+  "proposal_only": true,
+  "receipt_gate": "PASS",
+  "receipt_id": "c31ce46b",
+  "rejected_or_deferred_burden_classes_frozen": [
+    "BURDEN_DEPTH_SCAN"
+  ],
+  "required_application_gate": {
+    "must_not_compress_receipts": true,
+    "must_not_delete_receipts": true,
+    "must_not_emit_synthetic_receipts": true,
+    "must_not_restore_frontier_depth_probe_field": true,
+    "must_not_skip_execution": true,
+    "must_not_skip_receipt_write_pressure_probe": true,
+    "must_not_suppress_raw_receipt_writes": true,
+    "must_preserve_micro_profile_receipt_total": 1457,
+    "must_preserve_target_receipts": 176,
+    "must_target_burden_class": "BURDEN_RECEIPT_VOLUME",
+    "must_touch_only_files": [
+      "scripts/wide_burden_profile_microruns.py"
+    ],
+    "must_use_before_profile_id": "b6609f93",
+    "must_use_candidate_id": "17e6ee4e",
+    "must_use_policy_id": "2e6aa9d6"
+  },
+  "source_after_revert_profile_id": "b6609f93",
+  "source_inspection": {
+    "cycle_period_compression_field_present": true,
+    "exists": true,
+    "file": "scripts/wide_burden_profile_microruns.py",
+    "frontier_depth_probe_field_present": false,
+    "profile_total_literal_1457_present": false,
+    "receipt_volume_probe_marker_present": true,
+    "receipt_volume_slot_identity_source": "profile_target_row_identity",
+    "receipt_volume_slot_literal_present": false
+  },
+  "source_next_burden_decision_id": "25bf9c59",
+  "source_policy_id": "2e6aa9d6",
+  "target_burden_class": "BURDEN_RECEIPT_VOLUME",
+  "target_elapsed_ms": 1005,
+  "target_families": [
+    "E"
+  ],
+  "target_probes": [
+    "MICRO_05_RECEIPT_WRITE_PRESSURE"
+  ],
+  "target_receipts": 176,
+  "target_receipts_per_sec": 175.124378,
+  "target_rows": 1,
+  "target_slots": [
+    "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+  ],
+  "terminal": {
+    "next_command_goal": "APPLY_RECEIPT_VOLUME_FIX_CANDIDATE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "touches_code_now": false,
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+
+NEGATIVE_CONTROLS_RECEIPT_VOLUME_CANDIDATE_REPAIR
+{
+  "case": "policy_gate_fail",
+  "expected": "policy_gate_not_PASS",
+  "failures": [
+    "policy_gate_not_PASS"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "receipt_deletion_authority_fail",
+  "expected": "policy_illegal_authorization:authorizes_receipt_deletion",
+  "failures": [
+    "policy_illegal_authorization:authorizes_receipt_deletion:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "receipt_compression_authority_fail",
+  "expected": "policy_illegal_authorization:authorizes_receipt_compression",
+  "failures": [
+    "policy_illegal_authorization:authorizes_receipt_compression:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "raw_receipt_suppression_authority_fail",
+  "expected": "policy_illegal_authorization:authorizes_raw_receipt_write_suppression",
+  "failures": [
+    "policy_illegal_authorization:authorizes_raw_receipt_write_suppression:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "registry_total_mismatch_authority_fail",
+  "expected": "policy_illegal_authorization:authorizes_registry_sqlite_total_mismatch",
+  "failures": [
+    "policy_illegal_authorization:authorizes_registry_sqlite_total_mismatch:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "synthetic_receipts_authority_fail",
+  "expected": "policy_illegal_authorization:authorizes_synthetic_receipts",
+  "failures": [
+    "policy_illegal_authorization:authorizes_synthetic_receipts:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "execution_skipping_authority_fail",
+  "expected": "policy_illegal_authorization:authorizes_execution_skipping",
+  "failures": [
+    "policy_illegal_authorization:authorizes_execution_skipping:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "receipt_write_pressure_skip_authority_fail",
+  "expected": "policy_illegal_authorization:authorizes_receipt_write_pressure_skipping",
+  "failures": [
+    "policy_illegal_authorization:authorizes_receipt_write_pressure_skipping:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "candidate_preserve_receipts_requirement_fail",
+  "expected": "candidate_preserve_receipts_requirement_wrong",
+  "failures": [
+    "candidate_preserve_receipts_requirement_wrong:175"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "frontier_depth_reopen_requirement_fail",
+  "expected": "candidate_rejected_depth_requirement_wrong",
+  "failures": [
+    "candidate_rejected_depth_requirement_wrong"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "profile_frontier_field_fail",
+  "expected": "profile_frontier_depth_probe_field_present",
+  "failures": [
+    "profile_frontier_depth_probe_field_present"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "profile_total_fail",
+  "expected": "profile_total_not_1457",
+  "failures": [
+    "profile_total_not_1457:1458",
+    "profile_total_mismatch_registry"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "target_receipt_count_fail",
+  "expected": "target_receipts_not_176",
+  "failures": [
+    "target_receipts_not_176:175"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "target_row_identity_fail",
+  "expected": "target_slot_mismatch",
+  "failures": [
+    "target_slot_mismatch:['MICRO_05_RECEIPT_WRITE_PRESSURE_COLLAPSED']"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+CANDIDATE_HEAD_JSON
+{
+  "accepted_burden_classes_frozen": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "candidate_authorization": {
+    "authorized_next_command_goal": "APPLY_RECEIPT_VOLUME_FIX_CANDIDATE_V0",
+    "authorizes_application_next": true,
+    "authorizes_code_change_now": false,
+    "authorizes_data_artifact_deletion": false,
+    "authorizes_depth_range_change": false,
+    "authorizes_execution_skipping": false,
+    "authorizes_gate_semantics_change": false,
+    "authorizes_halt_semantics_change": false,
+    "authorizes_law_semantics_change": false,
+    "authorizes_more_frontier_depth_patching": false,
+    "authorizes_patch_application_now": false,
+    "authorizes_probe_skipping": false,
+    "authorizes_radius_expansion": false,
+    "authorizes_raw_receipt_write_suppression": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_lossy_summary": false,
+    "authorizes_receipt_schema_change": false,
+    "authorizes_receipt_write_pressure_skipping": false,
+    "authorizes_registry_sqlite_total_mismatch": false,
+    "authorizes_reopening_accepted_burden_classes": false,
+    "authorizes_reopening_frontier_depth": false,
+    "authorizes_reusing_prior_receipt_volume_results_as_execution": false,
+    "authorizes_run_semantics_change": false,
+    "authorizes_synthetic_receipts": false
+  },
+  "candidate_goal": {
+    "burden_interpretation": "The burden class is about write-path / volume pressure; correctness requires exact receipt durability, not fewer receipts.",
+    "goal": "Reduce receipt-volume write-path overhead without reducing receipt volume.",
+    "non_goal": "Do not reduce receipt count by deletion, compression, suppression, lossy summaries, or synthetic replacement."
+  },
+  "candidate_id": "17e6ee4e",
+  "candidate_kind": "RECEIPT_VOLUME_FIX_CANDIDATE",
+  "candidate_name": "FIX_CANDIDATE_RECEIPT_VOLUME_WRITE_PRESSURE_PLAN_V0",
+  "candidate_status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "gate": "PASS",
+  "proposed_design": {
+    "allowed_future_change_summary": [
+      "Within a single micro profile execution, build the receipt-write-pressure run plan once and pass its immutable plan metadata to the write-pressure probe.",
+      "Add a post-execution receipt-volume accounting certificate recording expected target row identity, exact receipt count, raw write preservation, and registry total equality.",
+      "Keep actual stress execution and receipt emission unchanged; no result reuse as execution.",
+      "Preserve the target row MICRO_05_RECEIPT_WRITE_PRESSURE_E and the exact 176 receipts."
+    ],
+    "design_class": "metadata_and_write_path_plan_proposal",
+    "design_id": "RECEIPT_WRITE_PRESSURE_PLAN_CACHE_AND_ACCOUNTING_CERTIFICATE_V0",
+    "expected_effect_hypothesis": {
+      "explicit_uncertainty": "This is a candidate hypothesis only; it is not accepted until applied and compared by retest.",
+      "primary": "Reduce Python-side repeated planning/accounting overhead around receipt-volume pressure measurement.",
+      "secondary": "Make any future comparison distinguish true write-path improvement from illegal receipt loss."
+    },
+    "future_patch_scope": [
+      "scripts/wide_burden_profile_microruns.py"
+    ],
+    "hard_preservation_contract": {
+      "families_seen_must_remain": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "non_unknown_burden_classes_must_remain": [
+        "BURDEN_CYCLE_SCAN",
+        "BURDEN_DB_WRITE",
+        "BURDEN_DEPTH_SCAN",
+        "BURDEN_RECEIPT_VOLUME",
+        "BURDEN_REPEATED_SLOT_WORK"
+      ],
+      "profile_receipt_total_must_remain": 1457,
+      "raw_receipt_rows_must_remain_available": true,
+      "receipt_payload_durability_must_remain": true,
+      "registry_sqlite_total_must_match": true,
+      "target_receipts_must_remain": 176,
+      "target_row_identity_must_remain": {
+        "burden_class": "BURDEN_RECEIPT_VOLUME",
+        "family_compact": "E",
+        "probe_id": "MICRO_05_RECEIPT_WRITE_PRESSURE",
+        "rows": 1,
+        "slot_id": "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+      }
+    },
+    "proposal_only": true,
+    "touches_code_now": false
+  },
+  "proposed_future_patch_plan": [
+    {
+      "allowed": true,
+      "forbidden": [
+        "Do not cache execution results.",
+        "Do not cache receipt rows.",
+        "Do not suppress writes."
+      ],
+      "operation": "Add immutable ReceiptVolumeWritePressurePlan metadata object inside wide_burden_profile_microruns.py.",
+      "step": 1
+    },
+    {
+      "allowed": true,
+      "forbidden": [
+        "Do not change probe family/depth/cycle/max-cells parameters.",
+        "Do not change halt/law/gate/run semantics.",
+        "Do not affect other burden classes."
+      ],
+      "operation": "Thread the plan metadata through MICRO_05_RECEIPT_WRITE_PRESSURE only.",
+      "step": 2
+    },
+    {
+      "allowed": true,
+      "forbidden": [
+        "Do not replace raw receipts with certificate.",
+        "Do not count certificate as a receipt substitute.",
+        "Do not allow the certificate to authorize fewer receipt rows."
+      ],
+      "operation": "Add receipt-volume accounting certificate to the profile output after execution.",
+      "step": 3
+    },
+    {
+      "allowed": true,
+      "forbidden": [
+        "Do not accept if target receipts differ from 176.",
+        "Do not accept if profile total differs from 1457.",
+        "Do not accept if registry totals mismatch."
+      ],
+      "operation": "Run the same micro suite and compare before/after against profile b6609f93.",
+      "step": 4
+    }
+  ],
+  "rejected_or_deferred_burden_classes_frozen": [
+    "BURDEN_DEPTH_SCAN"
+  ],
+  "required_application_gate": {
+    "must_not_change_depth_range": true,
+    "must_not_change_halt_law_gate_run_semantics": true,
+    "must_not_compress_receipts": true,
+    "must_not_delete_receipts": true,
+    "must_not_emit_synthetic_receipts": true,
+    "must_not_expand_radius": true,
+    "must_not_reopen_accepted_burden_classes": [
+      "BURDEN_CYCLE_SCAN",
+      "BURDEN_DB_WRITE",
+      "BURDEN_REPEATED_SLOT_WORK"
+    ],
+    "must_not_reopen_rejected_depth_scan": true,
+    "must_not_restore_frontier_depth_probe_field": true,
+    "must_not_skip_execution": true,
+    "must_not_skip_receipt_write_pressure_probe": true,
+    "must_not_suppress_raw_receipt_writes": true,
+    "must_preserve_cycle_period_observation": true,
+    "must_preserve_micro_profile_receipt_total": 1457,
+    "must_preserve_raw_receipt_writes": true,
+    "must_preserve_receipt_payload_durability": true,
+    "must_preserve_registry_sqlite_totals": true,
+    "must_preserve_target_receipts": 176,
+    "must_preserve_target_row_identity": {
+      "burden_class": "BURDEN_RECEIPT_VOLUME",
+      "family_compact": "E",
+      "probe_id": "MICRO_05_RECEIPT_WRITE_PRESSURE",
+      "rows": 1,
+      "slot_id": "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+    },
+    "must_target_burden_class": "BURDEN_RECEIPT_VOLUME",
+    "must_touch_only_files": [
+      "scripts/wide_burden_profile_microruns.py"
+    ],
+    "must_use_before_profile_id": "b6609f93",
+    "must_use_candidate_id": "17e6ee4e",
+    "must_use_policy_id": "2e6aa9d6"
+  },
+  "required_negative_controls": [
+    {
+      "case": "receipt_deletion_authority_fail",
+      "must_fail_if": "candidate or application authorizes receipt deletion"
+    },
+    {
+      "case": "receipt_compression_authority_fail",
+      "must_fail_if": "candidate or application authorizes receipt compression"
+    },
+    {
+      "case": "raw_receipt_suppression_authority_fail",
+      "must_fail_if": "candidate or application authorizes raw receipt write suppression"
+    },
+    {
+      "case": "registry_total_mismatch_authority_fail",
+      "must_fail_if": "candidate or application authorizes registry.sqlite total mismatch"
+    },
+    {
+      "case": "synthetic_receipt_authority_fail",
+      "must_fail_if": "candidate or application authorizes synthetic receipts"
+    },
+    {
+      "case": "execution_skipping_authority_fail",
+      "must_fail_if": "candidate or application authorizes execution skipping"
+    },
+    {
+      "case": "receipt_write_pressure_skip_authority_fail",
+      "must_fail_if": "candidate or application authorizes receipt-write-pressure probe skipping"
+    },
+    {
+      "case": "target_row_identity_drift_fail",
+      "must_fail_if": "target slot/probe/family/burden identity changes"
+    },
+    {
+      "case": "target_receipt_count_drift_fail",
+      "must_fail_if": "target receipts are not exactly 176"
+    },
+    {
+      "case": "profile_total_drift_fail",
+      "must_fail_if": "micro profile total is not exactly 1457"
+    },
+    {
+      "case": "accepted_class_reopen_fail",
+      "must_fail_if": "accepted/frozen burden classes are reopened"
+    },
+    {
+      "case": "frontier_depth_reopen_fail",
+      "must_fail_if": "BURDEN_DEPTH_SCAN or frontier-depth probe is reopened/restored"
+    }
+  ],
+  "source_after_revert_profile_id": "b6609f93",
+  "source_inspection": {
+    "cycle_period_compression_field_present": true,
+    "exists": true,
+    "file": "scripts/wide_burden_profile_microruns.py",
+    "frontier_depth_probe_field_present": false,
+    "profile_total_literal_1457_present": false,
+    "receipt_volume_probe_marker_present": true,
+    "receipt_volume_slot_identity_source": "profile_target_row_identity",
+    "receipt_volume_slot_literal_present": false
+  },
+  "source_next_burden_decision_id": "25bf9c59",
+  "source_policy_id": "2e6aa9d6",
+  "target_burden_class": "BURDEN_RECEIPT_VOLUME",
+  "target_burden_evidence": {
+    "elapsed_ms": 1005,
+    "families": [
+      "E"
+    ],
+    "probes": [
+      "MICRO_05_RECEIPT_WRITE_PRESSURE"
+    ],
+    "receipts": 176,
+    "receipts_per_sec": 175.124378,
+    "row_keys": [
+      {
+        "burden_class": "BURDEN_RECEIPT_VOLUME",
+        "family_compact": "E",
+        "probe_id": "MICRO_05_RECEIPT_WRITE_PRESSURE",
+        "slot_id": "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+      }
+    ],
+    "rows": 1,
+    "slots": [
+      "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+    ]
+  },
+  "terminal": {
+    "next_command_goal": "APPLY_RECEIPT_VOLUME_FIX_CANDIDATE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_212701_361810
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/build_receipt_volume_fix_candidate.py
+[master 6735bcc37] repair receipt volume fix candidate inspection
+ 2 files changed, 655 insertions(+)
+ create mode 100755 scripts/build_receipt_volume_fix_candidate.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

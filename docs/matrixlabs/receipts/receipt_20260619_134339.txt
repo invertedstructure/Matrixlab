@@ -1,0 +1,441 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260619_134339
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260619_134339.txt
+
+FIX_DOMAIN_SHIFT_RUNNER_SUPPORT_PARSE_FAMILIES_RETURN_TYPE
+
+STATUS_BEFORE
+ M .gitignore
+ M src/matrixlab/cli.py
+
+PATCH_PARSE_FAMILIES_RETURN_TYPE
+
+PY_COMPILE
+
+RUN_DOMAIN_SHIFT_RUNNER_SUPPORT_AFTER_FIX
+{
+  "command_argvs": [
+    [
+      "uv",
+      "run",
+      "python",
+      "src/matrixlab/cli.py",
+      "stress",
+      "--families",
+      "EEEDDBBCA",
+      "--depth-max",
+      "250",
+      "--cycles-per-case",
+      "250",
+      "--max-cells",
+      "300000",
+      "--strict-laws"
+    ],
+    [
+      "uv",
+      "run",
+      "python",
+      "src/matrixlab/cli.py",
+      "gate",
+      "latest"
+    ],
+    [
+      "uv",
+      "run",
+      "python",
+      "src/matrixlab/cli.py",
+      "agent-eval",
+      "latest",
+      "--previous",
+      "run_20260619_090132_512800"
+    ]
+  ],
+  "command_count": 3,
+  "command_kind": "EXECUTE_DOMAIN_SHIFT_D1_SCHEDULE_REWEIGHT",
+  "command_lines": [
+    "uv run python src/matrixlab/cli.py stress --families EEEDDBBCA --depth-max 250 --cycles-per-case 250 --max-cells 300000 --strict-laws",
+    "uv run python src/matrixlab/cli.py gate latest",
+    "uv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800"
+  ],
+  "command_script": "uv run python src/matrixlab/cli.py stress --families EEEDDBBCA --depth-max 250 --cycles-per-case 250 --max-cells 300000 --strict-laws\nuv run python src/matrixlab/cli.py gate latest\nuv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800",
+  "domain_shift_generator_id": "206ef0af",
+  "domain_shift_generator_payload_sig8": "206ef0af",
+  "domain_shift_runner_support_id": "28728dd5",
+  "domain_shift_runner_support_payload_sig8": "28728dd5",
+  "domain_shift_runner_support_schema_version": "domain_shift_runner_support_v0",
+  "failures": [],
+  "gate": "PASS",
+  "input_domain_shift_generator": "206ef0af",
+  "input_domain_shift_generator_path": "data/domain_shift_generators/206ef0af.json",
+  "recomputed_domain_shift_generator_payload_sig8": "206ef0af",
+  "runner_support": {
+    "compact_family_schedule": "EEEDDBBCA",
+    "domain_shift_axis": "move_family_schedule_and_composition_pattern",
+    "domain_shift_label": "D1_schedule_reweight_existing_moves",
+    "expanded_family_names": [
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "projection_quotient",
+      "two_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "family_code_to_name": {
+      "A": "one_sided_suspension",
+      "B": "two_sided_suspension",
+      "C": "suspension_plus_repair",
+      "D": "projection_quotient",
+      "E": "relabel_symmetry_stress"
+    },
+    "family_name_to_code": {
+      "one_sided_suspension": "A",
+      "projection_quotient": "D",
+      "relabel_symmetry_stress": "E",
+      "suspension_plus_repair": "C",
+      "two_sided_suspension": "B"
+    },
+    "parse_preserves_reweighted_schedule": true,
+    "parsed_family_names": [
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "projection_quotient",
+      "two_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "requires_new_classifier_semantics": false,
+    "requires_new_evaluator_semantics": false,
+    "requires_new_halt_vocabulary": false,
+    "requires_new_laws": false,
+    "requires_new_move_types": false,
+    "shifted_family_weights": {
+      "one_sided_suspension": 1,
+      "projection_quotient": 2,
+      "relabel_symmetry_stress": 3,
+      "suspension_plus_repair": 1,
+      "two_sided_suspension": 2
+    },
+    "support_kind": "EXISTING_STRESS_RUNNER_WITH_REWEIGHTED_FAMILIES",
+    "uses_existing_registered_moves_only": true
+  },
+  "shift_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+  "source_baseline": {
+    "coarse_profiles_total": 9,
+    "cycle_count": 5,
+    "eval_id": "a1ddb75b",
+    "ledger_id": "73c696a5",
+    "ledger_payload_sig8": "73c696a5",
+    "radius": 250,
+    "raw_profiles_total": 1010,
+    "recomputed_ledger_payload_sig8": "73c696a5",
+    "registered_moves_total": 250,
+    "run_id": "run_20260619_090132_512800",
+    "stop_reason": "MARGINAL_INFORMATION_FLATTENED_FOR_RADIUS_EXPANSION",
+    "verdict": "BOUNDED_VOCABULARY_CONTINUATION"
+  },
+  "source_cell": "CELL_0",
+  "target_cell": "CELL_1",
+  "target_generator_manifest": {
+    "allowed_family_set": [
+      "one_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "projection_quotient",
+      "relabel_symmetry_stress"
+    ],
+    "cell": "CELL_1",
+    "composition_pattern": "frontload_relabel_and_projection_then_apply_growth_and_repair_using_existing_moves_only",
+    "cycles_per_case": 250,
+    "depth_max": 250,
+    "depth_min": 3,
+    "domain_shift_axis": "move_family_schedule_and_composition_pattern",
+    "domain_shift_label": "D1_schedule_reweight_existing_moves",
+    "evaluator_delta": 0,
+    "execution_support_status": "MANIFEST_ONLY_NEEDS_RUNNER_SUPPORT",
+    "generator_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+    "generator_manifest_delta": 1,
+    "halt_vocabulary_delta": 0,
+    "law_delta": 0,
+    "max_cells": 300000,
+    "new_classifier_categories_allowed": false,
+    "new_halt_reasons_allowed": false,
+    "new_laws_allowed": false,
+    "new_move_types_allowed": false,
+    "ontology_delta": 0,
+    "profile_classifier_delta": 0,
+    "radius": 250,
+    "receipt_schema_delta": 0,
+    "registered_move_id_set": [
+      "add_row_and_link_column",
+      "append_zero_column",
+      "deterministic_row_col_relabel",
+      "duplicate_existing_column",
+      "quotient_merge_last_row",
+      "xor_repair_column"
+    ],
+    "registered_move_id_set_delta": 0,
+    "shifted_family_schedule": [
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "shifted_family_weights": {
+      "one_sided_suspension": 1,
+      "projection_quotient": 2,
+      "relabel_symmetry_stress": 3,
+      "suspension_plus_repair": 1,
+      "two_sided_suspension": 2
+    }
+  },
+  "terminal": {
+    "next_command_goal": "MANUAL_EXECUTE_DOMAIN_SHIFT_COMMANDS",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transfer_contract_id": "50a01dcd",
+  "warnings": []
+}
+domain_shift_runner_support_path: data/domain_shift_runner_support/28728dd5.json
+
+VERIFY_DOMAIN_SHIFT_RUNNER_SUPPORT_AFTER_FIX
+{
+  "command_lines": [
+    "uv run python src/matrixlab/cli.py stress --families EEEDDBBCA --depth-max 250 --cycles-per-case 250 --max-cells 300000 --strict-laws",
+    "uv run python src/matrixlab/cli.py gate latest",
+    "uv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800"
+  ],
+  "compact_family_schedule": "EEEDDBBCA",
+  "domain_shift_generator_id": "206ef0af",
+  "domain_shift_runner_support_id": "28728dd5",
+  "expanded_family_names": [
+    "relabel_symmetry_stress",
+    "relabel_symmetry_stress",
+    "relabel_symmetry_stress",
+    "projection_quotient",
+    "projection_quotient",
+    "two_sided_suspension",
+    "two_sided_suspension",
+    "suspension_plus_repair",
+    "one_sided_suspension"
+  ],
+  "gate": "PASS",
+  "id_matches_filename": true,
+  "parse_preserves_reweighted_schedule": true,
+  "parsed_family_names": [
+    "relabel_symmetry_stress",
+    "relabel_symmetry_stress",
+    "relabel_symmetry_stress",
+    "projection_quotient",
+    "projection_quotient",
+    "two_sided_suspension",
+    "two_sided_suspension",
+    "suspension_plus_repair",
+    "one_sided_suspension"
+  ],
+  "path": "data/domain_shift_runner_support/28728dd5.json",
+  "recomputed_sig": "28728dd5",
+  "sig_matches": true,
+  "stored_sig": "28728dd5",
+  "terminal": {
+    "next_command_goal": "MANUAL_EXECUTE_DOMAIN_SHIFT_COMMANDS",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+RUN_DOMAIN_SHIFT_RUNNER_SUPPORT_FAIL_NEGATIVE_BAD_GENERATOR
+{
+  "command_argvs": [],
+  "command_count": 0,
+  "command_kind": "EXECUTE_DOMAIN_SHIFT_D1_SCHEDULE_REWEIGHT",
+  "command_lines": [],
+  "command_script": null,
+  "domain_shift_generator_id": "df77e9cf",
+  "domain_shift_generator_payload_sig8": "df77e9cf",
+  "domain_shift_runner_support_id": "7897cab1",
+  "domain_shift_runner_support_payload_sig8": "7897cab1",
+  "domain_shift_runner_support_schema_version": "domain_shift_runner_support_v0",
+  "failures": [
+    "domain_shift_generator_gate_not_PASS",
+    "domain_shift_generator_not_runner_ready:None"
+  ],
+  "gate": "FAIL",
+  "input_domain_shift_generator": "df77e9cf",
+  "input_domain_shift_generator_path": "data/domain_shift_generators/df77e9cf.json",
+  "recomputed_domain_shift_generator_payload_sig8": "df77e9cf",
+  "runner_support": {
+    "compact_family_schedule": "EEEDDBBCA",
+    "domain_shift_axis": "move_family_schedule_and_composition_pattern",
+    "domain_shift_label": "D1_schedule_reweight_existing_moves",
+    "expanded_family_names": [
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "projection_quotient",
+      "two_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "family_code_to_name": {
+      "A": "one_sided_suspension",
+      "B": "two_sided_suspension",
+      "C": "suspension_plus_repair",
+      "D": "projection_quotient",
+      "E": "relabel_symmetry_stress"
+    },
+    "family_name_to_code": {
+      "one_sided_suspension": "A",
+      "projection_quotient": "D",
+      "relabel_symmetry_stress": "E",
+      "suspension_plus_repair": "C",
+      "two_sided_suspension": "B"
+    },
+    "parse_preserves_reweighted_schedule": true,
+    "parsed_family_names": [
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "projection_quotient",
+      "two_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "requires_new_classifier_semantics": false,
+    "requires_new_evaluator_semantics": false,
+    "requires_new_halt_vocabulary": false,
+    "requires_new_laws": false,
+    "requires_new_move_types": false,
+    "shifted_family_weights": {
+      "one_sided_suspension": 1,
+      "projection_quotient": 2,
+      "relabel_symmetry_stress": 3,
+      "suspension_plus_repair": 1,
+      "two_sided_suspension": 2
+    },
+    "support_kind": "EXISTING_STRESS_RUNNER_WITH_REWEIGHTED_FAMILIES",
+    "uses_existing_registered_moves_only": true
+  },
+  "shift_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+  "source_baseline": {
+    "coarse_profiles_total": 9,
+    "cycle_count": 5,
+    "eval_id": "a1ddb75b",
+    "ledger_id": "73c696a5",
+    "ledger_payload_sig8": "73c696a5",
+    "radius": 250,
+    "raw_profiles_total": 1010,
+    "recomputed_ledger_payload_sig8": "73c696a5",
+    "registered_moves_total": 250,
+    "run_id": "run_20260619_090132_512800",
+    "stop_reason": "MARGINAL_INFORMATION_FLATTENED_FOR_RADIUS_EXPANSION",
+    "verdict": "BOUNDED_VOCABULARY_CONTINUATION"
+  },
+  "source_cell": "CELL_0",
+  "target_cell": "CELL_1",
+  "target_generator_manifest": {
+    "allowed_family_set": [
+      "one_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "projection_quotient",
+      "relabel_symmetry_stress"
+    ],
+    "cell": "CELL_1",
+    "composition_pattern": "frontload_relabel_and_projection_then_apply_growth_and_repair_using_existing_moves_only",
+    "cycles_per_case": 250,
+    "depth_max": 250,
+    "depth_min": 3,
+    "domain_shift_axis": "move_family_schedule_and_composition_pattern",
+    "domain_shift_label": "D1_schedule_reweight_existing_moves",
+    "evaluator_delta": 0,
+    "execution_support_status": "MANIFEST_ONLY_NEEDS_RUNNER_SUPPORT",
+    "generator_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+    "generator_manifest_delta": 1,
+    "halt_vocabulary_delta": 0,
+    "law_delta": 0,
+    "max_cells": 300000,
+    "new_classifier_categories_allowed": false,
+    "new_halt_reasons_allowed": false,
+    "new_laws_allowed": false,
+    "new_move_types_allowed": false,
+    "ontology_delta": 0,
+    "profile_classifier_delta": 0,
+    "radius": 250,
+    "receipt_schema_delta": 0,
+    "registered_move_id_set": [
+      "add_row_and_link_column",
+      "append_zero_column",
+      "deterministic_row_col_relabel",
+      "duplicate_existing_column",
+      "quotient_merge_last_row",
+      "xor_repair_column"
+    ],
+    "registered_move_id_set_delta": 0,
+    "shifted_family_schedule": [
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "shifted_family_weights": {
+      "one_sided_suspension": 1,
+      "projection_quotient": 2,
+      "relabel_symmetry_stress": 3,
+      "suspension_plus_repair": 1,
+      "two_sided_suspension": 2
+    }
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "domain_shift_runner_support_failed",
+    "type": "STOP"
+  },
+  "transfer_contract_id": "16891c2d",
+  "warnings": []
+}
+domain_shift_runner_support_path: data/domain_shift_runner_support/7897cab1.json
+
+VERIFY_NEGATIVE_BAD_GENERATOR_FAILED
+{
+  "domain_shift_runner_support_id": "7897cab1",
+  "failures": [
+    "domain_shift_generator_gate_not_PASS",
+    "domain_shift_generator_not_runner_ready:None"
+  ],
+  "gate": "FAIL",
+  "path": "data/domain_shift_runner_support/7897cab1.json",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "domain_shift_runner_support_failed",
+    "type": "STOP"
+  }
+}
+
+DIFF_STAT
+ .gitignore           |   3 +
+ src/matrixlab/cli.py | 260 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 263 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+ M src/matrixlab/cli.py
+[master 715afec87] add domain shift runner support command
+ 2 files changed, 263 insertions(+)
+
+COMMIT_DONE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

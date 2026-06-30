@@ -1,0 +1,271 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260619_005807
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260619_005807.txt
+
+EXECUTE_CYCLE_NEXT_99e3a4e2_RADIUS_150
+
+STATUS_BEFORE
+
+RUN_SELECTED_COMMANDS
+MatrixLab run started: run_20260618_235807_638720
+Families: ['one_sided_suspension', 'two_sided_suspension', 
+'suspension_plus_repair', 'projection_quotient', 'relabel_symmetry_stress']
+Depths: 3..150
+Cycles per case: 150
+Max cells per matrix: 50000
+Done.
+{
+  "run_id": "run_20260618_235807_638720",
+  "created_utc": "2026-06-19T00:34:25.773951+00:00",
+  "families": [
+    "one_sided_suspension",
+    "two_sided_suspension",
+    "suspension_plus_repair",
+    "projection_quotient",
+    "relabel_symmetry_stress"
+  ],
+  "depth_min": 3,
+  "depth_max": 150,
+  "cycles_per_case": 150,
+  "max_cells": 50000,
+  "total_cases": 740,
+  "total_receipts": 107708,
+  "halt_counts": {
+    "CYCLES_COMPLETE": 660,
+    "REPEATED_STATE_PERIODIC": 3,
+    "MAX_CELLS_EXCEEDED": 77
+  },
+  "max_registered_moves": 150,
+  "max_compression_ratio": 150.0,
+  "max_matrix_cells": 50176,
+  "max_registered_move_profiles": 150
+}
+       Gate checks /       
+run_20260618_235807_638720 
+┏━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃ check          ┃  value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ status         │   DONE │
+│ total_cases    │    740 │
+│ total_receipts │ 107708 │
+│ receipt_rows   │ 107708 │
+│ law_failures   │      0 │
+│ unknown_laws   │      0 │
+└────────────────┴────────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │   660 │
+│ MAX_CELLS_EXCEEDED      │    77 │
+│ REPEATED_STATE_PERIODIC │     3 │
+└─────────────────────────┴───────┘
+GATE_PASS
+{
+  "classification": {
+    "compression_signal": "GOOD_WEAK",
+    "continuation_radius_growth": "up",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "flat",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": 0,
+    "continuation_radius_delta": 50,
+    "current_run_id": "run_20260618_235807_638720",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260618_205137_932569",
+    "raw_move_profiles_delta": 126,
+    "registered_moves_delta": 50,
+    "total_receipts_delta": 58924,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "0a9048aa",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260618_235807_638720",
+    "run_20260618_205137_932569"
+  ],
+  "metrics": {
+    "coarse_move_profiles_total": 9,
+    "cycles_per_case": 150,
+    "depth_max": 150,
+    "depth_min": 3,
+    "families": 
+"one_sided_suspension,two_sided_suspension,suspension_plus_repair,projection_quo
+tient,relabel_symmetry_stress",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 660,
+      "MAX_CELLS_EXCEEDED": 77,
+      "REPEATED_STATE_PERIODIC": 3
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 150,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 531,
+    "receipt_rows": 107708,
+    "receipt_sig8": "cadccb79",
+    "registered_moves_total": 150,
+    "reused_shape": true,
+    "status": "DONE",
+    "total_cases": 740,
+    "total_receipts": 107708,
+    "unknown_laws": 0
+  },
+  "previous_vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 11.111111,
+    "continuation_per_raw_profile": 0.246914,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 100,
+    "raw_move_profiles_total": 405,
+    "receipts_per_case": 99.559184,
+    "receipts_per_coarse_profile": 5420.444444,
+    "receipts_per_raw_profile": 120.454321,
+    "receipts_per_registered_move": 487.84,
+    "registered_moves_total": 100
+  },
+  "profile_summary": {
+    "by_family": {
+      "one_sided_suspension": 22200,
+      "projection_quotient": 22200,
+      "relabel_symmetry_stress": 21834,
+      "suspension_plus_repair": 22200,
+      "two_sided_suspension": 19274
+    },
+    "by_move": {
+      "add_row_and_link_column": 19274,
+      "append_zero_column": 13875,
+      "deterministic_row_col_relabel": 21834,
+      "duplicate_existing_column": 22200,
+      "quotient_merge_last_row": 8325,
+      "xor_repair_column": 22200
+    },
+    "coarse_profiles": {
+      "add_row_and_link_column|dr=1|dc=1|rank=1|supp=+|newcols=many": 19274,
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=0": 13727,
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=1": 148,
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=0": 18,
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=many": 
+21816,
+      "duplicate_existing_column|dr=0|dc=1|rank=0|supp=+|newcols=0": 22200,
+      "quotient_merge_last_row|dr=-1|dc=0|rank=-1|supp=-|newcols=many": 8325,
+      "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=0": 880,
+      "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=1": 21320
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 16.666667,
+    "continuation_per_raw_profile": 0.282486,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 150,
+    "raw_move_profiles_total": 531,
+    "receipts_per_case": 145.551351,
+    "receipts_per_coarse_profile": 11967.555556,
+    "receipts_per_raw_profile": 202.839925,
+    "receipts_per_registered_move": 718.053333,
+    "registered_moves_total": 150
+  }
+}
+eval_path: data/evals/0a9048aa.json
+
+LATEST_RUN_AND_EVAL_SUMMARY
+{
+  "classification": {
+    "compression_signal": "GOOD_WEAK",
+    "continuation_radius_growth": "up",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "flat",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": 0,
+    "continuation_radius_delta": 50,
+    "current_run_id": "run_20260618_235807_638720",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260618_205137_932569",
+    "raw_move_profiles_delta": 126,
+    "registered_moves_delta": 50,
+    "total_receipts_delta": 58924,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "0a9048aa",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260618_235807_638720",
+    "run_20260618_205137_932569"
+  ],
+  "latest_eval_path": "data/evals/0a9048aa.json",
+  "metrics": {
+    "coarse_move_profiles_total": 9,
+    "cycles_per_case": 150,
+    "depth_max": 150,
+    "depth_min": 3,
+    "families": "one_sided_suspension,two_sided_suspension,suspension_plus_repair,projection_quotient,relabel_symmetry_stress",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 660,
+      "MAX_CELLS_EXCEEDED": 77,
+      "REPEATED_STATE_PERIODIC": 3
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 150,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 531,
+    "receipt_rows": 107708,
+    "receipt_sig8": "cadccb79",
+    "registered_moves_total": 150,
+    "reused_shape": true,
+    "status": "DONE",
+    "total_cases": 740,
+    "total_receipts": 107708,
+    "unknown_laws": 0
+  },
+  "profile_summary": {
+    "by_family": {
+      "one_sided_suspension": 22200,
+      "projection_quotient": 22200,
+      "relabel_symmetry_stress": 21834,
+      "suspension_plus_repair": 22200,
+      "two_sided_suspension": 19274
+    },
+    "by_move": {
+      "add_row_and_link_column": 19274,
+      "append_zero_column": 13875,
+      "deterministic_row_col_relabel": 21834,
+      "duplicate_existing_column": 22200,
+      "quotient_merge_last_row": 8325,
+      "xor_repair_column": 22200
+    },
+    "coarse_profiles": {
+      "add_row_and_link_column|dr=1|dc=1|rank=1|supp=+|newcols=many": 19274,
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=0": 13727,
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=1": 148,
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=0": 18,
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=many": 21816,
+      "duplicate_existing_column|dr=0|dc=1|rank=0|supp=+|newcols=0": 22200,
+      "quotient_merge_last_row|dr=-1|dc=0|rank=-1|supp=-|newcols=many": 8325,
+      "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=0": 880,
+      "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=1": 21320
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+STATUS_AFTER
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

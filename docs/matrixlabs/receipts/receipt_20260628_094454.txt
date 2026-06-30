@@ -1,0 +1,116 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_094454
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_094454.txt
+
+BOOKKEEPING_COMMIT_C8_SUCCESSOR_SURFACE_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_V0
+
+VERIFY_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_ARTIFACTS_PRESENT
+present data/c8_successor_surface_bounded_probe_execution_acceptance_v0_receipts/c8_successor_probe_execution_acceptance_receipt_31139bd1.json
+present data/c8_successor_surface_bounded_probe_execution_acceptance_v0/c8_successor_surface_bounded_probe_execution_acceptance_packet_v0.json
+present data/c8_successor_surface_bounded_probe_execution_acceptance_v0/c8_successor_surface_bounded_probe_execution_acceptance_decision_v0.json
+present data/c8_successor_surface_bounded_probe_execution_acceptance_v0/c8_successor_surface_bounded_probe_execution_authority_v0.json
+present data/c8_successor_surface_bounded_probe_execution_acceptance_v0/c8_successor_surface_bounded_probe_execution_acceptance_boundary_audit_v0.json
+present data/c8_successor_surface_bounded_probe_execution_acceptance_v0/c8_successor_surface_bounded_probe_execution_acceptance_readout_v0.json
+present data/c8_successor_surface_bounded_probe_execution_acceptance_v0/c8_successor_surface_bounded_probe_execution_acceptance_report.json
+present scripts/accept_c8_successor_surface_for_bounded_probe_execution_v0.py
+
+PY_COMPILE_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_RUNNER
+
+VERIFY_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_RECEIPT_AND_CONTENT
+{
+  "acceptance_decision_id": "c8_successor_probe_execution_acceptance_decision_64e3fccf",
+  "acceptance_gates_false_count": 0,
+  "acceptance_packet_id": "c8_successor_probe_execution_acceptance_packet_2ffc6f0d",
+  "accepted_for_bounded_probe_execution": true,
+  "accepted_for_probe_execution_now": false,
+  "authority_id": "c8_successor_probe_execution_authority_52f56baf",
+  "authorized_future_probe_execution_count": 1,
+  "authorized_future_unit": "EXECUTE_C8_SUCCESSOR_SURFACE_BOUNDED_REUSE_AUTHORITY_PROBE_V0",
+  "authorized_future_unit_count": 1,
+  "commit_gate": "PASS",
+  "failures": [],
+  "negative_controls_nonzero_count": 0,
+  "new_c8_rerun": false,
+  "new_instrument_build": false,
+  "operator_decision": "ACCEPT_FOR_BOUNDED_PROBE_EXECUTION",
+  "outcome_class": "C8_SUCCESSOR_SURFACE_ACCEPTED_FOR_ONE_BOUNDED_PROBE_EXECUTION_ONLY",
+  "probe_executed_now": false,
+  "probe_id": "c8_successor_surface_reuse_authority_boundary_probe_v0",
+  "probe_kind": "REUSE_AUTHORITY_BOUNDARY_PROBE",
+  "receipt_id": "c8_successor_probe_execution_acceptance_receipt_31139bd1",
+  "reusable_schema_authorized": false,
+  "source_prep_packet_id": "c8_successor_probe_prep_packet_74a6c209",
+  "status": "TYPED_C8_SUCCESSOR_SURFACE_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_PASS"
+}
+
+VERIFY_GIT_IDENTITY
+
+BOUND_ADD_ONLY_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_ARTIFACTS
+
+VERIFY_NO_OUT_OF_SCOPE_STAGED_PATHS
+staged_path_count=9
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+bounded_probe_execution_acceptance_receipts_staged=['data/c8_successor_surface_bounded_probe_execution_acceptance_v0_receipts/c8_successor_probe_execution_acceptance_receipt_31139bd1.json']
+
+BOOKKEEPING_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...obe_execution_acceptance_boundary_audit_v0.json |  51 +++
+ ...ded_probe_execution_acceptance_decision_v0.json |  33 ++
+ ...unded_probe_execution_acceptance_packet_v0.json |  33 ++
+ ...nded_probe_execution_acceptance_readout_v0.json |  19 +
+ ..._bounded_probe_execution_acceptance_report.json |  32 ++
+ ...rface_bounded_probe_execution_authority_v0.json |  26 ++
+ ...robe_execution_acceptance_receipt_31139bd1.json | 121 +++++
+ ...essor_surface_for_bounded_probe_execution_v0.py | 501 +++++++++++++++++++++
+ 9 files changed, 822 insertions(+)
+
+BOOKKEEPING_COMMIT
+[master abc4602f3] Accept C8 successor surface bounded probe execution
+ 9 files changed, 822 insertions(+)
+ create mode 100644 data/c8_successor_surface_bounded_probe_execution_acceptance_v0/c8_successor_surface_bounded_probe_execution_acceptance_boundary_audit_v0.json
+ create mode 100644 data/c8_successor_surface_bounded_probe_execution_acceptance_v0/c8_successor_surface_bounded_probe_execution_acceptance_decision_v0.json
+ create mode 100644 data/c8_successor_surface_bounded_probe_execution_acceptance_v0/c8_successor_surface_bounded_probe_execution_acceptance_packet_v0.json
+ create mode 100644 data/c8_successor_surface_bounded_probe_execution_acceptance_v0/c8_successor_surface_bounded_probe_execution_acceptance_readout_v0.json
+ create mode 100644 data/c8_successor_surface_bounded_probe_execution_acceptance_v0/c8_successor_surface_bounded_probe_execution_acceptance_report.json
+ create mode 100644 data/c8_successor_surface_bounded_probe_execution_acceptance_v0/c8_successor_surface_bounded_probe_execution_authority_v0.json
+ create mode 100644 data/c8_successor_surface_bounded_probe_execution_acceptance_v0_receipts/c8_successor_probe_execution_acceptance_receipt_31139bd1.json
+ create mode 100755 scripts/accept_c8_successor_surface_for_bounded_probe_execution_v0.py
+
+BOOKKEEPING_COMMIT_RECEIPT
+commit_sha=abc4602f37de5aa456c711179c90509aa795b0e8
+acceptance_receipt=data/c8_successor_surface_bounded_probe_execution_acceptance_v0_receipts/c8_successor_probe_execution_acceptance_receipt_31139bd1.json
+acceptance_packet=data/c8_successor_surface_bounded_probe_execution_acceptance_v0/c8_successor_surface_bounded_probe_execution_acceptance_packet_v0.json
+acceptance_decision_file=data/c8_successor_surface_bounded_probe_execution_acceptance_v0/c8_successor_surface_bounded_probe_execution_acceptance_decision_v0.json
+acceptance_authority=data/c8_successor_surface_bounded_probe_execution_acceptance_v0/c8_successor_surface_bounded_probe_execution_authority_v0.json
+acceptance_outcome=C8_SUCCESSOR_SURFACE_ACCEPTED_FOR_ONE_BOUNDED_PROBE_EXECUTION_ONLY
+acceptance_packet_id=c8_successor_probe_execution_acceptance_packet_2ffc6f0d
+acceptance_decision_id=c8_successor_probe_execution_acceptance_decision_64e3fccf
+authority_id=c8_successor_probe_execution_authority_52f56baf
+operator_decision=ACCEPT_FOR_BOUNDED_PROBE_EXECUTION
+source_review_receipt_id=c8_successor_probe_prep_packet_review_receipt_f3acc3a5
+source_review_packet_id=c8_successor_probe_prep_packet_review_packet_083dd071
+source_review_decision_id=c8_successor_probe_prep_packet_review_decision_33245781
+source_prep_packet_id=c8_successor_probe_prep_packet_74a6c209
+probe_id=c8_successor_surface_reuse_authority_boundary_probe_v0
+probe_kind=REUSE_AUTHORITY_BOUNDARY_PROBE
+selected_surface_id=c8_successor_surface_reuse_authority_boundary_after_local_closure_v0
+accepted_for_bounded_probe_execution=true
+accepted_for_probe_execution_now=false
+probe_executed_now=false
+authorized_future_unit=EXECUTE_C8_SUCCESSOR_SURFACE_BOUNDED_REUSE_AUTHORITY_PROBE_V0
+authorized_future_unit_count=1
+authorized_future_probe_execution_count=1
+new_instrument_build=false
+new_c8_rerun=false
+reusable_schema_authorized=false
+global_solution_claim=false
+frontier_solved_claim=false
+terminal_stop_code=STOP_C8_SUCCESSOR_SURFACE_ACCEPTED_FOR_BOUNDED_PROBE_EXECUTION_READY
+
+STATUS_AFTER_COMMIT_RELEVANT
+
+BOOKKEEPING_COMMIT_C8_SUCCESSOR_SURFACE_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_COMPLETE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

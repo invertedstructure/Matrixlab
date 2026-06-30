@@ -1,0 +1,263 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_231252
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_231252.txt
+
+AUDIT_RUNTIME_T6_CAPABILITY_BOUNDARY_SURFACE_V0
+
+STATUS_BEFORE_RELEVANT
+M  .gitignore
+A  data/runtime_t6_capability_boundary_objective_v0/current_surface_pressure_handling_loop_schema_v0_collection_stage.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_objective_basis_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_objective_profile_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_objective_rollup_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_objective_transition_trace.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_objective_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_surface_audit_target_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_stop_packet_schema_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_missing_object_class_index_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0_receipts/6d1fd047.json
+A  scripts/prepare_runtime_t6_capability_boundary_objective_from_loop_schema_v0.py
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+
+VERIFY_T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT_BASIS
+present data/runtime_t6_capability_boundary_objective_v0_receipts/6d1fd047.json
+present data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_objective_v0.json
+present data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_surface_audit_target_v0.json
+present data/runtime_t6_capability_boundary_objective_v0/current_surface_pressure_handling_loop_schema_v0_collection_stage.json
+present data/runtime_t6_capability_boundary_objective_v0/runtime_t6_missing_object_class_index_v0.json
+present data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_stop_packet_schema_v0.json
+present data/runtime_deferred_cases_t6_feasibility_v0_receipts/3d72600a.json
+present data/runtime_deferred_cases_t6_feasibility_v0/runtime_t6_current_registry_trigger_profile_v0.json
+present data/runtime_deferred_cases_t6_move_tie_surface_audit_v0_receipts/eb20d76b.json
+present data/runtime_deferred_cases_t6_move_tie_surface_audit_v0/runtime_t6_move_tie_surface_classification_v0.json
+present data/runtime_deferred_cases_t6_move_tie_surface_audit_v0/runtime_t6_move_tie_structured_candidate_audit_v0.json
+present data/runtime_deferred_cases_t6_move_tie_surface_audit_v0/runtime_t6_loop_surface_carry_forward_v0.json
+present data/runtime_adoption_smoke_v0/runtime_move_registry_snapshot_v0.json
+present data/runtime_incremental_suite_preflight_v0/runtime_registry_reachability_map_v0.json
+
+PATCH_GITIGNORE
+
+WRITE_T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT
+
+PY_COMPILE_T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT
+
+RUN_T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT
+{
+  "acceptance_gate_results": {
+    "T6_SURFACE_0_OBJECTIVE_RECEIPT_CONSUMED": true,
+    "T6_SURFACE_1_LOOP_SCHEMA_CONSUMED": true,
+    "T6_SURFACE_2_CURRENT_SURFACES_INVENTORIED": true,
+    "T6_SURFACE_3_MISSING_OBJECTS_IDENTIFIED": true,
+    "T6_SURFACE_4_CAPABILITY_BOUNDARY_FOUND": true,
+    "T6_SURFACE_5_STOP_PACKET_EMITTED": true,
+    "T6_SURFACE_6_NO_T6_CASE_CONTRACT": true,
+    "T6_SURFACE_7_NO_RUNTIME_PATCH": true,
+    "T6_SURFACE_8_SOURCE_INPUTS_NOT_MUTATED": true,
+    "T6_SURFACE_9_NO_HIDDEN_NEXT_COMMAND": true
+  },
+  "build_mode": "T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT_ONLY",
+  "created_at": "2026-06-25T22:12:53.004875+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OUTER / RUNTIME_ADOPTION / T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT",
+  "machine_readable_t6_capability_boundary_surface_audit_summary": {
+    "architecture_widened": false,
+    "audit_result_kind": "STOP_CAPABILITY_LAYER_REQUIRED",
+    "bounded_proposition_emitted": false,
+    "c8_authorized": false,
+    "capability_stop_packet_emitted": true,
+    "fixture_expanded_by_default": false,
+    "hidden_next_command": false,
+    "live_runtime_hooks_installed": false,
+    "missing_object_count": 2,
+    "missing_objects": [
+      "loop_trigger_surface_missing",
+      "structured_tie_evidence_missing"
+    ],
+    "move_addition_authorized": false,
+    "next_unit_id": null,
+    "ready_for_live_runtime_adoption": false,
+    "ready_for_t6_case_contract": false,
+    "ready_for_t6_repair": false,
+    "reason_codes": [
+      "T6_BOUNDARY_OBJECTIVE_RECEIPT_CONSUMED",
+      "CURRENT_SURFACE_PRESSURE_LOOP_SCHEMA_CONSUMED",
+      "CURRENT_T6_SURFACES_INVENTORIED",
+      "MISSING_OBJECTS_IDENTIFIED",
+      "LOOP_TRIGGER_SURFACE_MISSING",
+      "STRUCTURED_TIE_EVIDENCE_MISSING",
+      "CURRENT_CAPABILITY_CANNOT_HANDLE_MISSING_T6_TRIGGER_SURFACE",
+      "CAPABILITY_STOP_PACKET_EMITTED",
+      "NO_T6_CASE_CONTRACT",
+      "NO_T6_REPAIR",
+      "NO_RUNTIME_PATCH",
+      "NO_MOVE_ADDITION",
+      "NO_FIXTURE_EXPANSION_BY_DEFAULT",
+      "NO_LIVE_RUNTIME_ADOPTION",
+      "NO_C8_AUTHORIZATION",
+      "NO_HIDDEN_NEXT_COMMAND"
+    ],
+    "repair_authorized": false,
+    "required_capability": "bounded_structured_t6_trigger_surface_capability",
+    "runtime_adoption_authorized": false,
+    "runtime_patched": false,
+    "schema_archive_mutated": false,
+    "schema_created": false,
+    "status": "TYPED_RUNTIME_T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT_STOP_CAPABILITY_LAYER_REQUIRED",
+    "stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+    "t6_capability_boundary_surface_audit_done": true,
+    "taxonomy_created": false
+  },
+  "mode": "AUDIT_ONLY / MISSING_OBJECT_AND_CAPABILITY_BOUNDARY / NO_CASE_CONTRACT / NO_TEST_RUN",
+  "output_artifacts": {
+    "basis": "data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_capability_boundary_surface_audit_basis_v0.json",
+    "capability_boundary_assessment": "data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_capability_boundary_assessment_v0.json",
+    "capability_stop_packet": "data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_capability_stop_packet_v0.json",
+    "current_surface_inventory": "data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_current_surface_inventory_v0.json",
+    "implementation_receipt": "data/runtime_t6_capability_boundary_surface_audit_v0_receipts/82726f6b.json",
+    "missing_object_diagnosis": "data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_missing_object_diagnosis_v0.json",
+    "parent_return_payload": "data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_parent_return_payload_v0.json",
+    "profile": "data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_capability_boundary_surface_audit_profile_v0.json",
+    "rollup": "data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_capability_boundary_surface_audit_rollup_v0.json",
+    "transition_trace": "data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_capability_boundary_surface_audit_transition_trace.json"
+  },
+  "receipt_id": "82726f6b",
+  "receipt_type": "TYPED_RUNTIME_T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT_RECEIPT",
+  "schema_version": "runtime_t6_capability_boundary_surface_audit_receipt_v0",
+  "source_t6_boundary_objective_receipt_id": "6d1fd047",
+  "status": "TYPED_RUNTIME_T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT_STOP_CAPABILITY_LAYER_REQUIRED",
+  "target_unit_id": "outer.runtime_adoption.t6_capability_boundary_surface_audit_v0",
+  "terminal": {
+    "next_unit_id": null,
+    "stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+    "type": "STOP"
+  },
+  "unit_id": "AUDIT_RUNTIME_T6_CAPABILITY_BOUNDARY_SURFACE_V0",
+  "warnings": []
+}
+runtime_t6_capability_boundary_surface_audit_receipt_id=82726f6b
+runtime_t6_capability_boundary_surface_audit_receipt_path=data/runtime_t6_capability_boundary_surface_audit_v0_receipts/82726f6b.json
+runtime_t6_capability_boundary_surface_audit_next_unit=NONE
+
+ASSERT_T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT
+{
+  "audit_result_kind": "STOP_CAPABILITY_LAYER_REQUIRED",
+  "bounded_proposition_emitted": false,
+  "c8_authorized": false,
+  "capability_stop_packet_emitted": true,
+  "failures": [],
+  "gate": "PASS",
+  "hidden_next_command": false,
+  "missing_objects": [
+    "loop_trigger_surface_missing",
+    "structured_tie_evidence_missing"
+  ],
+  "move_addition_authorized": false,
+  "next_unit_id": null,
+  "ready_for_t6_case_contract": false,
+  "ready_for_t6_repair": false,
+  "receipt_id": "82726f6b",
+  "repair_authorized": false,
+  "required_capability": "bounded_structured_t6_trigger_surface_capability",
+  "runtime_adoption_authorized": false,
+  "runtime_patched": false,
+  "status": "TYPED_RUNTIME_T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT_STOP_CAPABILITY_LAYER_REQUIRED",
+  "stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+  "terminal": {
+    "next_unit_id": null,
+    "stop_code": "STOP_CAPABILITY_LAYER_REQUIRED",
+    "type": "STOP"
+  }
+}
+
+SHOW_T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT_SUMMARY
+receipt_id=82726f6b
+receipt_path=data/runtime_t6_capability_boundary_surface_audit_v0_receipts/82726f6b.json
+status=TYPED_RUNTIME_T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT_STOP_CAPABILITY_LAYER_REQUIRED
+audit_result_kind=STOP_CAPABILITY_LAYER_REQUIRED
+bounded_proposition_emitted=False
+capability_stop_packet_emitted=True
+stop_code=STOP_CAPABILITY_LAYER_REQUIRED
+missing_object_count=2
+missing_objects=loop_trigger_surface_missing,structured_tie_evidence_missing
+required_capability=bounded_structured_t6_trigger_surface_capability
+ready_for_t6_case_contract=False
+ready_for_t6_repair=False
+next_unit_id=None
+repair_authorized=False
+move_addition_authorized=False
+runtime_adoption_authorized=False
+runtime_patched=False
+fixture_expanded_by_default=False
+architecture_widened=False
+hidden_next_command=False
+c8_authorized=False
+terminal_type=STOP
+terminal_stop_code=STOP_CAPABILITY_LAYER_REQUIRED
+terminal_next_unit_id=None
+
+SHOW_MISSING_OBJECT_DIAGNOSIS
+diagnosis_status=MISSING_OBJECTS_IDENTIFIED
+T6.step_cap_loop_shape:loop_trigger_surface_missing:within_capability=False:authorized=False
+T6.move_tie_unresolved:structured_tie_evidence_missing:within_capability=False:authorized=False
+shared_missing_boundary=bounded_t6_trigger_surface_capability
+
+SHOW_CAPABILITY_STOP_PACKET
+stop_code=STOP_CAPABILITY_LAYER_REQUIRED
+required_capability=bounded_structured_t6_trigger_surface_capability
+surface_where_stop_occurred=runtime registry reachability profile / T6 trigger surface boundary
+missing_object=loop_trigger_surface_missing,structured_tie_evidence_missing,bounded_t6_trigger_surface_capability
+why_current_capability_cannot_proceed=The current audit can inspect and classify available evidence, but it cannot lawfully create, infer, or authorize the missing T6 trigger surface. A T6 case contract would require structured trigger evidence or a separate authorized trigger-surface capability.
+safe_next_human_choices=authorize_bounded_structured_trigger_profile_hardening,authorize_bounded_synthetic_registry_variant_for_t6,defer_t6_again,close_t6_for_current_registry_only
+receipt_ref=data/runtime_t6_capability_boundary_surface_audit_v0_receipts/82726f6b.json
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+MM .gitignore
+A  data/runtime_t6_capability_boundary_objective_v0/current_surface_pressure_handling_loop_schema_v0_collection_stage.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_objective_basis_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_objective_profile_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_objective_rollup_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_objective_transition_trace.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_objective_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_surface_audit_target_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_stop_packet_schema_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_missing_object_class_index_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0_receipts/6d1fd047.json
+A  scripts/prepare_runtime_t6_capability_boundary_objective_from_loop_schema_v0.py
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+?? scripts/audit_runtime_t6_capability_boundary_surface_v0.py
+
+PACKAGE_T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT_ARTIFACTS
+
+T6_CAPABILITY_BOUNDARY_SURFACE_AUDIT_READY_FOR_COMMIT
+M  .gitignore
+A  data/runtime_t6_capability_boundary_objective_v0/current_surface_pressure_handling_loop_schema_v0_collection_stage.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_objective_basis_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_objective_profile_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_objective_rollup_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_objective_transition_trace.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_objective_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_boundary_surface_audit_target_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_capability_stop_packet_schema_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0/runtime_t6_missing_object_class_index_v0.json
+A  data/runtime_t6_capability_boundary_objective_v0_receipts/6d1fd047.json
+A  data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_capability_boundary_assessment_v0.json
+A  data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_capability_boundary_surface_audit_basis_v0.json
+A  data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_capability_boundary_surface_audit_profile_v0.json
+A  data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_capability_boundary_surface_audit_rollup_v0.json
+A  data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_capability_boundary_surface_audit_transition_trace.json
+A  data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_capability_stop_packet_v0.json
+A  data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_current_surface_inventory_v0.json
+A  data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_missing_object_diagnosis_v0.json
+A  data/runtime_t6_capability_boundary_surface_audit_v0/runtime_t6_parent_return_payload_v0.json
+A  data/runtime_t6_capability_boundary_surface_audit_v0_receipts/82726f6b.json
+A  scripts/audit_runtime_t6_capability_boundary_surface_v0.py
+A  scripts/prepare_runtime_t6_capability_boundary_objective_from_loop_schema_v0.py
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

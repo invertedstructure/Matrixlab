@@ -1,0 +1,528 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_233746
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_233746.txt
+
+DIAGNOSE_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1_FALSE_MERGES
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1_FALSE_MERGE_DIAGNOSTIC
+
+PY_COMPILE
+
+RUN_FALSE_MERGE_DIAGNOSTIC
+{
+  "collision_summary": {
+    "collision_group_count": 10,
+    "collision_group_sizes_top10": [
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      10,
+      4
+    ],
+    "collision_rows_total": 166,
+    "largest_collision_group_size": 19,
+    "non_collision_signature_groups": 10,
+    "total_candidate_signature_groups": 20
+  },
+  "created_at": "2026-06-20T22:37:46.303700+00:00",
+  "decision": {
+    "audit_locator_distinguishability_detected": true,
+    "burden_side_progress_confirmed": true,
+    "case_only_discriminator": true,
+    "distinguishability_blocker_confirmed": true,
+    "do_not_accept_current_candidate": true,
+    "do_not_authorize_receipt_replacement": true,
+    "do_not_authorize_scale_mode": true,
+    "do_not_scale_current_candidate": true,
+    "reason": "v0.1 payload is small and burden-positive, but source surface lacks lawful transition/within-case occurrence identity.",
+    "recommended_next_command_goal": "BUILD_CANONICAL_TRANSITION_SURFACE_PROBE_POLICY_V0",
+    "transition_surface_missing": true
+  },
+  "diagnostic_id": "79acf44a",
+  "diagnostic_path": "data/stable_delta_signature_candidate_v0_1_false_merge_diagnostics/79acf44a.json",
+  "diagnostic_sig8": "79acf44a",
+  "failures": [],
+  "gate": "PASS",
+  "receipt_id": "71557a8e",
+  "receipt_sig8": "71557a8e",
+  "root_cause": {
+    "burden_status": "BURDEN_SIDE_PROGRESS_CONFIRMED",
+    "diagnosis": "v0.1 separated signature/debug/audit burden correctly, but the lawful signature payload lacks transition or within-case occurrence fields needed to preserve all full occurrence keys.",
+    "distinguishability_status": "FAILED_LOCAL_NO_SILENT_COLLAPSE",
+    "primary_failure": "LAWFUL_PAYLOAD_TOO_COARSE_FOR_WITHIN_CASE_OCCURRENCE_SEPARABILITY"
+  },
+  "schema_version": "stable_delta_signature_candidate_v0_1_false_merge_diagnostic_receipt_v0",
+  "source_candidate_probe_id": "a097b68f",
+  "source_candidate_receipt_id": "08b4ac55",
+  "source_diagnostic_id": "21878f3c",
+  "source_policy_id": "c3dcd5d1",
+  "source_terminal_decision": "FAIL_FALSE_MERGE",
+  "terminal": {
+    "next_command_goal": "BUILD_CANONICAL_TRANSITION_SURFACE_PROBE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+diagnostic_id=79acf44a
+diagnostic_json_path=data/stable_delta_signature_candidate_v0_1_false_merge_diagnostics/79acf44a.json
+diagnostic_receipt_path=data/stable_delta_signature_candidate_v0_1_false_merge_diagnostic_receipts/79acf44a.json
+FALSE_MERGE_DIAGNOSTIC_ID=79acf44a
+
+ASSERT_FALSE_MERGE_DIAGNOSTIC
+{
+  "collision_summary": {
+    "collision_group_count": 10,
+    "collision_group_sizes_top10": [
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      10,
+      4
+    ],
+    "collision_rows_total": 166,
+    "largest_collision_group_size": 19,
+    "non_collision_signature_groups": 10,
+    "total_candidate_signature_groups": 20
+  },
+  "decision": {
+    "audit_locator_distinguishability_detected": true,
+    "burden_side_progress_confirmed": true,
+    "case_only_discriminator": true,
+    "distinguishability_blocker_confirmed": true,
+    "do_not_accept_current_candidate": true,
+    "do_not_authorize_receipt_replacement": true,
+    "do_not_authorize_scale_mode": true,
+    "do_not_scale_current_candidate": true,
+    "reason": "v0.1 payload is small and burden-positive, but source surface lacks lawful transition/within-case occurrence identity.",
+    "recommended_next_command_goal": "BUILD_CANONICAL_TRANSITION_SURFACE_PROBE_POLICY_V0",
+    "transition_surface_missing": true
+  },
+  "diagnostic_id": "79acf44a",
+  "failures": [],
+  "field_cause_analysis": {
+    "canonical_discriminator_sufficient": true,
+    "collision_payload_key_frequency": {
+      "case": 10,
+      "cv": 10,
+      "m_const": 10
+    },
+    "critical_observation": [
+      "state_hash_before and state_hash_after are absent across the source surface.",
+      "move_id is present but constant, so it cannot separate occurrences.",
+      "case_id has only 10 values across 176 occurrences; it separates cases, not within-case occurrences.",
+      "halt_reason is sparse and only present for 10 receipts.",
+      "false merges are therefore expected unless a lawful within-case occurrence discriminator is extracted."
+    ],
+    "missing_or_non_discriminative_fields": {
+      "burden_class": {
+        "distinct_present_values": 0,
+        "field": "burden_class",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "canonical_occurrence_id": {
+        "distinct_present_values": 0,
+        "field": "canonical_occurrence_id",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "halt_reason": {
+        "distinct_present_values": 2,
+        "field": "halt_reason",
+        "missing": 166,
+        "missing_rate": 0.943182,
+        "present": 10
+      },
+      "move_id": {
+        "distinct_present_values": 1,
+        "field": "move_id",
+        "missing": 0,
+        "missing_rate": 0.0,
+        "present": 176
+      },
+      "probe_id": {
+        "distinct_present_values": 0,
+        "field": "probe_id",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "raw_event_count": {
+        "distinct_present_values": 0,
+        "field": "raw_event_count",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "receipt_count": {
+        "distinct_present_values": 0,
+        "field": "receipt_count",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "shape_count": {
+        "distinct_present_values": 0,
+        "field": "shape_count",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "slot_id": {
+        "distinct_present_values": 0,
+        "field": "slot_id",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "state_hash_after": {
+        "distinct_present_values": 0,
+        "field": "state_hash_after",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "state_hash_before": {
+        "distinct_present_values": 0,
+        "field": "state_hash_before",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "status": {
+        "distinct_present_values": 0,
+        "field": "status",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      }
+    },
+    "surface_honesty_status": "SUFFICIENT_FOR_LOCAL_COLLISION_TEST",
+    "transition_sufficient": false,
+    "weak_metric_discriminator_available": false
+  },
+  "gate": "PASS",
+  "receipt_gate": "PASS",
+  "receipt_id": "71557a8e",
+  "root_cause": {
+    "burden_status": "BURDEN_SIDE_PROGRESS_CONFIRMED",
+    "diagnosis": "v0.1 separated signature/debug/audit burden correctly, but the lawful signature payload lacks transition or within-case occurrence fields needed to preserve all full occurrence keys.",
+    "distinguishability_status": "FAILED_LOCAL_NO_SILENT_COLLAPSE",
+    "primary_failure": "LAWFUL_PAYLOAD_TOO_COARSE_FOR_WITHIN_CASE_OCCURRENCE_SEPARABILITY"
+  },
+  "source_candidate_probe_id": "a097b68f",
+  "source_candidate_receipt_id": "08b4ac55",
+  "source_candidate_summary": {
+    "burden_ratio_projected": 0.26337654604996075,
+    "burden_ratio_signature_payload": 0.05518417277869496,
+    "candidate_signature_count": 176,
+    "collision_count": 10,
+    "distinct_candidate_signatures": 20,
+    "distinct_full_occurrence_keys": 176,
+    "distinguishability_retention_ratio": 0.11363636363636363,
+    "false_merge_count": 10,
+    "full_receipt_bytes": 295592,
+    "full_receipt_count": 176,
+    "gate": "PASS",
+    "projected_scale_row_bytes": 77852,
+    "signature_payload_bytes": 16312,
+    "terminal_decision": "FAIL_FALSE_MERGE"
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_CANONICAL_TRANSITION_SURFACE_PROBE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_FALSE_MERGE_DIAGNOSTIC
+{
+  "case": "candidate_terminal_fail",
+  "expected": "candidate_terminal_not_FAIL_FALSE_MERGE",
+  "failures": [
+    "candidate_terminal_not_FAIL_FALSE_MERGE:NEEDS_MORE_SCALE_AFTER_LOCAL_PASS"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "scale_mode_authority_fail",
+  "expected": "authority_guard_failed:scale_mode_authorized",
+  "failures": [
+    "authority_guard_failed:scale_mode_authorized:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "raw_hash_truth_surface_fail",
+  "expected": "raw_hash_truth_surface_used",
+  "failures": [
+    "raw_hash_truth_surface_used"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "no_silent_collapse_expected_false_fail",
+  "expected": "expected_no_silent_collapse_local_false",
+  "failures": [
+    "expected_no_silent_collapse_local_false"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "false_merge_count_expected_fail",
+  "expected": "false_merge_count_expected_10",
+  "failures": [
+    "false_merge_count_expected_10:0"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "projected_burden_ratio_fail",
+  "expected": "projected_burden_ratio_expected_under_1",
+  "failures": [
+    "projected_burden_ratio_expected_under_1:1.25"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "policy_scale_band_authority_fail",
+  "expected": "policy_wrongly_authorizes_scale_bands",
+  "failures": [
+    "policy_wrongly_authorizes_scale_bands"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+FALSE_MERGE_DIAGNOSTIC_HEAD_JSON
+{
+  "collision_summary": {
+    "collision_group_count": 10,
+    "collision_group_sizes_top10": [
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      10,
+      4
+    ],
+    "collision_rows_total": 166,
+    "largest_collision_group_size": 19,
+    "non_collision_signature_groups": 10,
+    "total_candidate_signature_groups": 20
+  },
+  "decision": {
+    "audit_locator_distinguishability_detected": true,
+    "burden_side_progress_confirmed": true,
+    "case_only_discriminator": true,
+    "distinguishability_blocker_confirmed": true,
+    "do_not_accept_current_candidate": true,
+    "do_not_authorize_receipt_replacement": true,
+    "do_not_authorize_scale_mode": true,
+    "do_not_scale_current_candidate": true,
+    "reason": "v0.1 payload is small and burden-positive, but source surface lacks lawful transition/within-case occurrence identity.",
+    "recommended_next_command_goal": "BUILD_CANONICAL_TRANSITION_SURFACE_PROBE_POLICY_V0",
+    "transition_surface_missing": true
+  },
+  "diagnostic_id": "79acf44a",
+  "field_cause_analysis": {
+    "canonical_discriminator_sufficient": true,
+    "collision_payload_key_frequency": {
+      "case": 10,
+      "cv": 10,
+      "m_const": 10
+    },
+    "critical_observation": [
+      "state_hash_before and state_hash_after are absent across the source surface.",
+      "move_id is present but constant, so it cannot separate occurrences.",
+      "case_id has only 10 values across 176 occurrences; it separates cases, not within-case occurrences.",
+      "halt_reason is sparse and only present for 10 receipts.",
+      "false merges are therefore expected unless a lawful within-case occurrence discriminator is extracted."
+    ],
+    "missing_or_non_discriminative_fields": {
+      "burden_class": {
+        "distinct_present_values": 0,
+        "field": "burden_class",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "canonical_occurrence_id": {
+        "distinct_present_values": 0,
+        "field": "canonical_occurrence_id",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "halt_reason": {
+        "distinct_present_values": 2,
+        "field": "halt_reason",
+        "missing": 166,
+        "missing_rate": 0.943182,
+        "present": 10
+      },
+      "move_id": {
+        "distinct_present_values": 1,
+        "field": "move_id",
+        "missing": 0,
+        "missing_rate": 0.0,
+        "present": 176
+      },
+      "probe_id": {
+        "distinct_present_values": 0,
+        "field": "probe_id",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "raw_event_count": {
+        "distinct_present_values": 0,
+        "field": "raw_event_count",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "receipt_count": {
+        "distinct_present_values": 0,
+        "field": "receipt_count",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "shape_count": {
+        "distinct_present_values": 0,
+        "field": "shape_count",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "slot_id": {
+        "distinct_present_values": 0,
+        "field": "slot_id",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "state_hash_after": {
+        "distinct_present_values": 0,
+        "field": "state_hash_after",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "state_hash_before": {
+        "distinct_present_values": 0,
+        "field": "state_hash_before",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "status": {
+        "distinct_present_values": 0,
+        "field": "status",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      }
+    },
+    "surface_honesty_status": "SUFFICIENT_FOR_LOCAL_COLLISION_TEST",
+    "transition_sufficient": false,
+    "weak_metric_discriminator_available": false
+  },
+  "gate": "PASS",
+  "root_cause": {
+    "burden_status": "BURDEN_SIDE_PROGRESS_CONFIRMED",
+    "diagnosis": "v0.1 separated signature/debug/audit burden correctly, but the lawful signature payload lacks transition or within-case occurrence fields needed to preserve all full occurrence keys.",
+    "distinguishability_status": "FAILED_LOCAL_NO_SILENT_COLLAPSE",
+    "primary_failure": "LAWFUL_PAYLOAD_TOO_COARSE_FOR_WITHIN_CASE_OCCURRENCE_SEPARABILITY"
+  },
+  "source_candidate_probe_id": "a097b68f",
+  "source_candidate_receipt_id": "08b4ac55",
+  "source_candidate_summary": {
+    "burden_ratio_projected": 0.26337654604996075,
+    "burden_ratio_signature_payload": 0.05518417277869496,
+    "candidate_signature_count": 176,
+    "collision_count": 10,
+    "distinct_candidate_signatures": 20,
+    "distinct_full_occurrence_keys": 176,
+    "distinguishability_retention_ratio": 0.11363636363636363,
+    "false_merge_count": 10,
+    "full_receipt_bytes": 295592,
+    "full_receipt_count": 176,
+    "gate": "PASS",
+    "projected_scale_row_bytes": 77852,
+    "signature_payload_bytes": 16312,
+    "terminal_decision": "FAIL_FALSE_MERGE"
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_CANONICAL_TRANSITION_SURFACE_PROBE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_RUNTIME_AND_CANDIDATE_SYSTEM_UNTOUCHED
+.gitignore
+runtime and candidate system untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/diagnose_stable_delta_signature_candidate_v0_1_false_merges.py
+[master e3f7ef441] diagnose stable delta signature candidate v0.1 false merges
+ 2 files changed, 454 insertions(+)
+ create mode 100755 scripts/diagnose_stable_delta_signature_candidate_v0_1_false_merges.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

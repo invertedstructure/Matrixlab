@@ -1,0 +1,417 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260619_185604
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260619_185604.txt
+
+QUARANTINE_SECOND_PARTIAL_IO_RUN_AND_RUN_D1_RADIUS_50
+
+STATUS_BEFORE
+
+PROCESS_CHECK
+no active MatrixLab stress process
+
+QUARANTINE_SECOND_PARTIAL_RUN_IF_PRESENT
+{
+  "action": "marked RUNNING partial run as ABORTED_IO_FAILURE_QUARANTINED if needed",
+  "created_utc": "2026-06-19T17:56:31.680981+00:00",
+  "interpretation": "NOT_A_DOMAIN_SHIFT_RESULT",
+  "reason": "HOST_FILESYSTEM_IO_ERROR_DURING_DOMAIN_SHIFT_D1_RERUN",
+  "receipt_json_files": 56354,
+  "receipt_rows_in_db": 56353,
+  "recovery_id": "cb3c0aed",
+  "recovery_schema_version": "matrixlab_io_quarantine_v0",
+  "row_after": {
+    "created_utc": "2026-06-19T13:55:15.763565+00:00",
+    "cycles_per_case": 250,
+    "depth_max": 250,
+    "depth_min": 3,
+    "families": "relabel_symmetry_stress,relabel_symmetry_stress,relabel_symmetry_stress,projection_quotient,projection_quotient,two_sided_suspension,two_sided_suspension,suspension_plus_repair,one_sided_suspension",
+    "max_cells": 300000,
+    "run_id": "run_20260619_135515_760723",
+    "status": "ABORTED_IO_FAILURE_QUARANTINED",
+    "total_cases": 0,
+    "total_receipts": 0
+  },
+  "row_before": {
+    "created_utc": "2026-06-19T13:55:15.763565+00:00",
+    "cycles_per_case": 250,
+    "depth_max": 250,
+    "depth_min": 3,
+    "families": "relabel_symmetry_stress,relabel_symmetry_stress,relabel_symmetry_stress,projection_quotient,projection_quotient,two_sided_suspension,two_sided_suspension,suspension_plus_repair,one_sided_suspension",
+    "max_cells": 300000,
+    "run_id": "run_20260619_135515_760723",
+    "status": "ABORTED_IO_FAILURE_QUARANTINED",
+    "total_cases": 0,
+    "total_receipts": 0
+  },
+  "run_id": "run_20260619_135515_760723",
+  "sqlite_quick_check_after": "ok",
+  "sqlite_quick_check_before": "ok"
+}
+recovery_path: data/runs/recoveries/cb3c0aed.json
+
+MAKE_D1_RADIUS_50_GENERATOR
+{
+  "domain_shift_generator_id": "da466dc2",
+  "domain_shift_generator_payload_sig8": "da466dc2",
+  "domain_shift_generator_schema_version": "domain_shift_generator_v0",
+  "domain_shift_predicate": {
+    "evaluator_delta_zero": true,
+    "generator_manifest_delta_gt_zero": true,
+    "halt_vocabulary_delta_zero": true,
+    "law_delta_zero": true,
+    "ontology_delta_zero": true,
+    "profile_classifier_delta_zero": true,
+    "receipt_schema_delta_zero": true,
+    "registered_move_id_set_delta_zero": true
+  },
+  "failures": [],
+  "forbidden_change_check": {
+    "cheat_harness_meaning_changed": false,
+    "coarse_profile_vocabulary_definition_changed": false,
+    "evaluator_meaning_changed": false,
+    "halt_vocabulary_changed": false,
+    "law_checker_semantics_changed": false,
+    "move_ontology_changed": false,
+    "profile_classifier_semantics_changed": false,
+    "receipt_schema_changed": false
+  },
+  "gate": "PASS",
+  "identity_locks": {
+    "cheat_adversarial_schema_version": "agent_cheat_adversarial_receipt_v0",
+    "cheat_check_schema_version": "agent_cheat_check_receipt_v0",
+    "cheat_harness_identity": "agent-cheat-check+d478_style_and_agent-cheat-adversarial_temp_db_mutations",
+    "cli_sha256_after_contract_command": "3a5b791e66a3e33effe9b10b57e87026e0664ed834be6718e569cca300ef024b",
+    "evaluator_identity": "current_cli_agent_eval_no_delta_allowed",
+    "halt_vocabulary_identity": "current_cli_halt_vocabulary_no_delta_allowed",
+    "law_checker_identity": "current_cli_law_checker_no_delta_allowed",
+    "profile_classifier_identity": "current_cli_coarse_profile_classifier_no_delta_allowed",
+    "receipt_schema_identity": "registry_sqlite_receipts_table_and_json_receipts_current",
+    "source_ledger_schema_version": "agent_cycle_ledger_receipt_v1"
+  },
+  "input_transfer_contract": "50a01dcd",
+  "input_transfer_contract_path": "data/cell_transfer_contracts/50a01dcd.json",
+  "not_transferred_from_source_cell": [
+    "empirical_boundedness_claim",
+    "coarse_profile_total_value",
+    "raw_profile_growth_rate",
+    "radius_threshold",
+    "domain_specific_halt_distribution",
+    "future_domain_conclusion_strength"
+  ],
+  "recomputed_transfer_contract_payload_sig8": "50a01dcd",
+  "shift_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+  "source_baseline": {
+    "coarse_profiles_total": 9,
+    "cycle_count": 5,
+    "eval_id": "a1ddb75b",
+    "ledger_id": "73c696a5",
+    "ledger_payload_sig8": "73c696a5",
+    "radius": 250,
+    "raw_profiles_total": 1010,
+    "recomputed_ledger_payload_sig8": "73c696a5",
+    "registered_moves_total": 250,
+    "run_id": "run_20260619_090132_512800",
+    "stop_reason": "MARGINAL_INFORMATION_FLATTENED_FOR_RADIUS_EXPANSION",
+    "verdict": "BOUNDED_VOCABULARY_CONTINUATION"
+  },
+  "source_cell": "CELL_0",
+  "source_generator_manifest": {
+    "cell": "CELL_0",
+    "cycles_per_case": 250,
+    "depth_max": 250,
+    "depth_min": 3,
+    "families": "one_sided_suspension,two_sided_suspension,suspension_plus_repair,projection_quotient,relabel_symmetry_stress",
+    "generator_kind": "BASELINE_UNIFORM_FAMILY_DEPTH_SWEEP_V0",
+    "max_cells": null,
+    "observed_coarse_profiles_total": 9,
+    "observed_move_id_set": [
+      "add_row_and_link_column",
+      "append_zero_column",
+      "deterministic_row_col_relabel",
+      "duplicate_existing_column",
+      "quotient_merge_last_row",
+      "xor_repair_column"
+    ],
+    "observed_radius": 250,
+    "observed_raw_profiles_total": 1010,
+    "observed_registered_moves_total": 250,
+    "schedule_description": "uniform depth sweep over imported families under Cell 0 runner"
+  },
+  "target_cell": "CELL_1",
+  "target_generator_manifest": {
+    "allowed_family_set": [
+      "one_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "projection_quotient",
+      "relabel_symmetry_stress"
+    ],
+    "cell": "CELL_1",
+    "composition_pattern": "frontload_relabel_and_projection_then_apply_growth_and_repair_using_existing_moves_only",
+    "cycles_per_case": 50,
+    "depth_max": 50,
+    "depth_min": 3,
+    "domain_shift_axis": "move_family_schedule_and_composition_pattern",
+    "domain_shift_label": "D1_schedule_reweight_existing_moves",
+    "evaluator_delta": 0,
+    "execution_support_status": "MANIFEST_ONLY_NEEDS_RUNNER_SUPPORT",
+    "generator_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+    "generator_manifest_delta": 1,
+    "halt_vocabulary_delta": 0,
+    "law_delta": 0,
+    "max_cells": 50000,
+    "new_classifier_categories_allowed": false,
+    "new_halt_reasons_allowed": false,
+    "new_laws_allowed": false,
+    "new_move_types_allowed": false,
+    "ontology_delta": 0,
+    "profile_classifier_delta": 0,
+    "radius": 50,
+    "receipt_schema_delta": 0,
+    "registered_move_id_set": [
+      "add_row_and_link_column",
+      "append_zero_column",
+      "deterministic_row_col_relabel",
+      "duplicate_existing_column",
+      "quotient_merge_last_row",
+      "xor_repair_column"
+    ],
+    "registered_move_id_set_delta": 0,
+    "shifted_family_schedule": [
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "shifted_family_weights": {
+      "one_sided_suspension": 1,
+      "projection_quotient": 2,
+      "relabel_symmetry_stress": 3,
+      "suspension_plus_repair": 1,
+      "two_sided_suspension": 2
+    }
+  },
+  "target_probe_kind": "DOMAIN_SHIFT_PROBE",
+  "target_test_plan": {
+    "curve_goal": "PUSH_UNTIL_MARGINAL_INFORMATION_FLATTENS_FOR_TARGET_METRIC",
+    "outcome_set": [
+      "MEASUREMENT_TRANSFER_STABLE_CURVE",
+      "MEASUREMENT_TRANSFER_DIFFERENT_CURVE",
+      "STOP_DOMAIN_REQUIRES_ONTOLOGY_SHIFT",
+      "FAIL_MEASUREMENT_TRUST"
+    ],
+    "post_run_goal": "RUN_CHEAT_HARNESS_ON_TARGET_RECEIPTS",
+    "precheck_goal": "VERIFY_IMPORTED_RULER_IDENTITIES_BEFORE_RUN",
+    "run_goal": "RUN_SHIFTED_DOMAIN_UNDER_IMPORTED_EVALUATOR",
+    "runner_support_goal": "BUILD_DOMAIN_SHIFT_RUNNER_SUPPORT_V0"
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_DOMAIN_SHIFT_RUNNER_SUPPORT_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transfer_contract_id": "50a01dcd",
+  "transfer_contract_payload_sig8": "50a01dcd",
+  "transfer_kind": "MEASUREMENT_DISCIPLINE_ONLY",
+  "warnings": []
+}
+domain_shift_generator_path: data/domain_shift_generators/da466dc2.json
+D1_GEN_50=da466dc2
+
+MAKE_D1_RADIUS_50_RUNNER_SUPPORT
+{
+  "command_argvs": [
+    [
+      "uv",
+      "run",
+      "python",
+      "src/matrixlab/cli.py",
+      "stress",
+      "--families",
+      "EEEDDBBCA",
+      "--depth-max",
+      "50",
+      "--cycles-per-case",
+      "50",
+      "--max-cells",
+      "50000",
+      "--strict-laws"
+    ],
+    [
+      "uv",
+      "run",
+      "python",
+      "src/matrixlab/cli.py",
+      "gate",
+      "latest"
+    ],
+    [
+      "uv",
+      "run",
+      "python",
+      "src/matrixlab/cli.py",
+      "agent-eval",
+      "latest",
+      "--previous",
+      "run_20260619_090132_512800"
+    ]
+  ],
+  "command_count": 3,
+  "command_kind": "EXECUTE_DOMAIN_SHIFT_D1_SCHEDULE_REWEIGHT",
+  "command_lines": [
+    "uv run python src/matrixlab/cli.py stress --families EEEDDBBCA --depth-max 50 --cycles-per-case 50 --max-cells 50000 --strict-laws",
+    "uv run python src/matrixlab/cli.py gate latest",
+    "uv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800"
+  ],
+  "command_script": "uv run python src/matrixlab/cli.py stress --families EEEDDBBCA --depth-max 50 --cycles-per-case 50 --max-cells 50000 --strict-laws\nuv run python src/matrixlab/cli.py gate latest\nuv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800",
+  "domain_shift_generator_id": "da466dc2",
+  "domain_shift_generator_payload_sig8": "da466dc2",
+  "domain_shift_runner_support_id": "dcf42c09",
+  "domain_shift_runner_support_payload_sig8": "dcf42c09",
+  "domain_shift_runner_support_schema_version": "domain_shift_runner_support_v0",
+  "failures": [],
+  "gate": "PASS",
+  "input_domain_shift_generator": "da466dc2",
+  "input_domain_shift_generator_path": "data/domain_shift_generators/da466dc2.json",
+  "recomputed_domain_shift_generator_payload_sig8": "da466dc2",
+  "runner_support": {
+    "compact_family_schedule": "EEEDDBBCA",
+    "domain_shift_axis": "move_family_schedule_and_composition_pattern",
+    "domain_shift_label": "D1_schedule_reweight_existing_moves",
+    "expanded_family_names": [
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "projection_quotient",
+      "two_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "family_code_to_name": {
+      "A": "one_sided_suspension",
+      "B": "two_sided_suspension",
+      "C": "suspension_plus_repair",
+      "D": "projection_quotient",
+      "E": "relabel_symmetry_stress"
+    },
+    "family_name_to_code": {
+      "one_sided_suspension": "A",
+      "projection_quotient": "D",
+      "relabel_symmetry_stress": "E",
+      "suspension_plus_repair": "C",
+      "two_sided_suspension": "B"
+    },
+    "parse_preserves_reweighted_schedule": true,
+    "parsed_family_names": [
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "projection_quotient",
+      "two_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "requires_new_classifier_semantics": false,
+    "requires_new_evaluator_semantics": false,
+    "requires_new_halt_vocabulary": false,
+    "requires_new_laws": false,
+    "requires_new_move_types": false,
+    "shifted_family_weights": {
+      "one_sided_suspension": 1,
+      "projection_quotient": 2,
+      "relabel_symmetry_stress": 3,
+      "suspension_plus_repair": 1,
+      "two_sided_suspension": 2
+    },
+    "support_kind": "EXISTING_STRESS_RUNNER_WITH_REWEIGHTED_FAMILIES",
+    "uses_existing_registered_moves_only": true
+  },
+  "shift_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+  "source_baseline": {
+    "coarse_profiles_total": 9,
+    "cycle_count": 5,
+    "eval_id": "a1ddb75b",
+    "ledger_id": "73c696a5",
+    "ledger_payload_sig8": "73c696a5",
+    "radius": 250,
+    "raw_profiles_total": 1010,
+    "recomputed_ledger_payload_sig8": "73c696a5",
+    "registered_moves_total": 250,
+    "run_id": "run_20260619_090132_512800",
+    "stop_reason": "MARGINAL_INFORMATION_FLATTENED_FOR_RADIUS_EXPANSION",
+    "verdict": "BOUNDED_VOCABULARY_CONTINUATION"
+  },
+  "source_cell": "CELL_0",
+  "target_cell": "CELL_1",
+  "target_generator_manifest": {
+    "allowed_family_set": [
+      "one_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "projection_quotient",
+      "relabel_symmetry_stress"
+    ],
+    "cell": "CELL_1",
+    "composition_pattern": "frontload_relabel_and_projection_then_apply_growth_and_repair_using_existing_moves_only",
+    "cycles_per_case": 50,
+    "depth_max": 50,
+    "depth_min": 3,
+    "domain_shift_axis": "move_family_schedule_and_composition_pattern",
+    "domain_shift_label": "D1_schedule_reweight_existing_moves",
+    "evaluator_delta": 0,
+    "execution_support_status": "MANIFEST_ONLY_NEEDS_RUNNER_SUPPORT",
+    "generator_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+    "generator_manifest_delta": 1,
+    "halt_vocabulary_delta": 0,
+    "law_delta": 0,
+    "max_cells": 50000,
+    "new_classifier_categories_allowed": false,
+    "new_halt_reasons_allowed": false,
+    "new_laws_allowed": false,
+    "new_move_types_allowed": false,
+    "ontology_delta": 0,
+    "profile_classifier_delta": 0,
+    "radius": 50,
+    "receipt_schema_delta": 0,
+    "registered_move_id_set": [
+      "add_row_and_link_column",
+      "append_zero_column",
+      "deterministic_row_col_relabel",
+      "duplicate_existing_column",
+      "quotient_merge_last_row",
+      "xor_repair_column"
+    ],
+    "registered_move_id_set_delta": 0,
+    "shifted_family_schedule": [
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "shifted_family_weights": {
+      "one_sided_suspension": 1,
+      "projection_quotient": 2,
+      "relabel_symmetry_stress": 3,
+      "suspension_plus_repair": 1,
+      "two_sided_suspension": 2
+    }
+  },
+  "terminal": {
+    "next_command_goal": "MANUAL_EXECUTE_DOMAIN_SHIFT_COMMANDS",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transfer_contract_id": "50a01dcd",
+  "warnings": []
+}
+domain_shift_runner_support_path: data/domain_shift_runner_support/dcf42c09.json
+FAILED_TO_FIND_D1_SUPPORT_50
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

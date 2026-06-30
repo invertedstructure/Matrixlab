@@ -1,0 +1,216 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_232225
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_232225.txt
+
+CREATE_C8_POST_CLOSURE_CONTINUATION_DECISION_PACKET_V0
+
+VERIFY_POST_CLOSURE_SOURCES_PRESENT
+present data/c8_local_instrumentation_loop_closure_v0_receipts/c8_local_loop_closure_receipt_cce65018.json
+present data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_closure_packet_v0.json
+present data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_timeline_v0.json
+present data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_boundary_audit_v0.json
+present data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_closure_report.json
+
+VERIFY_REQUIRED_COMMIT_PRESENT
+commit_present=23b192495425d88a29ceffa1bb6698dbdf62d52e
+
+PATCH_GITIGNORE
+
+WRITE_POST_CLOSURE_CONTINUATION_RUNNER
+
+PY_COMPILE_POST_CLOSURE_CONTINUATION_RUNNER
+
+RUN_POST_CLOSURE_CONTINUATION_DECISION
+{
+  "acceptance_gate_results": {
+    "C8_POST_CLOSURE_0_CLOSURE_RECEIPT_VERIFIED": true,
+    "C8_POST_CLOSURE_10_SOURCE_ARTIFACTS_IMMUTABLE": true,
+    "C8_POST_CLOSURE_11_BAD_COUNTERS_ZERO": true,
+    "C8_POST_CLOSURE_1_LOCAL_LOOP_CLOSED": true,
+    "C8_POST_CLOSURE_2_GLOBAL_FRONTIER_NOT_CLOSED": true,
+    "C8_POST_CLOSURE_3_CHAIN_STEPS_CLOSED_SIX": true,
+    "C8_POST_CLOSURE_4_NO_REUSABLE_SCHEMA_AUTHORIZED": true,
+    "C8_POST_CLOSURE_5_NEXT_UNIT_PROPOSED_ONLY": true,
+    "C8_POST_CLOSURE_6_NEXT_UNIT_IS_SELECTION_REVIEW": true,
+    "C8_POST_CLOSURE_7_NO_FRONTIER_SELECTED_NOW": true,
+    "C8_POST_CLOSURE_8_NO_NEW_BUILD_OR_RERUN": true,
+    "C8_POST_CLOSURE_9_NO_RESEARCH_OR_GLOBAL_CLAIM": true
+  },
+  "created_at": "2026-06-27T22:22:25.830838+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "machine_readable_continuation_summary": {
+    "bad_counters_zero": true,
+    "continuation_packet_created": true,
+    "frontier_solved_claim": false,
+    "general_cell1_authority": false,
+    "global_frontier_closed": false,
+    "global_solution_claim": false,
+    "local_loop_closed": true,
+    "new_c8_rerun_now": false,
+    "new_cell1_build_now": false,
+    "new_frontier_selected_now": false,
+    "new_instrument_build_now": false,
+    "new_missing_instrument_proposal_now": false,
+    "new_verification_probe_now": false,
+    "next_command_goal": null,
+    "recommended_next_unit": "SELECT_ONE_BOUNDED_C8_SUCCESSOR_FRONTIER_SURFACE_V0",
+    "recommended_next_unit_kind": "SELECTION_REVIEW_PACKET",
+    "recommended_next_unit_status": "PROPOSED_ONLY_REQUIRES_REVIEW",
+    "research_mode_opened": false,
+    "reusable_schema_authorized": false,
+    "source_artifacts_mutated": false,
+    "source_closure_packet_id": "c8_local_loop_closure_8970734f",
+    "source_closure_receipt_id": "c8_local_loop_closure_receipt_cce65018"
+  },
+  "milestone": "C8_POST_CLOSURE_CONTINUATION_DECISION_READY",
+  "negative_controls": {
+    "frontier_solved_claim_count": 0,
+    "general_cell1_authority_count": 0,
+    "global_solution_claim_count": 0,
+    "hidden_next_command_count": 0,
+    "new_c8_rerun_count": 0,
+    "new_cell1_build_count": 0,
+    "new_frontier_selected_count": 0,
+    "new_instrument_build_count": 0,
+    "new_missing_instrument_proposal_count": 0,
+    "new_verification_probe_count": 0,
+    "research_mode_opened_count": 0,
+    "reusable_schema_authorized_count": 0,
+    "source_artifact_mutation_count": 0
+  },
+  "outcome_class": "C8_POST_CLOSURE_CONTINUATION_DECISION_PACKET_CREATED",
+  "output_artifacts": {
+    "admissibility_audit": "data/c8_post_closure_continuation_decision_v0/c8_post_closure_admissibility_audit_v0.json",
+    "continuation_packet": "data/c8_post_closure_continuation_decision_v0/c8_post_closure_continuation_decision_packet_v0.json",
+    "next_unit_candidate": "data/c8_post_closure_continuation_decision_v0/c8_post_closure_next_unit_candidate_v0.json",
+    "readout": "data/c8_post_closure_continuation_decision_v0/c8_post_closure_continuation_decision_readout_v0.json",
+    "receipt": "data/c8_post_closure_continuation_decision_v0_receipts/c8_post_closure_continuation_receipt_c2bcd85c.json",
+    "report": "data/c8_post_closure_continuation_decision_v0/c8_post_closure_continuation_decision_report.json"
+  },
+  "receipt_id": "c8_post_closure_continuation_receipt_c2bcd85c",
+  "receipt_type": "TYPED_C8_POST_CLOSURE_CONTINUATION_DECISION_RECEIPT",
+  "schema_version": "c8_post_closure_continuation_decision_receipt_v0",
+  "source_artifact_immutability": {
+    "source_artifacts_mutated": false,
+    "source_hashes_after": {
+      "closure_boundary_audit": "03de65494c87d3659241e6e79686f3a74a4af31965263c03893cf74fe6800424",
+      "closure_packet": "b1f6135ee4c29928f1b3f95d840c53813b9e82fc91b3485b0e4a32cf7ae55ec6",
+      "closure_receipt": "3041f5e74e4c41bcdd7f7f6f2a82b43cf0974f2a73f2a3e82f102b3ba5e1de59",
+      "closure_report": "f113ebc12350e5a15100a5caadbcc0c71db692f0d2f5fb9c3c4cd90f5c00ba0e",
+      "closure_timeline": "534ad7d3dc5cae763fd06017c88cd66d8afdd44a266ac376c545bbe6203b543e"
+    },
+    "source_hashes_before": {
+      "closure_boundary_audit": "03de65494c87d3659241e6e79686f3a74a4af31965263c03893cf74fe6800424",
+      "closure_packet": "b1f6135ee4c29928f1b3f95d840c53813b9e82fc91b3485b0e4a32cf7ae55ec6",
+      "closure_receipt": "3041f5e74e4c41bcdd7f7f6f2a82b43cf0974f2a73f2a3e82f102b3ba5e1de59",
+      "closure_report": "f113ebc12350e5a15100a5caadbcc0c71db692f0d2f5fb9c3c4cd90f5c00ba0e",
+      "closure_timeline": "534ad7d3dc5cae763fd06017c88cd66d8afdd44a266ac376c545bbe6203b543e"
+    }
+  },
+  "source_refs": {
+    "closure_boundary_audit_ref": "data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_boundary_audit_v0.json",
+    "closure_packet_ref": "data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_closure_packet_v0.json",
+    "closure_receipt_ref": "data/c8_local_instrumentation_loop_closure_v0_receipts/c8_local_loop_closure_receipt_cce65018.json",
+    "closure_report_ref": "data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_closure_report.json",
+    "closure_timeline_ref": "data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_timeline_v0.json"
+  },
+  "status": "TYPED_C8_POST_CLOSURE_CONTINUATION_DECISION_PASS",
+  "target_unit_id": "research.c8.post_closure_continuation_decision.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_POST_CLOSURE_CONTINUATION_DECISION_READY",
+    "type": "STOP"
+  },
+  "unit_id": "CREATE_C8_POST_CLOSURE_CONTINUATION_DECISION_PACKET_V0",
+  "warnings": []
+}
+continuation_receipt_id=c8_post_closure_continuation_receipt_c2bcd85c
+continuation_receipt_path=data/c8_post_closure_continuation_decision_v0_receipts/c8_post_closure_continuation_receipt_c2bcd85c.json
+continuation_packet_path=data/c8_post_closure_continuation_decision_v0/c8_post_closure_continuation_decision_packet_v0.json
+next_unit_candidate_path=data/c8_post_closure_continuation_decision_v0/c8_post_closure_next_unit_candidate_v0.json
+recommended_next_unit=SELECT_ONE_BOUNDED_C8_SUCCESSOR_FRONTIER_SURFACE_V0
+recommended_next_unit_status=PROPOSED_ONLY_REQUIRES_REVIEW
+local_loop_closed=true
+global_frontier_closed=false
+reusable_schema_authorized=false
+new_frontier_selected_now=false
+continuation_outcome=C8_POST_CLOSURE_CONTINUATION_DECISION_PACKET_CREATED
+terminal_stop_code=STOP_C8_POST_CLOSURE_CONTINUATION_DECISION_READY
+
+ASSERT_POST_CLOSURE_CONTINUATION_DECISION
+{
+  "acceptance_gates_false_count": 0,
+  "continuation_gate": "PASS",
+  "failures": [],
+  "global_frontier_closed": false,
+  "local_loop_closed": true,
+  "negative_controls_nonzero_count": 0,
+  "new_frontier_selected_now": false,
+  "outcome_class": "C8_POST_CLOSURE_CONTINUATION_DECISION_PACKET_CREATED",
+  "receipt_id": "c8_post_closure_continuation_receipt_c2bcd85c",
+  "recommended_next_unit": "SELECT_ONE_BOUNDED_C8_SUCCESSOR_FRONTIER_SURFACE_V0",
+  "recommended_next_unit_status": "PROPOSED_ONLY_REQUIRES_REVIEW",
+  "reusable_schema_authorized": false,
+  "source_closure_receipt_id": "c8_local_loop_closure_receipt_cce65018",
+  "status": "TYPED_C8_POST_CLOSURE_CONTINUATION_DECISION_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_POST_CLOSURE_CONTINUATION_DECISION_READY",
+    "type": "STOP"
+  }
+}
+
+SHOW_POST_CLOSURE_CONTINUATION_READOUT
+receipt_id=c8_post_closure_continuation_receipt_c2bcd85c
+status=TYPED_C8_POST_CLOSURE_CONTINUATION_DECISION_PASS
+outcome_class=C8_POST_CLOSURE_CONTINUATION_DECISION_PACKET_CREATED
+continuation_packet_created=True
+source_closure_receipt_id=c8_local_loop_closure_receipt_cce65018
+source_closure_packet_id=c8_local_loop_closure_8970734f
+local_loop_closed=True
+global_frontier_closed=False
+recommended_next_unit=SELECT_ONE_BOUNDED_C8_SUCCESSOR_FRONTIER_SURFACE_V0
+recommended_next_unit_kind=SELECTION_REVIEW_PACKET
+recommended_next_unit_status=PROPOSED_ONLY_REQUIRES_REVIEW
+new_frontier_selected_now=False
+new_instrument_build_now=False
+new_c8_rerun_now=False
+new_missing_instrument_proposal_now=False
+reusable_schema_authorized=False
+research_mode_opened=False
+general_cell1_authority=False
+global_solution_claim=False
+frontier_solved_claim=False
+source_artifacts_mutated=False
+bad_counters_zero=True
+terminal_stop_code=STOP_C8_POST_CLOSURE_CONTINUATION_DECISION_READY
+next_command_goal=None
+
+FORCE_ADD_POST_CLOSURE_CONTINUATION_ARTIFACTS
+
+DIFF_STAT_RELEVANT
+ .gitignore                                         |   6 +
+ .../c8_post_closure_admissibility_audit_v0.json    |  37 ++
+ ...st_closure_continuation_decision_packet_v0.json |  24 ++
+ ...t_closure_continuation_decision_readout_v0.json |  17 +
+ ..._post_closure_continuation_decision_report.json |  23 ++
+ .../c8_post_closure_next_unit_candidate_v0.json    |  25 ++
+ ...post_closure_continuation_receipt_c2bcd85c.json | 104 +++++
+ ...post_closure_continuation_decision_packet_v0.py | 430 +++++++++++++++++++++
+ 8 files changed, 666 insertions(+)
+
+STATUS_AFTER_RELEVANT
+M  .gitignore
+A  data/c8_post_closure_continuation_decision_v0/c8_post_closure_admissibility_audit_v0.json
+A  data/c8_post_closure_continuation_decision_v0/c8_post_closure_continuation_decision_packet_v0.json
+A  data/c8_post_closure_continuation_decision_v0/c8_post_closure_continuation_decision_readout_v0.json
+A  data/c8_post_closure_continuation_decision_v0/c8_post_closure_continuation_decision_report.json
+A  data/c8_post_closure_continuation_decision_v0/c8_post_closure_next_unit_candidate_v0.json
+A  data/c8_post_closure_continuation_decision_v0_receipts/c8_post_closure_continuation_receipt_c2bcd85c.json
+A  scripts/create_c8_post_closure_continuation_decision_packet_v0.py
+
+C8_POST_CLOSURE_CONTINUATION_DECISION_READY_FOR_REVIEW
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

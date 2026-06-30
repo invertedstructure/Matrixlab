@@ -1,0 +1,124 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_082844
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_082844.txt
+
+REVIEW_C8_BASIC_RESEARCH_LOOP_SPECIMEN_V0
+
+VERIFY_C8_RECEIPT_PRESENT
+
+PY_COMPILE_C8_RUNNER
+
+VERIFY_C8_ARTIFACTS_AND_RECEIPTS
+{
+  "acceptance_gates_false_count": 0,
+  "bounded_probes_run": 1,
+  "decision_edge_observations_emitted": 1,
+  "failures": [],
+  "frontier_surfaces_loaded": 1,
+  "instrument_built": false,
+  "local_verification_emitted": false,
+  "missing_instrument_proposal_status": "PROPOSED_ONLY",
+  "negative_controls_nonzero_count": 0,
+  "outcome_class": "C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED",
+  "proposal_only_first_pass": true,
+  "receipt_id": "c8_basic_research_loop_specimen_receipt_6e5dafcf",
+  "repeat_once_completed": false,
+  "review_gate": "PASS",
+  "run_id": "c8_specimen_16b05ccf",
+  "runtime_receipts_emitted": 1,
+  "sidecar_events_emitted": 1,
+  "status": "TYPED_C8_BASIC_RESEARCH_LOOP_SPECIMEN_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED",
+    "type": "STOP"
+  },
+  "transition_classification": "MISSING_INSTRUMENT_EXPOSED",
+  "warnings": []
+}
+
+VERIFY_STAGED_SCOPE_C8_ONLY
+staged_path_count=24
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+c8_receipts_staged=['data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_6e5dafcf.json']
+
+REVIEW_DIFF_STAT
+ .gitignore                                         |    6 +
+ .../accepted_instrument_build_packet_v0.json       |   15 +
+ .../bounded_probe_receipt_v0.json                  |   52 +
+ .../bounded_research_probe_packet_v0.json          |   33 +
+ .../c8_basic_research_loop_specimen_budget_v0.json |   18 +
+ ...c8_basic_research_loop_specimen_profile_v0.json |   28 +
+ ...c8_basic_research_loop_specimen_readout_v0.json |   38 +
+ .../c8_basic_research_loop_specimen_report.json    |   24 +
+ .../c8_basic_research_loop_specimen_rollup_v0.json |   65 ++
+ ...ic_research_loop_specimen_transition_trace.json |   63 ++
+ .../c8_decision_edge_observations_v0.jsonl         |    1 +
+ .../c8_probe_admissibility_result_v0.json          |   13 +
+ .../c8_probe_schema_validation_result_v0.json      |    9 +
+ .../c8_repeat_once_packet_v0.json                  |   14 +
+ .../c8_runtime_step_receipts_v0.jsonl              |    1 +
+ .../c8_sidecar_events_v0.jsonl                     |    1 +
+ .../c8_specimen_open_decision_packet_v0.json       |   38 +
+ .../c8_unit_feedback_records_v0.jsonl              |    0
+ .../frontier_surface_contract_v0.json              |   55 ++
+ .../instrument_verification_receipt_v0.json        |   14 +
+ .../missing_instrument_proposal_v0.json            |   30 +
+ .../research_transition_classification_v0.json     |   23 +
+ ...ic_research_loop_specimen_receipt_6e5dafcf.json |  177 ++++
+ scripts/run_c8_basic_research_loop_specimen_v0.py  | 1004 ++++++++++++++++++++
+ 24 files changed, 1722 insertions(+)
+
+REVIEW_C8_READOUT
+receipt_id=c8_basic_research_loop_specimen_receipt_6e5dafcf
+status=TYPED_C8_BASIC_RESEARCH_LOOP_SPECIMEN_PASS
+outcome_class=C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED
+run_id=c8_specimen_16b05ccf
+proposal_only_first_pass=True
+frontier_surfaces_loaded=1
+bounded_probes_run=1
+transition_classification=MISSING_INSTRUMENT_EXPOSED
+missing_instrument_proposal_emitted=True
+missing_instrument_proposal_status=PROPOSED_ONLY
+instrument_built=False
+instrument_built_with_acceptance=False
+local_verification_emitted=False
+repeat_once_completed=False
+accepted_build_packet_preexisting=False
+na_stubs_emitted_for_build_verify_repeat=True
+sidecar_events_emitted=1
+decision_edge_observations_emitted=1
+unit_feedback_records_emitted=0
+runtime_receipts_emitted=1
+cell1_freebuild=False
+proposal_self_accepted=False
+accepted_build_packet_created_by_runner=False
+global_solution_claim=False
+frontier_solved_claim=False
+research_mode_opened=False
+source_receipts_mutated=False
+bad_counters_zero=True
+terminal_stop_code=STOP_C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED
+next_command_goal=None
+
+REVIEW_C8_PROPOSAL
+proposal_id=missing_instrument_d56acf49
+status=PROPOSED_ONLY
+instrument_kind=DISCRIMINATOR
+smallest_honest_name=local_transition_family_discriminator_candidate
+why_needed=The specimen needs a bounded local discriminator to decide whether the observed typed C7 authority-boundary transition belongs to a reusable transition family or remains only a one-run observation.
+bounded_objective=On the declared C7/runtime-attachment evidence surface only, separate typed local transition evidence from missing-discriminator obstruction without claiming global sufficiency.
+can_propose=True
+can_apply=False
+requires_review=True
+
+REVIEW_C8_NA_STUBS
+data/c8_basic_research_loop_specimen_v0/accepted_instrument_build_packet_v0.json status=NOT_APPLICABLE_NO_ACCEPTED_BUILD_PACKET reason=C8 first-pass specimen is proposal-only and no preexisting accepted build packet was provided.
+data/c8_basic_research_loop_specimen_v0/instrument_verification_receipt_v0.json status=NOT_APPLICABLE_NO_ACCEPTED_BUILD_PACKET reason=No instrument was built because no preexisting accepted build packet exists.
+data/c8_basic_research_loop_specimen_v0/c8_repeat_once_packet_v0.json status=NOT_APPLICABLE_NO_ACCEPTED_BUILD_PACKET reason=No repeat is allowed in the proposal-only first pass.
+
+REVIEW_C8_BASIC_RESEARCH_LOOP_SPECIMEN_PASS
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

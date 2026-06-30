@@ -1,0 +1,64 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_204132
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_204132.txt
+
+INTERROGATE_R250_PRESSURE_COARSENED_CANDIDATE_C_GROUPS_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+VERIFY_R250_COARSENED_CANDIDATE_C_INTERROGATION_INPUTS_TRACKED
+tracked data/r250_pressure_coarsening_review_v0_receipts/f03689e3.json
+tracked data/r250_pressure_coarsening_review_v0/coarsening_candidate_schema_v0.json
+tracked data/r250_pressure_coarsening_review_v0/coarsened_signature_schema_v0.json
+tracked data/r250_pressure_coarsening_review_v0/coarsening_review_guard_schema_v0.json
+tracked data/r250_pressure_coarsening_review_v0/coarsened_pressure_event_rows.jsonl
+tracked data/r250_pressure_coarsening_review_v0/coarsening_candidate_rollups.json
+tracked data/r250_pressure_coarsening_review_v0/coarsening_comparison_matrix.json
+tracked data/r250_pressure_coarsening_review_v0/coarsening_observer_burden_rollup.json
+tracked data/r250_pressure_coarsening_review_v0/r250_pressure_coarsening_review_report.json
+tracked data/r250_pressure_coarsening_review_v0/r250_pressure_coarsening_review_packet.json
+tracked data/r250_pressure_decomposed_interrogation_receipts/1f934d51.json
+tracked data/r250_pressure_decomposed_interrogations/r250_pressure_decomposed_interrogation_report.json
+tracked data/r250_pressure_decomposed_interrogations/r250_pressure_fragmentation_question_packet.json
+tracked data/r250_pressure_metrics_v0_receipts/f09b8395.json
+tracked data/closure_radius_real_batches/r250_pressure_metrics_v0/pressure_event_rows.jsonl
+tracked data/closure_radius_real_batches/r250_pressure_metrics_v0/pressure_decomposition_rollup.json
+tracked data/closure_radius_real_batches/r250_pressure_metrics_v0/pressure_signature_repetition_rollup.json
+tracked data/closure_radius_real_batches/r250_pressure_metrics_v0/observer_burden_rollup.json
+tracked data/closure_radius_real_batches/r250_pressure_metrics_v0/runtime_equivalence_report.json
+tracked data/closure_radius_real_batches/r250_pressure_metrics_v0/r250_pressure_metrics_batch_rollup.json
+tracked data/closure_radius_real_batches/r250_pressure_metrics_v0/r250_pressure_metrics_interrogation_ready_index.json
+tracked data/closure_radius_real_batch_receipts/05723444.json
+tracked data/closure_radius_real_batch_interrogation_receipts/41f65b9a.json
+tracked data/closure_radius_real_batch_r250_collection_v0_policies/44ee648b.json
+tracked data/receipt_interrogation_adapter_v0_implementation_receipts/a785297c.json
+tracked data/receipt_interrogation_adapter_v0_policies/2aa2f2f3.json
+tracked data/closure_radius_metrics_v0_implementation_receipts/98ab6f11.json
+optional_failed_receipt_present data/r250_pressure_metrics_v0_receipts/8b82d6a8.json
+
+PATCH_GITIGNORE
+
+WRITE_R250_CANDIDATE_C_INTERROGATION_BUILDER
+
+PY_COMPILE_R250_CANDIDATE_C_INTERROGATION_BUILDER
+  File "scripts/interrogate_r250_pressure_coarsened_candidate_c_groups_v0.py", line 547
+    if sorted(group["event_count"] for group in group_rows, reverse=True) != [7, 6, 6, 3, 1]:
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: Generator expression must be parenthesized
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

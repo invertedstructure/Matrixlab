@@ -1,0 +1,223 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_215341
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_215341.txt
+
+AUDIT_RUNTIME_INCREMENTAL_SUITE_REACHABILITY_MAP_V0
+
+STATUS_BEFORE_RELEVANT
+M  .gitignore
+A  data/runtime_adoption_smoke_v0/runtime_baseline_seal_v0.json
+A  data/runtime_adoption_smoke_v0/runtime_move_registry_snapshot_v0.json
+A  data/runtime_adoption_smoke_v0/runtime_pressure_classification_v0.json
+A  data/runtime_adoption_smoke_v0/runtime_refinement_candidate_records_v0.jsonl
+A  data/runtime_adoption_smoke_v0/runtime_smoke_profile_v0.json
+A  data/runtime_adoption_smoke_v0/runtime_smoke_readout_v0.json
+A  data/runtime_adoption_smoke_v0/runtime_smoke_receipt_v0.json
+A  data/runtime_adoption_smoke_v0/runtime_smoke_report.json
+A  data/runtime_adoption_smoke_v0/runtime_smoke_rollup_v0.json
+A  data/runtime_adoption_smoke_v0/runtime_smoke_trace_v0.jsonl
+A  data/runtime_adoption_smoke_v0/runtime_smoke_transition_trace.json
+A  data/runtime_adoption_smoke_v0/runtime_state_schema_v0.json
+A  data/runtime_adoption_smoke_v0/runtime_state_v0.json
+A  data/runtime_adoption_smoke_v0_receipts/runtime_smoke_receipt_900b2eae.json
+A  scripts/build_outer_runtime_adoption_smoke_v0.py
+
+VERIFY_REACHABILITY_MAP_BASIS
+present data/runtime_adoption_smoke_v0_receipts/runtime_smoke_receipt_900b2eae.json
+present data/runtime_adoption_smoke_v0/runtime_move_registry_snapshot_v0.json
+present data/runtime_adoption_smoke_v0/runtime_smoke_trace_v0.jsonl
+present data/runtime_adoption_smoke_v0/runtime_state_v0.json
+present data/runtime_adoption_smoke_v0/runtime_smoke_readout_v0.json
+present data/runtime_adoption_smoke_v0/runtime_pressure_classification_v0.json
+present data/runtime_adoption_smoke_v0/runtime_baseline_seal_v0.json
+
+PATCH_GITIGNORE
+
+WRITE_REACHABILITY_MAP_AUDIT
+
+PY_COMPILE_REACHABILITY_MAP_AUDIT
+
+RUN_REACHABILITY_MAP_AUDIT
+{
+  "acceptance_gate_results": {
+    "REACHABILITY_0_CLEAN_SMOKE_RECEIPT_CONSUMED": true,
+    "REACHABILITY_1_REGISTRY_SNAPSHOT_CONSUMED": true,
+    "REACHABILITY_2_TRACE_CONSUMED": true,
+    "REACHABILITY_3_OBSERVED_MOVES_MAPPED": true,
+    "REACHABILITY_4_BRANCH_GAPS_CLASSIFIED": true,
+    "REACHABILITY_5_TIER_FEASIBILITY_EMITTED": true,
+    "REACHABILITY_6_STATE_VARIANT_RULES_NEXT": true,
+    "REACHABILITY_7_NO_SUITE_RUN": true,
+    "REACHABILITY_8_NO_RUNTIME_PATCH": true,
+    "REACHABILITY_9_NO_HIDDEN_NEXT_COMMAND": true
+  },
+  "build_mode": "RUNTIME_INCREMENTAL_SUITE_REACHABILITY_MAP_ONLY",
+  "created_at": "2026-06-25T20:53:41.817828+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OUTER / RUNTIME_ADOPTION / INCREMENTAL_SUITE_PREFLIGHT",
+  "machine_readable_reachability_summary": {
+    "architecture_widened": false,
+    "branch_gap_count": 9,
+    "c8_authorized": false,
+    "fixture_expanded_by_default": false,
+    "hidden_next_command": false,
+    "live_runtime_hooks_installed": false,
+    "move_tie_candidate_count": 0,
+    "next_unit_id": "PREPARE_RUNTIME_DECLARED_STATE_VARIANT_RULES_V0",
+    "observed_admissibility_pass_only": true,
+    "observed_move_count": 6,
+    "observed_schema_pass_only": true,
+    "reachability_map_done": true,
+    "ready_for_full_test_batch": false,
+    "ready_for_state_variant_rules": true,
+    "reason_codes": [
+      "CLEAN_SMOKE_RECEIPT_CONSUMED",
+      "CURRENT_MOVE_REGISTRY_SNAPSHOT_CONSUMED",
+      "TRACE_OBSERVED_MOVES_MAPPED",
+      "SCHEMA_PASS_ONLY_CLASSIFIED",
+      "ADMISSIBILITY_PASS_ONLY_CLASSIFIED",
+      "T3_FAILURE_BRANCHES_NOT_MANUFACTURED",
+      "T6_LOOP_CAP_BRANCHES_NOT_MANUFACTURED",
+      "STATE_VARIANT_RULES_ARE_NEXT",
+      "NO_TEST_SUITE_RUN",
+      "NO_MOVE_ADDITION",
+      "NO_SCHEMA_INVENTION",
+      "NO_TAXONOMY_INVENTION",
+      "NO_FIXTURE_EXPANSION_BY_DEFAULT",
+      "NO_RUNTIME_PATCH",
+      "NO_LIVE_HOOK_INSTALL",
+      "NO_C8_AUTHORIZATION",
+      "NO_HIDDEN_NEXT_COMMAND"
+    ],
+    "recommended_first_suite_total_cases": 10,
+    "registry_has_cycle": false,
+    "registry_move_count": 6,
+    "runtime_adoption_authorized": false,
+    "runtime_patched": false,
+    "schema_archive_mutated": false,
+    "schema_created": false,
+    "status": "TYPED_RUNTIME_INCREMENTAL_SUITE_REACHABILITY_MAP_READY_STATE_VARIANTS_NEXT",
+    "taxonomy_created": false,
+    "unobserved_registered_move_count": 0
+  },
+  "mode": "AUDIT_ONLY / REGISTRY_REACHABILITY / NO_TEST_RUN",
+  "output_artifacts": {
+    "basis": "data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_basis_v0.json",
+    "branch_gap_index": "data/runtime_incremental_suite_preflight_v0/runtime_branch_gap_index_v0.json",
+    "implementation_receipt": "data/runtime_incremental_suite_preflight_v0_receipts/de9b179a.json",
+    "next_target": "data/runtime_incremental_suite_preflight_v0/runtime_declared_state_variant_rules_target_v0.json",
+    "profile": "data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_profile_v0.json",
+    "registry_reachability_map": "data/runtime_incremental_suite_preflight_v0/runtime_registry_reachability_map_v0.json",
+    "rollup": "data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_rollup_v0.json",
+    "tier_feasibility": "data/runtime_incremental_suite_preflight_v0/runtime_incremental_suite_tier_feasibility_v0.json",
+    "transition_trace": "data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_transition_trace.json"
+  },
+  "receipt_id": "de9b179a",
+  "receipt_type": "TYPED_RUNTIME_INCREMENTAL_SUITE_REACHABILITY_MAP_RECEIPT",
+  "schema_version": "runtime_incremental_suite_reachability_map_receipt_v0",
+  "source_runtime_smoke_receipt_id": "runtime_smoke_receipt_900b2eae",
+  "status": "TYPED_RUNTIME_INCREMENTAL_SUITE_REACHABILITY_MAP_READY_STATE_VARIANTS_NEXT",
+  "target_unit_id": "outer.runtime_adoption.incremental_suite.reachability_map_v0",
+  "terminal": {
+    "next_unit_id": "PREPARE_RUNTIME_DECLARED_STATE_VARIANT_RULES_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "unit_id": "AUDIT_RUNTIME_INCREMENTAL_SUITE_REACHABILITY_MAP_V0",
+  "warnings": []
+}
+runtime_reachability_map_receipt_id=de9b179a
+runtime_reachability_map_receipt_path=data/runtime_incremental_suite_preflight_v0_receipts/de9b179a.json
+runtime_reachability_map_next_unit=PREPARE_RUNTIME_DECLARED_STATE_VARIANT_RULES_V0
+
+ASSERT_REACHABILITY_MAP_AUDIT
+{
+  "branch_gap_count": 9,
+  "c8_authorized": false,
+  "failures": [],
+  "gate": "PASS",
+  "hidden_next_command": false,
+  "move_tie_candidate_count": 0,
+  "next_unit_id": "PREPARE_RUNTIME_DECLARED_STATE_VARIANT_RULES_V0",
+  "observed_admissibility_pass_only": true,
+  "observed_move_count": 6,
+  "observed_schema_pass_only": true,
+  "ready_for_full_test_batch": false,
+  "ready_for_state_variant_rules": true,
+  "receipt_id": "de9b179a",
+  "registry_has_cycle": false,
+  "registry_move_count": 6,
+  "runtime_adoption_authorized": false,
+  "runtime_patched": false,
+  "status": "TYPED_RUNTIME_INCREMENTAL_SUITE_REACHABILITY_MAP_READY_STATE_VARIANTS_NEXT",
+  "terminal": {
+    "next_unit_id": "PREPARE_RUNTIME_DECLARED_STATE_VARIANT_RULES_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "unobserved_registered_move_count": 0
+}
+
+SHOW_REACHABILITY_MAP_NEXT
+receipt_id=de9b179a
+receipt_path=data/runtime_incremental_suite_preflight_v0_receipts/de9b179a.json
+status=TYPED_RUNTIME_INCREMENTAL_SUITE_REACHABILITY_MAP_READY_STATE_VARIANTS_NEXT
+registry_move_count=6
+observed_move_count=6
+unobserved_registered_move_count=0
+branch_gap_count=9
+registry_has_cycle=False
+move_tie_candidate_count=0
+observed_schema_pass_only=True
+observed_admissibility_pass_only=True
+recommended_first_suite_total_cases=10
+ready_for_state_variant_rules=True
+ready_for_full_test_batch=False
+next_unit_id=PREPARE_RUNTIME_DECLARED_STATE_VARIANT_RULES_V0
+runtime_adoption_authorized=False
+runtime_patched=False
+fixture_expanded_by_default=False
+architecture_widened=False
+hidden_next_command=False
+c8_authorized=False
+terminal_type=ADVANCE
+terminal_next_unit_id=PREPARE_RUNTIME_DECLARED_STATE_VARIANT_RULES_V0
+
+SHOW_BRANCH_GAP_INDEX
+gap_count=9
+T1:terminal_stability_variants:NEEDS_DECLARED_STATE_VARIANT_RULES -> PREPARE_RUNTIME_DECLARED_STATE_VARIANT_RULES_V0
+T2:registered_branch_coverage:PARTIAL -> Use only observed branches first; record unreachable desired branches as coverage pressure if needed.
+T3:schema_validation_pass:OBSERVED_PASS_ONLY -> Do not manufacture schema failure; require explicit declared invalid-state case or record unreachable branch.
+T3:admissibility_pass:OBSERVED_PASS_ONLY -> Do not manufacture authority failure; require explicit declared boundary case or record unreachable branch.
+T4:observability_degraded_or_gap:NOT_REACHABLE_FROM_CURRENT_REGISTRY_ONLY -> Prepare non-control observability status case contract before T4 stress.
+T5:negative_controls_non_writing:NEEDS_NON_WRITING_PROBE_CONTRACT -> Prepare negative-control probe contract.
+T6:step_cap_or_loop_shape:NOT_REACHABLE_FROM_CURRENT_REGISTRY_ONLY -> Do not include T6 in first suite unless loop/cap trigger is declared from current registry.
+T6:move_tie_unresolved:NOT_PRESENT -> Do not include move-tie case in first suite.
+T2/T6:no_applicable_move:UNDERDECLARED -> Do not invent unrecognized phase inside suite; decide in state variant rules.
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+MM .gitignore
+?? scripts/audit_runtime_incremental_suite_reachability_map_v0.py
+
+PACKAGE_REACHABILITY_MAP_AUDIT_ARTIFACTS
+
+REACHABILITY_MAP_AUDIT_READY_FOR_COMMIT
+M  .gitignore
+A  data/runtime_incremental_suite_preflight_v0/runtime_branch_gap_index_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_declared_state_variant_rules_target_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_incremental_suite_tier_feasibility_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_basis_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_profile_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_rollup_v0.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_reachability_audit_transition_trace.json
+A  data/runtime_incremental_suite_preflight_v0/runtime_registry_reachability_map_v0.json
+A  data/runtime_incremental_suite_preflight_v0_receipts/de9b179a.json
+A  scripts/audit_runtime_incremental_suite_reachability_map_v0.py
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

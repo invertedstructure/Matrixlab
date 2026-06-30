@@ -1,0 +1,469 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_203046
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_203046.txt
+
+BUILD_CYCLE_PERIOD_COMPRESSION_FIX_CANDIDATE_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_CYCLE_PERIOD_FIX_CANDIDATE_SCRIPT
+
+PY_COMPILE
+
+BUILD_CYCLE_PERIOD_FIX_CANDIDATE
+{
+  "authorizes_cycle_execution_skipping": false,
+  "authorizes_early_halt_on_period_detection": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_patch_application": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_reusing_prior_cycle_results_as_execution": false,
+  "authorizes_synthetic_cycle_receipts": false,
+  "candidate_id": "bba11fe6",
+  "candidate_name": "FIX_CANDIDATE_CYCLE_PERIOD_COMPRESSION_V0",
+  "candidate_path": "data/cycle_period_compression_fix_candidates/bba11fe6.json",
+  "candidate_sig8": "bba11fe6",
+  "candidate_status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "created_at": "2026-06-20T19:30:47.617471+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "receipt_id": "48551429",
+  "receipt_sig8": "48551429",
+  "required_retest": {
+    "after_profile_required": true,
+    "before_profile_id": "24ac7037",
+    "comparison_artifact_schema": "cycle_period_compression_before_after_comparison_v0",
+    "comparison_required": true,
+    "pass_condition": [
+      "after profile gate MICRO_BURDEN_PROFILE_PASS",
+      "receipt totals match registry.sqlite",
+      "all five probes complete",
+      "family coverage A-E preserved",
+      "cycle-scan row keys preserved",
+      "cycle-scan receipts preserved",
+      "no gate semantics change",
+      "no law semantics change",
+      "no halt semantics change",
+      "no run semantics change",
+      "no execution skipping",
+      "no cycle execution skipping",
+      "no early halt on period detection",
+      "no synthetic receipts",
+      "BURDEN_CYCLE_SCAN target rows show non-worse elapsed_ms or explicit failure classification"
+    ],
+    "same_micro_suite_required": true,
+    "same_probe_specs_required": true,
+    "same_script": "scripts/wide_burden_profile_microruns.py --execute"
+  },
+  "schema_version": "cycle_period_compression_fix_candidate_receipt_v0",
+  "source_after_profile_id": "24ac7037",
+  "source_policy_id": "688b83a9",
+  "target_burden_class": "BURDEN_CYCLE_SCAN",
+  "target_elapsed_ms": 4392,
+  "target_receipts": 576,
+  "target_rows": 5,
+  "terminal": {
+    "next_command_goal": "APPLY_CYCLE_PERIOD_COMPRESSION_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+candidate_json_path=data/cycle_period_compression_fix_candidates/bba11fe6.json
+candidate_receipt_path=data/cycle_period_compression_fix_candidate_receipts/bba11fe6.json
+CANDIDATE_ID=bba11fe6
+
+ASSERT_CYCLE_PERIOD_FIX_CANDIDATE
+{
+  "authorizes_code_change_now": false,
+  "authorizes_cycle_execution_skipping": false,
+  "authorizes_early_halt_on_period_detection": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_patch_application": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_reusing_prior_cycle_results_as_execution": false,
+  "authorizes_synthetic_cycle_receipts": false,
+  "cache_scope": "within_one_micro_profile_execution_only",
+  "candidate_id": "bba11fe6",
+  "candidate_name": "FIX_CANDIDATE_CYCLE_PERIOD_COMPRESSION_V0",
+  "candidate_sig8": "bba11fe6",
+  "candidate_status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "certificate_scope": "post_execution_observation_metadata_only",
+  "expected_cycle_slot_ids": [
+    "MICRO_02_CYCLE_PRESSURE_A",
+    "MICRO_02_CYCLE_PRESSURE_B",
+    "MICRO_02_CYCLE_PRESSURE_C",
+    "MICRO_02_CYCLE_PRESSURE_D",
+    "MICRO_02_CYCLE_PRESSURE_E"
+  ],
+  "fail_closed_if_cycles_per_case_changes": true,
+  "failures": [],
+  "gate": "PASS",
+  "intended_change_count": 4,
+  "must_not_cache": [
+    "run_id",
+    "receipt rows",
+    "receipt counts as substitutes for execution",
+    "law results",
+    "gate results",
+    "halt results",
+    "stdout/stderr from a prior run",
+    "any prior execution result",
+    "cycle results as substitute execution"
+  ],
+  "must_not_certify_without_execution": true,
+  "must_not_change_halt_reason": true,
+  "patch_plan_kind": "CYCLE_PERIOD_COMPRESSION_PATCH_PLAN",
+  "receipt_gate": "PASS",
+  "receipt_id": "48551429",
+  "source_after_profile_id": "24ac7037",
+  "source_policy_id": "688b83a9",
+  "target_burden_class": "BURDEN_CYCLE_SCAN",
+  "target_burden_class_proven": true,
+  "terminal": {
+    "next_command_goal": "APPLY_CYCLE_PERIOD_COMPRESSION_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_CYCLE_PERIOD_CANDIDATE_POLICY_MUTATIONS
+{
+  "case": "policy_gate_fail",
+  "expected": "policy_gate_not_PASS",
+  "failures": [
+    "policy_gate_not_PASS"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "wrong_target_fail",
+  "expected": "target_burden_class_mismatch",
+  "failures": [
+    "target_burden_class_mismatch:BURDEN_DEPTH_SCAN"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "multi_candidate_fail",
+  "expected": "authorizes_fix_candidate_count_not_one",
+  "failures": [
+    "authorizes_fix_candidate_count_not_one:2"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "cycle_execution_skipping_authority_fail",
+  "expected": "illegal_policy_authorization:authorizes_cycle_execution_skipping",
+  "failures": [
+    "illegal_policy_authorization:authorizes_cycle_execution_skipping:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "early_halt_authority_fail",
+  "expected": "illegal_policy_authorization:authorizes_early_halt_on_period_detection",
+  "failures": [
+    "illegal_policy_authorization:authorizes_early_halt_on_period_detection:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "synthetic_receipts_authority_fail",
+  "expected": "illegal_policy_authorization:authorizes_synthetic_cycle_receipts",
+  "failures": [
+    "illegal_policy_authorization:authorizes_synthetic_cycle_receipts:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "reuse_prior_cycle_results_authority_fail",
+  "expected": "illegal_policy_authorization:authorizes_reusing_prior_cycle_results_as_execution",
+  "failures": [
+    "illegal_policy_authorization:authorizes_reusing_prior_cycle_results_as_execution:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "target_slot_mismatch_fail",
+  "expected": "target_slots_mismatch",
+  "failures": [
+    "target_slots_mismatch:['MICRO_02_CYCLE_PRESSURE_COLLAPSED', 'MICRO_02_CYCLE_PRESSURE_B', 'MICRO_02_CYCLE_PRESSURE_C', 'MICRO_02_CYCLE_PRESSURE_D', 'MICRO_02_CYCLE_PRESSURE_E']"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "target_receipts_mismatch_fail",
+  "expected": "target_receipts_not_expected_576",
+  "failures": [
+    "target_receipts_not_expected_576:575"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+CANDIDATE_HEAD_JSON
+{
+  "authorization": {
+    "authorizes_code_change_now": false,
+    "authorizes_cycle_execution_skipping": false,
+    "authorizes_early_halt_on_period_detection": false,
+    "authorizes_execution_skipping": false,
+    "authorizes_gate_semantics_change": false,
+    "authorizes_halt_semantics_change": false,
+    "authorizes_law_semantics_change": false,
+    "authorizes_patch_application": false,
+    "authorizes_radius_expansion": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_schema_change": false,
+    "authorizes_reusing_prior_cycle_results_as_execution": false,
+    "authorizes_reusing_prior_run_results_as_execution": false,
+    "authorizes_runner_semantics_change": false,
+    "authorizes_synthetic_cycle_receipts": false
+  },
+  "candidate_id": "bba11fe6",
+  "candidate_name": "FIX_CANDIDATE_CYCLE_PERIOD_COMPRESSION_V0",
+  "candidate_status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "expected_metric_direction": {
+    "before_profile_id": "24ac7037",
+    "before_target_elapsed_ms": 4392,
+    "before_target_receipts": 576,
+    "before_target_rows": 5,
+    "expected_elapsed_ms": "decrease_or_non_worse",
+    "expected_receipts_per_sec": "increase_or_non_worse",
+    "must_not_change_halt_law_gate_run_semantics": true,
+    "must_preserve_cycle_slot_identity_exactly": [
+      "MICRO_02_CYCLE_PRESSURE_A",
+      "MICRO_02_CYCLE_PRESSURE_B",
+      "MICRO_02_CYCLE_PRESSURE_C",
+      "MICRO_02_CYCLE_PRESSURE_D",
+      "MICRO_02_CYCLE_PRESSURE_E"
+    ],
+    "must_preserve_family_coverage_A_E": true,
+    "must_preserve_profile_receipts_total_match_registry": true,
+    "must_preserve_target_receipts": 576,
+    "must_preserve_target_rows": 5,
+    "primary_metric": "elapsed_ms",
+    "secondary_metric": "receipts_per_sec",
+    "target_rows": "rows with burden_class == BURDEN_CYCLE_SCAN"
+  },
+  "gate": "PASS",
+  "patch_plan": {
+    "cache_policy": {
+      "cache_key_fields": [
+        "probe_id",
+        "slot_id",
+        "family_compact",
+        "depth_max",
+        "cycles_per_case",
+        "max_cells"
+      ],
+      "cache_scope": "within_one_micro_profile_execution_only",
+      "cache_value_fields": [
+        "family_name",
+        "stress_cli_args",
+        "expected_cycle_slot_identity",
+        "metadata_only_no_results"
+      ],
+      "must_not_cache": [
+        "run_id",
+        "receipt rows",
+        "receipt counts as substitutes for execution",
+        "law results",
+        "gate results",
+        "halt results",
+        "stdout/stderr from a prior run",
+        "any prior execution result",
+        "cycle results as substitute execution"
+      ]
+    },
+    "cycle_slot_identity_guard": {
+      "expected_cycle_slot_ids": [
+        "MICRO_02_CYCLE_PRESSURE_A",
+        "MICRO_02_CYCLE_PRESSURE_B",
+        "MICRO_02_CYCLE_PRESSURE_C",
+        "MICRO_02_CYCLE_PRESSURE_D",
+        "MICRO_02_CYCLE_PRESSURE_E"
+      ],
+      "fail_closed_if_any_cycle_slot_merged": true,
+      "fail_closed_if_any_cycle_slot_missing": true,
+      "fail_closed_if_cycles_per_case_changes": true,
+      "fail_closed_if_slot_identity_changes": true,
+      "families_must_remain_A_E": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "probe_must_remain": "MICRO_02_CYCLE_PRESSURE"
+    },
+    "files_allowed_to_touch_if_later_applied": [
+      "scripts/wide_burden_profile_microruns.py",
+      "narrow helper module for cycle-period metadata certificates if one exists"
+    ],
+    "intended_changes": [
+      {
+        "change_id": "BUILD_CYCLE_PERIOD_METADATA_CERTIFICATE_OBJECT",
+        "description": "Construct a metadata certificate from completed cycle-pressure run observations, recording observed period evidence after normal execution.",
+        "expected_effect": "Make cycle-period evidence explicit without changing halt or execution behavior.",
+        "semantic_constraint": "Certificate must be derived after execution; it cannot terminate execution early or stand in for execution."
+      },
+      {
+        "change_id": "CACHE_CYCLE_PROBE_PLAN_METADATA_NOT_RESULTS",
+        "description": "Cache deterministic cycle-pressure plan metadata keyed by probe id, slot id, family, depth, cycles_per_case, and max_cells.",
+        "expected_effect": "Reduce metadata reconstruction overhead around the cycle-pressure probe.",
+        "semantic_constraint": "Cache must not contain run ids, receipt rows, halt/law/gate results, stdout/stderr, or prior execution outputs."
+      },
+      {
+        "change_id": "PRESERVE_CYCLE_PRESSURE_ROW_IDENTITY_GUARD",
+        "description": "Add explicit checks that cycle-pressure rows remain exactly MICRO_02_CYCLE_PRESSURE_A..E.",
+        "expected_effect": "Prevent cycle-pressure row collapse or probe drift.",
+        "semantic_constraint": "All five A-E cycle-pressure rows must remain distinguishable and present."
+      },
+      {
+        "change_id": "PRESERVE_CYCLES_PER_CASE_AND_HALT_SEMANTICS",
+        "description": "Keep requested cycles_per_case unchanged and preserve halt decision semantics.",
+        "expected_effect": "Allow valid before/after comparison against before_profile_id 24ac7037.",
+        "semantic_constraint": "No early halt on period detection; no synthetic receipts; no skipped cycles."
+      }
+    ],
+    "metadata_certificate_policy": {
+      "certificate_key_fields": [
+        "probe_id",
+        "slot_id",
+        "family_compact",
+        "depth_max",
+        "cycles_per_case",
+        "max_cells"
+      ],
+      "certificate_scope": "post_execution_observation_metadata_only",
+      "certificate_value_fields_allowed": [
+        "observed_halt_counts",
+        "observed_total_receipts",
+        "observed_total_cases",
+        "observed_periodic_halt_presence",
+        "metadata_only_no_execution_substitution"
+      ],
+      "must_not_certify_without_execution": true,
+      "must_not_change_cycles_per_case": true,
+      "must_not_change_halt_reason": true
+    },
+    "plan_kind": "CYCLE_PERIOD_COMPRESSION_PATCH_PLAN",
+    "plan_status": "PROPOSAL_ONLY_NOT_APPLIED"
+  },
+  "required_retest": {
+    "after_profile_required": true,
+    "before_profile_id": "24ac7037",
+    "comparison_artifact_schema": "cycle_period_compression_before_after_comparison_v0",
+    "comparison_required": true,
+    "pass_condition": [
+      "after profile gate MICRO_BURDEN_PROFILE_PASS",
+      "receipt totals match registry.sqlite",
+      "all five probes complete",
+      "family coverage A-E preserved",
+      "cycle-scan row keys preserved",
+      "cycle-scan receipts preserved",
+      "no gate semantics change",
+      "no law semantics change",
+      "no halt semantics change",
+      "no run semantics change",
+      "no execution skipping",
+      "no cycle execution skipping",
+      "no early halt on period detection",
+      "no synthetic receipts",
+      "BURDEN_CYCLE_SCAN target rows show non-worse elapsed_ms or explicit failure classification"
+    ],
+    "same_micro_suite_required": true,
+    "same_probe_specs_required": true,
+    "same_script": "scripts/wide_burden_profile_microruns.py --execute"
+  },
+  "source_policy": {
+    "gate": "PASS",
+    "policy_id": "688b83a9",
+    "policy_path": "data/cycle_period_compression_fix_candidate_policies/688b83a9.json",
+    "policy_sig8": "688b83a9"
+  },
+  "target_burden_class": "BURDEN_CYCLE_SCAN",
+  "target_burden_evidence": {
+    "burden_class": "BURDEN_CYCLE_SCAN",
+    "elapsed_ms": 4392,
+    "families": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "probes": [
+      "MICRO_02_CYCLE_PRESSURE"
+    ],
+    "receipts": 576,
+    "receipts_per_sec": 131.147541,
+    "rows": 5,
+    "slot_identity_expected": [
+      "MICRO_02_CYCLE_PRESSURE_A",
+      "MICRO_02_CYCLE_PRESSURE_B",
+      "MICRO_02_CYCLE_PRESSURE_C",
+      "MICRO_02_CYCLE_PRESSURE_D",
+      "MICRO_02_CYCLE_PRESSURE_E"
+    ],
+    "slot_identity_matches_expected": true,
+    "slots": [
+      "MICRO_02_CYCLE_PRESSURE_A",
+      "MICRO_02_CYCLE_PRESSURE_B",
+      "MICRO_02_CYCLE_PRESSURE_C",
+      "MICRO_02_CYCLE_PRESSURE_D",
+      "MICRO_02_CYCLE_PRESSURE_E"
+    ]
+  },
+  "terminal": {
+    "next_command_goal": "APPLY_CYCLE_PERIOD_COMPRESSION_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_191652_455272
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/build_cycle_period_compression_fix_candidate.py
+[master 60029bfc7] add cycle period compression fix candidate
+ 2 files changed, 418 insertions(+)
+ create mode 100755 scripts/build_cycle_period_compression_fix_candidate.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

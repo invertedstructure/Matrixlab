@@ -1,0 +1,218 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_090406
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_090406.txt
+
+REVIEW_C8_CURRENT_MISSING_INSTRUMENT_PROPOSAL_V0
+
+VERIFY_C8_PROPOSAL_REVIEW_SOURCES_PRESENT
+present data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_6e5dafcf.json
+present data/c8_basic_research_loop_specimen_v0/missing_instrument_proposal_v0.json
+present data/c8_basic_research_loop_specimen_v0/research_transition_classification_v0.json
+present data/c8_basic_research_loop_specimen_v0/bounded_probe_receipt_v0.json
+present data/c8_basic_research_loop_specimen_v0/frontier_surface_contract_v0.json
+present data/c8_basic_research_loop_specimen_v0/accepted_instrument_build_packet_v0.json
+
+VERIFY_C8_COMMIT_PRESENT
+c8_commit_present=27514fa3402e87817cd0b87c1af970686e2d35c7
+
+PATCH_GITIGNORE
+
+WRITE_C8_PROPOSAL_REVIEW_RUNNER
+
+PY_COMPILE_C8_PROPOSAL_REVIEW_RUNNER
+
+RUN_C8_PROPOSAL_REVIEW
+{
+  "acceptance_gate_results": {
+    "C8_PROPOSAL_REVIEW_0_C8_RECEIPT_VERIFIED": true,
+    "C8_PROPOSAL_REVIEW_10_NO_PROPOSAL_SELF_ACCEPTANCE": true,
+    "C8_PROPOSAL_REVIEW_11_NO_INSTRUMENT_BUILD": true,
+    "C8_PROPOSAL_REVIEW_12_NO_CELL1_BUILD": true,
+    "C8_PROPOSAL_REVIEW_13_NO_VERIFICATION_PROBE_RUN": true,
+    "C8_PROPOSAL_REVIEW_14_NO_REPEAT_RUN": true,
+    "C8_PROPOSAL_REVIEW_15_NO_RESEARCH_MODE_OPENED": true,
+    "C8_PROPOSAL_REVIEW_16_NO_GLOBAL_OR_FRONTIER_SOLUTION_CLAIM": true,
+    "C8_PROPOSAL_REVIEW_17_SOURCE_ARTIFACTS_IMMUTABLE": true,
+    "C8_PROPOSAL_REVIEW_18_REVIEW_PACKET_EMITTED": true,
+    "C8_PROPOSAL_REVIEW_19_BAD_COUNTERS_ZERO": true,
+    "C8_PROPOSAL_REVIEW_1_SOURCE_OUTCOME_MISSING_INSTRUMENT_EXPOSED": true,
+    "C8_PROPOSAL_REVIEW_2_PROPOSAL_PRESENT": true,
+    "C8_PROPOSAL_REVIEW_3_PROPOSAL_STATUS_PROPOSED_ONLY": true,
+    "C8_PROPOSAL_REVIEW_4_INSTRUMENT_KIND_DISCRIMINATOR": true,
+    "C8_PROPOSAL_REVIEW_5_TRIGGER_REFS_MATCH_SOURCE_ARTIFACTS": true,
+    "C8_PROPOSAL_REVIEW_6_AUTHORITY_BOUNDARY_CLEAN": true,
+    "C8_PROPOSAL_REVIEW_7_BOUNDED_OBJECTIVE_PRESENT": true,
+    "C8_PROPOSAL_REVIEW_8_EXPECTED_VERIFICATION_PRESENT": true,
+    "C8_PROPOSAL_REVIEW_9_NO_ACCEPTED_BUILD_PACKET_CREATED": true
+  },
+  "created_at": "2026-06-27T08:04:06.167569+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "machine_readable_review_summary": {
+    "accepted_build_packet_created": false,
+    "authority_boundary_clean": true,
+    "bad_counters_zero": true,
+    "cell1_build": false,
+    "frontier_solved_claim": false,
+    "global_solution_claim": false,
+    "instrument_built": false,
+    "instrument_kind": "DISCRIMINATOR",
+    "next_command_goal": null,
+    "proposal_has_verification": true,
+    "proposal_id": "missing_instrument_d56acf49",
+    "proposal_is_bounded": true,
+    "proposal_is_well_formed": true,
+    "proposal_review_complete": true,
+    "proposal_status": "PROPOSED_ONLY",
+    "repeat_run": false,
+    "research_mode_opened": false,
+    "review_decision": "REVIEWABLE_NOT_ACCEPTED",
+    "source_artifacts_mutated": false,
+    "verification_probe_run": false
+  },
+  "milestone": "C8_MISSING_INSTRUMENT_PROPOSAL_REVIEWED",
+  "negative_controls": {
+    "accepted_build_packet_created_count": 0,
+    "accepted_build_packet_mutated_count": 0,
+    "cell1_build_count": 0,
+    "frontier_solved_claim_count": 0,
+    "global_solution_claim_count": 0,
+    "hidden_next_command_count": 0,
+    "instrument_built_count": 0,
+    "proposal_self_accepted_count": 0,
+    "repeat_run_count": 0,
+    "research_mode_opened_count": 0,
+    "source_c8_proposal_mutation_count": 0,
+    "source_c8_receipt_mutation_count": 0,
+    "source_classification_mutation_count": 0,
+    "source_frontier_mutation_count": 0,
+    "source_probe_receipt_mutation_count": 0,
+    "verification_probe_run_count": 0
+  },
+  "outcome_class": "C8_PROPOSAL_REVIEWABLE_NOT_ACCEPTED",
+  "output_artifacts": {
+    "receipt": "data/c8_missing_instrument_proposal_review_v0_receipts/c8_proposal_review_receipt_4e8dc3b7.json",
+    "review_packet": "data/c8_missing_instrument_proposal_review_v0/c8_missing_instrument_proposal_review_packet_v0.json",
+    "review_readout": "data/c8_missing_instrument_proposal_review_v0/c8_missing_instrument_proposal_review_readout_v0.json",
+    "review_report": "data/c8_missing_instrument_proposal_review_v0/c8_missing_instrument_proposal_review_report.json"
+  },
+  "receipt_id": "c8_proposal_review_receipt_4e8dc3b7",
+  "receipt_type": "TYPED_C8_MISSING_INSTRUMENT_PROPOSAL_REVIEW_RECEIPT",
+  "schema_version": "c8_missing_instrument_proposal_review_receipt_v0",
+  "source_artifact_immutability": {
+    "source_artifacts_mutated": false,
+    "source_hashes_after": {
+      "c8_accepted_stub": "a26cefa4ff47de0bce95f586d07dbd064430f58c9573668bd1f9c89476208f4d",
+      "c8_classification": "ca0632f437c0403d1c5ecc812f5d9651d031bbe71d8ce7799749dfad503bd6ae",
+      "c8_frontier": "d122ef5629b6736560146035d8f11dfe8c01270d17e7fca3f47264d04de3bb72",
+      "c8_probe_receipt": "73c1da2baa55b57078b8ad557bb076ff115abda92c9519221e320a1118a4ced8",
+      "c8_proposal": "43e6e5d933394ed991aff92e5dc96ca1739380f4272d31d65b6c510f2f729972",
+      "c8_receipt": "3434e223e4aaa275612c16dd172e0198ed00a01f6582a50222223a11adf4ff85"
+    },
+    "source_hashes_before": {
+      "c8_accepted_stub": "a26cefa4ff47de0bce95f586d07dbd064430f58c9573668bd1f9c89476208f4d",
+      "c8_classification": "ca0632f437c0403d1c5ecc812f5d9651d031bbe71d8ce7799749dfad503bd6ae",
+      "c8_frontier": "d122ef5629b6736560146035d8f11dfe8c01270d17e7fca3f47264d04de3bb72",
+      "c8_probe_receipt": "73c1da2baa55b57078b8ad557bb076ff115abda92c9519221e320a1118a4ced8",
+      "c8_proposal": "43e6e5d933394ed991aff92e5dc96ca1739380f4272d31d65b6c510f2f729972",
+      "c8_receipt": "3434e223e4aaa275612c16dd172e0198ed00a01f6582a50222223a11adf4ff85"
+    }
+  },
+  "source_refs": {
+    "accepted_build_stub_ref": "data/c8_basic_research_loop_specimen_v0/accepted_instrument_build_packet_v0.json",
+    "c8_receipt_ref": "data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_6e5dafcf.json",
+    "classification_ref": "data/c8_basic_research_loop_specimen_v0/research_transition_classification_v0.json",
+    "frontier_surface_ref": "data/c8_basic_research_loop_specimen_v0/frontier_surface_contract_v0.json",
+    "probe_receipt_ref": "data/c8_basic_research_loop_specimen_v0/bounded_probe_receipt_v0.json",
+    "proposal_ref": "data/c8_basic_research_loop_specimen_v0/missing_instrument_proposal_v0.json"
+  },
+  "status": "TYPED_C8_MISSING_INSTRUMENT_PROPOSAL_REVIEW_PASS",
+  "target_unit_id": "research.c8_missing_instrument_proposal_review.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_MISSING_INSTRUMENT_PROPOSAL_REVIEW_READY_FOR_HUMAN_DECISION",
+    "type": "STOP"
+  },
+  "unit_id": "REVIEW_C8_MISSING_INSTRUMENT_PROPOSAL_V0",
+  "warnings": []
+}
+review_receipt_id=c8_proposal_review_receipt_4e8dc3b7
+review_receipt_path=data/c8_missing_instrument_proposal_review_v0_receipts/c8_proposal_review_receipt_4e8dc3b7.json
+review_id=c8_proposal_review_4de4401b
+proposal_id=missing_instrument_d56acf49
+review_outcome=C8_PROPOSAL_REVIEWABLE_NOT_ACCEPTED
+terminal_stop_code=STOP_C8_MISSING_INSTRUMENT_PROPOSAL_REVIEW_READY_FOR_HUMAN_DECISION
+
+ASSERT_C8_PROPOSAL_REVIEW
+{
+  "acceptance_gates_false_count": 0,
+  "accepted_build_packet_created": false,
+  "cell1_build": false,
+  "failures": [],
+  "instrument_built": false,
+  "instrument_kind": "DISCRIMINATOR",
+  "negative_controls_nonzero_count": 0,
+  "outcome_class": "C8_PROPOSAL_REVIEWABLE_NOT_ACCEPTED",
+  "proposal_id": "missing_instrument_d56acf49",
+  "proposal_status": "PROPOSED_ONLY",
+  "receipt_id": "c8_proposal_review_receipt_4e8dc3b7",
+  "repeat_run": false,
+  "review_decision": "REVIEWABLE_NOT_ACCEPTED",
+  "review_gate": "PASS",
+  "status": "TYPED_C8_MISSING_INSTRUMENT_PROPOSAL_REVIEW_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_MISSING_INSTRUMENT_PROPOSAL_REVIEW_READY_FOR_HUMAN_DECISION",
+    "type": "STOP"
+  },
+  "verification_probe_run": false
+}
+
+SHOW_C8_PROPOSAL_REVIEW_READOUT
+receipt_id=c8_proposal_review_receipt_4e8dc3b7
+status=TYPED_C8_MISSING_INSTRUMENT_PROPOSAL_REVIEW_PASS
+outcome_class=C8_PROPOSAL_REVIEWABLE_NOT_ACCEPTED
+proposal_id=missing_instrument_d56acf49
+proposal_status=PROPOSED_ONLY
+instrument_kind=DISCRIMINATOR
+proposal_is_well_formed=True
+proposal_is_bounded=True
+proposal_has_verification=True
+authority_boundary_clean=True
+review_decision=REVIEWABLE_NOT_ACCEPTED
+accepted_build_packet_created=False
+instrument_built=False
+cell1_build=False
+verification_probe_run=False
+repeat_run=False
+research_mode_opened=False
+global_solution_claim=False
+frontier_solved_claim=False
+source_artifacts_mutated=False
+bad_counters_zero=True
+terminal_stop_code=STOP_C8_MISSING_INSTRUMENT_PROPOSAL_REVIEW_READY_FOR_HUMAN_DECISION
+next_command_goal=None
+
+FORCE_ADD_C8_PROPOSAL_REVIEW_ARTIFACTS
+
+DIFF_STAT_RELEVANT
+ .gitignore                                         |   6 +
+ ...ssing_instrument_proposal_review_packet_v0.json |  67 ++++
+ ...sing_instrument_proposal_review_readout_v0.json |  20 +
+ ..._missing_instrument_proposal_review_report.json |  37 ++
+ .../c8_proposal_review_receipt_4e8dc3b7.json       | 114 ++++++
+ .../review_c8_missing_instrument_proposal_v0.py    | 445 +++++++++++++++++++++
+ 6 files changed, 689 insertions(+)
+
+STATUS_AFTER_RELEVANT
+M  .gitignore
+A  data/c8_missing_instrument_proposal_review_v0/c8_missing_instrument_proposal_review_packet_v0.json
+A  data/c8_missing_instrument_proposal_review_v0/c8_missing_instrument_proposal_review_readout_v0.json
+A  data/c8_missing_instrument_proposal_review_v0/c8_missing_instrument_proposal_review_report.json
+A  data/c8_missing_instrument_proposal_review_v0_receipts/c8_proposal_review_receipt_4e8dc3b7.json
+A  scripts/review_c8_missing_instrument_proposal_v0.py
+
+C8_MISSING_INSTRUMENT_PROPOSAL_REVIEW_READY_FOR_REVIEW
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

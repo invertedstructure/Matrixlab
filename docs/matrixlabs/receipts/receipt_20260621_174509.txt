@@ -1,0 +1,121 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_174509
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_174509.txt
+
+CHECK_AND_COMMIT_NEW_BOUNDED_VALIDATION_SURFACE_IMPLEMENTATION_V0
+
+STATUS_BEFORE
+?? data/
+
+VERIFY_SCRIPT_AND_RECEIPT_EXIST
+
+GIT_TRACKING_DIAGNOSTIC
+100755 28bca0cd96f421edfb0dd6abcce76f49efca73b2 0	scripts/raw_delta_signature_candidate_new_bounded_validation_surface_v0.py
+
+SCRIPT_ASSERTIONS
+{
+  "authority_guards": {
+    "audit_pointer_in_payload": false,
+    "candidate_acceptance_authorized": false,
+    "candidate_accepted": false,
+    "case_id_or_cycle_n_primary_identity_patch_used": false,
+    "debug_payload_in_payload": false,
+    "full_occurrence_key_in_payload": false,
+    "full_registry_scan_used": false,
+    "microhash_as_proof_used": false,
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "receipt_suppression_authorized": false,
+    "registry_sqlite_changed": false,
+    "registry_sqlite_read": false,
+    "registry_write_authorized": false,
+    "rowid_or_receipt_hash_patch_used": false,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_mode_authorized": false,
+    "synthetic_fake_validation_rows_used": false
+  },
+  "decision": {
+    "candidate_acceptance_authorized": false,
+    "candidate_accepted": false,
+    "do_not_accept_candidate": true,
+    "do_not_change_runtime": true,
+    "do_not_change_runtime_code": true,
+    "do_not_full_registry_scan": true,
+    "do_not_read_registry_sqlite": true,
+    "do_not_use_case_id_or_cycle_n_as_primary_identity": true,
+    "do_not_use_rowid_or_receipt_hash": true,
+    "do_not_write_registry": true,
+    "new_surface_attempted": true,
+    "new_surface_created": false,
+    "new_surface_policy_only": false,
+    "runner_discovery_completed": true,
+    "safe_runner_recipe_found": false,
+    "scale_mode_authorized": false,
+    "terminal_class": "HOLD_NEW_BOUNDED_SURFACE_REQUIRES_RUNNER_DECISION"
+  },
+  "gate": "PASS",
+  "receipt_id": "065849ef",
+  "rows_file_empty": true,
+  "script_exists": true,
+  "script_ignored": false,
+  "script_tracked": true,
+  "surface_id": "40e5f5b4",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "HOLD_NEW_BOUNDED_SURFACE_REQUIRES_RUNNER_DECISION",
+    "type": "HOLD"
+  },
+  "terminal_class": "HOLD_NEW_BOUNDED_SURFACE_REQUIRES_RUNNER_DECISION"
+}
+
+PY_COMPILE
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+CHECK_FOR_REAL_TRACKED_CHANGE
+NO_TRACKED_SCRIPT_CHANGE_TO_COMMIT
+Script is already tracked and identical, or no code delta exists.
+
+POST_COMMIT_STATUS
+?? data/
+
+FINAL_ASSERT_NO_UNTRACKED_SCRIPT
+
+FINAL_RESULT
+{
+  "commit_status": "SCRIPT_TRACKED_CLEAN_OR_ALREADY_COMMITTED",
+  "gate": "PASS",
+  "next_decision_layer": "HUMAN_OR_AGENT_DECIDE_NEW_SURFACE_RECIPE_V0",
+  "receipt_id": "065849ef",
+  "script": "scripts/raw_delta_signature_candidate_new_bounded_validation_surface_v0.py",
+  "script_tracked": true,
+  "surface_id": "40e5f5b4",
+  "terminal_class": "HOLD_NEW_BOUNDED_SURFACE_REQUIRES_RUNNER_DECISION"
+}
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

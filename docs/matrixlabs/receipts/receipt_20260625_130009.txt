@@ -1,0 +1,412 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_130009
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_130009.txt
+
+DECIDE_NEXT_AFTER_O2_C5_RECONSIDERATION_REFERENCE_CLOSURE_V0
+
+STATUS_BEFORE_RELEVANT
+?? data/radius_125_slot_execution_summaries/
+
+VERIFY_POST_C5_RECONSIDERATION_REFERENCE_DECISION_BASIS
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_reference_closure_v0_receipts/3167d93a.json
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_reference_closure_v0/o2_c5_reconsideration_reference_closure_record_v0.json
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_reference_closure_v0/o2_c5_reconsideration_reviewed_reference_v0.json
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_reference_closure_v0/o2_c5_reconsideration_reference_index_v0.json
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_reference_closure_v0/o2_c5_reconsideration_ready_status_reference_v0.json
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_reference_closure_v0/o2_c5_opening_guard_reference_v0.json
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_reference_closure_v0/o2_c5_open_decision_candidate_reference_v0.json
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_reference_closure_v0/o2_c5_reconsideration_weak_feedback_basis_reference_v0.json
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_reference_closure_v0/o2_c5_no_live_audit_reference_v0.json
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_reference_closure_v0/o2_post_c5_reconsideration_reference_decision_readiness_v0.json
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_reference_closure_v0/o2_c5_reconsideration_reference_closure_authority_boundary_v0.json
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_reference_closure_v0/o2_c5_reconsideration_reference_closure_classification_v0.json
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_reference_closure_v0/o2_c5_reconsideration_reference_closure_rollup_v0.json
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_reference_closure_v0/o2_c5_reconsideration_reference_closure_profile_v0.json
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_reference_closure_v0/o2_c5_reconsideration_reference_closure_report.json
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_reference_closure_v0/o2_c5_reconsideration_reference_closure_transition_trace.json
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_review_v0_receipts/41999f02.json
+present data/o2_c5_reconsideration_after_weak_feedback_resolution_v0_receipts/d19ec918.json
+
+PATCH_GITIGNORE
+
+WRITE_POST_C5_RECONSIDERATION_REFERENCE_DECISION_RUNNER
+
+PY_COMPILE_POST_C5_RECONSIDERATION_REFERENCE_DECISION
+
+RUN_POST_C5_RECONSIDERATION_REFERENCE_DECISION
+{
+  "acceptance_gate_results": {
+    "POST_C5_DECIDE_0_REFERENCE_CLOSURE_RECEIPT_CONSUMED": true,
+    "POST_C5_DECIDE_10_NO_HIDDEN_NEXT_COMMAND": true,
+    "POST_C5_DECIDE_11_NO_LATEST_OR_MTIME": true,
+    "POST_C5_DECIDE_12_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "POST_C5_DECIDE_1_DECISION_BASIS_EMITTED": true,
+    "POST_C5_DECIDE_2_C5_RECONSIDERATION_READY_REFERENCE_CONFIRMED": true,
+    "POST_C5_DECIDE_3_C5_OPEN_DECISION_CANDIDATE_CONFIRMED": true,
+    "POST_C5_DECIDE_4_C5_OPENING_GUARD_CONFIRMED": true,
+    "POST_C5_DECIDE_5_C5_OPENING_EXECUTION_SELECTED": true,
+    "POST_C5_DECIDE_6_C5_OPENING_AUTHORIZATION_EMITTED": true,
+    "POST_C5_DECIDE_7_NO_C5_OPENED_IN_DECISION": true,
+    "POST_C5_DECIDE_8_NO_LIVE_AUDIT": true,
+    "POST_C5_DECIDE_9_NO_REPAIR_RETRY_PATCH_SOURCE_MUTATION": true
+  },
+  "aggregate_metrics": {
+    "bad_counters_zero": true,
+    "build_mode": "O2_POST_C5_RECONSIDERATION_REFERENCE_DECISION_ONLY",
+    "c5_feedback_readiness": "C5_RECONSIDERATION_READY_PENDING_REVIEW",
+    "c5_open_decision_candidate_ready": true,
+    "c5_opened": false,
+    "c5_reconsideration_ready": true,
+    "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / POST_C5_RECONSIDERATION_REFERENCE_DECISION",
+    "live_feedback_audit_executed": false,
+    "mode": "DECIDE_ONLY / SELECT_C5_OPENING_EXECUTION / C5_READY_NOT_OPEN",
+    "reason_codes": [
+      "POST_C5_RECONSIDERATION_REFERENCE_DECISION_COMPLETE",
+      "C5_RECONSIDERATION_REFERENCE_CLOSURE_RECEIPT_CONSUMED",
+      "C5_RECONSIDERATION_READY_REFERENCE_CONFIRMED",
+      "C5_OPEN_DECISION_CANDIDATE_CONFIRMED",
+      "C5_OPENING_GUARD_REFERENCE_CONFIRMED",
+      "WEAK_FEEDBACK_RESOLVED_REFERENCE_CONFIRMED",
+      "C5_OPENING_EXECUTION_SELECTED_NEXT",
+      "NO_C5_OPENED_IN_DECISION",
+      "NO_LIVE_FEEDBACK_AUDIT_EXECUTED_IN_DECISION",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_SOURCE_MUTATION"
+    ],
+    "receipt_backed_claim": "The post-C5-reconsideration reference decision selected C5 opening execution as the next branch. The decision itself did not open C5 and did not run live audit.",
+    "recommended_next_handling": "EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE_V0",
+    "resolution_records_emitted_count": 3,
+    "schema_version": "o2_c5_post_reconsideration_reference_decision_report_v0",
+    "status": "TYPED_O2_POST_C5_RECONSIDERATION_REFERENCE_DECISION_SELECTED_C5_OPENING_EXECUTION_READY",
+    "target_unit_id": "observation.o2_c5_post_reconsideration_reference_decision.v0",
+    "unit_id": "DECIDE_NEXT_AFTER_O2_C5_RECONSIDERATION_REFERENCE_CLOSURE_V0",
+    "weak_feedback_resolved": true
+  },
+  "build_mode": "O2_POST_C5_RECONSIDERATION_REFERENCE_DECISION_ONLY",
+  "created_at": "2026-06-25T12:00:09.993449+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / POST_C5_RECONSIDERATION_REFERENCE_DECISION",
+  "machine_readable_o2_c5_post_reconsideration_reference_decision_summary": {
+    "architecture_change": false,
+    "bad_counters_zero": true,
+    "c5_feedback_readiness": "C5_RECONSIDERATION_READY_PENDING_REVIEW",
+    "c5_open_decision_candidate_ready": true,
+    "c5_opened": false,
+    "c5_opening_authorized_next": true,
+    "c5_opening_executed_in_decision": false,
+    "c5_reconsideration_ready": true,
+    "final_resolution_boundary_crossed": true,
+    "final_resolution_records_frozen_count": 3,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "live_feedback_audit_executed": false,
+    "mtime_selection": false,
+    "post_c5_reconsideration_reference_decision_complete": true,
+    "prior_receipt_mutated": false,
+    "reason_codes": [
+      "POST_C5_RECONSIDERATION_REFERENCE_DECISION_COMPLETE",
+      "C5_RECONSIDERATION_REFERENCE_CLOSURE_RECEIPT_CONSUMED",
+      "C5_RECONSIDERATION_READY_REFERENCE_CONFIRMED",
+      "C5_OPEN_DECISION_CANDIDATE_CONFIRMED",
+      "C5_OPENING_GUARD_REFERENCE_CONFIRMED",
+      "WEAK_FEEDBACK_RESOLVED_REFERENCE_CONFIRMED",
+      "C5_OPENING_EXECUTION_SELECTED_NEXT",
+      "NO_C5_OPENED_IN_DECISION",
+      "NO_LIVE_FEEDBACK_AUDIT_EXECUTED_IN_DECISION",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_SOURCE_MUTATION"
+    ],
+    "recommended_next": "EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE_V0",
+    "repair_applied": false,
+    "resolution_records_emitted_count": 3,
+    "retry_executed": false,
+    "runtime_patch_applied": false,
+    "selected_next_branch": "EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE",
+    "selected_next_unit": "EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE_V0",
+    "source_mutated": false,
+    "status": "TYPED_O2_POST_C5_RECONSIDERATION_REFERENCE_DECISION_SELECTED_C5_OPENING_EXECUTION_READY",
+    "target_selected_for_build": false,
+    "weak_feedback_resolved": true
+  },
+  "mode": "DECIDE_ONLY / SELECT_C5_OPENING_EXECUTION / C5_READY_NOT_OPEN",
+  "output_artifacts": {
+    "authority_boundary": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_authority_boundary_v0.json",
+    "c5_opening_authorization": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_authorization_v0.json",
+    "c5_opening_guard_continuation": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_guard_continuation_until_execution_v0.json",
+    "c5_opening_input_scope": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_input_scope_v0.json",
+    "c5_reconsideration_reference_continuation": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_reconsideration_reference_continuation_v0.json",
+    "classification": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_classification_v0.json",
+    "decision_basis": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_basis_v0.json",
+    "decision_table": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_table_v0.json",
+    "deferred_branches": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_deferred_branches_v0.json",
+    "implementation_receipt": "data/o2_c5_post_reconsideration_reference_decision_v0_receipts/06d082d7.json",
+    "profile": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_profile_v0.json",
+    "report": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_report.json",
+    "rollup": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_rollup_v0.json",
+    "selected_branch": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_selected_branch_v0.json",
+    "transition_trace": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_transition_trace.json"
+  },
+  "receipt_id": "06d082d7",
+  "receipt_type": "TYPED_O2_C5_POST_RECONSIDERATION_REFERENCE_DECISION_RECEIPT",
+  "schema_version": "o2_c5_post_reconsideration_reference_decision_receipt_v0",
+  "source_c5_reconsideration_reference_closure_receipt_id": "3167d93a",
+  "target_unit_id": "observation.o2_c5_post_reconsideration_reference_decision.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_POST_C5_RECONSIDERATION_REFERENCE_DECISION_SELECTED_C5_OPENING_EXECUTION_READY",
+    "type": "STOP"
+  },
+  "unit_id": "DECIDE_NEXT_AFTER_O2_C5_RECONSIDERATION_REFERENCE_CLOSURE_V0",
+  "warnings": []
+}
+post_c5_reconsideration_reference_decision_receipt_id=06d082d7
+post_c5_reconsideration_reference_decision_receipt_path=data/o2_c5_post_reconsideration_reference_decision_v0_receipts/06d082d7.json
+post_c5_reconsideration_reference_decision_basis_path=data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_basis_v0.json
+c5_opening_selected_branch_path=data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_selected_branch_v0.json
+c5_opening_authorization_path=data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_authorization_v0.json
+post_c5_reconsideration_reference_decision_rollup_path=data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_rollup_v0.json
+post_c5_reconsideration_reference_decision_profile_path=data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_profile_v0.json
+
+ASSERT_POST_C5_RECONSIDERATION_REFERENCE_DECISION
+{
+  "c5_open_decision_candidate_ready": true,
+  "c5_opened": false,
+  "c5_opening_authorized_next": true,
+  "c5_opening_executed_in_decision": false,
+  "c5_reconsideration_ready": true,
+  "failures": [],
+  "gate": "PASS",
+  "receipt_id": "06d082d7",
+  "recommended_next": "EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE_V0",
+  "selected_next_branch": "EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE",
+  "selected_next_unit": "EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE_V0",
+  "status": "TYPED_O2_POST_C5_RECONSIDERATION_REFERENCE_DECISION_SELECTED_C5_OPENING_EXECUTION_READY",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_POST_C5_RECONSIDERATION_REFERENCE_DECISION_SELECTED_C5_OPENING_EXECUTION_READY",
+    "type": "STOP"
+  }
+}
+
+VERIFY_DECISION_ONLY_NO_C5_OPEN
+allowed_status_lines_checked
+Post-C5-reconsideration reference decision selected C5 opening execution next; C5 not opened in decision
+
+SHOW_POST_C5_RECONSIDERATION_REFERENCE_DECISION_NEXT
+status=TYPED_O2_POST_C5_RECONSIDERATION_REFERENCE_DECISION_SELECTED_C5_OPENING_EXECUTION_READY
+reason_codes=POST_C5_RECONSIDERATION_REFERENCE_DECISION_COMPLETE,C5_RECONSIDERATION_REFERENCE_CLOSURE_RECEIPT_CONSUMED,C5_RECONSIDERATION_READY_REFERENCE_CONFIRMED,C5_OPEN_DECISION_CANDIDATE_CONFIRMED,C5_OPENING_GUARD_REFERENCE_CONFIRMED,WEAK_FEEDBACK_RESOLVED_REFERENCE_CONFIRMED,C5_OPENING_EXECUTION_SELECTED_NEXT,NO_C5_OPENED_IN_DECISION,NO_LIVE_FEEDBACK_AUDIT_EXECUTED_IN_DECISION,NO_REPAIR_APPLIED,NO_RETRY_EXECUTED,NO_RUNTIME_PATCH_APPLIED,NO_SOURCE_MUTATION
+post_c5_reconsideration_reference_decision_complete=True
+selected_next_branch=EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE
+selected_next_unit=EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE_V0
+c5_opening_authorized_next=True
+weak_feedback_resolved=True
+final_resolution_boundary_crossed=True
+final_resolution_records_frozen_count=3
+resolution_records_emitted_count=3
+c5_feedback_readiness=C5_RECONSIDERATION_READY_PENDING_REVIEW
+c5_reconsideration_ready=True
+c5_open_decision_candidate_ready=True
+c5_opening_executed_in_decision=False
+c5_opened=False
+live_feedback_audit_executed=False
+repair_applied=False
+retry_executed=False
+target_selected_for_build=False
+runtime_patch_applied=False
+source_mutated=False
+prior_receipt_mutated=False
+architecture_change=False
+hidden_next_command=False
+latest_file_guessing=False
+mtime_selection=False
+bad_counters_zero=True
+recommended_next=EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE_V0
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+?? data/radius_125_slot_execution_summaries/
+?? scripts/decide_next_after_o2_c5_reconsideration_reference_closure_v0.py
+
+PACKAGE_POST_C5_RECONSIDERATION_REFERENCE_DECISION_ARTIFACTS
+packaged data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_basis_v0.json
+packaged data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_table_v0.json
+packaged data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_selected_branch_v0.json
+packaged data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_authorization_v0.json
+packaged data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_input_scope_v0.json
+packaged data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_reconsideration_reference_continuation_v0.json
+packaged data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_guard_continuation_until_execution_v0.json
+packaged data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_deferred_branches_v0.json
+packaged data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_authority_boundary_v0.json
+packaged data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_classification_v0.json
+packaged data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_rollup_v0.json
+packaged data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_profile_v0.json
+packaged data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_report.json
+packaged data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_transition_trace.json
+[master 58ecf77ec] decide next after O2 C5 reconsideration reference closure
+ 17 files changed, 1119 insertions(+)
+ create mode 100644 data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_authorization_v0.json
+ create mode 100644 data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_guard_continuation_until_execution_v0.json
+ create mode 100644 data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_input_scope_v0.json
+ create mode 100644 data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_selected_branch_v0.json
+ create mode 100644 data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_authority_boundary_v0.json
+ create mode 100644 data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_basis_v0.json
+ create mode 100644 data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_classification_v0.json
+ create mode 100644 data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_profile_v0.json
+ create mode 100644 data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_report.json
+ create mode 100644 data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_rollup_v0.json
+ create mode 100644 data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_table_v0.json
+ create mode 100644 data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_transition_trace.json
+ create mode 100644 data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_deferred_branches_v0.json
+ create mode 100644 data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_reconsideration_reference_continuation_v0.json
+ create mode 100644 data/o2_c5_post_reconsideration_reference_decision_v0_receipts/06d082d7.json
+ create mode 100755 scripts/decide_next_after_o2_c5_reconsideration_reference_closure_v0.py
+
+COMMIT_DONE_RELEVANT
+?? data/radius_125_slot_execution_summaries/
+
+POST_C5_RECONSIDERATION_REFERENCE_DECISION_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+post_c5_reconsideration_reference_decision_receipt_id=06d082d7
+post_c5_reconsideration_reference_decision_receipt_path=data/o2_c5_post_reconsideration_reference_decision_v0_receipts/06d082d7.json
+{
+  "acceptance_gate_results": {
+    "POST_C5_DECIDE_0_REFERENCE_CLOSURE_RECEIPT_CONSUMED": true,
+    "POST_C5_DECIDE_10_NO_HIDDEN_NEXT_COMMAND": true,
+    "POST_C5_DECIDE_11_NO_LATEST_OR_MTIME": true,
+    "POST_C5_DECIDE_12_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "POST_C5_DECIDE_1_DECISION_BASIS_EMITTED": true,
+    "POST_C5_DECIDE_2_C5_RECONSIDERATION_READY_REFERENCE_CONFIRMED": true,
+    "POST_C5_DECIDE_3_C5_OPEN_DECISION_CANDIDATE_CONFIRMED": true,
+    "POST_C5_DECIDE_4_C5_OPENING_GUARD_CONFIRMED": true,
+    "POST_C5_DECIDE_5_C5_OPENING_EXECUTION_SELECTED": true,
+    "POST_C5_DECIDE_6_C5_OPENING_AUTHORIZATION_EMITTED": true,
+    "POST_C5_DECIDE_7_NO_C5_OPENED_IN_DECISION": true,
+    "POST_C5_DECIDE_8_NO_LIVE_AUDIT": true,
+    "POST_C5_DECIDE_9_NO_REPAIR_RETRY_PATCH_SOURCE_MUTATION": true
+  },
+  "aggregate_metrics": {
+    "bad_counters_zero": true,
+    "build_mode": "O2_POST_C5_RECONSIDERATION_REFERENCE_DECISION_ONLY",
+    "c5_feedback_readiness": "C5_RECONSIDERATION_READY_PENDING_REVIEW",
+    "c5_open_decision_candidate_ready": true,
+    "c5_opened": false,
+    "c5_reconsideration_ready": true,
+    "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / POST_C5_RECONSIDERATION_REFERENCE_DECISION",
+    "live_feedback_audit_executed": false,
+    "mode": "DECIDE_ONLY / SELECT_C5_OPENING_EXECUTION / C5_READY_NOT_OPEN",
+    "reason_codes": [
+      "POST_C5_RECONSIDERATION_REFERENCE_DECISION_COMPLETE",
+      "C5_RECONSIDERATION_REFERENCE_CLOSURE_RECEIPT_CONSUMED",
+      "C5_RECONSIDERATION_READY_REFERENCE_CONFIRMED",
+      "C5_OPEN_DECISION_CANDIDATE_CONFIRMED",
+      "C5_OPENING_GUARD_REFERENCE_CONFIRMED",
+      "WEAK_FEEDBACK_RESOLVED_REFERENCE_CONFIRMED",
+      "C5_OPENING_EXECUTION_SELECTED_NEXT",
+      "NO_C5_OPENED_IN_DECISION",
+      "NO_LIVE_FEEDBACK_AUDIT_EXECUTED_IN_DECISION",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_SOURCE_MUTATION"
+    ],
+    "receipt_backed_claim": "The post-C5-reconsideration reference decision selected C5 opening execution as the next branch. The decision itself did not open C5 and did not run live audit.",
+    "recommended_next_handling": "EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE_V0",
+    "resolution_records_emitted_count": 3,
+    "schema_version": "o2_c5_post_reconsideration_reference_decision_report_v0",
+    "status": "TYPED_O2_POST_C5_RECONSIDERATION_REFERENCE_DECISION_SELECTED_C5_OPENING_EXECUTION_READY",
+    "target_unit_id": "observation.o2_c5_post_reconsideration_reference_decision.v0",
+    "unit_id": "DECIDE_NEXT_AFTER_O2_C5_RECONSIDERATION_REFERENCE_CLOSURE_V0",
+    "weak_feedback_resolved": true
+  },
+  "build_mode": "O2_POST_C5_RECONSIDERATION_REFERENCE_DECISION_ONLY",
+  "created_at": "2026-06-25T12:00:09.993449+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / POST_C5_RECONSIDERATION_REFERENCE_DECISION",
+  "machine_readable_o2_c5_post_reconsideration_reference_decision_summary": {
+    "architecture_change": false,
+    "bad_counters_zero": true,
+    "c5_feedback_readiness": "C5_RECONSIDERATION_READY_PENDING_REVIEW",
+    "c5_open_decision_candidate_ready": true,
+    "c5_opened": false,
+    "c5_opening_authorized_next": true,
+    "c5_opening_executed_in_decision": false,
+    "c5_reconsideration_ready": true,
+    "final_resolution_boundary_crossed": true,
+    "final_resolution_records_frozen_count": 3,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "live_feedback_audit_executed": false,
+    "mtime_selection": false,
+    "post_c5_reconsideration_reference_decision_complete": true,
+    "prior_receipt_mutated": false,
+    "reason_codes": [
+      "POST_C5_RECONSIDERATION_REFERENCE_DECISION_COMPLETE",
+      "C5_RECONSIDERATION_REFERENCE_CLOSURE_RECEIPT_CONSUMED",
+      "C5_RECONSIDERATION_READY_REFERENCE_CONFIRMED",
+      "C5_OPEN_DECISION_CANDIDATE_CONFIRMED",
+      "C5_OPENING_GUARD_REFERENCE_CONFIRMED",
+      "WEAK_FEEDBACK_RESOLVED_REFERENCE_CONFIRMED",
+      "C5_OPENING_EXECUTION_SELECTED_NEXT",
+      "NO_C5_OPENED_IN_DECISION",
+      "NO_LIVE_FEEDBACK_AUDIT_EXECUTED_IN_DECISION",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_SOURCE_MUTATION"
+    ],
+    "recommended_next": "EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE_V0",
+    "repair_applied": false,
+    "resolution_records_emitted_count": 3,
+    "retry_executed": false,
+    "runtime_patch_applied": false,
+    "selected_next_branch": "EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE",
+    "selected_next_unit": "EXECUTE_O2_C5_OPENING_AFTER_RECONSIDERATION_REFERENCE_V0",
+    "source_mutated": false,
+    "status": "TYPED_O2_POST_C5_RECONSIDERATION_REFERENCE_DECISION_SELECTED_C5_OPENING_EXECUTION_READY",
+    "target_selected_for_build": false,
+    "weak_feedback_resolved": true
+  },
+  "mode": "DECIDE_ONLY / SELECT_C5_OPENING_EXECUTION / C5_READY_NOT_OPEN",
+  "output_artifacts": {
+    "authority_boundary": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_authority_boundary_v0.json",
+    "c5_opening_authorization": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_authorization_v0.json",
+    "c5_opening_guard_continuation": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_guard_continuation_until_execution_v0.json",
+    "c5_opening_input_scope": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_input_scope_v0.json",
+    "c5_reconsideration_reference_continuation": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_reconsideration_reference_continuation_v0.json",
+    "classification": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_classification_v0.json",
+    "decision_basis": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_basis_v0.json",
+    "decision_table": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_table_v0.json",
+    "deferred_branches": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_deferred_branches_v0.json",
+    "implementation_receipt": "data/o2_c5_post_reconsideration_reference_decision_v0_receipts/06d082d7.json",
+    "profile": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_profile_v0.json",
+    "report": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_report.json",
+    "rollup": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_rollup_v0.json",
+    "selected_branch": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_opening_selected_branch_v0.json",
+    "transition_trace": "data/o2_c5_post_reconsideration_reference_decision_v0/o2_c5_post_reconsideration_reference_decision_transition_trace.json"
+  },
+  "receipt_id": "06d082d7",
+  "receipt_type": "TYPED_O2_C5_POST_RECONSIDERATION_REFERENCE_DECISION_RECEIPT",
+  "schema_version": "o2_c5_post_reconsideration_reference_decision_receipt_v0",
+  "source_c5_reconsideration_reference_closure_receipt_id": "3167d93a",
+  "target_unit_id": "observation.o2_c5_post_reconsideration_reference_decision.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_POST_C5_RECONSIDERATION_REFERENCE_DECISION_SELECTED_C5_OPENING_EXECUTION_READY",
+    "type": "STOP"
+  },
+  "unit_id": "DECIDE_NEXT_AFTER_O2_C5_RECONSIDERATION_REFERENCE_CLOSURE_V0",
+  "warnings": []
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

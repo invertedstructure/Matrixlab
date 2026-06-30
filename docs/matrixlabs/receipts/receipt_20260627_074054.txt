@@ -1,0 +1,144 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_074054
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_074054.txt
+
+REVIEW_C7_BOUNDED_CONTINUATION_RADIUS_TEST_V0
+
+VERIFY_C7_RECEIPT_PRESENT
+
+PY_COMPILE_C7_RUNNER
+
+VERIFY_C7_ARTIFACTS_AND_RECEIPTS
+{
+  "acceptance_gates_false_count": 0,
+  "failures": [],
+  "final_boundary": "AUTHORITY_REQUIRED",
+  "lawful_continuation_depth": 2,
+  "manifest_step_order": [
+    "c7_step_000",
+    "c7_step_001",
+    "c7_step_002"
+  ],
+  "negative_controls_nonzero_count": 0,
+  "observable_continuation_depth": 2,
+  "outcome_class": "C7_RADIUS_EXPANDED_WITH_TYPED_BOUNDARIES",
+  "packetized_continuation_depth": 2,
+  "receipt_id": "c7_bounded_continuation_radius_receipt_826fa798",
+  "review_gate": "PASS",
+  "run_id": "c7_run_6e14da62",
+  "sequence_policy": "PREDECLARED_SEQUENCE_ONLY",
+  "sequence_scenario": "SEQUENCE_B_AUTHORITY_BOUNDARY_AFTER_LAWFUL_STEPS",
+  "status": "TYPED_C7_BOUNDED_CONTINUATION_RADIUS_PASS",
+  "step_receipt_order": [
+    "c7_step_000",
+    "c7_step_001",
+    "c7_step_002"
+  ],
+  "steps_advanced": 2,
+  "steps_attempted": 3,
+  "steps_halted": 1,
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C7_RADIUS_EXPANDED_WITH_TYPED_BOUNDARIES",
+    "type": "STOP"
+  },
+  "typed_final_boundary": true,
+  "warnings": []
+}
+
+VERIFY_STAGED_SCOPE_C7_ONLY
+staged_path_count=34
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+
+REVIEW_DIFF_STAT
+ .gitignore                                         |    6 +
+ .../c7_bounded_continuation_budget_v0.json         |   25 +
+ .../c7_bounded_continuation_radius_profile_v0.json |   29 +
+ .../c7_bounded_continuation_radius_readout_v0.json |   40 +
+ .../c7_bounded_continuation_radius_report.json     |   25 +
+ .../c7_bounded_continuation_radius_rollup_v0.json  |   87 ++
+ ...unded_continuation_radius_transition_trace.json |   92 ++
+ .../c7_bounded_continuation_run_packet_v0.json     |   34 +
+ .../c7_runtime_step_receipts_v0.jsonl              |    3 +
+ .../c7_sequence_manifest_v0.jsonl                  |    3 +
+ .../c7_step_000/c7_admissibility_result_v0.json    |   12 +
+ .../c7_decision_edge_observation_v0.json           |   22 +
+ .../steps/c7_step_000/c7_execution_result_v0.json  |   16 +
+ .../c7_step_000/c7_runtime_step_packet_v0.json     |   30 +
+ .../c7_step_000/c7_runtime_step_receipt_v0.json    |   43 +
+ .../c7_schema_validation_result_v0.json            |   10 +
+ .../steps/c7_step_000/c7_sidecar_event_v0.json     |   24 +
+ .../c7_step_001/c7_admissibility_result_v0.json    |   12 +
+ .../c7_decision_edge_observation_v0.json           |   22 +
+ .../steps/c7_step_001/c7_execution_result_v0.json  |   16 +
+ .../c7_step_001/c7_runtime_step_packet_v0.json     |   30 +
+ .../c7_step_001/c7_runtime_step_receipt_v0.json    |   43 +
+ .../c7_schema_validation_result_v0.json            |   10 +
+ .../steps/c7_step_001/c7_sidecar_event_v0.json     |   24 +
+ .../c7_step_002/c7_admissibility_result_v0.json    |   12 +
+ .../c7_decision_edge_observation_v0.json           |   22 +
+ .../steps/c7_step_002/c7_execution_result_v0.json  |   16 +
+ .../c7_step_002/c7_runtime_step_packet_v0.json     |   30 +
+ .../c7_step_002/c7_runtime_step_receipt_v0.json    |   45 +
+ .../c7_schema_validation_result_v0.json            |   10 +
+ .../steps/c7_step_002/c7_sidecar_event_v0.json     |   24 +
+ .../steps/c7_step_002/c7_unit_feedback_v0.json     |   32 +
+ ...unded_continuation_radius_receipt_826fa798.json |  197 ++++
+ .../run_c7_bounded_continuation_radius_test_v0.py  | 1128 ++++++++++++++++++++
+ 34 files changed, 2174 insertions(+)
+
+REVIEW_C7_READOUT
+receipt_id=c7_bounded_continuation_radius_receipt_826fa798
+status=TYPED_C7_BOUNDED_CONTINUATION_RADIUS_PASS
+outcome_class=C7_RADIUS_EXPANDED_WITH_TYPED_BOUNDARIES
+run_id=c7_run_6e14da62
+sequence_scenario=SEQUENCE_B_AUTHORITY_BOUNDARY_AFTER_LAWFUL_STEPS
+sequence_policy=PREDECLARED_SEQUENCE_ONLY
+steps_attempted=3
+steps_advanced=2
+steps_halted=1
+lawful_continuation_depth=2
+observable_continuation_depth=2
+packetized_continuation_depth=2
+typed_halt_count=1
+typed_final_boundary=True
+final_boundary=AUTHORITY_REQUIRED
+bad_counters_zero=True
+predeclared_sequence_only=True
+unreviewed_packet_synthesis=False
+cell1_freebuild=False
+global_autonomy_claim=False
+c8_opened=False
+source_receipts_mutated=False
+terminal_stop_code=STOP_C7_RADIUS_EXPANDED_WITH_TYPED_BOUNDARIES
+next_command_goal=None
+
+REVIEW_C7_STEP_RECEIPTS
+c7_step_000 terminal=ADVANCE schema=VALID admissibility=ALLOW execution=NO_OP_DONE next_packet_ref=data/c7_bounded_continuation_radius_test_v0/steps/c7_step_001/c7_runtime_step_packet_v0.json feedback_ref=None
+c7_step_001 terminal=ADVANCE schema=VALID admissibility=ALLOW execution=NO_OP_DONE next_packet_ref=data/c7_bounded_continuation_radius_test_v0/steps/c7_step_002/c7_runtime_step_packet_v0.json feedback_ref=None
+c7_step_002 terminal=STOP_AUTHORITY_REQUIRED schema=VALID admissibility=AUTHORITY_REQUIRED execution=NOT_RUN next_packet_ref=None feedback_ref=data/c7_bounded_continuation_radius_test_v0/steps/c7_step_002/c7_unit_feedback_v0.json
+
+REVIEW_C7_SEQUENCE_MANIFEST
+c7_step_000 terminal=ADVANCE next_step_id=c7_step_001 next_packet_ref=data/c7_bounded_continuation_radius_test_v0/steps/c7_step_001/c7_runtime_step_packet_v0.json predeclared=True synthesized=False
+c7_step_001 terminal=ADVANCE next_step_id=c7_step_002 next_packet_ref=data/c7_bounded_continuation_radius_test_v0/steps/c7_step_002/c7_runtime_step_packet_v0.json predeclared=True synthesized=False
+c7_step_002 terminal=STOP_AUTHORITY_REQUIRED next_step_id=None next_packet_ref=None predeclared=True synthesized=False
+
+REVIEW_C7_UNIT_FEEDBACK
+unit_feedback_id=c7_unit_feedback_73126a4c
+step_id=c7_step_002
+feedback_kind=ADMISSIBILITY_AUTHORITY_FEEDBACK
+quality=ACTIONABLE
+failure_point=AUTHORITY_BOUNDARY_CHECK
+failed_relative_to_boundary=authority_boundary
+missing_capability_or_evidence=human_authority_for_authority_requiring_move
+repair_applied=False
+retry_authorized=False
+authority_expansion=False
+proposal_created=False
+next_command_created=False
+
+REVIEW_C7_BOUNDED_CONTINUATION_RADIUS_TEST_PASS
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

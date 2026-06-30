@@ -1,0 +1,110 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_093549
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_093549.txt
+
+BOOKKEEPING_COMMIT_C8_SUCCESSOR_SURFACE_BOUNDED_PROBE_PREP_PACKET_REVIEW_V0
+
+VERIFY_PROBE_PREP_PACKET_REVIEW_ARTIFACTS_PRESENT
+present data/c8_successor_surface_bounded_probe_prep_packet_review_v0_receipts/c8_successor_probe_prep_packet_review_receipt_f3acc3a5.json
+present data/c8_successor_surface_bounded_probe_prep_packet_review_v0/c8_successor_surface_bounded_probe_prep_packet_review_packet_v0.json
+present data/c8_successor_surface_bounded_probe_prep_packet_review_v0/c8_successor_surface_bounded_probe_prep_packet_review_decision_v0.json
+present data/c8_successor_surface_bounded_probe_prep_packet_review_v0/c8_successor_surface_bounded_probe_prep_packet_review_audit_v0.json
+present data/c8_successor_surface_bounded_probe_prep_packet_review_v0/c8_successor_surface_bounded_probe_prep_packet_review_readout_v0.json
+present data/c8_successor_surface_bounded_probe_prep_packet_review_v0/c8_successor_surface_bounded_probe_prep_packet_review_report.json
+present scripts/create_c8_successor_surface_bounded_probe_prep_packet_review_v0.py
+
+PY_COMPILE_PROBE_PREP_PACKET_REVIEW_RUNNER
+
+VERIFY_PROBE_PREP_PACKET_REVIEW_RECEIPT_AND_CONTENT
+{
+  "acceptance_gates_false_count": 0,
+  "accepted_for_probe_execution_now": false,
+  "commit_gate": "PASS",
+  "failures": [],
+  "human_decision_required": true,
+  "negative_controls_nonzero_count": 0,
+  "new_c8_rerun": false,
+  "new_instrument_build": false,
+  "outcome_class": "C8_SUCCESSOR_SURFACE_BOUNDED_PROBE_PREP_PACKET_REVIEWABLE_NOT_ACCEPTED",
+  "possible_human_decisions": [
+    "ACCEPT_FOR_BOUNDED_PROBE_EXECUTION",
+    "REJECT_PROBE_PREP_PACKET",
+    "NARROW_PROBE_PREP_PACKET"
+  ],
+  "prep_review_class": "WELL_FORMED_BOUNDED_REUSE_AUTHORITY_PROBE_PREP_PACKET",
+  "probe_executed_now": false,
+  "probe_id": "c8_successor_surface_reuse_authority_boundary_probe_v0",
+  "probe_kind": "REUSE_AUTHORITY_BOUNDARY_PROBE",
+  "receipt_id": "c8_successor_probe_prep_packet_review_receipt_f3acc3a5",
+  "reusable_schema_authorized": false,
+  "review_decision": "REVIEWABLE_NOT_ACCEPTED",
+  "review_decision_id": "c8_successor_probe_prep_packet_review_decision_33245781",
+  "review_packet_id": "c8_successor_probe_prep_packet_review_packet_083dd071",
+  "source_prep_packet_id": "c8_successor_probe_prep_packet_74a6c209",
+  "status": "TYPED_C8_SUCCESSOR_SURFACE_BOUNDED_PROBE_PREP_PACKET_REVIEW_PASS"
+}
+
+VERIFY_GIT_IDENTITY
+
+BOUND_ADD_ONLY_PROBE_PREP_PACKET_REVIEW_ARTIFACTS
+
+VERIFY_NO_OUT_OF_SCOPE_STAGED_PATHS
+staged_path_count=8
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+probe_prep_packet_review_receipts_staged=['data/c8_successor_surface_bounded_probe_prep_packet_review_v0_receipts/c8_successor_probe_prep_packet_review_receipt_f3acc3a5.json']
+
+BOOKKEEPING_DIFF_STAT
+ .gitignore                                         |   6 +
+ ..._bounded_probe_prep_packet_review_audit_v0.json |  53 +++
+ ...unded_probe_prep_packet_review_decision_v0.json |  37 ++
+ ...bounded_probe_prep_packet_review_packet_v0.json |  31 ++
+ ...ounded_probe_prep_packet_review_readout_v0.json |  19 +
+ ...ce_bounded_probe_prep_packet_review_report.json |  29 ++
+ ..._probe_prep_packet_review_receipt_f3acc3a5.json | 118 ++++++
+ ..._surface_bounded_probe_prep_packet_review_v0.py | 467 +++++++++++++++++++++
+ 8 files changed, 760 insertions(+)
+
+BOOKKEEPING_COMMIT
+[master 19c7c8690] Review C8 successor surface bounded probe prep packet
+ 8 files changed, 760 insertions(+)
+ create mode 100644 data/c8_successor_surface_bounded_probe_prep_packet_review_v0/c8_successor_surface_bounded_probe_prep_packet_review_audit_v0.json
+ create mode 100644 data/c8_successor_surface_bounded_probe_prep_packet_review_v0/c8_successor_surface_bounded_probe_prep_packet_review_decision_v0.json
+ create mode 100644 data/c8_successor_surface_bounded_probe_prep_packet_review_v0/c8_successor_surface_bounded_probe_prep_packet_review_packet_v0.json
+ create mode 100644 data/c8_successor_surface_bounded_probe_prep_packet_review_v0/c8_successor_surface_bounded_probe_prep_packet_review_readout_v0.json
+ create mode 100644 data/c8_successor_surface_bounded_probe_prep_packet_review_v0/c8_successor_surface_bounded_probe_prep_packet_review_report.json
+ create mode 100644 data/c8_successor_surface_bounded_probe_prep_packet_review_v0_receipts/c8_successor_probe_prep_packet_review_receipt_f3acc3a5.json
+ create mode 100755 scripts/create_c8_successor_surface_bounded_probe_prep_packet_review_v0.py
+
+BOOKKEEPING_COMMIT_RECEIPT
+commit_sha=19c7c8690e62e38665b955fa6d27d8ed1b3c9fa4
+review_receipt=data/c8_successor_surface_bounded_probe_prep_packet_review_v0_receipts/c8_successor_probe_prep_packet_review_receipt_f3acc3a5.json
+review_packet=data/c8_successor_surface_bounded_probe_prep_packet_review_v0/c8_successor_surface_bounded_probe_prep_packet_review_packet_v0.json
+review_decision_file=data/c8_successor_surface_bounded_probe_prep_packet_review_v0/c8_successor_surface_bounded_probe_prep_packet_review_decision_v0.json
+review_outcome=C8_SUCCESSOR_SURFACE_BOUNDED_PROBE_PREP_PACKET_REVIEWABLE_NOT_ACCEPTED
+review_packet_id=c8_successor_probe_prep_packet_review_packet_083dd071
+review_decision_id=c8_successor_probe_prep_packet_review_decision_33245781
+source_prep_receipt_id=c8_successor_probe_prep_packet_receipt_bbb5ebc3
+source_prep_packet_id=c8_successor_probe_prep_packet_74a6c209
+probe_id=c8_successor_surface_reuse_authority_boundary_probe_v0
+probe_kind=REUSE_AUTHORITY_BOUNDARY_PROBE
+selected_surface_id=c8_successor_surface_reuse_authority_boundary_after_local_closure_v0
+review_decision=REVIEWABLE_NOT_ACCEPTED
+prep_review_class=WELL_FORMED_BOUNDED_REUSE_AUTHORITY_PROBE_PREP_PACKET
+human_decision_required=true
+accepted_for_probe_execution_now=false
+probe_executed_now=false
+new_instrument_build=false
+new_c8_rerun=false
+reusable_schema_authorized=false
+global_solution_claim=false
+frontier_solved_claim=false
+possible_human_decisions=ACCEPT_FOR_BOUNDED_PROBE_EXECUTION,REJECT_PROBE_PREP_PACKET,NARROW_PROBE_PREP_PACKET
+terminal_stop_code=STOP_C8_SUCCESSOR_SURFACE_BOUNDED_PROBE_PREP_PACKET_REVIEW_READY_FOR_HUMAN_DECISION
+
+STATUS_AFTER_COMMIT_RELEVANT
+
+BOOKKEEPING_COMMIT_C8_SUCCESSOR_SURFACE_BOUNDED_PROBE_PREP_PACKET_REVIEW_COMPLETE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

@@ -1,0 +1,389 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_224429
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_224429.txt
+
+APPLY_RECEIPT_VOLUME_FIX_CANDIDATE_V0
+
+STATUS_BEFORE
+?? data/
+
+VERIFY_RECEIPT_VOLUME_CANDIDATE_AUTHORITY
+{
+  "authorized_next_command_goal": "APPLY_RECEIPT_VOLUME_FIX_CANDIDATE_V0",
+  "authorizes_application_next": true,
+  "authorizes_code_change_now": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_patch_application_now": false,
+  "authorizes_raw_receipt_write_suppression": false,
+  "authorizes_receipt_compression": false,
+  "authorizes_receipt_deletion": false,
+  "authorizes_registry_sqlite_total_mismatch": false,
+  "authorizes_synthetic_receipts": false,
+  "candidate_gate": "PASS",
+  "candidate_id": "17e6ee4e",
+  "candidate_kind": "RECEIPT_VOLUME_FIX_CANDIDATE",
+  "candidate_name": "FIX_CANDIDATE_RECEIPT_VOLUME_WRITE_PRESSURE_PLAN_V0",
+  "candidate_receipt_gate": "PASS",
+  "candidate_sig8": "17e6ee4e",
+  "candidate_status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "failures": [],
+  "must_not_compress_receipts": true,
+  "must_not_delete_receipts": true,
+  "must_not_restore_frontier_depth_probe_field": true,
+  "must_not_skip_execution": true,
+  "must_not_skip_receipt_write_pressure_probe": true,
+  "must_not_suppress_raw_receipt_writes": true,
+  "must_preserve_micro_profile_receipt_total": 1457,
+  "must_preserve_raw_receipt_writes": true,
+  "must_preserve_registry_sqlite_totals": true,
+  "must_preserve_target_receipts": 176,
+  "must_touch_only_files": [
+    "scripts/wide_burden_profile_microruns.py"
+  ],
+  "must_use_before_profile_id": "b6609f93",
+  "must_use_candidate_id": "17e6ee4e",
+  "must_use_policy_id": "2e6aa9d6",
+  "policy_gate": "PASS",
+  "profile_db_delta": 1457,
+  "profile_gate": "MICRO_BURDEN_PROFILE_PASS",
+  "profile_has_cycle_period_compression": true,
+  "profile_has_frontier_depth_probe": false,
+  "profile_total": 1457,
+  "source_after_revert_profile_id": "b6609f93",
+  "source_inspection": {
+    "cycle_period_compression_field_present": true,
+    "exists": true,
+    "file": "scripts/wide_burden_profile_microruns.py",
+    "frontier_depth_probe_field_present": false,
+    "profile_total_literal_1457_present": false,
+    "receipt_volume_probe_marker_present": true,
+    "receipt_volume_slot_identity_source": "profile_target_row_identity",
+    "receipt_volume_slot_literal_present": false
+  },
+  "source_policy_id": "2e6aa9d6",
+  "target_burden_class": "BURDEN_RECEIPT_VOLUME",
+  "target_elapsed_ms": 1005,
+  "target_probes": [
+    "MICRO_05_RECEIPT_WRITE_PRESSURE"
+  ],
+  "target_receipts": 176,
+  "target_rows": 1,
+  "target_slots": [
+    "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+  ]
+}
+
+PATCH_GITIGNORE
+
+APPLY_RECEIPT_VOLUME_METADATA_PATCH
+BEFORE_PATCH_MARKERS
+{
+  "frontier_forbidden_present": {
+    "\"frontier_depth_probe\"": false,
+    "APPLIED_POST_EXECUTION_DEPTH_METADATA_ONLY": false,
+    "EXPECTED_FRONTIER_DEPTH_SLOT_IDS": false,
+    "_build_frontier_depth_probe_observation": false,
+    "class FrontierDepthCertificate": false
+  },
+  "receipt_volume_field_present": false,
+  "receipt_volume_helper_present": false,
+  "receipt_volume_plan_class_present": false,
+  "required_existing_present": {
+    "\"cycle_period_compression\"": true,
+    "MICRO_05_RECEIPT_WRITE_PRESSURE": true,
+    "_build_cycle_period_compression_observation": true
+  }
+}
+AFTER_PATCH_MARKERS
+{
+  "changed": true,
+  "frontier_forbidden_present": {
+    "\"frontier_depth_probe\"": false,
+    "APPLIED_POST_EXECUTION_DEPTH_METADATA_ONLY": false,
+    "EXPECTED_FRONTIER_DEPTH_SLOT_IDS": false,
+    "_build_frontier_depth_probe_observation": false,
+    "class FrontierDepthCertificate": false
+  },
+  "receipt_volume_certificate_kind_present": true,
+  "receipt_volume_field_present": true,
+  "receipt_volume_helper_present": true,
+  "receipt_volume_plan_class_present": true,
+  "required_existing_present": {
+    "\"cycle_period_compression\"": true,
+    "MICRO_05_RECEIPT_WRITE_PRESSURE": true,
+    "_build_cycle_period_compression_observation": true
+  },
+  "target_slot_literal_present": true
+}
+
+VERIFY_SOURCE_MARKERS_AFTER_PATCH
+{
+  "cycle_period_compression_present": true,
+  "frontier_depth_probe_absent": true,
+  "no_compress_guard_present": true,
+  "no_delete_guard_present": true,
+  "no_suppress_guard_present": true,
+  "profile_total_guard_present": true,
+  "receipt_volume_certificate_kind_present": true,
+  "receipt_volume_helper_present": true,
+  "receipt_volume_plan_class_present": true,
+  "receipt_volume_write_pressure_present": true,
+  "target_receipt_guard_present": true,
+  "target_slot_literal_present": true
+}
+
+PY_COMPILE
+
+SMOKE_RUN_AFTER_RECEIPT_VOLUME_PATCH
+MatrixLab run started: run_20260620_214430_021991
+Families: ['relabel_symmetry_stress']
+Depths: 3..4
+Cycles per case: 2
+Max cells per matrix: 10000
+Done.
+{
+  "run_id": "run_20260620_214430_021991",
+  "created_utc": "2026-06-20T21:44:30.319138+00:00",
+  "families": [
+    "relabel_symmetry_stress"
+  ],
+  "depth_min": 3,
+  "depth_max": 4,
+  "cycles_per_case": 2,
+  "max_cells": 10000,
+  "total_cases": 2,
+  "total_receipts": 4,
+  "halt_counts": {
+    "CYCLES_COMPLETE": 2
+  },
+  "max_registered_moves": 1,
+  "max_compression_ratio": 2.0,
+  "max_matrix_cells": 16,
+  "max_registered_move_profiles": 1
+}
+SMOKE_RUN_ID=run_20260620_214430_021991
+
+GATE_SMOKE_RUN
+      Gate checks /       
+run_20260620_214430_021991
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │     2 │
+│ total_receipts │     4 │
+│ receipt_rows   │     4 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │     2 │
+└─────────────────┴───────┘
+GATE_PASS
+
+VERIFY_SMOKE_RECEIPTS_MATCH
+{
+  "receipt_rows": 4,
+  "receipt_rows_match_run_total": true,
+  "run_id": "run_20260620_214430_021991",
+  "run_status": "DONE",
+  "run_total_receipts": 4
+}
+
+BUILD_RECEIPT_VOLUME_APPLICATION_RECEIPT
+APPLICATION_ID=2de50de2
+{
+  "application_id": "2de50de2",
+  "application_path": "data/receipt_volume_fix_applications/2de50de2.json",
+  "application_sig8": "2de50de2",
+  "changed_depth_range": false,
+  "changed_halt_law_gate_run_semantics": false,
+  "compressed_receipts": false,
+  "created_at": "2026-06-20T21:44:30.850861+00:00",
+  "deleted_receipts": false,
+  "emitted_synthetic_receipts": false,
+  "expanded_radius": false,
+  "failures": [],
+  "gate": "PASS",
+  "metadata_only_observation": true,
+  "profile_receipts_total_must_remain": 1457,
+  "receipt_id": "805b1d9b",
+  "receipt_sig8": "805b1d9b",
+  "receipt_volume_accounting_certificate_present": true,
+  "receipt_volume_write_pressure_field_present": true,
+  "restored_frontier_depth_probe": false,
+  "schema_version": "receipt_volume_fix_application_receipt_v0",
+  "skipped_execution": false,
+  "skipped_receipt_write_pressure_probe": false,
+  "smoke": {
+    "receipt_rows": 4,
+    "receipt_rows_match_run_total": true,
+    "run_id": "run_20260620_214430_021991",
+    "status": "DONE",
+    "total_receipts": 4
+  },
+  "source_before_profile_id": "b6609f93",
+  "source_candidate_id": "17e6ee4e",
+  "source_policy_id": "2e6aa9d6",
+  "suppressed_raw_receipt_writes": false,
+  "target_burden_class": "BURDEN_RECEIPT_VOLUME",
+  "target_receipts_must_remain": 176,
+  "terminal": {
+    "next_command_goal": "RERUN_MICRO_BURDEN_PROFILE_AFTER_RECEIPT_VOLUME_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "touched_files": [
+    "scripts/wide_burden_profile_microruns.py"
+  ],
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+ASSERT_RECEIPT_VOLUME_APPLICATION
+{
+  "application_id": "2de50de2",
+  "application_sig8": "2de50de2",
+  "before_profile_contract": {
+    "before_profile_db_receipt_delta": 1457,
+    "before_profile_gate": "MICRO_BURDEN_PROFILE_PASS",
+    "before_profile_id": "b6609f93",
+    "before_profile_receipts_total": 1457,
+    "profile_receipts_total_must_remain": 1457,
+    "target_receipts_must_remain": 176,
+    "target_row_identity_must_remain": {
+      "burden_class": "BURDEN_RECEIPT_VOLUME",
+      "family_compact": "E",
+      "probe_id": "MICRO_05_RECEIPT_WRITE_PRESSURE",
+      "rows": 1,
+      "slot_id": "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+    }
+  },
+  "failures": [],
+  "gate": "PASS",
+  "patch_scope": {
+    "added_receipt_volume_accounting_certificate": true,
+    "added_receipt_volume_write_pressure_plan": true,
+    "changed_depth_range": false,
+    "changed_halt_law_gate_run_semantics": false,
+    "changed_receipt_schema": false,
+    "compressed_receipts": false,
+    "deleted_receipts": false,
+    "emitted_synthetic_receipts": false,
+    "expanded_radius": false,
+    "metadata_only_observation": true,
+    "raw_execution_unchanged": true,
+    "raw_receipt_writes_preserved": true,
+    "receipt_payload_durability_preserved": true,
+    "registry_sqlite_totals_preserved": true,
+    "reopened_accepted_burden_classes": false,
+    "reopened_rejected_depth_scan": false,
+    "restored_frontier_depth_probe": false,
+    "skipped_execution": false,
+    "skipped_receipt_write_pressure_probe": false,
+    "suppressed_raw_receipt_writes": false,
+    "touched_files": [
+      "scripts/wide_burden_profile_microruns.py"
+    ]
+  },
+  "receipt_gate": "PASS",
+  "receipt_id": "805b1d9b",
+  "semantics": {
+    "accepted_burden_classes_reopened": false,
+    "data_artifact_deletion": false,
+    "depth_range_change": false,
+    "execution_skipping": false,
+    "frontier_depth_reopened": false,
+    "gate_semantics_change": false,
+    "halt_semantics_change": false,
+    "law_semantics_change": false,
+    "metadata_only_observation": true,
+    "patch_application": true,
+    "probe_skipping": false,
+    "radius_expansion": false,
+    "raw_receipt_write_suppression": false,
+    "receipt_compression": false,
+    "receipt_deletion": false,
+    "receipt_schema_change": false,
+    "receipt_write_pressure_skipping": false,
+    "registry_sqlite_total_mismatch": false,
+    "reusing_prior_receipt_volume_results_as_execution": false,
+    "run_semantics_change": false,
+    "synthetic_receipts": false
+  },
+  "smoke": {
+    "receipt_rows": 4,
+    "receipt_rows_match_run_total": true,
+    "run_id": "run_20260620_214430_021991",
+    "status": "DONE",
+    "total_receipts": 4
+  },
+  "source_before_profile_id": "b6609f93",
+  "source_candidate_id": "17e6ee4e",
+  "source_markers": {
+    "cycle_period_compression_present": true,
+    "frontier_depth_probe_absent": true,
+    "no_compress_guard_present": true,
+    "no_delete_guard_present": true,
+    "no_suppress_guard_present": true,
+    "profile_total_guard_present": true,
+    "receipt_volume_certificate_kind_present": true,
+    "receipt_volume_helper_present": true,
+    "receipt_volume_plan_class_present": true,
+    "receipt_volume_write_pressure_field_present": true,
+    "target_receipt_guard_present": true,
+    "target_slot_literal_present": true
+  },
+  "source_policy_id": "2e6aa9d6",
+  "target_burden_class": "BURDEN_RECEIPT_VOLUME",
+  "terminal": {
+    "next_command_goal": "RERUN_MICRO_BURDEN_PROFILE_AFTER_RECEIPT_VOLUME_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214430_021991
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │     2 │
+│ total_receipts │     4 │
+│ receipt_rows   │     4 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │     2 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore                               |   6 ++
+ scripts/wide_burden_profile_microruns.py | 113 +++++++++++++++++++++++++++++++
+ 2 files changed, 119 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+ M scripts/wide_burden_profile_microruns.py
+?? data/
+[master 632482847] apply receipt volume metadata certificate
+ 2 files changed, 119 insertions(+)
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

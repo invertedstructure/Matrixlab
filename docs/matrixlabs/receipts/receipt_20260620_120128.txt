@@ -1,0 +1,578 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_120128
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_120128.txt
+
+ADD_RECEIPT_ROLLUP_CONTRACT_V0
+
+STATUS_BEFORE
+
+BACKUP
+CLI_SIG=f8c8e3fca2ab
+BACKUP=/tmp/matrixlab_cli_before_receipt_rollup_contract_f8c8e3fca2ab.py
+
+PATCH_GITIGNORE
+
+PATCH_CLI_RECEIPT_ROLLUP_CONTRACT
+
+PY_COMPILE
+
+HELP_SMOKE
+help smoke ok
+
+BUILD_RECEIPT_ROLLUP_CONTRACT_POSITIVE
+{
+  "allowed_rollup_levels": [
+    "SLOT",
+    "FAMILY",
+    "RADIUS",
+    "TRAJECTORY",
+    "SESSION"
+  ],
+  "allowed_trust_labels": [
+    "RAW_FULL",
+    "RAW_FULL_WITH_VERIFIED_ROLLUP",
+    "SUMMARY_OBSERVATIONAL",
+    "COMPRESSED_UNVERIFIED"
+  ],
+  "contract_kind": "POST_R100_RECEIPT_BURDEN_ROLLUP_CONTRACT",
+  "contract_scope": "R100_BURDEN_ROLLUP_SCOPE::a5c79278",
+  "failures": [],
+  "forbidden": {
+    "execution_skipping": true,
+    "gate_semantics_change": true,
+    "ontology_expansion": true,
+    "raw_replay_replacement": true,
+    "receipt_deletion": true,
+    "representative_subset": true,
+    "run_semantics_change": true,
+    "theorem_layer": true,
+    "trust_upgrade_hidden": true
+  },
+  "forbidden_trust_labels": [
+    "RAW_REPLACED_BY_ROLLUP",
+    "EXECUTION_SKIPPED_BY_ROLLUP",
+    "INDEPENDENT_GATE_PROOF",
+    "COMPRESSED_EQUIVALENT_PROOF"
+  ],
+  "gate": "PASS",
+  "known_limits": [
+    "does_not_reduce_execution_cost",
+    "does_not_reduce_raw_storage_cost",
+    "does_not_authorize_R125",
+    "does_not_replace_raw_receipts",
+    "does_not_create_independent_gate_proof"
+  ],
+  "layer": "OUTER_MIDDLE_BOUNDARY_OBJECT",
+  "licensed_rollup_hierarchy": [
+    "raw_receipts",
+    "slot_rollups",
+    "family_rollups",
+    "radius_rollups",
+    "trajectory_rollup",
+    "decision_record"
+  ],
+  "max_trust_label_for_contract_output": "RAW_FULL_WITH_VERIFIED_ROLLUP",
+  "mode": "BUILD_AND_VERIFY",
+  "not_sufficient_for": [
+    "raw_replay_replacement",
+    "execution_skipping",
+    "independent_gate_proof",
+    "receipt_deletion",
+    "representative_subset_authorization",
+    "gate_semantics_change",
+    "run_semantics_change",
+    "theorem_claim"
+  ],
+  "object_model": {
+    "chunked_manifest_required_above_receipt_count": 10000,
+    "decision_schema": "decision_record_v0",
+    "field_role_map_schema": "field_role_map_v0",
+    "manifest_flat_limit": 10000,
+    "raw_manifest_schema": "raw_manifest_v0",
+    "rollup_schema": "rollup_record_v0"
+  },
+  "observed_burden_problem": {
+    "measurement_clean": true,
+    "r50_to_r100_burden_class": "BURDEN_SUPERLINEAR_REQUIRES_GUARD",
+    "r50_to_r100_radius_ratio": 2.0,
+    "r50_to_r100_receipt_ratio": 4.10118,
+    "r75_to_r100_burden_class": "BURDEN_SUPERLINEAR_WATCH",
+    "r75_to_r100_radius_ratio": 1.333333,
+    "r75_to_r100_receipt_ratio": 1.792189,
+    "resource_boundary": false,
+    "semantic_pressure": false,
+    "shape_curve_stable": true
+  },
+  "radius_observations": {
+    "r100": {
+      "aggregate_coarse_profiles_total": 9,
+      "aggregate_raw_total_by_slot_sum": 902,
+      "gate": "PASS",
+      "id": "5a442f0c",
+      "path": "data/domain_shift_slot_observations/5a442f0c.json",
+      "radius": 100,
+      "receipt_rows_sum": 87552,
+      "recomputed_sig": "5a442f0c",
+      "slot_count_expected": 9,
+      "slot_count_observed": 9,
+      "stored_sig": "5a442f0c"
+    },
+    "r50": {
+      "aggregate_coarse_profiles_total": 9,
+      "aggregate_raw_total_by_slot_sum": 451,
+      "gate": "PASS",
+      "id": "566a342b",
+      "path": "data/domain_shift_slot_observations/566a342b.json",
+      "radius": 50,
+      "receipt_rows_sum": 21348,
+      "recomputed_sig": "566a342b",
+      "slot_count_expected": 9,
+      "slot_count_observed": 9,
+      "stored_sig": "566a342b"
+    },
+    "r75": {
+      "aggregate_coarse_profiles_total": 9,
+      "aggregate_raw_total_by_slot_sum": 676,
+      "gate": "PASS",
+      "id": "601a7983",
+      "path": "data/domain_shift_slot_observations/601a7983.json",
+      "radius": 75,
+      "receipt_rows_sum": 48852,
+      "recomputed_sig": "601a7983",
+      "slot_count_expected": 9,
+      "slot_count_observed": 9,
+      "stored_sig": "601a7983"
+    }
+  },
+  "raw_receipt_inventory_precheck": {
+    "by_radius": {
+      "r100": {
+        "expected_receipt_rows_sum": 87552,
+        "observation_id": "5a442f0c",
+        "radius": 100,
+        "receipt_rows_sum": 87552,
+        "slot_run_count": 9
+      },
+      "r50": {
+        "expected_receipt_rows_sum": 21348,
+        "observation_id": "566a342b",
+        "radius": 50,
+        "receipt_rows_sum": 21348,
+        "slot_run_count": 9
+      },
+      "r75": {
+        "expected_receipt_rows_sum": 48852,
+        "observation_id": "601a7983",
+        "radius": 75,
+        "receipt_rows_sum": 48852,
+        "slot_run_count": 9
+      }
+    },
+    "by_run": {
+      "run_20260619_214236_042116": {
+        "family": "relabel_symmetry_stress",
+        "radius_label": "r50",
+        "receipt_rows": 2316
+      },
+      "run_20260619_214911_287182": {
+        "family": "relabel_symmetry_stress",
+        "radius_label": "r50",
+        "receipt_rows": 2316
+      },
+      "run_20260619_215550_946960": {
+        "family": "relabel_symmetry_stress",
+        "radius_label": "r50",
+        "receipt_rows": 2316
+      },
+      "run_20260619_220230_744709": {
+        "family": "projection_quotient",
+        "radius_label": "r50",
+        "receipt_rows": 2400
+      },
+      "run_20260619_220923_816081": {
+        "family": "projection_quotient",
+        "radius_label": "r50",
+        "receipt_rows": 2400
+      },
+      "run_20260619_221602_188302": {
+        "family": "two_sided_suspension",
+        "radius_label": "r50",
+        "receipt_rows": 2400
+      },
+      "run_20260619_222255_493358": {
+        "family": "two_sided_suspension",
+        "radius_label": "r50",
+        "receipt_rows": 2400
+      },
+      "run_20260619_222945_102427": {
+        "family": "suspension_plus_repair",
+        "radius_label": "r50",
+        "receipt_rows": 2400
+      },
+      "run_20260619_223630_696427": {
+        "family": "one_sided_suspension",
+        "radius_label": "r50",
+        "receipt_rows": 2400
+      },
+      "run_20260619_230752_590816": {
+        "family": "relabel_symmetry_stress",
+        "radius_label": "r75",
+        "receipt_rows": 5334
+      },
+      "run_20260619_232249_751496": {
+        "family": "relabel_symmetry_stress",
+        "radius_label": "r75",
+        "receipt_rows": 5334
+      },
+      "run_20260619_233734_417952": {
+        "family": "relabel_symmetry_stress",
+        "radius_label": "r75",
+        "receipt_rows": 5334
+      },
+      "run_20260619_235230_174817": {
+        "family": "projection_quotient",
+        "radius_label": "r75",
+        "receipt_rows": 5475
+      },
+      "run_20260620_000731_258746": {
+        "family": "projection_quotient",
+        "radius_label": "r75",
+        "receipt_rows": 5475
+      },
+      "run_20260620_002300_557420": {
+        "family": "two_sided_suspension",
+        "radius_label": "r75",
+        "receipt_rows": 5475
+      },
+      "run_20260620_003814_731693": {
+        "family": "two_sided_suspension",
+        "radius_label": "r75",
+        "receipt_rows": 5475
+      },
+      "run_20260620_005341_615519": {
+        "family": "suspension_plus_repair",
+        "radius_label": "r75",
+        "receipt_rows": 5475
+      },
+      "run_20260620_010858_229321": {
+        "family": "one_sided_suspension",
+        "radius_label": "r75",
+        "receipt_rows": 5475
+      },
+      "run_20260620_020139_797905": {
+        "family": "relabel_symmetry_stress",
+        "radius_label": "r100",
+        "receipt_rows": 9584
+      },
+      "run_20260620_022830_181165": {
+        "family": "relabel_symmetry_stress",
+        "radius_label": "r100",
+        "receipt_rows": 9584
+      },
+      "run_20260620_025445_237957": {
+        "family": "relabel_symmetry_stress",
+        "radius_label": "r100",
+        "receipt_rows": 9584
+      },
+      "run_20260620_032128_147577": {
+        "family": "projection_quotient",
+        "radius_label": "r100",
+        "receipt_rows": 9800
+      },
+      "run_20260620_034810_857005": {
+        "family": "projection_quotient",
+        "radius_label": "r100",
+        "receipt_rows": 9800
+      },
+      "run_20260620_041520_431043": {
+        "family": "two_sided_suspension",
+        "radius_label": "r100",
+        "receipt_rows": 9800
+      },
+      "run_20260620_044329_573888": {
+        "family": "two_sided_suspension",
+        "radius_label": "r100",
+        "receipt_rows": 9800
+      },
+      "run_20260620_051203_913614": {
+        "family": "suspension_plus_repair",
+        "radius_label": "r100",
+        "receipt_rows": 9800
+      },
+      "run_20260620_053951_296201": {
+        "family": "one_sided_suspension",
+        "radius_label": "r100",
+        "receipt_rows": 9800
+      }
+    },
+    "total_receipt_rows": 157752
+  },
+  "receipt_rollup_contract_id": "286e398f",
+  "receipt_rollup_contract_schema_version": "receipt_rollup_contract_v0",
+  "receipt_rollup_contract_sig8": "286e398f",
+  "required_invariants": [
+    "source_manifest_resolves",
+    "source_manifest_hash_recomputes",
+    "input_receipt_count_matches_manifest",
+    "rollup_hash_recomputes",
+    "aggregate_metrics_match_existing_R50_R75_R100_observations",
+    "failure_counts_recompute_from_manifest",
+    "first_failure_pointer_null_only_if_failure_counts_zero",
+    "replay_pointer_exists",
+    "slot_identity_preserved",
+    "family_identity_preserved",
+    "run_identity_preserved",
+    "eval_identity_preserved",
+    "radius_identity_preserved",
+    "trust_label_no_stronger_than_RAW_FULL_WITH_VERIFIED_ROLLUP",
+    "sufficient_for_explicit",
+    "not_sufficient_for_explicit",
+    "known_limits_explicit"
+  ],
+  "required_negative_controls": [
+    "missing_manifest_fails",
+    "manifest_hash_mismatch_fails",
+    "receipt_count_mismatch_fails",
+    "unresolved_receipt_ref_fails",
+    "rollup_aggregate_mismatch_fails",
+    "missing_replay_pointer_fails",
+    "illegal_trust_label_fails",
+    "identity_collapse_fails"
+  ],
+  "source_r100_radius_scale_observation": {
+    "gate": "PASS",
+    "id": "a5c79278",
+    "path": "data/r100_radius_scale_observations/a5c79278.json",
+    "recomputed_sig": "a5c79278",
+    "stored_sig": "a5c79278",
+    "terminal_decision": "STOP_R100_BURDEN_ENVELOPE_REQUIRES_DECISION"
+  },
+  "sufficient_for": [
+    "operator_summary",
+    "coarse_profile_delta",
+    "burden_watch",
+    "radius_decision_support"
+  ],
+  "terminal": {
+    "next_command_goal": "BUILD_VERIFIED_R100_BURDEN_ROLLUP_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+receipt_rollup_contract_path: data/receipt_rollup_contracts/286e398f.json
+CONTRACT_ID=286e398f
+
+VERIFY_RECEIPT_ROLLUP_CONTRACT_POSITIVE
+{
+  "failures": [],
+  "gate": "PASS",
+  "input_contract": "286e398f",
+  "receipt_rollup_contract_id": "286e398f",
+  "receipt_rollup_contract_path": "data/receipt_rollup_contracts/286e398f.json",
+  "receipt_rollup_contract_recomputed_sig8": "286e398f",
+  "receipt_rollup_contract_sig8": "286e398f",
+  "receipt_rollup_contract_verification_id": "583e903b",
+  "receipt_rollup_contract_verification_schema_version": "receipt_rollup_contract_verification_v0",
+  "receipt_rollup_contract_verification_sig8": "583e903b",
+  "source_r100_radius_scale_observation_id": "a5c79278",
+  "terminal": {
+    "next_command_goal": "BUILD_VERIFIED_R100_BURDEN_ROLLUP_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "verification_result": {
+    "failures": [],
+    "gate": "PASS",
+    "warnings": []
+  },
+  "warnings": []
+}
+receipt_rollup_contract_verification_path: data/receipt_rollup_contract_verifications/583e903b.json
+
+ASSERT_RECEIPT_ROLLUP_CONTRACT_POSITIVE
+{
+  "by_radius": {
+    "r100": {
+      "expected_receipt_rows_sum": 87552,
+      "observation_id": "5a442f0c",
+      "radius": 100,
+      "receipt_rows_sum": 87552,
+      "slot_run_count": 9
+    },
+    "r50": {
+      "expected_receipt_rows_sum": 21348,
+      "observation_id": "566a342b",
+      "radius": 50,
+      "receipt_rows_sum": 21348,
+      "slot_run_count": 9
+    },
+    "r75": {
+      "expected_receipt_rows_sum": 48852,
+      "observation_id": "601a7983",
+      "radius": 75,
+      "receipt_rows_sum": 48852,
+      "slot_run_count": 9
+    }
+  },
+  "gate": "PASS",
+  "known_limits": [
+    "does_not_reduce_execution_cost",
+    "does_not_reduce_raw_storage_cost",
+    "does_not_authorize_R125",
+    "does_not_replace_raw_receipts",
+    "does_not_create_independent_gate_proof"
+  ],
+  "max_trust_label_for_contract_output": "RAW_FULL_WITH_VERIFIED_ROLLUP",
+  "not_sufficient_for": [
+    "raw_replay_replacement",
+    "execution_skipping",
+    "independent_gate_proof",
+    "receipt_deletion",
+    "representative_subset_authorization",
+    "gate_semantics_change",
+    "run_semantics_change",
+    "theorem_claim"
+  ],
+  "r50_to_r100_burden_class": "BURDEN_SUPERLINEAR_REQUIRES_GUARD",
+  "r75_to_r100_burden_class": "BURDEN_SUPERLINEAR_WATCH",
+  "receipt_rollup_contract_id": "286e398f",
+  "recomputed_sig": "286e398f",
+  "sig_matches": true,
+  "source_r100_radius_scale_observation_id": "a5c79278",
+  "source_terminal_decision": "STOP_R100_BURDEN_ENVELOPE_REQUIRES_DECISION",
+  "stored_sig": "286e398f",
+  "sufficient_for": [
+    "operator_summary",
+    "coarse_profile_delta",
+    "burden_watch",
+    "radius_decision_support"
+  ],
+  "terminal": {
+    "next_command_goal": "BUILD_VERIFIED_R100_BURDEN_ROLLUP_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "total_receipt_rows": 157752
+}
+
+NEGATIVE_CONTROL_MISSING_R100_RSO
+{
+  "contract_kind": "POST_R100_RECEIPT_BURDEN_ROLLUP_CONTRACT",
+  "contract_scope": "R100_BURDEN_ROLLUP_SCOPE::definitely_missing_r100_rso",
+  "failures": [
+    "receipt_rollup_contract_build_failed:could not resolve 'definitely_missing_r100_rso' under data/r100_radius_scale_observations"
+  ],
+  "gate": "FAIL",
+  "receipt_rollup_contract_id": "f4bb239a",
+  "receipt_rollup_contract_schema_version": "receipt_rollup_contract_v0",
+  "receipt_rollup_contract_sig8": "f4bb239a",
+  "source_r100_radius_scale_observation": {
+    "id": "definitely_missing_r100_rso"
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_ROLLUP_CONTRACT_FAIL",
+    "type": "STOP"
+  },
+  "warnings": []
+}
+receipt_rollup_contract_path: data/receipt_rollup_contracts/f4bb239a.json
+
+ASSERT_NEGATIVE_MISSING_R100_RSO
+{
+  "failures": [
+    "receipt_rollup_contract_build_failed:could not resolve 'definitely_missing_r100_rso' under data/r100_radius_scale_observations"
+  ],
+  "gate": "FAIL",
+  "path": "data/receipt_rollup_contracts/f4bb239a.json",
+  "receipt_rollup_contract_id": "f4bb239a",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_ROLLUP_CONTRACT_FAIL",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROL_MISSING_CONTRACT_VERIFY
+{
+  "failures": [
+    "receipt_rollup_contract_unresolved:definitely_missing_rollup_contract:could not resolve 'definitely_missing_rollup_contract' under data/receipt_rollup_contracts"
+  ],
+  "gate": "FAIL",
+  "input_contract": "definitely_missing_rollup_contract",
+  "receipt_rollup_contract_id": "definitely_missing_rollup_contract",
+  "receipt_rollup_contract_path": null,
+  "receipt_rollup_contract_recomputed_sig8": null,
+  "receipt_rollup_contract_sig8": null,
+  "receipt_rollup_contract_verification_id": "c55e652c",
+  "receipt_rollup_contract_verification_schema_version": "receipt_rollup_contract_verification_v0",
+  "receipt_rollup_contract_verification_sig8": "c55e652c",
+  "source_r100_radius_scale_observation_id": null,
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_GATE_FAIL",
+    "type": "STOP"
+  },
+  "verification_result": {
+    "failures": [
+      "receipt_rollup_contract_unresolved:definitely_missing_rollup_contract:could not resolve 'definitely_missing_rollup_contract' under data/receipt_rollup_contracts"
+    ],
+    "gate": "FAIL",
+    "warnings": []
+  },
+  "warnings": []
+}
+receipt_rollup_contract_verification_path: data/receipt_rollup_contract_verifications/c55e652c.json
+
+ASSERT_NEGATIVE_VERIFY
+{
+  "failures": [
+    "receipt_rollup_contract_unresolved:definitely_missing_rollup_contract:could not resolve 'definitely_missing_rollup_contract' under data/receipt_rollup_contracts"
+  ],
+  "gate": "FAIL",
+  "path": "data/receipt_rollup_contract_verifications/c55e652c.json",
+  "receipt_rollup_contract_verification_id": "c55e652c",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_GATE_FAIL",
+    "type": "STOP"
+  }
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_053951_296201
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    98 │
+│ total_receipts │  9800 │
+│ receipt_rows   │  9800 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    98 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore           |   6 +
+ src/matrixlab/cli.py | 527 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 533 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+ M src/matrixlab/cli.py
+[master a5676880e] add receipt rollup contract
+ 2 files changed, 533 insertions(+)
+
+COMMIT_DONE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

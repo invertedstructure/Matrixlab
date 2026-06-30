@@ -1,0 +1,135 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_093052
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_093052.txt
+
+BOOKKEEPING_COMMIT_C8_PROPOSAL_REVIEW_AND_BUILD_PACKET_PREP_V0
+
+VERIFY_SOURCE_COMMIT_PRESENT
+c8_commit_present=27514fa3402e87817cd0b87c1af970686e2d35c7
+
+VERIFY_REVIEW_AND_PREP_ARTIFACTS_PRESENT
+present data/c8_missing_instrument_proposal_review_v0_receipts/c8_proposal_review_receipt_4e8dc3b7.json
+present data/c8_missing_instrument_proposal_review_v0/c8_missing_instrument_proposal_review_packet_v0.json
+present data/c8_missing_instrument_proposal_review_v0/c8_missing_instrument_proposal_review_readout_v0.json
+present data/c8_missing_instrument_proposal_review_v0/c8_missing_instrument_proposal_review_report.json
+present scripts/review_c8_missing_instrument_proposal_v0.py
+present data/c8_bounded_instrument_build_packet_prep_v0_receipts/c8_build_packet_prep_receipt_52acb2b7.json
+present data/c8_bounded_instrument_build_packet_prep_v0/c8_bounded_instrument_build_packet_prep_human_decision_v0.json
+present data/c8_bounded_instrument_build_packet_prep_v0/c8_bounded_instrument_build_packet_prep_v0.json
+present data/c8_bounded_instrument_build_packet_prep_v0/c8_bounded_instrument_build_packet_prep_readout_v0.json
+present data/c8_bounded_instrument_build_packet_prep_v0/c8_bounded_instrument_build_packet_prep_report.json
+present scripts/accept_c8_bounded_instrument_build_packet_prep_v0.py
+
+PY_COMPILE_RUNNERS
+
+VERIFY_REVIEW_RECEIPT
+{
+  "acceptance_gates_false_count": 0,
+  "accepted_build_packet_created": false,
+  "cell1_build": false,
+  "failures": [],
+  "gate": "PASS",
+  "instrument_built": false,
+  "negative_controls_nonzero_count": 0,
+  "outcome_class": "C8_PROPOSAL_REVIEWABLE_NOT_ACCEPTED",
+  "proposal_id": "missing_instrument_d56acf49",
+  "review_decision": "REVIEWABLE_NOT_ACCEPTED",
+  "review_receipt_id": "c8_proposal_review_receipt_4e8dc3b7",
+  "status": "TYPED_C8_MISSING_INSTRUMENT_PROPOSAL_REVIEW_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_MISSING_INSTRUMENT_PROPOSAL_REVIEW_READY_FOR_HUMAN_DECISION",
+    "type": "STOP"
+  }
+}
+
+VERIFY_PREP_RECEIPT
+{
+  "acceptance_gates_false_count": 0,
+  "accepted_build_packet_created": false,
+  "cell1_build": false,
+  "failures": [],
+  "gate": "PASS",
+  "instrument_built": false,
+  "negative_controls_nonzero_count": 0,
+  "operator_decision": "ACCEPT_FOR_BOUNDED_INSTRUMENT_BUILD_PACKET_PREP",
+  "outcome_class": "C8_BOUNDED_INSTRUMENT_BUILD_PACKET_PREP_ACCEPTED",
+  "prep_receipt_id": "c8_build_packet_prep_receipt_52acb2b7",
+  "prep_status": "ACCEPTED_FOR_BUILD_PACKET_PREP_ONLY",
+  "proposal_id": "missing_instrument_d56acf49",
+  "repeat_run": false,
+  "review_receipt_id": "c8_proposal_review_receipt_4e8dc3b7",
+  "status": "TYPED_C8_BOUNDED_INSTRUMENT_BUILD_PACKET_PREP_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_BOUNDED_INSTRUMENT_BUILD_PACKET_PREP_READY",
+    "type": "STOP"
+  },
+  "verification_probe_run": false
+}
+
+VERIFY_GIT_IDENTITY
+
+BOUND_ADD_ONLY_REVIEW_AND_PREP_ARTIFACTS
+
+VERIFY_NO_OUT_OF_SCOPE_STAGED_PATHS
+staged_path_count=12
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+review_receipts_staged=['data/c8_missing_instrument_proposal_review_v0_receipts/c8_proposal_review_receipt_4e8dc3b7.json']
+prep_receipts_staged=['data/c8_bounded_instrument_build_packet_prep_v0_receipts/c8_build_packet_prep_receipt_52acb2b7.json']
+
+BOOKKEEPING_DIFF_STAT
+ .gitignore                                         |  12 +
+ ...rument_build_packet_prep_human_decision_v0.json |  40 ++
+ ...ed_instrument_build_packet_prep_readout_v0.json |  29 ++
+ ...ounded_instrument_build_packet_prep_report.json |  21 +
+ ...c8_bounded_instrument_build_packet_prep_v0.json |  65 +++
+ .../c8_build_packet_prep_receipt_52acb2b7.json     | 135 ++++++
+ ...ssing_instrument_proposal_review_packet_v0.json |  67 +++
+ ...sing_instrument_proposal_review_readout_v0.json |  20 +
+ ..._missing_instrument_proposal_review_report.json |  37 ++
+ .../c8_proposal_review_receipt_4e8dc3b7.json       | 114 +++++
+ ...t_c8_bounded_instrument_build_packet_prep_v0.py | 524 +++++++++++++++++++++
+ .../review_c8_missing_instrument_proposal_v0.py    | 445 +++++++++++++++++
+ 12 files changed, 1509 insertions(+)
+
+BOOKKEEPING_COMMIT
+[master 3424eea31] Review C8 proposal and accept build-packet prep
+ 12 files changed, 1509 insertions(+)
+ create mode 100644 data/c8_bounded_instrument_build_packet_prep_v0/c8_bounded_instrument_build_packet_prep_human_decision_v0.json
+ create mode 100644 data/c8_bounded_instrument_build_packet_prep_v0/c8_bounded_instrument_build_packet_prep_readout_v0.json
+ create mode 100644 data/c8_bounded_instrument_build_packet_prep_v0/c8_bounded_instrument_build_packet_prep_report.json
+ create mode 100644 data/c8_bounded_instrument_build_packet_prep_v0/c8_bounded_instrument_build_packet_prep_v0.json
+ create mode 100644 data/c8_bounded_instrument_build_packet_prep_v0_receipts/c8_build_packet_prep_receipt_52acb2b7.json
+ create mode 100644 data/c8_missing_instrument_proposal_review_v0/c8_missing_instrument_proposal_review_packet_v0.json
+ create mode 100644 data/c8_missing_instrument_proposal_review_v0/c8_missing_instrument_proposal_review_readout_v0.json
+ create mode 100644 data/c8_missing_instrument_proposal_review_v0/c8_missing_instrument_proposal_review_report.json
+ create mode 100644 data/c8_missing_instrument_proposal_review_v0_receipts/c8_proposal_review_receipt_4e8dc3b7.json
+ create mode 100755 scripts/accept_c8_bounded_instrument_build_packet_prep_v0.py
+ create mode 100755 scripts/review_c8_missing_instrument_proposal_v0.py
+
+BOOKKEEPING_COMMIT_RECEIPT
+commit_sha=3424eea31966c056b1968a5321ab02cd979c0417
+proposal_review_receipt=data/c8_missing_instrument_proposal_review_v0_receipts/c8_proposal_review_receipt_4e8dc3b7.json
+proposal_review_outcome=C8_PROPOSAL_REVIEWABLE_NOT_ACCEPTED
+build_packet_prep_receipt=data/c8_bounded_instrument_build_packet_prep_v0_receipts/c8_build_packet_prep_receipt_52acb2b7.json
+build_packet_prep_outcome=C8_BOUNDED_INSTRUMENT_BUILD_PACKET_PREP_ACCEPTED
+operator_decision=ACCEPT_FOR_BOUNDED_INSTRUMENT_BUILD_PACKET_PREP
+proposal_id=missing_instrument_d56acf49
+instrument_kind=DISCRIMINATOR
+candidate_name=local_transition_family_discriminator_candidate
+accepted_build_packet_created=false
+instrument_built=false
+cell1_build=false
+verification_probe_run=false
+repeat_run=false
+c8_rerun=false
+terminal_stop_code=STOP_C8_BOUNDED_INSTRUMENT_BUILD_PACKET_PREP_READY
+
+STATUS_AFTER_COMMIT_RELEVANT
+
+BOOKKEEPING_COMMIT_C8_PROPOSAL_REVIEW_AND_BUILD_PACKET_PREP_COMPLETE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

@@ -1,0 +1,261 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_224127
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_224127.txt
+
+REPAIR_RUNTIME_T3_ADMISSIBILITY_BLOCK_PRESSURE_ENUM_V0
+
+STATUS_BEFORE_RELEVANT
+MM .gitignore
+?? scripts/prepare_runtime_t3_admissibility_block_case_contract_v0.py
+
+VERIFY_T3_ADMISSIBILITY_ENUM_REPAIR_BASIS
+present data/runtime_deferred_cases_t3_admissibility_contract_v0_receipts/1379a1e1.json
+present data/runtime_deferred_cases_t3_schema_contract_v0_receipts/78c1c459.json
+present data/runtime_deferred_cases_t3_schema_contract_v0/runtime_t3_schema_validation_failure_case_contract_v0.json
+present data/runtime_deferred_cases_t3_schema_contract_v0/runtime_allowed_t3_schema_validation_failure_case_v0.json
+present data/runtime_deferred_cases_t3_schema_contract_v0/runtime_deferred_suite_shape_after_t3_schema_contract_v0.json
+present data/runtime_deferred_cases_t3_schema_contract_v0/runtime_t3_admissibility_block_case_contract_target_v0.json
+present data/runtime_deferred_cases_readiness_v0/runtime_deferred_cases_readiness_index_v0.json
+present data/runtime_deferred_cases_readiness_v0/runtime_deferred_cases_buildable_queue_v0.json
+present data/runtime_incremental_suite_preflight_v0/runtime_expected_pressure_case_contract_v0.json
+present data/runtime_incremental_suite_preflight_v0/runtime_case_manifest_expected_pressure_rules_v0.json
+present data/runtime_incremental_suite_preflight_v0/runtime_declared_state_variant_rules_v0.json
+present data/runtime_incremental_suite_preflight_v0/runtime_state_derivation_template_v0.json
+present data/runtime_adoption_smoke_v0_receipts/runtime_smoke_receipt_900b2eae.json
+present data/runtime_adoption_smoke_v0/runtime_state_v0.json
+present data/runtime_adoption_smoke_v0/runtime_state_schema_v0.json
+present data/runtime_adoption_smoke_v0/runtime_move_registry_snapshot_v0.json
+
+WRITE_T3_ADMISSIBILITY_ENUM_REPAIR
+
+PY_COMPILE_ENUM_REPAIR
+
+RUN_ENUM_REPAIR
+{
+  "failed_receipt_id": "1379a1e1",
+  "failed_receipt_path": "data/runtime_deferred_cases_t3_admissibility_contract_v0_receipts/1379a1e1.json",
+  "outcome_token_selected": "RUNTIME_SMOKE_BLOCKED_ADMISSIBILITY",
+  "patched_script": "scripts/prepare_runtime_t3_admissibility_block_case_contract_v0.py",
+  "pressure_token_selected": "LAWFUL_ADMISSIBILITY_FAIL",
+  "repair_gate": "PASS",
+  "repair_scope": "local enum alignment only",
+  "runtime_patched": false,
+  "schema_created": false,
+  "stop_code_selected": "STOP_RUNTIME_LAWFUL_ADMISSIBILITY_FAIL",
+  "taxonomy_created": false
+}
+
+PY_COMPILE_REPAIRED_T3_ADMISSIBILITY_CONTRACT
+
+RERUN_T3_ADMISSIBILITY_CONTRACT_AFTER_ENUM_REPAIR
+{
+  "acceptance_gate_results": {
+    "T3_ADMISSIBILITY_0_T3_SCHEMA_RECEIPT_CONSUMED": true,
+    "T3_ADMISSIBILITY_1_TARGET_CONSUMED": true,
+    "T3_ADMISSIBILITY_2_DENY_CONTEXT_DECLARED": true,
+    "T3_ADMISSIBILITY_3_CONTRACT_EMITTED": true,
+    "T3_ADMISSIBILITY_4_ALLOWED_CASE_EMITTED": true,
+    "T3_ADMISSIBILITY_5_MANIFEST_RULES_EMITTED": true,
+    "T3_ADMISSIBILITY_6_T4_OBSERVABILITY_TARGET_NEXT": true,
+    "T3_ADMISSIBILITY_7_NO_SUITE_RUN": true,
+    "T3_ADMISSIBILITY_8_SOURCE_INPUTS_NOT_MUTATED": true,
+    "T3_ADMISSIBILITY_9_NO_HIDDEN_NEXT_COMMAND": true
+  },
+  "build_mode": "T3_ADMISSIBILITY_BLOCK_CASE_CONTRACT_ONLY",
+  "created_at": "2026-06-25T21:41:27.914556+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OUTER / RUNTIME_ADOPTION / DEFERRED_CASES / T3",
+  "machine_readable_t3_admissibility_contract_summary": {
+    "admissibility_context_derivation_ready": true,
+    "admissibility_widening_authorized": false,
+    "allowed_t3_admissibility_block_case_count": 1,
+    "architecture_widened": false,
+    "c8_authorized": false,
+    "case_key": "T3.admissibility_block",
+    "expected_outcome_class": "RUNTIME_SMOKE_BLOCKED_ADMISSIBILITY",
+    "expected_pressure_class": "LAWFUL_ADMISSIBILITY_FAIL",
+    "fixture_expanded_by_default": false,
+    "hidden_next_command": false,
+    "live_runtime_hooks_installed": false,
+    "move_addition_authorized": false,
+    "next_unit_id": "PREPARE_RUNTIME_T4_REQUIRED_OBSERVABILITY_GAP_CASE_INSTANCE_V0",
+    "ready_for_deferred_suite_run": false,
+    "ready_for_live_runtime_adoption": false,
+    "ready_for_t4_observability_gap_instance": true,
+    "reason_codes": [
+      "T3_SCHEMA_CONTRACT_RECEIPT_CONSUMED",
+      "T3_ADMISSIBILITY_BLOCK_TARGET_CONSUMED",
+      "ADMISSIBILITY_DENY_CONTEXT_DECLARED",
+      "ADMISSIBILITY_BLOCK_EXPECTED_PRESSURE_CONTRACTED",
+      "T3_ADMISSIBILITY_BLOCK_CASE_READY_FOR_DEFERRED_SUITE",
+      "T4_REQUIRED_OBSERVABILITY_GAP_INSTANCE_NEXT",
+      "NO_SUITE_RUN",
+      "NO_ADMISSIBILITY_REPAIR",
+      "NO_AUTHORITY_WIDENING",
+      "NO_SCHEMA_INVENTION",
+      "NO_TAXONOMY_INVENTION",
+      "NO_MOVE_ADDITION",
+      "NO_FIXTURE_EXPANSION_BY_DEFAULT",
+      "NO_RUNTIME_PATCH",
+      "NO_LIVE_RUNTIME_ADOPTION",
+      "NO_C8_AUTHORIZATION",
+      "NO_HIDDEN_NEXT_COMMAND"
+    ],
+    "repair_authorized": false,
+    "runtime_adoption_authorized": false,
+    "runtime_patched": false,
+    "schema_archive_mutated": false,
+    "schema_created": false,
+    "status": "TYPED_RUNTIME_T3_ADMISSIBILITY_BLOCK_CASE_CONTRACT_READY_T4_OBSERVABILITY_NEXT",
+    "t3_admissibility_contract_done": true,
+    "taxonomy_created": false
+  },
+  "mode": "PREPARE_CONTRACT_ONLY / ADMISSIBILITY_BLOCK / NO_TEST_RUN",
+  "output_artifacts": {
+    "admissibility_context_derivation": "data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_t3_admissibility_block_context_derivation_v0.json",
+    "allowed_case": "data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_allowed_t3_admissibility_block_case_v0.json",
+    "basis": "data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_t3_admissibility_block_contract_basis_v0.json",
+    "contract": "data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_t3_admissibility_block_case_contract_v0.json",
+    "deferred_shape": "data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_deferred_suite_shape_after_t3_admissibility_contract_v0.json",
+    "implementation_receipt": "data/runtime_deferred_cases_t3_admissibility_contract_v0_receipts/e8a7665a.json",
+    "manifest_rules": "data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_case_manifest_t3_admissibility_block_rules_v0.json",
+    "next_target": "data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_t4_required_observability_gap_case_instance_target_v0.json",
+    "profile": "data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_t3_admissibility_block_contract_profile_v0.json",
+    "rollup": "data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_t3_admissibility_block_contract_rollup_v0.json",
+    "transition_trace": "data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_t3_admissibility_block_contract_transition_trace.json"
+  },
+  "receipt_id": "e8a7665a",
+  "receipt_type": "TYPED_RUNTIME_T3_ADMISSIBILITY_BLOCK_CASE_CONTRACT_RECEIPT",
+  "schema_version": "runtime_t3_admissibility_block_contract_receipt_v0",
+  "source_t3_schema_receipt_id": "78c1c459",
+  "status": "TYPED_RUNTIME_T3_ADMISSIBILITY_BLOCK_CASE_CONTRACT_READY_T4_OBSERVABILITY_NEXT",
+  "target_unit_id": "outer.runtime_adoption.deferred_cases.t3_admissibility_block_contract_v0",
+  "terminal": {
+    "next_unit_id": "PREPARE_RUNTIME_T4_REQUIRED_OBSERVABILITY_GAP_CASE_INSTANCE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "unit_id": "PREPARE_RUNTIME_T3_ADMISSIBILITY_BLOCK_CASE_CONTRACT_V0",
+  "warnings": []
+}
+runtime_t3_admissibility_contract_receipt_id=e8a7665a
+runtime_t3_admissibility_contract_receipt_path=data/runtime_deferred_cases_t3_admissibility_contract_v0_receipts/e8a7665a.json
+runtime_t3_admissibility_contract_next_unit=PREPARE_RUNTIME_T4_REQUIRED_OBSERVABILITY_GAP_CASE_INSTANCE_V0
+
+ASSERT_REPAIRED_T3_ADMISSIBILITY_CONTRACT
+{
+  "admissibility_widening_authorized": false,
+  "allowed_t3_admissibility_block_case_count": 1,
+  "c8_authorized": false,
+  "case_key": "T3.admissibility_block",
+  "expected_outcome_class": "RUNTIME_SMOKE_BLOCKED_ADMISSIBILITY",
+  "expected_pressure_class": "LAWFUL_ADMISSIBILITY_FAIL",
+  "failures": [],
+  "gate": "PASS",
+  "hidden_next_command": false,
+  "move_addition_authorized": false,
+  "next_unit_id": "PREPARE_RUNTIME_T4_REQUIRED_OBSERVABILITY_GAP_CASE_INSTANCE_V0",
+  "ready_for_deferred_suite_run": false,
+  "ready_for_t4_observability_gap_instance": true,
+  "receipt_id": "e8a7665a",
+  "repair_authorized": false,
+  "runtime_adoption_authorized": false,
+  "runtime_patched": false,
+  "status": "TYPED_RUNTIME_T3_ADMISSIBILITY_BLOCK_CASE_CONTRACT_READY_T4_OBSERVABILITY_NEXT",
+  "terminal": {
+    "next_unit_id": "PREPARE_RUNTIME_T4_REQUIRED_OBSERVABILITY_GAP_CASE_INSTANCE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+SHOW_REPAIRED_T3_ADMISSIBILITY_CONTRACT_SUMMARY
+receipt_id=e8a7665a
+receipt_path=data/runtime_deferred_cases_t3_admissibility_contract_v0_receipts/e8a7665a.json
+status=TYPED_RUNTIME_T3_ADMISSIBILITY_BLOCK_CASE_CONTRACT_READY_T4_OBSERVABILITY_NEXT
+t3_admissibility_contract_done=True
+case_key=T3.admissibility_block
+admissibility_context_derivation_ready=True
+expected_pressure_class=LAWFUL_ADMISSIBILITY_FAIL
+expected_outcome_class=RUNTIME_SMOKE_BLOCKED_ADMISSIBILITY
+allowed_t3_admissibility_block_case_count=1
+ready_for_t4_observability_gap_instance=True
+ready_for_deferred_suite_run=False
+next_unit_id=PREPARE_RUNTIME_T4_REQUIRED_OBSERVABILITY_GAP_CASE_INSTANCE_V0
+repair_authorized=False
+move_addition_authorized=False
+admissibility_widening_authorized=False
+runtime_adoption_authorized=False
+runtime_patched=False
+fixture_expanded_by_default=False
+architecture_widened=False
+hidden_next_command=False
+c8_authorized=False
+terminal_type=ADVANCE
+terminal_next_unit_id=PREPARE_RUNTIME_T4_REQUIRED_OBSERVABILITY_GAP_CASE_INSTANCE_V0
+
+SHOW_REPAIRED_T3_ADMISSIBILITY_ALLOWED_CASE
+allowed_case_count=1
+T3:t3_admissibility_block_declared_deny_context_v0:LAWFUL_ADMISSIBILITY_FAIL:RUNTIME_SMOKE_BLOCKED_ADMISSIBILITY:repair=False:move_add=False
+
+SHOW_DEFERRED_SHAPE_AFTER_REPAIRED_T3_ADMISSIBILITY
+shape_status=PARTIAL_READY_T4_OBSERVABILITY_INSTANCE_NEXT
+ready_deferred_cases_after_this_unit=T3.schema_validation_failure,T3.admissibility_block
+still_needs_contract=
+still_needs_case_instance=T4.full_observability_required_gap
+still_needs_feasibility_audit=T6.step_cap_loop_shape,T6.move_tie_unresolved
+ready_for_deferred_suite_run=False
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+MM .gitignore
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_allowed_t3_schema_validation_failure_case_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_case_manifest_t3_schema_validation_failure_rules_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_deferred_suite_shape_after_t3_schema_contract_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_t3_admissibility_block_case_contract_target_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_t3_schema_validation_failure_case_contract_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_t3_schema_validation_failure_contract_basis_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_t3_schema_validation_failure_contract_profile_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_t3_schema_validation_failure_contract_rollup_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_t3_schema_validation_failure_contract_transition_trace.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_t3_schema_validation_failure_invalid_state_derivation_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0_receipts/78c1c459.json
+?? scripts/prepare_runtime_t3_admissibility_block_case_contract_v0.py
+?? scripts/repair_runtime_t3_admissibility_block_pressure_enum_v0.py
+
+PACKAGE_REPAIRED_T3_ADMISSIBILITY_CONTRACT_ARTIFACTS
+
+REPAIRED_T3_ADMISSIBILITY_CONTRACT_READY_FOR_COMMIT
+M  .gitignore
+A  data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_allowed_t3_admissibility_block_case_v0.json
+A  data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_case_manifest_t3_admissibility_block_rules_v0.json
+A  data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_deferred_suite_shape_after_t3_admissibility_contract_v0.json
+A  data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_t3_admissibility_block_case_contract_v0.json
+A  data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_t3_admissibility_block_context_derivation_v0.json
+A  data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_t3_admissibility_block_contract_basis_v0.json
+A  data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_t3_admissibility_block_contract_profile_v0.json
+A  data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_t3_admissibility_block_contract_rollup_v0.json
+A  data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_t3_admissibility_block_contract_transition_trace.json
+A  data/runtime_deferred_cases_t3_admissibility_contract_v0/runtime_t4_required_observability_gap_case_instance_target_v0.json
+A  data/runtime_deferred_cases_t3_admissibility_contract_v0_receipts/1379a1e1.json
+A  data/runtime_deferred_cases_t3_admissibility_contract_v0_receipts/e8a7665a.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_allowed_t3_schema_validation_failure_case_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_case_manifest_t3_schema_validation_failure_rules_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_deferred_suite_shape_after_t3_schema_contract_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_t3_admissibility_block_case_contract_target_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_t3_schema_validation_failure_case_contract_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_t3_schema_validation_failure_contract_basis_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_t3_schema_validation_failure_contract_profile_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_t3_schema_validation_failure_contract_rollup_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_t3_schema_validation_failure_contract_transition_trace.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0/runtime_t3_schema_validation_failure_invalid_state_derivation_v0.json
+A  data/runtime_deferred_cases_t3_schema_contract_v0_receipts/78c1c459.json
+A  scripts/prepare_runtime_t3_admissibility_block_case_contract_v0.py
+A  scripts/repair_runtime_t3_admissibility_block_pressure_enum_v0.py
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

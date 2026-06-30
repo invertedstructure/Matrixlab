@@ -1,0 +1,94 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_191249
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_191249.txt
+
+REVIEW_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_AFTER_RUNTIME_ADOPTION_CLOSURE_V0
+
+VERIFY_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_ARTIFACTS_PRESENT
+present data/c8_unit_feedback_hardening_bounded_probe_execution_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_bounded_probe_execution_receipt_b35662b1.json
+present data/c8_unit_feedback_hardening_bounded_probe_execution_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_bounded_probe_observation_v0.json
+present data/c8_unit_feedback_hardening_bounded_probe_execution_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_bounded_probe_source_index_v0.json
+present data/c8_unit_feedback_hardening_bounded_probe_execution_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_bounded_probe_execution_boundary_audit_v0.json
+present data/c8_unit_feedback_hardening_bounded_probe_execution_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_bounded_probe_execution_readout_v0.json
+present data/c8_unit_feedback_hardening_bounded_probe_execution_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_bounded_probe_execution_report.json
+present scripts/execute_c8_unit_feedback_hardening_bounded_probe_once_after_runtime_adoption_closure_v0.py
+
+PY_COMPILE_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_RUNNER
+
+VERIFY_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_RECEIPT
+{
+  "bounded_probe_execution_limit": 1,
+  "c8_rerun_now": false,
+  "failed_unit_sample_count": 0,
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "gate_results_false_count": 0,
+  "instrument_built_now": false,
+  "observation_class": "UNIT_FEEDBACK_DIAGNOSTIC_FEEDBACK_PARTIAL_NO_FAILED_UNIT_SAMPLE_OBSERVED",
+  "observation_id": "c8_unit_feedback_hardening_bounded_probe_observation_dd60017c",
+  "observation_verdict": "PARTIAL",
+  "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_READY_FOR_REVIEW",
+  "probe_executed_now": true,
+  "probe_execution_count_now": 1,
+  "probe_id": "c8_unit_feedback_hardening_bounded_probe_after_runtime_adoption_closure_v0",
+  "probe_kind": "UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE",
+  "receipt_id": "c8_unit_feedback_hardening_bounded_probe_execution_receipt_b35662b1",
+  "recommended_human_decision": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_OBSERVATION_FOR_REVIEW",
+  "recommended_review_unit": "REVIEW_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+  "reusable_schema_authorized": false,
+  "review_gate": "PASS",
+  "source_docs_count": 32,
+  "source_index_id": "c8_unit_feedback_hardening_bounded_probe_source_index_53ccc16f",
+  "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_READY_FOR_REVIEW",
+    "type": "STOP"
+  },
+  "typed_stop_sample_count": 5
+}
+
+VERIFY_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_CONTENT
+{
+  "boundary_id": "c8_unit_feedback_hardening_bounded_probe_execution_boundary_49533154",
+  "bounded_probe_execution_limit": 1,
+  "content_review_gate": "PASS",
+  "diagnostic_gap": "No failed-unit sample was present in the bounded source set, so the probe can verify typed-stop/status/context/refinement structure but cannot fully validate failed-unit diagnostic quality.",
+  "failed_unit_sample_count": 0,
+  "failure_status_distinction_signal_doc_count": 12,
+  "failures": [],
+  "observation_class": "UNIT_FEEDBACK_DIAGNOSTIC_FEEDBACK_PARTIAL_NO_FAILED_UNIT_SAMPLE_OBSERVED",
+  "observation_id": "c8_unit_feedback_hardening_bounded_probe_observation_dd60017c",
+  "observation_verdict": "PARTIAL",
+  "probe_executed_now": true,
+  "probe_execution_count_now": 1,
+  "refinement_signal_doc_count": 27,
+  "relative_signal_doc_count": 31,
+  "source_docs_count": 32,
+  "source_index_id": "c8_unit_feedback_hardening_bounded_probe_source_index_53ccc16f",
+  "typed_stop_sample_count": 5,
+  "where_signal_doc_count": 5,
+  "why_signal_doc_count": 17
+}
+
+VERIFY_STAGED_SCOPE_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_ONLY
+staged_path_count=8
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+unit_feedback_hardening_bounded_probe_execution_receipts_staged=['data/c8_unit_feedback_hardening_bounded_probe_execution_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_bounded_probe_execution_receipt_b35662b1.json']
+
+REVIEW_DIFF_STAT
+ .gitignore                                         |   6 +
+ ..._bounded_probe_execution_boundary_audit_v0.json |  44 ++
+ ...rdening_bounded_probe_execution_readout_v0.json |  24 +
+ ...k_hardening_bounded_probe_execution_report.json |  38 ++
+ ...ack_hardening_bounded_probe_observation_v0.json |  52 ++
+ ...ck_hardening_bounded_probe_source_index_v0.json | 693 ++++++++++++++++++++
+ ...g_bounded_probe_execution_receipt_b35662b1.json | 116 ++++
+ ...probe_once_after_runtime_adoption_closure_v0.py | 694 +++++++++++++++++++++
+ 8 files changed, 1667 insertions(+)
+
+REVIEW_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_AFTER_RUNTIME_ADOPTION_CLOSURE_PASS
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

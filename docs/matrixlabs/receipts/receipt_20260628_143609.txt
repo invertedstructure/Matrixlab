@@ -1,0 +1,62 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_143609
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_143609.txt
+
+STAGE_REPAIRED_C8_SUCCESSOR_SURFACE_BOUNDED_REUSE_AUTHORITY_PROBE_CLOSURE_ACCEPTANCE_V0
+
+VERIFY_REPAIRED_CLOSURE_ACCEPTANCE_ARTIFACTS_PRESENT
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_acceptance_v0_receipts/c8_successor_reuse_authority_probe_closure_acceptance_receipt_2023bce5.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_acceptance_v0/c8_successor_surface_reuse_authority_probe_closure_acceptance_decision_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_acceptance_v0/c8_successor_surface_reuse_authority_probe_closure_acceptance_packet_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_acceptance_v0/c8_successor_surface_reuse_authority_probe_final_closure_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_acceptance_v0/c8_successor_surface_reuse_authority_probe_closure_acceptance_boundary_audit_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_acceptance_v0/c8_successor_surface_reuse_authority_probe_closure_acceptance_readout_v0.json
+present data/c8_successor_surface_bounded_reuse_authority_probe_closure_acceptance_v0/c8_successor_surface_reuse_authority_probe_closure_acceptance_report.json
+present scripts/accept_c8_successor_surface_bounded_reuse_authority_probe_closure_no_new_authority_v0.py
+
+PY_COMPILE_REPAIRED_CLOSURE_ACCEPTANCE_RUNNER
+
+VERIFY_REPAIRED_CLOSURE_ACCEPTANCE_RECEIPT_AND_REPORT
+{
+  "acceptance_gates_false_count": 0,
+  "additional_probe_authorized_now": false,
+  "closed_with_no_new_authority": true,
+  "closure_accepted": true,
+  "current_successor_surface_closed": true,
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "next_surface_selected_now": false,
+  "outcome_class": "C8_SUCCESSOR_SURFACE_CLOSED_NO_NEW_AUTHORITY",
+  "receipt_id": "c8_successor_reuse_authority_probe_closure_acceptance_receipt_2023bce5",
+  "reusable_schema_authorized": false,
+  "selected_surface_id": "c8_successor_surface_reuse_authority_boundary_after_local_closure_v0",
+  "selected_surface_kind": "REUSE_AUTHORITY_BOUNDARY_SURFACE",
+  "selected_surface_label": "C8_POST_CLOSURE_LOCAL_LOOP_REUSE_PRESSURE_SURFACE",
+  "stage_gate": "PASS",
+  "status": "TYPED_C8_SUCCESSOR_SURFACE_BOUNDED_REUSE_AUTHORITY_PROBE_CLOSURE_ACCEPTANCE_PASS"
+}
+
+FORCE_STAGE_REPAIRED_CLOSURE_ACCEPTANCE_ARTIFACTS
+
+VERIFY_STAGED_SCOPE_REPAIRED_CLOSURE_ACCEPTANCE_ONLY
+staged_path_count=9
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+closure_acceptance_receipts_staged=['data/c8_successor_surface_bounded_reuse_authority_probe_closure_acceptance_v0_receipts/c8_successor_reuse_authority_probe_closure_acceptance_receipt_2023bce5.json']
+
+REPAIRED_STAGED_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...probe_closure_acceptance_boundary_audit_v0.json |  60 +++
+ ...ority_probe_closure_acceptance_decision_v0.json |  31 ++
+ ...thority_probe_closure_acceptance_packet_v0.json |  36 ++
+ ...hority_probe_closure_acceptance_readout_v0.json |  23 +
+ ..._authority_probe_closure_acceptance_report.json |  38 ++
+ ...ace_reuse_authority_probe_final_closure_v0.json |  22 +
+ ..._probe_closure_acceptance_receipt_2023bce5.json | 129 +++++
+ ..._authority_probe_closure_no_new_authority_v0.py | 543 +++++++++++++++++++++
+ 9 files changed, 888 insertions(+)
+
+C8_SUCCESSOR_SURFACE_BOUNDED_REUSE_AUTHORITY_PROBE_CLOSURE_ACCEPTANCE_REPAIRED_STAGED_READY_FOR_REVIEW
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

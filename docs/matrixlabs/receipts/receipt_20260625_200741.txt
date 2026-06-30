@@ -1,0 +1,834 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_200741
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_200741.txt
+
+REPAIR_RUNTIME_OBSERVABILITY_SIDECAR_BUILD_V0
+
+STATUS_BEFORE_RELEVANT
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/radius_125_slot_execution_summaries/
+?? scripts/build_runtime_observability_sidecar_v0.py
+
+VERIFY_RUNTIME_OBSERVABILITY_SIDECAR_REPAIR_BASIS
+present data/runtime_observability_sidecar_v0_receipts/84aec9df.json
+present data/runtime_observability_sidecar_target_from_schema_validator_and_observability_references_v0_receipts/37628e11.json
+present data/post_runtime_schema_validator_reference_decision_v0_receipts/1ca1e03b.json
+present data/runtime_schema_validator_cell_reference_closure_v0_receipts/732016f0.json
+present data/decision_edge_observability_reference_closure_from_bounded_c6_adoption_probe_reference_v0_receipts/ac09c2e3.json
+present scripts/build_runtime_observability_sidecar_v0.py
+present data/runtime_observability_sidecar_target_from_schema_validator_and_observability_references_v0/runtime_observability_sidecar_event_record_schema_target_v0.json
+present data/runtime_observability_sidecar_target_from_schema_validator_and_observability_references_v0/runtime_observability_sidecar_receipt_schema_target_v0.json
+present data/runtime_observability_sidecar_target_from_schema_validator_and_observability_references_v0/runtime_observability_sidecar_build_target_v0.json
+
+VERIFY_FAILED_SIDECAR_BUILD_TARGET
+{
+  "boundary_clean": true,
+  "events_recorded": 0,
+  "failed_receipt_id": "84aec9df",
+  "gate": "FAIL",
+  "status": "TYPED_RUNTIME_OBSERVABILITY_SIDECAR_BUILD_GATE_FAIL",
+  "target_failures_present": [
+    "acceptance_gate_result_false",
+    "event_schema_missing_forbidden_claims",
+    "receipt_schema_zero_counters_missing"
+  ]
+}
+
+PATCH_GITIGNORE
+
+PATCH_RUNTIME_OBSERVABILITY_SIDECAR_BUILD_RUNNER
+{
+  "after_sha256": "bff96c94c4fb564b7c5337ba68b8fd092838380722ff3dfb4b28d4136fc92fe8",
+  "before_sha256": "dfe19e280e803cc71990ecde85bc085cb5c9668f8afe798fc1c588b97dd750d8",
+  "changes": [
+    {
+      "from": "forbidden_control_claims_detected",
+      "to": "forbidden_claims_detected",
+      "why": "The designed event record schema uses forbidden_claims_detected."
+    },
+    {
+      "from": "runner ZERO_COUNTERS must be subset of design receipt schema",
+      "to": "design receipt schema counters must be subset of runner ZERO_COUNTERS",
+      "why": "The runner tracks additional negative-control counters beyond the receipt schema target."
+    }
+  ],
+  "does_not_change": [
+    "Sidecar concept",
+    "hook registry target",
+    "event record semantics",
+    "receipt semantics",
+    "append-only trace semantics",
+    "control-path boundary",
+    "live runtime hooks",
+    "runtime routing",
+    "runtime patching",
+    "C8 authorization"
+  ],
+  "patch_scope": "runner/check validation repair only",
+  "repair_status": "PATCH_APPLIED",
+  "schema_version": "runtime_observability_sidecar_build_patch_record_v0",
+  "target_file": "scripts/build_runtime_observability_sidecar_v0.py"
+}
+
+PY_COMPILE_REPAIRED_RUNTIME_OBSERVABILITY_SIDECAR_BUILD
+
+WRITE_RUNTIME_OBSERVABILITY_SIDECAR_REPAIR_RECEIPT
+{
+  "created_at": "2026-06-25T19:07:41.907188+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "output_artifacts": {
+    "basis": "data/runtime_observability_sidecar_build_repair_v0/runtime_observability_sidecar_build_repair_basis_v0.json",
+    "classification": "data/runtime_observability_sidecar_build_repair_v0/runtime_observability_sidecar_build_repair_classification_v0.json",
+    "patch_record": "data/runtime_observability_sidecar_build_repair_v0/runtime_observability_sidecar_build_patch_record_v0.json"
+  },
+  "receipt_id": "480cf138",
+  "receipt_type": "TYPED_RUNTIME_OBSERVABILITY_SIDECAR_BUILD_REPAIR_RECEIPT",
+  "repair_summary": {
+    "admissibility_checked": false,
+    "authority_checked": false,
+    "bad_counters_zero": true,
+    "c8_authorized": false,
+    "control_path_advanced": false,
+    "control_path_blocked": false,
+    "execution_claimed": false,
+    "live_runtime_hooks_installed": false,
+    "live_runtime_routing_installed": false,
+    "repair_applied": true,
+    "repair_class": "RUNNER_VALIDATION_ALIGNMENT_REPAIR",
+    "rerun_required": true,
+    "runtime_effect": false,
+    "runtime_observability_sidecar_built": false,
+    "runtime_patched": false
+  },
+  "schema_version": "runtime_observability_sidecar_build_repair_receipt_v0",
+  "source_runtime_observability_sidecar_design_receipt_id": "37628e11",
+  "source_runtime_observability_sidecar_failed_build_receipt_id": "84aec9df",
+  "target_unit_id": "runtime.observability_sidecar.build_repair.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_RUNTIME_OBSERVABILITY_SIDECAR_BUILD_REPAIR_PATCHED_RERUN_READY",
+    "type": "STOP"
+  },
+  "unit_id": "REPAIR_RUNTIME_OBSERVABILITY_SIDECAR_BUILD_V0"
+}
+runtime_observability_sidecar_build_repair_receipt_id=480cf138
+runtime_observability_sidecar_build_repair_receipt_path=data/runtime_observability_sidecar_build_repair_v0_receipts/480cf138.json
+
+RERUN_RUNTIME_OBSERVABILITY_SIDECAR_BUILD_AFTER_REPAIR
+{
+  "acceptance_gate_results": {
+    "SIDECAR_BUILD_0_DESIGN_RECEIPT_CONSUMED": true,
+    "SIDECAR_BUILD_10_FORBIDDEN_CONTROL_CLAIM_DEMOS_EMITTED": true,
+    "SIDECAR_BUILD_11_LOAD_BEARING_FIELDS_PRESENT": true,
+    "SIDECAR_BUILD_12_ROLLUP_READOUT_PROFILE_EMITTED": true,
+    "SIDECAR_BUILD_13_REPORT_TRACE_EMITTED": true,
+    "SIDECAR_BUILD_14_NO_LIVE_HOOK_INSTALL": true,
+    "SIDECAR_BUILD_15_NO_RUNTIME_EFFECT_OR_PATCH": true,
+    "SIDECAR_BUILD_16_NO_LIVE_RUNTIME_ROUTING": true,
+    "SIDECAR_BUILD_17_NO_VALIDATION_ADMISSIBILITY_AUTHORITY_OR_EXECUTION": true,
+    "SIDECAR_BUILD_18_NO_SCHEMA_MUTATION_OR_REPAIR": true,
+    "SIDECAR_BUILD_19_NO_CONTROL_PATH_BLOCK_OR_ADVANCE": true,
+    "SIDECAR_BUILD_1_HOOK_REGISTRY_BUILT": true,
+    "SIDECAR_BUILD_20_NO_BUILDER_COMMAND": true,
+    "SIDECAR_BUILD_21_NO_C7_OR_C8": true,
+    "SIDECAR_BUILD_22_NO_SOURCE_OR_REFERENCE_MUTATION": true,
+    "SIDECAR_BUILD_23_NO_LATEST_OR_MTIME": true,
+    "SIDECAR_BUILD_24_BAD_COUNTERS_ZERO": true,
+    "SIDECAR_BUILD_25_NO_HIDDEN_NEXT_COMMAND": true,
+    "SIDECAR_BUILD_2_EVENT_RECORD_SCHEMA_BUILT": true,
+    "SIDECAR_BUILD_3_RECEIPT_SCHEMA_BUILT": true,
+    "SIDECAR_BUILD_4_APPEND_ONLY_TRACE_SCHEMA_BUILT": true,
+    "SIDECAR_BUILD_5_DEMO_INPUTS_EMITTED": true,
+    "SIDECAR_BUILD_6_EVENT_RECORDS_EMITTED": true,
+    "SIDECAR_BUILD_7_APPEND_ONLY_TRACE_EMITTED": true,
+    "SIDECAR_BUILD_8_UNKNOWN_HOOK_DEMO_EMITTED": true,
+    "SIDECAR_BUILD_9_HOOK_GAP_DEMO_EMITTED": true
+  },
+  "aggregate_metrics": {
+    "build_mode": "RUNTIME_OBSERVABILITY_SIDECAR_SYNTHETIC_REFERENCE_BUILD_ONLY",
+    "layer": "RUNTIME / OBSERVATION",
+    "mode": "OBSERVE / EMIT_RECEIPT / APPEND_ONLY",
+    "reason_codes": [
+      "RUNTIME_OBSERVABILITY_SIDECAR_BUILT_SYNTHETIC_REFERENCE",
+      "DESIGN_RECEIPT_CONSUMED",
+      "HOOK_REGISTRY_BUILT",
+      "EVENT_RECORD_SCHEMA_BUILT",
+      "SIDECAR_RECEIPT_SCHEMA_BUILT",
+      "APPEND_ONLY_TRACE_SCHEMA_BUILT",
+      "DEMO_EVENT_INPUTS_EMITTED",
+      "EVENT_RECORDS_EMITTED",
+      "APPEND_ONLY_TRACE_EMITTED",
+      "UNKNOWN_HOOK_DEMO_EMITTED",
+      "HOOK_GAP_DEMO_EMITTED",
+      "FORBIDDEN_CONTROL_CLAIM_DEMOS_EMITTED",
+      "ROLLUP_READOUT_PROFILE_EMITTED",
+      "CONTROL_PATH_ACTS_SIDECAR_RECORDS",
+      "SIDECAR_HAS_EYES_NOT_HANDS",
+      "NO_LIVE_HOOK_INSTALL",
+      "NO_RUNTIME_PATCH",
+      "NO_LIVE_RUNTIME_ROUTING",
+      "NO_VALIDATION_AUTHORITY",
+      "NO_ADMISSIBILITY_AUTHORITY",
+      "NO_AUTHORIZATION_AUTHORITY",
+      "NO_EXECUTION_CLAIM",
+      "NO_CONTROL_PATH_BLOCK_OR_ADVANCE",
+      "NO_C8_AUTHORIZATION"
+    ],
+    "receipt_backed_claim": "The Runtime Observability Sidecar was built as a synthetic/reference append-only observation surface. It emits hook registry, schemas, demo event inputs, event records, append-only trace, unknown-hook and hook-gap records, forbidden-control-claim records, rollup, readout, profile, report, transition trace, and receipt. It does not install live hooks, patch runtime, route traffic, validate, authorize, admit, execute, repair, mutate schemas, block or advance the control path, emit builder commands, or authorize C8.",
+    "recommended_next_handling": "REVIEW_RUNTIME_OBSERVABILITY_SIDECAR_V0",
+    "schema_version": "runtime_observability_sidecar_report_v0",
+    "status": "TYPED_RUNTIME_OBSERVABILITY_SIDECAR_BUILT_REVIEW_READY",
+    "target_unit_id": "runtime.observability_sidecar.v0",
+    "unit_id": "BUILD_RUNTIME_OBSERVABILITY_SIDECAR_V0"
+  },
+  "build_mode": "RUNTIME_OBSERVABILITY_SIDECAR_SYNTHETIC_REFERENCE_BUILD_ONLY",
+  "created_at": "2026-06-25T19:07:41.965764+00:00",
+  "events_observed": 16,
+  "events_recorded": 16,
+  "failures": [],
+  "forbidden_control_claims": 10,
+  "gate": "PASS",
+  "hook_gaps": 1,
+  "layer": "RUNTIME / OBSERVATION",
+  "machine_readable_runtime_observability_sidecar_build_summary": {
+    "admissibility_checked": false,
+    "append_only_trace_emitted": true,
+    "append_only_trace_entries": 16,
+    "append_only_trace_schema_built": true,
+    "authority_checked": false,
+    "authorization_verdict_emitted": false,
+    "bad_counters_zero": true,
+    "builder_command_emitted": false,
+    "c7_authorized": false,
+    "c7_deferred": true,
+    "c8_authorized": false,
+    "c8_deferred": true,
+    "control_path_advanced": false,
+    "control_path_blocked": false,
+    "demo_event_inputs_emitted": true,
+    "design_receipt_consumed": true,
+    "event_record_schema_built": true,
+    "event_records_emitted": true,
+    "event_status_counts": {
+      "ADMISSIBILITY_CLAIM_FORBIDDEN": 1,
+      "AUTHORITY_CLAIM_FORBIDDEN": 1,
+      "C8_AUTHORIZATION_FORBIDDEN": 1,
+      "CONTROL_AUTHORITY_FORBIDDEN": 1,
+      "EXECUTION_CLAIM_FORBIDDEN": 1,
+      "LIVE_HOOK_INSTALL_FORBIDDEN": 1,
+      "OBSERVABILITY_HOOK_GAP": 1,
+      "OBSERVATION_HOOK_UNKNOWN": 1,
+      "RECORDED": 4,
+      "REPAIR_CLAIM_FORBIDDEN": 1,
+      "RUNTIME_PATCH_FORBIDDEN": 1,
+      "SOURCE_MUTATION_FORBIDDEN": 1,
+      "UNBOUNDED_PAYLOAD_FORBIDDEN": 1
+    },
+    "events_observed": 16,
+    "events_recorded": 16,
+    "execution_claimed": false,
+    "execution_command_emitted": false,
+    "forbidden_control_claim_record_count": 10,
+    "forbidden_control_claim_records_emitted": true,
+    "full_transfer_claimed": false,
+    "general_cell1_authority_claimed": false,
+    "global_autonomy_claimed": false,
+    "hidden_next_command": false,
+    "hook_count": 24,
+    "hook_gap_count": 1,
+    "hook_gap_records_emitted": true,
+    "hook_registry_built": true,
+    "latest_file_guessing": false,
+    "live_runtime_hooks_installed": false,
+    "live_runtime_routing_installed": false,
+    "load_bearing_edge_field_count": 7,
+    "load_bearing_field_presence_count": {
+      "active_object": 16,
+      "attempted_move": 16,
+      "blocked_moves": 16,
+      "boundary_checked": 16,
+      "boundary_result": 16,
+      "lawful_next_moves": 16,
+      "source_packet_ref": 16
+    },
+    "mtime_selection": false,
+    "new_domain_shift_executed": false,
+    "observability_reference_mutated": false,
+    "prior_receipt_mutated": false,
+    "profile_emitted": true,
+    "proposal_repaired": false,
+    "readout_emitted": true,
+    "reason_codes": [
+      "RUNTIME_OBSERVABILITY_SIDECAR_BUILT_SYNTHETIC_REFERENCE",
+      "DESIGN_RECEIPT_CONSUMED",
+      "HOOK_REGISTRY_BUILT",
+      "EVENT_RECORD_SCHEMA_BUILT",
+      "SIDECAR_RECEIPT_SCHEMA_BUILT",
+      "APPEND_ONLY_TRACE_SCHEMA_BUILT",
+      "DEMO_EVENT_INPUTS_EMITTED",
+      "EVENT_RECORDS_EMITTED",
+      "APPEND_ONLY_TRACE_EMITTED",
+      "UNKNOWN_HOOK_DEMO_EMITTED",
+      "HOOK_GAP_DEMO_EMITTED",
+      "FORBIDDEN_CONTROL_CLAIM_DEMOS_EMITTED",
+      "ROLLUP_READOUT_PROFILE_EMITTED",
+      "CONTROL_PATH_ACTS_SIDECAR_RECORDS",
+      "SIDECAR_HAS_EYES_NOT_HANDS",
+      "NO_LIVE_HOOK_INSTALL",
+      "NO_RUNTIME_PATCH",
+      "NO_LIVE_RUNTIME_ROUTING",
+      "NO_VALIDATION_AUTHORITY",
+      "NO_ADMISSIBILITY_AUTHORITY",
+      "NO_AUTHORIZATION_AUTHORITY",
+      "NO_EXECUTION_CLAIM",
+      "NO_CONTROL_PATH_BLOCK_OR_ADVANCE",
+      "NO_C8_AUTHORIZATION"
+    ],
+    "recommended_next": "REVIEW_RUNTIME_OBSERVABILITY_SIDECAR_V0",
+    "report_emitted": true,
+    "review_ready": true,
+    "rollup_emitted": true,
+    "rollup_readout_profile_schema_built": true,
+    "runtime_adoption_deferred": true,
+    "runtime_effect": false,
+    "runtime_observability_sidecar_built": true,
+    "runtime_patched": false,
+    "runtime_wide_enforcement_claimed": false,
+    "schema_archive_mutated": false,
+    "schema_created": false,
+    "schema_validator_reference_mutated": false,
+    "sidecar_receipt_schema_built": true,
+    "source_mutated": false,
+    "status": "TYPED_RUNTIME_OBSERVABILITY_SIDECAR_BUILT_REVIEW_READY",
+    "synthetic_reference_build_only": true,
+    "transition_trace_emitted": true,
+    "unit_feedback_hardening_deferred": true,
+    "unknown_hook_count": 1,
+    "unknown_hook_records_emitted": true,
+    "validation_verdict_emitted": false
+  },
+  "mode": "OBSERVE / EMIT_RECEIPT / APPEND_ONLY",
+  "negative_controls": {
+    "admissibility_verdict_count": 0,
+    "authorization_verdict_count": 0,
+    "blocking_action_count": 0,
+    "builder_command_count": 0,
+    "c8_authorization_count": 0,
+    "control_path_advanced_count": 0,
+    "control_path_blocked_count": 0,
+    "execution_command_count": 0,
+    "hidden_next_command_count": 0,
+    "latest_file_guessing_count": 0,
+    "live_hook_install_count": 0,
+    "mtime_selection_count": 0,
+    "proposal_repair_count": 0,
+    "reference_mutation_count": 0,
+    "runtime_patch_count": 0,
+    "schema_mutation_count": 0,
+    "source_mutation_count": 0,
+    "validation_verdict_count": 0
+  },
+  "output_artifacts": {
+    "append_only_trace": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_append_only_trace_v0.jsonl",
+    "append_only_trace_schema": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_append_only_trace_schema_v0.json",
+    "demo_event_inputs": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_demo_event_inputs_v0.jsonl",
+    "event_record_schema": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_event_record_schema_v0.json",
+    "event_records": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_event_records_v0.jsonl",
+    "forbidden_control_claim_records": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_forbidden_control_claim_records_v0.jsonl",
+    "hook_gap_records": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_hook_gap_records_v0.jsonl",
+    "hook_registry": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_hook_registry_v0.json",
+    "implementation_receipt": "data/runtime_observability_sidecar_v0_receipts/7a63137f.json",
+    "profile": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_profile_v0.json",
+    "readout": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_readout_v0.json",
+    "report": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_report.json",
+    "rollup": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_rollup_v0.json",
+    "rollup_readout_profile_schema": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_rollup_readout_profile_schema_v0.json",
+    "sidecar_receipt_schema": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_receipt_schema_v0.json",
+    "transition_trace": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_transition_trace.json",
+    "unknown_hook_records": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_unknown_hook_records_v0.jsonl"
+  },
+  "receipt_id": "7a63137f",
+  "receipt_type": "TYPED_RUNTIME_OBSERVABILITY_SIDECAR_BUILD_RECEIPT",
+  "schema_version": "runtime_observability_sidecar_receipt_v0",
+  "sidecar_id": "RUNTIME_OBSERVABILITY_SIDECAR",
+  "source_decision_edge_observability_reference_closure_receipt_id": "ac09c2e3",
+  "source_post_schema_validator_reference_decision_receipt_id": "1ca1e03b",
+  "source_runtime_observability_sidecar_design_receipt_id": "37628e11",
+  "source_runtime_schema_validator_reference_closure_receipt_id": "732016f0",
+  "target_unit_id": "runtime.observability_sidecar.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_RUNTIME_OBSERVABILITY_SIDECAR_BUILT_REVIEW_READY",
+    "type": "STOP"
+  },
+  "unit_id": "BUILD_RUNTIME_OBSERVABILITY_SIDECAR_V0",
+  "unknown_hooks": 1,
+  "warnings": []
+}
+runtime_observability_sidecar_build_receipt_id=7a63137f
+runtime_observability_sidecar_build_receipt_path=data/runtime_observability_sidecar_v0_receipts/7a63137f.json
+runtime_observability_sidecar_rollup_path=data/runtime_observability_sidecar_v0/runtime_observability_sidecar_rollup_v0.json
+runtime_observability_sidecar_readout_path=data/runtime_observability_sidecar_v0/runtime_observability_sidecar_readout_v0.json
+runtime_observability_sidecar_profile_path=data/runtime_observability_sidecar_v0/runtime_observability_sidecar_profile_v0.json
+
+ASSERT_REPAIRED_RUNTIME_OBSERVABILITY_SIDECAR_BUILD
+{
+  "append_only_trace_entries": 16,
+  "c8_authorized": false,
+  "events_recorded": 16,
+  "failures": [],
+  "forbidden_control_claim_record_count": 10,
+  "gate": "PASS",
+  "hook_gap_count": 1,
+  "live_runtime_hooks_installed": false,
+  "receipt_id": "7a63137f",
+  "recommended_next": "REVIEW_RUNTIME_OBSERVABILITY_SIDECAR_V0",
+  "review_ready": true,
+  "runtime_observability_sidecar_built": true,
+  "runtime_patched": false,
+  "status": "TYPED_RUNTIME_OBSERVABILITY_SIDECAR_BUILT_REVIEW_READY",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_RUNTIME_OBSERVABILITY_SIDECAR_BUILT_REVIEW_READY",
+    "type": "STOP"
+  },
+  "unknown_hook_count": 1
+}
+
+VERIFY_REPAIRED_RUNTIME_OBSERVABILITY_SIDECAR_BUILD_BOUNDARY
+{
+  "bad_counters_zero": true,
+  "event_status_counts": {
+    "ADMISSIBILITY_CLAIM_FORBIDDEN": 1,
+    "AUTHORITY_CLAIM_FORBIDDEN": 1,
+    "C8_AUTHORIZATION_FORBIDDEN": 1,
+    "CONTROL_AUTHORITY_FORBIDDEN": 1,
+    "EXECUTION_CLAIM_FORBIDDEN": 1,
+    "LIVE_HOOK_INSTALL_FORBIDDEN": 1,
+    "OBSERVABILITY_HOOK_GAP": 1,
+    "OBSERVATION_HOOK_UNKNOWN": 1,
+    "RECORDED": 4,
+    "REPAIR_CLAIM_FORBIDDEN": 1,
+    "RUNTIME_PATCH_FORBIDDEN": 1,
+    "SOURCE_MUTATION_FORBIDDEN": 1,
+    "UNBOUNDED_PAYLOAD_FORBIDDEN": 1
+  },
+  "events_recorded": 16,
+  "failures": [],
+  "profile_status": "SIDECAR_SYNTHETIC_REFERENCE_STABLE",
+  "rollup_status": "checked"
+}
+
+SHOW_REPAIRED_RUNTIME_OBSERVABILITY_SIDECAR_BUILD_NEXT
+status=TYPED_RUNTIME_OBSERVABILITY_SIDECAR_BUILT_REVIEW_READY
+reason_codes=RUNTIME_OBSERVABILITY_SIDECAR_BUILT_SYNTHETIC_REFERENCE,DESIGN_RECEIPT_CONSUMED,HOOK_REGISTRY_BUILT,EVENT_RECORD_SCHEMA_BUILT,SIDECAR_RECEIPT_SCHEMA_BUILT,APPEND_ONLY_TRACE_SCHEMA_BUILT,DEMO_EVENT_INPUTS_EMITTED,EVENT_RECORDS_EMITTED,APPEND_ONLY_TRACE_EMITTED,UNKNOWN_HOOK_DEMO_EMITTED,HOOK_GAP_DEMO_EMITTED,FORBIDDEN_CONTROL_CLAIM_DEMOS_EMITTED,ROLLUP_READOUT_PROFILE_EMITTED,CONTROL_PATH_ACTS_SIDECAR_RECORDS,SIDECAR_HAS_EYES_NOT_HANDS,NO_LIVE_HOOK_INSTALL,NO_RUNTIME_PATCH,NO_LIVE_RUNTIME_ROUTING,NO_VALIDATION_AUTHORITY,NO_ADMISSIBILITY_AUTHORITY,NO_AUTHORIZATION_AUTHORITY,NO_EXECUTION_CLAIM,NO_CONTROL_PATH_BLOCK_OR_ADVANCE,NO_C8_AUTHORIZATION
+runtime_observability_sidecar_built=True
+review_ready=True
+synthetic_reference_build_only=True
+design_receipt_consumed=True
+hook_registry_built=True
+event_record_schema_built=True
+sidecar_receipt_schema_built=True
+append_only_trace_schema_built=True
+demo_event_inputs_emitted=True
+event_records_emitted=True
+append_only_trace_emitted=True
+unknown_hook_records_emitted=True
+hook_gap_records_emitted=True
+forbidden_control_claim_records_emitted=True
+hook_count=24
+events_observed=16
+events_recorded=16
+append_only_trace_entries=16
+unknown_hook_count=1
+hook_gap_count=1
+forbidden_control_claim_record_count=10
+event_status_counts={"ADMISSIBILITY_CLAIM_FORBIDDEN": 1, "AUTHORITY_CLAIM_FORBIDDEN": 1, "C8_AUTHORIZATION_FORBIDDEN": 1, "CONTROL_AUTHORITY_FORBIDDEN": 1, "EXECUTION_CLAIM_FORBIDDEN": 1, "LIVE_HOOK_INSTALL_FORBIDDEN": 1, "OBSERVABILITY_HOOK_GAP": 1, "OBSERVATION_HOOK_UNKNOWN": 1, "RECORDED": 4, "REPAIR_CLAIM_FORBIDDEN": 1, "RUNTIME_PATCH_FORBIDDEN": 1, "SOURCE_MUTATION_FORBIDDEN": 1, "UNBOUNDED_PAYLOAD_FORBIDDEN": 1}
+load_bearing_edge_field_count=7
+live_runtime_hooks_installed=False
+live_runtime_routing_installed=False
+unit_feedback_hardening_deferred=True
+c7_deferred=True
+c8_deferred=True
+runtime_adoption_deferred=True
+runtime_effect=False
+runtime_patched=False
+validation_verdict_emitted=False
+authority_checked=False
+admissibility_checked=False
+authorization_verdict_emitted=False
+execution_claimed=False
+execution_command_emitted=False
+schema_archive_mutated=False
+proposal_repaired=False
+schema_created=False
+builder_command_emitted=False
+control_path_blocked=False
+control_path_advanced=False
+c7_authorized=False
+c8_authorized=False
+hidden_next_command=False
+latest_file_guessing=False
+mtime_selection=False
+bad_counters_zero=True
+recommended_next=REVIEW_RUNTIME_OBSERVABILITY_SIDECAR_V0
+
+DIFF_STAT_RELEVANT
+ .gitignore | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+STATUS_AFTER_RELEVANT
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/radius_125_slot_execution_summaries/
+?? scripts/build_runtime_observability_sidecar_v0.py
+
+PACKAGE_REPAIRED_RUNTIME_OBSERVABILITY_SIDECAR_BUILD_ARTIFACTS
+packaged data/runtime_observability_sidecar_v0/runtime_observability_sidecar_hook_registry_v0.json
+packaged data/runtime_observability_sidecar_v0/runtime_observability_sidecar_event_record_schema_v0.json
+packaged data/runtime_observability_sidecar_v0/runtime_observability_sidecar_receipt_schema_v0.json
+packaged data/runtime_observability_sidecar_v0/runtime_observability_sidecar_append_only_trace_schema_v0.json
+packaged data/runtime_observability_sidecar_v0/runtime_observability_sidecar_rollup_readout_profile_schema_v0.json
+packaged data/runtime_observability_sidecar_v0/runtime_observability_sidecar_demo_event_inputs_v0.jsonl
+packaged data/runtime_observability_sidecar_v0/runtime_observability_sidecar_event_records_v0.jsonl
+packaged data/runtime_observability_sidecar_v0/runtime_observability_sidecar_append_only_trace_v0.jsonl
+packaged data/runtime_observability_sidecar_v0/runtime_observability_sidecar_unknown_hook_records_v0.jsonl
+packaged data/runtime_observability_sidecar_v0/runtime_observability_sidecar_hook_gap_records_v0.jsonl
+packaged data/runtime_observability_sidecar_v0/runtime_observability_sidecar_forbidden_control_claim_records_v0.jsonl
+packaged data/runtime_observability_sidecar_v0/runtime_observability_sidecar_rollup_v0.json
+packaged data/runtime_observability_sidecar_v0/runtime_observability_sidecar_readout_v0.json
+packaged data/runtime_observability_sidecar_v0/runtime_observability_sidecar_profile_v0.json
+packaged data/runtime_observability_sidecar_v0/runtime_observability_sidecar_report.json
+packaged data/runtime_observability_sidecar_v0/runtime_observability_sidecar_transition_trace.json
+[master 602768412] repair and build runtime observability sidecar synthetic reference
+ 24 files changed, 2121 insertions(+)
+ create mode 100644 data/runtime_observability_sidecar_build_repair_v0/runtime_observability_sidecar_build_patch_record_v0.json
+ create mode 100644 data/runtime_observability_sidecar_build_repair_v0/runtime_observability_sidecar_build_repair_basis_v0.json
+ create mode 100644 data/runtime_observability_sidecar_build_repair_v0/runtime_observability_sidecar_build_repair_classification_v0.json
+ create mode 100644 data/runtime_observability_sidecar_build_repair_v0_receipts/480cf138.json
+ create mode 100644 data/runtime_observability_sidecar_v0/runtime_observability_sidecar_append_only_trace_schema_v0.json
+ create mode 100644 data/runtime_observability_sidecar_v0/runtime_observability_sidecar_append_only_trace_v0.jsonl
+ create mode 100644 data/runtime_observability_sidecar_v0/runtime_observability_sidecar_demo_event_inputs_v0.jsonl
+ create mode 100644 data/runtime_observability_sidecar_v0/runtime_observability_sidecar_event_record_schema_v0.json
+ create mode 100644 data/runtime_observability_sidecar_v0/runtime_observability_sidecar_event_records_v0.jsonl
+ create mode 100644 data/runtime_observability_sidecar_v0/runtime_observability_sidecar_forbidden_control_claim_records_v0.jsonl
+ create mode 100644 data/runtime_observability_sidecar_v0/runtime_observability_sidecar_hook_gap_records_v0.jsonl
+ create mode 100644 data/runtime_observability_sidecar_v0/runtime_observability_sidecar_hook_registry_v0.json
+ create mode 100644 data/runtime_observability_sidecar_v0/runtime_observability_sidecar_profile_v0.json
+ create mode 100644 data/runtime_observability_sidecar_v0/runtime_observability_sidecar_readout_v0.json
+ create mode 100644 data/runtime_observability_sidecar_v0/runtime_observability_sidecar_receipt_schema_v0.json
+ create mode 100644 data/runtime_observability_sidecar_v0/runtime_observability_sidecar_report.json
+ create mode 100644 data/runtime_observability_sidecar_v0/runtime_observability_sidecar_rollup_readout_profile_schema_v0.json
+ create mode 100644 data/runtime_observability_sidecar_v0/runtime_observability_sidecar_rollup_v0.json
+ create mode 100644 data/runtime_observability_sidecar_v0/runtime_observability_sidecar_transition_trace.json
+ create mode 100644 data/runtime_observability_sidecar_v0/runtime_observability_sidecar_unknown_hook_records_v0.jsonl
+ create mode 100644 data/runtime_observability_sidecar_v0_receipts/7a63137f.json
+ create mode 100644 data/runtime_observability_sidecar_v0_receipts/84aec9df.json
+ create mode 100755 scripts/build_runtime_observability_sidecar_v0.py
+
+COMMIT_DONE_RELEVANT
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/radius_125_slot_execution_summaries/
+
+RUNTIME_OBSERVABILITY_SIDECAR_REPAIR_AND_BUILD_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+runtime_observability_sidecar_build_repair_receipt_id=480cf138
+runtime_observability_sidecar_build_repair_receipt_path=data/runtime_observability_sidecar_build_repair_v0_receipts/480cf138.json
+{
+  "created_at": "2026-06-25T19:07:41.907188+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "output_artifacts": {
+    "basis": "data/runtime_observability_sidecar_build_repair_v0/runtime_observability_sidecar_build_repair_basis_v0.json",
+    "classification": "data/runtime_observability_sidecar_build_repair_v0/runtime_observability_sidecar_build_repair_classification_v0.json",
+    "patch_record": "data/runtime_observability_sidecar_build_repair_v0/runtime_observability_sidecar_build_patch_record_v0.json"
+  },
+  "receipt_id": "480cf138",
+  "receipt_type": "TYPED_RUNTIME_OBSERVABILITY_SIDECAR_BUILD_REPAIR_RECEIPT",
+  "repair_summary": {
+    "admissibility_checked": false,
+    "authority_checked": false,
+    "bad_counters_zero": true,
+    "c8_authorized": false,
+    "control_path_advanced": false,
+    "control_path_blocked": false,
+    "execution_claimed": false,
+    "live_runtime_hooks_installed": false,
+    "live_runtime_routing_installed": false,
+    "repair_applied": true,
+    "repair_class": "RUNNER_VALIDATION_ALIGNMENT_REPAIR",
+    "rerun_required": true,
+    "runtime_effect": false,
+    "runtime_observability_sidecar_built": false,
+    "runtime_patched": false
+  },
+  "schema_version": "runtime_observability_sidecar_build_repair_receipt_v0",
+  "source_runtime_observability_sidecar_design_receipt_id": "37628e11",
+  "source_runtime_observability_sidecar_failed_build_receipt_id": "84aec9df",
+  "target_unit_id": "runtime.observability_sidecar.build_repair.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_RUNTIME_OBSERVABILITY_SIDECAR_BUILD_REPAIR_PATCHED_RERUN_READY",
+    "type": "STOP"
+  },
+  "unit_id": "REPAIR_RUNTIME_OBSERVABILITY_SIDECAR_BUILD_V0"
+}
+runtime_observability_sidecar_build_receipt_id=7a63137f
+runtime_observability_sidecar_build_receipt_path=data/runtime_observability_sidecar_v0_receipts/7a63137f.json
+{
+  "acceptance_gate_results": {
+    "SIDECAR_BUILD_0_DESIGN_RECEIPT_CONSUMED": true,
+    "SIDECAR_BUILD_10_FORBIDDEN_CONTROL_CLAIM_DEMOS_EMITTED": true,
+    "SIDECAR_BUILD_11_LOAD_BEARING_FIELDS_PRESENT": true,
+    "SIDECAR_BUILD_12_ROLLUP_READOUT_PROFILE_EMITTED": true,
+    "SIDECAR_BUILD_13_REPORT_TRACE_EMITTED": true,
+    "SIDECAR_BUILD_14_NO_LIVE_HOOK_INSTALL": true,
+    "SIDECAR_BUILD_15_NO_RUNTIME_EFFECT_OR_PATCH": true,
+    "SIDECAR_BUILD_16_NO_LIVE_RUNTIME_ROUTING": true,
+    "SIDECAR_BUILD_17_NO_VALIDATION_ADMISSIBILITY_AUTHORITY_OR_EXECUTION": true,
+    "SIDECAR_BUILD_18_NO_SCHEMA_MUTATION_OR_REPAIR": true,
+    "SIDECAR_BUILD_19_NO_CONTROL_PATH_BLOCK_OR_ADVANCE": true,
+    "SIDECAR_BUILD_1_HOOK_REGISTRY_BUILT": true,
+    "SIDECAR_BUILD_20_NO_BUILDER_COMMAND": true,
+    "SIDECAR_BUILD_21_NO_C7_OR_C8": true,
+    "SIDECAR_BUILD_22_NO_SOURCE_OR_REFERENCE_MUTATION": true,
+    "SIDECAR_BUILD_23_NO_LATEST_OR_MTIME": true,
+    "SIDECAR_BUILD_24_BAD_COUNTERS_ZERO": true,
+    "SIDECAR_BUILD_25_NO_HIDDEN_NEXT_COMMAND": true,
+    "SIDECAR_BUILD_2_EVENT_RECORD_SCHEMA_BUILT": true,
+    "SIDECAR_BUILD_3_RECEIPT_SCHEMA_BUILT": true,
+    "SIDECAR_BUILD_4_APPEND_ONLY_TRACE_SCHEMA_BUILT": true,
+    "SIDECAR_BUILD_5_DEMO_INPUTS_EMITTED": true,
+    "SIDECAR_BUILD_6_EVENT_RECORDS_EMITTED": true,
+    "SIDECAR_BUILD_7_APPEND_ONLY_TRACE_EMITTED": true,
+    "SIDECAR_BUILD_8_UNKNOWN_HOOK_DEMO_EMITTED": true,
+    "SIDECAR_BUILD_9_HOOK_GAP_DEMO_EMITTED": true
+  },
+  "aggregate_metrics": {
+    "build_mode": "RUNTIME_OBSERVABILITY_SIDECAR_SYNTHETIC_REFERENCE_BUILD_ONLY",
+    "layer": "RUNTIME / OBSERVATION",
+    "mode": "OBSERVE / EMIT_RECEIPT / APPEND_ONLY",
+    "reason_codes": [
+      "RUNTIME_OBSERVABILITY_SIDECAR_BUILT_SYNTHETIC_REFERENCE",
+      "DESIGN_RECEIPT_CONSUMED",
+      "HOOK_REGISTRY_BUILT",
+      "EVENT_RECORD_SCHEMA_BUILT",
+      "SIDECAR_RECEIPT_SCHEMA_BUILT",
+      "APPEND_ONLY_TRACE_SCHEMA_BUILT",
+      "DEMO_EVENT_INPUTS_EMITTED",
+      "EVENT_RECORDS_EMITTED",
+      "APPEND_ONLY_TRACE_EMITTED",
+      "UNKNOWN_HOOK_DEMO_EMITTED",
+      "HOOK_GAP_DEMO_EMITTED",
+      "FORBIDDEN_CONTROL_CLAIM_DEMOS_EMITTED",
+      "ROLLUP_READOUT_PROFILE_EMITTED",
+      "CONTROL_PATH_ACTS_SIDECAR_RECORDS",
+      "SIDECAR_HAS_EYES_NOT_HANDS",
+      "NO_LIVE_HOOK_INSTALL",
+      "NO_RUNTIME_PATCH",
+      "NO_LIVE_RUNTIME_ROUTING",
+      "NO_VALIDATION_AUTHORITY",
+      "NO_ADMISSIBILITY_AUTHORITY",
+      "NO_AUTHORIZATION_AUTHORITY",
+      "NO_EXECUTION_CLAIM",
+      "NO_CONTROL_PATH_BLOCK_OR_ADVANCE",
+      "NO_C8_AUTHORIZATION"
+    ],
+    "receipt_backed_claim": "The Runtime Observability Sidecar was built as a synthetic/reference append-only observation surface. It emits hook registry, schemas, demo event inputs, event records, append-only trace, unknown-hook and hook-gap records, forbidden-control-claim records, rollup, readout, profile, report, transition trace, and receipt. It does not install live hooks, patch runtime, route traffic, validate, authorize, admit, execute, repair, mutate schemas, block or advance the control path, emit builder commands, or authorize C8.",
+    "recommended_next_handling": "REVIEW_RUNTIME_OBSERVABILITY_SIDECAR_V0",
+    "schema_version": "runtime_observability_sidecar_report_v0",
+    "status": "TYPED_RUNTIME_OBSERVABILITY_SIDECAR_BUILT_REVIEW_READY",
+    "target_unit_id": "runtime.observability_sidecar.v0",
+    "unit_id": "BUILD_RUNTIME_OBSERVABILITY_SIDECAR_V0"
+  },
+  "build_mode": "RUNTIME_OBSERVABILITY_SIDECAR_SYNTHETIC_REFERENCE_BUILD_ONLY",
+  "created_at": "2026-06-25T19:07:41.965764+00:00",
+  "events_observed": 16,
+  "events_recorded": 16,
+  "failures": [],
+  "forbidden_control_claims": 10,
+  "gate": "PASS",
+  "hook_gaps": 1,
+  "layer": "RUNTIME / OBSERVATION",
+  "machine_readable_runtime_observability_sidecar_build_summary": {
+    "admissibility_checked": false,
+    "append_only_trace_emitted": true,
+    "append_only_trace_entries": 16,
+    "append_only_trace_schema_built": true,
+    "authority_checked": false,
+    "authorization_verdict_emitted": false,
+    "bad_counters_zero": true,
+    "builder_command_emitted": false,
+    "c7_authorized": false,
+    "c7_deferred": true,
+    "c8_authorized": false,
+    "c8_deferred": true,
+    "control_path_advanced": false,
+    "control_path_blocked": false,
+    "demo_event_inputs_emitted": true,
+    "design_receipt_consumed": true,
+    "event_record_schema_built": true,
+    "event_records_emitted": true,
+    "event_status_counts": {
+      "ADMISSIBILITY_CLAIM_FORBIDDEN": 1,
+      "AUTHORITY_CLAIM_FORBIDDEN": 1,
+      "C8_AUTHORIZATION_FORBIDDEN": 1,
+      "CONTROL_AUTHORITY_FORBIDDEN": 1,
+      "EXECUTION_CLAIM_FORBIDDEN": 1,
+      "LIVE_HOOK_INSTALL_FORBIDDEN": 1,
+      "OBSERVABILITY_HOOK_GAP": 1,
+      "OBSERVATION_HOOK_UNKNOWN": 1,
+      "RECORDED": 4,
+      "REPAIR_CLAIM_FORBIDDEN": 1,
+      "RUNTIME_PATCH_FORBIDDEN": 1,
+      "SOURCE_MUTATION_FORBIDDEN": 1,
+      "UNBOUNDED_PAYLOAD_FORBIDDEN": 1
+    },
+    "events_observed": 16,
+    "events_recorded": 16,
+    "execution_claimed": false,
+    "execution_command_emitted": false,
+    "forbidden_control_claim_record_count": 10,
+    "forbidden_control_claim_records_emitted": true,
+    "full_transfer_claimed": false,
+    "general_cell1_authority_claimed": false,
+    "global_autonomy_claimed": false,
+    "hidden_next_command": false,
+    "hook_count": 24,
+    "hook_gap_count": 1,
+    "hook_gap_records_emitted": true,
+    "hook_registry_built": true,
+    "latest_file_guessing": false,
+    "live_runtime_hooks_installed": false,
+    "live_runtime_routing_installed": false,
+    "load_bearing_edge_field_count": 7,
+    "load_bearing_field_presence_count": {
+      "active_object": 16,
+      "attempted_move": 16,
+      "blocked_moves": 16,
+      "boundary_checked": 16,
+      "boundary_result": 16,
+      "lawful_next_moves": 16,
+      "source_packet_ref": 16
+    },
+    "mtime_selection": false,
+    "new_domain_shift_executed": false,
+    "observability_reference_mutated": false,
+    "prior_receipt_mutated": false,
+    "profile_emitted": true,
+    "proposal_repaired": false,
+    "readout_emitted": true,
+    "reason_codes": [
+      "RUNTIME_OBSERVABILITY_SIDECAR_BUILT_SYNTHETIC_REFERENCE",
+      "DESIGN_RECEIPT_CONSUMED",
+      "HOOK_REGISTRY_BUILT",
+      "EVENT_RECORD_SCHEMA_BUILT",
+      "SIDECAR_RECEIPT_SCHEMA_BUILT",
+      "APPEND_ONLY_TRACE_SCHEMA_BUILT",
+      "DEMO_EVENT_INPUTS_EMITTED",
+      "EVENT_RECORDS_EMITTED",
+      "APPEND_ONLY_TRACE_EMITTED",
+      "UNKNOWN_HOOK_DEMO_EMITTED",
+      "HOOK_GAP_DEMO_EMITTED",
+      "FORBIDDEN_CONTROL_CLAIM_DEMOS_EMITTED",
+      "ROLLUP_READOUT_PROFILE_EMITTED",
+      "CONTROL_PATH_ACTS_SIDECAR_RECORDS",
+      "SIDECAR_HAS_EYES_NOT_HANDS",
+      "NO_LIVE_HOOK_INSTALL",
+      "NO_RUNTIME_PATCH",
+      "NO_LIVE_RUNTIME_ROUTING",
+      "NO_VALIDATION_AUTHORITY",
+      "NO_ADMISSIBILITY_AUTHORITY",
+      "NO_AUTHORIZATION_AUTHORITY",
+      "NO_EXECUTION_CLAIM",
+      "NO_CONTROL_PATH_BLOCK_OR_ADVANCE",
+      "NO_C8_AUTHORIZATION"
+    ],
+    "recommended_next": "REVIEW_RUNTIME_OBSERVABILITY_SIDECAR_V0",
+    "report_emitted": true,
+    "review_ready": true,
+    "rollup_emitted": true,
+    "rollup_readout_profile_schema_built": true,
+    "runtime_adoption_deferred": true,
+    "runtime_effect": false,
+    "runtime_observability_sidecar_built": true,
+    "runtime_patched": false,
+    "runtime_wide_enforcement_claimed": false,
+    "schema_archive_mutated": false,
+    "schema_created": false,
+    "schema_validator_reference_mutated": false,
+    "sidecar_receipt_schema_built": true,
+    "source_mutated": false,
+    "status": "TYPED_RUNTIME_OBSERVABILITY_SIDECAR_BUILT_REVIEW_READY",
+    "synthetic_reference_build_only": true,
+    "transition_trace_emitted": true,
+    "unit_feedback_hardening_deferred": true,
+    "unknown_hook_count": 1,
+    "unknown_hook_records_emitted": true,
+    "validation_verdict_emitted": false
+  },
+  "mode": "OBSERVE / EMIT_RECEIPT / APPEND_ONLY",
+  "negative_controls": {
+    "admissibility_verdict_count": 0,
+    "authorization_verdict_count": 0,
+    "blocking_action_count": 0,
+    "builder_command_count": 0,
+    "c8_authorization_count": 0,
+    "control_path_advanced_count": 0,
+    "control_path_blocked_count": 0,
+    "execution_command_count": 0,
+    "hidden_next_command_count": 0,
+    "latest_file_guessing_count": 0,
+    "live_hook_install_count": 0,
+    "mtime_selection_count": 0,
+    "proposal_repair_count": 0,
+    "reference_mutation_count": 0,
+    "runtime_patch_count": 0,
+    "schema_mutation_count": 0,
+    "source_mutation_count": 0,
+    "validation_verdict_count": 0
+  },
+  "output_artifacts": {
+    "append_only_trace": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_append_only_trace_v0.jsonl",
+    "append_only_trace_schema": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_append_only_trace_schema_v0.json",
+    "demo_event_inputs": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_demo_event_inputs_v0.jsonl",
+    "event_record_schema": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_event_record_schema_v0.json",
+    "event_records": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_event_records_v0.jsonl",
+    "forbidden_control_claim_records": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_forbidden_control_claim_records_v0.jsonl",
+    "hook_gap_records": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_hook_gap_records_v0.jsonl",
+    "hook_registry": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_hook_registry_v0.json",
+    "implementation_receipt": "data/runtime_observability_sidecar_v0_receipts/7a63137f.json",
+    "profile": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_profile_v0.json",
+    "readout": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_readout_v0.json",
+    "report": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_report.json",
+    "rollup": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_rollup_v0.json",
+    "rollup_readout_profile_schema": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_rollup_readout_profile_schema_v0.json",
+    "sidecar_receipt_schema": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_receipt_schema_v0.json",
+    "transition_trace": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_transition_trace.json",
+    "unknown_hook_records": "data/runtime_observability_sidecar_v0/runtime_observability_sidecar_unknown_hook_records_v0.jsonl"
+  },
+  "receipt_id": "7a63137f",
+  "receipt_type": "TYPED_RUNTIME_OBSERVABILITY_SIDECAR_BUILD_RECEIPT",
+  "schema_version": "runtime_observability_sidecar_receipt_v0",
+  "sidecar_id": "RUNTIME_OBSERVABILITY_SIDECAR",
+  "source_decision_edge_observability_reference_closure_receipt_id": "ac09c2e3",
+  "source_post_schema_validator_reference_decision_receipt_id": "1ca1e03b",
+  "source_runtime_observability_sidecar_design_receipt_id": "37628e11",
+  "source_runtime_schema_validator_reference_closure_receipt_id": "732016f0",
+  "target_unit_id": "runtime.observability_sidecar.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_RUNTIME_OBSERVABILITY_SIDECAR_BUILT_REVIEW_READY",
+    "type": "STOP"
+  },
+  "unit_id": "BUILD_RUNTIME_OBSERVABILITY_SIDECAR_V0",
+  "unknown_hooks": 1,
+  "warnings": []
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

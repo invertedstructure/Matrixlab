@@ -1,0 +1,384 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_223140
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_223140.txt
+
+DECIDE_AFTER_FRONTIER_DEPTH_REVERT_NEXT_BURDEN_CLASS_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_POST_FRONTIER_DEPTH_REVERT_NEXT_BURDEN_DECISION_SCRIPT
+
+PY_COMPILE
+
+BUILD_POST_FRONTIER_DEPTH_REVERT_NEXT_BURDEN_DECISION
+{
+  "accepted_burden_classes_frozen": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "after_revert_profile_id": "b6609f93",
+  "authorized_next_command_goal": "BUILD_RECEIPT_VOLUME_FIX_CANDIDATE_POLICY_V0",
+  "authorizes_next_burden_policy": true,
+  "created_at": "2026-06-20T21:31:40.276519+00:00",
+  "decision_id": "25bf9c59",
+  "decision_path": "data/post_frontier_depth_revert_next_burden_decisions/25bf9c59.json",
+  "decision_sig8": "25bf9c59",
+  "eligible_unresolved_burden_classes": [
+    "BURDEN_RECEIPT_VOLUME"
+  ],
+  "failures": [],
+  "gate": "PASS",
+  "receipt_id": "400731cf",
+  "receipt_sig8": "400731cf",
+  "rejected_or_deferred_burden_classes": [
+    "BURDEN_DEPTH_SCAN"
+  ],
+  "schema_version": "post_frontier_depth_revert_next_burden_decision_receipt_v0",
+  "selected_next_burden_class": "BURDEN_RECEIPT_VOLUME",
+  "selected_next_burden_evidence": {
+    "elapsed_ms": 1005,
+    "families": [
+      "E"
+    ],
+    "probes": [
+      "MICRO_05_RECEIPT_WRITE_PRESSURE"
+    ],
+    "receipts": 176,
+    "receipts_per_sec": 175.124378,
+    "row_keys": [
+      {
+        "burden_class": "BURDEN_RECEIPT_VOLUME",
+        "family_compact": "E",
+        "probe_id": "MICRO_05_RECEIPT_WRITE_PRESSURE",
+        "slot_id": "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+      }
+    ],
+    "rows": 1,
+    "slots": [
+      "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+    ]
+  },
+  "source_disposition_plan_id": "ce040a69",
+  "source_frontier_depth_outcome_decision_id": "22d0002e",
+  "source_revert_application_id": "b3471a41",
+  "source_revert_comparison_id": "a1bd75a8",
+  "terminal": {
+    "next_command_goal": "BUILD_RECEIPT_VOLUME_FIX_CANDIDATE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+decision_json_path=data/post_frontier_depth_revert_next_burden_decisions/25bf9c59.json
+decision_receipt_path=data/post_frontier_depth_revert_next_burden_decision_receipts/25bf9c59.json
+NEXT_DECISION_ID=25bf9c59
+
+ASSERT_POST_FRONTIER_DEPTH_REVERT_NEXT_BURDEN_DECISION
+{
+  "accepted_burden_classes_frozen": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "after_revert_profile_id": "b6609f93",
+  "all_non_unknown_burden_classes": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_DEPTH_SCAN",
+    "BURDEN_RECEIPT_VOLUME",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "authorized_next_command_goal": "BUILD_RECEIPT_VOLUME_FIX_CANDIDATE_POLICY_V0",
+  "authorized_target_burden_class": "BURDEN_RECEIPT_VOLUME",
+  "authorizes_code_change_now": false,
+  "authorizes_data_artifact_deletion": false,
+  "authorizes_depth_range_change": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_more_frontier_depth_patching": false,
+  "authorizes_next_burden_policy": true,
+  "authorizes_patch_application": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_receipt_deletion": false,
+  "authorizes_reopening_accepted_burden_classes": false,
+  "authorizes_reopening_frontier_depth": false,
+  "decision_id": "25bf9c59",
+  "decision_sig8": "25bf9c59",
+  "eligible_unresolved_burden_classes": [
+    "BURDEN_RECEIPT_VOLUME"
+  ],
+  "failures": [],
+  "gate": "PASS",
+  "receipt_gate": "PASS",
+  "receipt_id": "400731cf",
+  "rejected_or_deferred_burden_classes": [
+    {
+      "burden_class": "BURDEN_DEPTH_SCAN",
+      "disposition": "REJECTED_AS_BURDEN_FIX_AND_REVERTED",
+      "reason": "frontier-depth patch was structurally safe but performance-negative, then reverted and confirmed clean",
+      "reopen_allowed": false,
+      "source_decision_id": "22d0002e",
+      "source_revert_comparison_id": "a1bd75a8"
+    }
+  ],
+  "selected_next_burden_class": "BURDEN_RECEIPT_VOLUME",
+  "selected_next_burden_evidence": {
+    "elapsed_ms": 1005,
+    "families": [
+      "E"
+    ],
+    "probes": [
+      "MICRO_05_RECEIPT_WRITE_PRESSURE"
+    ],
+    "receipts": 176,
+    "receipts_per_sec": 175.124378,
+    "rows": 1,
+    "slots": [
+      "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+    ]
+  },
+  "selection_reason": {
+    "accepted_classes_not_reopened": [
+      "BURDEN_CYCLE_SCAN",
+      "BURDEN_DB_WRITE",
+      "BURDEN_REPEATED_SLOT_WORK"
+    ],
+    "cycle_period_compression_field_present": true,
+    "frontier_depth_probe_field_absent": true,
+    "frontier_depth_revert_confirmed": true,
+    "only_remaining_eligible_non_unknown_burden": true,
+    "rejected_depth_not_reopened": true
+  },
+  "source_disposition_plan_id": "ce040a69",
+  "source_frontier_depth_outcome_decision_id": "22d0002e",
+  "source_revert_application_id": "b3471a41",
+  "source_revert_comparison_id": "a1bd75a8",
+  "terminal": {
+    "next_command_goal": "BUILD_RECEIPT_VOLUME_FIX_CANDIDATE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+
+NEGATIVE_CONTROLS_POST_FRONTIER_DEPTH_REVERT_NEXT_BURDEN_DECISION
+{
+  "case": "revert_comparison_gate_fail",
+  "expected": "revert_comparison_gate_not_PASS",
+  "failures": [
+    "revert_comparison_gate_not_PASS"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "frontier_repatch_authority_fail",
+  "expected": "revert_comparison_illegal_authorization:authorizes_more_frontier_depth_patching",
+  "failures": [
+    "revert_comparison_illegal_authorization:authorizes_more_frontier_depth_patching:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "frontier_field_absent_fail",
+  "expected": "frontier_depth_probe_field_not_absent_after_revert",
+  "failures": [
+    "frontier_depth_probe_field_not_absent_after_revert"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "revert_deleted_receipts_fail",
+  "expected": "revert_application_deleted_receipts",
+  "failures": [
+    "revert_application_deleted_receipts"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "frontier_decision_acceptance_fail",
+  "expected": "frontier_decision_accepted_as_burden_fix",
+  "failures": [
+    "frontier_decision_accepted_as_burden_fix"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "after_profile_frontier_field_fail",
+  "expected": "frontier_depth_probe_field_present_after_revert",
+  "failures": [
+    "frontier_depth_probe_field_present_after_revert"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "no_receipt_volume_eligible_fail",
+  "expected": "selected_next_burden_mismatch",
+  "failures": [
+    "selected_next_burden_mismatch:None;eligible=[]"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "after_profile_execution_skip_fail",
+  "expected": "after_revert_profile_semantics_not_preserved:execution_skipped",
+  "failures": [
+    "after_revert_profile_semantics_not_preserved:execution_skipped:True"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+NEXT_BURDEN_DECISION_HEAD_JSON
+{
+  "accepted_burden_classes_frozen": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "after_revert_profile_id": "b6609f93",
+  "authorization": {
+    "authorized_next_command_goal": "BUILD_RECEIPT_VOLUME_FIX_CANDIDATE_POLICY_V0",
+    "authorized_target_burden_class": "BURDEN_RECEIPT_VOLUME",
+    "authorizes_code_change_now": false,
+    "authorizes_data_artifact_deletion": false,
+    "authorizes_depth_probe_skipping": false,
+    "authorizes_depth_range_change": false,
+    "authorizes_execution_skipping": false,
+    "authorizes_frontier_case_skipping": false,
+    "authorizes_gate_semantics_change": false,
+    "authorizes_halt_semantics_change": false,
+    "authorizes_law_semantics_change": false,
+    "authorizes_more_frontier_depth_patching": false,
+    "authorizes_next_burden_policy": true,
+    "authorizes_observability_freeze": false,
+    "authorizes_patch_application": false,
+    "authorizes_radius_expansion": false,
+    "authorizes_reapplying_frontier_depth_patch": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_reopening_accepted_burden_classes": false,
+    "authorizes_reopening_frontier_depth": false,
+    "authorizes_run_semantics_change": false,
+    "authorizes_synthetic_receipts": false
+  },
+  "decision_id": "25bf9c59",
+  "eligible_unresolved_burden_classes": [
+    "BURDEN_RECEIPT_VOLUME"
+  ],
+  "gate": "PASS",
+  "rejected_or_deferred_burden_classes": [
+    {
+      "burden_class": "BURDEN_DEPTH_SCAN",
+      "disposition": "REJECTED_AS_BURDEN_FIX_AND_REVERTED",
+      "reason": "frontier-depth patch was structurally safe but performance-negative, then reverted and confirmed clean",
+      "reopen_allowed": false,
+      "source_decision_id": "22d0002e",
+      "source_revert_comparison_id": "a1bd75a8"
+    }
+  ],
+  "required_next_gate": {
+    "must_not_change_depth_range": true,
+    "must_not_change_halt_law_gate_run_semantics": true,
+    "must_not_delete_data_artifacts": true,
+    "must_not_delete_receipts": true,
+    "must_not_expand_radius": true,
+    "must_not_reopen_rejected_depth_scan": true,
+    "must_preserve_accepted_burden_classes": [
+      "BURDEN_CYCLE_SCAN",
+      "BURDEN_DB_WRITE",
+      "BURDEN_REPEATED_SLOT_WORK"
+    ],
+    "must_target_burden_class": "BURDEN_RECEIPT_VOLUME",
+    "must_use_after_revert_profile_id": "b6609f93",
+    "must_use_decision_id": "25bf9c59",
+    "next_command_goal": "BUILD_RECEIPT_VOLUME_FIX_CANDIDATE_POLICY_V0",
+    "policy_only_no_patch_application": true
+  },
+  "selected_next_burden_class": "BURDEN_RECEIPT_VOLUME",
+  "selected_next_burden_evidence": {
+    "elapsed_ms": 1005,
+    "families": [
+      "E"
+    ],
+    "probes": [
+      "MICRO_05_RECEIPT_WRITE_PRESSURE"
+    ],
+    "receipts": 176,
+    "receipts_per_sec": 175.124378,
+    "rows": 1,
+    "slots": [
+      "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+    ]
+  },
+  "selection_reason": {
+    "accepted_classes_not_reopened": [
+      "BURDEN_CYCLE_SCAN",
+      "BURDEN_DB_WRITE",
+      "BURDEN_REPEATED_SLOT_WORK"
+    ],
+    "cycle_period_compression_field_present": true,
+    "frontier_depth_probe_field_absent": true,
+    "frontier_depth_revert_confirmed": true,
+    "only_remaining_eligible_non_unknown_burden": true,
+    "rejected_depth_not_reopened": true
+  },
+  "source_disposition_plan_id": "ce040a69",
+  "source_frontier_depth_outcome_decision_id": "22d0002e",
+  "source_revert_application_id": "b3471a41",
+  "source_revert_comparison_id": "a1bd75a8",
+  "terminal": {
+    "next_command_goal": "BUILD_RECEIPT_VOLUME_FIX_CANDIDATE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_212701_361810
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/decide_after_frontier_depth_revert_next_burden_class.py
+[master 55873ed0e] decide next burden after frontier depth revert
+ 2 files changed, 524 insertions(+)
+ create mode 100755 scripts/decide_after_frontier_depth_revert_next_burden_class.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

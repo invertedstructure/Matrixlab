@@ -1,0 +1,37 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_204430
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_204430.txt
+
+REPAIR_R250_CANDIDATE_C_INTERROGATION_GENERATOR_SORT_SYNTAX_V0
+
+STATUS_BEFORE
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/interrogate_r250_pressure_coarsened_candidate_c_groups_v0.py
+
+VERIFY_FAILED_SCRIPT_PRESENT
+
+PATCH_GENERATOR_SORT_SYNTAX_ONLY
+patched generator sort syntax
+
+PY_COMPILE_REPAIRED_CANDIDATE_C_INTERROGATION_BUILDER
+  File "scripts/interrogate_r250_pressure_coarsened_candidate_c_groups_v0.py", line 548
+    failures.append(f"group_size_profile_wrong:{sorted(group['event_count'] for group in group_rows, reverse=True)}")
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: Generator expression must be parenthesized
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

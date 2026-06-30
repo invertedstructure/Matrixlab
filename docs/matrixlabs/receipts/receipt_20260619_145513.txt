@@ -1,0 +1,67 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260619_145513
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260619_145513.txt
+
+QUARANTINE_PARTIAL_IO_RUN_AND_RERUN_DOMAIN_SHIFT_D1
+
+STATUS_BEFORE
+
+PROCESS_CHECK
+no active MatrixLab stress process
+
+DB_BACKUP_BEFORE_QUARANTINE
+DB_BACKUP=data/runs/backups/registry.sqlite.before_quarantine_run_20260619_124421_745386_20260619_145513.bak
+JOURNAL_BACKUP=data/runs/backups/registry.sqlite-journal.before_quarantine_run_20260619_124421_745386_20260619_145513.bak
+
+QUARANTINE_PARTIAL_RUN
+{
+  "action": "marked RUNNING partial run as ABORTED_IO_FAILURE_QUARANTINED",
+  "created_utc": "2026-06-19T13:55:15.226241+00:00",
+  "interpretation": "NOT_A_DOMAIN_SHIFT_RESULT",
+  "reason": "HOST_FILESYSTEM_IO_ERROR_DURING_DOMAIN_SHIFT_D1_RUN",
+  "receipt_json_files": 38834,
+  "receipt_rows_in_db": 38834,
+  "recovery_id": "df26cfdf",
+  "recovery_schema_version": "matrixlab_io_quarantine_v0",
+  "row_after": {
+    "created_utc": "2026-06-19T12:44:21.749935+00:00",
+    "cycles_per_case": 250,
+    "depth_max": 250,
+    "depth_min": 3,
+    "families": "relabel_symmetry_stress,relabel_symmetry_stress,relabel_symmetry_stress,projection_quotient,projection_quotient,two_sided_suspension,two_sided_suspension,suspension_plus_repair,one_sided_suspension",
+    "max_cells": 300000,
+    "run_id": "run_20260619_124421_745386",
+    "status": "ABORTED_IO_FAILURE_QUARANTINED",
+    "total_cases": 0,
+    "total_receipts": 0
+  },
+  "row_before": {
+    "created_utc": "2026-06-19T12:44:21.749935+00:00",
+    "cycles_per_case": 250,
+    "depth_max": 250,
+    "depth_min": 3,
+    "families": "relabel_symmetry_stress,relabel_symmetry_stress,relabel_symmetry_stress,projection_quotient,projection_quotient,two_sided_suspension,two_sided_suspension,suspension_plus_repair,one_sided_suspension",
+    "max_cells": 300000,
+    "run_id": "run_20260619_124421_745386",
+    "status": "RUNNING",
+    "total_cases": 0,
+    "total_receipts": 0
+  },
+  "run_id": "run_20260619_124421_745386",
+  "sqlite_quick_check_after": "ok",
+  "sqlite_quick_check_before": "ok"
+}
+recovery_path: data/runs/recoveries/df26cfdf.json
+
+DB_FILES_AFTER_QUARANTINE
+-rw-r--r-- 1 asd asd 509M Jun 19 14:55 data/runs/registry.sqlite
+
+RERUN_DOMAIN_SHIFT_D1
+MatrixLab run started: run_20260619_135515_760723
+Families: ['relabel_symmetry_stress', 'relabel_symmetry_stress', 
+'relabel_symmetry_stress', 'projection_quotient', 'projection_quotient', 
+'two_sided_suspension', 'two_sided_suspension', 'suspension_plus_repair', 
+'one_sided_suspension']
+Depths: 3..250
+Cycles per case: 250
+Max cells per matrix: 300000

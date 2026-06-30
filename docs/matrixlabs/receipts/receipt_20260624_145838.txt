@@ -1,0 +1,845 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260624_145838
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260624_145838.txt
+
+BUILD_C4_CELL1_RECEIPT_NATIVE_BUILDER_PREFLIGHT_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+
+VERIFY_C4_PREFLIGHT_REQUIRED_BASIS
+present data/c3_cell0_micro_domain_shift_rehearsal_v0_receipts/cfc79da2.json
+present data/c3_cell0_micro_domain_shift_rehearsal_v0/c3_micro_domain_shift_profile_v0.json
+present data/c3_cell0_micro_domain_shift_rehearsal_v0/micro_domain_shift_rollup_v0.json
+present data/c3_cell0_micro_domain_shift_rehearsal_v0/c3_interface_readiness_verdict_v0.json
+present data/c3_cell0_micro_domain_shift_rehearsal_v0/domain_shift_proposal_gap_reports_v0.jsonl
+present data/c1_cell0_proposal_layer_v0_receipts/f8f37c4e.json
+present data/c1_cell0_proposal_layer_v0/proposal_packet_schema_v0.json
+present data/c2_cell0_label_taxonomy_lane_cleaning_v0_receipts/348dabde.json
+present data/c2_cell0_label_taxonomy_lane_cleaning_v0/taxonomy_lane_registry_v0.json
+
+PATCH_GITIGNORE
+
+WRITE_C4_PREFLIGHT_RUNNER
+
+PY_COMPILE_C4_PREFLIGHT_RUNNER
+
+RUN_C4_PREFLIGHT
+{
+  "acceptance_gate_results": {
+    "C4_CELL1_11_ONLY_ACCEPTED_PROPOSAL_CONSUMED": "not_applicable_preflight_blocked",
+    "C4_CELL1_15_MINIMAL_PATCH_PLAN_EMITTED_BEFORE_PATCH": "not_applicable_preflight_blocked",
+    "C4_CELL1_16_PATCH_AUTHORITY_CHECKED": "not_applicable_preflight_blocked",
+    "C4_CELL1_17_PATCH_SCOPED_TO_TARGET_SURFACE": "not_applicable_preflight_blocked",
+    "C4_CELL1_18_BOUNDED_PROBE_RUN": "not_applicable_preflight_blocked",
+    "C4_CELL1_19_VERIFICATION_RECORD_EMITTED": "not_applicable_preflight_blocked",
+    "C4_CELL1_20_BUILD_RECEIPT_EMITTED": "not_applicable_preflight_blocked",
+    "C4_CELL1_21_HANDOFF_RECEIPT_EMITTED": "not_applicable_preflight_blocked",
+    "C4_PREFLIGHT_0_SOURCE_DESIGN_CONSUMED": true,
+    "C4_PREFLIGHT_10_NO_PROBE_RUN": true,
+    "C4_PREFLIGHT_11_NO_VERIFICATION_PASS_EMITTED": true,
+    "C4_PREFLIGHT_12_NO_BUILD_RECEIPT_MARKED_VERIFIED": true,
+    "C4_PREFLIGHT_13_NO_CELL1_EXECUTION_OPENED": true,
+    "C4_PREFLIGHT_14_NO_BUILDER_COMMAND_EMITTED": true,
+    "C4_PREFLIGHT_15_NO_HIDDEN_NEXT_COMMAND": true,
+    "C4_PREFLIGHT_16_BLOCKED_ROLLUP_EMITTED": true,
+    "C4_PREFLIGHT_17_STOP_C4_BLOCKED_BY_C3_INTERFACE_VERDICT": true,
+    "C4_PREFLIGHT_1_BUILD_MODE_PREFLIGHT_GATE_ONLY": true,
+    "C4_PREFLIGHT_2_C3_VERDICT_CONSUMED": true,
+    "C4_PREFLIGHT_3_C3_VERDICT_BLOCKS_CELL1": true,
+    "C4_PREFLIGHT_4_CELL1_AUTHORITY_PROFILE_EMITTED": true,
+    "C4_PREFLIGHT_5_ACCEPTED_PROPOSAL_INPUT_SCHEMA_EMITTED": true,
+    "C4_PREFLIGHT_6_CELL1_BUILDER_LOOP_SCHEMAS_EMITTED": true,
+    "C4_PREFLIGHT_7_NO_ACCEPTED_PROPOSAL_CONSUMED": true,
+    "C4_PREFLIGHT_8_NO_PROPOSED_ONLY_CONSUMED": true,
+    "C4_PREFLIGHT_9_NO_PATCH_APPLIED": true
+  },
+  "active_object": "Cell 1 receipt-native builder opening gate",
+  "aggregate_metrics": {
+    "accepted_proposal_fabricated_count": 0,
+    "accepted_proposal_input_schema_emitted_count": 1,
+    "accepted_proposals_consumed": 0,
+    "ambient_workspace_inference_count": 0,
+    "blocked_preflight_counted_as_failure_count": 0,
+    "blocked_preflight_rollup_emitted_count": 1,
+    "build_mode": "PREFLIGHT_GATE_ONLY",
+    "builder_authority_profile_emitted_count": 1,
+    "builder_command_emitted_count": 0,
+    "builder_loop_schemas_emitted_count": 7,
+    "builds_attempted": 0,
+    "builds_blocked": 1,
+    "builds_verified": 0,
+    "c3_interface_blocked_count": 1,
+    "c3_interface_verdict_checked_count": 1,
+    "cell1_execution_opened_count": 0,
+    "cell1_opened_despite_c3_block_count": 0,
+    "hidden_next_command_count": 0,
+    "latest_or_mtime_selection_count": 0,
+    "layer": "CELL_1 / RECEIPT_NATIVE_BUILDER_PREFLIGHT",
+    "mode": "PREFLIGHT / GATE / SCHEMA",
+    "opening_gate_evaluation_emitted_count": 1,
+    "patch_applied_during_preflight_count": 0,
+    "prior_receipt_mutation_count": 0,
+    "probe_run_during_preflight_count": 0,
+    "profile_emitted_count": 1,
+    "profile_status": "C4_BLOCKED",
+    "recommended_next_handling": null,
+    "rollup": {
+      "accepted_proposals_consumed": 0,
+      "build_mode": "PREFLIGHT_GATE_ONLY",
+      "builds_attempted": 0,
+      "builds_blocked": 1,
+      "builds_failed": 0,
+      "builds_verified": 0,
+      "c3_interface_verdict": "CELL1_NOT_READY_PROPOSAL_SCHEMA_GAPS",
+      "c3_interface_verdict_checked": true,
+      "c4_opening_gate_status": "BLOCKED",
+      "cell1_execution_opened": false,
+      "handoff_summary": {
+        "parked": 0,
+        "returned_to_cell0": 0,
+        "returned_to_review": 0
+      },
+      "negative_controls": {
+        "accepted_proposal_fabricated_count": 0,
+        "auto_chain_next_build_count": 0,
+        "blocked_preflight_counted_as_failure_count": 0,
+        "build_success_counted_as_proposal_closure_without_review_count": 0,
+        "builder_command_emitted_count": 0,
+        "cell1_execution_opened_count": 0,
+        "cell1_opened_despite_c3_block_count": 0,
+        "cell1_opened_new_objective_count": 0,
+        "extra_objective_invented_count": 0,
+        "forbidden_input_touched_count": 0,
+        "hidden_next_command_count": 0,
+        "patch_applied_during_preflight_count": 0,
+        "patch_without_authority_count": 0,
+        "patch_without_plan_count": 0,
+        "patch_without_verification_count": 0,
+        "prior_receipt_mutation_count": 0,
+        "probe_run_during_preflight_count": 0,
+        "proposal_accepted_by_cell1_count": 0,
+        "proposed_only_packet_consumed_count": 0,
+        "schema_only_artifact_counted_as_build_count": 0,
+        "scope_expansion_count": 0,
+        "source_mutation_count": 0,
+        "unbounded_payload_inspection_count": 0,
+        "verification_pass_counted_as_global_correctness_count": 0,
+        "verification_pass_emitted_during_preflight_count": 0
+      },
+      "recommended_next": null,
+      "schema_version": "c4_blocked_preflight_rollup_v0",
+      "schemas_emitted": true
+    },
+    "schema_only_artifact_counted_as_build_count": 0,
+    "source_design_consumed_count": 1,
+    "source_mutation_count": 0,
+    "verification_pass_emitted_during_preflight_count": 0
+  },
+  "build_mode": "PREFLIGHT_GATE_ONLY",
+  "c4_guards": {
+    "accepted_proposal_consumed": false,
+    "build_mode_preflight_gate_only": true,
+    "build_receipt_marked_verified": false,
+    "builder_command_emitted": false,
+    "c3_verdict_blocks_cell1": true,
+    "c3_verdict_consumed": true,
+    "cell1_execution_opened": false,
+    "hidden_next_command": false,
+    "patch_applied": false,
+    "prior_receipts_mutated": false,
+    "probe_run": false,
+    "proposed_only_packet_consumed": false,
+    "source_mutated": false,
+    "verification_pass_emitted": false
+  },
+  "c4_summary": {
+    "accepted_proposals_consumed": 0,
+    "bad_counters_zero": true,
+    "builds_attempted": 0,
+    "builds_blocked": 1,
+    "builds_verified": 0,
+    "c3_interface_verdict": "CELL1_NOT_READY_PROPOSAL_SCHEMA_GAPS",
+    "c4_opening_gate_status": "BLOCKED",
+    "cell1_execution_opened": false,
+    "profile_status": "C4_BLOCKED",
+    "recommended_next": null,
+    "schemas_emitted": true
+  },
+  "created_at": "2026-06-24T13:58:39.761250+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "human_decision": {
+    "authorized": [
+      "consume C3 interface verdict",
+      "consume C1/C2/C3 receipt basis",
+      "emit Cell 1 builder authority profile",
+      "emit accepted proposal input schema",
+      "emit Cell 1 builder loop schemas",
+      "emit opening gate evaluation",
+      "emit blocked preflight rollup",
+      "emit C4 profile",
+      "emit C4 report",
+      "emit C4 receipt",
+      "stop with no next command goal"
+    ],
+    "decision": "BUILD_C4_CELL1_RECEIPT_NATIVE_BUILDER_PREFLIGHT",
+    "not_authorized": [
+      "consume accepted proposal as build input",
+      "consume PROPOSED_ONLY packet",
+      "accept proposal",
+      "apply patch",
+      "run builder probe",
+      "emit verification PASS",
+      "emit build verified receipt",
+      "open Cell 1 execution",
+      "mutate taxonomy",
+      "touch target files",
+      "auto-chain next build",
+      "emit hidden next command"
+    ],
+    "scope": "Build C4 as a preflight/gate surface for the first narrow Cell 1 receipt-native builder. Emit Cell 1 authority profile, accepted proposal input schema, builder loop record schemas, opening gate evaluation, blocked preflight rollup, profile, report, and receipt. Because C3 currently reports CELL1_NOT_READY_PROPOSAL_SCHEMA_GAPS, do not consume any proposal, do not open Cell 1 execution, do not apply patches, do not run probes, and stop with STOP_C4_BLOCKED_BY_C3_INTERFACE_VERDICT."
+  },
+  "layer": "CELL_1 / RECEIPT_NATIVE_BUILDER_PREFLIGHT",
+  "mode": "PREFLIGHT / GATE / SCHEMA",
+  "negative_controls": [
+    {
+      "case": "cell1_opened_despite_c3_block_fail",
+      "failures": [
+        "rollup_counter_nonzero:cell1_opened_despite_c3_block_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "schema_only_artifact_counted_as_build_fail",
+      "failures": [
+        "rollup_counter_nonzero:schema_only_artifact_counted_as_build_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "blocked_preflight_counted_as_failure_fail",
+      "failures": [
+        "rollup_counter_nonzero:blocked_preflight_counted_as_failure_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "accepted_proposal_fabricated_fail",
+      "failures": [
+        "rollup_counter_nonzero:accepted_proposal_fabricated_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "proposed_only_packet_consumed_fail",
+      "failures": [
+        "rollup_counter_nonzero:proposed_only_packet_consumed_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "proposal_accepted_by_cell1_fail",
+      "failures": [
+        "rollup_counter_nonzero:proposal_accepted_by_cell1_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "patch_applied_during_preflight_fail",
+      "failures": [
+        "rollup_counter_nonzero:patch_applied_during_preflight_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "probe_run_during_preflight_fail",
+      "failures": [
+        "rollup_counter_nonzero:probe_run_during_preflight_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "verification_pass_emitted_during_preflight_fail",
+      "failures": [
+        "rollup_counter_nonzero:verification_pass_emitted_during_preflight_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "hidden_next_command_fail",
+      "failures": [
+        "rollup_counter_nonzero:hidden_next_command_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "source_mutation_fail",
+      "failures": [
+        "report_metric_not_zero:source_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "prior_receipt_mutation_fail",
+      "failures": [
+        "report_metric_not_zero:prior_receipt_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "c3_block_not_respected_fail",
+      "failures": [
+        "opening_gate_not_blocked:OPEN"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "build_attempted_during_blocked_preflight_fail",
+      "failures": [
+        "builds_attempted_nonzero:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    }
+  ],
+  "output_artifacts": {
+    "c4_blocked_preflight_rollup": "data/c4_cell1_receipt_native_builder_v0/c4_blocked_preflight_rollup_v0.json",
+    "c4_cell1_builder_profile": "data/c4_cell1_receipt_native_builder_v0/c4_cell1_builder_profile_v0.json",
+    "c4_opening_gate_evaluation": "data/c4_cell1_receipt_native_builder_v0/c4_opening_gate_evaluation_v0.json",
+    "c4_report": "data/c4_cell1_receipt_native_builder_v0/c4_report.json",
+    "c4_transition_trace": "data/c4_cell1_receipt_native_builder_v0/c4_transition_trace.json",
+    "cell1_accepted_proposal_input_schema": "data/c4_cell1_receipt_native_builder_v0/cell1_accepted_proposal_input_schema_v0.json",
+    "cell1_build_receipt_schema": "data/c4_cell1_receipt_native_builder_v0/cell1_build_receipt_schema_v0.json",
+    "cell1_builder_authority_profile": "data/c4_cell1_receipt_native_builder_v0/cell1_builder_authority_profile_v0.json",
+    "cell1_builder_loop_trace_schema": "data/c4_cell1_receipt_native_builder_v0/cell1_builder_loop_trace_schema_v0.json",
+    "cell1_handoff_receipt_schema": "data/c4_cell1_receipt_native_builder_v0/cell1_handoff_receipt_schema_v0.json",
+    "cell1_minimal_patch_plan_schema": "data/c4_cell1_receipt_native_builder_v0/cell1_minimal_patch_plan_schema_v0.json",
+    "cell1_patch_record_schema": "data/c4_cell1_receipt_native_builder_v0/cell1_patch_record_schema_v0.json",
+    "cell1_probe_record_schema": "data/c4_cell1_receipt_native_builder_v0/cell1_probe_record_schema_v0.json",
+    "cell1_verification_record_schema": "data/c4_cell1_receipt_native_builder_v0/cell1_verification_record_schema_v0.json",
+    "implementation_receipt": "data/c4_cell1_receipt_native_builder_v0_receipts/75764a86.json",
+    "source_c1_receipt": "data/c1_cell0_proposal_layer_v0_receipts/f8f37c4e.json",
+    "source_c2_receipt": "data/c2_cell0_label_taxonomy_lane_cleaning_v0_receipts/348dabde.json",
+    "source_c3_receipt": "data/c3_cell0_micro_domain_shift_rehearsal_v0_receipts/cfc79da2.json",
+    "source_c3_verdict": "data/c3_cell0_micro_domain_shift_rehearsal_v0/c3_interface_readiness_verdict_v0.json"
+  },
+  "receipt_id": "75764a86",
+  "receipt_type": "C4_CELL1_RECEIPT_NATIVE_BUILDER_PREFLIGHT_RECEIPT",
+  "schema_version": "c4_cell1_receipt_native_builder_preflight_receipt_v0",
+  "source_c1_receipt_id": "f8f37c4e",
+  "source_c2_receipt_id": "348dabde",
+  "source_c3_interface_verdict": "CELL1_NOT_READY_PROPOSAL_SCHEMA_GAPS",
+  "source_c3_receipt_id": "cfc79da2",
+  "target_unit_id": "c4.cell1.receipt_native_builder.preflight.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C4_BLOCKED_BY_C3_INTERFACE_VERDICT",
+    "type": "STOP"
+  },
+  "unit_id": "BUILD_C4_CELL1_RECEIPT_NATIVE_BUILDER_PREFLIGHT_V0",
+  "warnings": []
+}
+c4_receipt_id=75764a86
+c4_receipt_path=data/c4_cell1_receipt_native_builder_v0_receipts/75764a86.json
+c4_profile_path=data/c4_cell1_receipt_native_builder_v0/c4_cell1_builder_profile_v0.json
+c4_rollup_path=data/c4_cell1_receipt_native_builder_v0/c4_blocked_preflight_rollup_v0.json
+c4_gate_path=data/c4_cell1_receipt_native_builder_v0/c4_opening_gate_evaluation_v0.json
+C4_RECEIPT_ID=75764a86
+C4_RECEIPT_PATH=data/c4_cell1_receipt_native_builder_v0_receipts/75764a86.json
+C4_PROFILE_PATH=data/c4_cell1_receipt_native_builder_v0/c4_cell1_builder_profile_v0.json
+C4_ROLLUP_PATH=data/c4_cell1_receipt_native_builder_v0/c4_blocked_preflight_rollup_v0.json
+C4_GATE_PATH=data/c4_cell1_receipt_native_builder_v0/c4_opening_gate_evaluation_v0.json
+
+ASSERT_C4_PREFLIGHT
+{
+  "c4_summary": {
+    "accepted_proposals_consumed": 0,
+    "bad_counters_zero": true,
+    "builds_attempted": 0,
+    "builds_blocked": 1,
+    "builds_verified": 0,
+    "c3_interface_verdict": "CELL1_NOT_READY_PROPOSAL_SCHEMA_GAPS",
+    "c4_opening_gate_status": "BLOCKED",
+    "cell1_execution_opened": false,
+    "profile_status": "C4_BLOCKED",
+    "recommended_next": null,
+    "schemas_emitted": true
+  },
+  "gate": "PASS",
+  "negative_control_count": 14,
+  "negative_control_pass_count": 14,
+  "receipt_id": "75764a86",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C4_BLOCKED_BY_C3_INTERFACE_VERDICT",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROLS_C4_PREFLIGHT_NON_WRITING
+{
+  "negative_control_count": 14,
+  "negative_control_pass_count": 14,
+  "wrote_live_artifact_count": 0
+}
+{
+  "negative_controls_write_outputs": false,
+  "receipt_unchanged": true
+}
+
+VERIFY_NO_CELL1_EXECUTION_PATCH_PROBE_OR_FORBIDDEN_MUTATION
+allowed_status_lines_checked
+no Cell1 execution/proposal consumption/patch/probe/verification/build outputs; protected prior artifacts untouched; expected C4 preflight artifacts allowed
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260623_060237_751310
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    30 │
+│ total_receipts │   237 │
+│ receipt_rows   │   237 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │    29 │
+│ REPEATED_STATE_PERIODIC │     1 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+?? scripts/build_c4_cell1_receipt_native_builder_preflight_v0.py
+
+PACKAGE_C4_PREFLIGHT_ARTIFACTS
+packaged data/c4_cell1_receipt_native_builder_v0_receipts/75764a86.json
+packaged data/c4_cell1_receipt_native_builder_v0/cell1_builder_authority_profile_v0.json
+packaged data/c4_cell1_receipt_native_builder_v0/cell1_accepted_proposal_input_schema_v0.json
+packaged data/c4_cell1_receipt_native_builder_v0/cell1_minimal_patch_plan_schema_v0.json
+packaged data/c4_cell1_receipt_native_builder_v0/cell1_patch_record_schema_v0.json
+packaged data/c4_cell1_receipt_native_builder_v0/cell1_probe_record_schema_v0.json
+packaged data/c4_cell1_receipt_native_builder_v0/cell1_verification_record_schema_v0.json
+packaged data/c4_cell1_receipt_native_builder_v0/cell1_build_receipt_schema_v0.json
+packaged data/c4_cell1_receipt_native_builder_v0/cell1_handoff_receipt_schema_v0.json
+packaged data/c4_cell1_receipt_native_builder_v0/cell1_builder_loop_trace_schema_v0.json
+packaged data/c4_cell1_receipt_native_builder_v0/c4_opening_gate_evaluation_v0.json
+packaged data/c4_cell1_receipt_native_builder_v0/c4_blocked_preflight_rollup_v0.json
+packaged data/c4_cell1_receipt_native_builder_v0/c4_cell1_builder_profile_v0.json
+packaged data/c4_cell1_receipt_native_builder_v0/c4_transition_trace.json
+packaged data/c4_cell1_receipt_native_builder_v0/c4_report.json
+[master 7b5623672] build c4 cell1 builder preflight gate
+ 17 files changed, 1655 insertions(+)
+ create mode 100644 data/c4_cell1_receipt_native_builder_v0/c4_blocked_preflight_rollup_v0.json
+ create mode 100644 data/c4_cell1_receipt_native_builder_v0/c4_cell1_builder_profile_v0.json
+ create mode 100644 data/c4_cell1_receipt_native_builder_v0/c4_opening_gate_evaluation_v0.json
+ create mode 100644 data/c4_cell1_receipt_native_builder_v0/c4_report.json
+ create mode 100644 data/c4_cell1_receipt_native_builder_v0/c4_transition_trace.json
+ create mode 100644 data/c4_cell1_receipt_native_builder_v0/cell1_accepted_proposal_input_schema_v0.json
+ create mode 100644 data/c4_cell1_receipt_native_builder_v0/cell1_build_receipt_schema_v0.json
+ create mode 100644 data/c4_cell1_receipt_native_builder_v0/cell1_builder_authority_profile_v0.json
+ create mode 100644 data/c4_cell1_receipt_native_builder_v0/cell1_builder_loop_trace_schema_v0.json
+ create mode 100644 data/c4_cell1_receipt_native_builder_v0/cell1_handoff_receipt_schema_v0.json
+ create mode 100644 data/c4_cell1_receipt_native_builder_v0/cell1_minimal_patch_plan_schema_v0.json
+ create mode 100644 data/c4_cell1_receipt_native_builder_v0/cell1_patch_record_schema_v0.json
+ create mode 100644 data/c4_cell1_receipt_native_builder_v0/cell1_probe_record_schema_v0.json
+ create mode 100644 data/c4_cell1_receipt_native_builder_v0/cell1_verification_record_schema_v0.json
+ create mode 100644 data/c4_cell1_receipt_native_builder_v0_receipts/75764a86.json
+ create mode 100755 scripts/build_c4_cell1_receipt_native_builder_preflight_v0.py
+
+COMMIT_DONE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+
+C4_PREFLIGHT_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+c4_receipt_id=75764a86
+c4_receipt_path=data/c4_cell1_receipt_native_builder_v0_receipts/75764a86.json
+{
+  "acceptance_gate_results": {
+    "C4_CELL1_11_ONLY_ACCEPTED_PROPOSAL_CONSUMED": "not_applicable_preflight_blocked",
+    "C4_CELL1_15_MINIMAL_PATCH_PLAN_EMITTED_BEFORE_PATCH": "not_applicable_preflight_blocked",
+    "C4_CELL1_16_PATCH_AUTHORITY_CHECKED": "not_applicable_preflight_blocked",
+    "C4_CELL1_17_PATCH_SCOPED_TO_TARGET_SURFACE": "not_applicable_preflight_blocked",
+    "C4_CELL1_18_BOUNDED_PROBE_RUN": "not_applicable_preflight_blocked",
+    "C4_CELL1_19_VERIFICATION_RECORD_EMITTED": "not_applicable_preflight_blocked",
+    "C4_CELL1_20_BUILD_RECEIPT_EMITTED": "not_applicable_preflight_blocked",
+    "C4_CELL1_21_HANDOFF_RECEIPT_EMITTED": "not_applicable_preflight_blocked",
+    "C4_PREFLIGHT_0_SOURCE_DESIGN_CONSUMED": true,
+    "C4_PREFLIGHT_10_NO_PROBE_RUN": true,
+    "C4_PREFLIGHT_11_NO_VERIFICATION_PASS_EMITTED": true,
+    "C4_PREFLIGHT_12_NO_BUILD_RECEIPT_MARKED_VERIFIED": true,
+    "C4_PREFLIGHT_13_NO_CELL1_EXECUTION_OPENED": true,
+    "C4_PREFLIGHT_14_NO_BUILDER_COMMAND_EMITTED": true,
+    "C4_PREFLIGHT_15_NO_HIDDEN_NEXT_COMMAND": true,
+    "C4_PREFLIGHT_16_BLOCKED_ROLLUP_EMITTED": true,
+    "C4_PREFLIGHT_17_STOP_C4_BLOCKED_BY_C3_INTERFACE_VERDICT": true,
+    "C4_PREFLIGHT_1_BUILD_MODE_PREFLIGHT_GATE_ONLY": true,
+    "C4_PREFLIGHT_2_C3_VERDICT_CONSUMED": true,
+    "C4_PREFLIGHT_3_C3_VERDICT_BLOCKS_CELL1": true,
+    "C4_PREFLIGHT_4_CELL1_AUTHORITY_PROFILE_EMITTED": true,
+    "C4_PREFLIGHT_5_ACCEPTED_PROPOSAL_INPUT_SCHEMA_EMITTED": true,
+    "C4_PREFLIGHT_6_CELL1_BUILDER_LOOP_SCHEMAS_EMITTED": true,
+    "C4_PREFLIGHT_7_NO_ACCEPTED_PROPOSAL_CONSUMED": true,
+    "C4_PREFLIGHT_8_NO_PROPOSED_ONLY_CONSUMED": true,
+    "C4_PREFLIGHT_9_NO_PATCH_APPLIED": true
+  },
+  "aggregate_metrics": {
+    "accepted_proposal_fabricated_count": 0,
+    "accepted_proposal_input_schema_emitted_count": 1,
+    "accepted_proposals_consumed": 0,
+    "ambient_workspace_inference_count": 0,
+    "blocked_preflight_counted_as_failure_count": 0,
+    "blocked_preflight_rollup_emitted_count": 1,
+    "build_mode": "PREFLIGHT_GATE_ONLY",
+    "builder_authority_profile_emitted_count": 1,
+    "builder_command_emitted_count": 0,
+    "builder_loop_schemas_emitted_count": 7,
+    "builds_attempted": 0,
+    "builds_blocked": 1,
+    "builds_verified": 0,
+    "c3_interface_blocked_count": 1,
+    "c3_interface_verdict_checked_count": 1,
+    "cell1_execution_opened_count": 0,
+    "cell1_opened_despite_c3_block_count": 0,
+    "hidden_next_command_count": 0,
+    "latest_or_mtime_selection_count": 0,
+    "layer": "CELL_1 / RECEIPT_NATIVE_BUILDER_PREFLIGHT",
+    "mode": "PREFLIGHT / GATE / SCHEMA",
+    "opening_gate_evaluation_emitted_count": 1,
+    "patch_applied_during_preflight_count": 0,
+    "prior_receipt_mutation_count": 0,
+    "probe_run_during_preflight_count": 0,
+    "profile_emitted_count": 1,
+    "profile_status": "C4_BLOCKED",
+    "recommended_next_handling": null,
+    "rollup": {
+      "accepted_proposals_consumed": 0,
+      "build_mode": "PREFLIGHT_GATE_ONLY",
+      "builds_attempted": 0,
+      "builds_blocked": 1,
+      "builds_failed": 0,
+      "builds_verified": 0,
+      "c3_interface_verdict": "CELL1_NOT_READY_PROPOSAL_SCHEMA_GAPS",
+      "c3_interface_verdict_checked": true,
+      "c4_opening_gate_status": "BLOCKED",
+      "cell1_execution_opened": false,
+      "handoff_summary": {
+        "parked": 0,
+        "returned_to_cell0": 0,
+        "returned_to_review": 0
+      },
+      "negative_controls": {
+        "accepted_proposal_fabricated_count": 0,
+        "auto_chain_next_build_count": 0,
+        "blocked_preflight_counted_as_failure_count": 0,
+        "build_success_counted_as_proposal_closure_without_review_count": 0,
+        "builder_command_emitted_count": 0,
+        "cell1_execution_opened_count": 0,
+        "cell1_opened_despite_c3_block_count": 0,
+        "cell1_opened_new_objective_count": 0,
+        "extra_objective_invented_count": 0,
+        "forbidden_input_touched_count": 0,
+        "hidden_next_command_count": 0,
+        "patch_applied_during_preflight_count": 0,
+        "patch_without_authority_count": 0,
+        "patch_without_plan_count": 0,
+        "patch_without_verification_count": 0,
+        "prior_receipt_mutation_count": 0,
+        "probe_run_during_preflight_count": 0,
+        "proposal_accepted_by_cell1_count": 0,
+        "proposed_only_packet_consumed_count": 0,
+        "schema_only_artifact_counted_as_build_count": 0,
+        "scope_expansion_count": 0,
+        "source_mutation_count": 0,
+        "unbounded_payload_inspection_count": 0,
+        "verification_pass_counted_as_global_correctness_count": 0,
+        "verification_pass_emitted_during_preflight_count": 0
+      },
+      "recommended_next": null,
+      "schema_version": "c4_blocked_preflight_rollup_v0",
+      "schemas_emitted": true
+    },
+    "schema_only_artifact_counted_as_build_count": 0,
+    "source_design_consumed_count": 1,
+    "source_mutation_count": 0,
+    "verification_pass_emitted_during_preflight_count": 0
+  },
+  "build_mode": "PREFLIGHT_GATE_ONLY",
+  "c4_guards": {
+    "accepted_proposal_consumed": false,
+    "build_mode_preflight_gate_only": true,
+    "build_receipt_marked_verified": false,
+    "builder_command_emitted": false,
+    "c3_verdict_blocks_cell1": true,
+    "c3_verdict_consumed": true,
+    "cell1_execution_opened": false,
+    "hidden_next_command": false,
+    "patch_applied": false,
+    "prior_receipts_mutated": false,
+    "probe_run": false,
+    "proposed_only_packet_consumed": false,
+    "source_mutated": false,
+    "verification_pass_emitted": false
+  },
+  "c4_summary": {
+    "accepted_proposals_consumed": 0,
+    "bad_counters_zero": true,
+    "builds_attempted": 0,
+    "builds_blocked": 1,
+    "builds_verified": 0,
+    "c3_interface_verdict": "CELL1_NOT_READY_PROPOSAL_SCHEMA_GAPS",
+    "c4_opening_gate_status": "BLOCKED",
+    "cell1_execution_opened": false,
+    "profile_status": "C4_BLOCKED",
+    "recommended_next": null,
+    "schemas_emitted": true
+  },
+  "gate": "PASS",
+  "human_decision": {
+    "authorized": [
+      "consume C3 interface verdict",
+      "consume C1/C2/C3 receipt basis",
+      "emit Cell 1 builder authority profile",
+      "emit accepted proposal input schema",
+      "emit Cell 1 builder loop schemas",
+      "emit opening gate evaluation",
+      "emit blocked preflight rollup",
+      "emit C4 profile",
+      "emit C4 report",
+      "emit C4 receipt",
+      "stop with no next command goal"
+    ],
+    "decision": "BUILD_C4_CELL1_RECEIPT_NATIVE_BUILDER_PREFLIGHT",
+    "not_authorized": [
+      "consume accepted proposal as build input",
+      "consume PROPOSED_ONLY packet",
+      "accept proposal",
+      "apply patch",
+      "run builder probe",
+      "emit verification PASS",
+      "emit build verified receipt",
+      "open Cell 1 execution",
+      "mutate taxonomy",
+      "touch target files",
+      "auto-chain next build",
+      "emit hidden next command"
+    ],
+    "scope": "Build C4 as a preflight/gate surface for the first narrow Cell 1 receipt-native builder. Emit Cell 1 authority profile, accepted proposal input schema, builder loop record schemas, opening gate evaluation, blocked preflight rollup, profile, report, and receipt. Because C3 currently reports CELL1_NOT_READY_PROPOSAL_SCHEMA_GAPS, do not consume any proposal, do not open Cell 1 execution, do not apply patches, do not run probes, and stop with STOP_C4_BLOCKED_BY_C3_INTERFACE_VERDICT."
+  },
+  "negative_controls": [
+    {
+      "case": "cell1_opened_despite_c3_block_fail",
+      "failures": [
+        "rollup_counter_nonzero:cell1_opened_despite_c3_block_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "schema_only_artifact_counted_as_build_fail",
+      "failures": [
+        "rollup_counter_nonzero:schema_only_artifact_counted_as_build_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "blocked_preflight_counted_as_failure_fail",
+      "failures": [
+        "rollup_counter_nonzero:blocked_preflight_counted_as_failure_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "accepted_proposal_fabricated_fail",
+      "failures": [
+        "rollup_counter_nonzero:accepted_proposal_fabricated_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "proposed_only_packet_consumed_fail",
+      "failures": [
+        "rollup_counter_nonzero:proposed_only_packet_consumed_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "proposal_accepted_by_cell1_fail",
+      "failures": [
+        "rollup_counter_nonzero:proposal_accepted_by_cell1_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "patch_applied_during_preflight_fail",
+      "failures": [
+        "rollup_counter_nonzero:patch_applied_during_preflight_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "probe_run_during_preflight_fail",
+      "failures": [
+        "rollup_counter_nonzero:probe_run_during_preflight_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "verification_pass_emitted_during_preflight_fail",
+      "failures": [
+        "rollup_counter_nonzero:verification_pass_emitted_during_preflight_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "hidden_next_command_fail",
+      "failures": [
+        "rollup_counter_nonzero:hidden_next_command_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "source_mutation_fail",
+      "failures": [
+        "report_metric_not_zero:source_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "prior_receipt_mutation_fail",
+      "failures": [
+        "report_metric_not_zero:prior_receipt_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "c3_block_not_respected_fail",
+      "failures": [
+        "opening_gate_not_blocked:OPEN"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "build_attempted_during_blocked_preflight_fail",
+      "failures": [
+        "builds_attempted_nonzero:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    }
+  ],
+  "output_artifacts": {
+    "c4_blocked_preflight_rollup": "data/c4_cell1_receipt_native_builder_v0/c4_blocked_preflight_rollup_v0.json",
+    "c4_cell1_builder_profile": "data/c4_cell1_receipt_native_builder_v0/c4_cell1_builder_profile_v0.json",
+    "c4_opening_gate_evaluation": "data/c4_cell1_receipt_native_builder_v0/c4_opening_gate_evaluation_v0.json",
+    "c4_report": "data/c4_cell1_receipt_native_builder_v0/c4_report.json",
+    "c4_transition_trace": "data/c4_cell1_receipt_native_builder_v0/c4_transition_trace.json",
+    "cell1_accepted_proposal_input_schema": "data/c4_cell1_receipt_native_builder_v0/cell1_accepted_proposal_input_schema_v0.json",
+    "cell1_build_receipt_schema": "data/c4_cell1_receipt_native_builder_v0/cell1_build_receipt_schema_v0.json",
+    "cell1_builder_authority_profile": "data/c4_cell1_receipt_native_builder_v0/cell1_builder_authority_profile_v0.json",
+    "cell1_builder_loop_trace_schema": "data/c4_cell1_receipt_native_builder_v0/cell1_builder_loop_trace_schema_v0.json",
+    "cell1_handoff_receipt_schema": "data/c4_cell1_receipt_native_builder_v0/cell1_handoff_receipt_schema_v0.json",
+    "cell1_minimal_patch_plan_schema": "data/c4_cell1_receipt_native_builder_v0/cell1_minimal_patch_plan_schema_v0.json",
+    "cell1_patch_record_schema": "data/c4_cell1_receipt_native_builder_v0/cell1_patch_record_schema_v0.json",
+    "cell1_probe_record_schema": "data/c4_cell1_receipt_native_builder_v0/cell1_probe_record_schema_v0.json",
+    "cell1_verification_record_schema": "data/c4_cell1_receipt_native_builder_v0/cell1_verification_record_schema_v0.json",
+    "implementation_receipt": "data/c4_cell1_receipt_native_builder_v0_receipts/75764a86.json",
+    "source_c1_receipt": "data/c1_cell0_proposal_layer_v0_receipts/f8f37c4e.json",
+    "source_c2_receipt": "data/c2_cell0_label_taxonomy_lane_cleaning_v0_receipts/348dabde.json",
+    "source_c3_receipt": "data/c3_cell0_micro_domain_shift_rehearsal_v0_receipts/cfc79da2.json",
+    "source_c3_verdict": "data/c3_cell0_micro_domain_shift_rehearsal_v0/c3_interface_readiness_verdict_v0.json"
+  },
+  "source_c1_receipt_id": "f8f37c4e",
+  "source_c2_receipt_id": "348dabde",
+  "source_c3_interface_verdict": "CELL1_NOT_READY_PROPOSAL_SCHEMA_GAPS",
+  "source_c3_receipt_id": "cfc79da2",
+  "target_unit_id": "c4.cell1.receipt_native_builder.preflight.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C4_BLOCKED_BY_C3_INTERFACE_VERDICT",
+    "type": "STOP"
+  },
+  "unit_id": "BUILD_C4_CELL1_RECEIPT_NATIVE_BUILDER_PREFLIGHT_V0"
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

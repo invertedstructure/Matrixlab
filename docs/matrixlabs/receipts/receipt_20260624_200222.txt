@@ -1,0 +1,69 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260624_200222
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260624_200222.txt
+
+RERUN_PROVIDE_EXPLICIT_RUNTIME_PATCH_TARGET_EVIDENCE_PACKET_WITH_ENV_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+
+VERIFY_RERUN_EXPLICIT_TARGET_EVIDENCE_REQUIRED_BASIS
+present data/cell1_runtime_patch_target_evidence_provider_materialization_v0_receipts/f3d0ae10.json
+present data/cell1_runtime_patch_target_evidence_input_request_v0_receipts/ad527bfd.json
+present data/cell1_runtime_patch_target_evidence_input_request_v0/explicit_runtime_patch_target_evidence_input_contract_v0.json
+present data/cell1_runtime_patch_target_evidence_input_request_v0/explicit_runtime_patch_target_evidence_env_template.sh
+present data/cell1_runtime_patch_target_evidence_packet_review_v0_receipts/76b44fed.json
+present data/cell1_runtime_patch_target_evidence_packet_review_v0/target_evidence_packet_review_classification_v0.json
+present data/cell1_runtime_patch_target_evidence_packet_review_v0/proposed_runtime_patch_target_evidence_packet_template_v0.json
+present data/cell1_runtime_patch_target_evidence_request_v0/runtime_patch_target_evidence_packet_schema_v0.json
+present data/cell1_runtime_patch_target_evidence_request_v0/target_hint_inventory_v0.json
+present data/cell1_runtime_patch_target_evidence_request_v0/narrower_runtime_patch_target_evidence_request_packet_v0.json
+present scripts/provide_explicit_runtime_patch_target_evidence_packet_v0.py
+present scripts/provide_or_review_narrower_runtime_patch_target_evidence_packet_v0.py
+
+VERIFY_PROVIDER_MATERIALIZATION_RECEIPT
+{
+  "failures": [],
+  "gate": "PASS"
+}
+
+ASSERT_EXPLICIT_ENV_PRESENT
+{
+  "checked_fields": [
+    "SELECTED_TARGET_REF",
+    "SELECTED_TARGET_KIND",
+    "WHY_THIS_TARGET_IS_LOAD_BEARING",
+    "WHY_OTHER_HINTS_ARE_NOT_TARGETS_JSON",
+    "SOURCE_EVIDENCE_REFS_JSON",
+    "VERIFICATION_GATE_REF",
+    "ROLLBACK_OR_STOP_BOUNDARY_REF"
+  ],
+  "failures": [
+    "env_missing:SELECTED_TARGET_REF",
+    "env_missing:SELECTED_TARGET_KIND",
+    "env_missing:WHY_THIS_TARGET_IS_LOAD_BEARING",
+    "env_missing:WHY_OTHER_HINTS_ARE_NOT_TARGETS_JSON",
+    "env_missing:SOURCE_EVIDENCE_REFS_JSON",
+    "env_missing:VERIFICATION_GATE_REF",
+    "env_missing:ROLLBACK_OR_STOP_BOUNDARY_REF"
+  ],
+  "gate": "STOP",
+  "stop_code": "STOP_EXPLICIT_TARGET_EVIDENCE_ENV_MISSING_OR_PLACEHOLDER"
+}
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

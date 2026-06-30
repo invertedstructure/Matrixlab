@@ -1,0 +1,80 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_150727
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_150727.txt
+
+CLEAN_STAGE_AND_REVIEW_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_V0
+
+REMOVE_STALE_SUCCESSOR_SURFACE_SELECTION_RECEIPT_FROM_WORKTREE_AND_INDEX
+rm 'data/c8_successor_surface_selection_after_reentry_v0_receipts/c8_successor_surface_selection_receipt_1b17f5c5.json'
+
+VERIFY_SUCCESSOR_SURFACE_SELECTION_ARTIFACTS_PRESENT
+present data/c8_successor_surface_selection_after_reentry_v0_receipts/c8_successor_surface_selection_receipt_5d3bbb94.json
+present data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_packet_v0.json
+present data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_decision_v0.json
+present data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_boundary_audit_v0.json
+present data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_readout_v0.json
+present data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_report.json
+present scripts/create_c8_successor_surface_selection_after_reentry_v0.py
+
+PY_COMPILE_SUCCESSOR_SURFACE_SELECTION_RUNNER
+
+FORCE_STAGE_CLEAN_SUCCESSOR_SURFACE_SELECTION_ARTIFACTS
+
+VERIFY_SUCCESSOR_SURFACE_SELECTION_RECEIPT
+{
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "gate_results_false_count": 0,
+  "outcome_class": "C8_SUCCESSOR_SURFACE_SELECTION_REVIEWABLE_NOT_ACCEPTED",
+  "probe_authorized_now": false,
+  "probe_prep_authorized_now": false,
+  "receipt_id": "c8_successor_surface_selection_receipt_5d3bbb94",
+  "recommended_review_unit": "REVIEW_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_V0",
+  "requires_review": true,
+  "reusable_schema_authorized": false,
+  "review_gate": "PASS",
+  "selected_surface_accepted_now": false,
+  "selected_surface_active": false,
+  "selected_surface_id": "c8_successor_surface_runtime_adoption_after_reentry_v0",
+  "selected_surface_kind": "RUNTIME_ADOPTION_SURFACE",
+  "selected_surface_label": "C8_RUNTIME_ADOPTION_AFTER_REUSE_AUTHORITY_CLOSURE_SURFACE",
+  "selected_surface_status": "REVIEWABLE_NOT_ACCEPTED",
+  "source_return_to_selection_acceptance_receipt_id": "c8_return_to_selection_acceptance_receipt_0144408e",
+  "status": "TYPED_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_READY_FOR_REVIEW",
+    "type": "STOP"
+  }
+}
+
+VERIFY_SUCCESSOR_SURFACE_SELECTION_CONTENT
+{
+  "candidate_surface_count": 3,
+  "content_review_gate": "FAIL",
+  "failures": [
+    "decision_previous_surface_id_wrong:None!=c8_successor_surface_reuse_authority_boundary_after_local_closure_v0",
+    "decision_previous_surface_kind_wrong:None!=REUSE_AUTHORITY_BOUNDARY_SURFACE",
+    "decision_previous_surface_label_wrong:None!=C8_POST_CLOSURE_LOCAL_LOOP_REUSE_PRESSURE_SURFACE"
+  ],
+  "probe_authorized_now": false,
+  "probe_prep_authorized_now": false,
+  "recommended_next_decision_options": [
+    "ACCEPT_SURFACE_FOR_BOUNDED_PROBE_PREP",
+    "REJECT_SELECTED_SURFACE",
+    "REQUEST_NARROWER_SURFACE_SELECTION"
+  ],
+  "reusable_schema_authorized_now": false,
+  "selected_surface_accepted_now": false,
+  "selected_surface_active": false,
+  "selected_surface_id": "c8_successor_surface_runtime_adoption_after_reentry_v0",
+  "selected_surface_kind": "RUNTIME_ADOPTION_SURFACE",
+  "selected_surface_label": "C8_RUNTIME_ADOPTION_AFTER_REUSE_AUTHORITY_CLOSURE_SURFACE",
+  "selected_surface_status": "REVIEWABLE_NOT_ACCEPTED",
+  "surface_selection_boundary_audit_id": "c8_successor_surface_selection_boundary_06d902a8",
+  "surface_selection_decision_id": "c8_successor_surface_selection_decision_2b8f7fbb",
+  "surface_selection_packet_id": "c8_successor_surface_selection_packet_c198b2d0"
+}
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

@@ -1,0 +1,503 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_162546
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_162546.txt
+
+REVIEW_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0
+
+STATUS_BEFORE_RELEVANT
+?? data/radius_125_slot_execution_summaries/
+
+VERIFY_C6_PROTOCOL_REVIEW_BASIS
+present data/c6_inter_cell_protocol_from_c5_examples_v0_receipts/315e0d94.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0_receipts/61fceac6.json
+present data/c6_inter_cell_protocol_target_from_c5_examples_v0_receipts/b0df3c9d.json
+present data/c6_post_example_reference_decision_v0_receipts/89b2d2cc.json
+present data/c6_example_extraction_from_c5_reference_reference_closure_v0_receipts/fe882749.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_schema_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_packet_state_machine_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/proposed_only_packet_schema_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/accepted_proposal_packet_schema_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/cell1_builder_intake_packet_schema_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/cell1_probe_or_build_packet_schema_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/verification_return_packet_schema_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/handoff_return_packet_schema_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/blocked_feedback_packet_schema_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_edge_observation_sidecar_schema_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_unit_feedback_sidecar_schema_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_gate_table_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_forbidden_transition_table_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_derivation_status_records_v0.jsonl
+present data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_demo_packets_v0.jsonl
+present data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_rollup_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_profile_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_readout_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/c6_report.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/c6_transition_trace.json
+
+PATCH_GITIGNORE
+
+WRITE_C6_PROTOCOL_REVIEW_RUNNER
+
+PY_COMPILE_C6_PROTOCOL_REVIEW
+
+RUN_C6_PROTOCOL_REVIEW
+{
+  "acceptance_gate_results": {
+    "C6_REVIEW_0_PROTOCOL_RECEIPT_CONSUMED": true,
+    "C6_REVIEW_10_DEMO_PACKETS_REVIEWED": true,
+    "C6_REVIEW_11_ROLLUP_PROFILE_READOUT_REVIEWED": true,
+    "C6_REVIEW_12_PROPOSED_ONLY_NOT_CELL1_CONSUMABLE": true,
+    "C6_REVIEW_13_ACCEPTED_PACKET_REQUIRES_REVIEW_RECEIPT": true,
+    "C6_REVIEW_14_PROBE_BUILD_NOT_VERIFICATION": true,
+    "C6_REVIEW_15_VERIFICATION_NOT_CLOSURE": true,
+    "C6_REVIEW_16_HANDOFF_NOT_HIDDEN_NEXT_COMMAND": true,
+    "C6_REVIEW_17_BLOCKED_FEEDBACK_NOT_REPAIR": true,
+    "C6_REVIEW_18_CLOSE_CANDIDATE_READY": true,
+    "C6_REVIEW_19_NO_RUNTIME_PATCH_OR_C7": true,
+    "C6_REVIEW_1_FAILED_GATE19_RECEIPT_CONSUMED": true,
+    "C6_REVIEW_20_NO_TRANSFER_AUTONOMY_GENERAL_AUTHORITY_OR_RUNTIME_ENFORCEMENT_CLAIMS": true,
+    "C6_REVIEW_21_NO_SOURCE_OR_REFERENCE_MUTATION": true,
+    "C6_REVIEW_22_BAD_COUNTERS_ZERO": true,
+    "C6_REVIEW_23_NO_HIDDEN_NEXT_COMMAND": true,
+    "C6_REVIEW_24_NO_LATEST_OR_MTIME": true,
+    "C6_REVIEW_25_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "C6_REVIEW_2_SOURCE_GATE_PASS": true,
+    "C6_REVIEW_3_ALL_C6_PROTOCOL_GATES_TRUE": true,
+    "C6_REVIEW_4_GATE19_REPAIR_CONFIRMED": true,
+    "C6_REVIEW_5_PACKET_SCHEMA_FAMILY_REVIEWED": true,
+    "C6_REVIEW_6_STATE_MACHINE_REVIEWED": true,
+    "C6_REVIEW_7_GATE_TABLE_REVIEWED": true,
+    "C6_REVIEW_8_FORBIDDEN_TRANSITIONS_REVIEWED": true,
+    "C6_REVIEW_9_DERIVATION_REVIEWED": true
+  },
+  "aggregate_metrics": {
+    "build_mode": "C6_INTER_CELL_PROTOCOL_CANDIDATE_REVIEW_ONLY",
+    "layer": "BRIDGE / INTER_CELL_PROTOCOL / REVIEW",
+    "mode": "REVIEW_ONLY / VERIFY_LOCAL_PROTOCOL_CANDIDATE / NO_RUNTIME_PATCH",
+    "reason_codes": [
+      "C6_PROTOCOL_CANDIDATE_REVIEW_COMPLETE",
+      "C6_PROTOCOL_BUILD_RECEIPT_CONSUMED",
+      "C6_GATE19_REPAIR_CONFIRMED",
+      "ALL_C6_PROTOCOL_ACCEPTANCE_GATES_TRUE",
+      "LOCAL_PROTOCOL_CANDIDATE_ONLY_CONFIRMED",
+      "PACKET_SCHEMA_FAMILY_REVIEWED",
+      "STATE_MACHINE_REVIEWED",
+      "GATE_TABLE_REVIEWED",
+      "FORBIDDEN_TRANSITIONS_REVIEWED",
+      "DERIVATION_STATUS_RECORDS_REVIEWED",
+      "DEMO_PACKETS_REVIEWED",
+      "ROLLUP_PROFILE_READOUT_REVIEWED",
+      "PROPOSED_ONLY_NOT_CELL1_CONSUMABLE",
+      "ACCEPTED_PACKET_REQUIRES_REVIEW_RECEIPT",
+      "PROBE_BUILD_NOT_VERIFICATION",
+      "VERIFICATION_NOT_CLOSURE",
+      "HANDOFF_NOT_HIDDEN_NEXT_COMMAND",
+      "BLOCKED_FEEDBACK_NOT_REPAIR",
+      "BAD_COUNTERS_ZERO",
+      "NO_RUNTIME_PATCH",
+      "NO_C7_AUTHORIZATION",
+      "NO_TRANSFER_AUTONOMY_GENERAL_AUTHORITY_OR_RUNTIME_ENFORCEMENT_CLAIMS",
+      "NO_SOURCE_OR_REFERENCE_MUTATION",
+      "NO_HIDDEN_NEXT_COMMAND",
+      "CLOSE_CANDIDATE_READY"
+    ],
+    "receipt_backed_claim": "C6 local inter-cell protocol candidate reviewed clean. The review confirms all acceptance gates pass after the gate-19 assertion repair; the candidate remains local-only, receipt-backed, non-runtime, non-C7, and preserves the packet-law distinctions.",
+    "recommended_next_handling": "CLOSE_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_AS_REVIEWED_REFERENCE_V0",
+    "schema_version": "c6_inter_cell_protocol_review_report_v0",
+    "status": "TYPED_C6_INTER_CELL_PROTOCOL_CANDIDATE_REVIEWED_CLOSE_READY",
+    "target_unit_id": "inter_cell.protocol_from_c5_examples.review.v0",
+    "unit_id": "REVIEW_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0"
+  },
+  "build_mode": "C6_INTER_CELL_PROTOCOL_CANDIDATE_REVIEW_ONLY",
+  "created_at": "2026-06-25T15:25:47.139642+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "BRIDGE / INTER_CELL_PROTOCOL / REVIEW",
+  "machine_readable_c6_protocol_review_summary": {
+    "all_c6_protocol_acceptance_gates_true": true,
+    "bad_counters_zero": true,
+    "c5_reference_mutated": false,
+    "c6_protocol_candidate_review_complete": true,
+    "c6_protocol_candidate_review_pass": true,
+    "c7_authorized": false,
+    "close_candidate_ready": true,
+    "demo_packets_emitted": 4,
+    "derivation_status_records_emitted": 14,
+    "forbidden_transition_table_emitted": true,
+    "full_transfer_claimed": false,
+    "gate19_failed_before_repair": false,
+    "gate19_verification_not_closure": true,
+    "gate_table_emitted": true,
+    "general_cell1_authority_claimed": false,
+    "global_autonomy_claimed": false,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "mtime_selection": false,
+    "new_domain_shift_executed": false,
+    "packet_family_declared": 9,
+    "packet_schemas_emitted": 9,
+    "prior_receipt_mutated": false,
+    "reason_codes": [
+      "C6_PROTOCOL_CANDIDATE_REVIEW_COMPLETE",
+      "C6_PROTOCOL_BUILD_RECEIPT_CONSUMED",
+      "C6_GATE19_REPAIR_CONFIRMED",
+      "ALL_C6_PROTOCOL_ACCEPTANCE_GATES_TRUE",
+      "LOCAL_PROTOCOL_CANDIDATE_ONLY_CONFIRMED",
+      "PACKET_SCHEMA_FAMILY_REVIEWED",
+      "STATE_MACHINE_REVIEWED",
+      "GATE_TABLE_REVIEWED",
+      "FORBIDDEN_TRANSITIONS_REVIEWED",
+      "DERIVATION_STATUS_RECORDS_REVIEWED",
+      "DEMO_PACKETS_REVIEWED",
+      "ROLLUP_PROFILE_READOUT_REVIEWED",
+      "PROPOSED_ONLY_NOT_CELL1_CONSUMABLE",
+      "ACCEPTED_PACKET_REQUIRES_REVIEW_RECEIPT",
+      "PROBE_BUILD_NOT_VERIFICATION",
+      "VERIFICATION_NOT_CLOSURE",
+      "HANDOFF_NOT_HIDDEN_NEXT_COMMAND",
+      "BLOCKED_FEEDBACK_NOT_REPAIR",
+      "BAD_COUNTERS_ZERO",
+      "NO_RUNTIME_PATCH",
+      "NO_C7_AUTHORIZATION",
+      "NO_TRANSFER_AUTONOMY_GENERAL_AUTHORITY_OR_RUNTIME_ENFORCEMENT_CLAIMS",
+      "NO_SOURCE_OR_REFERENCE_MUTATION",
+      "NO_HIDDEN_NEXT_COMMAND",
+      "CLOSE_CANDIDATE_READY"
+    ],
+    "recommended_next": "CLOSE_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_AS_REVIEWED_REFERENCE_V0",
+    "runtime_patched": false,
+    "runtime_wide_enforcement_claimed": false,
+    "schema_claim": "LOCAL_PROTOCOL_CANDIDATE_ONLY",
+    "source_c6_protocol_candidate_emitted": true,
+    "source_mutated": false,
+    "state_machine_emitted": true,
+    "status": "TYPED_C6_INTER_CELL_PROTOCOL_CANDIDATE_REVIEWED_CLOSE_READY"
+  },
+  "mode": "REVIEW_ONLY / VERIFY_LOCAL_PROTOCOL_CANDIDATE / NO_RUNTIME_PATCH",
+  "output_artifacts": {
+    "authority_boundary": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_authority_boundary_v0.json",
+    "classification": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_classification_v0.json",
+    "close_candidate": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_reviewed_reference_close_candidate_v0.json",
+    "demo_packet_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_demo_packet_review_v0.json",
+    "derivation_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_derivation_review_v0.json",
+    "forbidden_transition_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_forbidden_transition_review_v0.json",
+    "gate_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_gate_review_v0.json",
+    "implementation_receipt": "data/c6_inter_cell_protocol_from_c5_examples_review_v0_receipts/7535b889.json",
+    "packet_schema_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_packet_schema_review_v0.json",
+    "profile": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_profile_v0.json",
+    "repair_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_gate19_repair_review_v0.json",
+    "report": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_report.json",
+    "review_basis": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_basis_v0.json",
+    "rollup": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_rollup_v0.json",
+    "rollup_profile_readout_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_rollup_profile_readout_review_v0.json",
+    "source_receipt_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_source_receipt_review_v0.json",
+    "state_machine_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_state_machine_review_v0.json",
+    "transition_trace": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_transition_trace.json"
+  },
+  "receipt_id": "7535b889",
+  "receipt_type": "TYPED_C6_INTER_CELL_PROTOCOL_REVIEW_RECEIPT",
+  "schema_version": "c6_inter_cell_protocol_review_receipt_v0",
+  "source_c6_protocol_receipt_id": "315e0d94",
+  "source_failed_c6_protocol_receipt_id": "61fceac6",
+  "target_unit_id": "inter_cell.protocol_from_c5_examples.review.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_C6_INTER_CELL_PROTOCOL_CANDIDATE_REVIEWED_CLOSE_READY",
+    "type": "STOP"
+  },
+  "unit_id": "REVIEW_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0",
+  "warnings": []
+}
+c6_protocol_review_receipt_id=7535b889
+c6_protocol_review_receipt_path=data/c6_inter_cell_protocol_from_c5_examples_review_v0_receipts/7535b889.json
+c6_protocol_review_basis_path=data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_basis_v0.json
+c6_protocol_close_candidate_path=data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_reviewed_reference_close_candidate_v0.json
+c6_protocol_review_rollup_path=data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_rollup_v0.json
+c6_protocol_review_profile_path=data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_profile_v0.json
+
+ASSERT_C6_PROTOCOL_REVIEW
+{
+  "all_c6_protocol_acceptance_gates_true": true,
+  "c7_authorized": false,
+  "candidate_review_pass": true,
+  "close_candidate_ready": true,
+  "failures": [],
+  "gate": "PASS",
+  "gate19_failed_before_repair": false,
+  "gate19_verification_not_closure": true,
+  "receipt_id": "7535b889",
+  "recommended_next": "CLOSE_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_AS_REVIEWED_REFERENCE_V0",
+  "runtime_patched": false,
+  "schema_claim": "LOCAL_PROTOCOL_CANDIDATE_ONLY",
+  "status": "TYPED_C6_INTER_CELL_PROTOCOL_CANDIDATE_REVIEWED_CLOSE_READY",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_C6_INTER_CELL_PROTOCOL_CANDIDATE_REVIEWED_CLOSE_READY",
+    "type": "STOP"
+  }
+}
+
+VERIFY_C6_PROTOCOL_REVIEW_BOUNDARY
+allowed_status_lines_checked
+C6 protocol candidate reviewed clean; close candidate ready; no runtime patch; no C7
+
+SHOW_C6_PROTOCOL_REVIEW_NEXT
+status=TYPED_C6_INTER_CELL_PROTOCOL_CANDIDATE_REVIEWED_CLOSE_READY
+reason_codes=C6_PROTOCOL_CANDIDATE_REVIEW_COMPLETE,C6_PROTOCOL_BUILD_RECEIPT_CONSUMED,C6_GATE19_REPAIR_CONFIRMED,ALL_C6_PROTOCOL_ACCEPTANCE_GATES_TRUE,LOCAL_PROTOCOL_CANDIDATE_ONLY_CONFIRMED,PACKET_SCHEMA_FAMILY_REVIEWED,STATE_MACHINE_REVIEWED,GATE_TABLE_REVIEWED,FORBIDDEN_TRANSITIONS_REVIEWED,DERIVATION_STATUS_RECORDS_REVIEWED,DEMO_PACKETS_REVIEWED,ROLLUP_PROFILE_READOUT_REVIEWED,PROPOSED_ONLY_NOT_CELL1_CONSUMABLE,ACCEPTED_PACKET_REQUIRES_REVIEW_RECEIPT,PROBE_BUILD_NOT_VERIFICATION,VERIFICATION_NOT_CLOSURE,HANDOFF_NOT_HIDDEN_NEXT_COMMAND,BLOCKED_FEEDBACK_NOT_REPAIR,BAD_COUNTERS_ZERO,NO_RUNTIME_PATCH,NO_C7_AUTHORIZATION,NO_TRANSFER_AUTONOMY_GENERAL_AUTHORITY_OR_RUNTIME_ENFORCEMENT_CLAIMS,NO_SOURCE_OR_REFERENCE_MUTATION,NO_HIDDEN_NEXT_COMMAND,CLOSE_CANDIDATE_READY
+c6_protocol_candidate_review_complete=True
+c6_protocol_candidate_review_pass=True
+close_candidate_ready=True
+source_c6_protocol_candidate_emitted=True
+schema_claim=LOCAL_PROTOCOL_CANDIDATE_ONLY
+packet_family_declared=9
+packet_schemas_emitted=9
+state_machine_emitted=True
+gate_table_emitted=True
+forbidden_transition_table_emitted=True
+derivation_status_records_emitted=14
+demo_packets_emitted=4
+all_c6_protocol_acceptance_gates_true=True
+gate19_verification_not_closure=True
+gate19_failed_before_repair=False
+runtime_patched=False
+c7_authorized=False
+new_domain_shift_executed=False
+general_cell1_authority_claimed=False
+global_autonomy_claimed=False
+full_transfer_claimed=False
+runtime_wide_enforcement_claimed=False
+source_mutated=False
+prior_receipt_mutated=False
+c5_reference_mutated=False
+hidden_next_command=False
+latest_file_guessing=False
+mtime_selection=False
+bad_counters_zero=True
+recommended_next=CLOSE_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_AS_REVIEWED_REFERENCE_V0
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+?? data/radius_125_slot_execution_summaries/
+?? scripts/review_c6_inter_cell_protocol_from_c5_examples_v0.py
+
+PACKAGE_C6_PROTOCOL_REVIEW_ARTIFACTS
+packaged data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_basis_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_source_receipt_review_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_packet_schema_review_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_state_machine_review_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_gate_review_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_forbidden_transition_review_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_derivation_review_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_demo_packet_review_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_rollup_profile_readout_review_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_gate19_repair_review_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_reviewed_reference_close_candidate_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_authority_boundary_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_classification_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_rollup_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_profile_v0.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_report.json
+packaged data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_transition_trace.json
+[master ec6b19426] review C6 inter-cell protocol from C5 examples
+ 20 files changed, 1349 insertions(+)
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_demo_packet_review_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_derivation_review_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_forbidden_transition_review_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_gate19_repair_review_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_gate_review_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_packet_schema_review_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_authority_boundary_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_basis_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_classification_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_profile_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_report.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_rollup_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_transition_trace.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_reviewed_reference_close_candidate_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_rollup_profile_readout_review_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_source_receipt_review_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_state_machine_review_v0.json
+ create mode 100644 data/c6_inter_cell_protocol_from_c5_examples_review_v0_receipts/7535b889.json
+ create mode 100755 scripts/review_c6_inter_cell_protocol_from_c5_examples_v0.py
+
+COMMIT_DONE_RELEVANT
+?? data/radius_125_slot_execution_summaries/
+
+C6_PROTOCOL_REVIEW_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+c6_protocol_review_receipt_id=7535b889
+c6_protocol_review_receipt_path=data/c6_inter_cell_protocol_from_c5_examples_review_v0_receipts/7535b889.json
+{
+  "acceptance_gate_results": {
+    "C6_REVIEW_0_PROTOCOL_RECEIPT_CONSUMED": true,
+    "C6_REVIEW_10_DEMO_PACKETS_REVIEWED": true,
+    "C6_REVIEW_11_ROLLUP_PROFILE_READOUT_REVIEWED": true,
+    "C6_REVIEW_12_PROPOSED_ONLY_NOT_CELL1_CONSUMABLE": true,
+    "C6_REVIEW_13_ACCEPTED_PACKET_REQUIRES_REVIEW_RECEIPT": true,
+    "C6_REVIEW_14_PROBE_BUILD_NOT_VERIFICATION": true,
+    "C6_REVIEW_15_VERIFICATION_NOT_CLOSURE": true,
+    "C6_REVIEW_16_HANDOFF_NOT_HIDDEN_NEXT_COMMAND": true,
+    "C6_REVIEW_17_BLOCKED_FEEDBACK_NOT_REPAIR": true,
+    "C6_REVIEW_18_CLOSE_CANDIDATE_READY": true,
+    "C6_REVIEW_19_NO_RUNTIME_PATCH_OR_C7": true,
+    "C6_REVIEW_1_FAILED_GATE19_RECEIPT_CONSUMED": true,
+    "C6_REVIEW_20_NO_TRANSFER_AUTONOMY_GENERAL_AUTHORITY_OR_RUNTIME_ENFORCEMENT_CLAIMS": true,
+    "C6_REVIEW_21_NO_SOURCE_OR_REFERENCE_MUTATION": true,
+    "C6_REVIEW_22_BAD_COUNTERS_ZERO": true,
+    "C6_REVIEW_23_NO_HIDDEN_NEXT_COMMAND": true,
+    "C6_REVIEW_24_NO_LATEST_OR_MTIME": true,
+    "C6_REVIEW_25_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "C6_REVIEW_2_SOURCE_GATE_PASS": true,
+    "C6_REVIEW_3_ALL_C6_PROTOCOL_GATES_TRUE": true,
+    "C6_REVIEW_4_GATE19_REPAIR_CONFIRMED": true,
+    "C6_REVIEW_5_PACKET_SCHEMA_FAMILY_REVIEWED": true,
+    "C6_REVIEW_6_STATE_MACHINE_REVIEWED": true,
+    "C6_REVIEW_7_GATE_TABLE_REVIEWED": true,
+    "C6_REVIEW_8_FORBIDDEN_TRANSITIONS_REVIEWED": true,
+    "C6_REVIEW_9_DERIVATION_REVIEWED": true
+  },
+  "aggregate_metrics": {
+    "build_mode": "C6_INTER_CELL_PROTOCOL_CANDIDATE_REVIEW_ONLY",
+    "layer": "BRIDGE / INTER_CELL_PROTOCOL / REVIEW",
+    "mode": "REVIEW_ONLY / VERIFY_LOCAL_PROTOCOL_CANDIDATE / NO_RUNTIME_PATCH",
+    "reason_codes": [
+      "C6_PROTOCOL_CANDIDATE_REVIEW_COMPLETE",
+      "C6_PROTOCOL_BUILD_RECEIPT_CONSUMED",
+      "C6_GATE19_REPAIR_CONFIRMED",
+      "ALL_C6_PROTOCOL_ACCEPTANCE_GATES_TRUE",
+      "LOCAL_PROTOCOL_CANDIDATE_ONLY_CONFIRMED",
+      "PACKET_SCHEMA_FAMILY_REVIEWED",
+      "STATE_MACHINE_REVIEWED",
+      "GATE_TABLE_REVIEWED",
+      "FORBIDDEN_TRANSITIONS_REVIEWED",
+      "DERIVATION_STATUS_RECORDS_REVIEWED",
+      "DEMO_PACKETS_REVIEWED",
+      "ROLLUP_PROFILE_READOUT_REVIEWED",
+      "PROPOSED_ONLY_NOT_CELL1_CONSUMABLE",
+      "ACCEPTED_PACKET_REQUIRES_REVIEW_RECEIPT",
+      "PROBE_BUILD_NOT_VERIFICATION",
+      "VERIFICATION_NOT_CLOSURE",
+      "HANDOFF_NOT_HIDDEN_NEXT_COMMAND",
+      "BLOCKED_FEEDBACK_NOT_REPAIR",
+      "BAD_COUNTERS_ZERO",
+      "NO_RUNTIME_PATCH",
+      "NO_C7_AUTHORIZATION",
+      "NO_TRANSFER_AUTONOMY_GENERAL_AUTHORITY_OR_RUNTIME_ENFORCEMENT_CLAIMS",
+      "NO_SOURCE_OR_REFERENCE_MUTATION",
+      "NO_HIDDEN_NEXT_COMMAND",
+      "CLOSE_CANDIDATE_READY"
+    ],
+    "receipt_backed_claim": "C6 local inter-cell protocol candidate reviewed clean. The review confirms all acceptance gates pass after the gate-19 assertion repair; the candidate remains local-only, receipt-backed, non-runtime, non-C7, and preserves the packet-law distinctions.",
+    "recommended_next_handling": "CLOSE_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_AS_REVIEWED_REFERENCE_V0",
+    "schema_version": "c6_inter_cell_protocol_review_report_v0",
+    "status": "TYPED_C6_INTER_CELL_PROTOCOL_CANDIDATE_REVIEWED_CLOSE_READY",
+    "target_unit_id": "inter_cell.protocol_from_c5_examples.review.v0",
+    "unit_id": "REVIEW_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0"
+  },
+  "build_mode": "C6_INTER_CELL_PROTOCOL_CANDIDATE_REVIEW_ONLY",
+  "created_at": "2026-06-25T15:25:47.139642+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "BRIDGE / INTER_CELL_PROTOCOL / REVIEW",
+  "machine_readable_c6_protocol_review_summary": {
+    "all_c6_protocol_acceptance_gates_true": true,
+    "bad_counters_zero": true,
+    "c5_reference_mutated": false,
+    "c6_protocol_candidate_review_complete": true,
+    "c6_protocol_candidate_review_pass": true,
+    "c7_authorized": false,
+    "close_candidate_ready": true,
+    "demo_packets_emitted": 4,
+    "derivation_status_records_emitted": 14,
+    "forbidden_transition_table_emitted": true,
+    "full_transfer_claimed": false,
+    "gate19_failed_before_repair": false,
+    "gate19_verification_not_closure": true,
+    "gate_table_emitted": true,
+    "general_cell1_authority_claimed": false,
+    "global_autonomy_claimed": false,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "mtime_selection": false,
+    "new_domain_shift_executed": false,
+    "packet_family_declared": 9,
+    "packet_schemas_emitted": 9,
+    "prior_receipt_mutated": false,
+    "reason_codes": [
+      "C6_PROTOCOL_CANDIDATE_REVIEW_COMPLETE",
+      "C6_PROTOCOL_BUILD_RECEIPT_CONSUMED",
+      "C6_GATE19_REPAIR_CONFIRMED",
+      "ALL_C6_PROTOCOL_ACCEPTANCE_GATES_TRUE",
+      "LOCAL_PROTOCOL_CANDIDATE_ONLY_CONFIRMED",
+      "PACKET_SCHEMA_FAMILY_REVIEWED",
+      "STATE_MACHINE_REVIEWED",
+      "GATE_TABLE_REVIEWED",
+      "FORBIDDEN_TRANSITIONS_REVIEWED",
+      "DERIVATION_STATUS_RECORDS_REVIEWED",
+      "DEMO_PACKETS_REVIEWED",
+      "ROLLUP_PROFILE_READOUT_REVIEWED",
+      "PROPOSED_ONLY_NOT_CELL1_CONSUMABLE",
+      "ACCEPTED_PACKET_REQUIRES_REVIEW_RECEIPT",
+      "PROBE_BUILD_NOT_VERIFICATION",
+      "VERIFICATION_NOT_CLOSURE",
+      "HANDOFF_NOT_HIDDEN_NEXT_COMMAND",
+      "BLOCKED_FEEDBACK_NOT_REPAIR",
+      "BAD_COUNTERS_ZERO",
+      "NO_RUNTIME_PATCH",
+      "NO_C7_AUTHORIZATION",
+      "NO_TRANSFER_AUTONOMY_GENERAL_AUTHORITY_OR_RUNTIME_ENFORCEMENT_CLAIMS",
+      "NO_SOURCE_OR_REFERENCE_MUTATION",
+      "NO_HIDDEN_NEXT_COMMAND",
+      "CLOSE_CANDIDATE_READY"
+    ],
+    "recommended_next": "CLOSE_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_AS_REVIEWED_REFERENCE_V0",
+    "runtime_patched": false,
+    "runtime_wide_enforcement_claimed": false,
+    "schema_claim": "LOCAL_PROTOCOL_CANDIDATE_ONLY",
+    "source_c6_protocol_candidate_emitted": true,
+    "source_mutated": false,
+    "state_machine_emitted": true,
+    "status": "TYPED_C6_INTER_CELL_PROTOCOL_CANDIDATE_REVIEWED_CLOSE_READY"
+  },
+  "mode": "REVIEW_ONLY / VERIFY_LOCAL_PROTOCOL_CANDIDATE / NO_RUNTIME_PATCH",
+  "output_artifacts": {
+    "authority_boundary": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_authority_boundary_v0.json",
+    "classification": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_classification_v0.json",
+    "close_candidate": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_reviewed_reference_close_candidate_v0.json",
+    "demo_packet_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_demo_packet_review_v0.json",
+    "derivation_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_derivation_review_v0.json",
+    "forbidden_transition_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_forbidden_transition_review_v0.json",
+    "gate_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_gate_review_v0.json",
+    "implementation_receipt": "data/c6_inter_cell_protocol_from_c5_examples_review_v0_receipts/7535b889.json",
+    "packet_schema_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_packet_schema_review_v0.json",
+    "profile": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_profile_v0.json",
+    "repair_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_gate19_repair_review_v0.json",
+    "report": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_report.json",
+    "review_basis": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_basis_v0.json",
+    "rollup": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_rollup_v0.json",
+    "rollup_profile_readout_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_rollup_profile_readout_review_v0.json",
+    "source_receipt_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_source_receipt_review_v0.json",
+    "state_machine_review": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_state_machine_review_v0.json",
+    "transition_trace": "data/c6_inter_cell_protocol_from_c5_examples_review_v0/c6_inter_cell_protocol_review_transition_trace.json"
+  },
+  "receipt_id": "7535b889",
+  "receipt_type": "TYPED_C6_INTER_CELL_PROTOCOL_REVIEW_RECEIPT",
+  "schema_version": "c6_inter_cell_protocol_review_receipt_v0",
+  "source_c6_protocol_receipt_id": "315e0d94",
+  "source_failed_c6_protocol_receipt_id": "61fceac6",
+  "target_unit_id": "inter_cell.protocol_from_c5_examples.review.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_C6_INTER_CELL_PROTOCOL_CANDIDATE_REVIEWED_CLOSE_READY",
+    "type": "STOP"
+  },
+  "unit_id": "REVIEW_C6_INTER_CELL_PROTOCOL_FROM_C5_EXAMPLES_V0",
+  "warnings": []
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

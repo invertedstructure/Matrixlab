@@ -1,0 +1,322 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_195319
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_195319.txt
+
+BUILD_DB_WRITE_WAL_BATCHED_RECEIPT_WRITE_FIX_CANDIDATE_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_DB_WRITE_FIX_CANDIDATE_SCRIPT
+
+PY_COMPILE
+
+BUILD_DB_WRITE_FIX_CANDIDATE
+{
+  "authorizes_patch_application": false,
+  "authorizes_radius_expansion": false,
+  "candidate_id": "2de6e3c2",
+  "candidate_name": "FIX_CANDIDATE_DB_WRITE_WAL_BATCHED_RECEIPT_WRITE_V0",
+  "candidate_path": "data/db_write_wal_batched_receipt_write_fix_candidates/2de6e3c2.json",
+  "candidate_sig8": "2de6e3c2",
+  "candidate_status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "created_at": "2026-06-20T18:53:19.434980+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "receipt_id": "bc5312cc",
+  "receipt_sig8": "bc5312cc",
+  "required_retest": {
+    "after_profile_required": true,
+    "before_profile_id": "c89790f0",
+    "comparison_artifact_schema": "micro_burden_before_after_comparison_v0",
+    "comparison_required": true,
+    "pass_condition": [
+      "after profile gate MICRO_BURDEN_PROFILE_PASS",
+      "receipt totals match registry.sqlite",
+      "all five probes complete",
+      "family coverage A-E preserved",
+      "repeated slot identity preserved",
+      "no gate semantics change",
+      "no law semantics change",
+      "no run semantics change",
+      "DB_WRITE target rows show non-worse elapsed_ms or explicit failure classification"
+    ],
+    "same_micro_suite_required": true,
+    "same_probe_specs_required": true,
+    "same_script": "scripts/wide_burden_profile_microruns.py --execute"
+  },
+  "schema_version": "db_write_wal_batched_receipt_write_fix_candidate_receipt_v0",
+  "source_policy_id": "e8880c58",
+  "source_profile_id": "c89790f0",
+  "target_burden_class": "BURDEN_DB_WRITE",
+  "terminal": {
+    "next_command_goal": "APPLY_DB_WRITE_WAL_BATCHED_RECEIPT_WRITE_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+candidate_json_path=data/db_write_wal_batched_receipt_write_fix_candidates/2de6e3c2.json
+candidate_receipt_path=data/db_write_wal_batched_receipt_write_fix_candidate_receipts/2de6e3c2.json
+CANDIDATE_ID=2de6e3c2
+
+ASSERT_DB_WRITE_FIX_CANDIDATE
+{
+  "authorizes_execution_skipping": false,
+  "authorizes_gate_semantics_change": false,
+  "authorizes_law_semantics_change": false,
+  "authorizes_patch_application": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_receipt_compression": false,
+  "authorizes_receipt_deletion": false,
+  "authorizes_receipt_schema_change": false,
+  "authorizes_runner_semantics_change": false,
+  "candidate_id": "2de6e3c2",
+  "candidate_name": "FIX_CANDIDATE_DB_WRITE_WAL_BATCHED_RECEIPT_WRITE_V0",
+  "candidate_sig8": "2de6e3c2",
+  "candidate_status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "comparison_required": true,
+  "failures": [],
+  "gate": "PASS",
+  "intended_change_count": 3,
+  "patch_plan_kind": "DB_WRITE_WAL_BATCHED_RECEIPT_WRITE_PATCH_PLAN",
+  "receipt_gate": "PASS",
+  "receipt_id": "bc5312cc",
+  "same_micro_suite_required": true,
+  "source_policy_id": "e8880c58",
+  "source_profile_id": "c89790f0",
+  "target_burden_class": "BURDEN_DB_WRITE",
+  "target_burden_class_proven": true,
+  "terminal": {
+    "next_command_goal": "APPLY_DB_WRITE_WAL_BATCHED_RECEIPT_WRITE_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_CANDIDATE_POLICY_MUTATIONS
+{
+  "case": "policy_gate_fail",
+  "expected": "source_policy_gate_not_PASS",
+  "failures": [
+    "source_policy_gate_not_PASS"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "wrong_burden_class_fail",
+  "expected": "target_burden_class_not_DB_WRITE",
+  "failures": [
+    "target_burden_class_not_DB_WRITE:BURDEN_CYCLE_SCAN"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "unproven_burden_fail",
+  "expected": "target_burden_class_not_proven",
+  "failures": [
+    "target_burden_class_not_proven"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "multi_fix_fail",
+  "expected": "authorizes_fix_candidate_count_not_one",
+  "failures": [
+    "authorizes_fix_candidate_count_not_one:2"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "apply_patch_authority_fail",
+  "expected": "illegal_policy_authorization:authorizes_apply_patch",
+  "failures": [
+    "illegal_policy_authorization:authorizes_apply_patch:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "receipt_deletion_authority_fail",
+  "expected": "illegal_policy_authorization:authorizes_receipt_deletion",
+  "failures": [
+    "illegal_policy_authorization:authorizes_receipt_deletion:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "execution_skipping_authority_fail",
+  "expected": "illegal_policy_authorization:authorizes_execution_skipping",
+  "failures": [
+    "illegal_policy_authorization:authorizes_execution_skipping:True"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+CANDIDATE_HEAD_JSON
+{
+  "authorization": {
+    "authorizes_execution_skipping": false,
+    "authorizes_gate_semantics_change": false,
+    "authorizes_law_semantics_change": false,
+    "authorizes_patch_application": false,
+    "authorizes_radius_expansion": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_schema_change": false,
+    "authorizes_runner_semantics_change": false
+  },
+  "candidate_id": "2de6e3c2",
+  "candidate_name": "FIX_CANDIDATE_DB_WRITE_WAL_BATCHED_RECEIPT_WRITE_V0",
+  "candidate_status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "expected_metric_direction": {
+    "expected_elapsed_ms": "decrease",
+    "expected_receipts_per_sec": "increase",
+    "must_preserve_all_probe_completion": true,
+    "must_preserve_family_coverage_A_E": true,
+    "must_preserve_profile_receipts_total_match_registry": true,
+    "must_preserve_repeated_slot_identity": true,
+    "primary_metric": "elapsed_ms",
+    "secondary_metric": "receipts_per_sec",
+    "target_rows": "rows with burden_class == BURDEN_DB_WRITE"
+  },
+  "gate": "PASS",
+  "patch_plan": {
+    "bounded_transaction_policy": {
+      "flush_before_gate": true,
+      "flush_on_run_end": true,
+      "max_batch_size_receipts": 256,
+      "no_receipt_loss_allowed": true,
+      "rollback_on_exception": true
+    },
+    "files_allowed_to_touch_if_later_applied": [
+      "src/matrixlab/cli.py",
+      "or narrow DB writer module if writer exists"
+    ],
+    "intended_changes": [
+      {
+        "change_id": "ENABLE_SQLITE_WAL_FOR_RUN_REGISTRY_CONNECTIONS",
+        "description": "Set PRAGMA journal_mode=WAL for registry.sqlite connections used by run/receipt writes, when supported.",
+        "expected_effect": "Reduce SQLite writer lock and fsync pressure during receipt-heavy micro runs.",
+        "semantic_constraint": "Must not change receipt rows, receipt fields, law results, halt reasons, run ids, gate results, or evaluator behavior."
+      },
+      {
+        "change_id": "BATCH_RECEIPT_INSERTS_WITH_EXPLICIT_TRANSACTIONS",
+        "description": "Group receipt inserts into bounded explicit transactions instead of committing each row individually, if current writer commits per receipt.",
+        "expected_effect": "Reduce DB commit overhead while preserving full raw receipt insertion.",
+        "semantic_constraint": "Must write the same receipts, in a deterministic distinguishable order, with no skipped or compressed rows."
+      },
+      {
+        "change_id": "PRESERVE_WRITE_PATH_TIMING_OBSERVABILITY",
+        "description": "Preserve micro-profile elapsed_ms and receipt total checks so the same probe suite can compare before/after.",
+        "expected_effect": "Keep burden observability intact for retest.",
+        "semantic_constraint": "Measurement layer only; no gate/law/run semantic changes."
+      }
+    ],
+    "plan_kind": "DB_WRITE_WAL_BATCHED_RECEIPT_WRITE_PATCH_PLAN",
+    "wal_policy": {
+      "enable_wal": true,
+      "fallback_if_pragma_unsupported": "continue_without_wal_and_emit_warning",
+      "must_not_require_external_service": true,
+      "synchronous": "NORMAL"
+    }
+  },
+  "required_retest": {
+    "after_profile_required": true,
+    "before_profile_id": "c89790f0",
+    "comparison_artifact_schema": "micro_burden_before_after_comparison_v0",
+    "comparison_required": true,
+    "pass_condition": [
+      "after profile gate MICRO_BURDEN_PROFILE_PASS",
+      "receipt totals match registry.sqlite",
+      "all five probes complete",
+      "family coverage A-E preserved",
+      "repeated slot identity preserved",
+      "no gate semantics change",
+      "no law semantics change",
+      "no run semantics change",
+      "DB_WRITE target rows show non-worse elapsed_ms or explicit failure classification"
+    ],
+    "same_micro_suite_required": true,
+    "same_probe_specs_required": true,
+    "same_script": "scripts/wide_burden_profile_microruns.py --execute"
+  },
+  "source_policy": {
+    "gate": "PASS",
+    "policy_id": "e8880c58",
+    "policy_path": "data/burden_backed_fix_candidate_policies/e8880c58.json",
+    "policy_sig8": "e8880c58"
+  },
+  "target_burden_class": "BURDEN_DB_WRITE",
+  "target_burden_evidence": {
+    "burden_class": "BURDEN_DB_WRITE",
+    "elapsed_ms": 18248,
+    "families": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "probes": [
+      "MICRO_01_WIDE_FAMILY_SMOKE"
+    ],
+    "receipts": 90,
+    "receipts_per_sec": 4.932047,
+    "rows": 5,
+    "slots": [
+      "MICRO_01_WIDE_FAMILY_SMOKE_A",
+      "MICRO_01_WIDE_FAMILY_SMOKE_B",
+      "MICRO_01_WIDE_FAMILY_SMOKE_C",
+      "MICRO_01_WIDE_FAMILY_SMOKE_D",
+      "MICRO_01_WIDE_FAMILY_SMOKE_E"
+    ]
+  },
+  "terminal": {
+    "next_command_goal": "APPLY_DB_WRITE_WAL_BATCHED_RECEIPT_WRITE_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_184612_852966
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/build_db_write_wal_batched_receipt_write_fix_candidate.py
+[master 21e841ee8] add db write WAL batched receipt write fix candidate
+ 2 files changed, 280 insertions(+)
+ create mode 100755 scripts/build_db_write_wal_batched_receipt_write_fix_candidate.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

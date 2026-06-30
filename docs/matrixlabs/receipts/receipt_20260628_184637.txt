@@ -1,0 +1,86 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_184637
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_184637.txt
+
+REVIEW_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0
+
+VERIFY_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_ARTIFACTS_PRESENT
+present data/c8_unit_feedback_hardening_bounded_probe_prep_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_bounded_probe_prep_receipt_d20aeb99.json
+present data/c8_unit_feedback_hardening_bounded_probe_prep_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_bounded_probe_prep_packet_v0.json
+present data/c8_unit_feedback_hardening_bounded_probe_prep_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_bounded_probe_prep_options_v0.json
+present data/c8_unit_feedback_hardening_bounded_probe_prep_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_bounded_probe_prep_boundary_audit_v0.json
+present data/c8_unit_feedback_hardening_bounded_probe_prep_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_bounded_probe_prep_readout_v0.json
+present data/c8_unit_feedback_hardening_bounded_probe_prep_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_bounded_probe_prep_report.json
+present scripts/create_c8_unit_feedback_hardening_bounded_probe_prep_packet_after_runtime_adoption_closure_v0.py
+
+PY_COMPILE_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_RUNNER
+
+VERIFY_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_RECEIPT
+{
+  "bounded_probe_prep_packet_created_now": true,
+  "c8_rerun_now": false,
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "gate_results_false_count": 0,
+  "if_accepted_authorizes_future_unit": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_FOR_ONE_EXECUTION_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+  "instrument_built_now": false,
+  "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_PACKET_READY_FOR_REVIEW",
+  "probe_executed_now": false,
+  "probe_execution_authorized_now": false,
+  "probe_id": "c8_unit_feedback_hardening_bounded_probe_after_runtime_adoption_closure_v0",
+  "probe_kind": "UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE",
+  "receipt_id": "c8_unit_feedback_hardening_bounded_probe_prep_receipt_d20aeb99",
+  "recommended_human_decision": "ACCEPT_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_FOR_ONE_EXECUTION_REVIEW",
+  "recommended_review_unit": "REVIEW_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+  "reusable_schema_authorized": false,
+  "review_gate": "PASS",
+  "selected_surface_id": "c8_successor_surface_unit_feedback_hardening_after_runtime_adoption_closure_v0",
+  "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_PACKET_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_PACKET_READY_FOR_REVIEW",
+    "type": "STOP"
+  }
+}
+
+VERIFY_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_CONTENT
+{
+  "bounded_probe_prep_packet_created_now": true,
+  "c8_rerun_authorized_now": false,
+  "c8_unit_feedback_hardening_bounded_probe_prep_boundary_audit_id": "c8_unit_feedback_hardening_bounded_probe_prep_boundary_8f0ca352",
+  "c8_unit_feedback_hardening_bounded_probe_prep_options_id": "c8_unit_feedback_hardening_bounded_probe_prep_options_7d79408e",
+  "c8_unit_feedback_hardening_bounded_probe_prep_packet_id": "c8_unit_feedback_hardening_bounded_probe_prep_packet_591a64d9",
+  "content_review_gate": "PASS",
+  "failures": [],
+  "if_accepted_authorizes_future_unit": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_FOR_ONE_EXECUTION_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+  "instrument_build_authorized_now": false,
+  "probe_executed_now": false,
+  "probe_execution_authorized_now": false,
+  "probe_id": "c8_unit_feedback_hardening_bounded_probe_after_runtime_adoption_closure_v0",
+  "probe_kind": "UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE",
+  "recommended_human_decision": "ACCEPT_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_FOR_ONE_EXECUTION_REVIEW",
+  "reusable_schema_authorized_now": false,
+  "selected_surface_id": "c8_successor_surface_unit_feedback_hardening_after_runtime_adoption_closure_v0"
+}
+
+VERIFY_STAGED_SCOPE_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_ONLY
+staged_path_count=8
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+unit_feedback_hardening_bounded_probe_prep_receipts_staged=['data/c8_unit_feedback_hardening_bounded_probe_prep_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_bounded_probe_prep_receipt_d20aeb99.json']
+
+REVIEW_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...ening_bounded_probe_prep_boundary_audit_v0.json |  45 ++
+ ...ck_hardening_bounded_probe_prep_options_v0.json |  27 ++
+ ...ack_hardening_bounded_probe_prep_packet_v0.json |  56 +++
+ ...ck_hardening_bounded_probe_prep_readout_v0.json |  19 +
+ ...edback_hardening_bounded_probe_prep_report.json |  35 ++
+ ...dening_bounded_probe_prep_receipt_d20aeb99.json | 116 +++++
+ ...rep_packet_after_runtime_adoption_closure_v0.py | 522 +++++++++++++++++++++
+ 8 files changed, 826 insertions(+)
+
+REVIEW_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_PASS
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

@@ -1,0 +1,527 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260619_131856
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260619_131856.txt
+
+FIX_AGENT_CHEAT_CHECK_RAW_PROFILE_KEY
+
+STATUS_BEFORE
+ M .gitignore
+ M src/matrixlab/cli.py
+
+PATCH_RAW_PROFILE_COMPARISON_KEY
+
+PY_COMPILE
+
+RUN_CHEAT_CHECK_BASELINE_LEDGER_AFTER_FIX
+{
+  "agent_cheat_check_id": "d4780808",
+  "agent_cheat_check_payload_sig8": "d4780808",
+  "agent_cheat_check_schema_version": "agent_cheat_check_receipt_v0",
+  "baseline_classification": {
+    "compression_signal": "GOOD_WEAK",
+    "continuation_radius_growth": "up",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "flat",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "baseline_coarse_profiles_total": 9,
+  "baseline_eval_id": "a1ddb75b",
+  "baseline_eval_path": "data/evals/a1ddb75b.json",
+  "baseline_ledger_id": "73c696a5",
+  "baseline_ledger_payload_sig8": "73c696a5",
+  "baseline_radius": 250,
+  "baseline_raw_profiles_total": 1010,
+  "baseline_registered_moves_total": 250,
+  "baseline_run_id": "run_20260619_090132_512800",
+  "baseline_total_receipts": 309334,
+  "eval_summary_comparison": {
+    "coarse_profiles_matches_ledger_last_cycle": true,
+    "coarse_profiles_matches_sql": true,
+    "continuation_radius_matches_ledger_last_cycle": true,
+    "continuation_radius_matches_sql": true,
+    "law_failures_matches_sql": true,
+    "raw_profiles_matches_ledger_last_cycle": true,
+    "raw_profiles_matches_sql": true,
+    "receipt_rows_matches_file_count": true,
+    "receipt_rows_matches_sql": true,
+    "registered_moves_matches_ledger_last_cycle": true,
+    "registered_moves_matches_sql": true,
+    "status_matches": true,
+    "total_cases_matches": true,
+    "total_receipts_matches_runs_table": true,
+    "unknown_laws_matches_sql": true
+  },
+  "failures": [],
+  "fake_law_failure_injection_result": {
+    "detail": {
+      "baseline_law_failures": 0,
+      "detector": "law_failures_must_be_zero",
+      "mutated_law_failures": 1
+    },
+    "detected": true,
+    "name": "fake_law_failure"
+  },
+  "fake_novelty_injection_result": {
+    "detail": {
+      "baseline_coarse_profiles_total": 9,
+      "baseline_raw_profiles_total": 1010,
+      "detector": "profile_total_equality_check",
+      "mutated_coarse_profiles_total": 10,
+      "mutated_raw_profiles_total": 1011
+    },
+    "detected": true,
+    "name": "fake_novelty"
+  },
+  "fake_orphan_receipt_result": {
+    "detail": {
+      "baseline_orphan_receipt_runs": 0,
+      "detector": "orphan_receipt_runs_must_be_zero",
+      "mutated_orphan_receipt_runs": 1
+    },
+    "detected": true,
+    "name": "fake_orphan_receipt"
+  },
+  "fake_previous_run_chain_break_result": {
+    "detail": {
+      "baseline_previous_run_id": "run_20260619_022320_353541",
+      "detector": "cycle_previous_run_must_equal_prior_cycle_run",
+      "mutated_previous_run_id": "fake_previous_run_id"
+    },
+    "detected": true,
+    "name": "fake_previous_run_chain_break"
+  },
+  "fake_receipt_count_mismatch_result": {
+    "detail": {
+      "baseline_eval_receipt_rows": 309334,
+      "detector": "eval_receipt_rows_must_match_sql_count",
+      "independent_sql_receipt_rows": 309334,
+      "mutated_eval_receipt_rows": 309335
+    },
+    "detected": true,
+    "name": "fake_receipt_count_mismatch"
+  },
+  "gate": "PASS",
+  "independent_receipt_file_summary": {
+    "receipt_json_files": 309334,
+    "receipts_dir": "data/receipts/run_20260619_090132_512800",
+    "receipts_dir_exists": true,
+    "sample_first": "data/receipts/run_20260619_090132_512800/n100_one_sided_suspension/cycle_0001.json",
+    "sample_last": "data/receipts/run_20260619_090132_512800/n9_two_sided_suspension/cycle_0250.json"
+  },
+  "independent_sql_summary": {
+    "coarse_move_profiles_total": 9,
+    "halt_reason_counts": [
+      {
+        "halt_reason": null,
+        "n": 308094
+      },
+      {
+        "halt_reason": "CYCLES_COMPLETE",
+        "n": 1237
+      },
+      {
+        "halt_reason": "REPEATED_STATE_PERIODIC",
+        "n": 3
+      }
+    ],
+    "law_failures": 0,
+    "max_matrix_cells": 250000,
+    "max_moves_applied_before_halt": 250,
+    "raw_move_profiles_total": 1010,
+    "receipt_rows": 309334,
+    "registered_moves_total": 250,
+    "run_row": {
+      "created_utc": "2026-06-19T09:01:32.555275+00:00",
+      "cycles_per_case": 250,
+      "depth_max": 250,
+      "depth_min": 3,
+      "families": "one_sided_suspension,two_sided_suspension,suspension_plus_repair,projection_quotient,relabel_symmetry_stress",
+      "max_cells": 300000,
+      "run_id": "run_20260619_090132_512800",
+      "status": "DONE",
+      "total_cases": 1240,
+      "total_receipts": 309334
+    },
+    "unknown_laws": 0
+  },
+  "input_cycle_ledger": "73c696a5",
+  "input_cycle_ledger_path": "data/agent_cycle_ledgers/73c696a5.json",
+  "next_uncertainty": "MEASUREMENT_TRUST_CHEATING_DETECTOR",
+  "production_modification_check": {
+    "after": {
+      "data/agent_cycle_ledgers": {
+        "exists": true,
+        "file_count": 6,
+        "kind": "dir"
+      },
+      "data/agent_cycle_next": {
+        "exists": true,
+        "file_count": 5,
+        "kind": "dir"
+      },
+      "data/agent_cycle_observations": {
+        "exists": true,
+        "file_count": 5,
+        "kind": "dir"
+      },
+      "data/evals": {
+        "exists": true,
+        "file_count": 11,
+        "kind": "dir"
+      },
+      "data/receipts": {
+        "exists": true,
+        "file_count": 1195473,
+        "kind": "dir"
+      },
+      "data/runs/registry.sqlite": {
+        "exists": true,
+        "kind": "file",
+        "mtime_ns": 1781869198871587344,
+        "size": 515395584
+      }
+    },
+    "before": {
+      "data/agent_cycle_ledgers": {
+        "exists": true,
+        "file_count": 6,
+        "kind": "dir"
+      },
+      "data/agent_cycle_next": {
+        "exists": true,
+        "file_count": 5,
+        "kind": "dir"
+      },
+      "data/agent_cycle_observations": {
+        "exists": true,
+        "file_count": 5,
+        "kind": "dir"
+      },
+      "data/evals": {
+        "exists": true,
+        "file_count": 11,
+        "kind": "dir"
+      },
+      "data/receipts": {
+        "exists": true,
+        "file_count": 1195473,
+        "kind": "dir"
+      },
+      "data/runs/registry.sqlite": {
+        "exists": true,
+        "kind": "file",
+        "mtime_ns": 1781869198871587344,
+        "size": 515395584
+      }
+    },
+    "modified_targets": []
+  },
+  "recomputed_baseline_ledger_payload_sig8": "73c696a5",
+  "stop_reason_for_prior_cell": "MARGINAL_INFORMATION_FLATTENED_FOR_RADIUS_EXPANSION",
+  "temp_sandbox_summary": {
+    "production_artifacts_modified": false,
+    "temp_dir_was_used": true,
+    "temp_manifest_existed_inside_context": true,
+    "temp_manifest_name": "manifest.json"
+  },
+  "terminal": {
+    "next_command_goal": "RUN_ADVERSARIAL_CHEAT_HARNESS_WITH_REAL_TEMP_DB_MUTATIONS",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+agent_cheat_check_path: data/agent_cheat_checks/d4780808.json
+
+VERIFY_CHEAT_CHECK_RECEIPT_AFTER_FIX
+{
+  "agent_cheat_check_id": "d4780808",
+  "baseline_coarse_profiles_total": 9,
+  "baseline_eval_id": "a1ddb75b",
+  "baseline_ledger_id": "73c696a5",
+  "baseline_radius": 250,
+  "baseline_raw_profiles_total": 1010,
+  "baseline_run_id": "run_20260619_090132_512800",
+  "comparison_failures": [],
+  "detected_injections": {
+    "fake_law_failure": true,
+    "fake_novelty": true,
+    "fake_orphan_receipt": true,
+    "fake_previous_run_chain_break": true,
+    "fake_receipt_count_mismatch": true
+  },
+  "gate": "PASS",
+  "id_matches_filename": true,
+  "modified_protected_targets": [],
+  "path": "data/agent_cheat_checks/d4780808.json",
+  "recomputed_sig": "d4780808",
+  "sig_matches": true,
+  "stored_sig": "d4780808",
+  "terminal": {
+    "next_command_goal": "RUN_ADVERSARIAL_CHEAT_HARNESS_WITH_REAL_TEMP_DB_MUTATIONS",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+RUN_CHEAT_CHECK_FAIL_NEGATIVE_BAD_LEDGER
+{
+  "agent_cheat_check_id": "c37c567e",
+  "agent_cheat_check_payload_sig8": "c37c567e",
+  "agent_cheat_check_schema_version": "agent_cheat_check_receipt_v0",
+  "baseline_classification": {
+    "compression_signal": "GOOD_WEAK",
+    "continuation_radius_growth": "up",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "flat",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "baseline_coarse_profiles_total": 9,
+  "baseline_eval_id": "0a9048aa",
+  "baseline_eval_path": "data/evals/0a9048aa.json",
+  "baseline_ledger_id": "3b3fa6bd",
+  "baseline_ledger_payload_sig8": "3b3fa6bd",
+  "baseline_radius": 150,
+  "baseline_raw_profiles_total": 531,
+  "baseline_registered_moves_total": 150,
+  "baseline_run_id": "run_20260618_235807_638720",
+  "baseline_total_receipts": 107708,
+  "eval_summary_comparison": {
+    "coarse_profiles_matches_ledger_last_cycle": true,
+    "coarse_profiles_matches_sql": true,
+    "continuation_radius_matches_ledger_last_cycle": true,
+    "continuation_radius_matches_sql": true,
+    "law_failures_matches_sql": true,
+    "raw_profiles_matches_ledger_last_cycle": true,
+    "raw_profiles_matches_sql": true,
+    "receipt_rows_matches_file_count": true,
+    "receipt_rows_matches_sql": true,
+    "registered_moves_matches_ledger_last_cycle": true,
+    "registered_moves_matches_sql": true,
+    "status_matches": true,
+    "total_cases_matches": true,
+    "total_receipts_matches_runs_table": true,
+    "unknown_laws_matches_sql": true
+  },
+  "failures": [
+    "cycle_ledger_gate_not_PASS",
+    "cycle_ledger_has_boundary_events"
+  ],
+  "fake_law_failure_injection_result": {
+    "detail": {
+      "baseline_law_failures": 0,
+      "detector": "law_failures_must_be_zero",
+      "mutated_law_failures": 1
+    },
+    "detected": true,
+    "name": "fake_law_failure"
+  },
+  "fake_novelty_injection_result": {
+    "detail": {
+      "baseline_coarse_profiles_total": 9,
+      "baseline_raw_profiles_total": 531,
+      "detector": "profile_total_equality_check",
+      "mutated_coarse_profiles_total": 10,
+      "mutated_raw_profiles_total": 532
+    },
+    "detected": true,
+    "name": "fake_novelty"
+  },
+  "fake_orphan_receipt_result": {
+    "detail": {
+      "baseline_orphan_receipt_runs": 0,
+      "detector": "orphan_receipt_runs_must_be_zero",
+      "mutated_orphan_receipt_runs": 1
+    },
+    "detected": true,
+    "name": "fake_orphan_receipt"
+  },
+  "fake_previous_run_chain_break_result": {
+    "detail": {
+      "baseline_previous_run_id": "run_20260618_205137_932569",
+      "detector": "cycle_previous_run_must_equal_prior_cycle_run",
+      "mutated_previous_run_id": "fake_previous_run_id"
+    },
+    "detected": true,
+    "name": "fake_previous_run_chain_break"
+  },
+  "fake_receipt_count_mismatch_result": {
+    "detail": {
+      "baseline_eval_receipt_rows": 107708,
+      "detector": "eval_receipt_rows_must_match_sql_count",
+      "independent_sql_receipt_rows": 107708,
+      "mutated_eval_receipt_rows": 107709
+    },
+    "detected": true,
+    "name": "fake_receipt_count_mismatch"
+  },
+  "gate": "FAIL",
+  "independent_receipt_file_summary": {
+    "receipt_json_files": 107708,
+    "receipts_dir": "data/receipts/run_20260618_235807_638720",
+    "receipts_dir_exists": true,
+    "sample_first": "data/receipts/run_20260618_235807_638720/n100_one_sided_suspension/cycle_0001.json",
+    "sample_last": "data/receipts/run_20260618_235807_638720/n9_two_sided_suspension/cycle_0150.json"
+  },
+  "independent_sql_summary": {
+    "coarse_move_profiles_total": 9,
+    "halt_reason_counts": [
+      {
+        "halt_reason": null,
+        "n": 106968
+      },
+      {
+        "halt_reason": "CYCLES_COMPLETE",
+        "n": 660
+      },
+      {
+        "halt_reason": "MAX_CELLS_EXCEEDED",
+        "n": 77
+      },
+      {
+        "halt_reason": "REPEATED_STATE_PERIODIC",
+        "n": 3
+      }
+    ],
+    "law_failures": 0,
+    "max_matrix_cells": 50176,
+    "max_moves_applied_before_halt": 150,
+    "raw_move_profiles_total": 531,
+    "receipt_rows": 107708,
+    "registered_moves_total": 150,
+    "run_row": {
+      "created_utc": "2026-06-18T23:58:07.646979+00:00",
+      "cycles_per_case": 150,
+      "depth_max": 150,
+      "depth_min": 3,
+      "families": "one_sided_suspension,two_sided_suspension,suspension_plus_repair,projection_quotient,relabel_symmetry_stress",
+      "max_cells": 50000,
+      "run_id": "run_20260618_235807_638720",
+      "status": "DONE",
+      "total_cases": 740,
+      "total_receipts": 107708
+    },
+    "unknown_laws": 0
+  },
+  "input_cycle_ledger": "3b3fa6bd",
+  "input_cycle_ledger_path": "data/agent_cycle_ledgers/3b3fa6bd.json",
+  "next_uncertainty": "MEASUREMENT_TRUST_CHEATING_DETECTOR",
+  "production_modification_check": {
+    "after": {
+      "data/agent_cycle_ledgers": {
+        "exists": true,
+        "file_count": 6,
+        "kind": "dir"
+      },
+      "data/agent_cycle_next": {
+        "exists": true,
+        "file_count": 5,
+        "kind": "dir"
+      },
+      "data/agent_cycle_observations": {
+        "exists": true,
+        "file_count": 5,
+        "kind": "dir"
+      },
+      "data/evals": {
+        "exists": true,
+        "file_count": 11,
+        "kind": "dir"
+      },
+      "data/receipts": {
+        "exists": true,
+        "file_count": 1195473,
+        "kind": "dir"
+      },
+      "data/runs/registry.sqlite": {
+        "exists": true,
+        "kind": "file",
+        "mtime_ns": 1781869198871587344,
+        "size": 515395584
+      }
+    },
+    "before": {
+      "data/agent_cycle_ledgers": {
+        "exists": true,
+        "file_count": 6,
+        "kind": "dir"
+      },
+      "data/agent_cycle_next": {
+        "exists": true,
+        "file_count": 5,
+        "kind": "dir"
+      },
+      "data/agent_cycle_observations": {
+        "exists": true,
+        "file_count": 5,
+        "kind": "dir"
+      },
+      "data/evals": {
+        "exists": true,
+        "file_count": 11,
+        "kind": "dir"
+      },
+      "data/receipts": {
+        "exists": true,
+        "file_count": 1195473,
+        "kind": "dir"
+      },
+      "data/runs/registry.sqlite": {
+        "exists": true,
+        "kind": "file",
+        "mtime_ns": 1781869198871587344,
+        "size": 515395584
+      }
+    },
+    "modified_targets": []
+  },
+  "recomputed_baseline_ledger_payload_sig8": "3b3fa6bd",
+  "stop_reason_for_prior_cell": "MARGINAL_INFORMATION_FLATTENED_FOR_RADIUS_EXPANSION",
+  "temp_sandbox_summary": {
+    "production_artifacts_modified": false,
+    "temp_dir_was_used": true,
+    "temp_manifest_existed_inside_context": true,
+    "temp_manifest_name": "manifest.json"
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "cheat_check_failed",
+    "type": "STOP"
+  },
+  "warnings": []
+}
+agent_cheat_check_path: data/agent_cheat_checks/c37c567e.json
+
+VERIFY_NEGATIVE_BAD_LEDGER_FAILED
+{
+  "agent_cheat_check_id": "c37c567e",
+  "failures": [
+    "cycle_ledger_gate_not_PASS",
+    "cycle_ledger_has_boundary_events"
+  ],
+  "gate": "FAIL",
+  "path": "data/agent_cheat_checks/c37c567e.json",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "cheat_check_failed",
+    "type": "STOP"
+  }
+}
+
+DIFF_STAT
+ .gitignore           |   3 +
+ src/matrixlab/cli.py | 489 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 492 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+ M src/matrixlab/cli.py
+[master 3eca500e8] add agent cheat check command
+ 2 files changed, 492 insertions(+)
+
+COMMIT_DONE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

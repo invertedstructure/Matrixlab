@@ -1,0 +1,178 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_025846
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_025846.txt
+
+ADD_R75_SCALE_DECISION_V0
+
+STATUS_BEFORE
+
+BACKUP
+CLI_SIG=f1f7999d4aa6
+BACKUP=/tmp/matrixlab_cli_before_r75_scale_decision_f1f7999d4aa6.py
+
+PATCH_GITIGNORE
+
+PATCH_CLI_R75_SCALE_DECISION
+
+PY_COMPILE
+
+HELP_SMOKE
+help smoke ok
+
+BUILD_R75_SCALE_DECISION_POSITIVE
+{
+  "burden_guard_v0": {
+    "does_not_change_run_semantics": true,
+    "does_not_compress_receipts": true,
+    "does_not_skip_slots": true,
+    "enabled": true,
+    "guard_meaning": "R100 may run, but post-R100 comparison must explicitly evaluate receipt burden before any further radius increase.",
+    "observed_radius_ratio_vs_r50": 1.5,
+    "observed_raw_ratio_vs_r50": 1.498891,
+    "observed_receipt_ratio_vs_r50": 2.288364,
+    "reason": "R75 receipt burden grew faster than radius while shape vocabulary stayed stable."
+  },
+  "decision": "ADVANCE_TO_R100_WITH_BURDEN_WATCH",
+  "decision_kind": "POST_R75_FIRST_ORDER_SCALE_DECISION",
+  "execution_shape": "KEEP_9_SLOT_SEPARATED_RUNS",
+  "failures": [],
+  "first_order_classes": {
+    "burden_class": "BURDEN_SUPERLINEAR_WATCH",
+    "curve_class": "SHAPE_STABLE_COUNT_SHIFT",
+    "identity_class": "REPEATED_FAMILY_CONSISTENT",
+    "measurement_class": "MEASUREMENT_CLEAN",
+    "resource_class": "NO_RESOURCE_BOUNDARY",
+    "semantic_pressure_class": "NO_SEMANTIC_PRESSURE"
+  },
+  "forbidden": {
+    "caching": true,
+    "compression": true,
+    "gate_semantics_change": true,
+    "ontology_expansion": true,
+    "receipt_skipping": true,
+    "representative_subset": true,
+    "run_semantics_change": true,
+    "theorem_layer": true
+  },
+  "gate": "PASS",
+  "input_summary": {
+    "added_shapes": [],
+    "delta_class": "SAME_SHAPES_COUNT_SHIFT",
+    "missing_shapes": [],
+    "r50_coarse_profiles_total": 9,
+    "r50_radius": 50,
+    "r50_raw_total": 451,
+    "r75_coarse_profiles_total": 9,
+    "r75_radius": 75,
+    "r75_raw_total": 676,
+    "radius_ratio": 1.5,
+    "raw_burden": {
+      "delta": 225,
+      "per_radius_delta": -0.006667,
+      "per_radius_r50": 9.02,
+      "per_radius_r75": 9.013333,
+      "r50": 451,
+      "r75": 676,
+      "ratio_vs_r50": 1.498891
+    },
+    "receipt_burden": {
+      "delta": 27504,
+      "per_radius_delta": 224.4,
+      "per_radius_r50": 426.96,
+      "per_radius_r75": 651.36,
+      "r50": 21348,
+      "r75": 48852,
+      "ratio_vs_r50": 2.288364
+    },
+    "shape_set_same": true,
+    "terminal_decision": "PROVISIONAL_R50_R75_ENVELOPE"
+  },
+  "next_radius": 100,
+  "next_scale_step": "RADIUS_100_SLOT_SEPARATED",
+  "r75_scale_decision_id": "0bbd1bbd",
+  "r75_scale_decision_schema_version": "r75_scale_decision_v0",
+  "r75_scale_decision_sig8": "0bbd1bbd",
+  "representative_subset_status": "NOT_LICENSED_AT_V0",
+  "source_radius_scale_observation_id": "b9420863",
+  "source_radius_scale_observation_path": "data/radius_scale_observations/b9420863.json",
+  "source_radius_scale_observation_recomputed_sig8": "b9420863",
+  "source_radius_scale_observation_sig8": "b9420863",
+  "terminal": {
+    "next_command_goal": "RUN_RADIUS_100_SLOT_SEPARATED_WITH_BURDEN_GUARD_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+r75_scale_decision_path: data/radius_scale_decisions/0bbd1bbd.json
+DECISION_ID=0bbd1bbd
+
+VERIFY_R75_SCALE_DECISION_POSITIVE
+{
+  "decision": "ADVANCE_TO_R100_WITH_BURDEN_WATCH",
+  "failures": [],
+  "gate": "PASS",
+  "input_decision": "0bbd1bbd",
+  "next_radius": 100,
+  "next_scale_step": "RADIUS_100_SLOT_SEPARATED",
+  "r75_scale_decision_id": "0bbd1bbd",
+  "r75_scale_decision_path": "data/radius_scale_decisions/0bbd1bbd.json",
+  "r75_scale_decision_recomputed_sig8": "0bbd1bbd",
+  "r75_scale_decision_sig8": "0bbd1bbd",
+  "r75_scale_decision_verification_id": "1d2676f4",
+  "r75_scale_decision_verification_schema_version": "r75_scale_decision_verification_v0",
+  "r75_scale_decision_verification_sig8": "1d2676f4",
+  "source_radius_scale_observation_id": "b9420863",
+  "terminal": {
+    "next_command_goal": "RUN_RADIUS_100_SLOT_SEPARATED_WITH_BURDEN_GUARD_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "verification_result": {
+    "failures": [],
+    "gate": "PASS",
+    "warnings": []
+  },
+  "warnings": []
+}
+r75_scale_decision_verification_path: data/radius_scale_decision_verifications/1d2676f4.json
+
+ASSERT_R75_SCALE_DECISION_POSITIVE
+{
+  "burden_class": "BURDEN_SUPERLINEAR_WATCH",
+  "burden_guard": {
+    "does_not_change_run_semantics": true,
+    "does_not_compress_receipts": true,
+    "does_not_skip_slots": true,
+    "enabled": true,
+    "guard_meaning": "R100 may run, but post-R100 comparison must explicitly evaluate receipt burden before any further radius increase.",
+    "observed_radius_ratio_vs_r50": 1.5,
+    "observed_raw_ratio_vs_r50": 1.498891,
+    "observed_receipt_ratio_vs_r50": 2.288364,
+    "reason": "R75 receipt burden grew faster than radius while shape vocabulary stayed stable."
+  },
+  "curve_class": "SHAPE_STABLE_COUNT_SHIFT",
+  "decision": "ADVANCE_TO_R100_WITH_BURDEN_WATCH",
+  "gate": "PASS",
+  "next_radius": 100,
+  "next_scale_step": "RADIUS_100_SLOT_SEPARATED",
+  "r75_scale_decision_id": "0bbd1bbd",
+  "radius_ratio": 1.5,
+  "raw_ratio": 1.498891,
+  "receipt_ratio": 2.288364,
+  "recomputed_sig": "0bbd1bbd",
+  "sig_matches": true,
+  "source_radius_scale_observation_id": "b9420863",
+  "stored_sig": "0bbd1bbd",
+  "terminal": {
+    "next_command_goal": "RUN_RADIUS_100_SLOT_SEPARATED_WITH_BURDEN_GUARD_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+Traceback (most recent call last):
+  File "<stdin>", line 36, in <module>
+AssertionError
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

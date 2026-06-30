@@ -1,0 +1,553 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_033647
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_033647.txt
+
+BUILD_JURISDICTION_RUNNER_V0_1_PROPOSITION_SURFACE_PROBE_POLICY_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+VERIFY_PROPOSITION_SURFACE_POLICY_INPUTS_TRACKED
+tracked data/jurisdiction_runner_v0_1_halt_surface_probe_run_receipts/5030948f.json
+tracked data/jurisdiction_runner_v0_1_halt_surface_probe_policies/cfe745b9.json
+tracked data/jurisdiction_runner_v0_1_halt_surface_probe_policy_receipts/cfe745b9.json
+tracked data/jurisdiction_runner_v0_1_implementation_receipts/04c0692d.json
+tracked data/local_regime_v0_declarations/097d620c.json
+tracked src/matrixlab/jurisdiction_runner_v0_1.py
+
+PATCH_GITIGNORE
+
+WRITE_PROPOSITION_SURFACE_PROBE_POLICY_BUILDER
+
+PY_COMPILE_PROPOSITION_SURFACE_POLICY_BUILDER
+
+RUN_PROPOSITION_SURFACE_POLICY_BUILDER
+{
+  "authority_guards": {
+    "final_schema_claimed": false,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "halt_surface_coverage_complete_required": true,
+    "halt_surface_probe_run_receipt_consumed": true,
+    "hidden_continuation_authorized": false,
+    "local_regime_replaced": false,
+    "local_regime_runtime_mutated": false,
+    "probe_fixtures_created_by_policy": false,
+    "probe_fixtures_executed_by_policy": false,
+    "proof_claimed": false,
+    "proposal_artifact_emitted_by_policy": false,
+    "proposal_promoted": false,
+    "proposal_surface_probe_executed_by_policy": false,
+    "proposition_surface_probe_policy_built": true,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_executed_by_policy": false,
+    "runner_module_changed": false,
+    "runner_module_read": true
+  },
+  "authorized_operations_next": {
+    "create_proposition_surface_probe_fixtures": true,
+    "emit_proposition_surface_probe_receipt": true,
+    "emit_reviewable_delta_proposal_if_surface_absent": true,
+    "execute_runner_against_probe_fixtures": true,
+    "read_halt_surface_probe_run_receipt": true,
+    "read_local_regime_v0_declaration": true,
+    "read_proposition_surface_probe_policy": true,
+    "read_proposition_surface_probe_policy_receipt": true,
+    "read_runner_module": true,
+    "repeat_unresolved_pressure_probe": true
+  },
+  "created_at": "2026-06-22T02:36:47.656348+00:00",
+  "failures": [],
+  "forbidden_operations": {
+    "ambient_workspace_authority": true,
+    "execute_or_apply_proposal": true,
+    "final_schema_claim": true,
+    "full_registry_scan": true,
+    "global_taxonomy_design": true,
+    "hidden_continuation_after_stop": true,
+    "latest_or_mtime_selection": true,
+    "modify_runner_module": true,
+    "mutate_local_regime_at_runtime": true,
+    "promote_probe_regime_variant": true,
+    "promote_proposal": true,
+    "proof_claim": true,
+    "registry_sqlite_read": true,
+    "registry_sqlite_write": true,
+    "replace_local_regime_v0": true
+  },
+  "gate": "PASS",
+  "local_regime_hash": "097d620c",
+  "local_regime_version": "local_regime.v0",
+  "policy_id": "c7cb4d9e",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "proposition_surface_probe_plan": {
+    "cases": {
+      "DUPLICATE_UNRESOLVED_PROPOSAL_GUARD": {
+        "allowed_results": {
+          "duplicate_unresolved_proposal_count_increases": true,
+          "no_surface_present": true,
+          "second_proposal_withheld": true
+        },
+        "must_not_promote_any_proposal": true,
+        "probe_kind": "repeat_pressure",
+        "purpose": "If the same unresolved proposal pressure is observed twice, require duplicate proposal spam to be blocked or explicitly counted."
+      },
+      "HALT_NO_APPLICABLE_MOVE_WITH_NO_PROPOSAL_BASELINE": {
+        "expected": {
+          "halt_code": "STOP_NO_APPLICABLE_MOVE",
+          "hidden_continuation_authorized": false,
+          "no_proposal_reason": "INSUFFICIENT_EVIDENCE",
+          "proposal_executed": false,
+          "proposal_status": "NONE"
+        },
+        "purpose": "Preserve the observed v0.1 baseline where STOP_NO_APPLICABLE_MOVE emits no proposal and no hidden continuation.",
+        "source_case": "STOP_NO_APPLICABLE_MOVE"
+      },
+      "PROPOSAL_NON_EXECUTION_DISCIPLINE": {
+        "conditional_on": "proposal_status != NONE",
+        "purpose": "If any proposal is emitted, prove it is not executed, not promoted, and not allowed to mutate regime, registry, or runtime.",
+        "required_guards_if_applicable": {
+          "hidden_continuation_authorized": false,
+          "local_regime_runtime_mutated": false,
+          "proposal_executed": false,
+          "proposal_promoted": false,
+          "registry_written": false,
+          "runner_module_changed": false
+        }
+      },
+      "PROPOSAL_PRESSURE_DISCOVERY": {
+        "expected_policy_result_class": [
+          "PROPOSAL_SURFACE_PRESENT",
+          "PROPOSAL_SURFACE_ABSENT_REQUIRES_DELTA_PROPOSAL"
+        ],
+        "must_not_require_successful_proposal_emission": true,
+        "must_record_absence_as_observation_not_failure": true,
+        "probe_kind": "capability_discovery",
+        "purpose": "Determine whether v0.1 has any lawful runtime path that emits halt-with-proposal under local regime pressure."
+      },
+      "TAXONOMY_DELTA_PROPOSAL_IF_SURFACE_ABSENT": {
+        "allowed_proposal_class": "PROPOSITION_SURFACE_DELTA_PROPOSAL",
+        "proposal_is_artifact_only": true,
+        "proposal_must_not_mutate_local_regime": true,
+        "proposal_must_require_human_review": true,
+        "purpose": "If v0.1 cannot emit lawful proposals, the probe may emit a reviewable taxonomy/regime delta proposal artifact, not apply it."
+      }
+    },
+    "non_success_conditions": {
+      "global_or_final_taxonomy_claimed": true,
+      "hidden_continuation_after_stop": true,
+      "local_regime_mutated_at_runtime": true,
+      "proposal_promoted_without_review": true,
+      "registry_written": true,
+      "runner_executes_proposal": true
+    },
+    "probe_mode": "DISCOVERY_NOT_ACCEPTANCE",
+    "success_criteria": {
+      "absence_of_proposal_surface_is_recorded_not_treated_as_runtime_failure": true,
+      "duplicate_unresolved_pressure_is_blocked_or_counted": true,
+      "if_surface_absent_emit_reviewable_delta_proposal_artifact_only": true,
+      "no_proposal_is_executed": true,
+      "no_proposal_is_promoted": true,
+      "probe_completes_without_runtime_mutation": true
+    }
+  },
+  "receipt_id": "c6dbd7d2",
+  "receipt_sig8": "c6dbd7d2",
+  "receipt_type": "JURISDICTION_RUNNER_V0_1_PROPOSITION_SURFACE_PROBE_POLICY_RECEIPT",
+  "review_summary": {
+    "covered_halt_count": 6,
+    "halt_surface_coverage_complete": true,
+    "halt_surface_covered": true,
+    "happy_path_covered": true,
+    "observed_proposal_status_so_far": "NONE_ONLY",
+    "proposition_surface_not_yet_exercised": true,
+    "reason_for_next_probe": "v0.1 has happy-path and halt-code coverage, but proposal emission, proposal non-execution, duplicate unresolved proposal guard, and proposal-absence delta behavior are not yet probed."
+  },
+  "runner_unit_id": "jurisdiction_runner.v0.1",
+  "safety_clauses": {
+    "does_not_claim_global_correctness": true,
+    "does_not_claim_proposition_surface_exists": true,
+    "does_not_claim_theorem_closure": true,
+    "does_not_create_probe_fixtures": true,
+    "does_not_execute_or_apply_any_proposal": true,
+    "does_not_execute_runner": true,
+    "does_not_modify_runner": true,
+    "does_not_mutate_local_regime": true,
+    "does_not_promote_any_proposal": true,
+    "does_not_write_registry": true,
+    "next_unit_required_for_probe_execution": true,
+    "policy_only": true
+  },
+  "schema_version": "jurisdiction_runner_v0_1_proposition_surface_probe_policy_receipt_v0",
+  "source_halt_surface_probe_policy_id": "cfe745b9",
+  "source_halt_surface_probe_policy_receipt_id": "7bb73d50",
+  "source_halt_surface_probe_run_receipt_id": "5030948f",
+  "source_implementation_receipt_id": "04c0692d",
+  "terminal": {
+    "next_command_goal": "RUN_JURISDICTION_RUNNER_V0_1_PROPOSITION_SURFACE_PROBE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "unit_id": "BUILD_JURISDICTION_RUNNER_V0_1_PROPOSITION_SURFACE_PROBE_POLICY_V0",
+  "warnings": []
+}
+proposition_surface_probe_policy_id=c7cb4d9e
+proposition_surface_probe_policy_receipt_id=c6dbd7d2
+proposition_surface_probe_policy_path=data/jurisdiction_runner_v0_1_proposition_surface_probe_policies/c7cb4d9e.json
+proposition_surface_probe_policy_receipt_path=data/jurisdiction_runner_v0_1_proposition_surface_probe_policy_receipts/c7cb4d9e.json
+PROPOSITION_SURFACE_PROBE_POLICY_ID=c7cb4d9e
+PROPOSITION_SURFACE_PROBE_POLICY_RECEIPT_ID=c6dbd7d2
+
+ASSERT_PROPOSITION_SURFACE_POLICY
+{
+  "authority_guards": {
+    "final_schema_claimed": false,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "halt_surface_coverage_complete_required": true,
+    "halt_surface_probe_run_receipt_consumed": true,
+    "hidden_continuation_authorized": false,
+    "local_regime_replaced": false,
+    "local_regime_runtime_mutated": false,
+    "probe_fixtures_created_by_policy": false,
+    "probe_fixtures_executed_by_policy": false,
+    "proof_claimed": false,
+    "proposal_artifact_emitted_by_policy": false,
+    "proposal_promoted": false,
+    "proposal_surface_probe_executed_by_policy": false,
+    "proposition_surface_probe_policy_built": true,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_executed_by_policy": false,
+    "runner_module_changed": false,
+    "runner_module_read": true
+  },
+  "authorized_operations_next": {
+    "create_proposition_surface_probe_fixtures": true,
+    "emit_proposition_surface_probe_receipt": true,
+    "emit_reviewable_delta_proposal_if_surface_absent": true,
+    "execute_runner_against_probe_fixtures": true,
+    "read_halt_surface_probe_run_receipt": true,
+    "read_local_regime_v0_declaration": true,
+    "read_proposition_surface_probe_policy": true,
+    "read_proposition_surface_probe_policy_receipt": true,
+    "read_runner_module": true,
+    "repeat_unresolved_pressure_probe": true
+  },
+  "gate": "PASS",
+  "policy_id": "c7cb4d9e",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "probe_cases": [
+    "DUPLICATE_UNRESOLVED_PROPOSAL_GUARD",
+    "HALT_NO_APPLICABLE_MOVE_WITH_NO_PROPOSAL_BASELINE",
+    "PROPOSAL_NON_EXECUTION_DISCIPLINE",
+    "PROPOSAL_PRESSURE_DISCOVERY",
+    "TAXONOMY_DELTA_PROPOSAL_IF_SURFACE_ABSENT"
+  ],
+  "receipt_id": "c6dbd7d2",
+  "review_summary": {
+    "covered_halt_count": 6,
+    "halt_surface_coverage_complete": true,
+    "halt_surface_covered": true,
+    "happy_path_covered": true,
+    "observed_proposal_status_so_far": "NONE_ONLY",
+    "proposition_surface_not_yet_exercised": true,
+    "reason_for_next_probe": "v0.1 has happy-path and halt-code coverage, but proposal emission, proposal non-execution, duplicate unresolved proposal guard, and proposal-absence delta behavior are not yet probed."
+  },
+  "safety_clauses": {
+    "does_not_claim_global_correctness": true,
+    "does_not_claim_proposition_surface_exists": true,
+    "does_not_claim_theorem_closure": true,
+    "does_not_create_probe_fixtures": true,
+    "does_not_execute_or_apply_any_proposal": true,
+    "does_not_execute_runner": true,
+    "does_not_modify_runner": true,
+    "does_not_mutate_local_regime": true,
+    "does_not_promote_any_proposal": true,
+    "does_not_write_registry": true,
+    "next_unit_required_for_probe_execution": true,
+    "policy_only": true
+  },
+  "terminal": {
+    "next_command_goal": "RUN_JURISDICTION_RUNNER_V0_1_PROPOSITION_SURFACE_PROBE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_PROPOSITION_SURFACE_POLICY_NON_WRITING
+{
+  "case": "halt_surface_coverage_false",
+  "failures": [
+    "halt_surface_coverage_not_complete:False"
+  ]
+}
+{
+  "case": "source_probe_proposal_promoted_guard_fail",
+  "failures": [
+    "halt_surface_guard_not_false:proposal_promoted:True"
+  ]
+}
+{
+  "case": "source_probe_hidden_next_fail",
+  "failures": [
+    "halt_surface_terminal_next_not_null:{'next_command_goal': 'HIDDEN_NEXT', 'stop_code': 'STOP_DONE', 'type': 'STOP'}"
+  ]
+}
+{
+  "after": {
+    "policy": "b2d287b65072303fc21eb936edda60982b823d51dddc6c5e74b73bd546b99e86",
+    "receipt": "26364f91fb004e348fa3411adbe46b5f6cacb672eeb77f07f203016eeaa538d5"
+  },
+  "before": {
+    "policy": "b2d287b65072303fc21eb936edda60982b823d51dddc6c5e74b73bd546b99e86",
+    "receipt": "26364f91fb004e348fa3411adbe46b5f6cacb672eeb77f07f203016eeaa538d5"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+VERIFY_NO_RUNTIME_OR_REGISTRY_MUTATION
+.gitignore
+runtime and sqlite registry untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/build_jurisdiction_runner_v0_1_proposition_surface_probe_policy_v0.py
+
+PACKAGE_PROPOSITION_SURFACE_POLICY_ARTIFACTS
+packaged data/jurisdiction_runner_v0_1_proposition_surface_probe_policies/c7cb4d9e.json
+packaged data/jurisdiction_runner_v0_1_proposition_surface_probe_policy_receipts/c7cb4d9e.json
+[master b764abcc7] build jurisdiction runner v0.1 proposition surface probe policy
+ 4 files changed, 752 insertions(+)
+ create mode 100644 data/jurisdiction_runner_v0_1_proposition_surface_probe_policies/c7cb4d9e.json
+ create mode 100644 data/jurisdiction_runner_v0_1_proposition_surface_probe_policy_receipts/c7cb4d9e.json
+ create mode 100755 scripts/build_jurisdiction_runner_v0_1_proposition_surface_probe_policy_v0.py
+
+COMMIT_DONE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+NEXT_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+proposition_surface_probe_policy_id=c7cb4d9e
+proposition_surface_probe_policy_receipt_id=c6dbd7d2
+proposition_surface_probe_policy_path=data/jurisdiction_runner_v0_1_proposition_surface_probe_policies/c7cb4d9e.json
+proposition_surface_probe_policy_receipt_path=data/jurisdiction_runner_v0_1_proposition_surface_probe_policy_receipts/c7cb4d9e.json
+{
+  "authority_guards": {
+    "final_schema_claimed": false,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "halt_surface_coverage_complete_required": true,
+    "halt_surface_probe_run_receipt_consumed": true,
+    "hidden_continuation_authorized": false,
+    "local_regime_replaced": false,
+    "local_regime_runtime_mutated": false,
+    "probe_fixtures_created_by_policy": false,
+    "probe_fixtures_executed_by_policy": false,
+    "proof_claimed": false,
+    "proposal_artifact_emitted_by_policy": false,
+    "proposal_promoted": false,
+    "proposal_surface_probe_executed_by_policy": false,
+    "proposition_surface_probe_policy_built": true,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_executed_by_policy": false,
+    "runner_module_changed": false,
+    "runner_module_read": true
+  },
+  "authorized_operations_next": {
+    "create_proposition_surface_probe_fixtures": true,
+    "emit_proposition_surface_probe_receipt": true,
+    "emit_reviewable_delta_proposal_if_surface_absent": true,
+    "execute_runner_against_probe_fixtures": true,
+    "read_halt_surface_probe_run_receipt": true,
+    "read_local_regime_v0_declaration": true,
+    "read_proposition_surface_probe_policy": true,
+    "read_proposition_surface_probe_policy_receipt": true,
+    "read_runner_module": true,
+    "repeat_unresolved_pressure_probe": true
+  },
+  "gate": "PASS",
+  "local_regime_hash": "097d620c",
+  "local_regime_version": "local_regime.v0",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "proposition_surface_probe_plan": {
+    "cases": {
+      "DUPLICATE_UNRESOLVED_PROPOSAL_GUARD": {
+        "allowed_results": {
+          "duplicate_unresolved_proposal_count_increases": true,
+          "no_surface_present": true,
+          "second_proposal_withheld": true
+        },
+        "must_not_promote_any_proposal": true,
+        "probe_kind": "repeat_pressure",
+        "purpose": "If the same unresolved proposal pressure is observed twice, require duplicate proposal spam to be blocked or explicitly counted."
+      },
+      "HALT_NO_APPLICABLE_MOVE_WITH_NO_PROPOSAL_BASELINE": {
+        "expected": {
+          "halt_code": "STOP_NO_APPLICABLE_MOVE",
+          "hidden_continuation_authorized": false,
+          "no_proposal_reason": "INSUFFICIENT_EVIDENCE",
+          "proposal_executed": false,
+          "proposal_status": "NONE"
+        },
+        "purpose": "Preserve the observed v0.1 baseline where STOP_NO_APPLICABLE_MOVE emits no proposal and no hidden continuation.",
+        "source_case": "STOP_NO_APPLICABLE_MOVE"
+      },
+      "PROPOSAL_NON_EXECUTION_DISCIPLINE": {
+        "conditional_on": "proposal_status != NONE",
+        "purpose": "If any proposal is emitted, prove it is not executed, not promoted, and not allowed to mutate regime, registry, or runtime.",
+        "required_guards_if_applicable": {
+          "hidden_continuation_authorized": false,
+          "local_regime_runtime_mutated": false,
+          "proposal_executed": false,
+          "proposal_promoted": false,
+          "registry_written": false,
+          "runner_module_changed": false
+        }
+      },
+      "PROPOSAL_PRESSURE_DISCOVERY": {
+        "expected_policy_result_class": [
+          "PROPOSAL_SURFACE_PRESENT",
+          "PROPOSAL_SURFACE_ABSENT_REQUIRES_DELTA_PROPOSAL"
+        ],
+        "must_not_require_successful_proposal_emission": true,
+        "must_record_absence_as_observation_not_failure": true,
+        "probe_kind": "capability_discovery",
+        "purpose": "Determine whether v0.1 has any lawful runtime path that emits halt-with-proposal under local regime pressure."
+      },
+      "TAXONOMY_DELTA_PROPOSAL_IF_SURFACE_ABSENT": {
+        "allowed_proposal_class": "PROPOSITION_SURFACE_DELTA_PROPOSAL",
+        "proposal_is_artifact_only": true,
+        "proposal_must_not_mutate_local_regime": true,
+        "proposal_must_require_human_review": true,
+        "purpose": "If v0.1 cannot emit lawful proposals, the probe may emit a reviewable taxonomy/regime delta proposal artifact, not apply it."
+      }
+    },
+    "non_success_conditions": {
+      "global_or_final_taxonomy_claimed": true,
+      "hidden_continuation_after_stop": true,
+      "local_regime_mutated_at_runtime": true,
+      "proposal_promoted_without_review": true,
+      "registry_written": true,
+      "runner_executes_proposal": true
+    },
+    "probe_mode": "DISCOVERY_NOT_ACCEPTANCE",
+    "success_criteria": {
+      "absence_of_proposal_surface_is_recorded_not_treated_as_runtime_failure": true,
+      "duplicate_unresolved_pressure_is_blocked_or_counted": true,
+      "if_surface_absent_emit_reviewable_delta_proposal_artifact_only": true,
+      "no_proposal_is_executed": true,
+      "no_proposal_is_promoted": true,
+      "probe_completes_without_runtime_mutation": true
+    }
+  },
+  "review_summary": {
+    "covered_halt_count": 6,
+    "halt_surface_coverage_complete": true,
+    "halt_surface_covered": true,
+    "happy_path_covered": true,
+    "observed_proposal_status_so_far": "NONE_ONLY",
+    "proposition_surface_not_yet_exercised": true,
+    "reason_for_next_probe": "v0.1 has happy-path and halt-code coverage, but proposal emission, proposal non-execution, duplicate unresolved proposal guard, and proposal-absence delta behavior are not yet probed."
+  },
+  "runner_unit_id": "jurisdiction_runner.v0.1",
+  "safety_clauses": {
+    "does_not_claim_global_correctness": true,
+    "does_not_claim_proposition_surface_exists": true,
+    "does_not_claim_theorem_closure": true,
+    "does_not_create_probe_fixtures": true,
+    "does_not_execute_or_apply_any_proposal": true,
+    "does_not_execute_runner": true,
+    "does_not_modify_runner": true,
+    "does_not_mutate_local_regime": true,
+    "does_not_promote_any_proposal": true,
+    "does_not_write_registry": true,
+    "next_unit_required_for_probe_execution": true,
+    "policy_only": true
+  },
+  "source_halt_surface_probe_run_receipt_id": "5030948f",
+  "terminal": {
+    "next_command_goal": "RUN_JURISDICTION_RUNNER_V0_1_PROPOSITION_SURFACE_PROBE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

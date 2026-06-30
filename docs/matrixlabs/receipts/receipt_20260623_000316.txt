@@ -1,0 +1,57 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260623_000316
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260623_000316.txt
+
+FIX_FIELD_INTRODUCTION_BUILD_SOURCE_MUTATION_RECEIPT_VALIDATOR_V0
+
+STATUS_BEFORE
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/build_source_provenance_field_introduction_for_r1000_taxonomy_gap_values_v0.py
+
+VERIFY_FAILED_BUILD_AND_SCRIPT_EXIST
+tracked data/field_introduction_proposal_typing_refinement_v0_receipts/5b841942.json
+tracked data/field_introduction_proposal_typing_refinement_v0/decision_ready_field_introduction_proposal_v0.json
+tracked data/field_introduction_proposal_typing_refinement_v0/field_introduction_authorization_packet.json
+tracked data/null_evidence_field_introduction_boundary_refinement_v0_receipts/9ea8fc6e.json
+tracked data/repaired_surface_null_evidence_limit_classification_v0_receipts/9e2c2881.json
+tracked data/repaired_surface_rerun_comparison_gate_fix_v0_receipts/b554aace.json
+tracked data/rerun_taxonomy_gap_missing_label_evidence_on_repaired_surface_v0_receipts/b113463f.json
+tracked data/rerun_taxonomy_gap_missing_label_evidence_on_repaired_surface_v0/repaired_surface_taxonomy_gap_missing_label_field_rows.jsonl
+tracked data/repair_r1000_pressure_event_taxonomy_gap_field_surface_structural_refs_fix_v0_receipts/d6d40d57.json
+
+CONFIRM_EXPECTED_VALIDATOR_GAP
+{
+  "expected_gap_case": "source_mutation_count_not_validated",
+  "failures_before_patch": []
+}
+
+PATCH_BUILD_RECEIPT_VALIDATOR
+patched validator: aggregate_metrics.source_mutation_count is now enforced
+
+PY_COMPILE_PATCHED_BUILDER
+
+CONFIRM_VALIDATOR_PATCH
+{
+  "failures_after_patch": [],
+  "patched_case": "source_mutation_count_validated"
+}
+Traceback (most recent call last):
+  File "<stdin>", line 23, in <module>
+AssertionError: []
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

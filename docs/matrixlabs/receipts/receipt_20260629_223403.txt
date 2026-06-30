@@ -1,0 +1,89 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260629_223403
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260629_223403.txt
+
+REVIEW_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0
+
+VERIFY_SOURCE_STATUS_GAP_RESPONSE_PACKET_ARTIFACTS_PRESENT
+present data/c8_unit_feedback_hardening_source_status_gap_response_packet_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_source_status_gap_response_packet_receipt_f2a5ee2a.json
+present data/c8_unit_feedback_hardening_source_status_gap_response_packet_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_source_status_gap_response_packet_v0.json
+present data/c8_unit_feedback_hardening_source_status_gap_response_packet_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_source_status_gap_response_options_v0.json
+present data/c8_unit_feedback_hardening_source_status_gap_response_packet_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_source_status_gap_response_boundary_audit_v0.json
+present data/c8_unit_feedback_hardening_source_status_gap_response_packet_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_source_status_gap_response_readout_v0.json
+present data/c8_unit_feedback_hardening_source_status_gap_response_packet_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_source_status_gap_response_report.json
+present scripts/create_c8_unit_feedback_hardening_source_status_gap_response_packet_after_runtime_adoption_closure_v0.py
+
+PY_COMPILE_SOURCE_STATUS_GAP_RESPONSE_PACKET_RUNNER
+
+VERIFY_SOURCE_STATUS_GAP_RESPONSE_PACKET_RECEIPT
+{
+  "bounded_source_status_field_decision_packet_created_now": false,
+  "failed_unit_sample_id": "c8_failed_unit_sample_ee4e6092",
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "gate_results_false_count": 0,
+  "if_accepted_authorizes_future_unit": "CREATE_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+  "local_gap_object": "SOURCE_ARTIFACT_TOP_LEVEL_STATUS_ABSENCE",
+  "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_READY_FOR_REVIEW",
+  "receipt_id": "c8_unit_feedback_hardening_source_status_gap_response_packet_receipt_f2a5ee2a",
+  "recommended_human_decision": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_FOR_BOUNDED_STATUS_FIELD_DECISION",
+  "review_gate": "PASS",
+  "source_artifact_mutated_now": false,
+  "source_status_gap_response_class": "SOURCE_STATUS_GAP_RESPONSE_PRESERVE_MISSING_STATUS_MARKER_AND_PREPARE_BOUNDED_STATUS_FIELD_DECISION",
+  "source_status_gap_response_packet_created_now": true,
+  "source_status_invented_now": false,
+  "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_PASS",
+  "status_field_added_now": false,
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_READY_FOR_REVIEW",
+    "type": "STOP"
+  }
+}
+
+VERIFY_SOURCE_STATUS_GAP_RESPONSE_PACKET_CONTENT
+{
+  "additional_sample_discovery_now": false,
+  "boundary_id": "c8_unit_feedback_hardening_source_status_gap_response_boundary_ba38ede6",
+  "bounded_source_status_field_decision_packet_created_now": false,
+  "c8_rerun_authorized_now": false,
+  "content_review_gate": "PASS",
+  "failed_unit_sample_id": "c8_failed_unit_sample_ee4e6092",
+  "failures": [],
+  "if_accepted_authorizes_future_unit": "CREATE_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+  "instrument_build_authorized_now": false,
+  "local_gap_object": "SOURCE_ARTIFACT_TOP_LEVEL_STATUS_ABSENCE",
+  "options_id": "c8_unit_feedback_hardening_source_status_gap_response_options_be3d12d9",
+  "packet_id": "c8_unit_feedback_hardening_source_status_gap_response_packet_187fdf77",
+  "probe_executed_now": false,
+  "probe_execution_authorized_now": false,
+  "recommended_human_decision": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_FOR_BOUNDED_STATUS_FIELD_DECISION",
+  "reusable_schema_authorized_now": false,
+  "source_artifact_mutated_now": false,
+  "source_status_gap_response_class": "SOURCE_STATUS_GAP_RESPONSE_PRESERVE_MISSING_STATUS_MARKER_AND_PREPARE_BOUNDED_STATUS_FIELD_DECISION",
+  "source_status_gap_response_packet_created_now": true,
+  "source_status_invented_now": false,
+  "status_field_added_now": false
+}
+
+VERIFY_STAGED_SCOPE_SOURCE_STATUS_GAP_RESPONSE_PACKET_ONLY
+staged_path_count=8
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+source_status_gap_response_packet_receipts_staged=['data/c8_unit_feedback_hardening_source_status_gap_response_packet_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_source_status_gap_response_packet_receipt_f2a5ee2a.json']
+
+REVIEW_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...urce_status_gap_response_boundary_audit_v0.json |  53 ++
+ ...ning_source_status_gap_response_options_v0.json |  13 +
+ ...ening_source_status_gap_response_packet_v0.json |  63 +++
+ ...ning_source_status_gap_response_readout_v0.json |  25 +
+ ...ardening_source_status_gap_response_report.json |  37 ++
+ ...tatus_gap_response_packet_receipt_f2a5ee2a.json | 142 ++++++
+ ...nse_packet_after_runtime_adoption_closure_v0.py | 568 +++++++++++++++++++++
+ 8 files changed, 907 insertions(+)
+
+REVIEW_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_PASS
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

@@ -1,0 +1,1120 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_111937
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_111937.txt
+
+ADD_R100_RADIUS_SCALE_OBSERVATION_WITH_BURDEN_EVAL_V0
+
+STATUS_BEFORE
+
+BACKUP
+CLI_SIG=3fe2cab908a5
+BACKUP=/tmp/matrixlab_cli_before_r100_radius_scale_observation_3fe2cab908a5.py
+
+PATCH_GITIGNORE
+
+PATCH_CLI_R100_RADIUS_SCALE_OBSERVATION_WITH_BURDEN_EVAL
+
+PY_COMPILE
+
+HELP_SMOKE
+help smoke ok
+
+BUILD_R100_RADIUS_SCALE_OBSERVATION_POSITIVE
+{
+  "failures": [],
+  "gate": "PASS",
+  "observation": {
+    "burden_guard_eval": {
+      "guard_was_enabled": true,
+      "r50_to_r100_burden_class": "BURDEN_SUPERLINEAR_REQUIRES_GUARD",
+      "r50_to_r100_radius_ratio": 2.0,
+      "r50_to_r100_raw_ratio": 2.0,
+      "r50_to_r100_receipt_ratio": 4.10118,
+      "r75_guard_reason": "R75 receipt burden grew faster than radius while shape vocabulary stayed stable.",
+      "r75_to_r100_burden_class": "BURDEN_SUPERLINEAR_WATCH",
+      "r75_to_r100_radius_ratio": 1.333333,
+      "r75_to_r100_raw_ratio": 1.33432,
+      "r75_to_r100_receipt_ratio": 1.792189,
+      "source_decision_id": "0bbd1bbd"
+    },
+    "first_order_classes": {
+      "identity_class": "REPEATED_FAMILY_CONSISTENT",
+      "measurement_class": "MEASUREMENT_CLEAN",
+      "r50_to_r100_burden_class": "BURDEN_SUPERLINEAR_REQUIRES_GUARD",
+      "r50_to_r100_curve_class": "SAME_SHAPES_COUNT_SHIFT",
+      "r50_to_r75_burden_class": "BURDEN_SUPERLINEAR_WATCH",
+      "r50_to_r75_curve_class": "SAME_SHAPES_COUNT_SHIFT",
+      "r75_to_r100_burden_class": "BURDEN_SUPERLINEAR_WATCH",
+      "r75_to_r100_curve_class": "SAME_SHAPES_COUNT_SHIFT",
+      "resource_class": "NO_RESOURCE_BOUNDARY",
+      "semantic_pressure_class": "NO_SEMANTIC_PRESSURE"
+    },
+    "forbidden": {
+      "compression": true,
+      "gate_semantics_change": true,
+      "ontology_expansion": true,
+      "receipt_skipping": true,
+      "representative_subset": true,
+      "run_semantics_change": true,
+      "theorem_layer": true
+    },
+    "r100": {
+      "aggregate_coarse_profiles_total": 9,
+      "aggregate_raw_total_by_slot_sum": 902,
+      "confidence_scope": "RADIUS_100_SLOT_SEPARATED_PROBE_ONLY",
+      "gate": "PASS",
+      "id": "5a442f0c",
+      "measurement_cleanliness": {
+        "boundary_slots": [],
+        "dirty_slots": [],
+        "eval_gate_fail_slots": [],
+        "receipt_mismatch_slots": [],
+        "repeated_family_inconsistencies": {}
+      },
+      "radius": 100,
+      "receipt_rows_sum": 87552,
+      "repeated_family_consistency": {
+        "one_sided_suspension": {
+          "coarse_consistent": true,
+          "coarse_counts": [
+            1
+          ],
+          "raw_consistent": true,
+          "raw_counts": [
+            1
+          ],
+          "registered_consistent": true,
+          "registered_counts": [
+            1
+          ],
+          "slot_count": 1
+        },
+        "projection_quotient": {
+          "coarse_consistent": true,
+          "coarse_counts": [
+            3,
+            3
+          ],
+          "raw_consistent": true,
+          "raw_counts": [
+            100,
+            100
+          ],
+          "registered_consistent": true,
+          "registered_counts": [
+            52,
+            52
+          ],
+          "slot_count": 2
+        },
+        "relabel_symmetry_stress": {
+          "coarse_consistent": true,
+          "coarse_counts": [
+            2,
+            2,
+            2
+          ],
+          "raw_consistent": true,
+          "raw_counts": [
+            100,
+            100,
+            100
+          ],
+          "registered_consistent": true,
+          "registered_counts": [
+            9,
+            9,
+            9
+          ],
+          "slot_count": 3
+        },
+        "suspension_plus_repair": {
+          "coarse_consistent": true,
+          "coarse_counts": [
+            2
+          ],
+          "raw_consistent": true,
+          "raw_counts": [
+            7
+          ],
+          "registered_consistent": true,
+          "registered_counts": [
+            7
+          ],
+          "slot_count": 1
+        },
+        "two_sided_suspension": {
+          "coarse_consistent": true,
+          "coarse_counts": [
+            1,
+            1
+          ],
+          "raw_consistent": true,
+          "raw_counts": [
+            197,
+            197
+          ],
+          "registered_consistent": true,
+          "registered_counts": [
+            100,
+            100
+          ],
+          "slot_count": 2
+        }
+      },
+      "semantic_pressure": {
+        "requires_new_classifier_semantics": false,
+        "requires_new_evaluator_semantics": false,
+        "requires_new_halt_vocabulary": false,
+        "requires_new_laws": false,
+        "requires_new_move_types": false
+      },
+      "semantic_pressure_detected": false,
+      "slot_count_expected": 9,
+      "slot_count_observed": 9,
+      "total_receipts_sum": 87552
+    },
+    "r50": {
+      "aggregate_coarse_profiles_total": 9,
+      "aggregate_raw_total_by_slot_sum": 451,
+      "confidence_scope": "RADIUS_50_SLOT_SEPARATED_PROBE_ONLY",
+      "gate": "PASS",
+      "id": "566a342b",
+      "measurement_cleanliness": {
+        "boundary_slots": [],
+        "dirty_slots": [],
+        "eval_gate_fail_slots": [],
+        "receipt_mismatch_slots": [],
+        "repeated_family_inconsistencies": {}
+      },
+      "radius": 50,
+      "receipt_rows_sum": 21348,
+      "repeated_family_consistency": {
+        "one_sided_suspension": {
+          "coarse_consistent": true,
+          "coarse_counts": [
+            1
+          ],
+          "raw_consistent": true,
+          "raw_counts": [
+            1
+          ],
+          "registered_consistent": true,
+          "registered_counts": [
+            1
+          ],
+          "slot_count": 1
+        },
+        "projection_quotient": {
+          "coarse_consistent": true,
+          "coarse_counts": [
+            3,
+            3
+          ],
+          "raw_consistent": true,
+          "raw_counts": [
+            50,
+            50
+          ],
+          "registered_consistent": true,
+          "registered_counts": [
+            27,
+            27
+          ],
+          "slot_count": 2
+        },
+        "relabel_symmetry_stress": {
+          "coarse_consistent": true,
+          "coarse_counts": [
+            2,
+            2,
+            2
+          ],
+          "raw_consistent": true,
+          "raw_counts": [
+            50,
+            50,
+            50
+          ],
+          "registered_consistent": true,
+          "registered_counts": [
+            8,
+            8,
+            8
+          ],
+          "slot_count": 3
+        },
+        "suspension_plus_repair": {
+          "coarse_consistent": true,
+          "coarse_counts": [
+            2
+          ],
+          "raw_consistent": true,
+          "raw_counts": [
+            6
+          ],
+          "registered_consistent": true,
+          "registered_counts": [
+            5
+          ],
+          "slot_count": 1
+        },
+        "two_sided_suspension": {
+          "coarse_consistent": true,
+          "coarse_counts": [
+            1,
+            1
+          ],
+          "raw_consistent": true,
+          "raw_counts": [
+            97,
+            97
+          ],
+          "registered_consistent": true,
+          "registered_counts": [
+            50,
+            50
+          ],
+          "slot_count": 2
+        }
+      },
+      "semantic_pressure": {
+        "requires_new_classifier_semantics": false,
+        "requires_new_evaluator_semantics": false,
+        "requires_new_halt_vocabulary": false,
+        "requires_new_laws": false,
+        "requires_new_move_types": false
+      },
+      "semantic_pressure_detected": false,
+      "slot_count_expected": 9,
+      "slot_count_observed": 9,
+      "total_receipts_sum": 21348
+    },
+    "r75": {
+      "aggregate_coarse_profiles_total": 9,
+      "aggregate_raw_total_by_slot_sum": 676,
+      "confidence_scope": "RADIUS_75_SLOT_SEPARATED_PROBE_ONLY",
+      "gate": "PASS",
+      "id": "601a7983",
+      "measurement_cleanliness": {
+        "boundary_slots": [],
+        "dirty_slots": [],
+        "eval_gate_fail_slots": [],
+        "receipt_mismatch_slots": [],
+        "repeated_family_inconsistencies": {}
+      },
+      "radius": 75,
+      "receipt_rows_sum": 48852,
+      "repeated_family_consistency": {
+        "one_sided_suspension": {
+          "coarse_consistent": true,
+          "coarse_counts": [
+            1
+          ],
+          "raw_consistent": true,
+          "raw_counts": [
+            1
+          ],
+          "registered_consistent": true,
+          "registered_counts": [
+            1
+          ],
+          "slot_count": 1
+        },
+        "projection_quotient": {
+          "coarse_consistent": true,
+          "coarse_counts": [
+            3,
+            3
+          ],
+          "raw_consistent": true,
+          "raw_counts": [
+            75,
+            75
+          ],
+          "registered_consistent": true,
+          "registered_counts": [
+            39,
+            39
+          ],
+          "slot_count": 2
+        },
+        "relabel_symmetry_stress": {
+          "coarse_consistent": true,
+          "coarse_counts": [
+            2,
+            2,
+            2
+          ],
+          "raw_consistent": true,
+          "raw_counts": [
+            75,
+            75,
+            75
+          ],
+          "registered_consistent": true,
+          "registered_counts": [
+            8,
+            8,
+            8
+          ],
+          "slot_count": 3
+        },
+        "suspension_plus_repair": {
+          "coarse_consistent": true,
+          "coarse_counts": [
+            2
+          ],
+          "raw_consistent": true,
+          "raw_counts": [
+            6
+          ],
+          "registered_consistent": true,
+          "registered_counts": [
+            6
+          ],
+          "slot_count": 1
+        },
+        "two_sided_suspension": {
+          "coarse_consistent": true,
+          "coarse_counts": [
+            1,
+            1
+          ],
+          "raw_consistent": true,
+          "raw_counts": [
+            147,
+            147
+          ],
+          "registered_consistent": true,
+          "registered_counts": [
+            75,
+            75
+          ],
+          "slot_count": 2
+        }
+      },
+      "semantic_pressure": {
+        "requires_new_classifier_semantics": false,
+        "requires_new_evaluator_semantics": false,
+        "requires_new_halt_vocabulary": false,
+        "requires_new_laws": false,
+        "requires_new_move_types": false
+      },
+      "semantic_pressure_detected": false,
+      "slot_count_expected": 9,
+      "slot_count_observed": 9,
+      "total_receipts_sum": 48852
+    },
+    "radius_observations": {
+      "r100": {
+        "gate": "PASS",
+        "id": "5a442f0c",
+        "path": "data/domain_shift_slot_observations/5a442f0c.json",
+        "recomputed_sig": "5a442f0c",
+        "stored_sig": "5a442f0c"
+      },
+      "r50": {
+        "gate": "PASS",
+        "id": "566a342b",
+        "path": "data/domain_shift_slot_observations/566a342b.json",
+        "recomputed_sig": "566a342b",
+        "stored_sig": "566a342b"
+      },
+      "r75": {
+        "gate": "PASS",
+        "id": "601a7983",
+        "path": "data/domain_shift_slot_observations/601a7983.json",
+        "recomputed_sig": "601a7983",
+        "stored_sig": "601a7983"
+      }
+    },
+    "source_decision": {
+      "decision": "ADVANCE_TO_R100_WITH_BURDEN_WATCH",
+      "gate": "PASS",
+      "id": "0bbd1bbd",
+      "path": "data/radius_scale_decisions/0bbd1bbd.json",
+      "recomputed_sig": "0bbd1bbd",
+      "stored_sig": "0bbd1bbd"
+    },
+    "source_r75_radius_scale_observation": {
+      "gate": "PASS",
+      "id": "b9420863",
+      "path": "data/radius_scale_observations/b9420863.json",
+      "recomputed_sig": "b9420863",
+      "stored_sig": "b9420863",
+      "terminal_decision": "PROVISIONAL_R50_R75_ENVELOPE"
+    },
+    "terminal_decision": "STOP_R100_BURDEN_ENVELOPE_REQUIRES_DECISION",
+    "trajectory": {
+      "r50_to_r100": {
+        "aggregate_by_move_delta": {
+          "add_row_and_link_column": {
+            "delta": 14800,
+            "left": 4800,
+            "right": 19600
+          },
+          "append_zero_column": {
+            "delta": 9250,
+            "left": 3000,
+            "right": 12250
+          },
+          "deterministic_row_col_relabel": {
+            "delta": 21804,
+            "left": 6948,
+            "right": 28752
+          },
+          "duplicate_existing_column": {
+            "delta": 7400,
+            "left": 2400,
+            "right": 9800
+          },
+          "quotient_merge_last_row": {
+            "delta": 5550,
+            "left": 1800,
+            "right": 7350
+          },
+          "xor_repair_column": {
+            "delta": 7400,
+            "left": 2400,
+            "right": 9800
+          }
+        },
+        "aggregate_coarse_profiles_total": {
+          "delta": 0,
+          "per_radius_delta": -0.06,
+          "per_radius_r50": 0.18,
+          "per_radius_r75": 0.12,
+          "r50": 9,
+          "r75": 9,
+          "ratio_vs_r50": 1.0
+        },
+        "aggregate_raw_total_by_slot_sum": {
+          "delta": 451,
+          "per_radius_delta": 3.006667,
+          "per_radius_r50": 9.02,
+          "per_radius_r75": 12.026667,
+          "r50": 451,
+          "r75": 902,
+          "ratio_vs_r50": 2.0
+        },
+        "radius": {
+          "delta": 50,
+          "per_radius_delta": 0.333333,
+          "per_radius_r50": 1.0,
+          "per_radius_r75": 1.333333,
+          "r50": 50,
+          "r75": 100,
+          "ratio_vs_r50": 2.0
+        },
+        "receipt_rows_sum": {
+          "delta": 66204,
+          "per_radius_delta": 740.4,
+          "per_radius_r50": 426.96,
+          "per_radius_r75": 1167.36,
+          "r50": 21348,
+          "r75": 87552,
+          "ratio_vs_r50": 4.10118
+        },
+        "shape_delta": {
+          "added_shapes": [],
+          "common_shapes": [
+            "add_row_and_link_column|dr=1|dc=1|rank=1|supp=+|newcols=many",
+            "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=0",
+            "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=1",
+            "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=0",
+            "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=many",
+            "duplicate_existing_column|dr=0|dc=1|rank=0|supp=+|newcols=0",
+            "quotient_merge_last_row|dr=-1|dc=0|rank=-1|supp=-|newcols=many",
+            "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=0",
+            "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=1"
+          ],
+          "count_shifted_shapes": [
+            {
+              "delta": 14800,
+              "profile": "add_row_and_link_column|dr=1|dc=1|rank=1|supp=+|newcols=many",
+              "r50": 4800,
+              "r75": 19600
+            },
+            {
+              "delta": 9150,
+              "profile": "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=0",
+              "r50": 2904,
+              "r75": 12054
+            },
+            {
+              "delta": 100,
+              "profile": "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=1",
+              "r50": 96,
+              "r75": 196
+            },
+            {
+              "delta": 9,
+              "profile": "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=0",
+              "r50": 45,
+              "r75": 54
+            },
+            {
+              "delta": 21795,
+              "profile": "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=many",
+              "r50": 6903,
+              "r75": 28698
+            },
+            {
+              "delta": 7400,
+              "profile": "duplicate_existing_column|dr=0|dc=1|rank=0|supp=+|newcols=0",
+              "r50": 2400,
+              "r75": 9800
+            },
+            {
+              "delta": 5550,
+              "profile": "quotient_merge_last_row|dr=-1|dc=0|rank=-1|supp=-|newcols=many",
+              "r50": 1800,
+              "r75": 7350
+            },
+            {
+              "delta": 326,
+              "profile": "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=0",
+              "r50": 173,
+              "r75": 499
+            },
+            {
+              "delta": 7074,
+              "profile": "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=1",
+              "r50": 2227,
+              "r75": 9301
+            }
+          ],
+          "missing_shapes": [],
+          "shape_counts_same": false,
+          "shape_set_same": true
+        },
+        "total_receipts_sum": {
+          "delta": 66204,
+          "per_radius_delta": 740.4,
+          "per_radius_r50": 426.96,
+          "per_radius_r75": 1167.36,
+          "r50": 21348,
+          "r75": 87552,
+          "ratio_vs_r50": 4.10118
+        }
+      },
+      "r50_to_r75": {
+        "aggregate_by_move_delta": {
+          "add_row_and_link_column": {
+            "delta": 6150,
+            "left": 4800,
+            "right": 10950
+          },
+          "append_zero_column": {
+            "delta": 3880,
+            "left": 3000,
+            "right": 6880
+          },
+          "deterministic_row_col_relabel": {
+            "delta": 9054,
+            "left": 6948,
+            "right": 16002
+          },
+          "duplicate_existing_column": {
+            "delta": 3075,
+            "left": 2400,
+            "right": 5475
+          },
+          "quotient_merge_last_row": {
+            "delta": 2270,
+            "left": 1800,
+            "right": 4070
+          },
+          "xor_repair_column": {
+            "delta": 3075,
+            "left": 2400,
+            "right": 5475
+          }
+        },
+        "aggregate_coarse_profiles_total": {
+          "delta": 0,
+          "per_radius_delta": -0.06,
+          "per_radius_r50": 0.18,
+          "per_radius_r75": 0.12,
+          "r50": 9,
+          "r75": 9,
+          "ratio_vs_r50": 1.0
+        },
+        "aggregate_raw_total_by_slot_sum": {
+          "delta": 225,
+          "per_radius_delta": -0.006667,
+          "per_radius_r50": 9.02,
+          "per_radius_r75": 9.013333,
+          "r50": 451,
+          "r75": 676,
+          "ratio_vs_r50": 1.498891
+        },
+        "radius": {
+          "delta": 25,
+          "per_radius_delta": 0.0,
+          "per_radius_r50": 1.0,
+          "per_radius_r75": 1.0,
+          "r50": 50,
+          "r75": 75,
+          "ratio_vs_r50": 1.5
+        },
+        "receipt_rows_sum": {
+          "delta": 27504,
+          "per_radius_delta": 224.4,
+          "per_radius_r50": 426.96,
+          "per_radius_r75": 651.36,
+          "r50": 21348,
+          "r75": 48852,
+          "ratio_vs_r50": 2.288364
+        },
+        "shape_delta": {
+          "added_shapes": [],
+          "common_shapes": [
+            "add_row_and_link_column|dr=1|dc=1|rank=1|supp=+|newcols=many",
+            "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=0",
+            "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=1",
+            "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=0",
+            "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=many",
+            "duplicate_existing_column|dr=0|dc=1|rank=0|supp=+|newcols=0",
+            "quotient_merge_last_row|dr=-1|dc=0|rank=-1|supp=-|newcols=many",
+            "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=0",
+            "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=1"
+          ],
+          "count_shifted_shapes": [
+            {
+              "delta": 6150,
+              "profile": "add_row_and_link_column|dr=1|dc=1|rank=1|supp=+|newcols=many",
+              "r50": 4800,
+              "r75": 10950
+            },
+            {
+              "delta": 3830,
+              "profile": "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=0",
+              "r50": 2904,
+              "r75": 6734
+            },
+            {
+              "delta": 50,
+              "profile": "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=1",
+              "r50": 96,
+              "r75": 146
+            },
+            {
+              "delta": 6,
+              "profile": "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=0",
+              "r50": 45,
+              "r75": 51
+            },
+            {
+              "delta": 9048,
+              "profile": "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=many",
+              "r50": 6903,
+              "r75": 15951
+            },
+            {
+              "delta": 3075,
+              "profile": "duplicate_existing_column|dr=0|dc=1|rank=0|supp=+|newcols=0",
+              "r50": 2400,
+              "r75": 5475
+            },
+            {
+              "delta": 2270,
+              "profile": "quotient_merge_last_row|dr=-1|dc=0|rank=-1|supp=-|newcols=many",
+              "r50": 1800,
+              "r75": 4070
+            },
+            {
+              "delta": 151,
+              "profile": "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=0",
+              "r50": 173,
+              "r75": 324
+            },
+            {
+              "delta": 2924,
+              "profile": "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=1",
+              "r50": 2227,
+              "r75": 5151
+            }
+          ],
+          "missing_shapes": [],
+          "shape_counts_same": false,
+          "shape_set_same": true
+        },
+        "total_receipts_sum": {
+          "delta": 27504,
+          "per_radius_delta": 224.4,
+          "per_radius_r50": 426.96,
+          "per_radius_r75": 651.36,
+          "r50": 21348,
+          "r75": 48852,
+          "ratio_vs_r50": 2.288364
+        }
+      },
+      "r75_to_r100": {
+        "aggregate_by_move_delta": {
+          "add_row_and_link_column": {
+            "delta": 8650,
+            "left": 10950,
+            "right": 19600
+          },
+          "append_zero_column": {
+            "delta": 5370,
+            "left": 6880,
+            "right": 12250
+          },
+          "deterministic_row_col_relabel": {
+            "delta": 12750,
+            "left": 16002,
+            "right": 28752
+          },
+          "duplicate_existing_column": {
+            "delta": 4325,
+            "left": 5475,
+            "right": 9800
+          },
+          "quotient_merge_last_row": {
+            "delta": 3280,
+            "left": 4070,
+            "right": 7350
+          },
+          "xor_repair_column": {
+            "delta": 4325,
+            "left": 5475,
+            "right": 9800
+          }
+        },
+        "aggregate_coarse_profiles_total": {
+          "delta": 0,
+          "per_radius_delta": -0.06,
+          "per_radius_r50": 0.18,
+          "per_radius_r75": 0.12,
+          "r50": 9,
+          "r75": 9,
+          "ratio_vs_r50": 1.0
+        },
+        "aggregate_raw_total_by_slot_sum": {
+          "delta": 226,
+          "per_radius_delta": -1.493333,
+          "per_radius_r50": 13.52,
+          "per_radius_r75": 12.026667,
+          "r50": 676,
+          "r75": 902,
+          "ratio_vs_r50": 1.33432
+        },
+        "radius": {
+          "delta": 25,
+          "per_radius_delta": -0.166667,
+          "per_radius_r50": 1.5,
+          "per_radius_r75": 1.333333,
+          "r50": 75,
+          "r75": 100,
+          "ratio_vs_r50": 1.333333
+        },
+        "receipt_rows_sum": {
+          "delta": 38700,
+          "per_radius_delta": 190.32,
+          "per_radius_r50": 977.04,
+          "per_radius_r75": 1167.36,
+          "r50": 48852,
+          "r75": 87552,
+          "ratio_vs_r50": 1.792189
+        },
+        "shape_delta": {
+          "added_shapes": [],
+          "common_shapes": [
+            "add_row_and_link_column|dr=1|dc=1|rank=1|supp=+|newcols=many",
+            "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=0",
+            "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=1",
+            "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=0",
+            "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=many",
+            "duplicate_existing_column|dr=0|dc=1|rank=0|supp=+|newcols=0",
+            "quotient_merge_last_row|dr=-1|dc=0|rank=-1|supp=-|newcols=many",
+            "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=0",
+            "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=1"
+          ],
+          "count_shifted_shapes": [
+            {
+              "delta": 8650,
+              "profile": "add_row_and_link_column|dr=1|dc=1|rank=1|supp=+|newcols=many",
+              "r50": 10950,
+              "r75": 19600
+            },
+            {
+              "delta": 5320,
+              "profile": "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=0",
+              "r50": 6734,
+              "r75": 12054
+            },
+            {
+              "delta": 50,
+              "profile": "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=1",
+              "r50": 146,
+              "r75": 196
+            },
+            {
+              "delta": 3,
+              "profile": "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=0",
+              "r50": 51,
+              "r75": 54
+            },
+            {
+              "delta": 12747,
+              "profile": "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=many",
+              "r50": 15951,
+              "r75": 28698
+            },
+            {
+              "delta": 4325,
+              "profile": "duplicate_existing_column|dr=0|dc=1|rank=0|supp=+|newcols=0",
+              "r50": 5475,
+              "r75": 9800
+            },
+            {
+              "delta": 3280,
+              "profile": "quotient_merge_last_row|dr=-1|dc=0|rank=-1|supp=-|newcols=many",
+              "r50": 4070,
+              "r75": 7350
+            },
+            {
+              "delta": 175,
+              "profile": "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=0",
+              "r50": 324,
+              "r75": 499
+            },
+            {
+              "delta": 4150,
+              "profile": "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=1",
+              "r50": 5151,
+              "r75": 9301
+            }
+          ],
+          "missing_shapes": [],
+          "shape_counts_same": false,
+          "shape_set_same": true
+        },
+        "total_receipts_sum": {
+          "delta": 38700,
+          "per_radius_delta": 190.32,
+          "per_radius_r50": 977.04,
+          "per_radius_r75": 1167.36,
+          "r50": 48852,
+          "r75": 87552,
+          "ratio_vs_r50": 1.792189
+        }
+      }
+    }
+  },
+  "r100_radius_scale_observation_id": "a5c79278",
+  "r100_radius_scale_observation_schema_version": "r100_radius_scale_observation_v0",
+  "r100_radius_scale_observation_sig8": "a5c79278",
+  "radius_100_observation_id": "5a442f0c",
+  "radius_50_observation_id": "566a342b",
+  "radius_75_observation_id": "601a7983",
+  "source_r75_radius_scale_observation_id": "b9420863",
+  "source_r75_scale_decision_id": "0bbd1bbd",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_R100_BURDEN_ENVELOPE_REQUIRES_DECISION",
+    "type": "STOP"
+  },
+  "terminal_decision": "STOP_R100_BURDEN_ENVELOPE_REQUIRES_DECISION",
+  "warnings": []
+}
+r100_radius_scale_observation_path: data/r100_radius_scale_observations/a5c79278.json
+R100_RSO_ID=a5c79278
+
+VERIFY_R100_RADIUS_SCALE_OBSERVATION_POSITIVE
+{
+  "failures": [],
+  "gate": "PASS",
+  "input_r100_radius_scale_observation": "a5c79278",
+  "r100_radius_scale_observation_id": "a5c79278",
+  "r100_radius_scale_observation_path": "data/r100_radius_scale_observations/a5c79278.json",
+  "r100_radius_scale_observation_recomputed_sig8": "a5c79278",
+  "r100_radius_scale_observation_sig8": "a5c79278",
+  "r100_radius_scale_observation_verification_id": "c71901d5",
+  "r100_radius_scale_observation_verification_schema_version": "r100_radius_scale_observation_verification_v0",
+  "r100_radius_scale_observation_verification_sig8": "c71901d5",
+  "radius_100_observation_id": "5a442f0c",
+  "radius_50_observation_id": "566a342b",
+  "radius_75_observation_id": "601a7983",
+  "source_r75_radius_scale_observation_id": "b9420863",
+  "source_r75_scale_decision_id": "0bbd1bbd",
+  "terminal": {
+    "next_command_goal": "DECIDE_R100_SCALE_OUTCOME_OR_NEXT_RADIUS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_decision": "STOP_R100_BURDEN_ENVELOPE_REQUIRES_DECISION",
+  "verification_result": {
+    "failures": [],
+    "gate": "PASS",
+    "warnings": []
+  },
+  "warnings": []
+}
+r100_radius_scale_observation_verification_path: data/r100_radius_scale_observation_verifications/c71901d5.json
+
+ASSERT_R100_RADIUS_SCALE_OBSERVATION_POSITIVE
+{
+  "gate": "PASS",
+  "r100_coarse": 9,
+  "r100_radius_scale_observation_id": "a5c79278",
+  "r100_raw": 902,
+  "r100_receipts": 87552,
+  "r50_coarse": 9,
+  "r50_raw": 451,
+  "r50_receipts": 21348,
+  "r50_to_r100_burden_class": "BURDEN_SUPERLINEAR_REQUIRES_GUARD",
+  "r75_coarse": 9,
+  "r75_raw": 676,
+  "r75_receipts": 48852,
+  "r75_to_r100_burden_class": "BURDEN_SUPERLINEAR_WATCH",
+  "r75_to_r100_curve_class": "SAME_SHAPES_COUNT_SHIFT",
+  "r75_to_r100_radius_ratio": 1.333333,
+  "r75_to_r100_raw_ratio": 1.33432,
+  "r75_to_r100_receipt_ratio": 1.792189,
+  "radius_100_observation_id": "5a442f0c",
+  "radius_50_observation_id": "566a342b",
+  "radius_75_observation_id": "601a7983",
+  "recomputed_sig": "a5c79278",
+  "sig_matches": true,
+  "source_r75_radius_scale_observation_id": "b9420863",
+  "source_r75_scale_decision_id": "0bbd1bbd",
+  "stored_sig": "a5c79278",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_R100_BURDEN_ENVELOPE_REQUIRES_DECISION",
+    "type": "STOP"
+  },
+  "terminal_decision": "STOP_R100_BURDEN_ENVELOPE_REQUIRES_DECISION"
+}
+
+NEGATIVE_CONTROL_MISSING_R100_OBSERVATION
+{
+  "failures": [
+    "r100_radius_scale_observation_build_failed:could not resolve 'definitely_missing_r100_observation' under data/domain_shift_slot_observations"
+  ],
+  "gate": "FAIL",
+  "observation": {},
+  "r100_radius_scale_observation_id": "aa8fe641",
+  "r100_radius_scale_observation_schema_version": "r100_radius_scale_observation_v0",
+  "r100_radius_scale_observation_sig8": "aa8fe641",
+  "radius_100_observation_id": "definitely_missing_r100_observation",
+  "radius_50_observation_id": null,
+  "radius_75_observation_id": null,
+  "source_r75_radius_scale_observation_id": "b9420863",
+  "source_r75_scale_decision_id": "0bbd1bbd",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_R100_RADIUS_SCALE_OBSERVATION_BUILD_FAIL",
+    "type": "STOP"
+  },
+  "terminal_decision": "STOP_R100_RADIUS_SCALE_OBSERVATION_BUILD_FAIL",
+  "warnings": []
+}
+r100_radius_scale_observation_path: data/r100_radius_scale_observations/aa8fe641.json
+
+ASSERT_NEGATIVE_MISSING_R100
+{
+  "failures": [
+    "r100_radius_scale_observation_build_failed:could not resolve 'definitely_missing_r100_observation' under data/domain_shift_slot_observations"
+  ],
+  "gate": "FAIL",
+  "path": "data/r100_radius_scale_observations/aa8fe641.json",
+  "r100_radius_scale_observation_id": "aa8fe641",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_R100_RADIUS_SCALE_OBSERVATION_BUILD_FAIL",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROL_MISSING_R100_RSO_VERIFY
+{
+  "failures": [
+    "r100_radius_scale_observation_unresolved:definitely_missing_r100_rso:could not resolve 'definitely_missing_r100_rso' under data/r100_radius_scale_observations"
+  ],
+  "gate": "FAIL",
+  "input_r100_radius_scale_observation": "definitely_missing_r100_rso",
+  "r100_radius_scale_observation_id": "definitely_missing_r100_rso",
+  "r100_radius_scale_observation_path": null,
+  "r100_radius_scale_observation_recomputed_sig8": null,
+  "r100_radius_scale_observation_sig8": null,
+  "r100_radius_scale_observation_verification_id": "4e95cbc8",
+  "r100_radius_scale_observation_verification_schema_version": "r100_radius_scale_observation_verification_v0",
+  "r100_radius_scale_observation_verification_sig8": "4e95cbc8",
+  "radius_100_observation_id": null,
+  "radius_50_observation_id": null,
+  "radius_75_observation_id": null,
+  "source_r75_radius_scale_observation_id": null,
+  "source_r75_scale_decision_id": null,
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_GATE_FAIL",
+    "type": "STOP"
+  },
+  "terminal_decision": null,
+  "verification_result": {
+    "failures": [
+      "r100_radius_scale_observation_unresolved:definitely_missing_r100_rso:could not resolve 'definitely_missing_r100_rso' under data/r100_radius_scale_observations"
+    ],
+    "gate": "FAIL",
+    "warnings": []
+  },
+  "warnings": []
+}
+r100_radius_scale_observation_verification_path: data/r100_radius_scale_observation_verifications/4e95cbc8.json
+
+ASSERT_NEGATIVE_VERIFY
+{
+  "failures": [
+    "r100_radius_scale_observation_unresolved:definitely_missing_r100_rso:could not resolve 'definitely_missing_r100_rso' under data/r100_radius_scale_observations"
+  ],
+  "gate": "FAIL",
+  "path": "data/r100_radius_scale_observation_verifications/4e95cbc8.json",
+  "r100_radius_scale_observation_verification_id": "4e95cbc8",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_GATE_FAIL",
+    "type": "STOP"
+  }
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_053951_296201
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    98 │
+│ total_receipts │  9800 │
+│ receipt_rows   │  9800 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    98 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore           |   6 +
+ src/matrixlab/cli.py | 570 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 576 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+ M src/matrixlab/cli.py
+[master 88754bcb3] add r100 radius scale observation
+ 2 files changed, 576 insertions(+)
+
+COMMIT_DONE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

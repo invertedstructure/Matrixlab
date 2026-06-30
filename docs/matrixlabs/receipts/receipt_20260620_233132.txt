@@ -1,0 +1,661 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_233132
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_233132.txt
+
+IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1_PROBE
+
+STATUS_BEFORE
+?? data/
+
+WRITE_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1_PROBE
+
+PY_COMPILE
+
+RUN_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1_PROBE
+{
+  "authority_guards": {
+    "full_receipts_suppressed": false,
+    "observer_only": true,
+    "raw_receipt_hash_truth_surface_authorized": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_band_run_authorized": false,
+    "scale_mode_authorized": false,
+    "theorem_content_authorized": false
+  },
+  "burden_measurements": {
+    "actual_observer_overhead_ms": 68,
+    "audit_sidecar_bytes": 33968,
+    "burden_ratio_projected": 0.26337654604996075,
+    "burden_ratio_signature_payload": 0.05518417277869496,
+    "candidate_signature_count": 176,
+    "debug_sidecar_bytes": 112142,
+    "full_receipt_bytes": 295592,
+    "full_receipt_count": 176,
+    "minimal_required_row_bytes": 87884,
+    "projected_scale_row_bytes": 77852,
+    "signature_payload_bytes": 16312
+  },
+  "candidate_probe_id": "a097b68f",
+  "compression_version": "stable_delta_signature_v0.1_candidate",
+  "distinguishability_measurements": {
+    "collision_count": 10,
+    "distinct_candidate_signatures": 20,
+    "distinct_full_occurrence_keys": 176,
+    "distinguishability_retention_ratio": 0.11363636363636363,
+    "false_merge_count": 10,
+    "false_split_count": "N/A",
+    "occurrences_total": 176
+  },
+  "failures": [],
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "negative_claims": {
+    "does_not_authorize_receipt_compression": true,
+    "does_not_authorize_receipt_deletion": true,
+    "does_not_authorize_receipt_replacement": true,
+    "does_not_authorize_scale_mode": true,
+    "does_not_count_debug_sidecar_as_signature_payload": true,
+    "does_not_modify_runtime_receipt_emission": true,
+    "does_not_use_raw_receipt_hash_as_truth_surface": true,
+    "does_not_use_rowid_as_signature_identity": true
+  },
+  "pass_gates": {
+    "audit_recoverability": true,
+    "debug_payload_not_counted_as_signature": true,
+    "no_rowid_identity_leak": true,
+    "no_silent_collapse_local": false,
+    "observer_only_containment": true,
+    "raw_hash_truth_surface_forbidden": true,
+    "real_projected_burden_reduction": true,
+    "scale_bands_forbidden_until_no_silent_collapse": true,
+    "signature_payload_measured_separately": true,
+    "source_surface_honesty": true
+  },
+  "receipt_id": "08b4ac55",
+  "selected_run_ids": [
+    "run_20260620_214806_723967"
+  ],
+  "source_diagnostic_id": "21878f3c",
+  "source_policy_id": "c3dcd5d1",
+  "source_surface": {
+    "canonical_discriminator_sufficient": true,
+    "honesty_status": "SUFFICIENT_FOR_LOCAL_COLLISION_TEST",
+    "reason": "Canonical transition/discriminator surface has enough non-packaging variation for local collision testing.",
+    "stats": {
+      "burden_class": {
+        "distinct_present_values": 0,
+        "field": "burden_class",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "canonical_occurrence_id": {
+        "distinct_present_values": 0,
+        "field": "canonical_occurrence_id",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "case_id": {
+        "distinct_present_values": 10,
+        "field": "case_id",
+        "missing": 0,
+        "missing_rate": 0.0,
+        "present": 176
+      },
+      "halt_reason": {
+        "distinct_present_values": 2,
+        "field": "halt_reason",
+        "missing": 166,
+        "missing_rate": 0.943182,
+        "present": 10
+      },
+      "move_id": {
+        "distinct_present_values": 1,
+        "field": "move_id",
+        "missing": 0,
+        "missing_rate": 0.0,
+        "present": 176
+      },
+      "probe_id": {
+        "distinct_present_values": 0,
+        "field": "probe_id",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "raw_event_count": {
+        "distinct_present_values": 0,
+        "field": "raw_event_count",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "receipt_count": {
+        "distinct_present_values": 0,
+        "field": "receipt_count",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "shape_count": {
+        "distinct_present_values": 0,
+        "field": "shape_count",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "slot_id": {
+        "distinct_present_values": 0,
+        "field": "slot_id",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "state_hash_after": {
+        "distinct_present_values": 0,
+        "field": "state_hash_after",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "state_hash_before": {
+        "distinct_present_values": 0,
+        "field": "state_hash_before",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "status": {
+        "distinct_present_values": 0,
+        "field": "status",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      }
+    },
+    "sufficient_for_local_pass": true,
+    "transition_sufficient": false,
+    "weak_metric_discriminator_available": false
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "FAIL_FALSE_MERGE",
+    "type": "STOP"
+  },
+  "terminal_decision": "FAIL_FALSE_MERGE",
+  "truth_surface": {
+    "canonical_occurrence_key_version": "full_occurrence_key_v0_1",
+    "full_receipt_hash_compared_to_delta_signature": false,
+    "primary_comparison": "full_occurrence_key_to_candidate_delta_signature",
+    "raw_full_receipt_hash_used_as_truth_surface": false
+  },
+  "warnings": []
+}
+candidate_probe_id=a097b68f
+candidate_rows_path=data/stable_delta_signature_candidate_v0_1_rows/a097b68f.jsonl
+candidate_receipt_path=data/stable_delta_signature_candidate_v0_1_receipts/a097b68f.json
+CANDIDATE_PROBE_ID=a097b68f
+
+ASSERT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1_PROBE
+{
+  "authority_guards": {
+    "full_receipts_suppressed": false,
+    "observer_only": true,
+    "raw_receipt_hash_truth_surface_authorized": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_band_run_authorized": false,
+    "scale_mode_authorized": false,
+    "theorem_content_authorized": false
+  },
+  "burden_measurements": {
+    "actual_observer_overhead_ms": 68,
+    "audit_sidecar_bytes": 33968,
+    "burden_ratio_projected": 0.26337654604996075,
+    "burden_ratio_signature_payload": 0.05518417277869496,
+    "candidate_signature_count": 176,
+    "debug_sidecar_bytes": 112142,
+    "full_receipt_bytes": 295592,
+    "full_receipt_count": 176,
+    "minimal_required_row_bytes": 87884,
+    "projected_scale_row_bytes": 77852,
+    "signature_payload_bytes": 16312
+  },
+  "candidate_design_id": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1",
+  "candidate_probe_id": "a097b68f",
+  "compression_version": "stable_delta_signature_v0.1_candidate",
+  "distinguishability_measurements": {
+    "collision_count": 10,
+    "distinct_candidate_signatures": 20,
+    "distinct_full_occurrence_keys": 176,
+    "distinguishability_retention_ratio": 0.11363636363636363,
+    "false_merge_count": 10,
+    "false_split_count": "N/A",
+    "occurrences_total": 176
+  },
+  "failures": [],
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "negative_claims": {
+    "does_not_authorize_receipt_compression": true,
+    "does_not_authorize_receipt_deletion": true,
+    "does_not_authorize_receipt_replacement": true,
+    "does_not_authorize_scale_mode": true,
+    "does_not_count_debug_sidecar_as_signature_payload": true,
+    "does_not_modify_runtime_receipt_emission": true,
+    "does_not_use_raw_receipt_hash_as_truth_surface": true,
+    "does_not_use_rowid_as_signature_identity": true
+  },
+  "pass_gates": {
+    "audit_recoverability": true,
+    "debug_payload_not_counted_as_signature": true,
+    "no_rowid_identity_leak": true,
+    "no_silent_collapse_local": false,
+    "observer_only_containment": true,
+    "raw_hash_truth_surface_forbidden": true,
+    "real_projected_burden_reduction": true,
+    "scale_bands_forbidden_until_no_silent_collapse": true,
+    "signature_payload_measured_separately": true,
+    "source_surface_honesty": true
+  },
+  "receipt_id": "08b4ac55",
+  "rows_loaded": 176,
+  "selected_run_ids": [
+    "run_20260620_214806_723967"
+  ],
+  "source_diagnostic_id": "21878f3c",
+  "source_policy_id": "c3dcd5d1",
+  "source_surface": {
+    "canonical_discriminator_sufficient": true,
+    "honesty_status": "SUFFICIENT_FOR_LOCAL_COLLISION_TEST",
+    "reason": "Canonical transition/discriminator surface has enough non-packaging variation for local collision testing.",
+    "stats": {
+      "burden_class": {
+        "distinct_present_values": 0,
+        "field": "burden_class",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "canonical_occurrence_id": {
+        "distinct_present_values": 0,
+        "field": "canonical_occurrence_id",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "case_id": {
+        "distinct_present_values": 10,
+        "field": "case_id",
+        "missing": 0,
+        "missing_rate": 0.0,
+        "present": 176
+      },
+      "halt_reason": {
+        "distinct_present_values": 2,
+        "field": "halt_reason",
+        "missing": 166,
+        "missing_rate": 0.943182,
+        "present": 10
+      },
+      "move_id": {
+        "distinct_present_values": 1,
+        "field": "move_id",
+        "missing": 0,
+        "missing_rate": 0.0,
+        "present": 176
+      },
+      "probe_id": {
+        "distinct_present_values": 0,
+        "field": "probe_id",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "raw_event_count": {
+        "distinct_present_values": 0,
+        "field": "raw_event_count",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "receipt_count": {
+        "distinct_present_values": 0,
+        "field": "receipt_count",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "shape_count": {
+        "distinct_present_values": 0,
+        "field": "shape_count",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "slot_id": {
+        "distinct_present_values": 0,
+        "field": "slot_id",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "state_hash_after": {
+        "distinct_present_values": 0,
+        "field": "state_hash_after",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "state_hash_before": {
+        "distinct_present_values": 0,
+        "field": "state_hash_before",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "status": {
+        "distinct_present_values": 0,
+        "field": "status",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      }
+    },
+    "sufficient_for_local_pass": true,
+    "transition_sufficient": false,
+    "weak_metric_discriminator_available": false
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "FAIL_FALSE_MERGE",
+    "type": "STOP"
+  },
+  "terminal_decision": "FAIL_FALSE_MERGE",
+  "truth_surface": {
+    "canonical_occurrence_key_version": "full_occurrence_key_v0_1",
+    "full_receipt_hash_compared_to_delta_signature": false,
+    "primary_comparison": "full_occurrence_key_to_candidate_delta_signature",
+    "raw_full_receipt_hash_used_as_truth_surface": false
+  }
+}
+
+NEGATIVE_CONTROLS_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1_PROBE
+{
+  "case": "scale_mode_authority_fail",
+  "expected": "policy_illegal_authorization:authorizes_scale_mode",
+  "failures": [
+    "policy_illegal_authorization:authorizes_scale_mode:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "raw_hash_truth_authority_fail",
+  "expected": "policy_illegal_authorization:authorizes_raw_receipt_hash_truth_surface",
+  "failures": [
+    "policy_illegal_authorization:authorizes_raw_receipt_hash_truth_surface:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "touch_scope_fail",
+  "expected": "policy_touch_scope_wrong",
+  "failures": [
+    "policy_touch_scope_wrong:['scripts/stable_delta_signature_probe_v0.py']"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "tiny_payload_policy_fail",
+  "expected": "policy_tiny_payload_missing",
+  "failures": [
+    "policy_tiny_payload_missing"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "rowid_identity_leak_fail",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+{
+  "case": "raw_hash_signature_leak_fail",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+{
+  "case": "debug_payload_counted_as_signature_fail",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+{
+  "case": "scale_with_false_merge_fail",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+{
+  "case": "source_surface_missing_false_pass_fail",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+negative controls ok
+
+CANDIDATE_V0_1_HEAD_JSON
+{
+  "authority_guards": {
+    "full_receipts_suppressed": false,
+    "observer_only": true,
+    "raw_receipt_hash_truth_surface_authorized": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_band_run_authorized": false,
+    "scale_mode_authorized": false,
+    "theorem_content_authorized": false
+  },
+  "burden_measurements": {
+    "actual_observer_overhead_ms": 68,
+    "audit_sidecar_bytes": 33968,
+    "burden_ratio_projected": 0.26337654604996075,
+    "burden_ratio_signature_payload": 0.05518417277869496,
+    "candidate_signature_count": 176,
+    "debug_sidecar_bytes": 112142,
+    "full_receipt_bytes": 295592,
+    "full_receipt_count": 176,
+    "minimal_required_row_bytes": 87884,
+    "projected_scale_row_bytes": 77852,
+    "signature_payload_bytes": 16312
+  },
+  "candidate_design_id": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_1",
+  "candidate_probe_id": "a097b68f",
+  "compression_version": "stable_delta_signature_v0.1_candidate",
+  "distinguishability_measurements": {
+    "collision_count": 10,
+    "distinct_candidate_signatures": 20,
+    "distinct_full_occurrence_keys": 176,
+    "distinguishability_retention_ratio": 0.11363636363636363,
+    "false_merge_count": 10,
+    "false_split_count": "N/A",
+    "occurrences_total": 176
+  },
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "pass_gates": {
+    "audit_recoverability": true,
+    "debug_payload_not_counted_as_signature": true,
+    "no_rowid_identity_leak": true,
+    "no_silent_collapse_local": false,
+    "observer_only_containment": true,
+    "raw_hash_truth_surface_forbidden": true,
+    "real_projected_burden_reduction": true,
+    "scale_bands_forbidden_until_no_silent_collapse": true,
+    "signature_payload_measured_separately": true,
+    "source_surface_honesty": true
+  },
+  "receipt_id": "08b4ac55",
+  "selected_run_ids": [
+    "run_20260620_214806_723967"
+  ],
+  "source_diagnostic_id": "21878f3c",
+  "source_policy_id": "c3dcd5d1",
+  "source_surface": {
+    "canonical_discriminator_sufficient": true,
+    "honesty_status": "SUFFICIENT_FOR_LOCAL_COLLISION_TEST",
+    "reason": "Canonical transition/discriminator surface has enough non-packaging variation for local collision testing.",
+    "stats": {
+      "burden_class": {
+        "distinct_present_values": 0,
+        "field": "burden_class",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "canonical_occurrence_id": {
+        "distinct_present_values": 0,
+        "field": "canonical_occurrence_id",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "case_id": {
+        "distinct_present_values": 10,
+        "field": "case_id",
+        "missing": 0,
+        "missing_rate": 0.0,
+        "present": 176
+      },
+      "halt_reason": {
+        "distinct_present_values": 2,
+        "field": "halt_reason",
+        "missing": 166,
+        "missing_rate": 0.943182,
+        "present": 10
+      },
+      "move_id": {
+        "distinct_present_values": 1,
+        "field": "move_id",
+        "missing": 0,
+        "missing_rate": 0.0,
+        "present": 176
+      },
+      "probe_id": {
+        "distinct_present_values": 0,
+        "field": "probe_id",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "raw_event_count": {
+        "distinct_present_values": 0,
+        "field": "raw_event_count",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "receipt_count": {
+        "distinct_present_values": 0,
+        "field": "receipt_count",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "shape_count": {
+        "distinct_present_values": 0,
+        "field": "shape_count",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "slot_id": {
+        "distinct_present_values": 0,
+        "field": "slot_id",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "state_hash_after": {
+        "distinct_present_values": 0,
+        "field": "state_hash_after",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "state_hash_before": {
+        "distinct_present_values": 0,
+        "field": "state_hash_before",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      },
+      "status": {
+        "distinct_present_values": 0,
+        "field": "status",
+        "missing": 176,
+        "missing_rate": 1.0,
+        "present": 0
+      }
+    },
+    "sufficient_for_local_pass": true,
+    "transition_sufficient": false,
+    "weak_metric_discriminator_available": false
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "FAIL_FALSE_MERGE",
+    "type": "STOP"
+  },
+  "terminal_decision": "FAIL_FALSE_MERGE",
+  "truth_surface": {
+    "canonical_occurrence_key_version": "full_occurrence_key_v0_1",
+    "full_receipt_hash_compared_to_delta_signature": false,
+    "primary_comparison": "full_occurrence_key_to_candidate_delta_signature",
+    "raw_full_receipt_hash_used_as_truth_surface": false
+  }
+}
+
+VERIFY_TOUCH_SCOPE_ONLY_NEW_CANDIDATE_SCRIPT
+tracked touch scope ok
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+
+STATUS_AFTER
+?? data/
+?? scripts/stable_delta_signature_candidate_v0_1_probe.py
+[master b7dcde974] implement stable delta signature candidate v0.1 probe
+ 1 file changed, 926 insertions(+)
+ create mode 100755 scripts/stable_delta_signature_candidate_v0_1_probe.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

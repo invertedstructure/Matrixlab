@@ -1,0 +1,546 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_172800
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_172800.txt
+
+IMPLEMENT_RAW_DELTA_SIGNATURE_CANDIDATE_NEW_BOUNDED_VALIDATION_SURFACE_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_NEW_BOUNDED_VALIDATION_SURFACE_IMPLEMENTATION
+
+PY_COMPILE
+
+RUN_NEW_BOUNDED_VALIDATION_SURFACE
+{
+  "actual_observer_overhead_ms": 1261,
+  "authority_guards": {
+    "audit_pointer_in_payload": false,
+    "candidate_acceptance_authorized": false,
+    "candidate_accepted": false,
+    "case_id_or_cycle_n_primary_identity_patch_used": false,
+    "debug_payload_in_payload": false,
+    "full_occurrence_key_in_payload": false,
+    "full_registry_scan_used": false,
+    "microhash_as_proof_used": false,
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "receipt_suppression_authorized": false,
+    "registry_sqlite_changed": false,
+    "registry_sqlite_read": false,
+    "registry_write_authorized": false,
+    "rowid_or_receipt_hash_patch_used": false,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_mode_authorized": false,
+    "synthetic_fake_validation_rows_used": false
+  },
+  "bounds": {
+    "max_candidate_rows": 10000,
+    "max_cycles_per_case": 50,
+    "max_new_bands": 512,
+    "max_new_cases_total": 30,
+    "max_new_runs": 3,
+    "max_observer_runtime_seconds_soft": 600,
+    "max_output_files": 16
+  },
+  "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+  "candidate_payload_fields": [
+    "cv",
+    "state_hash_before",
+    "move_id",
+    "state_hash_after",
+    "raw_compression_ratio_sig6"
+  ],
+  "created_at": "2026-06-21T16:28:02.142334+00:00",
+  "decision": {
+    "candidate_acceptance_authorized": false,
+    "candidate_accepted": false,
+    "do_not_accept_candidate": true,
+    "do_not_change_runtime": true,
+    "do_not_change_runtime_code": true,
+    "do_not_full_registry_scan": true,
+    "do_not_read_registry_sqlite": true,
+    "do_not_use_case_id_or_cycle_n_as_primary_identity": true,
+    "do_not_use_rowid_or_receipt_hash": true,
+    "do_not_write_registry": true,
+    "new_surface_attempted": true,
+    "new_surface_created": false,
+    "new_surface_policy_only": false,
+    "runner_discovery_completed": true,
+    "safe_runner_recipe_found": false,
+    "scale_mode_authorized": false,
+    "terminal_class": "HOLD_NEW_BOUNDED_SURFACE_REQUIRES_RUNNER_DECISION"
+  },
+  "failures": [],
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "pass_gates": {
+    "authority_containment": true,
+    "bounded_limits_recorded": true,
+    "candidate_not_accepted": true,
+    "full_registry_not_scanned": true,
+    "hold_is_lawful_if_no_safe_recipe": true,
+    "payload_contract_preserved": true,
+    "policy_preconditions": true,
+    "registry_sqlite_not_read": true,
+    "runner_discovery_recorded": true,
+    "runtime_code_not_changed": true,
+    "runtime_receipt_emission_not_changed": true,
+    "scale_mode_not_authorized": true,
+    "surface_recipe_or_hold_recorded": true,
+    "synthetic_rows_not_created": true,
+    "truth_surface_preserved": true
+  },
+  "receipt_id": "f5a8f5b7",
+  "receipt_sig8": "f5a8f5b7",
+  "runner_discovery_summary": {
+    "files_discovered_total": 54,
+    "full_registry_scan_used": false,
+    "help_commands": [
+      {
+        "cmd": [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "--help"
+        ],
+        "elapsed_ms": 788,
+        "returncode": 0,
+        "stderr_head": "",
+        "stdout_head": "                                                                                \n Usage: cli.py [OPTIONS] COMMAND [ARGS]...                                      \n                                                                                \n MatrixLab receipt runner v0.2                                                  \n                                                                                \n\u256d\u2500 Options \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 --install-completion          Install completion for the current shell.      \u2502\n\u2502 --show-completion             Show completion for the current shell, to copy \u2502\n\u2502                               it or customize the installation.              \u2502\n\u2502 --help                        Show this message and exit.                    \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f\n\u256d\u2500 Commands \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 run                                                                          \u2502\n\u2502 stress                                      Deliberately push the runner     \u2502\n\u2502                                             until halt reasons appear.       \u2502\n\u2502 summarize                                   Show run summary from SQLite.    \u2502\n\u2502 inspect                                     Inspect receipts for one case.   \u2502\n\u2502 analyze                                     Analyze where and how the latest \u2502\n\u2502                                             run broke.                       \u2502\n\u2502 profiles                                    Show compact move-profile        \u2502\n\u2502                                             counts.                          \u2502\n\u2502 coarse-profiles                             Compare raw move-profile counts  \u2502\n\u2502                                             against coarse normalized        \u2502\n\u2502                                             profile counts.                  \u2502\n\u2502 laws                                        Summarize expected-law checks by \u2502\n\u2502                                             family and move.                 \u2502\n\u2502 recover-collision                           Recover a run_id collision by    \u2502\n\u2502                                             splitting receipt rows whose     \u2502\n\u2502                                             family is not in the stored run  \u2502\n\u2502                                             family set.                      \u2502\n\u2502 gate                                        Exit nonzero if a run violates   \u2502\n\u2502                                             law checks or is incomplete.     \u2502\n\u2502 agent-eval                                  Emit a machine-readable          \u2502\n\u2502                                             agent/eval report for one run,   \u2502\n\u2502                                             optionally compared to a         \u2502\n\u2502                                             previous run.                    \u2502\n\u2502 agent-select                                Select the next command from a   \u2502\n\u2502                                             fixed allowlist based on an      \u2502\n\u2502                                             explicit agent-eval JSON report. \u2502\n\u2502 agent-plan-check                            Validate a content-addressed     \u2502\n\u2502                                             agent-select receipt before any  \u2502\n\u2502                                             execution layer exists.          \u2502\n\u2502 agent-exec-dry-run                          Emit a dry-run executor receipt  \u2502\n\u2502                                             from a PASS agent-plan-check     \u2502\n\u2502                                             receipt. Does not execute        \u2502\n\u2502                                             subprocesses.                    \u2502\n\u2502 agent-post-check                            Verify that a manual execution   \u2502\n\u2502                                             result matches a prior PASS      \u2502\n\u2502                                             executor dry-run receipt.        \u2502\n\u2502 agent-loop-summary           ",
+        "timeout": false
+      }
+    ],
+    "registry_sqlite_read": false,
+    "runner_candidates_total": 16,
+    "runtime_code_changed": false,
+    "safe_recipe_candidates_total": 0
+  },
+  "schema_version": "raw_delta_signature_candidate_new_bounded_validation_surface_receipt_v0",
+  "selected_encoding_id": "raw_decimal_sig6",
+  "selected_target_raw_delta_field": "compression_ratio",
+  "source_bounded_scale_out_id": "2b44b1fd",
+  "source_bounded_scale_out_receipt_id": "f67b629b",
+  "source_hold_class": "HOLD_NO_ADDITIONAL_BOUNDED_INVENTORY",
+  "source_policy_id": "7050f196",
+  "source_policy_receipt_id": "2c061175",
+  "surface_id": "40e5f5b4",
+  "surface_name": "RAW_DELTA_SIGNATURE_CANDIDATE_NEW_BOUNDED_VALIDATION_SURFACE_V0",
+  "surface_path": "data/raw_delta_signature_candidate_new_bounded_validation_surfaces/40e5f5b4.json",
+  "surface_recipe_or_hold": {
+    "command_or_recipe": null,
+    "generic_runner_candidates_total": 16,
+    "reason": "Runner discovery found generic scripts/entrypoints, but no existing recipe explicitly declares candidate-compatible RAW_DELTA_SIGNATURE_CANDIDATE_V0 rows for a new bounded validation surface. Policy forbids synthetic rows and runtime code mutation, so this layer must hold for a runner/recipe decision.",
+    "recipe_status": "HOLD_NO_SAFE_EXISTING_RECIPE",
+    "safe_recipe_candidates_total": 0,
+    "safe_recipe_selected": null
+  },
+  "surface_rows_path": "data/raw_delta_signature_candidate_new_bounded_validation_surface_rows/40e5f5b4.jsonl",
+  "surface_rows_summary": {
+    "candidate_compatible_rows_created": 0,
+    "new_bands_created": 0,
+    "rows_created": 0,
+    "rows_path": "data/raw_delta_signature_candidate_new_bounded_validation_surface_rows/40e5f5b4.jsonl",
+    "synthetic_fake_rows_created": 0
+  },
+  "surface_sig8": "40e5f5b4",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "HOLD_NEW_BOUNDED_SURFACE_REQUIRES_RUNNER_DECISION",
+    "type": "HOLD"
+  },
+  "terminal_class": "HOLD_NEW_BOUNDED_SURFACE_REQUIRES_RUNNER_DECISION",
+  "warnings": []
+}
+surface_id=40e5f5b4
+surface_json_path=data/raw_delta_signature_candidate_new_bounded_validation_surfaces/40e5f5b4.json
+surface_receipt_path=data/raw_delta_signature_candidate_new_bounded_validation_surface_receipts/40e5f5b4.json
+surface_rows_path=data/raw_delta_signature_candidate_new_bounded_validation_surface_rows/40e5f5b4.jsonl
+NEW_SURFACE_ID=40e5f5b4
+
+ASSERT_NEW_BOUNDED_VALIDATION_SURFACE
+{
+  "authority_guards": {
+    "audit_pointer_in_payload": false,
+    "candidate_acceptance_authorized": false,
+    "candidate_accepted": false,
+    "case_id_or_cycle_n_primary_identity_patch_used": false,
+    "debug_payload_in_payload": false,
+    "full_occurrence_key_in_payload": false,
+    "full_registry_scan_used": false,
+    "microhash_as_proof_used": false,
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "receipt_suppression_authorized": false,
+    "registry_sqlite_changed": false,
+    "registry_sqlite_read": false,
+    "registry_write_authorized": false,
+    "rowid_or_receipt_hash_patch_used": false,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_mode_authorized": false,
+    "synthetic_fake_validation_rows_used": false
+  },
+  "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+  "decision": {
+    "candidate_acceptance_authorized": false,
+    "candidate_accepted": false,
+    "do_not_accept_candidate": true,
+    "do_not_change_runtime": true,
+    "do_not_change_runtime_code": true,
+    "do_not_full_registry_scan": true,
+    "do_not_read_registry_sqlite": true,
+    "do_not_use_case_id_or_cycle_n_as_primary_identity": true,
+    "do_not_use_rowid_or_receipt_hash": true,
+    "do_not_write_registry": true,
+    "new_surface_attempted": true,
+    "new_surface_created": false,
+    "new_surface_policy_only": false,
+    "runner_discovery_completed": true,
+    "safe_runner_recipe_found": false,
+    "scale_mode_authorized": false,
+    "terminal_class": "HOLD_NEW_BOUNDED_SURFACE_REQUIRES_RUNNER_DECISION"
+  },
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "pass_gates": {
+    "authority_containment": true,
+    "bounded_limits_recorded": true,
+    "candidate_not_accepted": true,
+    "full_registry_not_scanned": true,
+    "hold_is_lawful_if_no_safe_recipe": true,
+    "payload_contract_preserved": true,
+    "policy_preconditions": true,
+    "registry_sqlite_not_read": true,
+    "runner_discovery_recorded": true,
+    "runtime_code_not_changed": true,
+    "runtime_receipt_emission_not_changed": true,
+    "scale_mode_not_authorized": true,
+    "surface_recipe_or_hold_recorded": true,
+    "synthetic_rows_not_created": true,
+    "truth_surface_preserved": true
+  },
+  "receipt_id": "f5a8f5b7",
+  "runner_discovery_summary": {
+    "files_discovered_total": 54,
+    "full_registry_scan_used": false,
+    "help_commands": [
+      {
+        "cmd": [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "--help"
+        ],
+        "elapsed_ms": 788,
+        "returncode": 0,
+        "stderr_head": "",
+        "stdout_head": "                                                                                \n Usage: cli.py [OPTIONS] COMMAND [ARGS]...                                      \n                                                                                \n MatrixLab receipt runner v0.2                                                  \n                                                                                \n\u256d\u2500 Options \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 --install-completion          Install completion for the current shell.      \u2502\n\u2502 --show-completion             Show completion for the current shell, to copy \u2502\n\u2502                               it or customize the installation.              \u2502\n\u2502 --help                        Show this message and exit.                    \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f\n\u256d\u2500 Commands \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 run                                                                          \u2502\n\u2502 stress                                      Deliberately push the runner     \u2502\n\u2502                                             until halt reasons appear.       \u2502\n\u2502 summarize                                   Show run summary from SQLite.    \u2502\n\u2502 inspect                                     Inspect receipts for one case.   \u2502\n\u2502 analyze                                     Analyze where and how the latest \u2502\n\u2502                                             run broke.                       \u2502\n\u2502 profiles                                    Show compact move-profile        \u2502\n\u2502                                             counts.                          \u2502\n\u2502 coarse-profiles                             Compare raw move-profile counts  \u2502\n\u2502                                             against coarse normalized        \u2502\n\u2502                                             profile counts.                  \u2502\n\u2502 laws                                        Summarize expected-law checks by \u2502\n\u2502                                             family and move.                 \u2502\n\u2502 recover-collision                           Recover a run_id collision by    \u2502\n\u2502                                             splitting receipt rows whose     \u2502\n\u2502                                             family is not in the stored run  \u2502\n\u2502                                             family set.                      \u2502\n\u2502 gate                                        Exit nonzero if a run violates   \u2502\n\u2502                                             law checks or is incomplete.     \u2502\n\u2502 agent-eval                                  Emit a machine-readable          \u2502\n\u2502                                             agent/eval report for one run,   \u2502\n\u2502                                             optionally compared to a         \u2502\n\u2502                                             previous run.                    \u2502\n\u2502 agent-select                                Select the next command from a   \u2502\n\u2502                                             fixed allowlist based on an      \u2502\n\u2502                                             explicit agent-eval JSON report. \u2502\n\u2502 agent-plan-check                            Validate a content-addressed     \u2502\n\u2502                                             agent-select receipt before any  \u2502\n\u2502                                             execution layer exists.          \u2502\n\u2502 agent-exec-dry-run                          Emit a dry-run executor receipt  \u2502\n\u2502                                             from a PASS agent-plan-check     \u2502\n\u2502                                             receipt. Does not execute        \u2502\n\u2502                                             subprocesses.                    \u2502\n\u2502 agent-post-check                            Verify that a manual execution   \u2502\n\u2502                                             result matches a prior PASS      \u2502\n\u2502                                             executor dry-run receipt.        \u2502\n\u2502 agent-loop-summary           ",
+        "timeout": false
+      }
+    ],
+    "registry_sqlite_read": false,
+    "runner_candidates_total": 16,
+    "runtime_code_changed": false,
+    "safe_recipe_candidates_total": 0
+  },
+  "source_policy_id": "7050f196",
+  "surface_id": "40e5f5b4",
+  "surface_recipe_or_hold": {
+    "command_or_recipe": null,
+    "generic_runner_candidates_total": 16,
+    "reason": "Runner discovery found generic scripts/entrypoints, but no existing recipe explicitly declares candidate-compatible RAW_DELTA_SIGNATURE_CANDIDATE_V0 rows for a new bounded validation surface. Policy forbids synthetic rows and runtime code mutation, so this layer must hold for a runner/recipe decision.",
+    "recipe_status": "HOLD_NO_SAFE_EXISTING_RECIPE",
+    "safe_recipe_candidates_total": 0,
+    "safe_recipe_selected": null
+  },
+  "surface_rows_summary": {
+    "candidate_compatible_rows_created": 0,
+    "new_bands_created": 0,
+    "rows_created": 0,
+    "rows_path": "data/raw_delta_signature_candidate_new_bounded_validation_surface_rows/40e5f5b4.jsonl",
+    "synthetic_fake_rows_created": 0
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "HOLD_NEW_BOUNDED_SURFACE_REQUIRES_RUNNER_DECISION",
+    "type": "HOLD"
+  },
+  "terminal_class": "HOLD_NEW_BOUNDED_SURFACE_REQUIRES_RUNNER_DECISION"
+}
+
+NEGATIVE_CONTROLS_NEW_BOUNDED_VALIDATION_SURFACE_IMPLEMENTATION
+{
+  "case": "candidate_acceptance_authority_fail",
+  "expected": "forbidden_authority_not_false:authorizes_candidate_acceptance",
+  "failures": [
+    "forbidden_authority_not_false:authorizes_candidate_acceptance:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "full_registry_authority_fail",
+  "expected": "forbidden_authority_not_false:authorizes_full_registry_scan",
+  "failures": [
+    "forbidden_authority_not_false:authorizes_full_registry_scan:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "registry_read_authority_fail",
+  "expected": "forbidden_authority_not_false:authorizes_registry_sqlite_read",
+  "failures": [
+    "forbidden_authority_not_false:authorizes_registry_sqlite_read:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "runtime_code_change_authority_fail",
+  "expected": "forbidden_authority_not_false:authorizes_runtime_code_change",
+  "failures": [
+    "forbidden_authority_not_false:authorizes_runtime_code_change:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "synthetic_rows_authority_fail",
+  "expected": "forbidden_authority_not_false:authorizes_synthetic_fake_validation_rows",
+  "failures": [
+    "forbidden_authority_not_false:authorizes_synthetic_fake_validation_rows:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "truth_surface_fail",
+  "expected": "contract_truth_surface_wrong",
+  "failures": [
+    "contract_truth_surface_wrong:receipt_hash_to_candidate_signature"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "payload_field_fail",
+  "expected": "contract_payload_wrong",
+  "failures": [
+    "contract_payload_wrong:['cv', 'state_hash_before', 'move_id', 'state_hash_after', 'raw_compression_ratio_sig6', 'case_id']"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "bounds_fail",
+  "expected": "bound_wrong:max_new_runs",
+  "failures": [
+    "bound_wrong:max_new_runs:999"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "runtime_mutation_rule_fail",
+  "expected": "generation_rule_not_true:generation_must_not_modify_runtime_code",
+  "failures": [
+    "generation_rule_not_true:generation_must_not_modify_runtime_code:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "synthetic_forbidden_action_fail",
+  "expected": "forbidden_action_not_marked:synthetic_fake_validation_rows",
+  "failures": [
+    "forbidden_action_not_marked:synthetic_fake_validation_rows:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_scale_out_not_hold_fail",
+  "expected": "source_scale_out_terminal_wrong",
+  "failures": [
+    "source_scale_out_terminal_wrong:PASS_BOUNDED_SCALE_OUT_CLEAN"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_registry_read_fail",
+  "expected": "source_inventory_registry_read_not_false",
+  "failures": [
+    "source_inventory_registry_read_not_false:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_false_merge_fail",
+  "expected": "combined_false_merge_wrong",
+  "failures": [
+    "combined_false_merge_wrong:1"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+NEW_BOUNDED_VALIDATION_SURFACE_HEAD_JSON
+{
+  "authority_guards": {
+    "audit_pointer_in_payload": false,
+    "candidate_acceptance_authorized": false,
+    "candidate_accepted": false,
+    "case_id_or_cycle_n_primary_identity_patch_used": false,
+    "debug_payload_in_payload": false,
+    "full_occurrence_key_in_payload": false,
+    "full_registry_scan_used": false,
+    "microhash_as_proof_used": false,
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "receipt_suppression_authorized": false,
+    "registry_sqlite_changed": false,
+    "registry_sqlite_read": false,
+    "registry_write_authorized": false,
+    "rowid_or_receipt_hash_patch_used": false,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_mode_authorized": false,
+    "synthetic_fake_validation_rows_used": false
+  },
+  "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+  "decision": {
+    "candidate_acceptance_authorized": false,
+    "candidate_accepted": false,
+    "do_not_accept_candidate": true,
+    "do_not_change_runtime": true,
+    "do_not_change_runtime_code": true,
+    "do_not_full_registry_scan": true,
+    "do_not_read_registry_sqlite": true,
+    "do_not_use_case_id_or_cycle_n_as_primary_identity": true,
+    "do_not_use_rowid_or_receipt_hash": true,
+    "do_not_write_registry": true,
+    "new_surface_attempted": true,
+    "new_surface_created": false,
+    "new_surface_policy_only": false,
+    "runner_discovery_completed": true,
+    "safe_runner_recipe_found": false,
+    "scale_mode_authorized": false,
+    "terminal_class": "HOLD_NEW_BOUNDED_SURFACE_REQUIRES_RUNNER_DECISION"
+  },
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "pass_gates": {
+    "authority_containment": true,
+    "bounded_limits_recorded": true,
+    "candidate_not_accepted": true,
+    "full_registry_not_scanned": true,
+    "hold_is_lawful_if_no_safe_recipe": true,
+    "payload_contract_preserved": true,
+    "policy_preconditions": true,
+    "registry_sqlite_not_read": true,
+    "runner_discovery_recorded": true,
+    "runtime_code_not_changed": true,
+    "runtime_receipt_emission_not_changed": true,
+    "scale_mode_not_authorized": true,
+    "surface_recipe_or_hold_recorded": true,
+    "synthetic_rows_not_created": true,
+    "truth_surface_preserved": true
+  },
+  "receipt_id": "f5a8f5b7",
+  "runner_discovery_summary": {
+    "files_discovered_total": 54,
+    "full_registry_scan_used": false,
+    "help_commands": [
+      {
+        "cmd": [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "--help"
+        ],
+        "elapsed_ms": 788,
+        "returncode": 0,
+        "stderr_head": "",
+        "stdout_head": "                                                                                \n Usage: cli.py [OPTIONS] COMMAND [ARGS]...                                      \n                                                                                \n MatrixLab receipt runner v0.2                                                  \n                                                                                \n\u256d\u2500 Options \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 --install-completion          Install completion for the current shell.      \u2502\n\u2502 --show-completion             Show completion for the current shell, to copy \u2502\n\u2502                               it or customize the installation.              \u2502\n\u2502 --help                        Show this message and exit.                    \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f\n\u256d\u2500 Commands \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 run                                                                          \u2502\n\u2502 stress                                      Deliberately push the runner     \u2502\n\u2502                                             until halt reasons appear.       \u2502\n\u2502 summarize                                   Show run summary from SQLite.    \u2502\n\u2502 inspect                                     Inspect receipts for one case.   \u2502\n\u2502 analyze                                     Analyze where and how the latest \u2502\n\u2502                                             run broke.                       \u2502\n\u2502 profiles                                    Show compact move-profile        \u2502\n\u2502                                             counts.                          \u2502\n\u2502 coarse-profiles                             Compare raw move-profile counts  \u2502\n\u2502                                             against coarse normalized        \u2502\n\u2502                                             profile counts.                  \u2502\n\u2502 laws                                        Summarize expected-law checks by \u2502\n\u2502                                             family and move.                 \u2502\n\u2502 recover-collision                           Recover a run_id collision by    \u2502\n\u2502                                             splitting receipt rows whose     \u2502\n\u2502                                             family is not in the stored run  \u2502\n\u2502                                             family set.                      \u2502\n\u2502 gate                                        Exit nonzero if a run violates   \u2502\n\u2502                                             law checks or is incomplete.     \u2502\n\u2502 agent-eval                                  Emit a machine-readable          \u2502\n\u2502                                             agent/eval report for one run,   \u2502\n\u2502                                             optionally compared to a         \u2502\n\u2502                                             previous run.                    \u2502\n\u2502 agent-select                                Select the next command from a   \u2502\n\u2502                                             fixed allowlist based on an      \u2502\n\u2502                                             explicit agent-eval JSON report. \u2502\n\u2502 agent-plan-check                            Validate a content-addressed     \u2502\n\u2502                                             agent-select receipt before any  \u2502\n\u2502                                             execution layer exists.          \u2502\n\u2502 agent-exec-dry-run                          Emit a dry-run executor receipt  \u2502\n\u2502                                             from a PASS agent-plan-check     \u2502\n\u2502                                             receipt. Does not execute        \u2502\n\u2502                                             subprocesses.                    \u2502\n\u2502 agent-post-check                            Verify that a manual execution   \u2502\n\u2502                                             result matches a prior PASS      \u2502\n\u2502                                             executor dry-run receipt.        \u2502\n\u2502 agent-loop-summary           ",
+        "timeout": false
+      }
+    ],
+    "registry_sqlite_read": false,
+    "runner_candidates_total": 16,
+    "runtime_code_changed": false,
+    "safe_recipe_candidates_total": 0
+  },
+  "surface_id": "40e5f5b4",
+  "surface_recipe_or_hold": {
+    "command_or_recipe": null,
+    "generic_runner_candidates_total": 16,
+    "reason": "Runner discovery found generic scripts/entrypoints, but no existing recipe explicitly declares candidate-compatible RAW_DELTA_SIGNATURE_CANDIDATE_V0 rows for a new bounded validation surface. Policy forbids synthetic rows and runtime code mutation, so this layer must hold for a runner/recipe decision.",
+    "recipe_status": "HOLD_NO_SAFE_EXISTING_RECIPE",
+    "safe_recipe_candidates_total": 0,
+    "safe_recipe_selected": null
+  },
+  "surface_rows_summary": {
+    "candidate_compatible_rows_created": 0,
+    "new_bands_created": 0,
+    "rows_created": 0,
+    "rows_path": "data/raw_delta_signature_candidate_new_bounded_validation_surface_rows/40e5f5b4.jsonl",
+    "synthetic_fake_rows_created": 0
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "HOLD_NEW_BOUNDED_SURFACE_REQUIRES_RUNNER_DECISION",
+    "type": "HOLD"
+  },
+  "terminal_class": "HOLD_NEW_BOUNDED_SURFACE_REQUIRES_RUNNER_DECISION"
+}
+
+VERIFY_RUNTIME_AND_PRIOR_PROBES_UNTOUCHED
+.gitignore
+runtime/prior probes untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/raw_delta_signature_candidate_new_bounded_validation_surface_v0.py
+[master e3fdb734c] implement raw delta signature candidate new bounded validation surface
+ 2 files changed, 784 insertions(+)
+ create mode 100755 scripts/raw_delta_signature_candidate_new_bounded_validation_surface_v0.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

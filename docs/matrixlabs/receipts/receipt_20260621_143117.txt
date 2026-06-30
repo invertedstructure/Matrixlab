@@ -1,0 +1,466 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_143117
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_143117.txt
+
+BUILD_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_POLICY_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_POLICY_BUILDER
+
+PY_COMPILE
+
+BUILD_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_POLICY
+{
+  "authority": {
+    "authorized_next_command_goal": "IMPLEMENT_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_V0",
+    "authorizes_candidate_acceptance": false,
+    "authorizes_candidate_design": false,
+    "authorizes_case_id_or_cycle_n_primary_identity_patch": false,
+    "authorizes_full_registry_scan": false,
+    "authorizes_next_diagnostic_implementation": true,
+    "authorizes_raw_delta_compactness_measurement": true,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_registry_write": false,
+    "authorizes_rowid_or_receipt_hash_patch": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_mode": false,
+    "observer_only": true
+  },
+  "created_at": "2026-06-21T13:31:17.189571+00:00",
+  "diagnostic_contract_summary": {
+    "all_bands_total": 266,
+    "candidate_creation_forbidden": true,
+    "context_only_delta_fields": [
+      "row_delta",
+      "col_delta",
+      "rank_delta",
+      "support_delta",
+      "distinct_column_types_before",
+      "distinct_column_types_after",
+      "new_column_types_added"
+    ],
+    "encoding_candidates_to_measure": [
+      "raw_decimal_string_exact",
+      "raw_decimal_sig6",
+      "raw_decimal_sig9",
+      "raw_decimal_sig12",
+      "raw_delta_microhash_32"
+    ],
+    "full_registry_forbidden": true,
+    "known_failed_bands_total": 10,
+    "target_raw_delta_fields": [
+      "compression_ratio"
+    ]
+  },
+  "failures": [],
+  "gate": "PASS",
+  "implementation_constraints": {
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_runtime_receipt_emission": true,
+    "must_not_full_registry_scan": true,
+    "must_not_modify_files": [
+      "src/",
+      "app/",
+      "matrixlab/",
+      "scripts/stable_delta_signature_candidate_v0_3_probe.py",
+      "scripts/diagnose_v0_3_failure_v0.py",
+      "scripts/build_stable_delta_signature_candidate_v0_3_policy.py",
+      "scripts/stable_delta_signature_candidate_v0_2_scale_band_probe.py",
+      "scripts/stable_delta_signature_candidate_v0_2_probe.py"
+    ],
+    "must_not_read_registry_sqlite": true,
+    "must_reuse_existing_bounded_rows": true,
+    "must_touch_only_files": [
+      "scripts/raw_delta_compactness_diagnostic_v0.py"
+    ]
+  },
+  "policy_id": "445bdd02",
+  "policy_name": "BUILD_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_POLICY_V0",
+  "policy_path": "data/raw_delta_compactness_diagnostic_policies/445bdd02.json",
+  "policy_sig8": "445bdd02",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_id": "25a019a1",
+  "receipt_sig8": "25a019a1",
+  "schema_version": "raw_delta_compactness_diagnostic_policy_receipt_v0",
+  "source_v02_scale_probe_id": "227e9426",
+  "source_v03_failure_diagnostic_id": "d0132dd4",
+  "source_v03_failure_diagnostic_receipt_id": "13b228ac",
+  "source_v03_probe_id": "bd1beabe",
+  "source_v03_receipt_id": "c598371b",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+policy_id=445bdd02
+policy_json_path=data/raw_delta_compactness_diagnostic_policies/445bdd02.json
+policy_receipt_path=data/raw_delta_compactness_diagnostic_policy_receipts/445bdd02.json
+RAW_DELTA_POLICY_ID=445bdd02
+
+ASSERT_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_POLICY
+{
+  "authority": {
+    "authorized_next_command_goal": "IMPLEMENT_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_V0",
+    "authorizes_candidate_acceptance": false,
+    "authorizes_candidate_design": false,
+    "authorizes_case_id_or_cycle_n_primary_identity_patch": false,
+    "authorizes_full_registry_scan": false,
+    "authorizes_next_diagnostic_implementation": true,
+    "authorizes_raw_delta_compactness_measurement": true,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_registry_write": false,
+    "authorizes_rowid_or_receipt_hash_patch": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_mode": false,
+    "observer_only": true
+  },
+  "diagnostic_contract": {
+    "bounded_source_surface": {
+      "all_bands_total": 266,
+      "bounded_default_required": true,
+      "full_registry_forbidden": true,
+      "known_failed_bands_total": 10,
+      "v02_scale_probe_id": "227e9426",
+      "v02_scale_rows_path": "data/stable_delta_signature_candidate_v0_2_scale_band_rows/227e9426.jsonl",
+      "v03_failure_diagnostic_id": "d0132dd4",
+      "v03_probe_id": "bd1beabe",
+      "v03_rows_path": "data/stable_delta_signature_candidate_v0_3_rows/bd1beabe.jsonl"
+    },
+    "context_only_delta_fields": [
+      "row_delta",
+      "col_delta",
+      "rank_delta",
+      "support_delta",
+      "distinct_column_types_before",
+      "distinct_column_types_after",
+      "new_column_types_added"
+    ],
+    "diagnostic_name": "RAW_DELTA_COMPACTNESS_DIAGNOSTIC_V0",
+    "diagnostic_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+    "diagnostic_terminal_classes": {
+      "PAYLOAD_CONSTRUCTION_OR_SOURCE_LINKAGE_FAILURE": "Raw values cannot be reconstructed from v02/v03 row linkage.",
+      "RAW_DELTA_COMPACT_ENCODING_POSSIBLY_VIABLE": "At least one compact raw-delta encoding clears known false merges and keeps burden below full receipt burden. Still diagnostic only.",
+      "RAW_DELTA_NOT_VIABLE": "Raw compression_ratio does not clear false merges even before burden constraints.",
+      "RAW_DELTA_ONLY_EXACT_VIABLE_BUT_TOO_HEAVY": "Only exact/raw-heavy encoding clears false merges, or compact versions fail; no candidate yet."
+    },
+    "encoding_candidates_to_measure": [
+      {
+        "description": "Canonical string of raw compression_ratio as found in v02 compact_delta_debug.raw.",
+        "encoding_id": "raw_decimal_string_exact",
+        "purpose": "Upper-bound distinguishability, likely burden-heavy."
+      },
+      {
+        "description": "Canonical significant-digit decimal string with 6 significant digits.",
+        "encoding_id": "raw_decimal_sig6",
+        "purpose": "Small candidate; may preserve enough separability."
+      },
+      {
+        "description": "Canonical significant-digit decimal string with 9 significant digits.",
+        "encoding_id": "raw_decimal_sig9",
+        "purpose": "Middle candidate; tests whether bucket collapse can be repaired cheaply."
+      },
+      {
+        "description": "Canonical significant-digit decimal string with 12 significant digits.",
+        "encoding_id": "raw_decimal_sig12",
+        "purpose": "High precision candidate before exact raw string."
+      },
+      {
+        "description": "32-bit hash of canonical raw compression_ratio value only, not receipt/hash/identity.",
+        "encoding_id": "raw_delta_microhash_32",
+        "purpose": "Compact discriminator stress test; must report collision risk and must not be accepted as proof."
+      }
+    ],
+    "forbidden_payload_fields": [
+      "full_occurrence_key",
+      "raw_full_receipt_hash",
+      "full_receipt_hash",
+      "receipt_hash",
+      "receipt_sig8",
+      "receipt_rowid",
+      "rowid",
+      "audit_pointer",
+      "debug_payload",
+      "observer_notes",
+      "created_at",
+      "created_utc",
+      "timestamp",
+      "path",
+      "receipt_path",
+      "file_path",
+      "case_id",
+      "cycle_n",
+      "case_id_as_primary_identity",
+      "cycle_n_as_primary_identity",
+      "depth_as_primary_identity"
+    ],
+    "must_focus_known_failed_bands": true,
+    "must_inspect_collision_groups": true,
+    "must_measure_all_bands_for_burden_context": true,
+    "must_not_accept_candidate": true,
+    "must_not_create_candidate": true,
+    "required_measurements": {
+      "compare_against_v02_and_v03": true,
+      "per_encoding_all_band_false_merge_count": true,
+      "per_encoding_burden_ratio_projected": true,
+      "per_encoding_collision_gallery": true,
+      "per_encoding_known_failed_false_merge_count": true,
+      "per_encoding_raw_delta_coverage": true,
+      "per_encoding_signature_payload_bytes": true
+    },
+    "source_question": "Can a compact raw compression_ratio encoding preserve the separability that bucketization erased, without exceeding full receipt burden?",
+    "target_raw_delta_fields": [
+      "compression_ratio"
+    ],
+    "truth_surface": "full_occurrence_key_to_candidate_delta_signature"
+  },
+  "failures": [],
+  "gate": "PASS",
+  "implementation_constraints": {
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_runtime_receipt_emission": true,
+    "must_not_full_registry_scan": true,
+    "must_not_modify_files": [
+      "src/",
+      "app/",
+      "matrixlab/",
+      "scripts/stable_delta_signature_candidate_v0_3_probe.py",
+      "scripts/diagnose_v0_3_failure_v0.py",
+      "scripts/build_stable_delta_signature_candidate_v0_3_policy.py",
+      "scripts/stable_delta_signature_candidate_v0_2_scale_band_probe.py",
+      "scripts/stable_delta_signature_candidate_v0_2_probe.py"
+    ],
+    "must_not_read_registry_sqlite": true,
+    "must_reuse_existing_bounded_rows": true,
+    "must_touch_only_files": [
+      "scripts/raw_delta_compactness_diagnostic_v0.py"
+    ]
+  },
+  "policy_id": "445bdd02",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_id": "25a019a1",
+  "source_v03_failure_diagnostic_id": "d0132dd4",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_POLICY
+{
+  "case": "classification_not_bucketization_fail",
+  "expected": "classification_not_bucketization_collapse",
+  "failures": [
+    "classification_not_bucketization_collapse:TRANSITION_AND_DELTA_BUCKETS_RECUR_IDENTICALLY"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "burden_class_missing_fail",
+  "expected": "burden_class_not_regression",
+  "failures": [
+    "burden_class_not_regression:BURDEN_OK"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "raw_compression_ratio_difference_missing_fail",
+  "expected": "compression_ratio_raw_difference_not_10",
+  "failures": [
+    "compression_ratio_raw_difference_not_10:{}"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "bucket_difference_present_unexpected_fail",
+  "expected": "bucket_delta_difference_unexpected",
+  "failures": [
+    "bucket_delta_difference_unexpected:{'compression_ratio': 10}"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "full_registry_guard_missing_fail",
+  "expected": "decision_expected_true:do_not_full_registry_scan",
+  "failures": [
+    "decision_expected_true:do_not_full_registry_scan:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "case_cycle_identity_guard_missing_fail",
+  "expected": "decision_expected_true:do_not_patch_by_adding_case_id_or_cycle_n_as_primary_identity",
+  "failures": [
+    "decision_expected_true:do_not_patch_by_adding_case_id_or_cycle_n_as_primary_identity:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "scale_mode_authority_fail",
+  "expected": "v03_failure_diag_illegal_authority:authorizes_scale_mode",
+  "failures": [
+    "v03_failure_diag_illegal_authority:authorizes_scale_mode:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "rowid_receipt_hash_authority_fail",
+  "expected": "v03_failure_diag_illegal_authority:authorizes_rowid_or_receipt_hash_patch",
+  "failures": [
+    "v03_failure_diag_illegal_authority:authorizes_rowid_or_receipt_hash_patch:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "v03_probe_full_registry_fail",
+  "expected": "v03_probe_used_full_registry",
+  "failures": [
+    "v03_probe_used_full_registry"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "v02_source_terminal_fail",
+  "expected": "v02_scale_terminal_wrong",
+  "failures": [
+    "v02_scale_terminal_wrong:PASS_SCALE_BANDS_OBSERVER_ONLY"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+RAW_DELTA_COMPACTNESS_DIAGNOSTIC_POLICY_HEAD_JSON
+{
+  "authority": {
+    "authorized_next_command_goal": "IMPLEMENT_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_V0",
+    "authorizes_candidate_acceptance": false,
+    "authorizes_candidate_design": false,
+    "authorizes_case_id_or_cycle_n_primary_identity_patch": false,
+    "authorizes_full_registry_scan": false,
+    "authorizes_next_diagnostic_implementation": true,
+    "authorizes_raw_delta_compactness_measurement": true,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_registry_write": false,
+    "authorizes_rowid_or_receipt_hash_patch": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_mode": false,
+    "observer_only": true
+  },
+  "diagnostic_contract_summary": {
+    "all_bands_total": 266,
+    "candidate_creation_forbidden": true,
+    "context_only_delta_fields": [
+      "row_delta",
+      "col_delta",
+      "rank_delta",
+      "support_delta",
+      "distinct_column_types_before",
+      "distinct_column_types_after",
+      "new_column_types_added"
+    ],
+    "encoding_candidates_to_measure": [
+      "raw_decimal_string_exact",
+      "raw_decimal_sig6",
+      "raw_decimal_sig9",
+      "raw_decimal_sig12",
+      "raw_delta_microhash_32"
+    ],
+    "full_registry_forbidden": true,
+    "known_failed_bands_total": 10,
+    "target_raw_delta_fields": [
+      "compression_ratio"
+    ]
+  },
+  "gate": "PASS",
+  "implementation_constraints": {
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_runtime_receipt_emission": true,
+    "must_not_full_registry_scan": true,
+    "must_not_modify_files": [
+      "src/",
+      "app/",
+      "matrixlab/",
+      "scripts/stable_delta_signature_candidate_v0_3_probe.py",
+      "scripts/diagnose_v0_3_failure_v0.py",
+      "scripts/build_stable_delta_signature_candidate_v0_3_policy.py",
+      "scripts/stable_delta_signature_candidate_v0_2_scale_band_probe.py",
+      "scripts/stable_delta_signature_candidate_v0_2_probe.py"
+    ],
+    "must_not_read_registry_sqlite": true,
+    "must_reuse_existing_bounded_rows": true,
+    "must_touch_only_files": [
+      "scripts/raw_delta_compactness_diagnostic_v0.py"
+    ]
+  },
+  "policy_id": "445bdd02",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_id": "25a019a1",
+  "source_v03_failure_diagnostic_id": "d0132dd4",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_RUNTIME_AND_PRIOR_PROBES_UNTOUCHED
+.gitignore
+runtime/prior probes untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/build_raw_delta_compactness_diagnostic_policy_v0.py
+[master 304de912f] build raw delta compactness diagnostic policy
+ 2 files changed, 447 insertions(+)
+ create mode 100755 scripts/build_raw_delta_compactness_diagnostic_policy_v0.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

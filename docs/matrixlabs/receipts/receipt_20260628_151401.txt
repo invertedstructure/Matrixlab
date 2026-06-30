@@ -1,0 +1,120 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_151401
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_151401.txt
+
+BOOKKEEPING_COMMIT_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_REPAIRED_V0
+
+VERIFY_REPAIRED_SUCCESSOR_SURFACE_SELECTION_ARTIFACTS_PRESENT
+present data/c8_successor_surface_selection_after_reentry_v0_receipts/c8_successor_surface_selection_receipt_7da4fd41.json
+present data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_packet_v0.json
+present data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_decision_v0.json
+present data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_boundary_audit_v0.json
+present data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_readout_v0.json
+present data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_report.json
+present scripts/create_c8_successor_surface_selection_after_reentry_v0.py
+
+PY_COMPILE_REPAIRED_SUCCESSOR_SURFACE_SELECTION_RUNNER
+
+VERIFY_REPAIRED_SUCCESSOR_SURFACE_SELECTION_RECEIPT_AND_CONTENT
+{
+  "candidate_surface_count": 3,
+  "commit_gate": "PASS",
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "gate_results_false_count": 0,
+  "outcome_class": "C8_SUCCESSOR_SURFACE_SELECTION_REVIEWABLE_NOT_ACCEPTED",
+  "probe_authorized_now": false,
+  "probe_prep_authorized_now": false,
+  "receipt_id": "c8_successor_surface_selection_receipt_7da4fd41",
+  "reusable_schema_authorized_now": false,
+  "selected_surface_accepted_now": false,
+  "selected_surface_active": false,
+  "selected_surface_id": "c8_successor_surface_runtime_adoption_after_reentry_v0",
+  "selected_surface_kind": "RUNTIME_ADOPTION_SURFACE",
+  "selected_surface_label": "C8_RUNTIME_ADOPTION_AFTER_REUSE_AUTHORITY_CLOSURE_SURFACE",
+  "selected_surface_status": "REVIEWABLE_NOT_ACCEPTED",
+  "status": "TYPED_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_PASS",
+  "surface_selection_boundary_audit_id": "c8_successor_surface_selection_boundary_ee54442b",
+  "surface_selection_decision_id": "c8_successor_surface_selection_decision_4f336833",
+  "surface_selection_packet_id": "c8_successor_surface_selection_packet_f7874bf3"
+}
+
+VERIFY_GIT_IDENTITY
+
+BOUND_ADD_ONLY_REPAIRED_SUCCESSOR_SURFACE_SELECTION_ARTIFACTS
+
+VERIFY_NO_OUT_OF_SCOPE_STAGED_PATHS
+staged_path_count=8
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+successor_surface_selection_receipts_staged=['data/c8_successor_surface_selection_after_reentry_v0_receipts/c8_successor_surface_selection_receipt_7da4fd41.json']
+
+BOOKKEEPING_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...cessor_surface_selection_boundary_audit_v0.json |  48 ++
+ ...c8_successor_surface_selection_decision_v0.json |  59 +++
+ .../c8_successor_surface_selection_packet_v0.json  |  40 ++
+ .../c8_successor_surface_selection_readout_v0.json |  18 +
+ .../c8_successor_surface_selection_report.json     |  33 ++
+ ...ccessor_surface_selection_receipt_7da4fd41.json | 112 +++++
+ ...successor_surface_selection_after_reentry_v0.py | 514 +++++++++++++++++++++
+ 8 files changed, 830 insertions(+)
+
+BOOKKEEPING_COMMIT
+[master d68c78cbc] Select C8 runtime-adoption successor surface
+ 8 files changed, 830 insertions(+)
+ create mode 100644 data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_boundary_audit_v0.json
+ create mode 100644 data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_decision_v0.json
+ create mode 100644 data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_packet_v0.json
+ create mode 100644 data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_readout_v0.json
+ create mode 100644 data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_report.json
+ create mode 100644 data/c8_successor_surface_selection_after_reentry_v0_receipts/c8_successor_surface_selection_receipt_7da4fd41.json
+ create mode 100755 scripts/create_c8_successor_surface_selection_after_reentry_v0.py
+
+BOOKKEEPING_COMMIT_RECEIPT
+commit_sha=d68c78cbc0d62afd23f4d6ee5415e86e3adb8df7
+successor_surface_selection_receipt=data/c8_successor_surface_selection_after_reentry_v0_receipts/c8_successor_surface_selection_receipt_7da4fd41.json
+successor_surface_selection_decision=data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_decision_v0.json
+successor_surface_selection_packet=data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_packet_v0.json
+successor_surface_selection_boundary_audit=data/c8_successor_surface_selection_after_reentry_v0/c8_successor_surface_selection_boundary_audit_v0.json
+successor_surface_selection_outcome=C8_SUCCESSOR_SURFACE_SELECTION_REVIEWABLE_NOT_ACCEPTED
+successor_surface_selection_receipt_id=c8_successor_surface_selection_receipt_7da4fd41
+surface_selection_decision_id=c8_successor_surface_selection_decision_4f336833
+surface_selection_packet_id=c8_successor_surface_selection_packet_f7874bf3
+surface_selection_boundary_audit_id=c8_successor_surface_selection_boundary_ee54442b
+source_return_to_selection_acceptance_receipt_id=c8_return_to_selection_acceptance_receipt_0144408e
+source_return_to_selection_acceptance_packet_id=c8_return_to_selection_acceptance_packet_6b51e7bf
+source_return_to_selection_acceptance_decision_id=c8_return_to_selection_acceptance_decision_581d0092
+source_surface_selection_reentry_boundary_id=c8_surface_selection_reentry_boundary_e02a5882
+previous_surface_id=c8_successor_surface_reuse_authority_boundary_after_local_closure_v0
+previous_surface_kind=REUSE_AUTHORITY_BOUNDARY_SURFACE
+previous_surface_label=C8_POST_CLOSURE_LOCAL_LOOP_REUSE_PRESSURE_SURFACE
+previous_surface_closed=true
+selected_surface_id=c8_successor_surface_runtime_adoption_after_reentry_v0
+selected_surface_kind=RUNTIME_ADOPTION_SURFACE
+selected_surface_label=C8_RUNTIME_ADOPTION_AFTER_REUSE_AUTHORITY_CLOSURE_SURFACE
+selected_surface_status=REVIEWABLE_NOT_ACCEPTED
+selected_surface_active=false
+selected_surface_accepted_now=false
+probe_prep_authorized_now=false
+probe_authorized_now=false
+probe_executed_now=false
+instrument_built_now=false
+cell1_built_now=false
+verification_probe_run_now=false
+c8_rerun_now=false
+missing_instrument_proposal_created_now=false
+research_mode_opened=false
+general_cell1_authority=false
+reusable_schema_authorized=false
+global_solution_claim=false
+frontier_solved_claim=false
+recommended_review_unit=REVIEW_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_V0
+terminal_stop_code=STOP_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_READY_FOR_REVIEW
+
+STATUS_AFTER_COMMIT_RELEVANT
+
+BOOKKEEPING_COMMIT_C8_SUCCESSOR_SURFACE_SELECTION_AFTER_REENTRY_REPAIRED_COMPLETE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

@@ -1,0 +1,614 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_162455
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_162455.txt
+
+PATCH_RAW_DELTA_SIGNATURE_CANDIDATE_SCALE_REVIEW_SOURCE_ALIASES_V0
+
+STATUS_BEFORE
+ M .gitignore
+?? data/
+?? scripts/raw_delta_signature_candidate_scale_review_v0.py
+
+VERIFY_SCRIPT_EXISTS_FROM_PRIOR_FAILED_BLOCK
+
+PATCH_VERIFY_SOURCE_AGGREGATE_ALIASES
+
+PY_COMPILE
+
+RUN_PATCHED_RAW_DELTA_SIGNATURE_CANDIDATE_SCALE_REVIEW
+{
+  "actual_observer_overhead_ms": 1,
+  "authority_guards": {
+    "audit_pointer_in_payload": false,
+    "bounded_scale_out_policy_recommended": true,
+    "candidate_acceptance_authorized": false,
+    "candidate_accepted": false,
+    "case_id_or_cycle_n_primary_identity_patch_used": false,
+    "debug_payload_in_payload": false,
+    "full_occurrence_key_in_payload": false,
+    "full_registry_scan_used": false,
+    "microhash_as_proof_used": false,
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "receipt_suppression_authorized": false,
+    "registry_sqlite_changed": false,
+    "registry_sqlite_read": false,
+    "registry_write_authorized": false,
+    "rowid_or_receipt_hash_patch_used": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_mode_authorized": false
+  },
+  "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+  "created_at": "2026-06-21T15:24:55.295498+00:00",
+  "decision": {
+    "acceptance_sufficient": false,
+    "candidate_acceptance_authorized": false,
+    "candidate_accepted": false,
+    "do_not_accept_candidate": true,
+    "do_not_change_runtime": true,
+    "do_not_full_registry_scan": true,
+    "do_not_read_registry_sqlite": true,
+    "do_not_use_case_id_or_cycle_n_as_primary_identity": true,
+    "do_not_use_rowid_or_receipt_hash": true,
+    "do_not_write_registry": true,
+    "recommended_next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_BOUNDED_SCALE_OUT_POLICY_V0",
+    "review_only": true,
+    "scale_mode_authorized": false,
+    "terminal_class": "ADVANCE_TO_BOUNDED_SCALE_OUT_POLICY"
+  },
+  "failures": [],
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "pass_gates": {
+    "acceptance_remains_forbidden": true,
+    "authority_containment": true,
+    "bounded_pass_evidence_clean": true,
+    "bounded_scale_out_only": true,
+    "no_identity_leak": true,
+    "policy_preconditions": true,
+    "source_candidate_probe_passed": true,
+    "truth_surface_preserved": true
+  },
+  "receipt_id": "0c85a6f1",
+  "receipt_sig8": "0c85a6f1",
+  "review_decision": {
+    "acceptance_blockers": [
+      "candidate_acceptance_not_authorized_by_policy",
+      "bounded_probe_is_single_validation_radius",
+      "no_independent_scale_out_policy_executed_yet",
+      "no_full_registry_authority",
+      "runtime_change_not_authorized"
+    ],
+    "acceptance_sufficient": false,
+    "candidate_payload_should_remain": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after",
+      "raw_compression_ratio_sig6"
+    ],
+    "candidate_should_remain_selected": true,
+    "interpretation": "Candidate bounded probe is clean: distinguishability is preserved, burden is below full receipts, and authority/source surfaces are clean. This is still not acceptance; next lawful move is a bounded scale-out policy that defines a larger validation radius without full-registry scan or runtime change.",
+    "next_validation_radius_recommendation": {
+      "candidate_payload": [
+        "cv",
+        "state_hash_before",
+        "move_id",
+        "state_hash_after",
+        "raw_compression_ratio_sig6"
+      ],
+      "candidate_under_review": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+      "kind": "bounded_scale_out_policy",
+      "must_be_larger_than_current_bounded_surface": true,
+      "must_define_explicit_selection_rule_before_execution": true,
+      "must_include_prior_266_band_surface": true,
+      "must_not_accept_candidate": true,
+      "must_not_change_runtime": true,
+      "must_not_read_registry_sqlite": true,
+      "must_not_use_full_registry_scan": true,
+      "must_not_write_registry": true,
+      "requires_human_decision_now": false,
+      "selected_encoding_id": "raw_decimal_sig6",
+      "selected_target_raw_delta_field": "compression_ratio"
+    },
+    "recommended_next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_BOUNDED_SCALE_OUT_POLICY_V0",
+    "review_class": "ADVANCE_TO_BOUNDED_SCALE_OUT_POLICY",
+    "selected_encoding_should_remain": "raw_decimal_sig6",
+    "source_bounded_evidence": {
+      "all_band_false_merge_count": 0,
+      "bands_failed": 0,
+      "bands_passed": 266,
+      "bands_total": 266,
+      "identity_leak_count": 0,
+      "source_surface_regression_count": 0,
+      "total_burden_ratio_projected": 0.5139198850623566,
+      "total_full_receipt_bytes": 2870426,
+      "total_projected_plus_signature_payload_bytes": 1475169,
+      "worst_burden_ratio_projected": 0.5205640423031728,
+      "worst_collision_count": 0,
+      "worst_distinguishability_retention_ratio": 1.0,
+      "worst_false_merge_count": 0,
+      "worst_false_split_count": 0
+    }
+  },
+  "review_id": "6539838c",
+  "review_name": "RAW_DELTA_SIGNATURE_CANDIDATE_SCALE_REVIEW_V0",
+  "review_path": "data/raw_delta_signature_candidate_scale_reviews/6539838c.json",
+  "review_sig8": "6539838c",
+  "schema_version": "raw_delta_signature_candidate_scale_review_receipt_v0",
+  "source_bounded_pass_evidence": {
+    "all_band_false_merge_count": 0,
+    "bands_failed": 0,
+    "bands_passed": 266,
+    "bands_total": 266,
+    "identity_leak_count": 0,
+    "source_surface_regression_count": 0,
+    "total_burden_ratio_projected": 0.5139198850623566,
+    "total_full_receipt_bytes": 2870426,
+    "total_projected_plus_signature_payload_bytes": 1475169,
+    "worst_burden_ratio_projected": 0.5205640423031728,
+    "worst_collision_count": 0,
+    "worst_distinguishability_retention_ratio": 1.0,
+    "worst_false_merge_count": 0,
+    "worst_false_split_count": 0
+  },
+  "source_candidate_policy_id": "3b8eb867",
+  "source_candidate_probe_id": "6a33c978",
+  "source_candidate_probe_receipt_id": "99c90fe3",
+  "source_policy_id": "c9c7026d",
+  "source_policy_receipt_id": "f917841b",
+  "source_raw_delta_diagnostic_id": "74caa0f4",
+  "source_raw_delta_diagnostic_receipt_id": "129e9a76",
+  "terminal": {
+    "next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_BOUNDED_SCALE_OUT_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_class": "ADVANCE_TO_BOUNDED_SCALE_OUT_POLICY",
+  "warnings": []
+}
+review_id=6539838c
+review_json_path=data/raw_delta_signature_candidate_scale_reviews/6539838c.json
+review_receipt_path=data/raw_delta_signature_candidate_scale_review_receipts/6539838c.json
+RAW_DELTA_SCALE_REVIEW_ID=6539838c
+
+ASSERT_PATCHED_RAW_DELTA_SIGNATURE_CANDIDATE_SCALE_REVIEW
+{
+  "authority_guards": {
+    "audit_pointer_in_payload": false,
+    "bounded_scale_out_policy_recommended": true,
+    "candidate_acceptance_authorized": false,
+    "candidate_accepted": false,
+    "case_id_or_cycle_n_primary_identity_patch_used": false,
+    "debug_payload_in_payload": false,
+    "full_occurrence_key_in_payload": false,
+    "full_registry_scan_used": false,
+    "microhash_as_proof_used": false,
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "receipt_suppression_authorized": false,
+    "registry_sqlite_changed": false,
+    "registry_sqlite_read": false,
+    "registry_write_authorized": false,
+    "rowid_or_receipt_hash_patch_used": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_mode_authorized": false
+  },
+  "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+  "decision": {
+    "acceptance_sufficient": false,
+    "candidate_acceptance_authorized": false,
+    "candidate_accepted": false,
+    "do_not_accept_candidate": true,
+    "do_not_change_runtime": true,
+    "do_not_full_registry_scan": true,
+    "do_not_read_registry_sqlite": true,
+    "do_not_use_case_id_or_cycle_n_as_primary_identity": true,
+    "do_not_use_rowid_or_receipt_hash": true,
+    "do_not_write_registry": true,
+    "recommended_next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_BOUNDED_SCALE_OUT_POLICY_V0",
+    "review_only": true,
+    "scale_mode_authorized": false,
+    "terminal_class": "ADVANCE_TO_BOUNDED_SCALE_OUT_POLICY"
+  },
+  "failures": [],
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "pass_gates": {
+    "acceptance_remains_forbidden": true,
+    "authority_containment": true,
+    "bounded_pass_evidence_clean": true,
+    "bounded_scale_out_only": true,
+    "no_identity_leak": true,
+    "policy_preconditions": true,
+    "source_candidate_probe_passed": true,
+    "truth_surface_preserved": true
+  },
+  "receipt_id": "0c85a6f1",
+  "review_decision": {
+    "acceptance_blockers": [
+      "candidate_acceptance_not_authorized_by_policy",
+      "bounded_probe_is_single_validation_radius",
+      "no_independent_scale_out_policy_executed_yet",
+      "no_full_registry_authority",
+      "runtime_change_not_authorized"
+    ],
+    "acceptance_sufficient": false,
+    "candidate_payload_should_remain": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after",
+      "raw_compression_ratio_sig6"
+    ],
+    "candidate_should_remain_selected": true,
+    "interpretation": "Candidate bounded probe is clean: distinguishability is preserved, burden is below full receipts, and authority/source surfaces are clean. This is still not acceptance; next lawful move is a bounded scale-out policy that defines a larger validation radius without full-registry scan or runtime change.",
+    "next_validation_radius_recommendation": {
+      "candidate_payload": [
+        "cv",
+        "state_hash_before",
+        "move_id",
+        "state_hash_after",
+        "raw_compression_ratio_sig6"
+      ],
+      "candidate_under_review": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+      "kind": "bounded_scale_out_policy",
+      "must_be_larger_than_current_bounded_surface": true,
+      "must_define_explicit_selection_rule_before_execution": true,
+      "must_include_prior_266_band_surface": true,
+      "must_not_accept_candidate": true,
+      "must_not_change_runtime": true,
+      "must_not_read_registry_sqlite": true,
+      "must_not_use_full_registry_scan": true,
+      "must_not_write_registry": true,
+      "requires_human_decision_now": false,
+      "selected_encoding_id": "raw_decimal_sig6",
+      "selected_target_raw_delta_field": "compression_ratio"
+    },
+    "recommended_next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_BOUNDED_SCALE_OUT_POLICY_V0",
+    "review_class": "ADVANCE_TO_BOUNDED_SCALE_OUT_POLICY",
+    "selected_encoding_should_remain": "raw_decimal_sig6",
+    "source_bounded_evidence": {
+      "all_band_false_merge_count": 0,
+      "bands_failed": 0,
+      "bands_passed": 266,
+      "bands_total": 266,
+      "identity_leak_count": 0,
+      "source_surface_regression_count": 0,
+      "total_burden_ratio_projected": 0.5139198850623566,
+      "total_full_receipt_bytes": 2870426,
+      "total_projected_plus_signature_payload_bytes": 1475169,
+      "worst_burden_ratio_projected": 0.5205640423031728,
+      "worst_collision_count": 0,
+      "worst_distinguishability_retention_ratio": 1.0,
+      "worst_false_merge_count": 0,
+      "worst_false_split_count": 0
+    }
+  },
+  "review_id": "6539838c",
+  "source_bounded_pass_evidence": {
+    "all_band_false_merge_count": 0,
+    "bands_failed": 0,
+    "bands_passed": 266,
+    "bands_total": 266,
+    "identity_leak_count": 0,
+    "source_surface_regression_count": 0,
+    "total_burden_ratio_projected": 0.5139198850623566,
+    "total_full_receipt_bytes": 2870426,
+    "total_projected_plus_signature_payload_bytes": 1475169,
+    "worst_burden_ratio_projected": 0.5205640423031728,
+    "worst_collision_count": 0,
+    "worst_distinguishability_retention_ratio": 1.0,
+    "worst_false_merge_count": 0,
+    "worst_false_split_count": 0
+  },
+  "source_candidate_probe_id": "6a33c978",
+  "source_policy_id": "c9c7026d",
+  "terminal": {
+    "next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_BOUNDED_SCALE_OUT_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_class": "ADVANCE_TO_BOUNDED_SCALE_OUT_POLICY"
+}
+
+NEGATIVE_CONTROLS_PATCHED_RAW_DELTA_SIGNATURE_CANDIDATE_SCALE_REVIEW
+{
+  "case": "source_probe_terminal_fail",
+  "expected": "candidate_probe_terminal_wrong",
+  "failures": [
+    "candidate_probe_terminal_wrong:FAIL_RAW_DELTA_SIGNATURE_FALSE_MERGE"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_false_merge_fail",
+  "expected": "probe_aggregate_all_band_false_merge_count_wrong",
+  "failures": [
+    "probe_aggregate_all_band_false_merge_count_wrong:1"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_band_failed_fail",
+  "expected": "probe_aggregate_bands_failed_wrong",
+  "failures": [
+    "probe_aggregate_bands_failed_wrong:1"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_total_burden_fail",
+  "expected": "probe_total_burden_not_below_1",
+  "failures": [
+    "probe_total_burden_not_below_1:1.2"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_surface_fail",
+  "expected": "probe_aggregate_worst_source_surface_regression_count_wrong",
+  "failures": [
+    "probe_aggregate_worst_source_surface_regression_count_wrong:1"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "identity_leak_fail",
+  "expected": "probe_aggregate_worst_identity_leak_count_wrong",
+  "failures": [
+    "probe_aggregate_worst_identity_leak_count_wrong:1"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "candidate_accepted_fail",
+  "expected": "candidate_probe_guard_not_false:candidate_accepted",
+  "failures": [
+    "candidate_probe_guard_not_false:candidate_accepted:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "registry_read_fail",
+  "expected": "candidate_probe_guard_not_false:registry_sqlite_read",
+  "failures": [
+    "candidate_probe_guard_not_false:registry_sqlite_read:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "policy_acceptance_authority_fail",
+  "expected": "policy_illegal_authority:authorizes_candidate_acceptance",
+  "failures": [
+    "policy_illegal_authority:authorizes_candidate_acceptance:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "policy_full_registry_authority_fail",
+  "expected": "policy_illegal_authority:authorizes_full_registry_scan",
+  "failures": [
+    "policy_illegal_authority:authorizes_full_registry_scan:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "forbidden_acceptance_removed_fail",
+  "expected": "forbidden_review_action_not_marked:candidate_acceptance",
+  "failures": [
+    "forbidden_review_action_not_marked:candidate_acceptance:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "truth_surface_fail",
+  "expected": "contract_truth_surface_wrong",
+  "failures": [
+    "contract_truth_surface_wrong:receipt_hash_to_candidate_signature"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "raw_diag_receipt_gate_fail",
+  "expected": "raw_diag_receipt_gate_not_PASS",
+  "failures": [
+    "raw_diag_receipt_gate_not_PASS:FAIL"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+PATCHED_RAW_DELTA_SIGNATURE_CANDIDATE_SCALE_REVIEW_HEAD_JSON
+{
+  "authority_guards": {
+    "audit_pointer_in_payload": false,
+    "bounded_scale_out_policy_recommended": true,
+    "candidate_acceptance_authorized": false,
+    "candidate_accepted": false,
+    "case_id_or_cycle_n_primary_identity_patch_used": false,
+    "debug_payload_in_payload": false,
+    "full_occurrence_key_in_payload": false,
+    "full_registry_scan_used": false,
+    "microhash_as_proof_used": false,
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "receipt_suppression_authorized": false,
+    "registry_sqlite_changed": false,
+    "registry_sqlite_read": false,
+    "registry_write_authorized": false,
+    "rowid_or_receipt_hash_patch_used": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_mode_authorized": false
+  },
+  "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+  "decision": {
+    "acceptance_sufficient": false,
+    "candidate_acceptance_authorized": false,
+    "candidate_accepted": false,
+    "do_not_accept_candidate": true,
+    "do_not_change_runtime": true,
+    "do_not_full_registry_scan": true,
+    "do_not_read_registry_sqlite": true,
+    "do_not_use_case_id_or_cycle_n_as_primary_identity": true,
+    "do_not_use_rowid_or_receipt_hash": true,
+    "do_not_write_registry": true,
+    "recommended_next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_BOUNDED_SCALE_OUT_POLICY_V0",
+    "review_only": true,
+    "scale_mode_authorized": false,
+    "terminal_class": "ADVANCE_TO_BOUNDED_SCALE_OUT_POLICY"
+  },
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "pass_gates": {
+    "acceptance_remains_forbidden": true,
+    "authority_containment": true,
+    "bounded_pass_evidence_clean": true,
+    "bounded_scale_out_only": true,
+    "no_identity_leak": true,
+    "policy_preconditions": true,
+    "source_candidate_probe_passed": true,
+    "truth_surface_preserved": true
+  },
+  "receipt_id": "0c85a6f1",
+  "review_decision": {
+    "acceptance_blockers": [
+      "candidate_acceptance_not_authorized_by_policy",
+      "bounded_probe_is_single_validation_radius",
+      "no_independent_scale_out_policy_executed_yet",
+      "no_full_registry_authority",
+      "runtime_change_not_authorized"
+    ],
+    "acceptance_sufficient": false,
+    "candidate_payload_should_remain": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after",
+      "raw_compression_ratio_sig6"
+    ],
+    "candidate_should_remain_selected": true,
+    "interpretation": "Candidate bounded probe is clean: distinguishability is preserved, burden is below full receipts, and authority/source surfaces are clean. This is still not acceptance; next lawful move is a bounded scale-out policy that defines a larger validation radius without full-registry scan or runtime change.",
+    "next_validation_radius_recommendation": {
+      "candidate_payload": [
+        "cv",
+        "state_hash_before",
+        "move_id",
+        "state_hash_after",
+        "raw_compression_ratio_sig6"
+      ],
+      "candidate_under_review": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+      "kind": "bounded_scale_out_policy",
+      "must_be_larger_than_current_bounded_surface": true,
+      "must_define_explicit_selection_rule_before_execution": true,
+      "must_include_prior_266_band_surface": true,
+      "must_not_accept_candidate": true,
+      "must_not_change_runtime": true,
+      "must_not_read_registry_sqlite": true,
+      "must_not_use_full_registry_scan": true,
+      "must_not_write_registry": true,
+      "requires_human_decision_now": false,
+      "selected_encoding_id": "raw_decimal_sig6",
+      "selected_target_raw_delta_field": "compression_ratio"
+    },
+    "recommended_next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_BOUNDED_SCALE_OUT_POLICY_V0",
+    "review_class": "ADVANCE_TO_BOUNDED_SCALE_OUT_POLICY",
+    "selected_encoding_should_remain": "raw_decimal_sig6",
+    "source_bounded_evidence": {
+      "all_band_false_merge_count": 0,
+      "bands_failed": 0,
+      "bands_passed": 266,
+      "bands_total": 266,
+      "identity_leak_count": 0,
+      "source_surface_regression_count": 0,
+      "total_burden_ratio_projected": 0.5139198850623566,
+      "total_full_receipt_bytes": 2870426,
+      "total_projected_plus_signature_payload_bytes": 1475169,
+      "worst_burden_ratio_projected": 0.5205640423031728,
+      "worst_collision_count": 0,
+      "worst_distinguishability_retention_ratio": 1.0,
+      "worst_false_merge_count": 0,
+      "worst_false_split_count": 0
+    }
+  },
+  "review_id": "6539838c",
+  "source_bounded_pass_evidence": {
+    "all_band_false_merge_count": 0,
+    "bands_failed": 0,
+    "bands_passed": 266,
+    "bands_total": 266,
+    "identity_leak_count": 0,
+    "source_surface_regression_count": 0,
+    "total_burden_ratio_projected": 0.5139198850623566,
+    "total_full_receipt_bytes": 2870426,
+    "total_projected_plus_signature_payload_bytes": 1475169,
+    "worst_burden_ratio_projected": 0.5205640423031728,
+    "worst_collision_count": 0,
+    "worst_distinguishability_retention_ratio": 1.0,
+    "worst_false_merge_count": 0,
+    "worst_false_split_count": 0
+  },
+  "source_candidate_probe_id": "6a33c978",
+  "source_policy_id": "c9c7026d",
+  "terminal": {
+    "next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_BOUNDED_SCALE_OUT_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_class": "ADVANCE_TO_BOUNDED_SCALE_OUT_POLICY"
+}
+
+VERIFY_TOUCH_SCOPE_ONLY_RAW_DELTA_SCALE_REVIEW
+ M .gitignore
+?? data/
+?? scripts/raw_delta_signature_candidate_scale_review_v0.py
+touch scope ok
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/raw_delta_signature_candidate_scale_review_v0.py
+[master 862cb16b8] implement raw delta signature candidate scale review
+ 2 files changed, 596 insertions(+)
+ create mode 100755 scripts/raw_delta_signature_candidate_scale_review_v0.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

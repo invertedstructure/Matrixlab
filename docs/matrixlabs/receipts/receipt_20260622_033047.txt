@@ -1,0 +1,702 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_033047
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_033047.txt
+
+REWRITE_AND_RERUN_JURISDICTION_RUNNER_V0_1_HALT_SURFACE_PROBE_VALIDATOR_V2
+
+STATUS_BEFORE
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/run_jurisdiction_runner_v0_1_halt_surface_probe_v0.py
+
+VERIFY_REWRITE_INPUTS_EXIST_AND_TRACKED
+tracked data/jurisdiction_runner_v0_1_halt_surface_probe_policies/cfe745b9.json
+tracked data/jurisdiction_runner_v0_1_halt_surface_probe_policy_receipts/cfe745b9.json
+tracked data/jurisdiction_runner_v0_1_implementation_receipts/04c0692d.json
+tracked data/local_regime_v0_declarations/097d620c.json
+tracked src/matrixlab/jurisdiction_runner_v0_1.py
+
+ENSURE_GITIGNORE
+
+REWRITE_HALT_SURFACE_PROBE_RUNNER_FROM_SCRATCH
+
+PY_COMPILE_REWRITTEN_HALT_SURFACE_PROBE
+
+RERUN_REWRITTEN_HALT_SURFACE_PROBE
+{
+  "aggregate_metrics": {
+    "case_fail_count": 0,
+    "case_pass_count": 5,
+    "case_receipt_count": 5,
+    "controlled_probe_regime_variant_count": 1,
+    "controlled_probe_regime_variant_promoted_count": 0,
+    "coverage_goal_count": 6,
+    "covered_halt_count": 6,
+    "new_probe_case_count": 5,
+    "proposal_promoted_count": 0,
+    "registry_write_count": 0,
+    "runner_executed_probe_count": 4,
+    "wrapper_boundary_probe_count": 1
+  },
+  "artifact_guards": {
+    "ambient_workspace_authority_used": false,
+    "implementation_receipt_tracked": true,
+    "latest_or_mtime_selection_used": false,
+    "local_regime_tracked": true,
+    "outputs_path_addressed": true,
+    "outputs_receipt_referenced": true,
+    "policy_receipt_tracked": true,
+    "policy_tracked": true,
+    "runner_module_tracked": true,
+    "unrelated_untracked_data_not_authority": true
+  },
+  "authority_guards": {
+    "controlled_probe_regime_variant_created": true,
+    "controlled_probe_regime_variant_promoted": false,
+    "final_schema_claimed": false,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "halt_surface_probe_policy_consumed": true,
+    "hidden_continuation_authorized": false,
+    "local_regime_read": true,
+    "local_regime_replaced": false,
+    "local_regime_runtime_mutated": false,
+    "probe_fixtures_created": true,
+    "probe_fixtures_executed": true,
+    "proof_claimed": false,
+    "proposal_promoted": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_module_changed": false,
+    "runner_module_read": true,
+    "wrapper_dependency_missing_probe_executed": true
+  },
+  "case_results": {
+    "STOP_AUTHORITY_VIOLATION": {
+      "case_name": "STOP_AUTHORITY_VIOLATION",
+      "case_receipt_id": "83f488d6",
+      "case_receipt_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/83f488d6.json",
+      "expected_transcript_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_authority_violation.json",
+      "fixture_id": "halt_surface_probe_stop_authority_violation",
+      "fixture_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_authority_violation.json",
+      "gate": "PASS",
+      "halt_code": "STOP_AUTHORITY_VIOLATION",
+      "move_status": "BLOCKED",
+      "no_proposal_reason": "OUT_OF_SCOPE",
+      "proposal_status": "NONE",
+      "runner_executed": true
+    },
+    "STOP_DEPENDENCY_MISSING": {
+      "case_name": "STOP_DEPENDENCY_MISSING",
+      "case_receipt_id": "f4d74d9f",
+      "case_receipt_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/f4d74d9f.json",
+      "expected_transcript_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_dependency_missing.json",
+      "fixture_id": "halt_surface_probe_stop_dependency_missing",
+      "fixture_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_dependency_missing.json",
+      "gate": "PASS",
+      "halt_code": "STOP_DEPENDENCY_MISSING",
+      "move_status": "BLOCKED",
+      "no_proposal_reason": "PRESSURE_ALREADY_TYPED",
+      "proposal_status": "NONE",
+      "runner_executed": false
+    },
+    "STOP_GATE_FAIL": {
+      "case_name": "STOP_GATE_FAIL",
+      "case_receipt_id": "369e22ef",
+      "case_receipt_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/369e22ef.json",
+      "expected_transcript_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_gate_fail.json",
+      "fixture_id": "halt_surface_probe_stop_gate_fail",
+      "fixture_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_gate_fail.json",
+      "gate": "PASS",
+      "halt_code": "STOP_GATE_FAIL",
+      "move_status": "BLOCKED",
+      "no_proposal_reason": "PRESSURE_ALREADY_TYPED",
+      "proposal_status": "NONE",
+      "runner_executed": true
+    },
+    "STOP_NO_APPLICABLE_MOVE": {
+      "case_name": "STOP_NO_APPLICABLE_MOVE",
+      "case_receipt_id": "a09e9f3d",
+      "case_receipt_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/a09e9f3d.json",
+      "expected_transcript_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_no_applicable_move.json",
+      "fixture_id": "halt_surface_probe_stop_no_applicable_move",
+      "fixture_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_no_applicable_move.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "move_status": "BLOCKED",
+      "no_proposal_reason": "INSUFFICIENT_EVIDENCE",
+      "proposal_status": "NONE",
+      "runner_executed": true
+    },
+    "STOP_UNTYPED_OBJECT": {
+      "case_name": "STOP_UNTYPED_OBJECT",
+      "case_receipt_id": "414e0e93",
+      "case_receipt_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/414e0e93.json",
+      "expected_transcript_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_untyped_object.json",
+      "fixture_id": "halt_surface_probe_stop_untyped_object",
+      "fixture_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_untyped_object.json",
+      "gate": "PASS",
+      "halt_code": "STOP_UNTYPED_OBJECT",
+      "move_status": "BLOCKED",
+      "no_proposal_reason": "PRESSURE_ALREADY_TYPED",
+      "proposal_status": "NONE",
+      "runner_executed": true
+    }
+  },
+  "coverage_complete": true,
+  "coverage_goal": [
+    "STOP_DONE",
+    "STOP_NO_APPLICABLE_MOVE",
+    "STOP_AUTHORITY_VIOLATION",
+    "STOP_GATE_FAIL",
+    "STOP_UNTYPED_OBJECT",
+    "STOP_DEPENDENCY_MISSING"
+  ],
+  "covered_halts_after_probe": [
+    "STOP_AUTHORITY_VIOLATION",
+    "STOP_DEPENDENCY_MISSING",
+    "STOP_DONE",
+    "STOP_GATE_FAIL",
+    "STOP_NO_APPLICABLE_MOVE",
+    "STOP_UNTYPED_OBJECT"
+  ],
+  "created_at": "2026-06-22T02:30:47.778110+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "local_regime_hash": "097d620c",
+  "local_regime_version": "local_regime.v0",
+  "missing_coverage": [],
+  "newly_probed_halts": [
+    "STOP_AUTHORITY_VIOLATION",
+    "STOP_DEPENDENCY_MISSING",
+    "STOP_GATE_FAIL",
+    "STOP_NO_APPLICABLE_MOVE",
+    "STOP_UNTYPED_OBJECT"
+  ],
+  "previously_covered_halts": [
+    "STOP_DONE"
+  ],
+  "receipt_id": "5030948f",
+  "receipt_type": "JURISDICTION_RUNNER_V0_1_HALT_SURFACE_PROBE_RUN_RECEIPT",
+  "runner_unit_id": "jurisdiction_runner.v0.1",
+  "schema_version": "jurisdiction_runner_v0_1_halt_surface_probe_run_receipt_v0",
+  "source_halt_surface_probe_policy_id": "cfe745b9",
+  "source_halt_surface_probe_policy_receipt_id": "7bb73d50",
+  "source_implementation_receipt_id": "04c0692d",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  },
+  "unit_id": "RUN_JURISDICTION_RUNNER_V0_1_HALT_SURFACE_PROBE_V0",
+  "warnings": []
+}
+halt_surface_probe_run_receipt_id=5030948f
+halt_surface_probe_run_receipt_path=data/jurisdiction_runner_v0_1_halt_surface_probe_run_receipts/5030948f.json
+case_STOP_AUTHORITY_VIOLATION_fixture_path=data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_authority_violation.json
+case_STOP_AUTHORITY_VIOLATION_expected_transcript_path=data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_authority_violation.json
+case_STOP_AUTHORITY_VIOLATION_receipt_id=83f488d6
+case_STOP_AUTHORITY_VIOLATION_receipt_path=data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/83f488d6.json
+case_STOP_DEPENDENCY_MISSING_fixture_path=data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_dependency_missing.json
+case_STOP_DEPENDENCY_MISSING_expected_transcript_path=data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_dependency_missing.json
+case_STOP_DEPENDENCY_MISSING_receipt_id=f4d74d9f
+case_STOP_DEPENDENCY_MISSING_receipt_path=data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/f4d74d9f.json
+case_STOP_GATE_FAIL_fixture_path=data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_gate_fail.json
+case_STOP_GATE_FAIL_expected_transcript_path=data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_gate_fail.json
+case_STOP_GATE_FAIL_receipt_id=369e22ef
+case_STOP_GATE_FAIL_receipt_path=data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/369e22ef.json
+case_STOP_NO_APPLICABLE_MOVE_fixture_path=data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_no_applicable_move.json
+case_STOP_NO_APPLICABLE_MOVE_expected_transcript_path=data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_no_applicable_move.json
+case_STOP_NO_APPLICABLE_MOVE_receipt_id=a09e9f3d
+case_STOP_NO_APPLICABLE_MOVE_receipt_path=data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/a09e9f3d.json
+case_STOP_UNTYPED_OBJECT_fixture_path=data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_untyped_object.json
+case_STOP_UNTYPED_OBJECT_expected_transcript_path=data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_untyped_object.json
+case_STOP_UNTYPED_OBJECT_receipt_id=414e0e93
+case_STOP_UNTYPED_OBJECT_receipt_path=data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/414e0e93.json
+HALT_SURFACE_PROBE_RUN_RECEIPT_ID=5030948f
+HALT_SURFACE_PROBE_RUN_RECEIPT_PATH=data/jurisdiction_runner_v0_1_halt_surface_probe_run_receipts/5030948f.json
+
+ASSERT_REWRITTEN_HALT_SURFACE_PROBE_RUN
+{
+  "aggregate_metrics": {
+    "case_fail_count": 0,
+    "case_pass_count": 5,
+    "case_receipt_count": 5,
+    "controlled_probe_regime_variant_count": 1,
+    "controlled_probe_regime_variant_promoted_count": 0,
+    "coverage_goal_count": 6,
+    "covered_halt_count": 6,
+    "new_probe_case_count": 5,
+    "proposal_promoted_count": 0,
+    "registry_write_count": 0,
+    "runner_executed_probe_count": 4,
+    "wrapper_boundary_probe_count": 1
+  },
+  "artifact_guards": {
+    "ambient_workspace_authority_used": false,
+    "implementation_receipt_tracked": true,
+    "latest_or_mtime_selection_used": false,
+    "local_regime_tracked": true,
+    "outputs_path_addressed": true,
+    "outputs_receipt_referenced": true,
+    "policy_receipt_tracked": true,
+    "policy_tracked": true,
+    "runner_module_tracked": true,
+    "unrelated_untracked_data_not_authority": true
+  },
+  "authority_guards": {
+    "controlled_probe_regime_variant_created": true,
+    "controlled_probe_regime_variant_promoted": false,
+    "final_schema_claimed": false,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "halt_surface_probe_policy_consumed": true,
+    "hidden_continuation_authorized": false,
+    "local_regime_read": true,
+    "local_regime_replaced": false,
+    "local_regime_runtime_mutated": false,
+    "probe_fixtures_created": true,
+    "probe_fixtures_executed": true,
+    "proof_claimed": false,
+    "proposal_promoted": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_module_changed": false,
+    "runner_module_read": true,
+    "wrapper_dependency_missing_probe_executed": true
+  },
+  "coverage_complete": true,
+  "covered_halts_after_probe": [
+    "STOP_AUTHORITY_VIOLATION",
+    "STOP_DEPENDENCY_MISSING",
+    "STOP_DONE",
+    "STOP_GATE_FAIL",
+    "STOP_NO_APPLICABLE_MOVE",
+    "STOP_UNTYPED_OBJECT"
+  ],
+  "gate": "PASS",
+  "receipt_id": "5030948f",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROLS_REWRITTEN_VALIDATOR_NON_WRITING
+{
+  "case": "policy_terminal_next_fail",
+  "failures": [
+    "policy_terminal_next_wrong:WRONG_NEXT"
+  ]
+}
+{
+  "case": "implementation_registry_sqlite_written_guard_fail",
+  "failures": [
+    "implementation_guard_not_false:registry_sqlite_written:True"
+  ]
+}
+{
+  "case": "implementation_registry_written_guard_fail",
+  "failures": [
+    "implementation_guard_not_false:registry_written:True"
+  ]
+}
+{
+  "case": "implementation_registry_inserted_guard_fail",
+  "failures": [
+    "implementation_guard_not_false:registry_inserted:True"
+  ]
+}
+{
+  "case": "implementation_registry_sqlite_read_guard_fail",
+  "failures": [
+    "implementation_guard_not_false:registry_sqlite_read:True"
+  ]
+}
+{
+  "case": "implementation_full_registry_scan_used_guard_fail",
+  "failures": [
+    "implementation_guard_not_false:full_registry_scan_used:True"
+  ]
+}
+{
+  "case": "implementation_proposal_promoted_guard_fail",
+  "failures": [
+    "implementation_guard_not_false:proposal_promoted:True"
+  ]
+}
+{
+  "case": "implementation_proof_claimed_guard_fail",
+  "failures": [
+    "implementation_guard_not_false:proof_claimed:True"
+  ]
+}
+{
+  "case": "implementation_global_taxonomy_claimed_guard_fail",
+  "failures": [
+    "implementation_guard_not_false:global_taxonomy_claimed:True"
+  ]
+}
+{
+  "case": "implementation_hidden_continuation_authorized_guard_fail",
+  "failures": [
+    "implementation_guard_not_false:hidden_continuation_authorized:True"
+  ]
+}
+{
+  "case": "implementation_bootstrap_policy_consumed_guard_true_required_fail",
+  "failures": [
+    "implementation_guard_not_true:bootstrap_policy_consumed:False"
+  ]
+}
+{
+  "case": "implementation_runner_implemented_guard_true_required_fail",
+  "failures": [
+    "implementation_guard_not_true:runner_implemented:False"
+  ]
+}
+{
+  "case": "implementation_runner_executed_guard_true_required_fail",
+  "failures": [
+    "implementation_guard_not_true:runner_executed:False"
+  ]
+}
+{
+  "case": "implementation_dry_run_fixture_created_guard_true_required_fail",
+  "failures": [
+    "implementation_guard_not_true:dry_run_fixture_created:False"
+  ]
+}
+{
+  "case": "implementation_dry_run_fixture_executed_guard_true_required_fail",
+  "failures": [
+    "implementation_guard_not_true:dry_run_fixture_executed:False"
+  ]
+}
+{
+  "case": "implementation_expected_transcript_created_guard_true_required_fail",
+  "failures": [
+    "implementation_guard_not_true:expected_transcript_created:False"
+  ]
+}
+{
+  "case": "implementation_local_regime_v0_declared_guard_true_required_fail",
+  "failures": [
+    "implementation_guard_not_true:local_regime_v0_declared:False"
+  ]
+}
+{
+  "case": "valid_no_applicable_move_case",
+  "failures": [],
+  "halt_code": "STOP_NO_APPLICABLE_MOVE"
+}
+{
+  "case": "case_terminal_contract_fail",
+  "failures": [
+    "STOP_NO_APPLICABLE_MOVE:terminal_not_STOP:{'type': 'ADVANCE', 'next_command_goal': None, 'stop_code': 'STOP_NO_APPLICABLE_MOVE'}"
+  ]
+}
+{
+  "after": {
+    "run_receipt": "a81adee427db6dd6a73fd6f943a89d52ceffa52c77f7bac9070c878ac466e04d"
+  },
+  "before": {
+    "run_receipt": "a81adee427db6dd6a73fd6f943a89d52ceffa52c77f7bac9070c878ac466e04d"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+VERIFY_NO_RUNNER_OR_REGISTRY_MUTATION
+.gitignore
+runner and sqlite registry untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/run_jurisdiction_runner_v0_1_halt_surface_probe_v0.py
+
+PACKAGE_REWRITTEN_HALT_SURFACE_PROBE_RUN_ARTIFACTS
+packaged data/jurisdiction_runner_v0_1_halt_surface_probe_run_receipts/5030948f.json
+
+PACKAGE_CASE_ARTIFACTS
+packaged data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_authority_violation.json
+packaged data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_dependency_missing.json
+packaged data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_gate_fail.json
+packaged data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_no_applicable_move.json
+packaged data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_untyped_object.json
+packaged data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_authority_violation.json
+packaged data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_dependency_missing.json
+packaged data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_gate_fail.json
+packaged data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_no_applicable_move.json
+packaged data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_untyped_object.json
+packaged data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/83f488d6.json
+packaged data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/f4d74d9f.json
+packaged data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/369e22ef.json
+packaged data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/a09e9f3d.json
+packaged data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/414e0e93.json
+
+PACKAGE_CONTROLLED_VARIANT_IF_PRESENT
+packaged data/jurisdiction_runner_v0_1_halt_surface_probe_regime_variants/4881638d.json
+[master a335faa6b] rewrite and run jurisdiction runner v0.1 halt surface probe
+ 19 files changed, 1775 insertions(+)
+ create mode 100644 data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/369e22ef.json
+ create mode 100644 data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/414e0e93.json
+ create mode 100644 data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/83f488d6.json
+ create mode 100644 data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/a09e9f3d.json
+ create mode 100644 data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/f4d74d9f.json
+ create mode 100644 data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_authority_violation.json
+ create mode 100644 data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_dependency_missing.json
+ create mode 100644 data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_gate_fail.json
+ create mode 100644 data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_no_applicable_move.json
+ create mode 100644 data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_untyped_object.json
+ create mode 100644 data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_authority_violation.json
+ create mode 100644 data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_dependency_missing.json
+ create mode 100644 data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_gate_fail.json
+ create mode 100644 data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_no_applicable_move.json
+ create mode 100644 data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_untyped_object.json
+ create mode 100644 data/jurisdiction_runner_v0_1_halt_surface_probe_regime_variants/4881638d.json
+ create mode 100644 data/jurisdiction_runner_v0_1_halt_surface_probe_run_receipts/5030948f.json
+ create mode 100755 scripts/run_jurisdiction_runner_v0_1_halt_surface_probe_v0.py
+
+COMMIT_DONE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+NEXT_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+halt_surface_probe_run_receipt_id=5030948f
+halt_surface_probe_run_receipt_path=data/jurisdiction_runner_v0_1_halt_surface_probe_run_receipts/5030948f.json
+{
+  "aggregate_metrics": {
+    "case_fail_count": 0,
+    "case_pass_count": 5,
+    "case_receipt_count": 5,
+    "controlled_probe_regime_variant_count": 1,
+    "controlled_probe_regime_variant_promoted_count": 0,
+    "coverage_goal_count": 6,
+    "covered_halt_count": 6,
+    "new_probe_case_count": 5,
+    "proposal_promoted_count": 0,
+    "registry_write_count": 0,
+    "runner_executed_probe_count": 4,
+    "wrapper_boundary_probe_count": 1
+  },
+  "artifact_guards": {
+    "ambient_workspace_authority_used": false,
+    "implementation_receipt_tracked": true,
+    "latest_or_mtime_selection_used": false,
+    "local_regime_tracked": true,
+    "outputs_path_addressed": true,
+    "outputs_receipt_referenced": true,
+    "policy_receipt_tracked": true,
+    "policy_tracked": true,
+    "runner_module_tracked": true,
+    "unrelated_untracked_data_not_authority": true
+  },
+  "authority_guards": {
+    "controlled_probe_regime_variant_created": true,
+    "controlled_probe_regime_variant_promoted": false,
+    "final_schema_claimed": false,
+    "full_registry_scan_used": false,
+    "global_taxonomy_claimed": false,
+    "halt_surface_probe_policy_consumed": true,
+    "hidden_continuation_authorized": false,
+    "local_regime_read": true,
+    "local_regime_replaced": false,
+    "local_regime_runtime_mutated": false,
+    "probe_fixtures_created": true,
+    "probe_fixtures_executed": true,
+    "proof_claimed": false,
+    "proposal_promoted": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_module_changed": false,
+    "runner_module_read": true,
+    "wrapper_dependency_missing_probe_executed": true
+  },
+  "case_results": {
+    "STOP_AUTHORITY_VIOLATION": {
+      "case_name": "STOP_AUTHORITY_VIOLATION",
+      "case_receipt_id": "83f488d6",
+      "case_receipt_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/83f488d6.json",
+      "expected_transcript_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_authority_violation.json",
+      "fixture_id": "halt_surface_probe_stop_authority_violation",
+      "fixture_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_authority_violation.json",
+      "gate": "PASS",
+      "halt_code": "STOP_AUTHORITY_VIOLATION",
+      "move_status": "BLOCKED",
+      "no_proposal_reason": "OUT_OF_SCOPE",
+      "proposal_status": "NONE",
+      "runner_executed": true
+    },
+    "STOP_DEPENDENCY_MISSING": {
+      "case_name": "STOP_DEPENDENCY_MISSING",
+      "case_receipt_id": "f4d74d9f",
+      "case_receipt_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/f4d74d9f.json",
+      "expected_transcript_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_dependency_missing.json",
+      "fixture_id": "halt_surface_probe_stop_dependency_missing",
+      "fixture_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_dependency_missing.json",
+      "gate": "PASS",
+      "halt_code": "STOP_DEPENDENCY_MISSING",
+      "move_status": "BLOCKED",
+      "no_proposal_reason": "PRESSURE_ALREADY_TYPED",
+      "proposal_status": "NONE",
+      "runner_executed": false
+    },
+    "STOP_GATE_FAIL": {
+      "case_name": "STOP_GATE_FAIL",
+      "case_receipt_id": "369e22ef",
+      "case_receipt_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/369e22ef.json",
+      "expected_transcript_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_gate_fail.json",
+      "fixture_id": "halt_surface_probe_stop_gate_fail",
+      "fixture_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_gate_fail.json",
+      "gate": "PASS",
+      "halt_code": "STOP_GATE_FAIL",
+      "move_status": "BLOCKED",
+      "no_proposal_reason": "PRESSURE_ALREADY_TYPED",
+      "proposal_status": "NONE",
+      "runner_executed": true
+    },
+    "STOP_NO_APPLICABLE_MOVE": {
+      "case_name": "STOP_NO_APPLICABLE_MOVE",
+      "case_receipt_id": "a09e9f3d",
+      "case_receipt_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/a09e9f3d.json",
+      "expected_transcript_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_no_applicable_move.json",
+      "fixture_id": "halt_surface_probe_stop_no_applicable_move",
+      "fixture_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_no_applicable_move.json",
+      "gate": "PASS",
+      "halt_code": "STOP_NO_APPLICABLE_MOVE",
+      "move_status": "BLOCKED",
+      "no_proposal_reason": "INSUFFICIENT_EVIDENCE",
+      "proposal_status": "NONE",
+      "runner_executed": true
+    },
+    "STOP_UNTYPED_OBJECT": {
+      "case_name": "STOP_UNTYPED_OBJECT",
+      "case_receipt_id": "414e0e93",
+      "case_receipt_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_case_receipts/414e0e93.json",
+      "expected_transcript_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_expected_transcripts/halt_surface_probe_stop_untyped_object.json",
+      "fixture_id": "halt_surface_probe_stop_untyped_object",
+      "fixture_path": "data/jurisdiction_runner_v0_1_halt_surface_probe_fixtures/halt_surface_probe_stop_untyped_object.json",
+      "gate": "PASS",
+      "halt_code": "STOP_UNTYPED_OBJECT",
+      "move_status": "BLOCKED",
+      "no_proposal_reason": "PRESSURE_ALREADY_TYPED",
+      "proposal_status": "NONE",
+      "runner_executed": true
+    }
+  },
+  "coverage_complete": true,
+  "coverage_goal": [
+    "STOP_DONE",
+    "STOP_NO_APPLICABLE_MOVE",
+    "STOP_AUTHORITY_VIOLATION",
+    "STOP_GATE_FAIL",
+    "STOP_UNTYPED_OBJECT",
+    "STOP_DEPENDENCY_MISSING"
+  ],
+  "covered_halts_after_probe": [
+    "STOP_AUTHORITY_VIOLATION",
+    "STOP_DEPENDENCY_MISSING",
+    "STOP_DONE",
+    "STOP_GATE_FAIL",
+    "STOP_NO_APPLICABLE_MOVE",
+    "STOP_UNTYPED_OBJECT"
+  ],
+  "gate": "PASS",
+  "local_regime_hash": "097d620c",
+  "local_regime_version": "local_regime.v0",
+  "missing_coverage": [],
+  "newly_probed_halts": [
+    "STOP_AUTHORITY_VIOLATION",
+    "STOP_DEPENDENCY_MISSING",
+    "STOP_GATE_FAIL",
+    "STOP_NO_APPLICABLE_MOVE",
+    "STOP_UNTYPED_OBJECT"
+  ],
+  "previously_covered_halts": [
+    "STOP_DONE"
+  ],
+  "runner_unit_id": "jurisdiction_runner.v0.1",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DONE",
+    "type": "STOP"
+  }
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

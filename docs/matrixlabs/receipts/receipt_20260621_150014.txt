@@ -1,0 +1,391 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_150014
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_150014.txt
+
+IMPLEMENT_RAW_DELTA_SIGNATURE_CANDIDATE_PROBE_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_RAW_DELTA_SIGNATURE_CANDIDATE_PROBE
+
+PY_COMPILE
+
+RUN_RAW_DELTA_SIGNATURE_CANDIDATE_PROBE
+{
+  "actual_observer_overhead_ms": 501,
+  "aggregate_measurements": {
+    "all_band_burden_regression_count": 246,
+    "all_band_false_merge_count": 0,
+    "bands_failed": 246,
+    "bands_passed": 20,
+    "bands_total": 266,
+    "total_burden_ratio_projected": 2.8097493800212563,
+    "total_full_receipt_bytes": 525018,
+    "total_projected_plus_signature_payload_bytes": 1475169,
+    "total_projected_scale_row_bytes": 930036,
+    "total_signature_payload_bytes": 545133,
+    "worst_audit_recoverability_failures": 0,
+    "worst_burden_ratio_projected": 0.5144890407059494,
+    "worst_collision_count": 0,
+    "worst_distinguishability_retention_ratio": 1.0,
+    "worst_false_merge_count": 0,
+    "worst_false_split_count": 0,
+    "worst_identity_leak_count": 0,
+    "worst_raw_delta_missing_count": 0,
+    "worst_source_surface_regression_count": 1
+  },
+  "authority_guards": {
+    "audit_pointer_in_payload": false,
+    "candidate_accepted": false,
+    "case_id_or_cycle_n_primary_identity_patch_used": false,
+    "debug_payload_in_payload": false,
+    "full_occurrence_key_in_payload": false,
+    "full_registry_scan_used": false,
+    "microhash_as_proof_used": false,
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "receipt_suppression_authorized": false,
+    "registry_sqlite_changed": false,
+    "registry_sqlite_read": false,
+    "registry_write_authorized": false,
+    "rowid_or_receipt_hash_patch_used": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_mode_authorized": false
+  },
+  "bounded_source_surface": {
+    "bands_total": 266,
+    "full_registry_used": false,
+    "raw_delta_diagnostic_rows_path": "data/raw_delta_compactness_rows/74caa0f4.jsonl",
+    "registry_sqlite_read": false,
+    "selected_encoding_rows_total": 3298
+  },
+  "candidate_contract": {
+    "selected_encoding_id": "raw_decimal_sig6",
+    "selected_target_raw_delta_field": "compression_ratio",
+    "signature_payload_forbidden_fields": [
+      "audit_pointer",
+      "case_id",
+      "case_id_as_primary_identity",
+      "created_at",
+      "created_utc",
+      "cycle_n",
+      "cycle_n_as_primary_identity",
+      "debug_payload",
+      "depth_as_primary_identity",
+      "file_path",
+      "full_occurrence_key",
+      "full_receipt_hash",
+      "observer_notes",
+      "path",
+      "raw_delta_microhash_32_as_proof",
+      "raw_full_receipt_hash",
+      "receipt_hash",
+      "receipt_path",
+      "receipt_rowid",
+      "receipt_sig8",
+      "rowid",
+      "timestamp"
+    ],
+    "signature_payload_required_fields": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after",
+      "raw_compression_ratio_sig6"
+    ],
+    "truth_surface": "full_occurrence_key_to_candidate_delta_signature"
+  },
+  "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+  "candidate_probe_rows_path": "data/raw_delta_signature_candidate_probe_rows/250f16ff.jsonl",
+  "comparison_to_source_evidence": {
+    "raw_delta_candidate_probe": {
+      "all_band_burden_regression_count": 246,
+      "all_band_false_merge_count": 0,
+      "bands_failed": 246,
+      "bands_passed": 20,
+      "bands_total": 266,
+      "total_burden_ratio_projected": 2.8097493800212563,
+      "total_full_receipt_bytes": 525018,
+      "total_projected_plus_signature_payload_bytes": 1475169,
+      "total_projected_scale_row_bytes": 930036,
+      "total_signature_payload_bytes": 545133,
+      "worst_audit_recoverability_failures": 0,
+      "worst_burden_ratio_projected": 0.5144890407059494,
+      "worst_collision_count": 0,
+      "worst_distinguishability_retention_ratio": 1.0,
+      "worst_false_merge_count": 0,
+      "worst_false_split_count": 0,
+      "worst_identity_leak_count": 0,
+      "worst_raw_delta_missing_count": 0,
+      "worst_source_surface_regression_count": 1
+    },
+    "raw_delta_diagnostic_selected_encoding": {
+      "all_band_burden_regression_bands": 0,
+      "all_band_false_merge_bands": 0,
+      "all_bands_clear": true,
+      "bands_total": 266,
+      "encoding_id": "raw_decimal_sig6",
+      "known_failed_all_clear": true,
+      "known_failed_bands_total": 10,
+      "known_failed_burden_regression_bands": 0,
+      "known_failed_false_merge_bands": 0,
+      "total_full_receipt_bytes": 2870426,
+      "total_projected_plus_signature_payload_bytes": 2016041,
+      "total_projected_scale_row_bytes": 1022380,
+      "total_signature_payload_bytes": 993661,
+      "worst_burden_ratio_projected": 0.7149643705463183,
+      "worst_collision_count": 0,
+      "worst_distinguishability_retention_ratio": 1.0,
+      "worst_false_merge_count": 0,
+      "worst_identity_leak_count": 0,
+      "worst_raw_delta_missing_count": 0,
+      "worst_source_surface_regression_count": 0
+    }
+  },
+  "compression_version": "raw_delta_signature_candidate_v0",
+  "created_at": "2026-06-21T14:00:15.395094+00:00",
+  "decision": {
+    "candidate_acceptance_authorized": false,
+    "candidate_accepted": false,
+    "diagnostic_probe_only": true,
+    "do_not_accept_candidate": true,
+    "do_not_change_runtime": true,
+    "do_not_full_registry_scan": true,
+    "do_not_read_registry_sqlite": true,
+    "do_not_use_case_id_or_cycle_n_as_primary_identity": true,
+    "do_not_use_rowid_or_receipt_hash": true,
+    "do_not_write_registry": true,
+    "terminal_decision": "FAIL_RAW_DELTA_SIGNATURE_SOURCE_SURFACE"
+  },
+  "failures": [],
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "pass_gates": {
+    "audit_recoverability": true,
+    "authority_containment": true,
+    "bounded_surface_reused": true,
+    "burden_reduction": false,
+    "candidate_not_accepted": true,
+    "no_false_merge_all_bands": true,
+    "no_false_split_all_bands": true,
+    "no_identity_leak": true,
+    "policy_preconditions": true,
+    "raw_delta_coverage": true,
+    "scale_mode_not_authorized": true,
+    "source_surface": false,
+    "truth_surface": true
+  },
+  "probe_id": "250f16ff",
+  "probe_name": "RAW_DELTA_SIGNATURE_CANDIDATE_PROBE_V0",
+  "probe_sig8": "250f16ff",
+  "receipt_id": "f2e4b5d6",
+  "receipt_sig8": "f2e4b5d6",
+  "schema_version": "raw_delta_signature_candidate_probe_receipt_v0",
+  "source_policy_id": "3b8eb867",
+  "source_policy_receipt_id": "6778ef03",
+  "source_raw_delta_diagnostic_id": "74caa0f4",
+  "source_raw_delta_diagnostic_receipt_id": "129e9a76",
+  "source_v02_scale_probe_id": "227e9426",
+  "source_v03_failure_diagnostic_id": "d0132dd4",
+  "source_v03_probe_id": "bd1beabe",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "FAIL_RAW_DELTA_SIGNATURE_SOURCE_SURFACE",
+    "type": "STOP"
+  },
+  "terminal_decision": "FAIL_RAW_DELTA_SIGNATURE_SOURCE_SURFACE",
+  "warnings": []
+}
+probe_id=250f16ff
+probe_receipt_path=data/raw_delta_signature_candidate_probe_receipts/250f16ff.json
+candidate_probe_rows_path=data/raw_delta_signature_candidate_probe_rows/250f16ff.jsonl
+RAW_DELTA_CANDIDATE_PROBE_ID=250f16ff
+
+ASSERT_RAW_DELTA_SIGNATURE_CANDIDATE_PROBE
+{
+  "aggregate_measurements": {
+    "all_band_burden_regression_count": 246,
+    "all_band_false_merge_count": 0,
+    "bands_failed": 246,
+    "bands_passed": 20,
+    "bands_total": 266,
+    "total_burden_ratio_projected": 2.8097493800212563,
+    "total_full_receipt_bytes": 525018,
+    "total_projected_plus_signature_payload_bytes": 1475169,
+    "total_projected_scale_row_bytes": 930036,
+    "total_signature_payload_bytes": 545133,
+    "worst_audit_recoverability_failures": 0,
+    "worst_burden_ratio_projected": 0.5144890407059494,
+    "worst_collision_count": 0,
+    "worst_distinguishability_retention_ratio": 1.0,
+    "worst_false_merge_count": 0,
+    "worst_false_split_count": 0,
+    "worst_identity_leak_count": 0,
+    "worst_raw_delta_missing_count": 0,
+    "worst_source_surface_regression_count": 1
+  },
+  "authority_guards": {
+    "audit_pointer_in_payload": false,
+    "candidate_accepted": false,
+    "case_id_or_cycle_n_primary_identity_patch_used": false,
+    "debug_payload_in_payload": false,
+    "full_occurrence_key_in_payload": false,
+    "full_registry_scan_used": false,
+    "microhash_as_proof_used": false,
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "receipt_suppression_authorized": false,
+    "registry_sqlite_changed": false,
+    "registry_sqlite_read": false,
+    "registry_write_authorized": false,
+    "rowid_or_receipt_hash_patch_used": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_mode_authorized": false
+  },
+  "bounded_source_surface": {
+    "bands_total": 266,
+    "full_registry_used": false,
+    "raw_delta_diagnostic_rows_path": "data/raw_delta_compactness_rows/74caa0f4.jsonl",
+    "registry_sqlite_read": false,
+    "selected_encoding_rows_total": 3298
+  },
+  "candidate_contract": {
+    "selected_encoding_id": "raw_decimal_sig6",
+    "selected_target_raw_delta_field": "compression_ratio",
+    "signature_payload_forbidden_fields": [
+      "audit_pointer",
+      "case_id",
+      "case_id_as_primary_identity",
+      "created_at",
+      "created_utc",
+      "cycle_n",
+      "cycle_n_as_primary_identity",
+      "debug_payload",
+      "depth_as_primary_identity",
+      "file_path",
+      "full_occurrence_key",
+      "full_receipt_hash",
+      "observer_notes",
+      "path",
+      "raw_delta_microhash_32_as_proof",
+      "raw_full_receipt_hash",
+      "receipt_hash",
+      "receipt_path",
+      "receipt_rowid",
+      "receipt_sig8",
+      "rowid",
+      "timestamp"
+    ],
+    "signature_payload_required_fields": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after",
+      "raw_compression_ratio_sig6"
+    ],
+    "truth_surface": "full_occurrence_key_to_candidate_delta_signature"
+  },
+  "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+  "comparison_to_source_evidence": {
+    "raw_delta_candidate_probe": {
+      "all_band_burden_regression_count": 246,
+      "all_band_false_merge_count": 0,
+      "bands_failed": 246,
+      "bands_passed": 20,
+      "bands_total": 266,
+      "total_burden_ratio_projected": 2.8097493800212563,
+      "total_full_receipt_bytes": 525018,
+      "total_projected_plus_signature_payload_bytes": 1475169,
+      "total_projected_scale_row_bytes": 930036,
+      "total_signature_payload_bytes": 545133,
+      "worst_audit_recoverability_failures": 0,
+      "worst_burden_ratio_projected": 0.5144890407059494,
+      "worst_collision_count": 0,
+      "worst_distinguishability_retention_ratio": 1.0,
+      "worst_false_merge_count": 0,
+      "worst_false_split_count": 0,
+      "worst_identity_leak_count": 0,
+      "worst_raw_delta_missing_count": 0,
+      "worst_source_surface_regression_count": 1
+    },
+    "raw_delta_diagnostic_selected_encoding": {
+      "all_band_burden_regression_bands": 0,
+      "all_band_false_merge_bands": 0,
+      "all_bands_clear": true,
+      "bands_total": 266,
+      "encoding_id": "raw_decimal_sig6",
+      "known_failed_all_clear": true,
+      "known_failed_bands_total": 10,
+      "known_failed_burden_regression_bands": 0,
+      "known_failed_false_merge_bands": 0,
+      "total_full_receipt_bytes": 2870426,
+      "total_projected_plus_signature_payload_bytes": 2016041,
+      "total_projected_scale_row_bytes": 1022380,
+      "total_signature_payload_bytes": 993661,
+      "worst_burden_ratio_projected": 0.7149643705463183,
+      "worst_collision_count": 0,
+      "worst_distinguishability_retention_ratio": 1.0,
+      "worst_false_merge_count": 0,
+      "worst_identity_leak_count": 0,
+      "worst_raw_delta_missing_count": 0,
+      "worst_source_surface_regression_count": 0
+    }
+  },
+  "decision": {
+    "candidate_acceptance_authorized": false,
+    "candidate_accepted": false,
+    "diagnostic_probe_only": true,
+    "do_not_accept_candidate": true,
+    "do_not_change_runtime": true,
+    "do_not_full_registry_scan": true,
+    "do_not_read_registry_sqlite": true,
+    "do_not_use_case_id_or_cycle_n_as_primary_identity": true,
+    "do_not_use_rowid_or_receipt_hash": true,
+    "do_not_write_registry": true,
+    "terminal_decision": "FAIL_RAW_DELTA_SIGNATURE_SOURCE_SURFACE"
+  },
+  "failures": [],
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "pass_gates": {
+    "audit_recoverability": true,
+    "authority_containment": true,
+    "bounded_surface_reused": true,
+    "burden_reduction": false,
+    "candidate_not_accepted": true,
+    "no_false_merge_all_bands": true,
+    "no_false_split_all_bands": true,
+    "no_identity_leak": true,
+    "policy_preconditions": true,
+    "raw_delta_coverage": true,
+    "scale_mode_not_authorized": true,
+    "source_surface": false,
+    "truth_surface": true
+  },
+  "probe_id": "250f16ff",
+  "receipt_id": "f2e4b5d6",
+  "rows_loaded": 3298,
+  "source_policy_id": "3b8eb867",
+  "source_raw_delta_diagnostic_id": "74caa0f4",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "FAIL_RAW_DELTA_SIGNATURE_SOURCE_SURFACE",
+    "type": "STOP"
+  },
+  "terminal_decision": "FAIL_RAW_DELTA_SIGNATURE_SOURCE_SURFACE"
+}
+Traceback (most recent call last):
+  File "<stdin>", line 81, in <module>
+AssertionError
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

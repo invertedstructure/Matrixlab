@@ -1,0 +1,294 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_122149
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_122149.txt
+
+ADD_RADIUS_EXPANSION_CANDIDATE_DECISION_V0
+
+STATUS_BEFORE
+
+BACKUP
+CLI_SIG=9c9ee2e9ff7f
+BACKUP=/tmp/matrixlab_cli_before_radius_expansion_candidate_decision_9c9ee2e9ff7f.py
+
+PATCH_GITIGNORE
+
+PATCH_CLI_RADIUS_EXPANSION_CANDIDATE_DECISION
+
+PY_COMPILE
+
+HELP_SMOKE
+help smoke ok
+
+BUILD_RADIUS_EXPANSION_CANDIDATE_DECISION_POSITIVE
+{
+  "authorization": {
+    "authorizes_R125_execution": true,
+    "authorizes_any_other_radius": false,
+    "authorizes_exact_radius": 125,
+    "authorizes_execution_skipping": false,
+    "authorizes_gate_semantics_change": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_representative_subset": false,
+    "authorizes_run_semantics_change": false
+  },
+  "candidate_radius_delta": 25,
+  "commitments": {
+    "no_execution_skipping": true,
+    "no_gate_semantics_change": true,
+    "no_raw_replay_replacement": true,
+    "no_receipt_deletion": true,
+    "no_representative_subset": true,
+    "no_run_semantics_change": true,
+    "post_run_burden_comparison": true,
+    "raw_receipts_required": true,
+    "slot_separated_full_trace": true,
+    "verified_rollup_after_run": true
+  },
+  "current_radius_ceiling": 100,
+  "decision": "LICENSE_R125_WITH_BURDEN_WATCH",
+  "decision_kind": "RADIUS_EXPANSION_CANDIDATE_DECISION",
+  "exact_next_radius": 125,
+  "failures": [],
+  "forbidden": {
+    "execution_skipping": true,
+    "gate_semantics_change": true,
+    "hidden_trust_upgrade": true,
+    "ontology_expansion": true,
+    "radius_above_125": true,
+    "raw_replay_replacement": true,
+    "receipt_deletion": true,
+    "representative_subset": true,
+    "run_semantics_change": true,
+    "theorem_layer": true
+  },
+  "gate": "PASS",
+  "known_limits": [
+    "candidate_decision_licenses_only_exact_radius_125",
+    "candidate_decision_does_not_solve_global_scalability",
+    "candidate_decision_requires_full_raw_trace",
+    "candidate_decision_requires_post_run_burden_comparison",
+    "estimate_is_preflight_not_observation"
+  ],
+  "operator_budget_statement": {
+    "budget_kind": "ROLLUP_BACKED_READING_BUDGET",
+    "manual_review_surface": [
+      "candidate execution receipt",
+      "R125 slot observation",
+      "R100_to_R125 burden comparison",
+      "verified R125 burden rollup",
+      "post R125 decision"
+    ],
+    "requires_post_run_burden_comparison": true,
+    "requires_verified_rollup_after_run": true,
+    "status": "DECLARED"
+  },
+  "policy_limits": {
+    "hard_stop_receipt_over_radius_ratio": 1.75,
+    "hard_stop_receipt_ratio_vs_r100": 2.0,
+    "hard_stop_total_receipts": 175104,
+    "max_candidate_radius_v0": 125,
+    "soft_watch_total_receipts": 100000
+  },
+  "post_run_required_artifacts": [
+    "radius_125_slot_separated_execution_summary",
+    "domain_shift_slot_observation_v0 for radius 125",
+    "R100_to_R125_burden_comparison",
+    "verified_R125_burden_rollup",
+    "post_R125_scale_decision"
+  ],
+  "preflight_receipt_estimate": {
+    "baseline": {
+      "r100_raw": 902,
+      "r100_receipts": 87552,
+      "r50_raw": 451,
+      "r50_receipts": 21348,
+      "r75_raw": 676,
+      "r75_receipts": 48852
+    },
+    "candidate_radius": 125,
+    "estimate_method": "quadratic_delta_extrapolation_from_R50_R75_R100_v0",
+    "estimated_coarse_total": 9,
+    "estimated_raw_total": 1129,
+    "estimated_total_receipts": 137448,
+    "hard_stop_receipt_over_radius_ratio": 1.75,
+    "hard_stop_receipt_ratio_vs_r100": 2.0,
+    "hard_stop_total_receipts": 175104,
+    "radius_ratio_vs_r100": 1.25,
+    "raw_delta_model": {
+      "delta_growth": 1,
+      "projected_next_delta": 227,
+      "r50_to_r75_delta": 225,
+      "r75_to_r100_delta": 226
+    },
+    "raw_ratio_vs_r100": 1.251663,
+    "receipt_delta_model": {
+      "delta_growth": 11196,
+      "projected_next_delta": 49896,
+      "r50_to_r75_delta": 27504,
+      "r75_to_r100_delta": 38700
+    },
+    "receipt_over_radius_ratio": 1.255921,
+    "receipt_ratio_vs_r100": 1.569901,
+    "soft_watch_total_receipts": 100000,
+    "stop_reasons": [],
+    "watch_reasons": [
+      "ESTIMATED_TOTAL_RECEIPTS_GT_SOFT_WATCH_TOTAL_RECEIPTS",
+      "ESTIMATED_RECEIPT_RATIO_GT_RADIUS_RATIO"
+    ]
+  },
+  "radius_expansion_candidate_decision_id": "6c5424ae",
+  "radius_expansion_candidate_decision_schema_version": "radius_expansion_candidate_decision_v0",
+  "radius_expansion_candidate_decision_sig8": "6c5424ae",
+  "runtime_budget_statement": {
+    "budget_kind": "OPERATOR_APPROVED_SINGLE_RADIUS_RUN_BUDGET",
+    "candidate_radius": 125,
+    "estimated_total_receipts": 137448,
+    "full_trace_required": true,
+    "hard_stop_total_receipts": 175104,
+    "interruption_recovery_required": true,
+    "progress_reporting_required": true,
+    "slot_count": 9,
+    "status": "DECLARED"
+  },
+  "source_policy": {
+    "gate": "PASS",
+    "id": "534f967f",
+    "path": "data/radius_expansion_burden_policies/534f967f.json",
+    "recomputed_sig": "534f967f",
+    "stored_sig": "534f967f"
+  },
+  "stop_reasons": [],
+  "terminal": {
+    "next_command_goal": "RUN_RADIUS_125_SLOT_SEPARATED_WITH_BURDEN_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [],
+  "watch_reasons": [
+    "ESTIMATED_TOTAL_RECEIPTS_GT_SOFT_WATCH_TOTAL_RECEIPTS",
+    "ESTIMATED_RECEIPT_RATIO_GT_RADIUS_RATIO"
+  ]
+}
+radius_expansion_candidate_decision_path: data/radius_expansion_candidate_decisions/6c5424ae.json
+CANDIDATE_ID=6c5424ae
+
+VERIFY_RADIUS_EXPANSION_CANDIDATE_DECISION_POSITIVE
+{
+  "authorization": {
+    "authorizes_R125_execution": true,
+    "authorizes_any_other_radius": false,
+    "authorizes_exact_radius": 125,
+    "authorizes_execution_skipping": false,
+    "authorizes_gate_semantics_change": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_representative_subset": false,
+    "authorizes_run_semantics_change": false
+  },
+  "decision": "LICENSE_R125_WITH_BURDEN_WATCH",
+  "exact_next_radius": 125,
+  "failures": [],
+  "gate": "PASS",
+  "input_decision": "6c5424ae",
+  "preflight_receipt_estimate": {
+    "baseline": {
+      "r100_raw": 902,
+      "r100_receipts": 87552,
+      "r50_raw": 451,
+      "r50_receipts": 21348,
+      "r75_raw": 676,
+      "r75_receipts": 48852
+    },
+    "candidate_radius": 125,
+    "estimate_method": "quadratic_delta_extrapolation_from_R50_R75_R100_v0",
+    "estimated_coarse_total": 9,
+    "estimated_raw_total": 1129,
+    "estimated_total_receipts": 137448,
+    "hard_stop_receipt_over_radius_ratio": 1.75,
+    "hard_stop_receipt_ratio_vs_r100": 2.0,
+    "hard_stop_total_receipts": 175104,
+    "radius_ratio_vs_r100": 1.25,
+    "raw_delta_model": {
+      "delta_growth": 1,
+      "projected_next_delta": 227,
+      "r50_to_r75_delta": 225,
+      "r75_to_r100_delta": 226
+    },
+    "raw_ratio_vs_r100": 1.251663,
+    "receipt_delta_model": {
+      "delta_growth": 11196,
+      "projected_next_delta": 49896,
+      "r50_to_r75_delta": 27504,
+      "r75_to_r100_delta": 38700
+    },
+    "receipt_over_radius_ratio": 1.255921,
+    "receipt_ratio_vs_r100": 1.569901,
+    "soft_watch_total_receipts": 100000,
+    "stop_reasons": [],
+    "watch_reasons": [
+      "ESTIMATED_TOTAL_RECEIPTS_GT_SOFT_WATCH_TOTAL_RECEIPTS",
+      "ESTIMATED_RECEIPT_RATIO_GT_RADIUS_RATIO"
+    ]
+  },
+  "radius_expansion_candidate_decision_id": "6c5424ae",
+  "radius_expansion_candidate_decision_path": "data/radius_expansion_candidate_decisions/6c5424ae.json",
+  "radius_expansion_candidate_decision_recomputed_sig8": "6c5424ae",
+  "radius_expansion_candidate_decision_sig8": "6c5424ae",
+  "radius_expansion_candidate_decision_verification_id": "12200bf1",
+  "radius_expansion_candidate_decision_verification_schema_version": "radius_expansion_candidate_decision_verification_v0",
+  "radius_expansion_candidate_decision_verification_sig8": "12200bf1",
+  "source_policy_id": "534f967f",
+  "terminal": {
+    "next_command_goal": "RUN_RADIUS_125_SLOT_SEPARATED_WITH_BURDEN_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "verification_result": {
+    "failures": [],
+    "gate": "PASS",
+    "warnings": []
+  },
+  "warnings": []
+}
+radius_expansion_candidate_decision_verification_path: data/radius_expansion_candidate_decision_verifications/12200bf1.json
+
+ASSERT_RADIUS_EXPANSION_CANDIDATE_DECISION_POSITIVE
+{
+  "authorizes_R125_execution": true,
+  "authorizes_any_other_radius": false,
+  "authorizes_exact_radius": 125,
+  "authorizes_execution_skipping": false,
+  "authorizes_receipt_deletion": false,
+  "candidate_radius_delta": 25,
+  "decision": "LICENSE_R125_WITH_BURDEN_WATCH",
+  "estimated_raw_total": 1129,
+  "estimated_total_receipts": 137448,
+  "exact_next_radius": 125,
+  "gate": "PASS",
+  "hard_stop_total_receipts": 175104,
+  "operator_budget_status": "DECLARED",
+  "radius_expansion_candidate_decision_id": "6c5424ae",
+  "radius_ratio_vs_r100": 1.25,
+  "receipt_over_radius_ratio": 1.255921,
+  "receipt_ratio_vs_r100": 1.569901,
+  "recomputed_sig": "6c5424ae",
+  "runtime_budget_status": "DECLARED",
+  "sig_matches": true,
+  "source_policy_id": "534f967f",
+  "stop_reasons": [],
+  "stored_sig": "6c5424ae",
+  "terminal": {
+    "next_command_goal": "RUN_RADIUS_125_SLOT_SEPARATED_WITH_BURDEN_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "watch_reasons": [
+    "ESTIMATED_TOTAL_RECEIPTS_GT_SOFT_WATCH_TOTAL_RECEIPTS",
+    "ESTIMATED_RECEIPT_RATIO_GT_RADIUS_RATIO"
+  ]
+}
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+AssertionError
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

@@ -1,0 +1,649 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_193808
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_193808.txt
+
+PATCH_APPROVED_RECIPE_RUNNER_COMMAND_FAMILY_VOCABULARY_V0
+
+STATUS_BEFORE
+?? data/
+
+VERIFY_REQUIRED_SCRIPTS_EXIST
+
+PATCH_APPROVED_POLICY_BUILDER_FAMILY_VOCABULARY
+
+PY_COMPILE_POLICY_BUILDER
+
+REBUILD_APPROVED_RECIPE_POLICY_WITH_VALID_FAMILY
+{
+  "approved_bounds": {
+    "max_candidate_rows": 10000,
+    "max_cycles_per_case": 50,
+    "max_new_bands": 512,
+    "max_new_cases_total": 10,
+    "max_new_runs": 1,
+    "max_output_files": 16
+  },
+  "authority": {
+    "authorized_next_command_goal": "IMPLEMENT_APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_V0",
+    "authorizes_ambient_workspace_inference": false,
+    "authorizes_audit_pointer_in_payload": false,
+    "authorizes_candidate_acceptance": false,
+    "authorizes_candidate_row_write_in_next_implementation_only": true,
+    "authorizes_candidate_rows_creation_now": false,
+    "authorizes_case_id_or_cycle_n_identity_patch": false,
+    "authorizes_debug_payload_in_payload": false,
+    "authorizes_existing_bounded_runner_execution_in_next_implementation_only": true,
+    "authorizes_full_occurrence_key_in_payload": false,
+    "authorizes_full_registry_scan": false,
+    "authorizes_latest_or_mtime_selection": false,
+    "authorizes_microhash_as_proof": false,
+    "authorizes_next_implementation_policy": true,
+    "authorizes_observer_extractor_in_next_implementation_only": true,
+    "authorizes_registry_insertion": false,
+    "authorizes_registry_sqlite_read": false,
+    "authorizes_registry_write": false,
+    "authorizes_rowid_or_receipt_hash_truth_surface": false,
+    "authorizes_runner_command_precheck_in_next_implementation": true,
+    "authorizes_runner_execution_now": false,
+    "authorizes_runtime_code_change": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_runtime_semantic_change": false,
+    "authorizes_scale_mode": false,
+    "authorizes_surface_manifest_write_in_next_implementation_only": true,
+    "authorizes_surface_receipt_write_in_next_implementation_only": true,
+    "authorizes_synthetic_fake_validation_rows": false,
+    "authorizes_transition_compression_probe": false,
+    "observer_only_policy_build": true
+  },
+  "candidate_row_schema": {
+    "payload_forbidden_fields": [
+      "case_id",
+      "cycle_n",
+      "rowid",
+      "receipt_hash",
+      "receipt_path",
+      "audit_pointer",
+      "debug_payload",
+      "full_occurrence_key",
+      "registry_rowid"
+    ],
+    "raw_delta_encoding": "raw_decimal_sig6",
+    "raw_delta_field": "compression_ratio",
+    "required_fields": [
+      "row_id",
+      "source_run_id",
+      "source_receipt_ref",
+      "full_occurrence_key",
+      "candidate_delta_signature",
+      "signature_payload",
+      "truth_surface",
+      "source_surface_id",
+      "created_by"
+    ],
+    "row_type": "RAW_DELTA_SIGNATURE_CANDIDATE_V0_ROW",
+    "signature_payload_fields": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after",
+      "raw_compression_ratio_sig6"
+    ],
+    "truth_surface": "full_occurrence_key_to_candidate_delta_signature"
+  },
+  "created_at": "2026-06-21T18:38:10.336906+00:00",
+  "failures": [],
+  "forbidden_effects_next_implementation": [
+    "candidate_acceptance",
+    "scale_mode_authorization",
+    "registry_insertion",
+    "registry_write",
+    "registry_sqlite_read",
+    "full_registry_scan",
+    "runtime_semantic_change",
+    "runtime_code_change",
+    "runtime_receipt_emission_change",
+    "latest_file_resolution",
+    "mtime_selection",
+    "ambient_workspace_inference",
+    "case_id_or_cycle_n_identity_patch",
+    "rowid_or_receipt_hash_truth_surface",
+    "full_occurrence_key_in_signature_payload",
+    "audit_or_debug_payload_in_signature_payload",
+    "synthetic_fake_validation_rows",
+    "transition_compression_probe",
+    "receipt_replacement",
+    "receipt_deletion",
+    "receipt_suppression",
+    "candidate_acceptance_via_recipe_success"
+  ],
+  "forbidden_effects_now": [
+    "runner_execution_now",
+    "candidate_rows_creation_now",
+    "registry_insertion",
+    "candidate_acceptance",
+    "scale_mode_authorization",
+    "runtime_semantic_change",
+    "runtime_code_change",
+    "runtime_receipt_emission_change",
+    "registry_sqlite_read",
+    "full_registry_scan",
+    "latest_file_resolution",
+    "mtime_selection",
+    "ambient_workspace_inference",
+    "case_id_or_cycle_n_identity_patch",
+    "rowid_or_receipt_hash_truth_surface",
+    "full_occurrence_key_in_signature_payload",
+    "audit_or_debug_payload_in_signature_payload",
+    "synthetic_fake_validation_rows",
+    "transition_compression_probe"
+  ],
+  "gate": "PASS",
+  "observer_extractor_name": "RAW_DELTA_SIGNATURE_CANDIDATE_NEW_BOUNDED_SURFACE_OBSERVER_EXTRACTOR_V0",
+  "policy_id": "3b22a690",
+  "policy_name": "APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_POLICY_V0",
+  "policy_path": "data/raw_delta_signature_candidate_approved_new_bounded_surface_recipe_policies/3b22a690.json",
+  "policy_sig8": "3b22a690",
+  "policy_status": "POLICY_ONLY_APPROVED_RECIPE_NOT_EXECUTED",
+  "receipt_id": "36177050",
+  "receipt_sig8": "36177050",
+  "receipt_type": "APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_POLICY_RECEIPT",
+  "required_next_implementation_gates": {
+    "must_capture_explicit_run_id": true,
+    "must_compile": true,
+    "must_emit_surface_manifest": true,
+    "must_emit_surface_receipt": true,
+    "must_execute_at_most_one_new_run": true,
+    "must_halt_if_no_candidate_compatible_rows": true,
+    "must_halt_if_runner_command_unavailable": true,
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_runtime_code": true,
+    "must_not_change_runtime_receipt_emission": true,
+    "must_not_create_synthetic_rows": true,
+    "must_not_full_registry_scan": true,
+    "must_not_read_registry_sqlite": true,
+    "must_not_use_latest_or_mtime": true,
+    "must_not_write_registry": true,
+    "must_precheck_runner_command": true,
+    "must_read_only_explicit_run_receipts": true,
+    "must_write_candidate_rows_under_bound": true
+  },
+  "runner_command": [
+    "uv",
+    "run",
+    "python",
+    "src/matrixlab/cli.py",
+    "run",
+    "--families",
+    "A",
+    "--depth-min",
+    "3",
+    "--depth-max",
+    "12",
+    "--cycles-per-case",
+    "50",
+    "--max-cells",
+    "50000"
+  ],
+  "runner_command_precheck_required": true,
+  "runner_command_string": "uv run python src/matrixlab/cli.py run --families A --depth-min 3 --depth-max 12 --cycles-per-case 50 --max-cells 50000",
+  "schema_version": "raw_delta_signature_candidate_approved_new_bounded_surface_recipe_policy_receipt_v0",
+  "selected_option_id": "OPTION_A_NARROWED",
+  "source_decision_id": "55b293ef",
+  "source_decision_receipt_id": "6dc33fbd",
+  "source_proposal_id": "71f1a3f0",
+  "source_proposal_receipt_id": "d8a7686c",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "valid_against": {
+    "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+    "policy_id": "7050f196",
+    "policy_receipt_id": "2c061175",
+    "receipt_id": "065849ef",
+    "selected_encoding_id": "raw_decimal_sig6",
+    "selected_target_raw_delta_field": "compression_ratio",
+    "surface_id": "40e5f5b4"
+  },
+  "warnings": []
+}
+policy_id=3b22a690
+policy_json_path=data/raw_delta_signature_candidate_approved_new_bounded_surface_recipe_policies/3b22a690.json
+policy_receipt_path=data/raw_delta_signature_candidate_approved_new_bounded_surface_recipe_policy_receipts/3b22a690.json
+NEW_APPROVED_POLICY_ID=3b22a690
+NEW_APPROVED_POLICY_RECEIPT_ID=36177050
+
+ASSERT_REBUILT_POLICY_RUNNER_COMMAND_PATCHED
+{
+  "bounded_parameters": {
+    "case_count_expected_max": 10,
+    "cycles_per_case": 50,
+    "depth_max": 12,
+    "depth_min": 3,
+    "families": [
+      "A"
+    ],
+    "max_cells": 50000,
+    "max_new_runs": 1
+  },
+  "gate": "PASS",
+  "policy_id": "3b22a690",
+  "policy_status": "POLICY_ONLY_APPROVED_RECIPE_NOT_EXECUTED",
+  "receipt_id": "36177050",
+  "runner_command": [
+    "uv",
+    "run",
+    "python",
+    "src/matrixlab/cli.py",
+    "run",
+    "--families",
+    "A",
+    "--depth-min",
+    "3",
+    "--depth-max",
+    "12",
+    "--cycles-per-case",
+    "50",
+    "--max-cells",
+    "50000"
+  ],
+  "runner_command_string": "uv run python src/matrixlab/cli.py run --families A --depth-min 3 --depth-max 12 --cycles-per-case 50 --max-cells 50000",
+  "selected_option_id": "OPTION_A_NARROWED",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+PATCH_IMPLEMENTATION_SCRIPT_EXPECTED_POLICY_AND_FAMILY
+
+PY_COMPILE_IMPLEMENTATION
+
+IMPLEMENT_CORRECTED_APPROVED_RECIPE_ONCE
+{
+  "approved_bounds": {
+    "max_candidate_rows": 10000,
+    "max_cycles_per_case": 50,
+    "max_new_bands": 512,
+    "max_new_cases_total": 10,
+    "max_new_runs": 1,
+    "max_output_files": 16
+  },
+  "authority_guards": {
+    "ambient_workspace_inference_used": false,
+    "audit_or_debug_payload_in_signature_payload": false,
+    "candidate_accepted": false,
+    "candidate_rows_created": false,
+    "candidate_rows_created_total": 0,
+    "case_id_or_cycle_n_identity_patch_used": false,
+    "explicit_run_id": "run_20260621_183812_136149",
+    "explicit_run_id_captured": true,
+    "full_occurrence_key_in_signature_payload": false,
+    "full_registry_scan_used": false,
+    "latest_or_mtime_selection_used": false,
+    "microhash_as_proof_used": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_written": false,
+    "rowid_or_receipt_hash_truth_surface_used": false,
+    "runner_command_available": true,
+    "runner_executed": true,
+    "runner_executions_total": 1,
+    "runner_precheck_attempted": true,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "runtime_semantic_changed": false,
+    "scale_mode_authorized": false,
+    "surface_manifest_written": true,
+    "surface_receipt_written": true,
+    "synthetic_fake_validation_rows_used": false,
+    "transition_compression_probe_run": false
+  },
+  "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+  "candidate_signature_distinct_count": 0,
+  "created_at": "2026-06-21T18:58:20.192489+00:00",
+  "explicit_run_id": "run_20260621_183812_136149",
+  "failures": [],
+  "gate": "PASS",
+  "hold_code": "HOLD_APPROVED_RECIPE_AMBIGUOUS_SOURCE_SURFACE",
+  "implementation_name": "IMPLEMENT_APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_V0",
+  "new_bands_created": 0,
+  "payload_forbidden_fields": [
+    "case_id",
+    "cycle_n",
+    "rowid",
+    "receipt_hash",
+    "receipt_path",
+    "audit_pointer",
+    "debug_payload",
+    "full_occurrence_key",
+    "registry_rowid"
+  ],
+  "policy_id": "3b22a690",
+  "policy_receipt_id": "36177050",
+  "receipt_files_found_total": 511,
+  "receipt_files_used": [],
+  "receipt_files_used_total": 0,
+  "receipt_id": "3a28d0e1",
+  "receipt_sig8": "3a28d0e1",
+  "receipt_type": "APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_IMPLEMENTATION_RECEIPT",
+  "rows_created": 0,
+  "runner_command": [
+    "uv",
+    "run",
+    "python",
+    "src/matrixlab/cli.py",
+    "run",
+    "--families",
+    "A",
+    "--depth-min",
+    "3",
+    "--depth-max",
+    "12",
+    "--cycles-per-case",
+    "50",
+    "--max-cells",
+    "50000"
+  ],
+  "runner_precheck": {
+    "failure": null,
+    "precheck_attempted": true,
+    "runner_command_available": true,
+    "runner_command_path_exists": true,
+    "runner_help_checked": true,
+    "runner_help_exit_code": 0,
+    "runner_help_stderr_tail": "",
+    "runner_help_stdout_tail": "                                                      \n Usage: cli.py run [OPTIONS]                                                    \n                                                                                \n\u256d\u2500 Options \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 --depth-min                              INTEGER  Smallest starting cycle    \u2502\n\u2502                                                   size.                      \u2502\n\u2502                                                   [default: 3]               \u2502\n\u2502 --depth-max                              INTEGER  Largest starting cycle     \u2502\n\u2502                                                   size.                      \u2502\n\u2502                                                   [default: 8]               \u2502\n\u2502 --families                               TEXT     Family letters: A,B,C,D,E. \u2502\n\u2502                                                   [default: A,B,C,D,E]       \u2502\n\u2502 --cycles-per-case                        INTEGER  Cycles per case. 0 means   \u2502\n\u2502                                                   depth_max.                 \u2502\n\u2502                                                   [default: 0]               \u2502\n\u2502 --max-cells                              INTEGER  Hard matrix cell limit     \u2502\n\u2502                                                   before halt.               \u2502\n\u2502                                                   [default: 250000]          \u2502\n\u2502 --strict-laws        --no-strict-laws             Halt immediately on law    \u2502\n\u2502                                                   failure.                   \u2502\n\u2502                                                   [default: no-strict-laws]  \u2502\n\u2502 --run-id                                 TEXT     Optional run id.           \u2502\n\u2502 --help                                            Show this message and      \u2502\n\u2502                                                   exit.                      \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f\n\n"
+  },
+  "runner_result": {
+    "captured_run_id": "run_20260621_183812_136149",
+    "failure": null,
+    "runner_executed": true,
+    "runner_exit_code": 0,
+    "runner_stderr_path": null,
+    "runner_stdout_path": "data/raw_delta_signature_candidate_approved_new_bounded_surface_run_logs/24bee0ce_runner.json"
+  },
+  "schema_version": "raw_delta_signature_candidate_approved_new_bounded_surface_receipt_v0",
+  "selected_option_id": "OPTION_A_NARROWED",
+  "signature_payload_fields": [
+    "cv",
+    "state_hash_before",
+    "move_id",
+    "state_hash_after",
+    "raw_compression_ratio_sig6"
+  ],
+  "source_decision_id": "55b293ef",
+  "source_decision_receipt_id": "6dc33fbd",
+  "surface_id": "24bee0ce",
+  "surface_manifest_path": "data/raw_delta_signature_candidate_approved_new_bounded_surface_manifests/24bee0ce.json",
+  "surface_rows_path": "data/raw_delta_signature_candidate_approved_new_bounded_surface_rows/24bee0ce.jsonl",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "HOLD_APPROVED_RECIPE_AMBIGUOUS_SOURCE_SURFACE",
+    "type": "HOLD"
+  },
+  "truth_surface": "full_occurrence_key_to_candidate_delta_signature",
+  "valid_against": {
+    "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+    "policy_id": "7050f196",
+    "policy_receipt_id": "2c061175",
+    "receipt_id": "065849ef",
+    "selected_encoding_id": "raw_decimal_sig6",
+    "selected_target_raw_delta_field": "compression_ratio",
+    "surface_id": "40e5f5b4"
+  },
+  "warnings": []
+}
+surface_id=24bee0ce
+surface_rows_path=data/raw_delta_signature_candidate_approved_new_bounded_surface_rows/24bee0ce.jsonl
+surface_manifest_path=data/raw_delta_signature_candidate_approved_new_bounded_surface_manifests/24bee0ce.json
+surface_receipt_path=data/raw_delta_signature_candidate_approved_new_bounded_surface_receipts/24bee0ce.json
+SURFACE_ID=24bee0ce
+
+ASSERT_CORRECTED_IMPLEMENTATION_NO_RUNNER_COMMAND_FAILURE
+{
+  "authority_guards": {
+    "ambient_workspace_inference_used": false,
+    "audit_or_debug_payload_in_signature_payload": false,
+    "candidate_accepted": false,
+    "candidate_rows_created": false,
+    "candidate_rows_created_total": 0,
+    "case_id_or_cycle_n_identity_patch_used": false,
+    "explicit_run_id": "run_20260621_183812_136149",
+    "explicit_run_id_captured": true,
+    "full_occurrence_key_in_signature_payload": false,
+    "full_registry_scan_used": false,
+    "latest_or_mtime_selection_used": false,
+    "microhash_as_proof_used": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_written": false,
+    "rowid_or_receipt_hash_truth_surface_used": false,
+    "runner_command_available": true,
+    "runner_executed": true,
+    "runner_executions_total": 1,
+    "runner_precheck_attempted": true,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "runtime_semantic_changed": false,
+    "scale_mode_authorized": false,
+    "surface_manifest_written": true,
+    "surface_receipt_written": true,
+    "synthetic_fake_validation_rows_used": false,
+    "transition_compression_probe_run": false
+  },
+  "explicit_run_id": "run_20260621_183812_136149",
+  "gate": "PASS",
+  "hold_code": "HOLD_APPROVED_RECIPE_AMBIGUOUS_SOURCE_SURFACE",
+  "new_bands_created": 0,
+  "receipt_files_found_total": 511,
+  "receipt_files_used_total": 0,
+  "receipt_id": "3a28d0e1",
+  "rows_created": 0,
+  "runner_command": [
+    "uv",
+    "run",
+    "python",
+    "src/matrixlab/cli.py",
+    "run",
+    "--families",
+    "A",
+    "--depth-min",
+    "3",
+    "--depth-max",
+    "12",
+    "--cycles-per-case",
+    "50",
+    "--max-cells",
+    "50000"
+  ],
+  "runner_exit_code": 0,
+  "runner_failure": null,
+  "surface_id": "24bee0ce",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "HOLD_APPROVED_RECIPE_AMBIGUOUS_SOURCE_SURFACE",
+    "type": "HOLD"
+  }
+}
+
+NEGATIVE_CONTROLS_CORRECTED_IMPLEMENTATION_NO_RUNNER_NO_WRITE
+{
+  "case": "policy_gate_fail",
+  "expected": "policy_gate_not_PASS",
+  "failures": [
+    "policy_gate_not_PASS:FAIL"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "policy_status_fail",
+  "expected": "policy_status_wrong",
+  "failures": [
+    "policy_status_wrong:EXECUTED"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "runner_family_bounds_fail",
+  "expected": "runner_bounds_wrong",
+  "failures": [
+    "runner_bounds_wrong:{'case_count_expected_max': 10, 'cycles_per_case': 50, 'depth_max': 12, 'depth_min': 3, 'families': ['projection_quotient'], 'max_cells': 50000, 'max_new_runs': 1}"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "candidate_acceptance_authority_fail",
+  "expected": "forbidden_authority_not_false:authorizes_candidate_acceptance",
+  "failures": [
+    "forbidden_authority_not_false:authorizes_candidate_acceptance:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "registry_read_authority_fail",
+  "expected": "forbidden_authority_not_false:authorizes_registry_sqlite_read",
+  "failures": [
+    "forbidden_authority_not_false:authorizes_registry_sqlite_read:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "runtime_code_authority_fail",
+  "expected": "forbidden_authority_not_false:authorizes_runtime_code_change",
+  "failures": [
+    "forbidden_authority_not_false:authorizes_runtime_code_change:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "payload_fields_fail",
+  "expected": "payload_fields_wrong",
+  "failures": [
+    "payload_fields_wrong:['cv', 'state_hash_before', 'move_id', 'state_hash_after', 'raw_compression_ratio_sig6', 'case_id']"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "next_gate_registry_fail",
+  "expected": "required_gate_not_true:must_not_read_registry_sqlite",
+  "failures": [
+    "required_gate_not_true:must_not_read_registry_sqlite:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "after": {
+    "manifest": "83db8d0a778ec1ba2c756baad09e6a699effe8f14f0f0ca5a861d7f54c48b566",
+    "receipt": "a6dc1203c11e6333aac05cdc7575b6f9d85cb349e48550c7c2e121a1aa771983",
+    "rows": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "before": {
+    "manifest": "83db8d0a778ec1ba2c756baad09e6a699effe8f14f0f0ca5a861d7f54c48b566",
+    "receipt": "a6dc1203c11e6333aac05cdc7575b6f9d85cb349e48550c7c2e121a1aa771983",
+    "rows": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_execute_runner": false,
+  "negative_controls_write_outputs": false
+}
+negative controls ok, no runner, no live writes
+
+CORRECTED_IMPLEMENTATION_HEAD_JSON
+{
+  "authority_guards": {
+    "ambient_workspace_inference_used": false,
+    "audit_or_debug_payload_in_signature_payload": false,
+    "candidate_accepted": false,
+    "candidate_rows_created": false,
+    "candidate_rows_created_total": 0,
+    "case_id_or_cycle_n_identity_patch_used": false,
+    "explicit_run_id": "run_20260621_183812_136149",
+    "explicit_run_id_captured": true,
+    "full_occurrence_key_in_signature_payload": false,
+    "full_registry_scan_used": false,
+    "latest_or_mtime_selection_used": false,
+    "microhash_as_proof_used": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_written": false,
+    "rowid_or_receipt_hash_truth_surface_used": false,
+    "runner_command_available": true,
+    "runner_executed": true,
+    "runner_executions_total": 1,
+    "runner_precheck_attempted": true,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "runtime_semantic_changed": false,
+    "scale_mode_authorized": false,
+    "surface_manifest_written": true,
+    "surface_receipt_written": true,
+    "synthetic_fake_validation_rows_used": false,
+    "transition_compression_probe_run": false
+  },
+  "explicit_run_id": "run_20260621_183812_136149",
+  "gate": "PASS",
+  "hold_code": "HOLD_APPROVED_RECIPE_AMBIGUOUS_SOURCE_SURFACE",
+  "new_bands_created": 0,
+  "receipt_files_found_total": 511,
+  "receipt_files_used_total": 0,
+  "receipt_id": "3a28d0e1",
+  "rows_created": 0,
+  "runner_exit_code": 0,
+  "runner_failure": null,
+  "surface_id": "24bee0ce",
+  "surface_manifest_path": "data/raw_delta_signature_candidate_approved_new_bounded_surface_manifests/24bee0ce.json",
+  "surface_rows_path": "data/raw_delta_signature_candidate_approved_new_bounded_surface_rows/24bee0ce.jsonl",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "HOLD_APPROVED_RECIPE_AMBIGUOUS_SOURCE_SURFACE",
+    "type": "HOLD"
+  }
+}
+
+VERIFY_RUNTIME_AND_PRIOR_PROBES_UNTOUCHED
+scripts/build_approved_new_bounded_validation_surface_recipe_policy_v0.py
+scripts/implement_approved_new_bounded_validation_surface_recipe_v0.py
+runtime/prior probes untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ ...ld_approved_new_bounded_validation_surface_recipe_policy_v0.py | 8 +++++---
+ ...implement_approved_new_bounded_validation_surface_recipe_v0.py | 8 +++++---
+ 2 files changed, 10 insertions(+), 6 deletions(-)
+
+STATUS_AFTER
+ M scripts/build_approved_new_bounded_validation_surface_recipe_policy_v0.py
+ M scripts/implement_approved_new_bounded_validation_surface_recipe_v0.py
+?? data/
+[master cf0230a6f] patch approved recipe runner family vocabulary
+ 2 files changed, 10 insertions(+), 6 deletions(-)
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

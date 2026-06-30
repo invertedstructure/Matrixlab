@@ -1,0 +1,365 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_195849
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_195849.txt
+
+RERUN_MICRO_BURDEN_PROFILE_AFTER_DB_WRITE_FIX_V0
+
+STATUS_BEFORE
+?? data/
+
+VERIFY_APPLICATION_AUTHORITY
+{
+  "application_exists": true,
+  "application_gate": "PASS",
+  "application_id": "ff45a8b0",
+  "application_sig8": "ff45a8b0",
+  "candidate_exists": true,
+  "candidate_gate": "PASS",
+  "candidate_target": "BURDEN_DB_WRITE",
+  "semantics": {
+    "execution_skipping": false,
+    "gate_semantics_change": false,
+    "law_semantics_change": false,
+    "radius_expansion": false,
+    "receipt_compression": false,
+    "receipt_deletion": false,
+    "receipt_schema_change": false,
+    "run_semantics_change": false
+  },
+  "source_candidate_gate": "PASS",
+  "source_candidate_id": "2de6e3c2",
+  "target_burden_class": "BURDEN_DB_WRITE",
+  "terminal": {
+    "next_command_goal": "RERUN_MICRO_BURDEN_PROFILE_AFTER_DB_WRITE_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+PATCH_GITIGNORE
+
+RERUN_SAME_MICRO_SUITE_AFTER_DB_WRITE_FIX
+{
+  "burden_class_counts": {
+    "BURDEN_CYCLE_SCAN": 5,
+    "BURDEN_DB_WRITE": 5,
+    "BURDEN_DEPTH_SCAN": 5,
+    "BURDEN_RECEIPT_VOLUME": 1,
+    "BURDEN_REPEATED_SLOT_WORK": 9
+  },
+  "created_at": "2026-06-20T18:59:32.785108+00:00",
+  "csv_path": "data/micro_burden_profiles/00a75664.csv",
+  "failures": [],
+  "families_seen": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "gate": "MICRO_BURDEN_PROFILE_PASS",
+  "non_unknown_burden_classes": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_DEPTH_SCAN",
+    "BURDEN_RECEIPT_VOLUME",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "probe_completion": {
+    "MICRO_01_WIDE_FAMILY_SMOKE": "PASS",
+    "MICRO_02_CYCLE_PRESSURE": "PASS",
+    "MICRO_03_DEPTH_PRESSURE": "PASS",
+    "MICRO_04_REPEATED_SLOT_PRESSURE": "PASS",
+    "MICRO_05_RECEIPT_WRITE_PRESSURE": "PASS"
+  },
+  "profile_id": "00a75664",
+  "profile_path": "data/micro_burden_profiles/00a75664.json",
+  "profile_sig8": "00a75664",
+  "receipt_id": "00c88c33",
+  "receipt_sig8": "00c88c33",
+  "receipt_totals": {
+    "after": 1621967,
+    "before": 1620510,
+    "delta": 1457,
+    "matches_registry_sqlite": true,
+    "profile_total": 1457
+  },
+  "schema_version": "wide_burden_profile_microruns_receipt_v0",
+  "semantics": {
+    "execution_skipped": false,
+    "gate_semantics_changed": false,
+    "law_semantics_changed": false,
+    "passive_observability_layer": true,
+    "receipt_rows_deleted": false,
+    "receipts_compressed": false,
+    "runner_semantics_changed": false
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_BURDEN_BACKED_FIX_CANDIDATE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "top_20_receipt_sources_present": true,
+  "top_20_time_sources_present": true,
+  "warnings": []
+}
+profile_json_path=data/micro_burden_profiles/00a75664.json
+profile_csv_path=data/micro_burden_profiles/00a75664.csv
+profile_receipt_path=data/micro_burden_profile_receipts/00a75664.json
+BEFORE_PROFILE_ID=c89790f0
+AFTER_PROFILE_ID=00a75664
+
+ASSERT_AFTER_PROFILE_PASS
+{
+  "after_db_receipt_delta": 1457,
+  "after_failures": [],
+  "after_families_seen": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "after_gate": "MICRO_BURDEN_PROFILE_PASS",
+  "after_non_unknown_burden_classes": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_DEPTH_SCAN",
+    "BURDEN_RECEIPT_VOLUME",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "after_profile_id": "00a75664",
+  "after_profile_receipts_total": 1457,
+  "after_rows": 25,
+  "after_terminal": {
+    "next_command_goal": "BUILD_BURDEN_BACKED_FIX_CANDIDATE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "before_profile_id": "c89790f0"
+}
+
+BUILD_BEFORE_AFTER_COMPARISON
+COMPARISON_ID=fe67c814
+{
+  "after_profile_id": "00a75664",
+  "before_profile_id": "c89790f0",
+  "comparison_id": "fe67c814",
+  "comparison_path": "data/micro_burden_before_after_comparisons/fe67c814.json",
+  "comparison_sig8": "fe67c814",
+  "created_at": "2026-06-20T18:59:32.913033+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "receipt_id": "24d7639f",
+  "receipt_sig8": "24d7639f",
+  "schema_version": "micro_burden_before_after_comparison_receipt_v0",
+  "source_application_id": "ff45a8b0",
+  "target_burden_class": "BURDEN_DB_WRITE",
+  "target_result": "TARGET_BURDEN_ELAPSED_NON_WORSE",
+  "terminal": {
+    "next_command_goal": "DECIDE_DB_WRITE_FIX_OUTCOME_OR_NEXT_BURDEN_CLASS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+ASSERT_BEFORE_AFTER_COMPARISON
+{
+  "after_profile_id": "00a75664",
+  "after_target": {
+    "burden_class": "BURDEN_DB_WRITE",
+    "elapsed_ms": 4695,
+    "families": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "probes": [
+      "MICRO_01_WIDE_FAMILY_SMOKE"
+    ],
+    "receipts": 90,
+    "receipts_per_sec": 19.169329,
+    "rows": 5,
+    "slots": [
+      "MICRO_01_WIDE_FAMILY_SMOKE_A",
+      "MICRO_01_WIDE_FAMILY_SMOKE_B",
+      "MICRO_01_WIDE_FAMILY_SMOKE_C",
+      "MICRO_01_WIDE_FAMILY_SMOKE_D",
+      "MICRO_01_WIDE_FAMILY_SMOKE_E"
+    ]
+  },
+  "before_profile_id": "c89790f0",
+  "before_target": {
+    "burden_class": "BURDEN_DB_WRITE",
+    "elapsed_ms": 18248,
+    "families": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "probes": [
+      "MICRO_01_WIDE_FAMILY_SMOKE"
+    ],
+    "receipts": 90,
+    "receipts_per_sec": 4.932047,
+    "rows": 5,
+    "slots": [
+      "MICRO_01_WIDE_FAMILY_SMOKE_A",
+      "MICRO_01_WIDE_FAMILY_SMOKE_B",
+      "MICRO_01_WIDE_FAMILY_SMOKE_C",
+      "MICRO_01_WIDE_FAMILY_SMOKE_D",
+      "MICRO_01_WIDE_FAMILY_SMOKE_E"
+    ]
+  },
+  "comparison_id": "fe67c814",
+  "comparison_sig8": "fe67c814",
+  "failures": [],
+  "gate": "PASS",
+  "gate_rules": {
+    "after_profile_gate_pass": true,
+    "after_receipt_totals_match_registry": true,
+    "family_coverage_A_E_preserved": true,
+    "no_execution_skipping": true,
+    "no_gate_semantics_changed": true,
+    "no_law_semantics_changed": true,
+    "no_receipt_deletion": true,
+    "no_runner_semantics_changed": true,
+    "same_row_count": true,
+    "same_row_keys": true,
+    "target_DB_WRITE_non_worse_or_resolved": true,
+    "top_20_receipt_sources_exists": true,
+    "top_20_time_sources_exists": true
+  },
+  "receipt_gate": "PASS",
+  "receipt_id": "24d7639f",
+  "source_application_id": "ff45a8b0",
+  "source_candidate_id": "2de6e3c2",
+  "target_burden_class": "BURDEN_DB_WRITE",
+  "target_result": "TARGET_BURDEN_ELAPSED_NON_WORSE",
+  "terminal": {
+    "next_command_goal": "DECIDE_DB_WRITE_FIX_OUTCOME_OR_NEXT_BURDEN_CLASS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+COMPARISON_HEAD_JSON
+{
+  "after_burden_classes": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_DEPTH_SCAN",
+    "BURDEN_RECEIPT_VOLUME",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "after_profile_id": "00a75664",
+  "after_profile_receipts_total": 1457,
+  "before_burden_classes": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_DEPTH_SCAN",
+    "BURDEN_RECEIPT_VOLUME",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "before_profile_id": "c89790f0",
+  "before_profile_receipts_total": 1457,
+  "comparison_id": "fe67c814",
+  "gate": "PASS",
+  "target_after": {
+    "burden_class": "BURDEN_DB_WRITE",
+    "elapsed_ms": 4695,
+    "families": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "probes": [
+      "MICRO_01_WIDE_FAMILY_SMOKE"
+    ],
+    "receipts": 90,
+    "receipts_per_sec": 19.169329,
+    "rows": 5,
+    "slots": [
+      "MICRO_01_WIDE_FAMILY_SMOKE_A",
+      "MICRO_01_WIDE_FAMILY_SMOKE_B",
+      "MICRO_01_WIDE_FAMILY_SMOKE_C",
+      "MICRO_01_WIDE_FAMILY_SMOKE_D",
+      "MICRO_01_WIDE_FAMILY_SMOKE_E"
+    ]
+  },
+  "target_before": {
+    "burden_class": "BURDEN_DB_WRITE",
+    "elapsed_ms": 18248,
+    "families": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "probes": [
+      "MICRO_01_WIDE_FAMILY_SMOKE"
+    ],
+    "receipts": 90,
+    "receipts_per_sec": 4.932047,
+    "rows": 5,
+    "slots": [
+      "MICRO_01_WIDE_FAMILY_SMOKE_A",
+      "MICRO_01_WIDE_FAMILY_SMOKE_B",
+      "MICRO_01_WIDE_FAMILY_SMOKE_C",
+      "MICRO_01_WIDE_FAMILY_SMOKE_D",
+      "MICRO_01_WIDE_FAMILY_SMOKE_E"
+    ]
+  },
+  "target_burden_class": "BURDEN_DB_WRITE",
+  "target_result": "TARGET_BURDEN_ELAPSED_NON_WORSE",
+  "terminal": {
+    "next_command_goal": "DECIDE_DB_WRITE_FIX_OUTCOME_OR_NEXT_BURDEN_CLASS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_185931_901119
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+[master 99ac51da5] add micro burden before after comparison artifacts ignore
+ 1 file changed, 6 insertions(+)
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

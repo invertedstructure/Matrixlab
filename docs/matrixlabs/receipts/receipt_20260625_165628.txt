@@ -1,0 +1,361 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_165628
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_165628.txt
+
+BUILD_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0
+
+STATUS_BEFORE_RELEVANT
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/radius_125_slot_execution_summaries/
+
+VERIFY_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILD_BASIS
+present data/c6_bounded_protocol_adoption_probe_design_v0_receipts/e0078630.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_design_basis_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_scope_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_flow_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_packet_fixture_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_observation_requirements_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_feedback_requirements_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_acceptance_gates_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_negative_controls_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_output_manifest_target_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_build_contract_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_design_authority_boundary_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_design_classification_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_design_rollup_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_design_profile_v0.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_design_report.json
+present data/c6_bounded_protocol_adoption_probe_design_v0/c6_bounded_protocol_adoption_probe_design_transition_trace.json
+present data/c6_inter_cell_protocol_from_c5_examples_reference_closure_v0_receipts/50849d13.json
+present data/c6_inter_cell_protocol_post_reference_decision_v0_receipts/5a07dcbb.json
+present data/c6_inter_cell_protocol_from_c5_examples_reference_closure_v0/c6_inter_cell_protocol_reviewed_reference_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_reference_closure_v0/c6_inter_cell_packet_law_reference_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_reference_closure_v0/c6_inter_cell_protocol_surface_reference_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_reference_closure_v0/c6_inter_cell_protocol_gate19_repair_reference_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_schema_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_packet_state_machine_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_gate_table_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_forbidden_transition_table_v0.json
+present data/c6_inter_cell_protocol_from_c5_examples_v0/inter_cell_protocol_readout_v0.json
+
+PATCH_GITIGNORE
+
+WRITE_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILD_RUNNER
+
+PY_COMPILE_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILD
+
+RUN_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILD
+{
+  "acceptance_gate_results": {
+    "ADOPTION_PROBE_0_C6_REVIEWED_REFERENCE_CONSUMED": true,
+    "ADOPTION_PROBE_10_EDGE_OBSERVATION_SIDECARS_EMITTED": true,
+    "ADOPTION_PROBE_11_UNIT_FEEDBACK_SIDECARS_EMITTED_FOR_FAILED_BLOCKED_STOPPED_NA": true,
+    "ADOPTION_PROBE_12_BAD_COUNTERS_ZERO": true,
+    "ADOPTION_PROBE_13_NO_RUNTIME_PATCH": true,
+    "ADOPTION_PROBE_14_NO_C7_AUTHORIZATION": true,
+    "ADOPTION_PROBE_15_NO_TRANSFER_AUTONOMY_GENERAL_AUTHORITY_OR_RUNTIME_ENFORCEMENT_CLAIMS": true,
+    "ADOPTION_PROBE_16_NO_SOURCE_OR_REFERENCE_MUTATION": true,
+    "ADOPTION_PROBE_17_NO_HIDDEN_NEXT_COMMAND": true,
+    "ADOPTION_PROBE_1_PACKET_LAW_REFERENCE_CONSUMED": true,
+    "ADOPTION_PROBE_2_PROTOCOL_SURFACE_CONSUMED": true,
+    "ADOPTION_PROBE_3_PROPOSED_ONLY_REJECTED_BY_CELL1": true,
+    "ADOPTION_PROBE_4_ACCEPTED_PACKET_REQUIRES_REVIEW_RECEIPT": true,
+    "ADOPTION_PROBE_5_CELL1_INTAKE_SCOPED": true,
+    "ADOPTION_PROBE_6_PROBE_BUILD_NOT_VERIFICATION": true,
+    "ADOPTION_PROBE_7_VERIFICATION_NOT_CLOSURE": true,
+    "ADOPTION_PROBE_8_HANDOFF_NOT_HIDDEN_NEXT_COMMAND": true,
+    "ADOPTION_PROBE_9_BLOCKED_FEEDBACK_NOT_REPAIR": true
+  },
+  "aggregate_metrics": {
+    "build_mode": "C6_BOUNDED_PROTOCOL_ADOPTION_PROBE_SYNTHETIC_EXECUTION",
+    "layer": "BRIDGE / INTER_CELL_PROTOCOL / BOUNDED_ADOPTION_PROBE",
+    "mode": "BUILD / SYNTHETIC_PROTOCOL_ONLY_PROBE / NO_RUNTIME_PATCH",
+    "receipt_backed_claim": "A bounded synthetic adoption probe was built from the reviewed C6 packet-law reference. It emitted packet trace, edge observations, unit feedback, negative-control results, rollup/profile/report/trace, and preserved all no-runtime/no-C7/no-transfer/no-autonomy/no-general-authority boundaries.",
+    "recommended_next_handling": "REVIEW_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0",
+    "schema_version": "bounded_adoption_probe_report_v0",
+    "status": "TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILT_REVIEW_READY",
+    "target_unit_id": "c6.protocol_adoption_probe.build.v0",
+    "unit_id": "BUILD_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0"
+  },
+  "build_mode": "C6_BOUNDED_PROTOCOL_ADOPTION_PROBE_SYNTHETIC_EXECUTION",
+  "created_at": "2026-06-25T15:56:28.186977+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "BRIDGE / INTER_CELL_PROTOCOL / BOUNDED_ADOPTION_PROBE",
+  "machine_readable_bounded_c6_adoption_probe_summary": {
+    "accepted_packet_requires_review_receipt": true,
+    "bad_counters_zero": true,
+    "blocked_feedback_not_repair": true,
+    "bounded_c6_protocol_adoption_probe_built": true,
+    "c6_reviewed_reference_mutated": false,
+    "c7_authorized": false,
+    "cell1_intake_scoped": true,
+    "edge_observation_count": 7,
+    "full_transfer_claimed": false,
+    "general_cell1_authority_claimed": false,
+    "global_autonomy_claimed": false,
+    "handoff_not_hidden_next_command": true,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "mtime_selection": false,
+    "negative_control_count": 15,
+    "negative_controls_passed": true,
+    "new_domain_shift_executed": false,
+    "packet_trace_count": 9,
+    "prior_receipt_mutated": false,
+    "probe_build_not_verification": true,
+    "probe_review_ready": true,
+    "proposed_only_rejected_by_cell1": true,
+    "recommended_next": "REVIEW_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0",
+    "runtime_effect": false,
+    "runtime_patched": false,
+    "runtime_wide_enforcement_claimed": false,
+    "source_mutated": false,
+    "source_reference_status": "C6_INTER_CELL_PROTOCOL_REVIEWED_REFERENCE_FROZEN",
+    "status": "TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILT_REVIEW_READY",
+    "synthetic_protocol_only": true,
+    "unit_feedback_count": 4,
+    "verification_not_closure": true
+  },
+  "mode": "BUILD / SYNTHETIC_PROTOCOL_ONLY_PROBE / NO_RUNTIME_PATCH",
+  "output_artifacts": {
+    "bounded_adoption_probe_edge_observations": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_edge_observations_v0.jsonl",
+    "bounded_adoption_probe_fixture": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_fixture_v0.json",
+    "bounded_adoption_probe_negative_control_results": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_negative_control_results_v0.jsonl",
+    "bounded_adoption_probe_packet_trace": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_packet_trace_v0.jsonl",
+    "bounded_adoption_probe_profile": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_profile_v0.json",
+    "bounded_adoption_probe_report": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_report.json",
+    "bounded_adoption_probe_rollup": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_rollup_v0.json",
+    "bounded_adoption_probe_transition_trace": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_transition_trace.json",
+    "bounded_adoption_probe_unit_feedback": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_unit_feedback_v0.jsonl",
+    "implementation_receipt": "data/c6_bounded_protocol_adoption_probe_v0_receipts/6ecaeaf8.json"
+  },
+  "receipt_id": "6ecaeaf8",
+  "receipt_type": "TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_RECEIPT",
+  "schema_version": "bounded_c6_protocol_adoption_probe_receipt_v0",
+  "source_c6_protocol_reference_closure_receipt_id": "50849d13",
+  "source_probe_design_receipt_id": "e0078630",
+  "target_unit_id": "c6.protocol_adoption_probe.build.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILT_REVIEW_READY",
+    "type": "STOP"
+  },
+  "unit_id": "BUILD_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0",
+  "warnings": []
+}
+bounded_c6_protocol_adoption_probe_receipt_id=6ecaeaf8
+bounded_c6_protocol_adoption_probe_receipt_path=data/c6_bounded_protocol_adoption_probe_v0_receipts/6ecaeaf8.json
+bounded_c6_protocol_adoption_probe_fixture_path=data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_fixture_v0.json
+bounded_c6_protocol_adoption_probe_rollup_path=data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_rollup_v0.json
+bounded_c6_protocol_adoption_probe_profile_path=data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_profile_v0.json
+
+ASSERT_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILD
+{
+  "c7_authorized": false,
+  "edge_observation_count": 7,
+  "failures": [],
+  "gate": "PASS",
+  "negative_control_count": 15,
+  "negative_controls_passed": true,
+  "packet_trace_count": 9,
+  "probe_built": true,
+  "probe_review_ready": true,
+  "receipt_id": "6ecaeaf8",
+  "recommended_next": "REVIEW_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0",
+  "runtime_patched": false,
+  "status": "TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILT_REVIEW_READY",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILT_REVIEW_READY",
+    "type": "STOP"
+  },
+  "unit_feedback_count": 4
+}
+
+VERIFY_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILD_BOUNDARY
+allowed_status_lines_checked
+Bounded C6 adoption probe built; synthetic protocol-only; review-ready; no runtime patch; no C7
+
+SHOW_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILD_NEXT
+status=TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILT_REVIEW_READY
+bounded_c6_protocol_adoption_probe_built=True
+probe_review_ready=True
+synthetic_protocol_only=True
+runtime_effect=False
+source_reference_status=C6_INTER_CELL_PROTOCOL_REVIEWED_REFERENCE_FROZEN
+packet_trace_count=9
+edge_observation_count=7
+unit_feedback_count=4
+negative_control_count=15
+negative_controls_passed=True
+proposed_only_rejected_by_cell1=True
+accepted_packet_requires_review_receipt=True
+cell1_intake_scoped=True
+probe_build_not_verification=True
+verification_not_closure=True
+handoff_not_hidden_next_command=True
+blocked_feedback_not_repair=True
+runtime_patched=False
+c7_authorized=False
+new_domain_shift_executed=False
+general_cell1_authority_claimed=False
+global_autonomy_claimed=False
+full_transfer_claimed=False
+runtime_wide_enforcement_claimed=False
+source_mutated=False
+prior_receipt_mutated=False
+c6_reviewed_reference_mutated=False
+hidden_next_command=False
+latest_file_guessing=False
+mtime_selection=False
+bad_counters_zero=True
+recommended_next=REVIEW_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/radius_125_slot_execution_summaries/
+?? scripts/build_bounded_c6_protocol_adoption_probe_from_reviewed_reference_v0.py
+
+PACKAGE_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILD_ARTIFACTS
+packaged data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_fixture_v0.json
+packaged data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_packet_trace_v0.jsonl
+packaged data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_edge_observations_v0.jsonl
+packaged data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_unit_feedback_v0.jsonl
+packaged data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_negative_control_results_v0.jsonl
+packaged data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_rollup_v0.json
+packaged data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_profile_v0.json
+packaged data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_report.json
+packaged data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_transition_trace.json
+[master cf9594c7b] build bounded C6 protocol adoption probe
+ 12 files changed, 1108 insertions(+)
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_edge_observations_v0.jsonl
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_fixture_v0.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_negative_control_results_v0.jsonl
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_packet_trace_v0.jsonl
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_profile_v0.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_report.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_rollup_v0.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_transition_trace.json
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_unit_feedback_v0.jsonl
+ create mode 100644 data/c6_bounded_protocol_adoption_probe_v0_receipts/6ecaeaf8.json
+ create mode 100755 scripts/build_bounded_c6_protocol_adoption_probe_from_reviewed_reference_v0.py
+
+COMMIT_DONE_RELEVANT
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/radius_125_slot_execution_summaries/
+
+BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILD_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+bounded_c6_protocol_adoption_probe_receipt_id=6ecaeaf8
+bounded_c6_protocol_adoption_probe_receipt_path=data/c6_bounded_protocol_adoption_probe_v0_receipts/6ecaeaf8.json
+{
+  "acceptance_gate_results": {
+    "ADOPTION_PROBE_0_C6_REVIEWED_REFERENCE_CONSUMED": true,
+    "ADOPTION_PROBE_10_EDGE_OBSERVATION_SIDECARS_EMITTED": true,
+    "ADOPTION_PROBE_11_UNIT_FEEDBACK_SIDECARS_EMITTED_FOR_FAILED_BLOCKED_STOPPED_NA": true,
+    "ADOPTION_PROBE_12_BAD_COUNTERS_ZERO": true,
+    "ADOPTION_PROBE_13_NO_RUNTIME_PATCH": true,
+    "ADOPTION_PROBE_14_NO_C7_AUTHORIZATION": true,
+    "ADOPTION_PROBE_15_NO_TRANSFER_AUTONOMY_GENERAL_AUTHORITY_OR_RUNTIME_ENFORCEMENT_CLAIMS": true,
+    "ADOPTION_PROBE_16_NO_SOURCE_OR_REFERENCE_MUTATION": true,
+    "ADOPTION_PROBE_17_NO_HIDDEN_NEXT_COMMAND": true,
+    "ADOPTION_PROBE_1_PACKET_LAW_REFERENCE_CONSUMED": true,
+    "ADOPTION_PROBE_2_PROTOCOL_SURFACE_CONSUMED": true,
+    "ADOPTION_PROBE_3_PROPOSED_ONLY_REJECTED_BY_CELL1": true,
+    "ADOPTION_PROBE_4_ACCEPTED_PACKET_REQUIRES_REVIEW_RECEIPT": true,
+    "ADOPTION_PROBE_5_CELL1_INTAKE_SCOPED": true,
+    "ADOPTION_PROBE_6_PROBE_BUILD_NOT_VERIFICATION": true,
+    "ADOPTION_PROBE_7_VERIFICATION_NOT_CLOSURE": true,
+    "ADOPTION_PROBE_8_HANDOFF_NOT_HIDDEN_NEXT_COMMAND": true,
+    "ADOPTION_PROBE_9_BLOCKED_FEEDBACK_NOT_REPAIR": true
+  },
+  "aggregate_metrics": {
+    "build_mode": "C6_BOUNDED_PROTOCOL_ADOPTION_PROBE_SYNTHETIC_EXECUTION",
+    "layer": "BRIDGE / INTER_CELL_PROTOCOL / BOUNDED_ADOPTION_PROBE",
+    "mode": "BUILD / SYNTHETIC_PROTOCOL_ONLY_PROBE / NO_RUNTIME_PATCH",
+    "receipt_backed_claim": "A bounded synthetic adoption probe was built from the reviewed C6 packet-law reference. It emitted packet trace, edge observations, unit feedback, negative-control results, rollup/profile/report/trace, and preserved all no-runtime/no-C7/no-transfer/no-autonomy/no-general-authority boundaries.",
+    "recommended_next_handling": "REVIEW_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0",
+    "schema_version": "bounded_adoption_probe_report_v0",
+    "status": "TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILT_REVIEW_READY",
+    "target_unit_id": "c6.protocol_adoption_probe.build.v0",
+    "unit_id": "BUILD_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0"
+  },
+  "build_mode": "C6_BOUNDED_PROTOCOL_ADOPTION_PROBE_SYNTHETIC_EXECUTION",
+  "created_at": "2026-06-25T15:56:28.186977+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "BRIDGE / INTER_CELL_PROTOCOL / BOUNDED_ADOPTION_PROBE",
+  "machine_readable_bounded_c6_adoption_probe_summary": {
+    "accepted_packet_requires_review_receipt": true,
+    "bad_counters_zero": true,
+    "blocked_feedback_not_repair": true,
+    "bounded_c6_protocol_adoption_probe_built": true,
+    "c6_reviewed_reference_mutated": false,
+    "c7_authorized": false,
+    "cell1_intake_scoped": true,
+    "edge_observation_count": 7,
+    "full_transfer_claimed": false,
+    "general_cell1_authority_claimed": false,
+    "global_autonomy_claimed": false,
+    "handoff_not_hidden_next_command": true,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "mtime_selection": false,
+    "negative_control_count": 15,
+    "negative_controls_passed": true,
+    "new_domain_shift_executed": false,
+    "packet_trace_count": 9,
+    "prior_receipt_mutated": false,
+    "probe_build_not_verification": true,
+    "probe_review_ready": true,
+    "proposed_only_rejected_by_cell1": true,
+    "recommended_next": "REVIEW_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0",
+    "runtime_effect": false,
+    "runtime_patched": false,
+    "runtime_wide_enforcement_claimed": false,
+    "source_mutated": false,
+    "source_reference_status": "C6_INTER_CELL_PROTOCOL_REVIEWED_REFERENCE_FROZEN",
+    "status": "TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILT_REVIEW_READY",
+    "synthetic_protocol_only": true,
+    "unit_feedback_count": 4,
+    "verification_not_closure": true
+  },
+  "mode": "BUILD / SYNTHETIC_PROTOCOL_ONLY_PROBE / NO_RUNTIME_PATCH",
+  "output_artifacts": {
+    "bounded_adoption_probe_edge_observations": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_edge_observations_v0.jsonl",
+    "bounded_adoption_probe_fixture": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_fixture_v0.json",
+    "bounded_adoption_probe_negative_control_results": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_negative_control_results_v0.jsonl",
+    "bounded_adoption_probe_packet_trace": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_packet_trace_v0.jsonl",
+    "bounded_adoption_probe_profile": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_profile_v0.json",
+    "bounded_adoption_probe_report": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_report.json",
+    "bounded_adoption_probe_rollup": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_rollup_v0.json",
+    "bounded_adoption_probe_transition_trace": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_transition_trace.json",
+    "bounded_adoption_probe_unit_feedback": "data/c6_bounded_protocol_adoption_probe_v0/bounded_adoption_probe_unit_feedback_v0.jsonl",
+    "implementation_receipt": "data/c6_bounded_protocol_adoption_probe_v0_receipts/6ecaeaf8.json"
+  },
+  "receipt_id": "6ecaeaf8",
+  "receipt_type": "TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_RECEIPT",
+  "schema_version": "bounded_c6_protocol_adoption_probe_receipt_v0",
+  "source_c6_protocol_reference_closure_receipt_id": "50849d13",
+  "source_probe_design_receipt_id": "e0078630",
+  "target_unit_id": "c6.protocol_adoption_probe.build.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_BUILT_REVIEW_READY",
+    "type": "STOP"
+  },
+  "unit_id": "BUILD_BOUNDED_C6_PROTOCOL_ADOPTION_PROBE_FROM_REVIEWED_REFERENCE_V0",
+  "warnings": []
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

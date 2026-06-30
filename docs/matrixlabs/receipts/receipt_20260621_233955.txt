@@ -1,0 +1,294 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_233955
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_233955.txt
+
+EMIT_RAW_DELTA_SIGNATURE_CANDIDATE_ACCEPTANCE_PROPOSAL_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_ACCEPTANCE_PROPOSAL_EMITTER
+
+PY_COMPILE_ACCEPTANCE_PROPOSAL_EMITTER
+
+RUN_ACCEPTANCE_PROPOSAL_EMITTER
+{
+  "authority_guards": {
+    "ambient_workspace_inference_used": false,
+    "audit_or_debug_payload_in_signature_payload": false,
+    "candidate_acceptance_proposal_emitted": true,
+    "candidate_accepted": false,
+    "candidate_rows_created": false,
+    "case_id_or_cycle_n_identity_patch_used": false,
+    "full_occurrence_key_in_signature_payload": false,
+    "full_registry_scan_used": false,
+    "human_decision_boundary_emitted": true,
+    "latest_or_mtime_selection_used": false,
+    "microhash_as_proof_used": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_written": false,
+    "rowid_or_receipt_hash_truth_surface_used": false,
+    "runner_executed": false,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "runtime_semantic_changed": false,
+    "scale_mode_authorized": false,
+    "synthetic_fake_validation_rows_used": false,
+    "transition_compression_probe_run": false
+  },
+  "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+  "created_at": "2026-06-21T22:39:56.714057+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "human_decision_required": true,
+  "policy_id": "b420b784",
+  "policy_receipt_id": "aff60f48",
+  "prior_probe_id": "6a33c978",
+  "prior_probe_receipt_id": "99c90fe3",
+  "proposal_id": "ab545dbf",
+  "proposal_name": "RAW_DELTA_SIGNATURE_CANDIDATE_ACCEPTANCE_PROPOSAL_V0",
+  "proposal_status": "HUMAN_DECISION_REQUIRED",
+  "receipt_id": "ec67d9dc",
+  "receipt_sig8": "ec67d9dc",
+  "receipt_type": "RAW_DELTA_SIGNATURE_CANDIDATE_ACCEPTANCE_PROPOSAL_RECEIPT",
+  "recommended_option": "OPTION_A_PROVISIONAL_BOUNDED_ACCEPTANCE_PROPOSAL",
+  "safety_clauses": {
+    "candidate_accepted": false,
+    "human_decision_required_before_acceptance": true,
+    "proposal_only": true,
+    "registry_written": false,
+    "runner_executed": false,
+    "runtime_changed": false
+  },
+  "scale_out_id": "2b44b1fd",
+  "scale_out_receipt_id": "f67b629b",
+  "schema_version": "raw_delta_signature_candidate_acceptance_proposal_receipt_v0",
+  "source_probe_id": "87b4a010",
+  "source_probe_receipt_id": "812ae591",
+  "source_review_id": "2946b241",
+  "source_review_receipt_id": "79333614",
+  "source_surface_id": "4427ba4b",
+  "source_surface_receipt_id": "e5022cd2",
+  "terminal": {
+    "next_command_goal": "RECORD_RAW_DELTA_SIGNATURE_CANDIDATE_ACCEPTANCE_HUMAN_DECISION_V0",
+    "stop_code": "STOP_HUMAN_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "valid_human_options": [
+    "OPTION_A_PROVISIONAL_BOUNDED_ACCEPT",
+    "OPTION_B_MORE_SCALE_BEFORE_ACCEPTANCE",
+    "OPTION_C_REJECT_OR_DIAGNOSE"
+  ],
+  "warnings": []
+}
+proposal_id=ab545dbf
+proposal_receipt_id=ec67d9dc
+proposal_path=data/raw_delta_signature_candidate_acceptance_proposals/ab545dbf.json
+proposal_receipt_path=data/raw_delta_signature_candidate_acceptance_proposal_receipts/ab545dbf.json
+PROPOSAL_ID=ab545dbf
+PROPOSAL_RECEIPT_ID=ec67d9dc
+
+ASSERT_ACCEPTANCE_PROPOSAL_EMITTED_HUMAN_BOUNDARY
+{
+  "authority_guards": {
+    "ambient_workspace_inference_used": false,
+    "audit_or_debug_payload_in_signature_payload": false,
+    "candidate_acceptance_proposal_emitted": true,
+    "candidate_accepted": false,
+    "candidate_rows_created": false,
+    "case_id_or_cycle_n_identity_patch_used": false,
+    "full_occurrence_key_in_signature_payload": false,
+    "full_registry_scan_used": false,
+    "human_decision_boundary_emitted": true,
+    "latest_or_mtime_selection_used": false,
+    "microhash_as_proof_used": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_written": false,
+    "rowid_or_receipt_hash_truth_surface_used": false,
+    "runner_executed": false,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "runtime_semantic_changed": false,
+    "scale_mode_authorized": false,
+    "synthetic_fake_validation_rows_used": false,
+    "transition_compression_probe_run": false
+  },
+  "gate": "PASS",
+  "human_decision_required": true,
+  "proposal_id": "ab545dbf",
+  "proposal_status": "HUMAN_DECISION_REQUIRED",
+  "receipt_id": "ec67d9dc",
+  "recommended_option": "OPTION_A_PROVISIONAL_BOUNDED_ACCEPTANCE_PROPOSAL",
+  "safety_clauses": {
+    "candidate_accepted": false,
+    "human_decision_required_before_acceptance": true,
+    "proposal_only": true,
+    "registry_written": false,
+    "runner_executed": false,
+    "runtime_changed": false
+  },
+  "terminal": {
+    "next_command_goal": "RECORD_RAW_DELTA_SIGNATURE_CANDIDATE_ACCEPTANCE_HUMAN_DECISION_V0",
+    "stop_code": "STOP_HUMAN_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "valid_human_options": [
+    "OPTION_A_PROVISIONAL_BOUNDED_ACCEPT",
+    "OPTION_B_MORE_SCALE_BEFORE_ACCEPTANCE",
+    "OPTION_C_REJECT_OR_DIAGNOSE"
+  ]
+}
+
+NEGATIVE_CONTROLS_ACCEPTANCE_PROPOSAL_EMITTER_NON_WRITING
+{
+  "case": "policy_gate_fail",
+  "expected": "policy_gate_not_PASS",
+  "failures": [
+    "policy_gate_not_PASS:FAIL"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "forbidden_candidate_acceptance_fail",
+  "expected": "forbidden_operation_not_true:candidate_acceptance",
+  "failures": [
+    "forbidden_operation_not_true:candidate_acceptance:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "safety_clause_fail",
+  "expected": "safety_clause_not_true:candidate_not_accepted",
+  "failures": [
+    "safety_clause_not_true:candidate_not_accepted:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "recommendation_safety_fail",
+  "expected": "recommendation_safety_not_true:does_not_accept_candidate",
+  "failures": [
+    "recommendation_safety_not_true:does_not_accept_candidate:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "authority_candidate_accepted_fail",
+  "expected": "policy_authority_guard_not_false_before_emission:candidate_accepted",
+  "failures": [
+    "policy_authority_guard_not_false_before_emission:candidate_accepted:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "human_boundary_classification_fail",
+  "expected": "classification_not_true:human_boundary_required",
+  "failures": [
+    "classification_not_true:human_boundary_required:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "after": {
+    "proposal": "b324db54bd981e8eddf8b67b427bb0e177999c2c653a8f4a5d5b0dbb09f6c390",
+    "receipt": "c5e8f9fe81dc9bb7b34081661ae265785aa207c58fd73a920b8d38f8823c412c"
+  },
+  "before": {
+    "proposal": "b324db54bd981e8eddf8b67b427bb0e177999c2c653a8f4a5d5b0dbb09f6c390",
+    "receipt": "c5e8f9fe81dc9bb7b34081661ae265785aa207c58fd73a920b8d38f8823c412c"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+ACCEPTANCE_PROPOSAL_HEAD_JSON
+{
+  "authority_guards": {
+    "ambient_workspace_inference_used": false,
+    "audit_or_debug_payload_in_signature_payload": false,
+    "candidate_acceptance_proposal_emitted": true,
+    "candidate_accepted": false,
+    "candidate_rows_created": false,
+    "case_id_or_cycle_n_identity_patch_used": false,
+    "full_occurrence_key_in_signature_payload": false,
+    "full_registry_scan_used": false,
+    "human_decision_boundary_emitted": true,
+    "latest_or_mtime_selection_used": false,
+    "microhash_as_proof_used": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_written": false,
+    "rowid_or_receipt_hash_truth_surface_used": false,
+    "runner_executed": false,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "runtime_semantic_changed": false,
+    "scale_mode_authorized": false,
+    "synthetic_fake_validation_rows_used": false,
+    "transition_compression_probe_run": false
+  },
+  "gate": "PASS",
+  "human_decision_required": true,
+  "proposal_id": "ab545dbf",
+  "proposal_status": "HUMAN_DECISION_REQUIRED",
+  "receipt_id": "ec67d9dc",
+  "recommended_option": "OPTION_A_PROVISIONAL_BOUNDED_ACCEPTANCE_PROPOSAL",
+  "terminal": {
+    "next_command_goal": "RECORD_RAW_DELTA_SIGNATURE_CANDIDATE_ACCEPTANCE_HUMAN_DECISION_V0",
+    "stop_code": "STOP_HUMAN_DECISION_REQUIRED",
+    "type": "STOP"
+  },
+  "valid_human_options": [
+    "OPTION_A_PROVISIONAL_BOUNDED_ACCEPT",
+    "OPTION_B_MORE_SCALE_BEFORE_ACCEPTANCE",
+    "OPTION_C_REJECT_OR_DIAGNOSE"
+  ]
+}
+
+VERIFY_RUNTIME_AND_PRIOR_PROBES_UNTOUCHED
+.gitignore
+runtime/prior probes untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/emit_raw_delta_signature_candidate_acceptance_proposal_v0.py
+[master a565388f5] emit raw delta signature candidate acceptance proposal
+ 2 files changed, 388 insertions(+)
+ create mode 100755 scripts/emit_raw_delta_signature_candidate_acceptance_proposal_v0.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

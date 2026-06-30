@@ -1,0 +1,103 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_201005
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_201005.txt
+
+APPLY_REPEATED_SLOT_EXECUTION_PLAN_CACHE_FIX_V0
+
+STATUS_BEFORE
+?? data/
+
+VERIFY_SOURCE_CANDIDATE
+{
+  "authorizes_code_change_now": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_patch_application": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_reusing_prior_run_results_as_execution": false,
+  "authorizes_slot_identity_collapse": false,
+  "authorizes_slot_receipt_merge": false,
+  "cache_scope": "within_one_micro_profile_execution_only",
+  "candidate_id": "57f6e627",
+  "candidate_name": "FIX_CANDIDATE_REPEATED_SLOT_EXECUTION_PLAN_CACHE_V0",
+  "candidate_sig8": "57f6e627",
+  "candidate_status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "expected_repeated_slot_ids": [
+    "slot_01_E1",
+    "slot_02_E2",
+    "slot_03_E3",
+    "slot_04_D1",
+    "slot_05_D2",
+    "slot_06_B1",
+    "slot_07_B2",
+    "slot_08_C1",
+    "slot_09_A1"
+  ],
+  "gate": "PASS",
+  "must_not_cache": [
+    "run_id",
+    "receipt rows",
+    "receipt counts as substitutes for execution",
+    "law results",
+    "gate results",
+    "halt results",
+    "stdout/stderr from a prior run",
+    "any prior execution result"
+  ],
+  "source_after_profile_id": "00a75664",
+  "source_policy_id": "4207ab96",
+  "target_burden_class": "BURDEN_REPEATED_SLOT_WORK",
+  "terminal": {
+    "next_command_goal": "APPLY_REPEATED_SLOT_EXECUTION_PLAN_CACHE_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+PATCH_GITIGNORE
+
+PATCH_MICRO_PROFILE_RUNNER_METADATA_PLAN_CACHE
+{
+  "changed": true,
+  "gate": "PASS",
+  "patch": "REPEATED_SLOT_METADATA_PLAN_CACHE_APPLIED",
+  "semantics": {
+    "execution_skipping": false,
+    "gate_semantics_change": false,
+    "halt_semantics_change": false,
+    "law_semantics_change": false,
+    "prior_result_reuse": false,
+    "radius_expansion": false,
+    "receipt_cache": false,
+    "run_id_cache": false,
+    "run_semantics_change": false,
+    "slot_identity_collapse": false,
+    "slot_receipt_merge": false
+  }
+}
+
+PY_COMPILE
+
+PLAN_CACHE_SELF_TEST
+Traceback (most recent call last):
+  File "<stdin>", line 10, in <module>
+  File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "/home/asd/projects/matrixlab/scripts/wide_burden_profile_microruns.py", line 64, in <module>
+    @dataclass(frozen=True)
+     ~~~~~~~~~^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/dataclasses.py", line 1432, in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash,
+                          frozen, match_args, kw_only, slots,
+                          weakref_slot)
+  File "/usr/lib/python3.14/dataclasses.py", line 1055, in _process_class
+    and _is_type(type, cls, dataclasses, dataclasses.KW_ONLY,
+        ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 _is_kw_only))):
+                 ^^^^^^^^^^^^
+  File "/usr/lib/python3.14/dataclasses.py", line 814, in _is_type
+    ns = sys.modules.get(cls.__module__).__dict__
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute '__dict__'. Did you mean: '__dir__'?
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

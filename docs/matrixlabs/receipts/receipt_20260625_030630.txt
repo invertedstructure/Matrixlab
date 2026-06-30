@@ -1,0 +1,502 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_030630
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_030630.txt
+
+REVIEW_O2_UNIT_FEEDBACK_HARDENING_V0
+
+STATUS_BEFORE_RELEVANT
+
+VERIFY_O2_REVIEW_BASIS
+present data/o2_unit_feedback_hardening_v0_receipts/131d6837.json
+present data/o2_unit_feedback_hardening_v0/unit_failure_event_schema_v0.json
+present data/o2_unit_feedback_hardening_v0/unit_feedback_record_schema_v0.json
+present data/o2_unit_feedback_hardening_v0/unit_failure_location_schema_v0.json
+present data/o2_unit_feedback_hardening_v0/unit_feedback_quality_enum_v0.json
+present data/o2_unit_feedback_hardening_v0/unit_missing_capability_record_schema_v0.json
+present data/o2_unit_feedback_hardening_v0/unit_refinement_candidate_schema_v0.json
+present data/o2_unit_feedback_hardening_v0/unit_retry_gate_schema_v0.json
+present data/o2_unit_feedback_hardening_v0/edge_feedback_link_schema_v0.json
+present data/o2_unit_feedback_hardening_v0/o2_demo_failure_events_v0.jsonl
+present data/o2_unit_feedback_hardening_v0/unit_failure_events_v0.jsonl
+present data/o2_unit_feedback_hardening_v0/unit_feedback_records_v0.jsonl
+present data/o2_unit_feedback_hardening_v0/unit_failure_location_records_v0.jsonl
+present data/o2_unit_feedback_hardening_v0/unit_missing_capability_records_v0.jsonl
+present data/o2_unit_feedback_hardening_v0/unit_refinement_candidate_records_v0.jsonl
+present data/o2_unit_feedback_hardening_v0/unit_retry_gate_records_v0.jsonl
+present data/o2_unit_feedback_hardening_v0/edge_feedback_links_v0.jsonl
+present data/o2_unit_feedback_hardening_v0/unit_feedback_rollup_v0.json
+present data/o2_unit_feedback_hardening_v0/unit_feedback_readout_v0.json
+present data/o2_unit_feedback_hardening_v0/o2_feedback_profile_v0.json
+present data/o2_unit_feedback_hardening_v0/o2_report.json
+present data/o2_unit_feedback_hardening_v0/o2_transition_trace.json
+present data/o2_unit_feedback_hardening_target_design_v0_receipts/e55e60e1.json
+present data/o2_unit_feedback_hardening_target_design_v0/o2_build_unit_authorization_v0.json
+present data/o2_unit_feedback_hardening_target_design_v0/o2_initial_mode_contract_v0.json
+present data/o2_unit_feedback_hardening_target_design_v0/o2_nonrepair_nonauthority_boundary_v0.json
+
+PATCH_GITIGNORE
+
+WRITE_O2_REVIEW_RUNNER
+
+PY_COMPILE_O2_REVIEW
+
+RUN_O2_REVIEW
+{
+  "acceptance_gate_results": {
+    "O2_REVIEW_0_BUILD_RECEIPT_CONSUMED": true,
+    "O2_REVIEW_10_MISSING_CAPABILITIES_CANDIDATE_ONLY": true,
+    "O2_REVIEW_11_C5_BLOCKED_BY_WEAK_FEEDBACK": true,
+    "O2_REVIEW_12_NONAUTHORITY_SAFETY_PASS": true,
+    "O2_REVIEW_13_NO_LIVE_FEEDBACK_AUDIT": true,
+    "O2_REVIEW_14_NO_REPAIR_APPLIED": true,
+    "O2_REVIEW_15_NO_RETRY_EXECUTED": true,
+    "O2_REVIEW_16_NO_TARGET_SELECTED_FOR_BUILD": true,
+    "O2_REVIEW_17_NO_RUNTIME_PATCH": true,
+    "O2_REVIEW_18_NO_SOURCE_MUTATION": true,
+    "O2_REVIEW_19_NO_ARCHITECTURE_CHANGE": true,
+    "O2_REVIEW_1_REVIEW_ASSESSMENT_EMITTED": true,
+    "O2_REVIEW_20_NO_C5_OPENED": true,
+    "O2_REVIEW_21_NO_LATEST_OR_MTIME": true,
+    "O2_REVIEW_22_NO_HIDDEN_NEXT_COMMAND": true,
+    "O2_REVIEW_23_CLOSURE_CANDIDATE_EMITTED": true,
+    "O2_REVIEW_24_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "O2_REVIEW_2_SCHEMA_ARTIFACTS_PRESENT": true,
+    "O2_REVIEW_3_TEN_DEMO_EVENTS_REVIEWED": true,
+    "O2_REVIEW_4_TEN_FEEDBACK_RECORDS_REVIEWED": true,
+    "O2_REVIEW_5_NO_BARE_FAILURE_SURVIVES": true,
+    "O2_REVIEW_6_WEAK_FEEDBACK_INTENTIONAL_TYPED": true,
+    "O2_REVIEW_7_EXPECTED_LIMITS_SEPARATED_FROM_BUGS": true,
+    "O2_REVIEW_8_RETRY_GATES_BLOCK_UNCHANGED_RETRY": true,
+    "O2_REVIEW_9_REFINEMENT_CANDIDATES_PROPOSED_ONLY": true
+  },
+  "aggregate_metrics": {
+    "bad_counters_zero": true,
+    "build_mode": "O2_REVIEW_ONLY",
+    "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+    "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / REVIEW",
+    "mode": "REVIEW / VERIFY_STATIC_SCHEMA_PROBE / NO_REPAIR_NO_C5",
+    "reason_codes": [
+      "O2_REVIEW_COMPLETE",
+      "O2_REVIEW_PASS",
+      "STATIC_SCHEMA_AND_PROBE_MODE_CONFIRMED",
+      "SCHEMA_ARTIFACTS_PRESENT",
+      "TEN_DEMO_FAILURE_EVENTS_REVIEWED",
+      "TEN_FEEDBACK_RECORDS_REVIEWED",
+      "WEAK_FEEDBACK_INTENTIONAL_AND_TYPED",
+      "BARE_FAILURES_DO_NOT_SURVIVE_AS_ACCEPTED_FEEDBACK",
+      "EXPECTED_LIMITS_SEPARATED_FROM_BUGS",
+      "UNCHANGED_RETRIES_BLOCKED",
+      "REFINEMENT_CANDIDATES_PROPOSED_ONLY",
+      "MISSING_CAPABILITIES_CANDIDATE_ONLY",
+      "C5_BLOCKED_BY_WEAK_FEEDBACK",
+      "BAD_COUNTERS_ZERO",
+      "NO_LIVE_FEEDBACK_AUDIT",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH",
+      "NO_SOURCE_MUTATION",
+      "NO_C5_OPENED",
+      "O2_CLOSURE_CANDIDATE_EMITTED"
+    ],
+    "receipt_backed_claim": "O2 static schema/probe build reviewed clean. Schemas are present; 10 demo failure events have 10 feedback records; weak feedback remains as typed under-typed/question feedback; bare FAILED does not survive as accepted feedback; expected limits are separated from bugs; unchanged retries are blocked; refinement candidates remain PROPOSED_ONLY; missing capabilities remain CANDIDATE_ONLY; C5 remains blocked by weak feedback. No live audit, repair, retry, target selection, runtime patch, source mutation, prior receipt mutation, architecture change, C5 opening, latest-file selection, mtime selection, or hidden command occurred.",
+    "recommended_next_handling": "CLOSE_O2_UNIT_FEEDBACK_HARDENING_AS_REVIEWED_REFERENCE_V0",
+    "schema_version": "o2_review_report_v0",
+    "status": "TYPED_O2_UNIT_FEEDBACK_HARDENING_REVIEWED_STATIC_PROBE_CLEAN_WEAK_FEEDBACK_INTENTIONAL_CLOSE_READY",
+    "target_unit_id": "observation.unit_feedback_hardening_review.v0",
+    "unit_id": "REVIEW_O2_UNIT_FEEDBACK_HARDENING_V0",
+    "weak_feedback_count": 3
+  },
+  "build_mode": "O2_REVIEW_ONLY",
+  "created_at": "2026-06-25T02:06:30.313536+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / REVIEW",
+  "machine_readable_o2_review_summary": {
+    "ambiguous_requires_question_count": 1,
+    "architecture_change": false,
+    "bad_counters_zero": true,
+    "bare_failed_status_count": 0,
+    "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+    "c5_opened": false,
+    "closure_candidate_ready": true,
+    "demo_events_reviewed": 10,
+    "expected_limit_count": 1,
+    "feedback_records_reviewed": 10,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "live_feedback_audit_executed": false,
+    "missing_capabilities_candidate_only": true,
+    "mtime_selection": false,
+    "no_feedback_count": 0,
+    "o2_review_complete": true,
+    "o2_review_pass": true,
+    "prior_receipt_mutated": false,
+    "reason_codes": [
+      "O2_REVIEW_COMPLETE",
+      "O2_REVIEW_PASS",
+      "STATIC_SCHEMA_AND_PROBE_MODE_CONFIRMED",
+      "SCHEMA_ARTIFACTS_PRESENT",
+      "TEN_DEMO_FAILURE_EVENTS_REVIEWED",
+      "TEN_FEEDBACK_RECORDS_REVIEWED",
+      "WEAK_FEEDBACK_INTENTIONAL_AND_TYPED",
+      "BARE_FAILURES_DO_NOT_SURVIVE_AS_ACCEPTED_FEEDBACK",
+      "EXPECTED_LIMITS_SEPARATED_FROM_BUGS",
+      "UNCHANGED_RETRIES_BLOCKED",
+      "REFINEMENT_CANDIDATES_PROPOSED_ONLY",
+      "MISSING_CAPABILITIES_CANDIDATE_ONLY",
+      "C5_BLOCKED_BY_WEAK_FEEDBACK",
+      "BAD_COUNTERS_ZERO",
+      "NO_LIVE_FEEDBACK_AUDIT",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH",
+      "NO_SOURCE_MUTATION",
+      "NO_C5_OPENED",
+      "O2_CLOSURE_CANDIDATE_EMITTED"
+    ],
+    "recommended_next": "CLOSE_O2_UNIT_FEEDBACK_HARDENING_AS_REVIEWED_REFERENCE_V0",
+    "refinement_candidates_proposed_only": true,
+    "repair_applied": false,
+    "retry_blocked_count": 10,
+    "retry_executed": false,
+    "runtime_patch_applied": false,
+    "schemas_reviewed": 8,
+    "source_mutated": false,
+    "status": "TYPED_O2_UNIT_FEEDBACK_HARDENING_REVIEWED_STATIC_PROBE_CLEAN_WEAK_FEEDBACK_INTENTIONAL_CLOSE_READY",
+    "status_only_count": 0,
+    "target_selected_for_build": false,
+    "under_typed_feedback_count": 2,
+    "weak_feedback_count": 3,
+    "weak_feedback_intentional": true
+  },
+  "mode": "REVIEW / VERIFY_STATIC_SCHEMA_PROBE / NO_REPAIR_NO_C5",
+  "output_artifacts": {
+    "authority_boundary": "data/o2_unit_feedback_hardening_review_v0/o2_review_authority_boundary_v0.json",
+    "c5_readiness_review": "data/o2_unit_feedback_hardening_review_v0/o2_c5_feedback_readiness_review_v0.json",
+    "candidate_only_review": "data/o2_unit_feedback_hardening_review_v0/o2_candidate_only_boundary_review_v0.json",
+    "classification": "data/o2_unit_feedback_hardening_review_v0/o2_review_classification_v0.json",
+    "closure_candidate": "data/o2_unit_feedback_hardening_review_v0/o2_unit_feedback_hardening_closure_candidate_v0.json",
+    "downstream_decision_table": "data/o2_unit_feedback_hardening_review_v0/o2_review_downstream_decision_table_v0.json",
+    "expected_limit_review": "data/o2_unit_feedback_hardening_review_v0/o2_expected_limit_separation_review_v0.json",
+    "feedback_record_review": "data/o2_unit_feedback_hardening_review_v0/o2_feedback_record_integrity_review_v0.json",
+    "implementation_receipt": "data/o2_unit_feedback_hardening_review_v0_receipts/ddf04eb2.json",
+    "nonauthority_safety_review": "data/o2_unit_feedback_hardening_review_v0/o2_nonauthority_safety_review_v0.json",
+    "profile": "data/o2_unit_feedback_hardening_review_v0/o2_review_profile_v0.json",
+    "report": "data/o2_unit_feedback_hardening_review_v0/o2_review_report.json",
+    "retry_gate_review": "data/o2_unit_feedback_hardening_review_v0/o2_retry_gate_review_v0.json",
+    "review_assessment": "data/o2_unit_feedback_hardening_review_v0/o2_unit_feedback_hardening_review_assessment_v0.json",
+    "rollup": "data/o2_unit_feedback_hardening_review_v0/o2_review_rollup_v0.json",
+    "schema_review": "data/o2_unit_feedback_hardening_review_v0/o2_schema_artifact_review_v0.json",
+    "transition_trace": "data/o2_unit_feedback_hardening_review_v0/o2_review_transition_trace.json",
+    "weak_feedback_review": "data/o2_unit_feedback_hardening_review_v0/o2_weak_feedback_intentionality_review_v0.json"
+  },
+  "receipt_id": "ddf04eb2",
+  "receipt_type": "TYPED_O2_UNIT_FEEDBACK_HARDENING_REVIEW_RECEIPT",
+  "schema_version": "o2_unit_feedback_hardening_review_receipt_v0",
+  "source_o2_build_receipt_id": "131d6837",
+  "target_unit_id": "observation.unit_feedback_hardening_review.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_UNIT_FEEDBACK_HARDENING_REVIEWED_STATIC_PROBE_CLEAN_WEAK_FEEDBACK_INTENTIONAL_CLOSE_READY",
+    "type": "STOP"
+  },
+  "unit_id": "REVIEW_O2_UNIT_FEEDBACK_HARDENING_V0",
+  "warnings": []
+}
+o2_review_receipt_id=ddf04eb2
+o2_review_receipt_path=data/o2_unit_feedback_hardening_review_v0_receipts/ddf04eb2.json
+o2_review_assessment_path=data/o2_unit_feedback_hardening_review_v0/o2_unit_feedback_hardening_review_assessment_v0.json
+o2_schema_review_path=data/o2_unit_feedback_hardening_review_v0/o2_schema_artifact_review_v0.json
+o2_feedback_record_review_path=data/o2_unit_feedback_hardening_review_v0/o2_feedback_record_integrity_review_v0.json
+o2_weak_feedback_review_path=data/o2_unit_feedback_hardening_review_v0/o2_weak_feedback_intentionality_review_v0.json
+o2_expected_limit_review_path=data/o2_unit_feedback_hardening_review_v0/o2_expected_limit_separation_review_v0.json
+o2_retry_gate_review_path=data/o2_unit_feedback_hardening_review_v0/o2_retry_gate_review_v0.json
+o2_candidate_only_review_path=data/o2_unit_feedback_hardening_review_v0/o2_candidate_only_boundary_review_v0.json
+o2_c5_readiness_review_path=data/o2_unit_feedback_hardening_review_v0/o2_c5_feedback_readiness_review_v0.json
+o2_review_rollup_path=data/o2_unit_feedback_hardening_review_v0/o2_review_rollup_v0.json
+o2_review_profile_path=data/o2_unit_feedback_hardening_review_v0/o2_review_profile_v0.json
+
+ASSERT_O2_REVIEW
+{
+  "bad_counters_zero": true,
+  "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+  "closure_candidate_ready": true,
+  "failures": [],
+  "feedback_records_reviewed": 10,
+  "gate": "PASS",
+  "o2_review_pass": true,
+  "receipt_id": "ddf04eb2",
+  "recommended_next": "CLOSE_O2_UNIT_FEEDBACK_HARDENING_AS_REVIEWED_REFERENCE_V0",
+  "schemas_reviewed": 8,
+  "status": "TYPED_O2_UNIT_FEEDBACK_HARDENING_REVIEWED_STATIC_PROBE_CLEAN_WEAK_FEEDBACK_INTENTIONAL_CLOSE_READY",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_UNIT_FEEDBACK_HARDENING_REVIEWED_STATIC_PROBE_CLEAN_WEAK_FEEDBACK_INTENTIONAL_CLOSE_READY",
+    "type": "STOP"
+  },
+  "weak_feedback_count": 3
+}
+
+VERIFY_O2_REVIEW_ONLY_NO_LIVE_AUDIT_NO_REPAIR_NO_RETRY_NO_TARGET_NO_PATCH_NO_SOURCE_MUTATION_NO_C5
+allowed_status_lines_checked
+O2 reviewed clean; weak feedback intentional; C5 blocked; no live audit/no repair/no retry/no target/no patch/no source mutation/no C5
+
+SHOW_O2_REVIEW_NEXT
+status=TYPED_O2_UNIT_FEEDBACK_HARDENING_REVIEWED_STATIC_PROBE_CLEAN_WEAK_FEEDBACK_INTENTIONAL_CLOSE_READY
+reason_codes=O2_REVIEW_COMPLETE,O2_REVIEW_PASS,STATIC_SCHEMA_AND_PROBE_MODE_CONFIRMED,SCHEMA_ARTIFACTS_PRESENT,TEN_DEMO_FAILURE_EVENTS_REVIEWED,TEN_FEEDBACK_RECORDS_REVIEWED,WEAK_FEEDBACK_INTENTIONAL_AND_TYPED,BARE_FAILURES_DO_NOT_SURVIVE_AS_ACCEPTED_FEEDBACK,EXPECTED_LIMITS_SEPARATED_FROM_BUGS,UNCHANGED_RETRIES_BLOCKED,REFINEMENT_CANDIDATES_PROPOSED_ONLY,MISSING_CAPABILITIES_CANDIDATE_ONLY,C5_BLOCKED_BY_WEAK_FEEDBACK,BAD_COUNTERS_ZERO,NO_LIVE_FEEDBACK_AUDIT,NO_REPAIR_APPLIED,NO_RETRY_EXECUTED,NO_TARGET_SELECTED_FOR_BUILD,NO_RUNTIME_PATCH,NO_SOURCE_MUTATION,NO_C5_OPENED,O2_CLOSURE_CANDIDATE_EMITTED
+o2_review_complete=True
+o2_review_pass=True
+schemas_reviewed=8
+demo_events_reviewed=10
+feedback_records_reviewed=10
+weak_feedback_intentional=True
+weak_feedback_count=3
+bare_failed_status_count=0
+no_feedback_count=0
+status_only_count=0
+under_typed_feedback_count=2
+ambiguous_requires_question_count=1
+expected_limit_count=1
+retry_blocked_count=10
+refinement_candidates_proposed_only=True
+missing_capabilities_candidate_only=True
+c5_feedback_readiness=BLOCKED_BY_WEAK_FEEDBACK
+closure_candidate_ready=True
+live_feedback_audit_executed=False
+repair_applied=False
+retry_executed=False
+target_selected_for_build=False
+runtime_patch_applied=False
+source_mutated=False
+prior_receipt_mutated=False
+architecture_change=False
+c5_opened=False
+hidden_next_command=False
+latest_file_guessing=False
+mtime_selection=False
+bad_counters_zero=True
+recommended_next=CLOSE_O2_UNIT_FEEDBACK_HARDENING_AS_REVIEWED_REFERENCE_V0
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+?? scripts/review_o2_unit_feedback_hardening_v0.py
+
+PACKAGE_O2_REVIEW_ARTIFACTS
+packaged data/o2_unit_feedback_hardening_review_v0/o2_unit_feedback_hardening_review_assessment_v0.json
+packaged data/o2_unit_feedback_hardening_review_v0/o2_schema_artifact_review_v0.json
+packaged data/o2_unit_feedback_hardening_review_v0/o2_feedback_record_integrity_review_v0.json
+packaged data/o2_unit_feedback_hardening_review_v0/o2_weak_feedback_intentionality_review_v0.json
+packaged data/o2_unit_feedback_hardening_review_v0/o2_expected_limit_separation_review_v0.json
+packaged data/o2_unit_feedback_hardening_review_v0/o2_retry_gate_review_v0.json
+packaged data/o2_unit_feedback_hardening_review_v0/o2_candidate_only_boundary_review_v0.json
+packaged data/o2_unit_feedback_hardening_review_v0/o2_c5_feedback_readiness_review_v0.json
+packaged data/o2_unit_feedback_hardening_review_v0/o2_nonauthority_safety_review_v0.json
+packaged data/o2_unit_feedback_hardening_review_v0/o2_unit_feedback_hardening_closure_candidate_v0.json
+packaged data/o2_unit_feedback_hardening_review_v0/o2_review_downstream_decision_table_v0.json
+packaged data/o2_unit_feedback_hardening_review_v0/o2_review_classification_v0.json
+packaged data/o2_unit_feedback_hardening_review_v0/o2_review_authority_boundary_v0.json
+packaged data/o2_unit_feedback_hardening_review_v0/o2_review_rollup_v0.json
+packaged data/o2_unit_feedback_hardening_review_v0/o2_review_profile_v0.json
+packaged data/o2_unit_feedback_hardening_review_v0/o2_review_report.json
+packaged data/o2_unit_feedback_hardening_review_v0/o2_review_transition_trace.json
+[master b3fb2e98c] review O2 unit feedback hardening static probe
+ 20 files changed, 1385 insertions(+)
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0/o2_c5_feedback_readiness_review_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0/o2_candidate_only_boundary_review_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0/o2_expected_limit_separation_review_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0/o2_feedback_record_integrity_review_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0/o2_nonauthority_safety_review_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0/o2_retry_gate_review_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0/o2_review_authority_boundary_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0/o2_review_classification_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0/o2_review_downstream_decision_table_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0/o2_review_profile_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0/o2_review_report.json
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0/o2_review_rollup_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0/o2_review_transition_trace.json
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0/o2_schema_artifact_review_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0/o2_unit_feedback_hardening_closure_candidate_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0/o2_unit_feedback_hardening_review_assessment_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0/o2_weak_feedback_intentionality_review_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_review_v0_receipts/ddf04eb2.json
+ create mode 100755 scripts/review_o2_unit_feedback_hardening_v0.py
+
+COMMIT_DONE_RELEVANT
+
+O2_REVIEW_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+o2_review_receipt_id=ddf04eb2
+o2_review_receipt_path=data/o2_unit_feedback_hardening_review_v0_receipts/ddf04eb2.json
+{
+  "acceptance_gate_results": {
+    "O2_REVIEW_0_BUILD_RECEIPT_CONSUMED": true,
+    "O2_REVIEW_10_MISSING_CAPABILITIES_CANDIDATE_ONLY": true,
+    "O2_REVIEW_11_C5_BLOCKED_BY_WEAK_FEEDBACK": true,
+    "O2_REVIEW_12_NONAUTHORITY_SAFETY_PASS": true,
+    "O2_REVIEW_13_NO_LIVE_FEEDBACK_AUDIT": true,
+    "O2_REVIEW_14_NO_REPAIR_APPLIED": true,
+    "O2_REVIEW_15_NO_RETRY_EXECUTED": true,
+    "O2_REVIEW_16_NO_TARGET_SELECTED_FOR_BUILD": true,
+    "O2_REVIEW_17_NO_RUNTIME_PATCH": true,
+    "O2_REVIEW_18_NO_SOURCE_MUTATION": true,
+    "O2_REVIEW_19_NO_ARCHITECTURE_CHANGE": true,
+    "O2_REVIEW_1_REVIEW_ASSESSMENT_EMITTED": true,
+    "O2_REVIEW_20_NO_C5_OPENED": true,
+    "O2_REVIEW_21_NO_LATEST_OR_MTIME": true,
+    "O2_REVIEW_22_NO_HIDDEN_NEXT_COMMAND": true,
+    "O2_REVIEW_23_CLOSURE_CANDIDATE_EMITTED": true,
+    "O2_REVIEW_24_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "O2_REVIEW_2_SCHEMA_ARTIFACTS_PRESENT": true,
+    "O2_REVIEW_3_TEN_DEMO_EVENTS_REVIEWED": true,
+    "O2_REVIEW_4_TEN_FEEDBACK_RECORDS_REVIEWED": true,
+    "O2_REVIEW_5_NO_BARE_FAILURE_SURVIVES": true,
+    "O2_REVIEW_6_WEAK_FEEDBACK_INTENTIONAL_TYPED": true,
+    "O2_REVIEW_7_EXPECTED_LIMITS_SEPARATED_FROM_BUGS": true,
+    "O2_REVIEW_8_RETRY_GATES_BLOCK_UNCHANGED_RETRY": true,
+    "O2_REVIEW_9_REFINEMENT_CANDIDATES_PROPOSED_ONLY": true
+  },
+  "aggregate_metrics": {
+    "bad_counters_zero": true,
+    "build_mode": "O2_REVIEW_ONLY",
+    "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+    "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / REVIEW",
+    "mode": "REVIEW / VERIFY_STATIC_SCHEMA_PROBE / NO_REPAIR_NO_C5",
+    "reason_codes": [
+      "O2_REVIEW_COMPLETE",
+      "O2_REVIEW_PASS",
+      "STATIC_SCHEMA_AND_PROBE_MODE_CONFIRMED",
+      "SCHEMA_ARTIFACTS_PRESENT",
+      "TEN_DEMO_FAILURE_EVENTS_REVIEWED",
+      "TEN_FEEDBACK_RECORDS_REVIEWED",
+      "WEAK_FEEDBACK_INTENTIONAL_AND_TYPED",
+      "BARE_FAILURES_DO_NOT_SURVIVE_AS_ACCEPTED_FEEDBACK",
+      "EXPECTED_LIMITS_SEPARATED_FROM_BUGS",
+      "UNCHANGED_RETRIES_BLOCKED",
+      "REFINEMENT_CANDIDATES_PROPOSED_ONLY",
+      "MISSING_CAPABILITIES_CANDIDATE_ONLY",
+      "C5_BLOCKED_BY_WEAK_FEEDBACK",
+      "BAD_COUNTERS_ZERO",
+      "NO_LIVE_FEEDBACK_AUDIT",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH",
+      "NO_SOURCE_MUTATION",
+      "NO_C5_OPENED",
+      "O2_CLOSURE_CANDIDATE_EMITTED"
+    ],
+    "receipt_backed_claim": "O2 static schema/probe build reviewed clean. Schemas are present; 10 demo failure events have 10 feedback records; weak feedback remains as typed under-typed/question feedback; bare FAILED does not survive as accepted feedback; expected limits are separated from bugs; unchanged retries are blocked; refinement candidates remain PROPOSED_ONLY; missing capabilities remain CANDIDATE_ONLY; C5 remains blocked by weak feedback. No live audit, repair, retry, target selection, runtime patch, source mutation, prior receipt mutation, architecture change, C5 opening, latest-file selection, mtime selection, or hidden command occurred.",
+    "recommended_next_handling": "CLOSE_O2_UNIT_FEEDBACK_HARDENING_AS_REVIEWED_REFERENCE_V0",
+    "schema_version": "o2_review_report_v0",
+    "status": "TYPED_O2_UNIT_FEEDBACK_HARDENING_REVIEWED_STATIC_PROBE_CLEAN_WEAK_FEEDBACK_INTENTIONAL_CLOSE_READY",
+    "target_unit_id": "observation.unit_feedback_hardening_review.v0",
+    "unit_id": "REVIEW_O2_UNIT_FEEDBACK_HARDENING_V0",
+    "weak_feedback_count": 3
+  },
+  "build_mode": "O2_REVIEW_ONLY",
+  "created_at": "2026-06-25T02:06:30.313536+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / REVIEW",
+  "machine_readable_o2_review_summary": {
+    "ambiguous_requires_question_count": 1,
+    "architecture_change": false,
+    "bad_counters_zero": true,
+    "bare_failed_status_count": 0,
+    "c5_feedback_readiness": "BLOCKED_BY_WEAK_FEEDBACK",
+    "c5_opened": false,
+    "closure_candidate_ready": true,
+    "demo_events_reviewed": 10,
+    "expected_limit_count": 1,
+    "feedback_records_reviewed": 10,
+    "hidden_next_command": false,
+    "latest_file_guessing": false,
+    "live_feedback_audit_executed": false,
+    "missing_capabilities_candidate_only": true,
+    "mtime_selection": false,
+    "no_feedback_count": 0,
+    "o2_review_complete": true,
+    "o2_review_pass": true,
+    "prior_receipt_mutated": false,
+    "reason_codes": [
+      "O2_REVIEW_COMPLETE",
+      "O2_REVIEW_PASS",
+      "STATIC_SCHEMA_AND_PROBE_MODE_CONFIRMED",
+      "SCHEMA_ARTIFACTS_PRESENT",
+      "TEN_DEMO_FAILURE_EVENTS_REVIEWED",
+      "TEN_FEEDBACK_RECORDS_REVIEWED",
+      "WEAK_FEEDBACK_INTENTIONAL_AND_TYPED",
+      "BARE_FAILURES_DO_NOT_SURVIVE_AS_ACCEPTED_FEEDBACK",
+      "EXPECTED_LIMITS_SEPARATED_FROM_BUGS",
+      "UNCHANGED_RETRIES_BLOCKED",
+      "REFINEMENT_CANDIDATES_PROPOSED_ONLY",
+      "MISSING_CAPABILITIES_CANDIDATE_ONLY",
+      "C5_BLOCKED_BY_WEAK_FEEDBACK",
+      "BAD_COUNTERS_ZERO",
+      "NO_LIVE_FEEDBACK_AUDIT",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH",
+      "NO_SOURCE_MUTATION",
+      "NO_C5_OPENED",
+      "O2_CLOSURE_CANDIDATE_EMITTED"
+    ],
+    "recommended_next": "CLOSE_O2_UNIT_FEEDBACK_HARDENING_AS_REVIEWED_REFERENCE_V0",
+    "refinement_candidates_proposed_only": true,
+    "repair_applied": false,
+    "retry_blocked_count": 10,
+    "retry_executed": false,
+    "runtime_patch_applied": false,
+    "schemas_reviewed": 8,
+    "source_mutated": false,
+    "status": "TYPED_O2_UNIT_FEEDBACK_HARDENING_REVIEWED_STATIC_PROBE_CLEAN_WEAK_FEEDBACK_INTENTIONAL_CLOSE_READY",
+    "status_only_count": 0,
+    "target_selected_for_build": false,
+    "under_typed_feedback_count": 2,
+    "weak_feedback_count": 3,
+    "weak_feedback_intentional": true
+  },
+  "mode": "REVIEW / VERIFY_STATIC_SCHEMA_PROBE / NO_REPAIR_NO_C5",
+  "output_artifacts": {
+    "authority_boundary": "data/o2_unit_feedback_hardening_review_v0/o2_review_authority_boundary_v0.json",
+    "c5_readiness_review": "data/o2_unit_feedback_hardening_review_v0/o2_c5_feedback_readiness_review_v0.json",
+    "candidate_only_review": "data/o2_unit_feedback_hardening_review_v0/o2_candidate_only_boundary_review_v0.json",
+    "classification": "data/o2_unit_feedback_hardening_review_v0/o2_review_classification_v0.json",
+    "closure_candidate": "data/o2_unit_feedback_hardening_review_v0/o2_unit_feedback_hardening_closure_candidate_v0.json",
+    "downstream_decision_table": "data/o2_unit_feedback_hardening_review_v0/o2_review_downstream_decision_table_v0.json",
+    "expected_limit_review": "data/o2_unit_feedback_hardening_review_v0/o2_expected_limit_separation_review_v0.json",
+    "feedback_record_review": "data/o2_unit_feedback_hardening_review_v0/o2_feedback_record_integrity_review_v0.json",
+    "implementation_receipt": "data/o2_unit_feedback_hardening_review_v0_receipts/ddf04eb2.json",
+    "nonauthority_safety_review": "data/o2_unit_feedback_hardening_review_v0/o2_nonauthority_safety_review_v0.json",
+    "profile": "data/o2_unit_feedback_hardening_review_v0/o2_review_profile_v0.json",
+    "report": "data/o2_unit_feedback_hardening_review_v0/o2_review_report.json",
+    "retry_gate_review": "data/o2_unit_feedback_hardening_review_v0/o2_retry_gate_review_v0.json",
+    "review_assessment": "data/o2_unit_feedback_hardening_review_v0/o2_unit_feedback_hardening_review_assessment_v0.json",
+    "rollup": "data/o2_unit_feedback_hardening_review_v0/o2_review_rollup_v0.json",
+    "schema_review": "data/o2_unit_feedback_hardening_review_v0/o2_schema_artifact_review_v0.json",
+    "transition_trace": "data/o2_unit_feedback_hardening_review_v0/o2_review_transition_trace.json",
+    "weak_feedback_review": "data/o2_unit_feedback_hardening_review_v0/o2_weak_feedback_intentionality_review_v0.json"
+  },
+  "receipt_id": "ddf04eb2",
+  "receipt_type": "TYPED_O2_UNIT_FEEDBACK_HARDENING_REVIEW_RECEIPT",
+  "schema_version": "o2_unit_feedback_hardening_review_receipt_v0",
+  "source_o2_build_receipt_id": "131d6837",
+  "target_unit_id": "observation.unit_feedback_hardening_review.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_UNIT_FEEDBACK_HARDENING_REVIEWED_STATIC_PROBE_CLEAN_WEAK_FEEDBACK_INTENTIONAL_CLOSE_READY",
+    "type": "STOP"
+  },
+  "unit_id": "REVIEW_O2_UNIT_FEEDBACK_HARDENING_V0",
+  "warnings": []
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

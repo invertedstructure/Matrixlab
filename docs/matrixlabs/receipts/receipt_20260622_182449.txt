@@ -1,0 +1,961 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_182449
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_182449.txt
+
+BUILD_REAL_BATCH_CLOSURE_RADIUS_R250_RECEIPT_COLLECTION_V0_POLICY_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+VERIFY_R250_POLICY_INPUTS_TRACKED
+tracked data/receipt_interrogation_adapter_v0_implementation_receipts/a785297c.json
+tracked data/receipt_interrogation_adapter_v0_policies/2aa2f2f3.json
+tracked data/receipt_interrogation_adapter_v0_policy_receipts/2aa2f2f3.json
+tracked data/receipt_interrogation_adapter_v0/receipt_interrogation_question_schema_v0.json
+tracked data/receipt_interrogation_adapter_v0/receipt_interrogation_answer_schema_v0.json
+tracked data/receipt_interrogation_adapter_v0/pressure_classification_schema_v0.json
+tracked data/receipt_interrogation_adapter_v0/next_command_classifier_schema_v0.json
+tracked data/receipt_interrogation_adapter_v0/receipt_interrogation_report_schema_v0.json
+tracked data/receipt_interrogation_adapter_v0_demo/day7_demo_receipt_interrogation.json
+tracked data/closure_radius_metrics_v0_implementation_receipts/98ab6f11.json
+tracked data/closure_radius_metrics_v0_policies/80f2b331.json
+tracked data/closure_radius_metrics_v0_policy_receipts/80f2b331.json
+tracked data/closure_radius_metrics_v0/closure_radius_metric_schema_v0.json
+tracked data/closure_radius_metrics_v0/run_metrics_schema_v0.json
+tracked data/closure_radius_metrics_v0/stop_class_mapping_v0.json
+tracked data/closure_radius_metrics_v0/expected_halt_policy_schema_v0.json
+tracked data/closure_radius_metrics_v0/closure_radius_score_v0.json
+tracked data/closure_radius_metrics_v0/closure_radius_rollup_schema_v0.json
+tracked data/closure_radius_metrics_v0/closure_radius_dashboard_readout_v0.json
+tracked data/closure_radius_metrics_v0_demo/day7_demo_radius_report.json
+tracked data/closure_radius_metrics_v0_demo/day7_demo_radius_rollup.json
+tracked data/taxonomy_evolution_v0_implementation_receipts/6d252e63.json
+tracked data/jurisdiction_gate_v0_implementation_receipts/6291b0d9.json
+tracked data/move_registry_v0_implementation_receipts/bef08570.json
+tracked data/halt_vocabulary_v0_implementation_receipts/75eabbe2.json
+tracked data/proceed_adapter_v0_implementation_receipts/363d2f4a.json
+tracked data/jurisdiction_runner_v0_2_trace_ledger_hardening_implementation_receipts/cc24a11f.json
+tracked data/jurisdiction_runner_v0_2_trace_schemas/b4887660.json
+tracked data/jurisdiction_runner_v0_2_proposal_ledger_schemas/eee2a318.json
+tracked data/local_regime_v1_declarations/25802530.json
+
+PATCH_GITIGNORE
+
+WRITE_R250_POLICY_BUILDER
+
+PY_COMPILE_R250_POLICY_BUILDER
+
+RUN_R250_POLICY_BUILDER
+{
+  "acceptance_gates": {
+    "R250_POLICY_0_SOURCE_SURFACE_VERIFIED": {
+      "description": "All source receipts and policies are loaded by explicit id/path. No latest, mtime, or ambient workspace selection.",
+      "required": true
+    },
+    "R250_POLICY_10_INTERROGATION_READY_INDEX_REQUIRED": {
+      "description": "An explicit index is emitted so the adapter does not scan arbitrary directories.",
+      "required": true
+    },
+    "R250_POLICY_11_PARTIAL_BATCH_DOES_NOT_ADVANCE": {
+      "description": "Partial completion is preserved as evidence but must not be interrogation_ready=true and must not ADVANCE.",
+      "required": true
+    },
+    "R250_POLICY_12_NO_FORBIDDEN_MUTATION": {
+      "description": "No source receipts, registries, regime, adapter artifacts, or sqlite registry are mutated.",
+      "required": true
+    },
+    "R250_POLICY_13_POLICY_ONLY_NO_R250_RUN": {
+      "description": "This policy unit does not run R250 or emit real slot receipts.",
+      "required": true
+    },
+    "R250_POLICY_1_BATCH_PLAN_SCHEMA_DECLARED": {
+      "description": "A deterministic batch plan contract exists with radius 250, slot_count 16, partition rule, source refs, plan hash, and work item manifest hash.",
+      "required": true
+    },
+    "R250_POLICY_2_WORK_ITEM_MANIFEST_REQUIRED": {
+      "description": "A work item manifest is required before slot completion can be trusted.",
+      "required": true
+    },
+    "R250_POLICY_3_REAL_BATCH_NOT_DEMO": {
+      "description": "R250 outputs must have demo flag false; demo artifacts are historical reason only, not evidence.",
+      "required": true
+    },
+    "R250_POLICY_4_ALL_SLOTS_ACCOUNTED_FOR": {
+      "description": "All 16 slot ids must appear in the slot manifest with terminal status.",
+      "required": true
+    },
+    "R250_POLICY_5_RECEIPTS_PER_WORK_ITEM": {
+      "description": "Every work item emits either valid receipt or typed failure receipt.",
+      "required": true
+    },
+    "R250_POLICY_6_TRACE_RECEIPT_LINKS_PRESENT_OR_REPAIR_PRESSURE": {
+      "description": "Missing trace links produce receipt repair pressure, not success.",
+      "required": true
+    },
+    "R250_POLICY_7_NO_AUTHORITY_WIDENING": {
+      "description": "No proof, global closure, optimization authority, global planner status, final roadmap, or authority widening.",
+      "required": true
+    },
+    "R250_POLICY_8_NO_COMMAND_FROM_PRESSURE": {
+      "description": "Pressure metrics may be reported but cannot emit a build command.",
+      "required": true
+    },
+    "R250_POLICY_9_ROLLUP_REQUIRED": {
+      "description": "Batch rollup reports halt, pressure, burden, taxonomy, resource, receipt/trace, and authority totals.",
+      "required": true
+    }
+  },
+  "authorized_operations_next": {
+    "emit_implementation_receipt": true,
+    "read_r250_policy": true,
+    "read_r250_policy_receipt": true,
+    "run_r250_batch_deterministically": true,
+    "write_batch_plan": true,
+    "write_batch_receipt_manifest": true,
+    "write_batch_rollup": true,
+    "write_interrogation_ready_index": true,
+    "write_slot_manifest": true,
+    "write_slot_receipts": true,
+    "write_slot_rows": true,
+    "write_work_item_manifest": true
+  },
+  "batch_rollup_minimum": [
+    "batch_id",
+    "radius",
+    "slot_count",
+    "completed_slot_count",
+    "expected_work_item_count",
+    "completed_work_item_count",
+    "failed_work_item_count",
+    "total_receipts",
+    "total_receipt_rows",
+    "halt_distribution",
+    "pressure_distribution",
+    "burden_pressure_total",
+    "taxonomy_pressure_total",
+    "resource_pressure_total",
+    "resource_failure_total",
+    "authority_violation_total",
+    "receipt_trace_mismatch_total",
+    "demo_receipt_total",
+    "real_batch_evidence",
+    "batch_complete",
+    "interrogation_ready"
+  ],
+  "created_at": "2026-06-22T17:24:49.754572+00:00",
+  "expected_implementation_unit_on_policy_success": "IMPLEMENT_REAL_BATCH_CLOSURE_RADIUS_R250_RECEIPT_COLLECTION_V0",
+  "expected_next_unit_on_real_batch_success": "INTERROGATE_R250_REAL_BATCH_RECEIPTS_V0",
+  "failures": [],
+  "forbidden_operations_next": {
+    "advance_partial_batch": true,
+    "ambient_workspace_authority": true,
+    "claim_final_roadmap": true,
+    "claim_global_closure": true,
+    "claim_global_planner": true,
+    "claim_proof": true,
+    "classify_batch_result": true,
+    "emit_build_command_from_pressure": true,
+    "hidden_continuation_after_terminal": true,
+    "invent_roadmap": true,
+    "latest_or_mtime_selection": true,
+    "mark_interrogation_ready_with_demo_receipts": true,
+    "mark_interrogation_ready_with_missing_slot": true,
+    "mark_interrogation_ready_with_trace_mismatch": true,
+    "mutate_source_adapter_artifacts": true,
+    "mutate_source_receipts": true,
+    "mutate_source_regime": true,
+    "mutate_source_registries": true,
+    "optimize_runner": true,
+    "silent_skip_work_item": true,
+    "sqlite_registry_write": true,
+    "treat_demo_as_real_batch": true,
+    "upgrade_taxonomy": true,
+    "widen_authority": true
+  },
+  "gate": "PASS",
+  "interrogation_ready_index_minimum": [
+    "batch_id",
+    "source_batch_receipt_id",
+    "radius",
+    "slot_manifest_path",
+    "slot_receipt_paths",
+    "rollup_path",
+    "per_slot_receipt_hashes",
+    "aggregate_counts",
+    "pressure_summary",
+    "declared_next_intended_consumer",
+    "must_not_include_build_command"
+  ],
+  "must_not_treat_as": [
+    "proof of improvement",
+    "automatic radius gain",
+    "roadmap authorization",
+    "global planner activation",
+    "optimization instruction",
+    "taxonomy upgrade",
+    "command emitted from pressure"
+  ],
+  "negative_controls": {
+    "ambient_resolution_fail": "latest/mtime or ambient path resolution must fail",
+    "authority_widening_fail": "authority/global planner/proof claim must fail",
+    "build_command_from_pressure_fail": "pressure directly emitting build command must fail",
+    "demo_as_real_batch_fail": "demo receipt treated as real batch evidence must fail",
+    "hidden_next_after_incomplete_batch_fail": "incomplete batch with hidden next command must fail",
+    "missing_trace_link_success_fail": "missing trace link counted as success must fail",
+    "slot_manifest_incomplete_fail": "missing slot from slot manifest must fail",
+    "source_receipt_mutation_fail": "source receipt mutation must fail"
+  },
+  "per_slot_receipt_minimum": [
+    "batch_id",
+    "radius",
+    "slot_id",
+    "batch_plan_hash",
+    "work_item_manifest_hash",
+    "slot_partition_rule",
+    "work_items_expected",
+    "work_items_completed",
+    "work_items_failed",
+    "receipts_emitted",
+    "receipt_rows_emitted",
+    "law_failures",
+    "unknown_laws",
+    "halt_distribution",
+    "pressure_distribution",
+    "burden_pressure_count",
+    "taxonomy_pressure_count",
+    "resource_pressure_count",
+    "resource_failure_count",
+    "resource_failure_reasons",
+    "receipt_trace_mismatch_count",
+    "authority_violation_count",
+    "demo_receipt_count",
+    "terminal"
+  ],
+  "per_work_item_receipt_minimum": [
+    "batch_id",
+    "radius",
+    "slot_id",
+    "work_item_id",
+    "batch_plan_hash",
+    "work_item_manifest_hash",
+    "source_input_refs",
+    "start_state_ref_or_hash",
+    "final_state_ref_or_hash",
+    "move_ref_tested",
+    "terminal_type",
+    "stop_code",
+    "gate_result",
+    "trace_ref",
+    "receipt_ref",
+    "raw_metrics_emitted",
+    "closure_radius_metrics_emitted",
+    "halt_family",
+    "burden_metrics",
+    "taxonomy_pressure_metrics",
+    "authority_violation_flags",
+    "demo_flag"
+  ],
+  "policy_id": "44ee648b",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "policy_summary": {
+    "core_law": "R250 is evidence collection only; it may produce a real receipt batch for later interrogation, but it does not classify or authorize the next roadmap.",
+    "current_reason": "Receipt interrogation adapter classified Day 7 as STOP_LANE_CLOSED plus AWAIT_REAL_BATCH_RECEIPTS.",
+    "non_goal": "no R250 run in policy, no classification, no optimization, no roadmap inference, no authority widening, no taxonomy upgrade, no command emitted from pressure",
+    "purpose": "Freeze the lawful contract for collecting real radius-250 closure-radius receipt evidence."
+  },
+  "r250_batch_surface_contract": {
+    "allowed_slot_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "batch_kind": "REAL_BATCH_NOT_DEMO",
+    "full_batch_requires_all_slots": true,
+    "interrogation_ready_declared_consumer": "receipt_interrogation_adapter.v0",
+    "interrogation_ready_requires_all_slots_complete": true,
+    "interrogation_ready_requires_demo_total_zero": true,
+    "interrogation_ready_requires_trace_mismatch_zero": true,
+    "no_silent_skip_allowed": true,
+    "partial_batch_advances": false,
+    "partial_batch_preserved_as_evidence": true,
+    "radius": 250,
+    "real_batch_not_random_sample": true,
+    "requires_batch_plan_hash": true,
+    "requires_source_surface_hash": true,
+    "requires_work_item_manifest": true,
+    "requires_work_item_manifest_hash": true,
+    "schema_version": "r250_batch_surface_contract_v0",
+    "slot_count": 16,
+    "slot_partition_rule": "slot_id = int(sha256(work_item_id).hexdigest(), 16) % 16"
+  },
+  "r250_policy_guards": {
+    "authority_widened_by_policy": false,
+    "classification_performed_by_policy": false,
+    "command_emitted_from_pressure_by_policy": false,
+    "global_planner_claimed": false,
+    "hidden_continuation_authorized": false,
+    "interrogation_ready_index_emitted_by_policy": false,
+    "optimization_performed_by_policy": false,
+    "policy_built": true,
+    "proof_claimed": false,
+    "r250_run_performed_by_policy": false,
+    "real_batch_rollup_emitted_by_policy": false,
+    "roadmap_invented_by_policy": false,
+    "slot_receipts_emitted_by_policy": false,
+    "source_adapter_modified": false,
+    "source_closure_radius_metrics_consumed": true,
+    "source_halt_vocabulary_consumed": true,
+    "source_jurisdiction_gate_consumed": true,
+    "source_ledger_modified": false,
+    "source_module_modified": false,
+    "source_move_registry_consumed": true,
+    "source_proceed_adapter_consumed": true,
+    "source_receipt_interrogation_adapter_consumed": true,
+    "source_receipt_modified": false,
+    "source_regime_modified": false,
+    "source_registry_modified": false,
+    "source_taxonomy_evolution_consumed": true,
+    "source_trace_ledger_surface_consumed": true,
+    "source_trace_modified": false,
+    "sqlite_registry_read": false,
+    "sqlite_registry_written": false,
+    "taxonomy_upgrade_performed_by_policy": false
+  },
+  "radius": 250,
+  "receipt_id": "e51f79cb",
+  "receipt_type": "REAL_BATCH_CLOSURE_RADIUS_R250_RECEIPT_COLLECTION_V0_POLICY_RECEIPT",
+  "required_output_artifacts": {
+    "batch_plan": "data/closure_radius_real_batches/r250/batch_plan.json",
+    "batch_receipt_manifest": "data/closure_radius_real_batches/r250/r250_batch_receipt_manifest.json",
+    "batch_rollup": "data/closure_radius_real_batches/r250/r250_batch_rollup.json",
+    "implementation_receipt": "data/closure_radius_real_batch_receipts/<receipt_id>.json",
+    "interrogation_ready_index": "data/closure_radius_real_batches/r250/r250_interrogation_ready_index.json",
+    "slot_manifest": "data/closure_radius_real_batches/r250/slot_manifest.json",
+    "slot_receipts": "data/closure_radius_real_batches/r250/slots/slot_<00-15>_receipt.json",
+    "slot_rows": "data/closure_radius_real_batches/r250/slots/slot_<00-15>_rows.jsonl",
+    "work_item_manifest": "data/closure_radius_real_batches/r250/work_item_manifest.json"
+  },
+  "safety_clauses": {
+    "does_not_classify_result": true,
+    "does_not_emit_interrogation_ready_index": true,
+    "does_not_emit_real_batch_rollup": true,
+    "does_not_emit_slot_receipts": true,
+    "does_not_invent_roadmap": true,
+    "does_not_modify_source_artifacts": true,
+    "does_not_optimize": true,
+    "does_not_run_r250": true,
+    "does_not_upgrade_taxonomy": true,
+    "does_not_widen_authority": true,
+    "next_unit_required_for_implementation": true,
+    "policy_only": true
+  },
+  "schema_version": "real_batch_closure_radius_r250_receipt_collection_v0_policy_receipt_v0",
+  "slot_count": 16,
+  "source_closure_radius_implementation_receipt_id": "98ab6f11",
+  "source_closure_radius_policy_id": "80f2b331",
+  "source_closure_radius_policy_receipt_id": "fc82cb0f",
+  "source_halt_vocabulary_implementation_receipt_id": "75eabbe2",
+  "source_jurisdiction_gate_implementation_receipt_id": "6291b0d9",
+  "source_local_regime_hash": "25802530",
+  "source_move_registry_implementation_receipt_id": "bef08570",
+  "source_proceed_adapter_implementation_receipt_id": "363d2f4a",
+  "source_proposal_ledger_schema_id": "eee2a318",
+  "source_receipt_interrogation_adapter_receipt_id": "a785297c",
+  "source_receipt_interrogation_policy_id": "2aa2f2f3",
+  "source_receipt_interrogation_policy_receipt_id": "0ad557c8",
+  "source_taxonomy_evolution_implementation_receipt_id": "6d252e63",
+  "source_trace_ledger_implementation_receipt_id": "cc24a11f",
+  "source_trace_schema_id": "b4887660",
+  "target_unit_id": "closure_radius_real_batch.r250.v0",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_REAL_BATCH_CLOSURE_RADIUS_R250_RECEIPT_COLLECTION_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_rules": {
+    "complete_batch": {
+      "condition": "all acceptance gates pass, all slots complete, all receipts non-demo, receipt_trace_mismatch_total == 0, interrogation_ready == true",
+      "next_command_goal": "INTERROGATE_R250_REAL_BATCH_RECEIPTS_V0",
+      "stop_code": null,
+      "type": "ADVANCE"
+    },
+    "incomplete_batch": {
+      "condition": "batch incomplete or any slot missing/incomplete",
+      "next_command_goal": null,
+      "stop_code": "STOP_GATE_FAIL",
+      "type": "STOP"
+    },
+    "source_input_authority_failure": {
+      "condition": "source/input authority fails",
+      "next_command_goal": null,
+      "stop_code": "STOP_AUTHORITY_VIOLATION",
+      "type": "STOP"
+    },
+    "trace_receipt_mismatch": {
+      "condition": "trace/receipt mismatch is detected",
+      "next_command_goal": null,
+      "stop_code": "STOP_RECEIPT_MISMATCH",
+      "type": "STOP"
+    }
+  },
+  "unit_id": "BUILD_REAL_BATCH_CLOSURE_RADIUS_R250_RECEIPT_COLLECTION_V0_POLICY_V0",
+  "warnings": []
+}
+r250_policy_id=44ee648b
+r250_policy_receipt_id=e51f79cb
+r250_policy_path=data/closure_radius_real_batch_r250_collection_v0_policies/44ee648b.json
+r250_policy_receipt_path=data/closure_radius_real_batch_r250_collection_v0_policy_receipts/44ee648b.json
+R250_POLICY_ID=44ee648b
+R250_POLICY_RECEIPT_ID=e51f79cb
+
+ASSERT_R250_POLICY
+{
+  "expected_implementation_unit_on_policy_success": "IMPLEMENT_REAL_BATCH_CLOSURE_RADIUS_R250_RECEIPT_COLLECTION_V0",
+  "expected_next_unit_on_real_batch_success": "INTERROGATE_R250_REAL_BATCH_RECEIPTS_V0",
+  "gate": "PASS",
+  "policy_id": "44ee648b",
+  "radius": 250,
+  "receipt_id": "e51f79cb",
+  "slot_count": 16,
+  "source_closure_radius_implementation_receipt_id": "98ab6f11",
+  "source_receipt_interrogation_adapter_receipt_id": "a785297c",
+  "target_unit_id": "closure_radius_real_batch.r250.v0",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_REAL_BATCH_CLOSURE_RADIUS_R250_RECEIPT_COLLECTION_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_R250_POLICY_NON_WRITING
+{
+  "case": "demo_as_real_batch_fail",
+  "failures": [
+    "batch_kind_wrong"
+  ]
+}
+{
+  "case": "slot_manifest_incomplete_fail",
+  "failures": [
+    "allowed_slot_ids_wrong"
+  ]
+}
+{
+  "case": "build_command_from_pressure_fail",
+  "failures": [
+    "guard_not_false:command_emitted_from_pressure_by_policy:True"
+  ]
+}
+{
+  "case": "hidden_next_after_incomplete_batch_fail",
+  "failures": [
+    "terminal_next_wrong:HIDDEN_NEXT"
+  ]
+}
+{
+  "case": "source_receipt_mutation_fail",
+  "failures": [
+    "guard_not_false:source_receipt_modified:True"
+  ]
+}
+{
+  "case": "missing_trace_link_success_fail",
+  "failures": [
+    "interrogation_ready_trace_zero_not_required"
+  ]
+}
+{
+  "case": "authority_widening_fail",
+  "failures": [
+    "guard_not_false:authority_widened_by_policy:True",
+    "guard_not_false:global_planner_claimed:True",
+    "guard_not_false:proof_claimed:True"
+  ]
+}
+{
+  "case": "ambient_resolution_fail",
+  "forbidden_ambient": false,
+  "forbidden_latest_mtime": false
+}
+{
+  "after": {
+    "policy": "c50b743f2a7a72f2c082ac437b36daa4b46dbcd2f8bae7724cc38ac2b27dbf8d",
+    "receipt": "c0884e5fde6568d0dec4b85f290465f30319428a68eb62749bcafb91ea67d14d"
+  },
+  "before": {
+    "policy": "c50b743f2a7a72f2c082ac437b36daa4b46dbcd2f8bae7724cc38ac2b27dbf8d",
+    "receipt": "c0884e5fde6568d0dec4b85f290465f30319428a68eb62749bcafb91ea67d14d"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+VERIFY_NO_RUNTIME_OR_REGISTRY_MUTATION
+.gitignore
+runtime and sqlite registry untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/build_real_batch_closure_radius_r250_receipt_collection_v0_policy_v0.py
+
+PACKAGE_R250_POLICY_ARTIFACTS
+packaged data/closure_radius_real_batch_r250_collection_v0_policies/44ee648b.json
+packaged data/closure_radius_real_batch_r250_collection_v0_policy_receipts/44ee648b.json
+[master 1ef38154b] build R250 real batch closure radius receipt collection policy
+ 4 files changed, 1570 insertions(+)
+ create mode 100644 data/closure_radius_real_batch_r250_collection_v0_policies/44ee648b.json
+ create mode 100644 data/closure_radius_real_batch_r250_collection_v0_policy_receipts/44ee648b.json
+ create mode 100755 scripts/build_real_batch_closure_radius_r250_receipt_collection_v0_policy_v0.py
+
+COMMIT_DONE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+NEXT_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+r250_policy_id=44ee648b
+r250_policy_receipt_id=e51f79cb
+r250_policy_path=data/closure_radius_real_batch_r250_collection_v0_policies/44ee648b.json
+r250_policy_receipt_path=data/closure_radius_real_batch_r250_collection_v0_policy_receipts/44ee648b.json
+{
+  "acceptance_gates": {
+    "R250_POLICY_0_SOURCE_SURFACE_VERIFIED": {
+      "description": "All source receipts and policies are loaded by explicit id/path. No latest, mtime, or ambient workspace selection.",
+      "required": true
+    },
+    "R250_POLICY_10_INTERROGATION_READY_INDEX_REQUIRED": {
+      "description": "An explicit index is emitted so the adapter does not scan arbitrary directories.",
+      "required": true
+    },
+    "R250_POLICY_11_PARTIAL_BATCH_DOES_NOT_ADVANCE": {
+      "description": "Partial completion is preserved as evidence but must not be interrogation_ready=true and must not ADVANCE.",
+      "required": true
+    },
+    "R250_POLICY_12_NO_FORBIDDEN_MUTATION": {
+      "description": "No source receipts, registries, regime, adapter artifacts, or sqlite registry are mutated.",
+      "required": true
+    },
+    "R250_POLICY_13_POLICY_ONLY_NO_R250_RUN": {
+      "description": "This policy unit does not run R250 or emit real slot receipts.",
+      "required": true
+    },
+    "R250_POLICY_1_BATCH_PLAN_SCHEMA_DECLARED": {
+      "description": "A deterministic batch plan contract exists with radius 250, slot_count 16, partition rule, source refs, plan hash, and work item manifest hash.",
+      "required": true
+    },
+    "R250_POLICY_2_WORK_ITEM_MANIFEST_REQUIRED": {
+      "description": "A work item manifest is required before slot completion can be trusted.",
+      "required": true
+    },
+    "R250_POLICY_3_REAL_BATCH_NOT_DEMO": {
+      "description": "R250 outputs must have demo flag false; demo artifacts are historical reason only, not evidence.",
+      "required": true
+    },
+    "R250_POLICY_4_ALL_SLOTS_ACCOUNTED_FOR": {
+      "description": "All 16 slot ids must appear in the slot manifest with terminal status.",
+      "required": true
+    },
+    "R250_POLICY_5_RECEIPTS_PER_WORK_ITEM": {
+      "description": "Every work item emits either valid receipt or typed failure receipt.",
+      "required": true
+    },
+    "R250_POLICY_6_TRACE_RECEIPT_LINKS_PRESENT_OR_REPAIR_PRESSURE": {
+      "description": "Missing trace links produce receipt repair pressure, not success.",
+      "required": true
+    },
+    "R250_POLICY_7_NO_AUTHORITY_WIDENING": {
+      "description": "No proof, global closure, optimization authority, global planner status, final roadmap, or authority widening.",
+      "required": true
+    },
+    "R250_POLICY_8_NO_COMMAND_FROM_PRESSURE": {
+      "description": "Pressure metrics may be reported but cannot emit a build command.",
+      "required": true
+    },
+    "R250_POLICY_9_ROLLUP_REQUIRED": {
+      "description": "Batch rollup reports halt, pressure, burden, taxonomy, resource, receipt/trace, and authority totals.",
+      "required": true
+    }
+  },
+  "authorized_operations_next": {
+    "emit_implementation_receipt": true,
+    "read_r250_policy": true,
+    "read_r250_policy_receipt": true,
+    "run_r250_batch_deterministically": true,
+    "write_batch_plan": true,
+    "write_batch_receipt_manifest": true,
+    "write_batch_rollup": true,
+    "write_interrogation_ready_index": true,
+    "write_slot_manifest": true,
+    "write_slot_receipts": true,
+    "write_slot_rows": true,
+    "write_work_item_manifest": true
+  },
+  "batch_rollup_minimum": [
+    "batch_id",
+    "radius",
+    "slot_count",
+    "completed_slot_count",
+    "expected_work_item_count",
+    "completed_work_item_count",
+    "failed_work_item_count",
+    "total_receipts",
+    "total_receipt_rows",
+    "halt_distribution",
+    "pressure_distribution",
+    "burden_pressure_total",
+    "taxonomy_pressure_total",
+    "resource_pressure_total",
+    "resource_failure_total",
+    "authority_violation_total",
+    "receipt_trace_mismatch_total",
+    "demo_receipt_total",
+    "real_batch_evidence",
+    "batch_complete",
+    "interrogation_ready"
+  ],
+  "expected_implementation_unit_on_policy_success": "IMPLEMENT_REAL_BATCH_CLOSURE_RADIUS_R250_RECEIPT_COLLECTION_V0",
+  "expected_next_unit_on_real_batch_success": "INTERROGATE_R250_REAL_BATCH_RECEIPTS_V0",
+  "forbidden_operations_next": {
+    "advance_partial_batch": true,
+    "ambient_workspace_authority": true,
+    "claim_final_roadmap": true,
+    "claim_global_closure": true,
+    "claim_global_planner": true,
+    "claim_proof": true,
+    "classify_batch_result": true,
+    "emit_build_command_from_pressure": true,
+    "hidden_continuation_after_terminal": true,
+    "invent_roadmap": true,
+    "latest_or_mtime_selection": true,
+    "mark_interrogation_ready_with_demo_receipts": true,
+    "mark_interrogation_ready_with_missing_slot": true,
+    "mark_interrogation_ready_with_trace_mismatch": true,
+    "mutate_source_adapter_artifacts": true,
+    "mutate_source_receipts": true,
+    "mutate_source_regime": true,
+    "mutate_source_registries": true,
+    "optimize_runner": true,
+    "silent_skip_work_item": true,
+    "sqlite_registry_write": true,
+    "treat_demo_as_real_batch": true,
+    "upgrade_taxonomy": true,
+    "widen_authority": true
+  },
+  "gate": "PASS",
+  "interrogation_ready_index_minimum": [
+    "batch_id",
+    "source_batch_receipt_id",
+    "radius",
+    "slot_manifest_path",
+    "slot_receipt_paths",
+    "rollup_path",
+    "per_slot_receipt_hashes",
+    "aggregate_counts",
+    "pressure_summary",
+    "declared_next_intended_consumer",
+    "must_not_include_build_command"
+  ],
+  "must_not_treat_as": [
+    "proof of improvement",
+    "automatic radius gain",
+    "roadmap authorization",
+    "global planner activation",
+    "optimization instruction",
+    "taxonomy upgrade",
+    "command emitted from pressure"
+  ],
+  "negative_controls": {
+    "ambient_resolution_fail": "latest/mtime or ambient path resolution must fail",
+    "authority_widening_fail": "authority/global planner/proof claim must fail",
+    "build_command_from_pressure_fail": "pressure directly emitting build command must fail",
+    "demo_as_real_batch_fail": "demo receipt treated as real batch evidence must fail",
+    "hidden_next_after_incomplete_batch_fail": "incomplete batch with hidden next command must fail",
+    "missing_trace_link_success_fail": "missing trace link counted as success must fail",
+    "slot_manifest_incomplete_fail": "missing slot from slot manifest must fail",
+    "source_receipt_mutation_fail": "source receipt mutation must fail"
+  },
+  "per_slot_receipt_minimum": [
+    "batch_id",
+    "radius",
+    "slot_id",
+    "batch_plan_hash",
+    "work_item_manifest_hash",
+    "slot_partition_rule",
+    "work_items_expected",
+    "work_items_completed",
+    "work_items_failed",
+    "receipts_emitted",
+    "receipt_rows_emitted",
+    "law_failures",
+    "unknown_laws",
+    "halt_distribution",
+    "pressure_distribution",
+    "burden_pressure_count",
+    "taxonomy_pressure_count",
+    "resource_pressure_count",
+    "resource_failure_count",
+    "resource_failure_reasons",
+    "receipt_trace_mismatch_count",
+    "authority_violation_count",
+    "demo_receipt_count",
+    "terminal"
+  ],
+  "per_work_item_receipt_minimum": [
+    "batch_id",
+    "radius",
+    "slot_id",
+    "work_item_id",
+    "batch_plan_hash",
+    "work_item_manifest_hash",
+    "source_input_refs",
+    "start_state_ref_or_hash",
+    "final_state_ref_or_hash",
+    "move_ref_tested",
+    "terminal_type",
+    "stop_code",
+    "gate_result",
+    "trace_ref",
+    "receipt_ref",
+    "raw_metrics_emitted",
+    "closure_radius_metrics_emitted",
+    "halt_family",
+    "burden_metrics",
+    "taxonomy_pressure_metrics",
+    "authority_violation_flags",
+    "demo_flag"
+  ],
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "policy_summary": {
+    "core_law": "R250 is evidence collection only; it may produce a real receipt batch for later interrogation, but it does not classify or authorize the next roadmap.",
+    "current_reason": "Receipt interrogation adapter classified Day 7 as STOP_LANE_CLOSED plus AWAIT_REAL_BATCH_RECEIPTS.",
+    "non_goal": "no R250 run in policy, no classification, no optimization, no roadmap inference, no authority widening, no taxonomy upgrade, no command emitted from pressure",
+    "purpose": "Freeze the lawful contract for collecting real radius-250 closure-radius receipt evidence."
+  },
+  "r250_batch_surface_contract": {
+    "allowed_slot_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "batch_kind": "REAL_BATCH_NOT_DEMO",
+    "full_batch_requires_all_slots": true,
+    "interrogation_ready_declared_consumer": "receipt_interrogation_adapter.v0",
+    "interrogation_ready_requires_all_slots_complete": true,
+    "interrogation_ready_requires_demo_total_zero": true,
+    "interrogation_ready_requires_trace_mismatch_zero": true,
+    "no_silent_skip_allowed": true,
+    "partial_batch_advances": false,
+    "partial_batch_preserved_as_evidence": true,
+    "radius": 250,
+    "real_batch_not_random_sample": true,
+    "requires_batch_plan_hash": true,
+    "requires_source_surface_hash": true,
+    "requires_work_item_manifest": true,
+    "requires_work_item_manifest_hash": true,
+    "schema_version": "r250_batch_surface_contract_v0",
+    "slot_count": 16,
+    "slot_partition_rule": "slot_id = int(sha256(work_item_id).hexdigest(), 16) % 16"
+  },
+  "r250_policy_guards": {
+    "authority_widened_by_policy": false,
+    "classification_performed_by_policy": false,
+    "command_emitted_from_pressure_by_policy": false,
+    "global_planner_claimed": false,
+    "hidden_continuation_authorized": false,
+    "interrogation_ready_index_emitted_by_policy": false,
+    "optimization_performed_by_policy": false,
+    "policy_built": true,
+    "proof_claimed": false,
+    "r250_run_performed_by_policy": false,
+    "real_batch_rollup_emitted_by_policy": false,
+    "roadmap_invented_by_policy": false,
+    "slot_receipts_emitted_by_policy": false,
+    "source_adapter_modified": false,
+    "source_closure_radius_metrics_consumed": true,
+    "source_halt_vocabulary_consumed": true,
+    "source_jurisdiction_gate_consumed": true,
+    "source_ledger_modified": false,
+    "source_module_modified": false,
+    "source_move_registry_consumed": true,
+    "source_proceed_adapter_consumed": true,
+    "source_receipt_interrogation_adapter_consumed": true,
+    "source_receipt_modified": false,
+    "source_regime_modified": false,
+    "source_registry_modified": false,
+    "source_taxonomy_evolution_consumed": true,
+    "source_trace_ledger_surface_consumed": true,
+    "source_trace_modified": false,
+    "sqlite_registry_read": false,
+    "sqlite_registry_written": false,
+    "taxonomy_upgrade_performed_by_policy": false
+  },
+  "radius": 250,
+  "required_output_artifacts": {
+    "batch_plan": "data/closure_radius_real_batches/r250/batch_plan.json",
+    "batch_receipt_manifest": "data/closure_radius_real_batches/r250/r250_batch_receipt_manifest.json",
+    "batch_rollup": "data/closure_radius_real_batches/r250/r250_batch_rollup.json",
+    "implementation_receipt": "data/closure_radius_real_batch_receipts/<receipt_id>.json",
+    "interrogation_ready_index": "data/closure_radius_real_batches/r250/r250_interrogation_ready_index.json",
+    "slot_manifest": "data/closure_radius_real_batches/r250/slot_manifest.json",
+    "slot_receipts": "data/closure_radius_real_batches/r250/slots/slot_<00-15>_receipt.json",
+    "slot_rows": "data/closure_radius_real_batches/r250/slots/slot_<00-15>_rows.jsonl",
+    "work_item_manifest": "data/closure_radius_real_batches/r250/work_item_manifest.json"
+  },
+  "safety_clauses": {
+    "does_not_classify_result": true,
+    "does_not_emit_interrogation_ready_index": true,
+    "does_not_emit_real_batch_rollup": true,
+    "does_not_emit_slot_receipts": true,
+    "does_not_invent_roadmap": true,
+    "does_not_modify_source_artifacts": true,
+    "does_not_optimize": true,
+    "does_not_run_r250": true,
+    "does_not_upgrade_taxonomy": true,
+    "does_not_widen_authority": true,
+    "next_unit_required_for_implementation": true,
+    "policy_only": true
+  },
+  "slot_count": 16,
+  "source_closure_radius_implementation_receipt_id": "98ab6f11",
+  "source_closure_radius_policy_id": "80f2b331",
+  "source_closure_radius_policy_receipt_id": "fc82cb0f",
+  "source_halt_vocabulary_implementation_receipt_id": "75eabbe2",
+  "source_jurisdiction_gate_implementation_receipt_id": "6291b0d9",
+  "source_local_regime_hash": "25802530",
+  "source_move_registry_implementation_receipt_id": "bef08570",
+  "source_proceed_adapter_implementation_receipt_id": "363d2f4a",
+  "source_proposal_ledger_schema_id": "eee2a318",
+  "source_receipt_interrogation_adapter_receipt_id": "a785297c",
+  "source_receipt_interrogation_policy_id": "2aa2f2f3",
+  "source_receipt_interrogation_policy_receipt_id": "0ad557c8",
+  "source_taxonomy_evolution_implementation_receipt_id": "6d252e63",
+  "source_trace_ledger_implementation_receipt_id": "cc24a11f",
+  "source_trace_schema_id": "b4887660",
+  "target_unit_id": "closure_radius_real_batch.r250.v0",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_REAL_BATCH_CLOSURE_RADIUS_R250_RECEIPT_COLLECTION_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_rules": {
+    "complete_batch": {
+      "condition": "all acceptance gates pass, all slots complete, all receipts non-demo, receipt_trace_mismatch_total == 0, interrogation_ready == true",
+      "next_command_goal": "INTERROGATE_R250_REAL_BATCH_RECEIPTS_V0",
+      "stop_code": null,
+      "type": "ADVANCE"
+    },
+    "incomplete_batch": {
+      "condition": "batch incomplete or any slot missing/incomplete",
+      "next_command_goal": null,
+      "stop_code": "STOP_GATE_FAIL",
+      "type": "STOP"
+    },
+    "source_input_authority_failure": {
+      "condition": "source/input authority fails",
+      "next_command_goal": null,
+      "stop_code": "STOP_AUTHORITY_VIOLATION",
+      "type": "STOP"
+    },
+    "trace_receipt_mismatch": {
+      "condition": "trace/receipt mismatch is detected",
+      "next_command_goal": null,
+      "stop_code": "STOP_RECEIPT_MISMATCH",
+      "type": "STOP"
+    }
+  }
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

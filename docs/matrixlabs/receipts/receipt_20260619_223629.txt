@@ -1,0 +1,64 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260619_223629
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260619_223629.txt
+
+ADD_MATRIXLAB_PROGRESS_REPORTING_V0_RETRY_AST_INSERT
+
+STATUS_BEFORE
+
+RESTORE_FAILED_PROGRESS_ATTEMPT_IF_NEEDED
+cli clean
+
+BACKUP
+CLI_SIG=fd9f442b3d88
+BACKUP=/tmp/matrixlab_cli_before_progress_reporting_retry_fd9f442b3d88.py
+
+PATCH_CLI_PROGRESS_REPORTING_AST
+WARNING: summarize_run not found; POST_PROCESSING hook not inserted
+WARNING: typer.echo('Done.') not found; COMPLETED hook not inserted
+
+SHOW_PATCH_LOCATIONS
+474:_ML_PROGRESS_STATE = {
+533:    state = _ML_PROGRESS_STATE
+603:    state = _ML_PROGRESS_STATE
+624:    state = _ML_PROGRESS_STATE
+673:    state = _ML_PROGRESS_STATE
+861:    _ml_progress_run_config(locals())
+669:def _ml_progress_after_receipt(receipt):
+
+PY_COMPILE
+
+PROGRESS_SMOKE_RUN_SMALL
+ phase=STARTING run_id=? receipts=0/~15 pct~=0.0 cases~=3 families=A depth=3..5 
+cycles=5 elapsed=0.0s
+MatrixLab run started: run_20260619_213630_448208
+Families: ['one_sided_suspension']
+Depths: 3..5
+Cycles per case: 5
+Max cells per matrix: 1000
+Done.
+{
+  "run_id": "run_20260619_213630_448208",
+  "created_utc": "2026-06-19T21:36:32.775985+00:00",
+  "families": [
+    "one_sided_suspension"
+  ],
+  "depth_min": 3,
+  "depth_max": 5,
+  "cycles_per_case": 5,
+  "max_cells": 1000,
+  "total_cases": 3,
+  "total_receipts": 15,
+  "halt_counts": {
+    "CYCLES_COMPLETE": 3
+  },
+  "max_registered_moves": 1,
+  "max_compression_ratio": 5.0,
+  "max_matrix_cells": 50,
+  "max_registered_move_profiles": 1
+}
+
+VERIFY_PROGRESS_MARKERS
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

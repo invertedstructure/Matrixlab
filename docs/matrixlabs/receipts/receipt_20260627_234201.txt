@@ -1,0 +1,88 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_234201
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_234201.txt
+
+REVIEW_C8_SUCCESSOR_FRONTIER_SURFACE_SELECTION_REVIEW_V0
+
+VERIFY_SUCCESSOR_SURFACE_REVIEW_ARTIFACTS_PRESENT
+present data/c8_successor_frontier_surface_selection_review_v0_receipts/c8_successor_surface_review_receipt_f0308b64.json
+present data/c8_successor_frontier_surface_selection_review_v0/c8_successor_surface_selection_review_packet_v0.json
+present data/c8_successor_frontier_surface_selection_review_v0/c8_successor_surface_selection_review_decision_v0.json
+present data/c8_successor_frontier_surface_selection_review_v0/c8_successor_surface_selection_review_audit_v0.json
+present data/c8_successor_frontier_surface_selection_review_v0/c8_successor_surface_selection_review_readout_v0.json
+present data/c8_successor_frontier_surface_selection_review_v0/c8_successor_surface_selection_review_report.json
+present scripts/create_c8_successor_frontier_surface_selection_review_v0.py
+
+PY_COMPILE_SUCCESSOR_SURFACE_REVIEW_RUNNER
+
+VERIFY_SUCCESSOR_SURFACE_REVIEW_RECEIPT
+{
+  "acceptance_gates_false_count": 0,
+  "accepted_for_probe_prep_now": false,
+  "failures": [],
+  "human_decision_required": true,
+  "negative_controls_nonzero_count": 0,
+  "new_c8_rerun": false,
+  "new_instrument_build": false,
+  "outcome_class": "C8_SUCCESSOR_FRONTIER_SURFACE_REVIEWABLE_NOT_ACCEPTED",
+  "probe_run": false,
+  "receipt_id": "c8_successor_surface_review_receipt_f0308b64",
+  "reusable_schema_authorized": false,
+  "review_decision": "REVIEWABLE_NOT_ACCEPTED",
+  "review_gate": "PASS",
+  "selected_surface_id": "c8_successor_surface_reuse_authority_boundary_after_local_closure_v0",
+  "selected_surface_kind": "REUSE_AUTHORITY_BOUNDARY_SURFACE",
+  "status": "TYPED_C8_SUCCESSOR_FRONTIER_SURFACE_SELECTION_REVIEW_PASS",
+  "surface_review_class": "WELL_FORMED_BOUNDED_REUSE_AUTHORITY_BOUNDARY_SURFACE",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_SUCCESSOR_FRONTIER_SURFACE_REVIEW_READY_FOR_HUMAN_DECISION",
+    "type": "STOP"
+  }
+}
+
+VERIFY_SUCCESSOR_SURFACE_REVIEW_CONTENT
+{
+  "accepted_for_probe_prep_now": false,
+  "authorized_now": {
+    "bounded_probe_prep": false,
+    "c8_rerun": false,
+    "cell1_build": false,
+    "instrument_build": false,
+    "missing_instrument_proposal": false,
+    "probe_execution": false,
+    "reusable_schema": false,
+    "verification_probe": false
+  },
+  "content_review_gate": "PASS",
+  "failures": [],
+  "human_decision_required": true,
+  "review_decision": "REVIEWABLE_NOT_ACCEPTED",
+  "review_decision_id": "c8_successor_surface_review_decision_43c3490f",
+  "review_packet_id": "c8_successor_surface_review_packet_0c864165",
+  "selected_surface_id": "c8_successor_surface_reuse_authority_boundary_after_local_closure_v0",
+  "selected_surface_kind": "REUSE_AUTHORITY_BOUNDARY_SURFACE",
+  "surface_review_class": "WELL_FORMED_BOUNDED_REUSE_AUTHORITY_BOUNDARY_SURFACE"
+}
+
+VERIFY_STAGED_SCOPE_SUCCESSOR_SURFACE_REVIEW_ONLY
+staged_path_count=8
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+successor_surface_review_receipts_staged=['data/c8_successor_frontier_surface_selection_review_v0_receipts/c8_successor_surface_review_receipt_f0308b64.json']
+
+REVIEW_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...uccessor_surface_selection_review_audit_v0.json |  54 +++
+ ...essor_surface_selection_review_decision_v0.json |  35 ++
+ ...ccessor_surface_selection_review_packet_v0.json |  29 ++
+ ...cessor_surface_selection_review_readout_v0.json |  19 +
+ ..._successor_surface_selection_review_report.json |  29 ++
+ ..._successor_surface_review_receipt_f0308b64.json | 118 +++++
+ ...ccessor_frontier_surface_selection_review_v0.py | 473 +++++++++++++++++++++
+ 8 files changed, 763 insertions(+)
+
+REVIEW_C8_SUCCESSOR_FRONTIER_SURFACE_SELECTION_REVIEW_PASS
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

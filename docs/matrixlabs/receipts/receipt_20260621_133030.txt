@@ -1,0 +1,379 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_133030
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_133030.txt
+
+BUILD_BOUNDED_SCALE_BAND_SELECTION_POLICY_V0
+
+STATUS_BEFORE
+?? data/
+?? scripts/stable_delta_signature_candidate_v0_2_scale_band_probe.py
+
+WRITE_BOUNDED_SCALE_BAND_SELECTION_POLICY_BUILDER
+
+PY_COMPILE
+
+BUILD_BOUNDED_SCALE_BAND_SELECTION_POLICY
+{
+  "authorized_next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_PROBE",
+  "authorizes_candidate_acceptance": false,
+  "authorizes_full_registry_scan_by_default": false,
+  "authorizes_full_registry_scan_with_explicit_flag": true,
+  "authorizes_next_scale_band_probe_implementation": true,
+  "authorizes_raw_receipt_hash_truth_surface": false,
+  "authorizes_receipt_compression": false,
+  "authorizes_receipt_deletion": false,
+  "authorizes_receipt_replacement": false,
+  "authorizes_registry_write": false,
+  "authorizes_runtime_receipt_emission_change": false,
+  "authorizes_scale_band_probe_execution": true,
+  "authorizes_scale_band_run": false,
+  "authorizes_scale_mode": false,
+  "bounded_scale_band_selection": {
+    "bounded_probe_args_required": [
+      "--latest-compatible-runs",
+      "--full-registry"
+    ],
+    "dedupe_rule": "source run plus latest N compatible runs are de-duplicated by run_id",
+    "default_cli_behavior": "--latest-compatible-runs 10; --full-registry false",
+    "default_full_registry_scan": false,
+    "default_latest_compatible_runs": 10,
+    "default_max_registry_runs_touched": 11,
+    "full_registry_requires_explicit_flag": "--full-registry",
+    "full_registry_scan_forbidden_without_flag": true,
+    "honesty_rule": "probe must record selected_run_ids, skipped_compatible_run_count, total_compatible_run_count_estimate_if_known, and whether --full-registry was used",
+    "latest_compatible_runs_must_be_included": true,
+    "selection_mode": "BOUNDED_BY_DEFAULT",
+    "selection_order": "latest compatible runs by runs.created_utc desc, falling back to registry row order desc",
+    "source_run_id": "run_20260620_214806_723967",
+    "source_run_must_always_be_included": true
+  },
+  "candidate_design_id": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2",
+  "created_at": "2026-06-21T12:30:31.786147+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "policy_id": "b79955ce",
+  "policy_name": "BUILD_BOUNDED_SCALE_BAND_SELECTION_POLICY_V0",
+  "policy_path": "data/stable_delta_signature_candidate_v0_2_scale_band_policies/b79955ce.json",
+  "policy_sig8": "b79955ce",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_id": "faf978c6",
+  "receipt_sig8": "faf978c6",
+  "scale_policy_id_name": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_BOUNDED_SCALE_BAND_POLICY",
+  "schema_version": "stable_delta_signature_candidate_v0_2_bounded_scale_band_policy_receipt_v0",
+  "source_unbounded_scale_band_policy_id": "7d453433",
+  "source_unbounded_scale_band_policy_receipt_id": "b5841247",
+  "source_v02_probe_id": "bcdb3d93",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_PROBE",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+policy_id=b79955ce
+policy_json_path=data/stable_delta_signature_candidate_v0_2_scale_band_policies/b79955ce.json
+policy_receipt_path=data/stable_delta_signature_candidate_v0_2_scale_band_policy_receipts/b79955ce.json
+BOUNDED_SCALE_POLICY_ID=b79955ce
+
+ASSERT_BOUNDED_SCALE_BAND_SELECTION_POLICY
+{
+  "authority": {
+    "authorized_next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_PROBE",
+    "authorizes_architecture_redesign": false,
+    "authorizes_candidate_acceptance": false,
+    "authorizes_full_receipt_suppression": false,
+    "authorizes_full_registry_scan_by_default": false,
+    "authorizes_full_registry_scan_with_explicit_flag": true,
+    "authorizes_next_scale_band_probe_implementation": true,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_registry_write": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_band_probe_execution": true,
+    "authorizes_scale_band_run": false,
+    "authorizes_scale_mode": false,
+    "authorizes_source_surface_extension": false,
+    "authorizes_taxonomy_evolution": false,
+    "authorizes_theorem_content": false
+  },
+  "bounded_scale_band_selection": {
+    "bounded_probe_args_required": [
+      "--latest-compatible-runs",
+      "--full-registry"
+    ],
+    "dedupe_rule": "source run plus latest N compatible runs are de-duplicated by run_id",
+    "default_cli_behavior": "--latest-compatible-runs 10; --full-registry false",
+    "default_full_registry_scan": false,
+    "default_latest_compatible_runs": 10,
+    "default_max_registry_runs_touched": 11,
+    "full_registry_requires_explicit_flag": "--full-registry",
+    "full_registry_scan_forbidden_without_flag": true,
+    "honesty_rule": "probe must record selected_run_ids, skipped_compatible_run_count, total_compatible_run_count_estimate_if_known, and whether --full-registry was used",
+    "latest_compatible_runs_must_be_included": true,
+    "selection_mode": "BOUNDED_BY_DEFAULT",
+    "selection_order": "latest compatible runs by runs.created_utc desc, falling back to registry row order desc",
+    "source_run_id": "run_20260620_214806_723967",
+    "source_run_must_always_be_included": true
+  },
+  "failures": [],
+  "gate": "PASS",
+  "implementation_constraints": {
+    "default_latest_compatible_runs": 10,
+    "full_registry_requires_explicit_flag": true,
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_registry_sqlite": true,
+    "must_not_delete_existing_outputs": true,
+    "must_not_modify_files": [
+      "src/",
+      "app/",
+      "matrixlab/",
+      "scripts/stable_delta_signature_candidate_v0_2_probe.py",
+      "scripts/build_stable_delta_signature_candidate_v0_2_policy.py",
+      "scripts/canonical_transition_surface_probe_v0.py",
+      "scripts/stable_delta_signature_candidate_v0_1_probe.py",
+      "scripts/stable_delta_signature_probe_v0.py",
+      "scripts/wide_burden_profile_microruns.py"
+    ],
+    "must_not_scan_all_registry_runs_by_default": true,
+    "must_touch_only_files": [
+      "scripts/stable_delta_signature_candidate_v0_2_scale_band_probe.py"
+    ]
+  },
+  "policy_id": "b79955ce",
+  "policy_name": "BUILD_BOUNDED_SCALE_BAND_SELECTION_POLICY_V0",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_gate": "PASS",
+  "receipt_id": "faf978c6",
+  "required_probe_behavior": {
+    "classify_insufficient_scale_coverage_honestly": true,
+    "do_not_scan_all_registry_runs_by_default": true,
+    "emit_scale_band_probe_receipt": true,
+    "emit_scale_band_rows_jsonl": true,
+    "include_latest_n_compatible_runs_by_default": true,
+    "include_v02_selected_source_run": true,
+    "load_v02_local_probe_receipt": true,
+    "measure_aggregate_worst_case": true,
+    "measure_per_band_burden_and_distinguishability": true,
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_runtime_receipt_generation": true,
+    "must_not_replace_or_suppress_receipts": true,
+    "must_not_use_cycle_n_or_case_id_as_primary_signature_identity": true,
+    "must_not_use_raw_receipt_hash_truth_surface": true,
+    "must_not_use_rowid_as_signature_identity": true,
+    "must_not_write_registry_sqlite": true,
+    "read_existing_registry_only": true,
+    "record_bounded_selection_receipt_fields": true,
+    "replay_v02_signature_logic_across_compatible_runs": true,
+    "require_full_registry_flag_for_all_runs": true
+  },
+  "scale_policy_id_name": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_BOUNDED_SCALE_BAND_POLICY",
+  "source_unbounded_scale_band_policy_id": "7d453433",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_PROBE",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_BOUNDED_SCALE_BAND_SELECTION_POLICY
+{
+  "case": "source_scale_mode_authority_fail",
+  "expected": "source_policy_illegal_authority:authorizes_scale_mode",
+  "failures": [
+    "source_policy_illegal_authority:authorizes_scale_mode:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_registry_write_authority_fail",
+  "expected": "source_policy_illegal_authority:authorizes_registry_write",
+  "failures": [
+    "source_policy_illegal_authority:authorizes_registry_write:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "local_false_merge_precondition_fail",
+  "expected": "local_false_merge_not_zero",
+  "failures": [
+    "local_false_merge_not_zero:1"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "local_burden_precondition_fail",
+  "expected": "local_burden_not_reduced",
+  "failures": [
+    "local_burden_not_reduced:1.1"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "v02_terminal_precondition_fail",
+  "expected": "v02_probe_terminal_wrong",
+  "failures": [
+    "v02_probe_terminal_wrong:FAIL_FALSE_MERGE"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "default_n_bound_fail_0",
+  "failures": [
+    "default_latest_compatible_runs_must_be_positive:0"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "default_n_bound_fail_26",
+  "failures": [
+    "default_latest_compatible_runs_too_large:26"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+BOUNDED_SCALE_BAND_SELECTION_POLICY_HEAD_JSON
+{
+  "authority": {
+    "authorized_next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_PROBE",
+    "authorizes_architecture_redesign": false,
+    "authorizes_candidate_acceptance": false,
+    "authorizes_full_receipt_suppression": false,
+    "authorizes_full_registry_scan_by_default": false,
+    "authorizes_full_registry_scan_with_explicit_flag": true,
+    "authorizes_next_scale_band_probe_implementation": true,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_registry_write": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_band_probe_execution": true,
+    "authorizes_scale_band_run": false,
+    "authorizes_scale_mode": false,
+    "authorizes_source_surface_extension": false,
+    "authorizes_taxonomy_evolution": false,
+    "authorizes_theorem_content": false
+  },
+  "bounded_scale_band_selection": {
+    "bounded_probe_args_required": [
+      "--latest-compatible-runs",
+      "--full-registry"
+    ],
+    "dedupe_rule": "source run plus latest N compatible runs are de-duplicated by run_id",
+    "default_cli_behavior": "--latest-compatible-runs 10; --full-registry false",
+    "default_full_registry_scan": false,
+    "default_latest_compatible_runs": 10,
+    "default_max_registry_runs_touched": 11,
+    "full_registry_requires_explicit_flag": "--full-registry",
+    "full_registry_scan_forbidden_without_flag": true,
+    "honesty_rule": "probe must record selected_run_ids, skipped_compatible_run_count, total_compatible_run_count_estimate_if_known, and whether --full-registry was used",
+    "latest_compatible_runs_must_be_included": true,
+    "selection_mode": "BOUNDED_BY_DEFAULT",
+    "selection_order": "latest compatible runs by runs.created_utc desc, falling back to registry row order desc",
+    "source_run_id": "run_20260620_214806_723967",
+    "source_run_must_always_be_included": true
+  },
+  "gate": "PASS",
+  "implementation_constraints": {
+    "default_latest_compatible_runs": 10,
+    "full_registry_requires_explicit_flag": true,
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_registry_sqlite": true,
+    "must_not_delete_existing_outputs": true,
+    "must_not_modify_files": [
+      "src/",
+      "app/",
+      "matrixlab/",
+      "scripts/stable_delta_signature_candidate_v0_2_probe.py",
+      "scripts/build_stable_delta_signature_candidate_v0_2_policy.py",
+      "scripts/canonical_transition_surface_probe_v0.py",
+      "scripts/stable_delta_signature_candidate_v0_1_probe.py",
+      "scripts/stable_delta_signature_probe_v0.py",
+      "scripts/wide_burden_profile_microruns.py"
+    ],
+    "must_not_scan_all_registry_runs_by_default": true,
+    "must_touch_only_files": [
+      "scripts/stable_delta_signature_candidate_v0_2_scale_band_probe.py"
+    ]
+  },
+  "policy_id": "b79955ce",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "required_probe_behavior": {
+    "classify_insufficient_scale_coverage_honestly": true,
+    "do_not_scan_all_registry_runs_by_default": true,
+    "emit_scale_band_probe_receipt": true,
+    "emit_scale_band_rows_jsonl": true,
+    "include_latest_n_compatible_runs_by_default": true,
+    "include_v02_selected_source_run": true,
+    "load_v02_local_probe_receipt": true,
+    "measure_aggregate_worst_case": true,
+    "measure_per_band_burden_and_distinguishability": true,
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_runtime_receipt_generation": true,
+    "must_not_replace_or_suppress_receipts": true,
+    "must_not_use_cycle_n_or_case_id_as_primary_signature_identity": true,
+    "must_not_use_raw_receipt_hash_truth_surface": true,
+    "must_not_use_rowid_as_signature_identity": true,
+    "must_not_write_registry_sqlite": true,
+    "read_existing_registry_only": true,
+    "record_bounded_selection_receipt_fields": true,
+    "replay_v02_signature_logic_across_compatible_runs": true,
+    "require_full_registry_flag_for_all_runs": true
+  },
+  "scale_policy_id_name": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_BOUNDED_SCALE_BAND_POLICY",
+  "source_unbounded_scale_band_policy_id": "7d453433",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_PROBE",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_PRIOR_RUNTIME_UNTOUCHED
+prior runtime/system untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+
+STATUS_AFTER
+?? data/
+?? scripts/build_bounded_scale_band_selection_policy_v0.py
+?? scripts/stable_delta_signature_candidate_v0_2_scale_band_probe.py
+[master a938016f8] build bounded scale-band selection policy
+ 1 file changed, 273 insertions(+)
+ create mode 100755 scripts/build_bounded_scale_band_selection_policy_v0.py
+
+COMMIT_DONE
+?? data/
+?? scripts/stable_delta_signature_candidate_v0_2_scale_band_probe.py
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

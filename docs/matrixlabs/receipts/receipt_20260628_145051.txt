@@ -1,0 +1,108 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_145051
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_145051.txt
+
+BOOKKEEPING_COMMIT_C8_RETURN_TO_SURFACE_SELECTION_PACKET_AFTER_REUSE_AUTHORITY_CLOSURE_V0
+
+VERIFY_RETURN_TO_SELECTION_ARTIFACTS_PRESENT
+present data/c8_return_to_surface_selection_after_reuse_authority_closure_v0_receipts/c8_return_to_surface_selection_receipt_e1b23af9.json
+present data/c8_return_to_surface_selection_after_reuse_authority_closure_v0/c8_return_to_surface_selection_packet_v0.json
+present data/c8_return_to_surface_selection_after_reuse_authority_closure_v0/c8_return_to_surface_selection_boundary_v0.json
+present data/c8_return_to_surface_selection_after_reuse_authority_closure_v0/c8_return_to_surface_selection_readout_v0.json
+present data/c8_return_to_surface_selection_after_reuse_authority_closure_v0/c8_return_to_surface_selection_report.json
+present scripts/create_c8_return_to_surface_selection_after_reuse_authority_closure_v0.py
+
+PY_COMPILE_RETURN_TO_SELECTION_RUNNER
+
+VERIFY_RETURN_TO_SELECTION_RECEIPT_AND_CONTENT
+{
+  "boundary_id": "c8_return_to_surface_selection_boundary_6b7e2995",
+  "closed_with_no_new_authority": true,
+  "commit_gate": "PASS",
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "gate_results_false_count": 0,
+  "human_review_required": true,
+  "next_probe_authorized_now": false,
+  "next_surface_selected_now": false,
+  "next_surface_selection_authorized_now": false,
+  "outcome_class": "C8_RETURN_TO_SURFACE_SELECTION_PACKET_READY_FOR_REVIEW",
+  "previous_surface_closed": true,
+  "previous_surface_id": "c8_successor_surface_reuse_authority_boundary_after_local_closure_v0",
+  "receipt_id": "c8_return_to_surface_selection_receipt_e1b23af9",
+  "recommended_review_unit": "REVIEW_C8_RETURN_TO_SURFACE_SELECTION_PACKET_AFTER_REUSE_AUTHORITY_CLOSURE_V0",
+  "return_to_selection_packet_id": "c8_return_to_surface_selection_packet_497f97dd",
+  "return_to_surface_selection_allowed": true,
+  "reusable_schema_authorized": false,
+  "status": "TYPED_C8_RETURN_TO_SURFACE_SELECTION_PACKET_PASS"
+}
+
+VERIFY_GIT_IDENTITY
+
+BOUND_ADD_ONLY_RETURN_TO_SELECTION_ARTIFACTS
+
+VERIFY_NO_OUT_OF_SCOPE_STAGED_PATHS
+staged_path_count=7
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+return_to_selection_receipts_staged=['data/c8_return_to_surface_selection_after_reuse_authority_closure_v0_receipts/c8_return_to_surface_selection_receipt_e1b23af9.json']
+
+BOOKKEEPING_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...c8_return_to_surface_selection_boundary_v0.json |  43 +++
+ .../c8_return_to_surface_selection_packet_v0.json  |  31 ++
+ .../c8_return_to_surface_selection_readout_v0.json |  15 +
+ .../c8_return_to_surface_selection_report.json     |  27 ++
+ ...turn_to_surface_selection_receipt_e1b23af9.json | 106 ++++++
+ ...e_selection_after_reuse_authority_closure_v0.py | 397 +++++++++++++++++++++
+ 7 files changed, 625 insertions(+)
+
+BOOKKEEPING_COMMIT
+[master b3de74b61] Create C8 return-to-surface-selection packet
+ 7 files changed, 625 insertions(+)
+ create mode 100644 data/c8_return_to_surface_selection_after_reuse_authority_closure_v0/c8_return_to_surface_selection_boundary_v0.json
+ create mode 100644 data/c8_return_to_surface_selection_after_reuse_authority_closure_v0/c8_return_to_surface_selection_packet_v0.json
+ create mode 100644 data/c8_return_to_surface_selection_after_reuse_authority_closure_v0/c8_return_to_surface_selection_readout_v0.json
+ create mode 100644 data/c8_return_to_surface_selection_after_reuse_authority_closure_v0/c8_return_to_surface_selection_report.json
+ create mode 100644 data/c8_return_to_surface_selection_after_reuse_authority_closure_v0_receipts/c8_return_to_surface_selection_receipt_e1b23af9.json
+ create mode 100755 scripts/create_c8_return_to_surface_selection_after_reuse_authority_closure_v0.py
+
+BOOKKEEPING_COMMIT_RECEIPT
+commit_sha=b3de74b614167101ac5c43faa539c7b7a8792d37
+return_to_selection_receipt=data/c8_return_to_surface_selection_after_reuse_authority_closure_v0_receipts/c8_return_to_surface_selection_receipt_e1b23af9.json
+return_to_selection_packet=data/c8_return_to_surface_selection_after_reuse_authority_closure_v0/c8_return_to_surface_selection_packet_v0.json
+return_to_selection_boundary=data/c8_return_to_surface_selection_after_reuse_authority_closure_v0/c8_return_to_surface_selection_boundary_v0.json
+return_to_selection_outcome=C8_RETURN_TO_SURFACE_SELECTION_PACKET_READY_FOR_REVIEW
+return_to_selection_receipt_id=c8_return_to_surface_selection_receipt_e1b23af9
+return_to_selection_packet_id=c8_return_to_surface_selection_packet_497f97dd
+boundary_id=c8_return_to_surface_selection_boundary_6b7e2995
+source_closure_acceptance_receipt_id=c8_successor_reuse_authority_probe_closure_acceptance_receipt_2023bce5
+source_final_closure_id=c8_successor_reuse_authority_probe_final_closure_e8a1bd0e
+previous_surface_id=c8_successor_surface_reuse_authority_boundary_after_local_closure_v0
+previous_surface_kind=REUSE_AUTHORITY_BOUNDARY_SURFACE
+previous_surface_label=C8_POST_CLOSURE_LOCAL_LOOP_REUSE_PRESSURE_SURFACE
+previous_surface_closed=true
+closed_with_no_new_authority=true
+return_to_surface_selection_allowed=true
+next_surface_selected_now=false
+next_surface_selection_authorized_now=false
+next_probe_authorized_now=false
+instrument_built_now=false
+cell1_built_now=false
+verification_probe_run_now=false
+c8_rerun_now=false
+missing_instrument_proposal_created_now=false
+research_mode_opened=false
+general_cell1_authority=false
+reusable_schema_authorized=false
+global_solution_claim=false
+frontier_solved_claim=false
+recommended_review_unit=REVIEW_C8_RETURN_TO_SURFACE_SELECTION_PACKET_AFTER_REUSE_AUTHORITY_CLOSURE_V0
+terminal_stop_code=STOP_C8_RETURN_TO_SURFACE_SELECTION_PACKET_READY_FOR_REVIEW
+
+STATUS_AFTER_COMMIT_RELEVANT
+
+BOOKKEEPING_COMMIT_C8_RETURN_TO_SURFACE_SELECTION_PACKET_AFTER_REUSE_AUTHORITY_CLOSURE_COMPLETE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

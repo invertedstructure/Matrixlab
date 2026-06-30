@@ -1,0 +1,124 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_005035
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_005035.txt
+
+REVIEW_DOUBLE_SIEVE_FIXTURE_SUITE_V0
+
+VERIFY_DOUBLE_SIEVE_RECEIPT_PRESENT
+
+VERIFY_DOUBLE_SIEVE_ARTIFACTS_AND_RECEIPTS
+{
+  "acceptance_gates_false_count": 0,
+  "admissibility_results": {
+    "ALLOW": 3,
+    "AUTHORITY_REQUIRED": 1,
+    "FORBIDDEN_INPUT": 1,
+    "NOT_RUN": 1
+  },
+  "execution_results": {
+    "CONTROL_RESULT_PRESERVED_WITH_OBSERVABILITY_DEGRADED": 1,
+    "EXECUTION_GATE_OPENED_NO_LIVE_MUTATION": 1,
+    "FAILED_TYPED": 1,
+    "NOT_RUN": 3
+  },
+  "failures": [],
+  "fixture_receipts_reviewed": [
+    "F1_VALID_ADMISSIBLE",
+    "F2_INVALID_SCHEMA",
+    "F3_AUTHORITY_REQUIRED",
+    "F4_FORBIDDEN_INPUT",
+    "F5_EXECUTION_FAILURE_TYPED_FEEDBACK",
+    "F6_SIDECAR_PARTIAL_OBSERVABILITY"
+  ],
+  "fixtures_failed": 0,
+  "fixtures_passed": 6,
+  "fixtures_total": 6,
+  "negative_controls_nonzero_count": 0,
+  "outcome_class": "DOUBLE_SIEVE_PASS",
+  "receipt_id": "double_sieve_fixture_suite_receipt_462668ee",
+  "review_gate": "PASS",
+  "run_id": "double_sieve_suite_run_57568b4b",
+  "schema_results": {
+    "MISSING_FIELD": 1,
+    "VALID": 5
+  },
+  "sidecar_results": {
+    "OBSERVATION_COMPLETE": 5,
+    "OBSERVATION_UNDER_TYPED": 1
+  },
+  "status": "TYPED_DOUBLE_SIEVE_FIXTURE_SUITE_PASS",
+  "suite_id": "double_sieve_fixture_suite_5e583552",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_DOUBLE_SIEVE_FIXTURE_SUITE_PASS",
+    "type": "STOP"
+  },
+  "unit_feedback_results": {
+    "EMITTED_ACTIONABLE": 1,
+    "NOT_REQUIRED": 5
+  },
+  "warnings": []
+}
+
+VERIFY_STAGED_SCOPE_DOUBLE_SIEVE_ONLY
+staged_path_count=22
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+
+REVIEW_DIFF_STAT
+ .gitignore                                         |   6 +
+ .../double_sieve_fixture_manifest_v0.jsonl         |   6 +
+ .../double_sieve_fixture_suite_contract_v0.json    |  44 ++
+ .../double_sieve_fixture_suite_profile_v0.json     |  22 +
+ .../double_sieve_fixture_suite_readout_v0.json     |  45 ++
+ .../double_sieve_fixture_suite_report.json         |  29 +
+ .../double_sieve_fixture_suite_rollup_v0.json      |  77 ++
+ ...ouble_sieve_fixture_suite_transition_trace.json |  36 +
+ .../double_sieve_fixture_receipt_v0.json           | 160 ++++
+ .../F1_VALID_ADMISSIBLE/fixture_packet_v0.json     |  84 +++
+ .../double_sieve_fixture_receipt_v0.json           | 162 +++++
+ .../F2_INVALID_SCHEMA/fixture_packet_v0.json       |  79 ++
+ .../double_sieve_fixture_receipt_v0.json           | 160 ++++
+ .../F3_AUTHORITY_REQUIRED/fixture_packet_v0.json   |  84 +++
+ .../double_sieve_fixture_receipt_v0.json           | 161 ++++
+ .../F4_FORBIDDEN_INPUT/fixture_packet_v0.json      |  84 +++
+ .../double_sieve_fixture_receipt_v0.json           | 184 +++++
+ .../fixture_packet_v0.json                         |  84 +++
+ .../double_sieve_fixture_receipt_v0.json           | 166 +++++
+ .../fixture_packet_v0.json                         |  84 +++
+ ...ouble_sieve_fixture_suite_receipt_462668ee.json | 159 ++++
+ scripts/run_double_sieve_fixture_suite_v0.py       | 806 +++++++++++++++++++++
+ 22 files changed, 2722 insertions(+)
+
+REVIEW_DOUBLE_SIEVE_READOUT
+receipt_id=double_sieve_fixture_suite_receipt_462668ee
+status=TYPED_DOUBLE_SIEVE_FIXTURE_SUITE_PASS
+outcome_class=DOUBLE_SIEVE_PASS
+suite_id=double_sieve_fixture_suite_5e583552
+run_id=double_sieve_suite_run_57568b4b
+suite_passed=True
+fixtures=6/6
+schema_results={"MISSING_FIELD": 1, "VALID": 5}
+admissibility_results={"ALLOW": 3, "AUTHORITY_REQUIRED": 1, "FORBIDDEN_INPUT": 1, "NOT_RUN": 1}
+execution_results={"CONTROL_RESULT_PRESERVED_WITH_OBSERVABILITY_DEGRADED": 1, "EXECUTION_GATE_OPENED_NO_LIVE_MUTATION": 1, "FAILED_TYPED": 1, "NOT_RUN": 3}
+sidecar_results={"OBSERVATION_COMPLETE": 5, "OBSERVATION_UNDER_TYPED": 1}
+unit_feedback_results={"EMITTED_ACTIONABLE": 1, "NOT_REQUIRED": 5}
+bad_counters_zero=True
+live_mutation_executed=False
+c7_opened=False
+c8_opened=False
+hidden_next_command=False
+terminal_stop_code=STOP_DOUBLE_SIEVE_FIXTURE_SUITE_PASS
+
+REVIEW_DOUBLE_SIEVE_FIXTURE_TABLE
+F1_VALID_ADMISSIBLE gate=PASS schema=VALID admissibility=ALLOW execution=EXECUTION_GATE_OPENED_NO_LIVE_MUTATION sidecar=OBSERVATION_COMPLETE feedback=NOT_REQUIRED terminal=STOP_EXECUTION_GATE_OPENED_NO_LIVE_MUTATION
+F2_INVALID_SCHEMA gate=PASS schema=MISSING_FIELD admissibility=NOT_RUN execution=NOT_RUN sidecar=OBSERVATION_COMPLETE feedback=NOT_REQUIRED terminal=STOP_SCHEMA_VALIDATION_FAILED
+F3_AUTHORITY_REQUIRED gate=PASS schema=VALID admissibility=AUTHORITY_REQUIRED execution=NOT_RUN sidecar=OBSERVATION_COMPLETE feedback=NOT_REQUIRED terminal=STOP_AUTHORITY_REQUIRED
+F4_FORBIDDEN_INPUT gate=PASS schema=VALID admissibility=FORBIDDEN_INPUT execution=NOT_RUN sidecar=OBSERVATION_COMPLETE feedback=NOT_REQUIRED terminal=STOP_FORBIDDEN_INPUT
+F5_EXECUTION_FAILURE_TYPED_FEEDBACK gate=PASS schema=VALID admissibility=ALLOW execution=FAILED_TYPED sidecar=OBSERVATION_COMPLETE feedback=EMITTED_ACTIONABLE terminal=STOP_FIXTURE_EXECUTION_FAILED_TYPED
+F6_SIDECAR_PARTIAL_OBSERVABILITY gate=PASS schema=VALID admissibility=ALLOW execution=CONTROL_RESULT_PRESERVED_WITH_OBSERVABILITY_DEGRADED sidecar=OBSERVATION_UNDER_TYPED feedback=NOT_REQUIRED terminal=STOP_OBSERVABILITY_DEGRADED_NO_FALSE_CLAIM
+
+REVIEW_DOUBLE_SIEVE_FIXTURE_SUITE_PASS
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

@@ -1,0 +1,321 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_220646
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_220646.txt
+
+DECIDE_FRONTIER_DEPTH_PROBE_FIX_OUTCOME_OR_NEXT_BURDEN_CLASS_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_FRONTIER_DEPTH_OUTCOME_DECISION_SCRIPT
+
+PY_COMPILE
+
+BUILD_FRONTIER_DEPTH_OUTCOME_DECISION
+{
+  "accepted_as_burden_fix": false,
+  "accepted_as_observability_only": false,
+  "after_profile_id": "26966e56",
+  "authorizes_next_burden_policy": false,
+  "authorizes_revert_or_observability_freeze_plan": true,
+  "before_profile_id": "45cd7660",
+  "created_at": "2026-06-20T21:06:46.162490+00:00",
+  "decision_id": "22d0002e",
+  "decision_path": "data/frontier_depth_probe_fix_outcome_decisions/22d0002e.json",
+  "decision_sig8": "22d0002e",
+  "failures": [],
+  "frontier_depth_fix_outcome": "REJECT_FRONTIER_DEPTH_PROBE_FIX_AS_BURDEN_FIX",
+  "gate": "PASS",
+  "receipt_id": "40d93937",
+  "receipt_sig8": "40d93937",
+  "safety_classification": "STRUCTURALLY_SAFE_OBSERVABILITY_PATCH_BUT_PERFORMANCE_NEGATIVE",
+  "schema_version": "frontier_depth_probe_fix_outcome_decision_receipt_v0",
+  "source_application_id": "f537dd1f",
+  "source_candidate_id": "40429f27",
+  "source_comparison_id": "ed563880",
+  "source_policy_id": "42028fa3",
+  "target_burden_class": "BURDEN_DEPTH_SCAN",
+  "target_metric_delta": {
+    "after_elapsed_ms": 4419,
+    "after_receipts_per_sec": 78.071962,
+    "before_elapsed_ms": 4189,
+    "before_receipts_per_sec": 82.358558,
+    "elapsed_ms_delta": 230,
+    "elapsed_ratio_after_vs_before": 1.054906,
+    "receipts_per_sec_delta": -4.286596,
+    "speedup_before_over_after": 0.947952
+  },
+  "target_result": "TARGET_BURDEN_ELAPSED_WORSE_EXPLICIT_FAILURE_CLASSIFICATION",
+  "terminal": {
+    "next_command_goal": "BUILD_FRONTIER_DEPTH_PROBE_REVERT_OR_OBSERVABILITY_FREEZE_PLAN_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+decision_json_path=data/frontier_depth_probe_fix_outcome_decisions/22d0002e.json
+decision_receipt_path=data/frontier_depth_probe_fix_outcome_decision_receipts/22d0002e.json
+DECISION_ID=22d0002e
+
+ASSERT_FRONTIER_DEPTH_OUTCOME_DECISION
+{
+  "accepted_as_burden_fix": false,
+  "accepted_as_observability_only": false,
+  "after_profile_id": "26966e56",
+  "authorizes_accepting_frontier_depth_as_burden_fix": false,
+  "authorizes_depth_probe_skipping": false,
+  "authorizes_depth_range_change": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_frontier_case_skipping": false,
+  "authorizes_more_frontier_depth_patching": false,
+  "authorizes_next_burden_policy": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_reusing_prior_depth_results_as_execution": false,
+  "authorizes_revert_or_observability_freeze_plan": true,
+  "authorizes_synthetic_depth_receipts": false,
+  "before_profile_id": "45cd7660",
+  "decision_id": "22d0002e",
+  "decision_sig8": "22d0002e",
+  "default_recommended_disposition": "REVERT_FRONTIER_DEPTH_METADATA_CERTIFICATE_PATCH",
+  "elapsed_ms_delta": 230,
+  "failures": [],
+  "frontier_depth_fix_outcome": "REJECT_FRONTIER_DEPTH_PROBE_FIX_AS_BURDEN_FIX",
+  "gate": "PASS",
+  "must_choose_revert_or_observability_freeze": true,
+  "must_not_advance_to_next_burden_yet": true,
+  "receipt_gate": "PASS",
+  "receipt_id": "40d93937",
+  "safety_classification": "STRUCTURALLY_SAFE_OBSERVABILITY_PATCH_BUT_PERFORMANCE_NEGATIVE",
+  "source_application_id": "f537dd1f",
+  "source_candidate_id": "40429f27",
+  "source_comparison_id": "ed563880",
+  "source_policy_id": "42028fa3",
+  "speedup_before_over_after": 0.947952,
+  "target_burden_class": "BURDEN_DEPTH_SCAN",
+  "target_result": "TARGET_BURDEN_ELAPSED_WORSE_EXPLICIT_FAILURE_CLASSIFICATION",
+  "terminal": {
+    "next_command_goal": "BUILD_FRONTIER_DEPTH_PROBE_REVERT_OR_OBSERVABILITY_FREEZE_PLAN_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+
+NEGATIVE_CONTROLS_FRONTIER_DEPTH_OUTCOME_DECISION
+{
+  "case": "comparison_gate_fail",
+  "expected": "comparison_gate_not_PASS",
+  "failures": [
+    "comparison_gate_not_PASS"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "non_worse_not_rejection_path_fail",
+  "expected": "comparison_target_result_not_performance_negative",
+  "failures": [
+    "comparison_target_result_not_performance_negative:TARGET_BURDEN_ELAPSED_NON_WORSE"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "negative_delta_not_rejection_path_fail",
+  "expected": "expected_positive_elapsed_delta",
+  "failures": [
+    "expected_positive_elapsed_delta:-1"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "speedup_above_one_fail",
+  "expected": "expected_speedup_below_one",
+  "failures": [
+    "expected_speedup_below_one:1.1"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "explicit_classification_missing_fail",
+  "expected": "comparison_gate_rule_false:target_depth_elapsed_non_worse_or_explicitly_classified",
+  "failures": [
+    "comparison_gate_rule_false:target_depth_elapsed_non_worse_or_explicitly_classified:False",
+    "explicit_failure_classification_gate_missing"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "target_receipts_changed_fail",
+  "expected": "target_after_receipts_not_345",
+  "failures": [
+    "target_after_receipts_not_345:344"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "radius_guard_fail",
+  "expected": "frontier_depth_expands_radius",
+  "failures": [
+    "frontier_depth_expands_radius"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "depth_probe_skip_semantics_fail",
+  "expected": "frontier_depth_semantics_not_preserved:depth_probe_skipping",
+  "failures": [
+    "frontier_depth_semantics_not_preserved:depth_probe_skipping:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "application_execution_skip_fail",
+  "expected": "application_semantics_not_preserved:execution_skipping",
+  "failures": [
+    "application_semantics_not_preserved:execution_skipping:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "after_profile_receipt_total_fail",
+  "expected": "after_profile_receipt_total_mismatch_registry",
+  "failures": [
+    "after_profile_total_not_1457:1458",
+    "after_profile_receipt_total_mismatch_registry"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+DECISION_HEAD_JSON
+{
+  "accepted_as_burden_fix": false,
+  "accepted_as_observability_only": false,
+  "after_profile_id": "26966e56",
+  "authorization": {
+    "authorizes_accepting_frontier_depth_as_burden_fix": false,
+    "authorizes_code_change": false,
+    "authorizes_depth_max_change": false,
+    "authorizes_depth_min_change": false,
+    "authorizes_depth_probe_skipping": false,
+    "authorizes_depth_range_change": false,
+    "authorizes_execution_skipping": false,
+    "authorizes_frontier_case_skipping": false,
+    "authorizes_gate_semantics_change": false,
+    "authorizes_halt_semantics_change": false,
+    "authorizes_law_semantics_change": false,
+    "authorizes_more_frontier_depth_patching": false,
+    "authorizes_next_burden_policy": false,
+    "authorizes_patch_application": false,
+    "authorizes_radius_expansion": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_reopening_accepted_burden_classes": false,
+    "authorizes_reusing_prior_depth_results_as_execution": false,
+    "authorizes_revert_or_observability_freeze_plan": true,
+    "authorizes_run_semantics_change": false,
+    "authorizes_synthetic_depth_receipts": false
+  },
+  "before_profile_id": "45cd7660",
+  "decision_id": "22d0002e",
+  "disposition_required_before_next_burden": {
+    "alternate_disposition_allowed_only_if_explicitly_marked": "FREEZE_AS_OBSERVABILITY_ONLY_NOT_BURDEN_FIX",
+    "default_recommended_disposition": "REVERT_FRONTIER_DEPTH_METADATA_CERTIFICATE_PATCH",
+    "must_choose_revert_or_observability_freeze": true,
+    "must_not_advance_to_next_burden_yet": true,
+    "reason": "A performance-negative patch cannot be silently carried as a burden optimization."
+  },
+  "frontier_depth_fix_outcome": "REJECT_FRONTIER_DEPTH_PROBE_FIX_AS_BURDEN_FIX",
+  "gate": "PASS",
+  "reason": {
+    "after_elapsed_ms": 4419,
+    "before_elapsed_ms": 4189,
+    "elapsed_ms_delta": 230,
+    "elapsed_ratio_after_vs_before": 1.054906,
+    "performance_evidence_positive": false,
+    "primary_rejection_reason": "target BURDEN_DEPTH_SCAN elapsed_ms worsened",
+    "semantic_evidence_clean": true,
+    "speedup_before_over_after": 0.947952,
+    "structural_evidence_clean": true
+  },
+  "required_next_gate": {
+    "allowed_next_goal": "BUILD_FRONTIER_DEPTH_PROBE_REVERT_OR_OBSERVABILITY_FREEZE_PLAN_V0",
+    "must_not_change_depth_range": true,
+    "must_not_change_halt_law_gate_run_semantics": true,
+    "must_not_delete_receipts": true,
+    "must_not_expand_radius": true,
+    "must_not_reopen_accepted_burden_classes_without_explicit_new_failure": [
+      "BURDEN_CYCLE_SCAN",
+      "BURDEN_DB_WRITE",
+      "BURDEN_REPEATED_SLOT_WORK"
+    ],
+    "must_use_application_id": "f537dd1f",
+    "must_use_comparison_id": "ed563880",
+    "next_command_must_target": "frontier_depth_probe_fix_disposition"
+  },
+  "safety_classification": "STRUCTURALLY_SAFE_OBSERVABILITY_PATCH_BUT_PERFORMANCE_NEGATIVE",
+  "source_application_id": "f537dd1f",
+  "source_candidate_id": "40429f27",
+  "source_comparison": {
+    "comparison_id": "ed563880",
+    "comparison_sig8": "ed563880",
+    "gate": "PASS",
+    "path": "data/frontier_depth_probe_before_after_comparisons/ed563880.json"
+  },
+  "source_policy_id": "42028fa3",
+  "target_burden_class": "BURDEN_DEPTH_SCAN",
+  "target_result": "TARGET_BURDEN_ELAPSED_WORSE_EXPLICIT_FAILURE_CLASSIFICATION",
+  "terminal": {
+    "next_command_goal": "BUILD_FRONTIER_DEPTH_PROBE_REVERT_OR_OBSERVABILITY_FREEZE_PLAN_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_210113_493419
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/decide_frontier_depth_probe_fix_outcome_or_next_burden_class.py
+[master bb044c1ba] decide frontier depth probe outcome
+ 2 files changed, 450 insertions(+)
+ create mode 100755 scripts/decide_frontier_depth_probe_fix_outcome_or_next_burden_class.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

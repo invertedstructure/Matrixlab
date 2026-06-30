@@ -1,0 +1,664 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_004224
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_004224.txt
+
+BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_POLICY
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_POLICY_BUILDER
+
+PY_COMPILE
+
+BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_POLICY
+{
+  "authorized_next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_PROBE",
+  "authorizes_candidate_acceptance": false,
+  "authorizes_next_scale_band_probe_implementation": true,
+  "authorizes_raw_receipt_hash_truth_surface": false,
+  "authorizes_receipt_compression": false,
+  "authorizes_receipt_deletion": false,
+  "authorizes_receipt_replacement": false,
+  "authorizes_registry_write": false,
+  "authorizes_runtime_receipt_emission_change": false,
+  "authorizes_scale_band_probe_execution": true,
+  "authorizes_scale_band_run": false,
+  "authorizes_scale_mode": false,
+  "candidate_design_id": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2",
+  "created_at": "2026-06-20T23:42:26.138925+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "local_pass_summary": {
+    "burden_ratio_projected": 0.38368958088775945,
+    "burden_ratio_signature_payload": 0.13168044787863933,
+    "collision_count": 0,
+    "distinct_candidate_signatures": 176,
+    "distinct_full_occurrence_keys": 176,
+    "distinguishability_retention_ratio": 1.0,
+    "false_merge_count": 0,
+    "false_split_count": 0,
+    "full_receipt_bytes": 155042,
+    "occurrences_total": 176,
+    "projected_scale_row_bytes": 59488,
+    "scale_precondition": true,
+    "terminal_decision": "NEEDS_MORE_SCALE_AFTER_LOCAL_PASS"
+  },
+  "policy_id": "7d453433",
+  "policy_name": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_POLICY",
+  "policy_path": "data/stable_delta_signature_candidate_v0_2_scale_band_policies/7d453433.json",
+  "policy_sig8": "7d453433",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_id": "b5841247",
+  "receipt_sig8": "b5841247",
+  "scale_policy_id_name": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_POLICY",
+  "schema_version": "stable_delta_signature_candidate_v0_2_scale_band_policy_receipt_v0",
+  "source_canonical_surface_probe_id": "07be6e6b",
+  "source_canonical_surface_receipt_id": "1c1e392f",
+  "source_v02_policy_id": "5bc46943",
+  "source_v02_policy_receipt_id": "6b57b499",
+  "source_v02_probe_id": "bcdb3d93",
+  "source_v02_probe_receipt_id": "484c18a3",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_PROBE",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_decisions": {
+    "FAIL_IDENTITY_LEAK": "Use if rowid, raw receipt hash, full occurrence key, path, timestamp, audit pointer, case_id-as-identity, or cycle_n-as-identity enters signature payload.",
+    "FAIL_OBSERVER_INTERFERENCE": "Use if probe mutates registry, runtime receipt emission, receipts, or authority.",
+    "FAIL_SCALE_BURDEN_REGRESSION": "Use if projected burden is not reduced in any required compatible band.",
+    "FAIL_SCALE_FALSE_MERGE": "Use if any compatible scale band introduces false merges.",
+    "FAIL_SOURCE_SURFACE_REGRESSION": "Use if required transition tuple fields are missing or unusable in any compatible band.",
+    "PASS_LOCAL_REPLAY_ONLY_INSUFFICIENT_SCALE_COVERAGE": "Use when local replay passes but there are not enough compatible scale bands/runs to claim scale stability.",
+    "PASS_SCALE_BANDS_OBSERVER_ONLY": "Use when multiple compatible scale bands pass no false merge, burden reduction, audit recovery, and observer containment."
+  },
+  "warnings": []
+}
+policy_id=7d453433
+policy_json_path=data/stable_delta_signature_candidate_v0_2_scale_band_policies/7d453433.json
+policy_receipt_path=data/stable_delta_signature_candidate_v0_2_scale_band_policy_receipts/7d453433.json
+SCALE_BAND_POLICY_ID=7d453433
+
+ASSERT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_POLICY
+{
+  "authority": {
+    "authorized_next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_PROBE",
+    "authorizes_architecture_redesign": false,
+    "authorizes_candidate_acceptance": false,
+    "authorizes_full_receipt_suppression": false,
+    "authorizes_next_scale_band_probe_implementation": true,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_registry_write": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_band_probe_execution": true,
+    "authorizes_scale_band_run": false,
+    "authorizes_scale_mode": false,
+    "authorizes_source_surface_extension": false,
+    "authorizes_taxonomy_evolution": false,
+    "authorizes_theorem_content": false
+  },
+  "candidate_design_id": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2",
+  "failures": [],
+  "gate": "PASS",
+  "implementation_constraints": {
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_registry_sqlite": true,
+    "must_not_delete_existing_outputs": true,
+    "must_not_modify_files": [
+      "src/",
+      "app/",
+      "matrixlab/",
+      "scripts/stable_delta_signature_candidate_v0_2_probe.py",
+      "scripts/build_stable_delta_signature_candidate_v0_2_policy.py",
+      "scripts/canonical_transition_surface_probe_v0.py",
+      "scripts/stable_delta_signature_candidate_v0_1_probe.py",
+      "scripts/stable_delta_signature_probe_v0.py",
+      "scripts/wide_burden_profile_microruns.py"
+    ],
+    "must_touch_only_files": [
+      "scripts/stable_delta_signature_candidate_v0_2_scale_band_probe.py"
+    ]
+  },
+  "local_pass_summary": {
+    "burden_ratio_projected": 0.38368958088775945,
+    "burden_ratio_signature_payload": 0.13168044787863933,
+    "collision_count": 0,
+    "distinct_candidate_signatures": 176,
+    "distinct_full_occurrence_keys": 176,
+    "distinguishability_retention_ratio": 1.0,
+    "false_merge_count": 0,
+    "false_split_count": 0,
+    "full_receipt_bytes": 155042,
+    "occurrences_total": 176,
+    "projected_scale_row_bytes": 59488,
+    "scale_precondition": true,
+    "terminal_decision": "NEEDS_MORE_SCALE_AFTER_LOCAL_PASS"
+  },
+  "mode": "OUTER_OBSERVER_ONLY",
+  "objective": {
+    "goal": "Test whether the v0.2 local stable delta signature result survives scale variation before any acceptance or scale-mode authority.",
+    "non_goals": [
+      "Do not authorize scale mode.",
+      "Do not accept the candidate.",
+      "Do not suppress or replace receipts.",
+      "Do not compress or delete receipts.",
+      "Do not mutate registry.sqlite.",
+      "Do not modify runtime receipt emission.",
+      "Do not use raw receipt hashes as truth surface.",
+      "Do not use rowid, cycle_n, or case_id as primary signature identity."
+    ],
+    "primary_question": "Does state_sig8_before + move_id + state_sig8_after preserve distinguishability and burden reduction across available radius/depth/cycle scale bands?",
+    "scale_precondition_source": "v0.2 local probe had zero false merges, full retention, burden reduction, audit recoverability, and observer containment."
+  },
+  "pass_gates": {
+    "audit_recoverability": "every candidate row has an audit pointer to source registry receipt row",
+    "authority_containment": "observer-only, no registry writes, no runtime receipt changes, no scale mode, no acceptance",
+    "burden_reduction_all_bands": "projected_scale_row_bytes < full_receipt_bytes for every compatible band",
+    "local_precondition_preserved": "source v0.2 local probe remains a clean local pass",
+    "no_false_merge_all_bands": "false_merge_count == 0 for every compatible band",
+    "no_identity_leak": "signature payload excludes rowid, receipt hashes, audit pointer, full occurrence key, timestamps, paths, case_id-as-identity, cycle_n-as-identity",
+    "scale_coverage_honesty": "if only one compatible run exists, terminal must be INSUFFICIENT_SCALE_COVERAGE rather than acceptance",
+    "source_surface_regression": "state_sig8_before, move_id, state_sig8_after remain present and usable for every compatible band",
+    "truth_surface": "compare full_occurrence_key to candidate_delta_signature, never raw receipt hashes"
+  },
+  "policy_id": "7d453433",
+  "policy_name": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_POLICY",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_gate": "PASS",
+  "receipt_id": "b5841247",
+  "required_negative_controls": [
+    {
+      "case": "local_precondition_missing_fail",
+      "must_fail_if": "source v0.2 local probe no longer has false_merge_count == 0 or burden reduction"
+    },
+    {
+      "case": "scale_mode_authority_fail",
+      "must_fail_if": "probe authorizes scale mode or candidate acceptance"
+    },
+    {
+      "case": "registry_mutation_fail",
+      "must_fail_if": "probe writes to registry.sqlite"
+    },
+    {
+      "case": "raw_hash_truth_surface_fail",
+      "must_fail_if": "raw receipt hash is used as truth surface"
+    },
+    {
+      "case": "rowid_identity_leak_fail",
+      "must_fail_if": "rowid or receipt_rowid enters signature payload"
+    },
+    {
+      "case": "cycle_identity_leak_fail",
+      "must_fail_if": "cycle_n is used as primary signature identity"
+    },
+    {
+      "case": "case_identity_leak_fail",
+      "must_fail_if": "case_id is used as primary signature identity"
+    },
+    {
+      "case": "insufficient_scale_coverage_false_acceptance_fail",
+      "must_fail_if": "only local replay exists but terminal claims scale-band pass"
+    }
+  ],
+  "required_probe_behavior": {
+    "classify_insufficient_scale_coverage_honestly": true,
+    "emit_scale_band_probe_receipt": true,
+    "emit_scale_band_rows_jsonl": true,
+    "load_v02_local_probe_receipt": true,
+    "measure_aggregate_worst_case": true,
+    "measure_per_band_burden_and_distinguishability": true,
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_runtime_receipt_generation": true,
+    "must_not_replace_or_suppress_receipts": true,
+    "must_not_use_cycle_n_or_case_id_as_primary_signature_identity": true,
+    "must_not_use_raw_receipt_hash_truth_surface": true,
+    "must_not_use_rowid_as_signature_identity": true,
+    "must_not_write_registry_sqlite": true,
+    "read_existing_registry_only": true,
+    "replay_v02_signature_logic_across_compatible_runs": true
+  },
+  "scale_band_probe_contract": {
+    "candidate_signature_payload_forbidden_fields": [
+      "full_occurrence_key",
+      "raw_full_receipt_hash",
+      "full_receipt_hash",
+      "receipt_hash",
+      "receipt_sig8",
+      "receipt_rowid",
+      "rowid",
+      "audit_pointer",
+      "debug_payload",
+      "observer_notes",
+      "created_at",
+      "created_utc",
+      "timestamp",
+      "path",
+      "receipt_path",
+      "file_path",
+      "cycle_n_as_primary_identity",
+      "case_id_as_primary_identity"
+    ],
+    "candidate_signature_payload_required_fields": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after"
+    ],
+    "minimum_required_bands": {
+      "available_prior_or_later_runs": "include all compatible registry runs if present, otherwise classify insufficient scale coverage",
+      "cycle_variation": "measure per cycle_n and cycle growth if cycle_n values vary",
+      "depth_variation": "measure per depth and depth growth if depth values vary",
+      "local_run_replay": "must include the source local run"
+    },
+    "required_aggregate_measurements": [
+      "bands_total",
+      "bands_passed",
+      "bands_failed",
+      "worst_false_merge_count",
+      "worst_collision_count",
+      "worst_distinguishability_retention_ratio",
+      "worst_burden_ratio_projected",
+      "scale_coverage_status",
+      "compatible_run_count"
+    ],
+    "required_per_band_measurements": [
+      "run_id",
+      "band_id",
+      "axis",
+      "axis_value",
+      "occurrences_total",
+      "distinct_full_occurrence_keys",
+      "distinct_candidate_signatures",
+      "collision_count",
+      "false_merge_count",
+      "false_split_count",
+      "distinguishability_retention_ratio",
+      "full_receipt_bytes",
+      "signature_payload_bytes",
+      "projected_scale_row_bytes",
+      "burden_ratio_projected",
+      "burden_ratio_signature_payload",
+      "source_surface_regression_count",
+      "identity_leak_count",
+      "audit_recoverability_failures",
+      "observer_overhead_ms"
+    ],
+    "scale_band_axes": [
+      "available_run_ids",
+      "depth",
+      "cycle_n",
+      "family",
+      "case_id",
+      "receipt_count",
+      "raw/cell size fields if present"
+    ],
+    "truth_surface": "full_occurrence_key_to_candidate_delta_signature"
+  },
+  "scale_policy_id_name": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_POLICY",
+  "source_v02_probe_id": "bcdb3d93",
+  "source_v02_probe_receipt_id": "484c18a3",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_PROBE",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_decisions": {
+    "FAIL_IDENTITY_LEAK": "Use if rowid, raw receipt hash, full occurrence key, path, timestamp, audit pointer, case_id-as-identity, or cycle_n-as-identity enters signature payload.",
+    "FAIL_OBSERVER_INTERFERENCE": "Use if probe mutates registry, runtime receipt emission, receipts, or authority.",
+    "FAIL_SCALE_BURDEN_REGRESSION": "Use if projected burden is not reduced in any required compatible band.",
+    "FAIL_SCALE_FALSE_MERGE": "Use if any compatible scale band introduces false merges.",
+    "FAIL_SOURCE_SURFACE_REGRESSION": "Use if required transition tuple fields are missing or unusable in any compatible band.",
+    "PASS_LOCAL_REPLAY_ONLY_INSUFFICIENT_SCALE_COVERAGE": "Use when local replay passes but there are not enough compatible scale bands/runs to claim scale stability.",
+    "PASS_SCALE_BANDS_OBSERVER_ONLY": "Use when multiple compatible scale bands pass no false merge, burden reduction, audit recovery, and observer containment."
+  }
+}
+
+NEGATIVE_CONTROLS_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_POLICY
+{
+  "case": "local_terminal_not_scale_ready_fail",
+  "expected": "v02_probe_terminal_not_scale_ready",
+  "failures": [
+    "v02_probe_terminal_not_scale_ready:FAIL_FALSE_MERGE"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "local_false_merge_precondition_fail",
+  "expected": "false_merge_count_expected_0",
+  "failures": [
+    "false_merge_count_expected_0:1"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "local_retention_precondition_fail",
+  "expected": "retention_expected_1",
+  "failures": [
+    "retention_expected_1:0.5"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "local_burden_precondition_fail",
+  "expected": "burden_ratio_projected_not_reduced",
+  "failures": [
+    "burden_ratio_projected_not_reduced:1.1"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "local_scale_mode_authority_fail",
+  "expected": "v02_probe_illegal_authority:scale_mode_authorized",
+  "failures": [
+    "v02_probe_illegal_authority:scale_mode_authorized:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "local_raw_hash_authority_fail",
+  "expected": "v02_probe_illegal_authority:raw_receipt_hash_used_as_truth_surface",
+  "failures": [
+    "v02_probe_illegal_authority:raw_receipt_hash_used_as_truth_surface:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "local_cycle_payload_fail",
+  "expected": "cycle_n_in_signature_payload_not_false",
+  "failures": [
+    "cycle_n_in_signature_payload_not_false"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "source_surface_regression_fail",
+  "expected": "source_surface_regression_failures_not_empty",
+  "failures": [
+    "source_surface_regression_failures_not_empty:['missing_required_column:state_sig8_before']"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "policy_scale_mode_authority_fail",
+  "expected": "v02_policy_authorizes_scale_mode",
+  "failures": [
+    "v02_policy_authorizes_scale_mode"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "policy_scale_band_run_authority_fail",
+  "expected": "v02_policy_already_authorized_scale_band_run",
+  "failures": [
+    "v02_policy_already_authorized_scale_band_run"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "policy_candidate_acceptance_fail",
+  "expected": "v02_policy_authorizes_candidate_acceptance",
+  "failures": [
+    "v02_policy_authorizes_candidate_acceptance"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "surface_terminal_fail",
+  "expected": "surface_terminal_wrong",
+  "failures": [
+    "surface_terminal_wrong:FAIL_PACKAGING_NOISE_ONLY"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_POLICY_HEAD_JSON
+{
+  "authority": {
+    "authorized_next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_PROBE",
+    "authorizes_architecture_redesign": false,
+    "authorizes_candidate_acceptance": false,
+    "authorizes_full_receipt_suppression": false,
+    "authorizes_next_scale_band_probe_implementation": true,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_registry_write": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_band_probe_execution": true,
+    "authorizes_scale_band_run": false,
+    "authorizes_scale_mode": false,
+    "authorizes_source_surface_extension": false,
+    "authorizes_taxonomy_evolution": false,
+    "authorizes_theorem_content": false
+  },
+  "candidate_design_id": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2",
+  "gate": "PASS",
+  "implementation_constraints": {
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_registry_sqlite": true,
+    "must_not_delete_existing_outputs": true,
+    "must_not_modify_files": [
+      "src/",
+      "app/",
+      "matrixlab/",
+      "scripts/stable_delta_signature_candidate_v0_2_probe.py",
+      "scripts/build_stable_delta_signature_candidate_v0_2_policy.py",
+      "scripts/canonical_transition_surface_probe_v0.py",
+      "scripts/stable_delta_signature_candidate_v0_1_probe.py",
+      "scripts/stable_delta_signature_probe_v0.py",
+      "scripts/wide_burden_profile_microruns.py"
+    ],
+    "must_touch_only_files": [
+      "scripts/stable_delta_signature_candidate_v0_2_scale_band_probe.py"
+    ]
+  },
+  "local_pass_summary": {
+    "burden_ratio_projected": 0.38368958088775945,
+    "burden_ratio_signature_payload": 0.13168044787863933,
+    "collision_count": 0,
+    "distinct_candidate_signatures": 176,
+    "distinct_full_occurrence_keys": 176,
+    "distinguishability_retention_ratio": 1.0,
+    "false_merge_count": 0,
+    "false_split_count": 0,
+    "full_receipt_bytes": 155042,
+    "occurrences_total": 176,
+    "projected_scale_row_bytes": 59488,
+    "scale_precondition": true,
+    "terminal_decision": "NEEDS_MORE_SCALE_AFTER_LOCAL_PASS"
+  },
+  "objective": {
+    "goal": "Test whether the v0.2 local stable delta signature result survives scale variation before any acceptance or scale-mode authority.",
+    "non_goals": [
+      "Do not authorize scale mode.",
+      "Do not accept the candidate.",
+      "Do not suppress or replace receipts.",
+      "Do not compress or delete receipts.",
+      "Do not mutate registry.sqlite.",
+      "Do not modify runtime receipt emission.",
+      "Do not use raw receipt hashes as truth surface.",
+      "Do not use rowid, cycle_n, or case_id as primary signature identity."
+    ],
+    "primary_question": "Does state_sig8_before + move_id + state_sig8_after preserve distinguishability and burden reduction across available radius/depth/cycle scale bands?",
+    "scale_precondition_source": "v0.2 local probe had zero false merges, full retention, burden reduction, audit recoverability, and observer containment."
+  },
+  "pass_gates": {
+    "audit_recoverability": "every candidate row has an audit pointer to source registry receipt row",
+    "authority_containment": "observer-only, no registry writes, no runtime receipt changes, no scale mode, no acceptance",
+    "burden_reduction_all_bands": "projected_scale_row_bytes < full_receipt_bytes for every compatible band",
+    "local_precondition_preserved": "source v0.2 local probe remains a clean local pass",
+    "no_false_merge_all_bands": "false_merge_count == 0 for every compatible band",
+    "no_identity_leak": "signature payload excludes rowid, receipt hashes, audit pointer, full occurrence key, timestamps, paths, case_id-as-identity, cycle_n-as-identity",
+    "scale_coverage_honesty": "if only one compatible run exists, terminal must be INSUFFICIENT_SCALE_COVERAGE rather than acceptance",
+    "source_surface_regression": "state_sig8_before, move_id, state_sig8_after remain present and usable for every compatible band",
+    "truth_surface": "compare full_occurrence_key to candidate_delta_signature, never raw receipt hashes"
+  },
+  "policy_id": "7d453433",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "required_probe_behavior": {
+    "classify_insufficient_scale_coverage_honestly": true,
+    "emit_scale_band_probe_receipt": true,
+    "emit_scale_band_rows_jsonl": true,
+    "load_v02_local_probe_receipt": true,
+    "measure_aggregate_worst_case": true,
+    "measure_per_band_burden_and_distinguishability": true,
+    "must_not_accept_candidate": true,
+    "must_not_authorize_scale_mode": true,
+    "must_not_change_runtime_receipt_generation": true,
+    "must_not_replace_or_suppress_receipts": true,
+    "must_not_use_cycle_n_or_case_id_as_primary_signature_identity": true,
+    "must_not_use_raw_receipt_hash_truth_surface": true,
+    "must_not_use_rowid_as_signature_identity": true,
+    "must_not_write_registry_sqlite": true,
+    "read_existing_registry_only": true,
+    "replay_v02_signature_logic_across_compatible_runs": true
+  },
+  "scale_band_probe_contract": {
+    "candidate_signature_payload_forbidden_fields": [
+      "full_occurrence_key",
+      "raw_full_receipt_hash",
+      "full_receipt_hash",
+      "receipt_hash",
+      "receipt_sig8",
+      "receipt_rowid",
+      "rowid",
+      "audit_pointer",
+      "debug_payload",
+      "observer_notes",
+      "created_at",
+      "created_utc",
+      "timestamp",
+      "path",
+      "receipt_path",
+      "file_path",
+      "cycle_n_as_primary_identity",
+      "case_id_as_primary_identity"
+    ],
+    "candidate_signature_payload_required_fields": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after"
+    ],
+    "minimum_required_bands": {
+      "available_prior_or_later_runs": "include all compatible registry runs if present, otherwise classify insufficient scale coverage",
+      "cycle_variation": "measure per cycle_n and cycle growth if cycle_n values vary",
+      "depth_variation": "measure per depth and depth growth if depth values vary",
+      "local_run_replay": "must include the source local run"
+    },
+    "required_aggregate_measurements": [
+      "bands_total",
+      "bands_passed",
+      "bands_failed",
+      "worst_false_merge_count",
+      "worst_collision_count",
+      "worst_distinguishability_retention_ratio",
+      "worst_burden_ratio_projected",
+      "scale_coverage_status",
+      "compatible_run_count"
+    ],
+    "required_per_band_measurements": [
+      "run_id",
+      "band_id",
+      "axis",
+      "axis_value",
+      "occurrences_total",
+      "distinct_full_occurrence_keys",
+      "distinct_candidate_signatures",
+      "collision_count",
+      "false_merge_count",
+      "false_split_count",
+      "distinguishability_retention_ratio",
+      "full_receipt_bytes",
+      "signature_payload_bytes",
+      "projected_scale_row_bytes",
+      "burden_ratio_projected",
+      "burden_ratio_signature_payload",
+      "source_surface_regression_count",
+      "identity_leak_count",
+      "audit_recoverability_failures",
+      "observer_overhead_ms"
+    ],
+    "scale_band_axes": [
+      "available_run_ids",
+      "depth",
+      "cycle_n",
+      "family",
+      "case_id",
+      "receipt_count",
+      "raw/cell size fields if present"
+    ],
+    "truth_surface": "full_occurrence_key_to_candidate_delta_signature"
+  },
+  "scale_policy_id_name": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_POLICY",
+  "source_v02_probe_id": "bcdb3d93",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_PROBE",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_decisions": {
+    "FAIL_IDENTITY_LEAK": "Use if rowid, raw receipt hash, full occurrence key, path, timestamp, audit pointer, case_id-as-identity, or cycle_n-as-identity enters signature payload.",
+    "FAIL_OBSERVER_INTERFERENCE": "Use if probe mutates registry, runtime receipt emission, receipts, or authority.",
+    "FAIL_SCALE_BURDEN_REGRESSION": "Use if projected burden is not reduced in any required compatible band.",
+    "FAIL_SCALE_FALSE_MERGE": "Use if any compatible scale band introduces false merges.",
+    "FAIL_SOURCE_SURFACE_REGRESSION": "Use if required transition tuple fields are missing or unusable in any compatible band.",
+    "PASS_LOCAL_REPLAY_ONLY_INSUFFICIENT_SCALE_COVERAGE": "Use when local replay passes but there are not enough compatible scale bands/runs to claim scale stability.",
+    "PASS_SCALE_BANDS_OBSERVER_ONLY": "Use when multiple compatible scale bands pass no false merge, burden reduction, audit recovery, and observer containment."
+  }
+}
+
+VERIFY_RUNTIME_AND_PRIOR_SYSTEM_UNTOUCHED
+.gitignore
+runtime and prior system untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/build_stable_delta_signature_candidate_v0_2_scale_band_policy.py
+[master 2f57f3cc7] build stable delta signature candidate v0.2 scale-band policy
+ 2 files changed, 527 insertions(+)
+ create mode 100755 scripts/build_stable_delta_signature_candidate_v0_2_scale_band_policy.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

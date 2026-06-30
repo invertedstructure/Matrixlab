@@ -1,0 +1,74 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260629_003109
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260629_003109.txt
+
+REPAIR_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DISCOVERY_EXECUTION_SAMPLE_SOURCE_STATUS_AFTER_RUNTIME_ADOPTION_CLOSURE_V0
+
+VERIFY_REPAIR_TARGETS_PRESENT
+present data/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_receipt_c9e0fb77.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_discovery_result_v0.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_discovery_boundary_audit_v0.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_discovery_readout_v0.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_discovery_report.json
+present scripts/execute_c8_unit_feedback_hardening_failed_unit_sample_discovery_once_after_runtime_adoption_closure_v0.py
+present data/a0_current_receipt_chain_frontier_application_v0_receipts/c1d0f615.json
+
+PY_COMPILE_DISCOVERY_EXECUTION_RUNNER
+
+PATCH_SAMPLE_SOURCE_STATUS_ONLY
+{
+  "only_payload_repair": true,
+  "patched_files": [
+    "data/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_discovery_result_v0.json",
+    "data/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_discovery_report.json"
+  ],
+  "repair_gate": "PASS",
+  "sample_id": "c8_failed_unit_sample_ee4e6092",
+  "sample_source_path": "data/a0_current_receipt_chain_frontier_application_v0_receipts/c1d0f615.json",
+  "source_status_after": "MISSING_STATUS_FIELD_WITH_FAILURE_INDICATOR",
+  "source_status_before": null,
+  "source_status_repair_note": "Source artifact has a qualifying failure indicator but no top-level status field; source_status is recorded as an explicit missing-status marker rather than invented source status.",
+  "where_status_after": "MISSING_STATUS_FIELD_WITH_FAILURE_INDICATOR"
+}
+
+VERIFY_REPAIRED_DISCOVERY_EXECUTION_CONTENT
+{
+  "boundary_id": "c8_unit_feedback_hardening_failed_unit_sample_discovery_boundary_2ae0e55c",
+  "c8_rerun_authorized_now": false,
+  "failed_unit_sample_id": "c8_failed_unit_sample_ee4e6092",
+  "failed_unit_sample_source_path": "data/a0_current_receipt_chain_frontier_application_v0_receipts/c1d0f615.json",
+  "failures": [],
+  "instrument_build_authorized_now": false,
+  "probe_executed_now": false,
+  "probe_execution_authorized_now": false,
+  "receipt_id": "c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_receipt_c9e0fb77",
+  "repair_content_gate": "PASS",
+  "result_id": "c8_unit_feedback_hardening_failed_unit_sample_discovery_result_67360c26",
+  "reusable_schema_authorized_now": false,
+  "source_status": "MISSING_STATUS_FIELD_WITH_FAILURE_INDICATOR",
+  "source_status_repair_note": "Source artifact has a qualifying failure indicator but no top-level status field; source_status is recorded as an explicit missing-status marker rather than invented source status."
+}
+
+RESTAGE_DISCOVERY_EXECUTION_REPAIRED_ARTIFACTS
+
+VERIFY_STAGED_SCOPE_AFTER_REPAIR
+staged_path_count=7
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+failed_unit_sample_discovery_execution_receipts_staged=['data/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_receipt_c9e0fb77.json']
+
+DIFF_STAT_AFTER_REPAIR
+ .gitignore                                         |   6 +
+ ...ed_unit_sample_discovery_boundary_audit_v0.json |  46 ++
+ ...ng_failed_unit_sample_discovery_readout_v0.json |  21 +
+ ...dening_failed_unit_sample_discovery_report.json |  74 +++
+ ...ing_failed_unit_sample_discovery_result_v0.json |  78 +++
+ ...ample_discovery_execution_receipt_c9e0fb77.json | 114 +++++
+ ...overy_once_after_runtime_adoption_closure_v0.py | 554 +++++++++++++++++++++
+ 7 files changed, 893 insertions(+)
+
+REPAIR_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DISCOVERY_EXECUTION_SAMPLE_SOURCE_STATUS_AFTER_RUNTIME_ADOPTION_CLOSURE_PASS
+rerun_review_unit=REVIEW_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DISCOVERY_EXECUTION_AFTER_RUNTIME_ADOPTION_CLOSURE_V0
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

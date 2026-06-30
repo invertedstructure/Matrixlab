@@ -1,0 +1,212 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_025939
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_025939.txt
+
+FINISH_R75_SCALE_DECISION_V0_AFTER_ASSERTION_FIX
+
+STATUS_BEFORE
+ M .gitignore
+ M src/matrixlab/cli.py
+
+PY_COMPILE
+
+HELP_SMOKE
+help smoke ok
+
+RESOLVE_EXISTING_R75_SCALE_DECISION
+DECISION_ID=0bbd1bbd
+
+VERIFY_R75_SCALE_DECISION_POSITIVE
+{
+  "decision": "ADVANCE_TO_R100_WITH_BURDEN_WATCH",
+  "failures": [],
+  "gate": "PASS",
+  "input_decision": "0bbd1bbd",
+  "next_radius": 100,
+  "next_scale_step": "RADIUS_100_SLOT_SEPARATED",
+  "r75_scale_decision_id": "0bbd1bbd",
+  "r75_scale_decision_path": "data/radius_scale_decisions/0bbd1bbd.json",
+  "r75_scale_decision_recomputed_sig8": "0bbd1bbd",
+  "r75_scale_decision_sig8": "0bbd1bbd",
+  "r75_scale_decision_verification_id": "1d2676f4",
+  "r75_scale_decision_verification_schema_version": "r75_scale_decision_verification_v0",
+  "r75_scale_decision_verification_sig8": "1d2676f4",
+  "source_radius_scale_observation_id": "b9420863",
+  "terminal": {
+    "next_command_goal": "RUN_RADIUS_100_SLOT_SEPARATED_WITH_BURDEN_GUARD_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "verification_result": {
+    "failures": [],
+    "gate": "PASS",
+    "warnings": []
+  },
+  "warnings": []
+}
+r75_scale_decision_verification_path: data/radius_scale_decision_verifications/1d2676f4.json
+
+ASSERT_R75_SCALE_DECISION_POSITIVE_CORRECTED
+{
+  "burden_class": "BURDEN_SUPERLINEAR_WATCH",
+  "burden_guard": {
+    "does_not_change_run_semantics": true,
+    "does_not_compress_receipts": true,
+    "does_not_skip_slots": true,
+    "enabled": true,
+    "guard_meaning": "R100 may run, but post-R100 comparison must explicitly evaluate receipt burden before any further radius increase.",
+    "observed_radius_ratio_vs_r50": 1.5,
+    "observed_raw_ratio_vs_r50": 1.498891,
+    "observed_receipt_ratio_vs_r50": 2.288364,
+    "reason": "R75 receipt burden grew faster than radius while shape vocabulary stayed stable."
+  },
+  "curve_class": "SHAPE_STABLE_COUNT_SHIFT",
+  "decision": "ADVANCE_TO_R100_WITH_BURDEN_WATCH",
+  "gate": "PASS",
+  "next_radius": 100,
+  "next_scale_step": "RADIUS_100_SLOT_SEPARATED",
+  "r75_scale_decision_id": "0bbd1bbd",
+  "radius_ratio": 1.5,
+  "raw_ratio": 1.498891,
+  "receipt_ratio": 2.288364,
+  "recomputed_sig": "0bbd1bbd",
+  "sig_matches": true,
+  "source_radius_scale_observation_id": "b9420863",
+  "stored_sig": "0bbd1bbd",
+  "terminal": {
+    "next_command_goal": "RUN_RADIUS_100_SLOT_SEPARATED_WITH_BURDEN_GUARD_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROL_MISSING_RSO
+{
+  "burden_guard_v0": {},
+  "decision": "STOP_R75_DECISION_BUILD_FAIL",
+  "decision_kind": "POST_R75_FIRST_ORDER_SCALE_DECISION",
+  "execution_shape": "KEEP_9_SLOT_SEPARATED_RUNS",
+  "failures": [
+    "r75_scale_decision_build_failed:could not resolve 'definitely_missing_radius_scale_observation' under data/radius_scale_observations"
+  ],
+  "first_order_classes": {},
+  "forbidden": {},
+  "gate": "FAIL",
+  "input_summary": {},
+  "next_radius": null,
+  "next_scale_step": null,
+  "r75_scale_decision_id": "7b0bc3b7",
+  "r75_scale_decision_schema_version": "r75_scale_decision_v0",
+  "r75_scale_decision_sig8": "7b0bc3b7",
+  "representative_subset_status": "NOT_LICENSED_AT_V0",
+  "source_radius_scale_observation_id": "definitely_missing_radius_scale_observation",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_R75_DECISION_BUILD_FAIL",
+    "type": "STOP"
+  },
+  "warnings": []
+}
+r75_scale_decision_path: data/radius_scale_decisions/7b0bc3b7.json
+
+ASSERT_NEGATIVE_MISSING_RSO
+{
+  "decision": "STOP_R75_DECISION_BUILD_FAIL",
+  "failures": [
+    "r75_scale_decision_build_failed:could not resolve 'definitely_missing_radius_scale_observation' under data/radius_scale_observations"
+  ],
+  "gate": "FAIL",
+  "path": "data/radius_scale_decisions/7b0bc3b7.json",
+  "r75_scale_decision_id": "7b0bc3b7",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_R75_DECISION_BUILD_FAIL",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROL_MISSING_DECISION_VERIFY
+{
+  "decision": null,
+  "failures": [
+    "r75_scale_decision_unresolved:definitely_missing_r75_decision:could not resolve 'definitely_missing_r75_decision' under data/radius_scale_decisions"
+  ],
+  "gate": "FAIL",
+  "input_decision": "definitely_missing_r75_decision",
+  "next_radius": null,
+  "next_scale_step": null,
+  "r75_scale_decision_id": "definitely_missing_r75_decision",
+  "r75_scale_decision_path": null,
+  "r75_scale_decision_recomputed_sig8": null,
+  "r75_scale_decision_sig8": null,
+  "r75_scale_decision_verification_id": "48a8fcf5",
+  "r75_scale_decision_verification_schema_version": "r75_scale_decision_verification_v0",
+  "r75_scale_decision_verification_sig8": "48a8fcf5",
+  "source_radius_scale_observation_id": null,
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_GATE_FAIL",
+    "type": "STOP"
+  },
+  "verification_result": {
+    "failures": [
+      "r75_scale_decision_unresolved:definitely_missing_r75_decision:could not resolve 'definitely_missing_r75_decision' under data/radius_scale_decisions"
+    ],
+    "gate": "FAIL",
+    "warnings": []
+  },
+  "warnings": []
+}
+r75_scale_decision_verification_path: data/radius_scale_decision_verifications/48a8fcf5.json
+
+ASSERT_NEGATIVE_VERIFY
+{
+  "failures": [
+    "r75_scale_decision_unresolved:definitely_missing_r75_decision:could not resolve 'definitely_missing_r75_decision' under data/radius_scale_decisions"
+  ],
+  "gate": "FAIL",
+  "path": "data/radius_scale_decision_verifications/48a8fcf5.json",
+  "r75_scale_decision_verification_id": "48a8fcf5",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_GATE_FAIL",
+    "type": "STOP"
+  }
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_010858_229321
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    73 │
+│ total_receipts │  5475 │
+│ receipt_rows   │  5475 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    73 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore           |   6 +
+ src/matrixlab/cli.py | 343 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 349 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+ M src/matrixlab/cli.py
+[master 00b7338a6] add r75 scale decision
+ 2 files changed, 349 insertions(+)
+
+COMMIT_DONE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

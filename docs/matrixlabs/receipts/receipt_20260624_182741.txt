@@ -1,0 +1,883 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260624_182741
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260624_182741.txt
+
+CELL1_HANDOFF_RETURN_LOOP_REVIEW_OR_CLOSE_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+
+VERIFY_HANDOFF_RETURN_REVIEW_REQUIRED_BASIS
+present data/cell1_handoff_return_loop_test_run_v0_receipts/35e62eaf.json
+present data/cell1_handoff_return_loop_test_run_v0/cell1_handoff_return_result_packet_v0.json
+present data/cell1_handoff_return_loop_test_run_v0/return_packet_validation_record_v0.json
+present data/cell1_handoff_return_loop_test_run_v0/cell0_review_classification_request_v0.json
+present data/cell1_handoff_return_loop_test_run_v0/return_packet_classification_record_v0.json
+present data/cell1_handoff_return_loop_test_run_v0/handoff_return_loop_authority_audit_v0.json
+present data/cell1_handoff_return_loop_test_run_v0/handoff_return_loop_test_rollup_v0.json
+present data/cell1_handoff_return_loop_test_run_v0/handoff_return_loop_test_profile_v0.json
+present data/cell1_handoff_return_loop_test_run_v0/handoff_return_loop_test_report.json
+present data/cell1_handoff_return_loop_test_design_v0_receipts/26a8e1a4.json
+present data/cell1_handoff_return_loop_test_design_v0/handoff_return_loop_design_record_v0.json
+present data/cell1_handoff_return_loop_test_design_v0/handoff_return_contract_schema_v0.json
+present data/cell1_next_bounded_objective_decision_v0_receipts/c34d737d.json
+present data/cell1_schema_consumption_test_from_c4_handoff_v0_receipts/e6b0fd97.json
+present data/c2_cell0_label_taxonomy_lane_cleaning_v0_receipts/348dabde.json
+present data/c2_cell0_label_taxonomy_lane_cleaning_v0/taxonomy_lane_registry_v0.json
+
+PATCH_GITIGNORE
+
+WRITE_HANDOFF_RETURN_REVIEW_OR_CLOSE_RUNNER
+
+PY_COMPILE_HANDOFF_RETURN_REVIEW_RUNNER
+
+RUN_HANDOFF_RETURN_REVIEW_OR_CLOSE
+{
+  "acceptance_gate_results": {
+    "HANDOFF_RETURN_CLOSE_0_TEST_RECEIPT_CONSUMED": true,
+    "HANDOFF_RETURN_CLOSE_10_NO_C5_OPENED": true,
+    "HANDOFF_RETURN_CLOSE_11_NO_GENERAL_CELL1_AUTHORITY": true,
+    "HANDOFF_RETURN_CLOSE_12_NO_ACCEPTED_FOR_BUILD": true,
+    "HANDOFF_RETURN_CLOSE_13_NO_HIDDEN_NEXT_COMMAND": true,
+    "HANDOFF_RETURN_CLOSE_14_ROLLUP_PROFILE_REPORT_EMITTED": true,
+    "HANDOFF_RETURN_CLOSE_1_RETURN_PACKET_CONSUMED": true,
+    "HANDOFF_RETURN_CLOSE_2_CLASSIFICATION_CONSUMED": true,
+    "HANDOFF_RETURN_CLOSE_3_RETURN_LOOP_READOUT_EMITTED": true,
+    "HANDOFF_RETURN_CLOSE_4_BOUNDARY_AUDIT_PASS": true,
+    "HANDOFF_RETURN_CLOSE_5_CLOSURE_DECISION_EMITTED": true,
+    "HANDOFF_RETURN_CLOSE_6_REFERENCE_PACKET_FROZEN": true,
+    "HANDOFF_RETURN_CLOSE_7_NEXT_DECISION_SURFACE_EMITTED": true,
+    "HANDOFF_RETURN_CLOSE_8_NO_RUNTIME_PATCH": true,
+    "HANDOFF_RETURN_CLOSE_9_NO_TARGET_FILE_MODIFICATION": true
+  },
+  "active_object": "review and close bounded Cell1 handoff-return loop test",
+  "aggregate_metrics": {
+    "accepted_for_build_count": 0,
+    "boundary_audit_emitted_count": 1,
+    "build_mode": "HANDOFF_RETURN_LOOP_REVIEW_OR_CLOSE_ONLY",
+    "c5_opened_count": 0,
+    "closure_decision_emitted_count": 1,
+    "closure_status": "CLOSED_REFERENCE_ONLY",
+    "frozen_reference_packet_emitted_count": 1,
+    "general_cell1_authority_granted_count": 0,
+    "hidden_next_command_count": 0,
+    "layer": "CELL_1 / HANDOFF_RETURN_LOOP_REVIEW_OR_CLOSE",
+    "mode": "REVIEW / CLOSE / REFERENCE_FREEZE",
+    "next_decision_surface_emitted_count": 1,
+    "prior_receipt_mutation_count": 0,
+    "profile_status": "CELL1_HANDOFF_RETURN_LOOP_CLOSED_REFERENCE_ONLY",
+    "recommended_next_handling": "DECIDE_NEXT_BOUNDED_CELL1_OBJECTIVE_AFTER_RETURN_LOOP_V0",
+    "return_loop_readout_emitted_count": 1,
+    "rollup": {
+      "accepted_for_build": false,
+      "accepted_for_review": true,
+      "accepted_proposal_fabricated_count": 0,
+      "boundary_status": "PASS",
+      "build_mode": "HANDOFF_RETURN_LOOP_REVIEW_OR_CLOSE_ONLY",
+      "c5_opened_count": 0,
+      "classification": "RETURN_PACKET_ACCEPTED_FOR_REVIEW",
+      "closure_decision": "CLOSE_AND_FREEZE_HANDOFF_RETURN_REFERENCE",
+      "closure_status": "CLOSED_REFERENCE_ONLY",
+      "general_cell1_authority_granted_count": 0,
+      "hidden_next_command_count": 0,
+      "prior_receipt_mutation_count": 0,
+      "proposal_status_promoted_count": 0,
+      "recommended_next": "DECIDE_NEXT_BOUNDED_CELL1_OBJECTIVE_AFTER_RETURN_LOOP_V0",
+      "reference_packets_emitted": 1,
+      "rerun_handoff_return_test_count": 0,
+      "return_packet_validated": true,
+      "runtime_patch_applied_count": 0,
+      "schema_version": "cell1_handoff_return_loop_review_or_close_rollup_v0",
+      "source_c2_receipt_id": "348dabde",
+      "source_cell1_schema_test_receipt_id": "e6b0fd97",
+      "source_handoff_return_design_receipt_id": "26a8e1a4",
+      "source_handoff_return_test_receipt_id": "35e62eaf",
+      "source_mutation_count": 0,
+      "source_next_objective_receipt_id": "c34d737d",
+      "target_file_modified_count": 0,
+      "taxonomy_registry_mutation_count": 0,
+      "unbounded_payload_inspection_count": 0
+    },
+    "runtime_patch_applied_count": 0,
+    "source_handoff_return_test_receipt_consumed_count": 1,
+    "source_mutation_count": 0,
+    "target_file_modified_count": 0
+  },
+  "build_mode": "HANDOFF_RETURN_LOOP_REVIEW_OR_CLOSE_ONLY",
+  "created_at": "2026-06-24T17:27:42.180971+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "handoff_return_review_guards": {
+    "accepted_for_build": false,
+    "build_mode_review_or_close_only": true,
+    "c5_opened": false,
+    "closed_as_reference_only": true,
+    "general_cell1_authority_granted": false,
+    "hidden_next_command": false,
+    "prior_receipts_mutated": false,
+    "reference_packet_frozen": true,
+    "runtime_patch_applied": false,
+    "source_mutated": false,
+    "target_file_modified": false
+  },
+  "handoff_return_review_summary": {
+    "accepted_for_build": false,
+    "accepted_for_review": true,
+    "bad_counters_zero": true,
+    "boundary_status": "PASS",
+    "c5_opened": false,
+    "classification": "RETURN_PACKET_ACCEPTED_FOR_REVIEW",
+    "closure_decision": "CLOSE_AND_FREEZE_HANDOFF_RETURN_REFERENCE",
+    "closure_status": "CLOSED_REFERENCE_ONLY",
+    "general_cell1_authority_granted": false,
+    "profile_status": "CELL1_HANDOFF_RETURN_LOOP_CLOSED_REFERENCE_ONLY",
+    "recommended_next": "DECIDE_NEXT_BOUNDED_CELL1_OBJECTIVE_AFTER_RETURN_LOOP_V0",
+    "reference_status": "FROZEN_REFERENCE_ONLY",
+    "return_packet_validated": true,
+    "runtime_patch_applied": false,
+    "target_file_modified": false
+  },
+  "human_decision": {
+    "authorized": [
+      "consume handoff-return loop test receipt",
+      "audit return-loop result packet and classification",
+      "classify closure status",
+      "freeze handoff-return loop as reference if clean",
+      "emit next decision surface",
+      "emit receipt",
+      "stop with no next command goal"
+    ],
+    "decision": "CELL1_HANDOFF_RETURN_LOOP_REVIEW_OR_CLOSE",
+    "not_authorized": [
+      "rerun handoff-return loop test",
+      "apply runtime patch",
+      "modify target files",
+      "open C5",
+      "grant general Cell1 authority",
+      "mutate taxonomy registry",
+      "promote proposal status",
+      "fabricate accepted proposal",
+      "emit hidden next command"
+    ],
+    "scope": "Review the completed bounded Cell1 handoff-return loop test and close it as a frozen reference object if the return packet was valid, classifiable for review, and boundary-clean. This unit emits readout, boundary audit, closure decision, frozen reference packet, next decision surface, rollup, profile, report, transition trace, and receipt. It does not rerun the test, apply runtime patch, modify targets, open C5, grant general Cell1 authority, promote proposals, fabricate accepted proposals, or emit hidden next command."
+  },
+  "layer": "CELL_1 / HANDOFF_RETURN_LOOP_REVIEW_OR_CLOSE",
+  "mode": "REVIEW / CLOSE / REFERENCE_FREEZE",
+  "negative_controls": [
+    {
+      "case": "readout_not_validated_fail",
+      "failures": [
+        "readout_not_validated"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "readout_classification_wrong_fail",
+      "failures": [
+        "readout_classification_wrong"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "readout_accepts_for_build_fail",
+      "failures": [
+        "readout_accepts_for_build"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "boundary_audit_not_clean_fail",
+      "failures": [
+        "boundary_audit_not_clean"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "closure_decision_not_close_fail",
+      "failures": [
+        "closure_decision_not_close"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "reference_not_frozen_fail",
+      "failures": [
+        "reference_not_frozen"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "next_surface_hidden_command_fail",
+      "failures": [
+        "next_surface_hidden_command"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "next_surface_missing_c5_block_fail",
+      "failures": [
+        "next_surface_missing_c5_block"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "runtime_patch_applied_fail",
+      "failures": [
+        "rollup_counter_nonzero:runtime_patch_applied_count:1",
+        "report_counter_nonzero:runtime_patch_applied_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "target_file_modified_fail",
+      "failures": [
+        "rollup_counter_nonzero:target_file_modified_count:1",
+        "report_counter_nonzero:target_file_modified_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "c5_opened_fail",
+      "failures": [
+        "rollup_counter_nonzero:c5_opened_count:1",
+        "report_counter_nonzero:c5_opened_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "general_cell1_authority_granted_fail",
+      "failures": [
+        "rollup_counter_nonzero:general_cell1_authority_granted_count:1",
+        "report_counter_nonzero:general_cell1_authority_granted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "taxonomy_registry_mutated_fail",
+      "failures": [
+        "rollup_counter_nonzero:taxonomy_registry_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "proposal_status_promoted_fail",
+      "failures": [
+        "rollup_counter_nonzero:proposal_status_promoted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "accepted_proposal_fabricated_fail",
+      "failures": [
+        "rollup_counter_nonzero:accepted_proposal_fabricated_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "source_mutation_fail",
+      "failures": [
+        "rollup_counter_nonzero:source_mutation_count:1",
+        "report_counter_nonzero:source_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "prior_receipt_mutation_fail",
+      "failures": [
+        "rollup_counter_nonzero:prior_receipt_mutation_count:1",
+        "report_counter_nonzero:prior_receipt_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "hidden_next_command_fail",
+      "failures": [
+        "rollup_counter_nonzero:hidden_next_command_count:1",
+        "report_counter_nonzero:hidden_next_command_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "unbounded_payload_inspection_fail",
+      "failures": [
+        "rollup_counter_nonzero:unbounded_payload_inspection_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "rerun_handoff_return_test_fail",
+      "failures": [
+        "rollup_counter_nonzero:rerun_handoff_return_test_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "reference_packet_count_not_one_fail",
+      "failures": [
+        "reference_packet_count_not_one"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    }
+  ],
+  "output_artifacts": {
+    "boundary_audit": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_boundary_audit_v0.json",
+    "closure_decision": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_closure_decision_v0.json",
+    "frozen_reference_packet": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_frozen_reference_packet_v0.json",
+    "handoff_return_loop_readout": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_readout_v0.json",
+    "implementation_receipt": "data/cell1_handoff_return_loop_review_or_close_v0_receipts/1d7c0a9b.json",
+    "next_decision_surface": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_next_decision_surface_v0.json",
+    "profile": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_profile_v0.json",
+    "report": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_report.json",
+    "rollup": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_rollup_v0.json",
+    "source_authority_audit": "data/cell1_handoff_return_loop_test_run_v0/handoff_return_loop_authority_audit_v0.json",
+    "source_c2_lane_registry": "data/c2_cell0_label_taxonomy_lane_cleaning_v0/taxonomy_lane_registry_v0.json",
+    "source_design_receipt": "data/cell1_handoff_return_loop_test_design_v0_receipts/26a8e1a4.json",
+    "source_handoff_return_test_receipt": "data/cell1_handoff_return_loop_test_run_v0_receipts/35e62eaf.json",
+    "source_return_classification": "data/cell1_handoff_return_loop_test_run_v0/return_packet_classification_record_v0.json",
+    "source_return_packet": "data/cell1_handoff_return_loop_test_run_v0/cell1_handoff_return_result_packet_v0.json",
+    "source_surface": "data/cell1_handoff_return_loop_review_or_close_v0/source_surface_v0.json",
+    "transition_trace": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_transition_trace.json"
+  },
+  "receipt_id": "1d7c0a9b",
+  "receipt_type": "CELL1_HANDOFF_RETURN_LOOP_REVIEW_OR_CLOSE_RECEIPT",
+  "schema_version": "cell1_handoff_return_loop_review_or_close_receipt_v0",
+  "source_c2_receipt_id": "348dabde",
+  "source_cell1_schema_test_receipt_id": "e6b0fd97",
+  "source_handoff_return_design_receipt_id": "26a8e1a4",
+  "source_handoff_return_test_receipt_id": "35e62eaf",
+  "source_next_objective_receipt_id": "c34d737d",
+  "target_unit_id": "cell1.handoff_return_loop.review_or_close.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_HANDOFF_RETURN_LOOP_CLOSED_REFERENCE_ONLY",
+    "type": "STOP"
+  },
+  "unit_id": "CELL1_HANDOFF_RETURN_LOOP_REVIEW_OR_CLOSE_V0",
+  "warnings": []
+}
+handoff_return_review_receipt_id=1d7c0a9b
+handoff_return_review_receipt_path=data/cell1_handoff_return_loop_review_or_close_v0_receipts/1d7c0a9b.json
+handoff_return_review_closure_path=data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_closure_decision_v0.json
+handoff_return_reference_packet_path=data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_frozen_reference_packet_v0.json
+handoff_return_review_rollup_path=data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_rollup_v0.json
+handoff_return_review_profile_path=data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_profile_v0.json
+HANDOFF_RETURN_REVIEW_RECEIPT_ID=1d7c0a9b
+HANDOFF_RETURN_REVIEW_RECEIPT_PATH=data/cell1_handoff_return_loop_review_or_close_v0_receipts/1d7c0a9b.json
+HANDOFF_RETURN_REVIEW_CLOSURE_PATH=data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_closure_decision_v0.json
+HANDOFF_RETURN_REFERENCE_PACKET_PATH=data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_frozen_reference_packet_v0.json
+HANDOFF_RETURN_REVIEW_ROLLUP_PATH=data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_rollup_v0.json
+HANDOFF_RETURN_REVIEW_PROFILE_PATH=data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_profile_v0.json
+
+ASSERT_HANDOFF_RETURN_REVIEW_OR_CLOSE
+{
+  "failures": [],
+  "gate": "PASS",
+  "negative_control_count": 21,
+  "negative_control_pass_count": 21,
+  "receipt_id": "1d7c0a9b",
+  "summary": {
+    "accepted_for_build": false,
+    "accepted_for_review": true,
+    "bad_counters_zero": true,
+    "boundary_status": "PASS",
+    "c5_opened": false,
+    "classification": "RETURN_PACKET_ACCEPTED_FOR_REVIEW",
+    "closure_decision": "CLOSE_AND_FREEZE_HANDOFF_RETURN_REFERENCE",
+    "closure_status": "CLOSED_REFERENCE_ONLY",
+    "general_cell1_authority_granted": false,
+    "profile_status": "CELL1_HANDOFF_RETURN_LOOP_CLOSED_REFERENCE_ONLY",
+    "recommended_next": "DECIDE_NEXT_BOUNDED_CELL1_OBJECTIVE_AFTER_RETURN_LOOP_V0",
+    "reference_status": "FROZEN_REFERENCE_ONLY",
+    "return_packet_validated": true,
+    "runtime_patch_applied": false,
+    "target_file_modified": false
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_HANDOFF_RETURN_LOOP_CLOSED_REFERENCE_ONLY",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROLS_HANDOFF_RETURN_REVIEW_NON_WRITING
+{
+  "negative_control_count": 21,
+  "negative_control_pass_count": 21,
+  "wrote_live_artifact_count": 0
+}
+{
+  "negative_controls_write_outputs": false,
+  "receipt_unchanged": true
+}
+
+VERIFY_NO_RERUN_RUNTIME_PATCH_TARGET_FILE_C5_AUTHORITY_OR_FORBIDDEN_MUTATION
+allowed_status_lines_checked
+no rerun/runtime patch/target file modification/C5/general authority/proposal promotion/source mutation; protected prior artifacts untouched; expected review/closure artifacts allowed
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260623_060237_751310
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    30 │
+│ total_receipts │   237 │
+│ receipt_rows   │   237 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │    29 │
+│ REPEATED_STATE_PERIODIC │     1 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+?? scripts/review_or_close_cell1_handoff_return_loop_v0.py
+
+PACKAGE_HANDOFF_RETURN_REVIEW_OR_CLOSE_ARTIFACTS
+packaged data/cell1_handoff_return_loop_review_or_close_v0_receipts/1d7c0a9b.json
+packaged data/cell1_handoff_return_loop_review_or_close_v0/source_surface_v0.json
+packaged data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_readout_v0.json
+packaged data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_boundary_audit_v0.json
+packaged data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_closure_decision_v0.json
+packaged data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_frozen_reference_packet_v0.json
+packaged data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_next_decision_surface_v0.json
+packaged data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_rollup_v0.json
+packaged data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_profile_v0.json
+packaged data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_report.json
+packaged data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_transition_trace.json
+[master eaa38f451] close cell1 handoff return loop reference
+ 13 files changed, 1428 insertions(+)
+ create mode 100644 data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_boundary_audit_v0.json
+ create mode 100644 data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_closure_decision_v0.json
+ create mode 100644 data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_frozen_reference_packet_v0.json
+ create mode 100644 data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_next_decision_surface_v0.json
+ create mode 100644 data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_readout_v0.json
+ create mode 100644 data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_profile_v0.json
+ create mode 100644 data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_report.json
+ create mode 100644 data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_rollup_v0.json
+ create mode 100644 data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_transition_trace.json
+ create mode 100644 data/cell1_handoff_return_loop_review_or_close_v0/source_surface_v0.json
+ create mode 100644 data/cell1_handoff_return_loop_review_or_close_v0_receipts/1d7c0a9b.json
+ create mode 100755 scripts/review_or_close_cell1_handoff_return_loop_v0.py
+
+COMMIT_DONE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+
+HANDOFF_RETURN_REVIEW_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+handoff_return_review_receipt_id=1d7c0a9b
+handoff_return_review_receipt_path=data/cell1_handoff_return_loop_review_or_close_v0_receipts/1d7c0a9b.json
+{
+  "acceptance_gate_results": {
+    "HANDOFF_RETURN_CLOSE_0_TEST_RECEIPT_CONSUMED": true,
+    "HANDOFF_RETURN_CLOSE_10_NO_C5_OPENED": true,
+    "HANDOFF_RETURN_CLOSE_11_NO_GENERAL_CELL1_AUTHORITY": true,
+    "HANDOFF_RETURN_CLOSE_12_NO_ACCEPTED_FOR_BUILD": true,
+    "HANDOFF_RETURN_CLOSE_13_NO_HIDDEN_NEXT_COMMAND": true,
+    "HANDOFF_RETURN_CLOSE_14_ROLLUP_PROFILE_REPORT_EMITTED": true,
+    "HANDOFF_RETURN_CLOSE_1_RETURN_PACKET_CONSUMED": true,
+    "HANDOFF_RETURN_CLOSE_2_CLASSIFICATION_CONSUMED": true,
+    "HANDOFF_RETURN_CLOSE_3_RETURN_LOOP_READOUT_EMITTED": true,
+    "HANDOFF_RETURN_CLOSE_4_BOUNDARY_AUDIT_PASS": true,
+    "HANDOFF_RETURN_CLOSE_5_CLOSURE_DECISION_EMITTED": true,
+    "HANDOFF_RETURN_CLOSE_6_REFERENCE_PACKET_FROZEN": true,
+    "HANDOFF_RETURN_CLOSE_7_NEXT_DECISION_SURFACE_EMITTED": true,
+    "HANDOFF_RETURN_CLOSE_8_NO_RUNTIME_PATCH": true,
+    "HANDOFF_RETURN_CLOSE_9_NO_TARGET_FILE_MODIFICATION": true
+  },
+  "aggregate_metrics": {
+    "accepted_for_build_count": 0,
+    "boundary_audit_emitted_count": 1,
+    "build_mode": "HANDOFF_RETURN_LOOP_REVIEW_OR_CLOSE_ONLY",
+    "c5_opened_count": 0,
+    "closure_decision_emitted_count": 1,
+    "closure_status": "CLOSED_REFERENCE_ONLY",
+    "frozen_reference_packet_emitted_count": 1,
+    "general_cell1_authority_granted_count": 0,
+    "hidden_next_command_count": 0,
+    "layer": "CELL_1 / HANDOFF_RETURN_LOOP_REVIEW_OR_CLOSE",
+    "mode": "REVIEW / CLOSE / REFERENCE_FREEZE",
+    "next_decision_surface_emitted_count": 1,
+    "prior_receipt_mutation_count": 0,
+    "profile_status": "CELL1_HANDOFF_RETURN_LOOP_CLOSED_REFERENCE_ONLY",
+    "recommended_next_handling": "DECIDE_NEXT_BOUNDED_CELL1_OBJECTIVE_AFTER_RETURN_LOOP_V0",
+    "return_loop_readout_emitted_count": 1,
+    "rollup": {
+      "accepted_for_build": false,
+      "accepted_for_review": true,
+      "accepted_proposal_fabricated_count": 0,
+      "boundary_status": "PASS",
+      "build_mode": "HANDOFF_RETURN_LOOP_REVIEW_OR_CLOSE_ONLY",
+      "c5_opened_count": 0,
+      "classification": "RETURN_PACKET_ACCEPTED_FOR_REVIEW",
+      "closure_decision": "CLOSE_AND_FREEZE_HANDOFF_RETURN_REFERENCE",
+      "closure_status": "CLOSED_REFERENCE_ONLY",
+      "general_cell1_authority_granted_count": 0,
+      "hidden_next_command_count": 0,
+      "prior_receipt_mutation_count": 0,
+      "proposal_status_promoted_count": 0,
+      "recommended_next": "DECIDE_NEXT_BOUNDED_CELL1_OBJECTIVE_AFTER_RETURN_LOOP_V0",
+      "reference_packets_emitted": 1,
+      "rerun_handoff_return_test_count": 0,
+      "return_packet_validated": true,
+      "runtime_patch_applied_count": 0,
+      "schema_version": "cell1_handoff_return_loop_review_or_close_rollup_v0",
+      "source_c2_receipt_id": "348dabde",
+      "source_cell1_schema_test_receipt_id": "e6b0fd97",
+      "source_handoff_return_design_receipt_id": "26a8e1a4",
+      "source_handoff_return_test_receipt_id": "35e62eaf",
+      "source_mutation_count": 0,
+      "source_next_objective_receipt_id": "c34d737d",
+      "target_file_modified_count": 0,
+      "taxonomy_registry_mutation_count": 0,
+      "unbounded_payload_inspection_count": 0
+    },
+    "runtime_patch_applied_count": 0,
+    "source_handoff_return_test_receipt_consumed_count": 1,
+    "source_mutation_count": 0,
+    "target_file_modified_count": 0
+  },
+  "build_mode": "HANDOFF_RETURN_LOOP_REVIEW_OR_CLOSE_ONLY",
+  "gate": "PASS",
+  "handoff_return_review_guards": {
+    "accepted_for_build": false,
+    "build_mode_review_or_close_only": true,
+    "c5_opened": false,
+    "closed_as_reference_only": true,
+    "general_cell1_authority_granted": false,
+    "hidden_next_command": false,
+    "prior_receipts_mutated": false,
+    "reference_packet_frozen": true,
+    "runtime_patch_applied": false,
+    "source_mutated": false,
+    "target_file_modified": false
+  },
+  "handoff_return_review_summary": {
+    "accepted_for_build": false,
+    "accepted_for_review": true,
+    "bad_counters_zero": true,
+    "boundary_status": "PASS",
+    "c5_opened": false,
+    "classification": "RETURN_PACKET_ACCEPTED_FOR_REVIEW",
+    "closure_decision": "CLOSE_AND_FREEZE_HANDOFF_RETURN_REFERENCE",
+    "closure_status": "CLOSED_REFERENCE_ONLY",
+    "general_cell1_authority_granted": false,
+    "profile_status": "CELL1_HANDOFF_RETURN_LOOP_CLOSED_REFERENCE_ONLY",
+    "recommended_next": "DECIDE_NEXT_BOUNDED_CELL1_OBJECTIVE_AFTER_RETURN_LOOP_V0",
+    "reference_status": "FROZEN_REFERENCE_ONLY",
+    "return_packet_validated": true,
+    "runtime_patch_applied": false,
+    "target_file_modified": false
+  },
+  "human_decision": {
+    "authorized": [
+      "consume handoff-return loop test receipt",
+      "audit return-loop result packet and classification",
+      "classify closure status",
+      "freeze handoff-return loop as reference if clean",
+      "emit next decision surface",
+      "emit receipt",
+      "stop with no next command goal"
+    ],
+    "decision": "CELL1_HANDOFF_RETURN_LOOP_REVIEW_OR_CLOSE",
+    "not_authorized": [
+      "rerun handoff-return loop test",
+      "apply runtime patch",
+      "modify target files",
+      "open C5",
+      "grant general Cell1 authority",
+      "mutate taxonomy registry",
+      "promote proposal status",
+      "fabricate accepted proposal",
+      "emit hidden next command"
+    ],
+    "scope": "Review the completed bounded Cell1 handoff-return loop test and close it as a frozen reference object if the return packet was valid, classifiable for review, and boundary-clean. This unit emits readout, boundary audit, closure decision, frozen reference packet, next decision surface, rollup, profile, report, transition trace, and receipt. It does not rerun the test, apply runtime patch, modify targets, open C5, grant general Cell1 authority, promote proposals, fabricate accepted proposals, or emit hidden next command."
+  },
+  "negative_controls": [
+    {
+      "case": "readout_not_validated_fail",
+      "failures": [
+        "readout_not_validated"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "readout_classification_wrong_fail",
+      "failures": [
+        "readout_classification_wrong"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "readout_accepts_for_build_fail",
+      "failures": [
+        "readout_accepts_for_build"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "boundary_audit_not_clean_fail",
+      "failures": [
+        "boundary_audit_not_clean"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "closure_decision_not_close_fail",
+      "failures": [
+        "closure_decision_not_close"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "reference_not_frozen_fail",
+      "failures": [
+        "reference_not_frozen"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "next_surface_hidden_command_fail",
+      "failures": [
+        "next_surface_hidden_command"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "next_surface_missing_c5_block_fail",
+      "failures": [
+        "next_surface_missing_c5_block"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "runtime_patch_applied_fail",
+      "failures": [
+        "rollup_counter_nonzero:runtime_patch_applied_count:1",
+        "report_counter_nonzero:runtime_patch_applied_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "target_file_modified_fail",
+      "failures": [
+        "rollup_counter_nonzero:target_file_modified_count:1",
+        "report_counter_nonzero:target_file_modified_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "c5_opened_fail",
+      "failures": [
+        "rollup_counter_nonzero:c5_opened_count:1",
+        "report_counter_nonzero:c5_opened_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "general_cell1_authority_granted_fail",
+      "failures": [
+        "rollup_counter_nonzero:general_cell1_authority_granted_count:1",
+        "report_counter_nonzero:general_cell1_authority_granted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "taxonomy_registry_mutated_fail",
+      "failures": [
+        "rollup_counter_nonzero:taxonomy_registry_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "proposal_status_promoted_fail",
+      "failures": [
+        "rollup_counter_nonzero:proposal_status_promoted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "accepted_proposal_fabricated_fail",
+      "failures": [
+        "rollup_counter_nonzero:accepted_proposal_fabricated_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "source_mutation_fail",
+      "failures": [
+        "rollup_counter_nonzero:source_mutation_count:1",
+        "report_counter_nonzero:source_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "prior_receipt_mutation_fail",
+      "failures": [
+        "rollup_counter_nonzero:prior_receipt_mutation_count:1",
+        "report_counter_nonzero:prior_receipt_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "hidden_next_command_fail",
+      "failures": [
+        "rollup_counter_nonzero:hidden_next_command_count:1",
+        "report_counter_nonzero:hidden_next_command_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "unbounded_payload_inspection_fail",
+      "failures": [
+        "rollup_counter_nonzero:unbounded_payload_inspection_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "rerun_handoff_return_test_fail",
+      "failures": [
+        "rollup_counter_nonzero:rerun_handoff_return_test_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "reference_packet_count_not_one_fail",
+      "failures": [
+        "reference_packet_count_not_one"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    }
+  ],
+  "output_artifacts": {
+    "boundary_audit": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_boundary_audit_v0.json",
+    "closure_decision": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_closure_decision_v0.json",
+    "frozen_reference_packet": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_frozen_reference_packet_v0.json",
+    "handoff_return_loop_readout": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_readout_v0.json",
+    "implementation_receipt": "data/cell1_handoff_return_loop_review_or_close_v0_receipts/1d7c0a9b.json",
+    "next_decision_surface": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_next_decision_surface_v0.json",
+    "profile": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_profile_v0.json",
+    "report": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_report.json",
+    "rollup": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_rollup_v0.json",
+    "source_authority_audit": "data/cell1_handoff_return_loop_test_run_v0/handoff_return_loop_authority_audit_v0.json",
+    "source_c2_lane_registry": "data/c2_cell0_label_taxonomy_lane_cleaning_v0/taxonomy_lane_registry_v0.json",
+    "source_design_receipt": "data/cell1_handoff_return_loop_test_design_v0_receipts/26a8e1a4.json",
+    "source_handoff_return_test_receipt": "data/cell1_handoff_return_loop_test_run_v0_receipts/35e62eaf.json",
+    "source_return_classification": "data/cell1_handoff_return_loop_test_run_v0/return_packet_classification_record_v0.json",
+    "source_return_packet": "data/cell1_handoff_return_loop_test_run_v0/cell1_handoff_return_result_packet_v0.json",
+    "source_surface": "data/cell1_handoff_return_loop_review_or_close_v0/source_surface_v0.json",
+    "transition_trace": "data/cell1_handoff_return_loop_review_or_close_v0/handoff_return_loop_review_or_close_transition_trace.json"
+  },
+  "source_c2_receipt_id": "348dabde",
+  "source_cell1_schema_test_receipt_id": "e6b0fd97",
+  "source_handoff_return_design_receipt_id": "26a8e1a4",
+  "source_handoff_return_test_receipt_id": "35e62eaf",
+  "source_next_objective_receipt_id": "c34d737d",
+  "target_unit_id": "cell1.handoff_return_loop.review_or_close.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_HANDOFF_RETURN_LOOP_CLOSED_REFERENCE_ONLY",
+    "type": "STOP"
+  },
+  "unit_id": "CELL1_HANDOFF_RETURN_LOOP_REVIEW_OR_CLOSE_V0"
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

@@ -1,0 +1,286 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_235115
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_235115.txt
+
+REVIEW_CAPABILITY_STOP_PACKET_TO_BOUNDED_PROPOSAL_V0
+
+STATUS_BEFORE_RELEVANT
+M  .gitignore
+A  data/capability_stop_packet_to_bounded_proposal_v0/bounded_capability_proposal_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_profile_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_readout_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_report.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_rollup_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_trace_v0.jsonl
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_transition_trace.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_stop_packet_intake_review_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_stop_packet_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/human_capability_decision_packet_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0_receipts/capability_adapter_receipt_8c7f0905.json
+A  scripts/build_capability_stop_packet_to_bounded_proposal_v0.py
+
+VERIFY_CAPABILITY_PROPOSAL_ADAPTER_REVIEW_BASIS
+present data/capability_stop_packet_to_bounded_proposal_v0_receipts/capability_adapter_receipt_8c7f0905.json
+present data/capability_stop_packet_to_bounded_proposal_v0/capability_stop_packet_intake_review_v0.json
+present data/capability_stop_packet_to_bounded_proposal_v0/capability_stop_packet_v0.json
+present data/capability_stop_packet_to_bounded_proposal_v0/bounded_capability_proposal_v0.json
+present data/capability_stop_packet_to_bounded_proposal_v0/human_capability_decision_packet_v0.json
+present data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_trace_v0.jsonl
+present data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_readout_v0.json
+present data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_rollup_v0.json
+present data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_profile_v0.json
+present data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_report.json
+present data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_transition_trace.json
+
+PATCH_GITIGNORE
+
+WRITE_CAPABILITY_PROPOSAL_ADAPTER_REVIEW
+
+PY_COMPILE_CAPABILITY_PROPOSAL_ADAPTER_REVIEW
+
+RUN_CAPABILITY_PROPOSAL_ADAPTER_REVIEW
+{
+  "acceptance_gate_results": {
+    "REVIEW_0_ADAPTER_RECEIPT_CONSUMED": true,
+    "REVIEW_10_NEGATIVE_CONTROL_PARITY_CHECKED": true,
+    "REVIEW_11_LOCAL_REPAIR_TARGET_EMITTED_IF_REQUIRED": true,
+    "REVIEW_12_SOURCE_INPUTS_NOT_MUTATED": true,
+    "REVIEW_13_NO_HIDDEN_NEXT_COMMAND": true,
+    "REVIEW_1_PROPOSAL_EMITTED": true,
+    "REVIEW_2_PROPOSAL_CANDIDATE_ONLY": true,
+    "REVIEW_3_HUMAN_DECISION_PACKET_EMITTED": true,
+    "REVIEW_4_NO_IMPLEMENTATION_AUTHORITY": true,
+    "REVIEW_5_NO_RUNTIME_REPAIR": true,
+    "REVIEW_6_NO_SCHEMA_MUTATION": true,
+    "REVIEW_7_NO_MOVE_ADDITION": true,
+    "REVIEW_8_NO_C8_AUTHORIZATION": true,
+    "REVIEW_9_TRACE_RECONSTRUCTABLE": true
+  },
+  "created_at": "2026-06-25T22:51:15.970003+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "machine_readable_capability_proposal_adapter_review_summary": {
+    "adapter_receipt_id": "capability_adapter_receipt_8c7f0905",
+    "c8_authorized": false,
+    "fixture_expansion_authorized": false,
+    "hidden_next_command": false,
+    "human_acceptance_ready": false,
+    "implementation_authorized": false,
+    "local_repair_required": true,
+    "missing_receipt_negative_control_keys": [
+      "runtime_adoption_authority_count"
+    ],
+    "missing_rollup_negative_control_keys": [],
+    "move_addition_authorized": false,
+    "negative_control_parity_gap_count": 1,
+    "next_unit_id": "REPAIR_CAPABILITY_PROPOSAL_ADAPTER_NEGATIVE_CONTROL_PARITY_V0",
+    "proposal_accepted": false,
+    "proposal_bridge_valid": true,
+    "proposal_id": "capability_proposal_57dda6e9",
+    "proposal_kind": "BOUNDED_TRIGGER_SURFACE_CAPABILITY_PROPOSAL",
+    "proposed_surface": "bounded_structured_t6_trigger_surface_capability_v0",
+    "reason_codes": [
+      "ADAPTER_RECEIPT_CONSUMED",
+      "PROPOSAL_BRIDGE_SHAPE_REVIEWED",
+      "AUTHORITY_BOUNDARY_REVIEWED",
+      "PROPOSAL_CANDIDATE_ONLY_CONFIRMED",
+      "HUMAN_DECISION_PACKET_CONFIRMED",
+      "NO_PROPOSAL_ACCEPTANCE",
+      "NO_IMPLEMENTATION",
+      "NO_RUNTIME_REPAIR",
+      "NO_SCHEMA_MUTATION",
+      "NO_MOVE_ADDITION",
+      "NO_FIXTURE_EXPANSION_BY_DEFAULT",
+      "NO_RUNTIME_PATCH",
+      "NO_RUNTIME_ADOPTION_AUTHORITY",
+      "NO_C8_AUTHORIZATION",
+      "NEGATIVE_CONTROL_PARITY_GAP_FOUND",
+      "LOCAL_REPAIR_TARGET_EMITTED",
+      "REFERENCE_FREEZE_BLOCKED_UNTIL_REPAIR",
+      "NO_HIDDEN_NEXT_COMMAND"
+    ],
+    "reference_freeze_ready": false,
+    "repair_target_unit_id": "REPAIR_CAPABILITY_PROPOSAL_ADAPTER_NEGATIVE_CONTROL_PARITY_V0",
+    "review_verdict": "VALID_PROPOSAL_BRIDGE_NEEDS_LOCAL_PARITY_REPAIR",
+    "runtime_adoption_authorized": false,
+    "runtime_patch_authorized": false,
+    "schema_mutation_authorized": false,
+    "status": "TYPED_CAPABILITY_PROPOSAL_ADAPTER_REVIEW_PASS_LOCAL_REPAIR_REQUIRED",
+    "validation_path_ready": true
+  },
+  "output_artifacts": {
+    "basis": "data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_review_basis_v0.json",
+    "boundary_review": "data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_boundary_review_v0.json",
+    "implementation_receipt": "data/capability_stop_packet_to_bounded_proposal_review_v0_receipts/capability_adapter_review_receipt_9c306ed5.json",
+    "negative_control_parity_review": "data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_negative_control_parity_review_v0.json",
+    "profile": "data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_review_profile_v0.json",
+    "readout": "data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_review_readout_v0.json",
+    "repair_target": "data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_negative_control_parity_repair_target_v0.json",
+    "report": "data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_review_report.json",
+    "rollup": "data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_review_rollup_v0.json",
+    "shape_review": "data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_shape_review_v0.json",
+    "transition_trace": "data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_review_transition_trace.json"
+  },
+  "receipt_id": "capability_adapter_review_receipt_9c306ed5",
+  "receipt_type": "TYPED_CAPABILITY_PROPOSAL_ADAPTER_REVIEW_RECEIPT",
+  "review_findings": [
+    {
+      "blocks_reference_freeze": true,
+      "finding_id": "CAPABILITY_ADAPTER_REVIEW_FINDING_NEGATIVE_CONTROL_RECEIPT_PARITY_GAP",
+      "finding_kind": "NEGATIVE_CONTROL_PARITY_GAP",
+      "missing_keys": [
+        "runtime_adoption_authority_count"
+      ],
+      "repairable_locally": true,
+      "requires_move_addition": false,
+      "requires_runtime_repair": false,
+      "requires_schema_mutation": false,
+      "severity": "LOCAL_TIGHTENING_REQUIRED",
+      "source": "data/capability_stop_packet_to_bounded_proposal_v0_receipts/capability_adapter_receipt_8c7f0905.json"
+    }
+  ],
+  "schema_version": "capability_proposal_adapter_review_receipt_v0",
+  "source_adapter_receipt_id": "capability_adapter_receipt_8c7f0905",
+  "source_adapter_receipt_ref": "data/capability_stop_packet_to_bounded_proposal_v0_receipts/capability_adapter_receipt_8c7f0905.json",
+  "status": "TYPED_CAPABILITY_PROPOSAL_ADAPTER_REVIEW_PASS_LOCAL_REPAIR_REQUIRED",
+  "target_unit_id": "capability_stop_packet_to_bounded_proposal.review_v0",
+  "terminal": {
+    "next_unit_id": "REPAIR_CAPABILITY_PROPOSAL_ADAPTER_NEGATIVE_CONTROL_PARITY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "unit_id": "REVIEW_CAPABILITY_STOP_PACKET_TO_BOUNDED_PROPOSAL_V0",
+  "warnings": []
+}
+capability_proposal_adapter_review_receipt_id=capability_adapter_review_receipt_9c306ed5
+capability_proposal_adapter_review_receipt_path=data/capability_stop_packet_to_bounded_proposal_review_v0_receipts/capability_adapter_review_receipt_9c306ed5.json
+capability_proposal_adapter_review_next_unit=REPAIR_CAPABILITY_PROPOSAL_ADAPTER_NEGATIVE_CONTROL_PARITY_V0
+
+ASSERT_CAPABILITY_PROPOSAL_ADAPTER_REVIEW
+{
+  "c8_authorized": false,
+  "failures": [],
+  "gate": "PASS",
+  "hidden_next_command": false,
+  "implementation_authorized": false,
+  "local_repair_required": true,
+  "missing_receipt_negative_control_keys": [
+    "runtime_adoption_authority_count"
+  ],
+  "missing_rollup_negative_control_keys": [],
+  "move_addition_authorized": false,
+  "negative_control_parity_gap_count": 1,
+  "proposal_accepted": false,
+  "proposal_bridge_valid": true,
+  "receipt_id": "capability_adapter_review_receipt_9c306ed5",
+  "reference_freeze_ready": false,
+  "repair_target_unit_id": "REPAIR_CAPABILITY_PROPOSAL_ADAPTER_NEGATIVE_CONTROL_PARITY_V0",
+  "review_verdict": "VALID_PROPOSAL_BRIDGE_NEEDS_LOCAL_PARITY_REPAIR",
+  "runtime_adoption_authorized": false,
+  "runtime_patch_authorized": false,
+  "schema_mutation_authorized": false,
+  "status": "TYPED_CAPABILITY_PROPOSAL_ADAPTER_REVIEW_PASS_LOCAL_REPAIR_REQUIRED",
+  "terminal": {
+    "next_unit_id": "REPAIR_CAPABILITY_PROPOSAL_ADAPTER_NEGATIVE_CONTROL_PARITY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+SHOW_CAPABILITY_PROPOSAL_ADAPTER_REVIEW_SUMMARY
+receipt_id=capability_adapter_review_receipt_9c306ed5
+receipt_path=data/capability_stop_packet_to_bounded_proposal_review_v0_receipts/capability_adapter_review_receipt_9c306ed5.json
+status=TYPED_CAPABILITY_PROPOSAL_ADAPTER_REVIEW_PASS_LOCAL_REPAIR_REQUIRED
+adapter_receipt_id=capability_adapter_receipt_8c7f0905
+proposal_id=capability_proposal_57dda6e9
+proposal_kind=BOUNDED_TRIGGER_SURFACE_CAPABILITY_PROPOSAL
+proposed_surface=bounded_structured_t6_trigger_surface_capability_v0
+proposal_bridge_valid=True
+review_verdict=VALID_PROPOSAL_BRIDGE_NEEDS_LOCAL_PARITY_REPAIR
+local_repair_required=True
+repair_target_unit_id=REPAIR_CAPABILITY_PROPOSAL_ADAPTER_NEGATIVE_CONTROL_PARITY_V0
+reference_freeze_ready=False
+negative_control_parity_gap_count=1
+missing_receipt_negative_control_keys=runtime_adoption_authority_count
+missing_rollup_negative_control_keys=
+proposal_accepted=False
+human_acceptance_ready=False
+validation_path_ready=True
+implementation_authorized=False
+runtime_adoption_authorized=False
+schema_mutation_authorized=False
+move_addition_authorized=False
+fixture_expansion_authorized=False
+runtime_patch_authorized=False
+hidden_next_command=False
+c8_authorized=False
+terminal_type=ADVANCE
+terminal_next_unit_id=REPAIR_CAPABILITY_PROPOSAL_ADAPTER_NEGATIVE_CONTROL_PARITY_V0
+
+SHOW_NEGATIVE_CONTROL_PARITY_REVIEW
+review_status=LOCAL_REPAIR_REQUIRED
+parity_gap_count=1
+receipt_missing_keys=runtime_adoption_authority_count
+rollup_missing_keys=
+receipt_nonzero={}
+rollup_nonzero={}
+
+SHOW_REPAIR_TARGET
+target_status=READY
+next_unit_id=REPAIR_CAPABILITY_PROPOSAL_ADAPTER_NEGATIVE_CONTROL_PARITY_V0
+repair_scope=LOCAL_NEGATIVE_CONTROL_PARITY_ONLY
+missing_receipt_negative_control_keys=runtime_adoption_authority_count
+missing_rollup_negative_control_keys=
+required_action=Add missing negative-control keys at zero where absent, preserving all source semantics and without accepting, validating, implementing, or freezing the proposal.
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+MM .gitignore
+A  data/capability_stop_packet_to_bounded_proposal_v0/bounded_capability_proposal_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_profile_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_readout_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_report.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_rollup_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_trace_v0.jsonl
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_transition_trace.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_stop_packet_intake_review_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_stop_packet_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/human_capability_decision_packet_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0_receipts/capability_adapter_receipt_8c7f0905.json
+A  scripts/build_capability_stop_packet_to_bounded_proposal_v0.py
+?? scripts/review_capability_stop_packet_to_bounded_proposal_v0.py
+
+PACKAGE_CAPABILITY_PROPOSAL_ADAPTER_REVIEW_ARTIFACTS
+
+CAPABILITY_PROPOSAL_ADAPTER_REVIEW_READY_FOR_COMMIT
+M  .gitignore
+A  data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_boundary_review_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_negative_control_parity_repair_target_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_negative_control_parity_review_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_review_basis_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_review_profile_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_review_readout_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_review_report.json
+A  data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_review_rollup_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_review_transition_trace.json
+A  data/capability_stop_packet_to_bounded_proposal_review_v0/capability_proposal_adapter_shape_review_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_review_v0_receipts/capability_adapter_review_receipt_9c306ed5.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/bounded_capability_proposal_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_profile_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_readout_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_report.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_rollup_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_trace_v0.jsonl
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_proposal_adapter_transition_trace.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_stop_packet_intake_review_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/capability_stop_packet_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0/human_capability_decision_packet_v0.json
+A  data/capability_stop_packet_to_bounded_proposal_v0_receipts/capability_adapter_receipt_8c7f0905.json
+A  scripts/build_capability_stop_packet_to_bounded_proposal_v0.py
+A  scripts/review_capability_stop_packet_to_bounded_proposal_v0.py
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

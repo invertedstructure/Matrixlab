@@ -1,0 +1,591 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_030424
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_030424.txt
+
+BUILD_JURISDICTION_RUNNER_V0_1_BOOTSTRAP_POLICY_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+PATCH_GITIGNORE
+
+WRITE_JURISDICTION_RUNNER_BOOTSTRAP_POLICY_BUILDER
+
+PY_COMPILE_BOOTSTRAP_POLICY_BUILDER
+
+RUN_BOOTSTRAP_POLICY_BUILDER
+{
+  "allowed_proposal_classes": [
+    "MOVE_DELTA_PROPOSAL",
+    "TAXONOMY_DELTA_PROPOSAL",
+    "METRIC_DELTA_PROPOSAL",
+    "RECEIPT_DELTA_PROPOSAL",
+    "VALIDATION_DELTA_PROPOSAL",
+    "JURISDICTION_DELTA_PROPOSAL",
+    "DISTINGUISHABILITY_DELTA_PROPOSAL",
+    "ARTIFACT_PACKAGING_DELTA_PROPOSAL",
+    "TERMINAL_CONTRACT_DELTA_PROPOSAL"
+  ],
+  "authority_guards": {
+    "bootstrap_policy_built": true,
+    "dry_run_fixture_created": false,
+    "dry_run_fixture_executed": false,
+    "final_schema_claimed": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "local_regime_runtime_mutated": false,
+    "proof_claimed": false,
+    "proposal_promoted": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_executed": false,
+    "runner_implemented": false,
+    "runtime_code_changed_by_policy": false,
+    "runtime_semantic_changed_by_policy": false
+  },
+  "authorized_operations_next": {
+    "create_expected_dry_run_transcript": true,
+    "create_local_regime_v0_declaration": true,
+    "create_one_dry_run_fixture": true,
+    "emit_implementation_receipt": true,
+    "implement_jurisdiction_runner_v0_1": true,
+    "read_bootstrap_policy": true,
+    "read_bootstrap_policy_receipt": true
+  },
+  "build_target": {
+    "implementation_next_goal": "IMPLEMENT_JURISDICTION_RUNNER_V0_1_WITH_DRY_RUN_FIXTURE_V0",
+    "minimum_scope": "one dry-run fixture with expected transcript",
+    "regime": "local_regime.v0",
+    "runner": "jurisdiction_runner.v0.1"
+  },
+  "created_at": "2026-06-22T02:04:25.067011+00:00",
+  "failures": [],
+  "forbidden_operations": {
+    "ambient_workspace_authority": true,
+    "execute_runner_in_policy_unit": true,
+    "final_schema_claim": true,
+    "full_registry_scan": true,
+    "global_taxonomy_design": true,
+    "hidden_continuation_after_stop": true,
+    "latest_or_mtime_selection": true,
+    "mutate_runtime_registry": true,
+    "promote_proposals_in_policy_unit": true,
+    "proof_claim": true,
+    "registry_sqlite_read": true,
+    "registry_sqlite_write": true,
+    "untracked_artifact_as_hidden_authority": true
+  },
+  "forbidden_proposal_classes": [
+    "GLOBAL_ARCHITECTURE_PROPOSAL",
+    "FINAL_TAXONOMY_PROPOSAL",
+    "UNBOUNDED_AUTONOMY_PROPOSAL",
+    "RUNTIME_MUTATION_PROPOSAL",
+    "REGISTRY_DATABASE_WRITE_PROPOSAL",
+    "SELF_ACCEPTING_PROPOSAL",
+    "PROOF_CLAIM_PROPOSAL"
+  ],
+  "gate": "PASS",
+  "local_regime_hash": "097d620c",
+  "local_regime_version": "local_regime.v0",
+  "policy_id": "0fe04fb5",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_id": "bc448c6d",
+  "receipt_sig8": "bc448c6d",
+  "receipt_type": "JURISDICTION_RUNNER_V0_1_BOOTSTRAP_POLICY_RECEIPT",
+  "required_dry_run_fixture": {
+    "expected_transcript": [
+      "LOAD_REGIME",
+      "LOAD_STATE",
+      "VALIDATE_STATE",
+      "SELECT_MOVE",
+      "CHECK_AUTHORITY",
+      "APPLY_OR_BLOCK_MOVE",
+      "EMIT_RECEIPT",
+      "EMIT_METRICS",
+      "EMIT_TERMINAL"
+    ],
+    "expected_transcript_required": true,
+    "fixture_count": 1,
+    "must_test": [
+      "state loaded",
+      "state validated",
+      "selector evaluated",
+      "move selected",
+      "move applied or blocked",
+      "receipt emitted",
+      "metrics emitted",
+      "terminal emitted",
+      "artifact guards emitted"
+    ]
+  },
+  "required_halt_codes": [
+    "STOP_DONE",
+    "STOP_NO_APPLICABLE_MOVE",
+    "STOP_AUTHORITY_VIOLATION",
+    "STOP_GATE_FAIL",
+    "STOP_UNTYPED_OBJECT",
+    "STOP_DEPENDENCY_MISSING"
+  ],
+  "required_metrics": [
+    "move_count",
+    "applied_move_count",
+    "blocked_move_count",
+    "halt_count_by_code",
+    "typed_object_count",
+    "untyped_object_count",
+    "missing_dependency_count",
+    "receipt_count",
+    "authority_violation_count",
+    "gate_fail_count",
+    "proposal_emitted_count",
+    "proposal_withheld_count",
+    "proposal_count_by_type",
+    "duplicate_unresolved_proposal_count",
+    "halt_with_proposal_count",
+    "halt_without_proposal_count",
+    "local_closure_radius_observed",
+    "receipt_burden_bytes",
+    "metric_burden_bytes",
+    "artifact_burden_bytes"
+  ],
+  "required_move_types": [
+    "MOVE_VALIDATE_STATE",
+    "MOVE_APPLY_REGISTERED_TRANSITION",
+    "MOVE_EMIT_METRIC_RECEIPT"
+  ],
+  "required_surfaces": {
+    "artifact_packaging_discipline": {
+      "input_artifacts_path_addressed": true,
+      "output_artifacts_receipt_referenced": true,
+      "required_dependencies_verified": true,
+      "tracked_when_permanence_required": true,
+      "unrelated_untracked_data_not_authority": true
+    },
+    "execution_surface": {
+      "deterministic_selector": true,
+      "fixed_local_regime": true,
+      "no_runtime_regime_mutation": true,
+      "registered_moves_only": true,
+      "selector_tie_break": [
+        "explicit move_priority",
+        "lexical move_id order"
+      ],
+      "typed_halts_only": true
+    },
+    "proposition_surface": {
+      "accepted_proposals_apply_only_to_later_regime_version": true,
+      "bounded": true,
+      "duplicate_unresolved_proposal_guard": true,
+      "non_executing": true,
+      "requires_review_before_promotion": true
+    },
+    "registry_metadata_distinction": {
+      "full_registry_scan_forbidden": true,
+      "metadata_record_is_not_database_write": true,
+      "registry_sqlite_read_forbidden": true,
+      "registry_sqlite_write_forbidden": true
+    },
+    "terminal_command_contract": {
+      "advance_authorizes_exact_next_command": true,
+      "recommendation_is_not_command_authority": true,
+      "stop_done_closes_lane": true,
+      "stop_forbids_automatic_command": true
+    }
+  },
+  "runner_unit_id": "jurisdiction_runner.v0.1",
+  "safety_clauses": {
+    "does_not_claim_global_correctness": true,
+    "does_not_claim_theorem_closure": true,
+    "does_not_create_regime_version_runtime_effect": true,
+    "does_not_execute_runner": true,
+    "does_not_implement_runner": true,
+    "does_not_promote_any_proposal": true,
+    "does_not_write_registry": true,
+    "next_unit_required_for_implementation": true,
+    "policy_only": true
+  },
+  "schema_version": "jurisdiction_runner_v0_1_bootstrap_policy_receipt_v0",
+  "spec_id": "JURISDICTION_RUNNER_V0_1_ADAPTIVE_LOCAL_CLOSURE_RUNTIME",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_JURISDICTION_RUNNER_V0_1_WITH_DRY_RUN_FIXTURE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "unit_id": "BUILD_JURISDICTION_RUNNER_V0_1_BOOTSTRAP_POLICY_V0",
+  "warnings": []
+}
+bootstrap_policy_id=0fe04fb5
+bootstrap_policy_receipt_id=bc448c6d
+bootstrap_policy_path=data/jurisdiction_runner_v0_1_bootstrap_policies/0fe04fb5.json
+bootstrap_policy_receipt_path=data/jurisdiction_runner_v0_1_bootstrap_policy_receipts/0fe04fb5.json
+BOOTSTRAP_POLICY_ID=0fe04fb5
+BOOTSTRAP_POLICY_RECEIPT_ID=bc448c6d
+
+ASSERT_BOOTSTRAP_POLICY
+{
+  "authority_guards": {
+    "bootstrap_policy_built": true,
+    "dry_run_fixture_created": false,
+    "dry_run_fixture_executed": false,
+    "final_schema_claimed": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "local_regime_runtime_mutated": false,
+    "proof_claimed": false,
+    "proposal_promoted": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_executed": false,
+    "runner_implemented": false,
+    "runtime_code_changed_by_policy": false,
+    "runtime_semantic_changed_by_policy": false
+  },
+  "gate": "PASS",
+  "local_regime_hash": "097d620c",
+  "local_regime_version": "local_regime.v0",
+  "policy_id": "0fe04fb5",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_id": "bc448c6d",
+  "required_halt_codes": [
+    "STOP_DONE",
+    "STOP_NO_APPLICABLE_MOVE",
+    "STOP_AUTHORITY_VIOLATION",
+    "STOP_GATE_FAIL",
+    "STOP_UNTYPED_OBJECT",
+    "STOP_DEPENDENCY_MISSING"
+  ],
+  "required_move_types": [
+    "MOVE_VALIDATE_STATE",
+    "MOVE_APPLY_REGISTERED_TRANSITION",
+    "MOVE_EMIT_METRIC_RECEIPT"
+  ],
+  "runner_unit_id": "jurisdiction_runner.v0.1",
+  "safety_clauses": {
+    "does_not_claim_global_correctness": true,
+    "does_not_claim_theorem_closure": true,
+    "does_not_create_regime_version_runtime_effect": true,
+    "does_not_execute_runner": true,
+    "does_not_implement_runner": true,
+    "does_not_promote_any_proposal": true,
+    "does_not_write_registry": true,
+    "next_unit_required_for_implementation": true,
+    "policy_only": true
+  },
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_JURISDICTION_RUNNER_V0_1_WITH_DRY_RUN_FIXTURE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_BOOTSTRAP_POLICY_NON_WRITING
+{
+  "after": {
+    "policy": "1fd58e38bdcb281a9e2592019c131d9fdc5bc5210b93258c5ddcb082898979c0",
+    "receipt": "36ddb2b22581990a84f87f13d7e44c56da9b72857f57114293c040fcf178465e"
+  },
+  "before": {
+    "policy": "1fd58e38bdcb281a9e2592019c131d9fdc5bc5210b93258c5ddcb082898979c0",
+    "receipt": "36ddb2b22581990a84f87f13d7e44c56da9b72857f57114293c040fcf178465e"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+BOOTSTRAP_POLICY_HEAD_JSON
+{
+  "authority_guards": {
+    "bootstrap_policy_built": true,
+    "dry_run_fixture_created": false,
+    "dry_run_fixture_executed": false,
+    "final_schema_claimed": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "local_regime_runtime_mutated": false,
+    "proof_claimed": false,
+    "proposal_promoted": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_executed": false,
+    "runner_implemented": false,
+    "runtime_code_changed_by_policy": false,
+    "runtime_semantic_changed_by_policy": false
+  },
+  "gate": "PASS",
+  "local_regime_hash": "097d620c",
+  "local_regime_version": "local_regime.v0",
+  "policy_id": "0fe04fb5",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_id": "bc448c6d",
+  "required_dry_run_fixture": {
+    "expected_transcript": [
+      "LOAD_REGIME",
+      "LOAD_STATE",
+      "VALIDATE_STATE",
+      "SELECT_MOVE",
+      "CHECK_AUTHORITY",
+      "APPLY_OR_BLOCK_MOVE",
+      "EMIT_RECEIPT",
+      "EMIT_METRICS",
+      "EMIT_TERMINAL"
+    ],
+    "expected_transcript_required": true,
+    "fixture_count": 1,
+    "must_test": [
+      "state loaded",
+      "state validated",
+      "selector evaluated",
+      "move selected",
+      "move applied or blocked",
+      "receipt emitted",
+      "metrics emitted",
+      "terminal emitted",
+      "artifact guards emitted"
+    ]
+  },
+  "required_halt_codes": [
+    "STOP_DONE",
+    "STOP_NO_APPLICABLE_MOVE",
+    "STOP_AUTHORITY_VIOLATION",
+    "STOP_GATE_FAIL",
+    "STOP_UNTYPED_OBJECT",
+    "STOP_DEPENDENCY_MISSING"
+  ],
+  "required_move_types": [
+    "MOVE_VALIDATE_STATE",
+    "MOVE_APPLY_REGISTERED_TRANSITION",
+    "MOVE_EMIT_METRIC_RECEIPT"
+  ],
+  "runner_unit_id": "jurisdiction_runner.v0.1",
+  "safety_clauses": {
+    "does_not_claim_global_correctness": true,
+    "does_not_claim_theorem_closure": true,
+    "does_not_create_regime_version_runtime_effect": true,
+    "does_not_execute_runner": true,
+    "does_not_implement_runner": true,
+    "does_not_promote_any_proposal": true,
+    "does_not_write_registry": true,
+    "next_unit_required_for_implementation": true,
+    "policy_only": true
+  },
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_JURISDICTION_RUNNER_V0_1_WITH_DRY_RUN_FIXTURE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_NO_RUNTIME_OR_REGISTRY_MUTATION
+.gitignore
+runtime and sqlite registry untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/build_jurisdiction_runner_v0_1_bootstrap_policy_v0.py
+
+PACKAGE_BOOTSTRAP_POLICY_ARTIFACTS
+packaged data/jurisdiction_runner_v0_1_bootstrap_policies/0fe04fb5.json
+packaged data/jurisdiction_runner_v0_1_bootstrap_policy_receipts/0fe04fb5.json
+[master 38e58d16c] build jurisdiction runner v0.1 bootstrap policy
+ 4 files changed, 778 insertions(+)
+ create mode 100644 data/jurisdiction_runner_v0_1_bootstrap_policies/0fe04fb5.json
+ create mode 100644 data/jurisdiction_runner_v0_1_bootstrap_policy_receipts/0fe04fb5.json
+ create mode 100755 scripts/build_jurisdiction_runner_v0_1_bootstrap_policy_v0.py
+
+COMMIT_DONE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+NEXT_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+bootstrap_policy_id=0fe04fb5
+bootstrap_policy_receipt_id=bc448c6d
+bootstrap_policy_path=data/jurisdiction_runner_v0_1_bootstrap_policies/0fe04fb5.json
+bootstrap_policy_receipt_path=data/jurisdiction_runner_v0_1_bootstrap_policy_receipts/0fe04fb5.json
+{
+  "authority_guards": {
+    "bootstrap_policy_built": true,
+    "dry_run_fixture_created": false,
+    "dry_run_fixture_executed": false,
+    "final_schema_claimed": false,
+    "global_taxonomy_claimed": false,
+    "hidden_continuation_authorized": false,
+    "local_regime_runtime_mutated": false,
+    "proof_claimed": false,
+    "proposal_promoted": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_sqlite_written": false,
+    "registry_written": false,
+    "runner_executed": false,
+    "runner_implemented": false,
+    "runtime_code_changed_by_policy": false,
+    "runtime_semantic_changed_by_policy": false
+  },
+  "authorized_operations_next": {
+    "create_expected_dry_run_transcript": true,
+    "create_local_regime_v0_declaration": true,
+    "create_one_dry_run_fixture": true,
+    "emit_implementation_receipt": true,
+    "implement_jurisdiction_runner_v0_1": true,
+    "read_bootstrap_policy": true,
+    "read_bootstrap_policy_receipt": true
+  },
+  "gate": "PASS",
+  "local_regime_hash": "097d620c",
+  "local_regime_version": "local_regime.v0",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "required_dry_run_fixture": {
+    "expected_transcript": [
+      "LOAD_REGIME",
+      "LOAD_STATE",
+      "VALIDATE_STATE",
+      "SELECT_MOVE",
+      "CHECK_AUTHORITY",
+      "APPLY_OR_BLOCK_MOVE",
+      "EMIT_RECEIPT",
+      "EMIT_METRICS",
+      "EMIT_TERMINAL"
+    ],
+    "expected_transcript_required": true,
+    "fixture_count": 1,
+    "must_test": [
+      "state loaded",
+      "state validated",
+      "selector evaluated",
+      "move selected",
+      "move applied or blocked",
+      "receipt emitted",
+      "metrics emitted",
+      "terminal emitted",
+      "artifact guards emitted"
+    ]
+  },
+  "required_halt_codes": [
+    "STOP_DONE",
+    "STOP_NO_APPLICABLE_MOVE",
+    "STOP_AUTHORITY_VIOLATION",
+    "STOP_GATE_FAIL",
+    "STOP_UNTYPED_OBJECT",
+    "STOP_DEPENDENCY_MISSING"
+  ],
+  "required_metrics": [
+    "move_count",
+    "applied_move_count",
+    "blocked_move_count",
+    "halt_count_by_code",
+    "typed_object_count",
+    "untyped_object_count",
+    "missing_dependency_count",
+    "receipt_count",
+    "authority_violation_count",
+    "gate_fail_count",
+    "proposal_emitted_count",
+    "proposal_withheld_count",
+    "proposal_count_by_type",
+    "duplicate_unresolved_proposal_count",
+    "halt_with_proposal_count",
+    "halt_without_proposal_count",
+    "local_closure_radius_observed",
+    "receipt_burden_bytes",
+    "metric_burden_bytes",
+    "artifact_burden_bytes"
+  ],
+  "required_move_types": [
+    "MOVE_VALIDATE_STATE",
+    "MOVE_APPLY_REGISTERED_TRANSITION",
+    "MOVE_EMIT_METRIC_RECEIPT"
+  ],
+  "runner_unit_id": "jurisdiction_runner.v0.1",
+  "safety_clauses": {
+    "does_not_claim_global_correctness": true,
+    "does_not_claim_theorem_closure": true,
+    "does_not_create_regime_version_runtime_effect": true,
+    "does_not_execute_runner": true,
+    "does_not_implement_runner": true,
+    "does_not_promote_any_proposal": true,
+    "does_not_write_registry": true,
+    "next_unit_required_for_implementation": true,
+    "policy_only": true
+  },
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_JURISDICTION_RUNNER_V0_1_WITH_DRY_RUN_FIXTURE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

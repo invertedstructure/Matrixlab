@@ -1,0 +1,135 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_015310
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_015310.txt
+
+REVIEW_RUNTIME_OBSERVABILITY_AND_FEEDBACK_ATTACHMENT_V0
+
+VERIFY_RUNTIME_ATTACHMENT_RECEIPT_PRESENT
+
+PY_COMPILE_RUNTIME_ATTACHMENT_BUILDER
+
+VERIFY_RUNTIME_ATTACHMENT_ARTIFACTS_AND_RECEIPTS
+{
+  "acceptance_gates_false_count": 0,
+  "attachment_run_id": "runtime_attachment_run_1e446747",
+  "bundle_fixture_order": [
+    "F1_VALID_ADMISSIBLE",
+    "F2_INVALID_SCHEMA",
+    "F3_AUTHORITY_REQUIRED",
+    "F4_FORBIDDEN_INPUT",
+    "F5_EXECUTION_FAILURE_TYPED_FEEDBACK",
+    "F6_SIDECAR_PARTIAL_OBSERVABILITY"
+  ],
+  "coverage": {
+    "decision_edge_coverage": 1.0,
+    "observability_degradation_record_coverage": 1.0,
+    "receipt_coverage": 1.0,
+    "sidecar_event_coverage": 1.0,
+    "unit_feedback_coverage": 1.0
+  },
+  "decision_edge_observations_emitted": 6,
+  "failures": [],
+  "negative_controls_nonzero_count": 0,
+  "observability_degradation_records_emitted": 1,
+  "outcome_class": "RUNTIME_ATTACHMENT_PASS",
+  "receipt_id": "runtime_observability_feedback_attachment_receipt_f06ba9ce",
+  "review_gate": "PASS",
+  "runtime_step_receipts_emitted": 6,
+  "runtime_steps_total": 6,
+  "sidecar_events_emitted": 6,
+  "status": "TYPED_RUNTIME_OBSERVABILITY_FEEDBACK_ATTACHMENT_PASS",
+  "step_outcomes": {
+    "STEP_BLOCKED_BY_ADMISSIBILITY_WITH_FEEDBACK": 2,
+    "STEP_BLOCKED_BY_SCHEMA_WITH_FEEDBACK": 1,
+    "STEP_EXECUTION_FAILED_WITH_FEEDBACK": 1,
+    "STEP_EXECUTION_GATE_OPENED_OBSERVED_NO_MUTATION": 1,
+    "STEP_OBSERVABILITY_DEGRADED_NO_FALSE_CLAIM": 1
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_RUNTIME_OBSERVABILITY_AND_FEEDBACK_ATTACHED",
+    "type": "STOP"
+  },
+  "unit_feedback_emitted": 4,
+  "unit_feedback_required": 4,
+  "warnings": []
+}
+
+VERIFY_STAGED_SCOPE_RUNTIME_ATTACHMENT_ONLY
+staged_path_count=15
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+
+REVIEW_DIFF_STAT
+ .gitignore                                         |    6 +
+ .../decision_edge_observation_records_v0.jsonl     |    6 +
+ .../observability_degradation_records_v0.jsonl     |    1 +
+ .../observability_sidecar_events_v0.jsonl          |    6 +
+ .../runtime_attachment_intake_v0.json              |   55 +
+ .../runtime_observability_feedback_profile_v0.json |   27 +
+ .../runtime_observability_feedback_readout_v0.json |   22 +
+ .../runtime_observability_feedback_report.json     |   32 +
+ .../runtime_observability_feedback_rollup_v0.json  |   64 +
+ ...me_observability_feedback_transition_trace.json |   62 +
+ .../runtime_step_bundles_v0.jsonl                  |    6 +
+ .../runtime_step_receipts_v0.jsonl                 |    6 +
+ .../unit_feedback_records_v0.jsonl                 |    4 +
+ ...ility_feedback_attachment_receipt_f06ba9ce.json |  187 +++
+ ...ime_observability_and_feedback_attachment_v0.py | 1329 ++++++++++++++++++++
+ 15 files changed, 1813 insertions(+)
+
+REVIEW_RUNTIME_ATTACHMENT_READOUT
+receipt_id=runtime_observability_feedback_attachment_receipt_f06ba9ce
+status=TYPED_RUNTIME_OBSERVABILITY_FEEDBACK_ATTACHMENT_PASS
+outcome_class=RUNTIME_ATTACHMENT_PASS
+attachment_run_id=runtime_attachment_run_1e446747
+source_double_sieve_receipt_id=double_sieve_fixture_suite_receipt_462668ee
+runtime_steps_total=6
+sidecar_events_emitted=6
+decision_edge_observations_emitted=6
+runtime_step_receipts_emitted=6
+unit_feedback_required=4
+unit_feedback_emitted=4
+observability_degraded_steps=1
+observability_degradation_records_emitted=1
+coverage={"decision_edge_coverage": 1.0, "observability_degradation_record_coverage": 1.0, "receipt_coverage": 1.0, "sidecar_event_coverage": 1.0, "unit_feedback_coverage": 1.0}
+step_outcomes={"STEP_BLOCKED_BY_ADMISSIBILITY_WITH_FEEDBACK": 2, "STEP_BLOCKED_BY_SCHEMA_WITH_FEEDBACK": 1, "STEP_EXECUTION_FAILED_WITH_FEEDBACK": 1, "STEP_EXECUTION_GATE_OPENED_OBSERVED_NO_MUTATION": 1, "STEP_OBSERVABILITY_DEGRADED_NO_FALSE_CLAIM": 1}
+no_bare_failed=True
+no_unobserved_transition=True
+no_hidden_next_command=True
+no_sidecar_authority=True
+no_false_observability_claim=True
+no_feedback_missing=True
+no_graph_archive_mutation=True
+no_validator_authorization_schema_created=True
+no_decision_edge_authorization_created=True
+source_receipts_mutated=False
+runtime_rerun=False
+live_hook_installation=False
+runtime_mutation=False
+schema_archive_mutation=False
+move_addition=False
+fixture_expansion=False
+c7_opened=False
+c8_opened=False
+bad_counters_zero=True
+terminal_stop_code=STOP_RUNTIME_OBSERVABILITY_AND_FEEDBACK_ATTACHED
+
+REVIEW_RUNTIME_STEP_BUNDLE_TABLE
+F1_VALID_ADMISSIBLE gate=PASS outcome=STEP_EXECUTION_GATE_OPENED_OBSERVED_NO_MUTATION observability=OBSERVED feedback=NOT_REQUIRED sidecar=obs_event_4f46d2e6 edge=edge_obs_1301da14 receipt=runtime_step_receipt_ba810dd7
+F2_INVALID_SCHEMA gate=PASS outcome=STEP_BLOCKED_BY_SCHEMA_WITH_FEEDBACK observability=OBSERVED feedback=FEEDBACK_EMITTED sidecar=obs_event_f93168e1 edge=edge_obs_8c953214 receipt=runtime_step_receipt_b53d082c
+F3_AUTHORITY_REQUIRED gate=PASS outcome=STEP_BLOCKED_BY_ADMISSIBILITY_WITH_FEEDBACK observability=OBSERVED feedback=FEEDBACK_EMITTED sidecar=obs_event_1882a2e2 edge=edge_obs_000fc333 receipt=runtime_step_receipt_ddb0ec94
+F4_FORBIDDEN_INPUT gate=PASS outcome=STEP_BLOCKED_BY_ADMISSIBILITY_WITH_FEEDBACK observability=OBSERVED feedback=FEEDBACK_EMITTED sidecar=obs_event_67e090ba edge=edge_obs_0d2fbedf receipt=runtime_step_receipt_614df922
+F5_EXECUTION_FAILURE_TYPED_FEEDBACK gate=PASS outcome=STEP_EXECUTION_FAILED_WITH_FEEDBACK observability=OBSERVED feedback=FEEDBACK_EMITTED sidecar=obs_event_aedbef64 edge=edge_obs_f41b9c13 receipt=runtime_step_receipt_b0d9dd05
+F6_SIDECAR_PARTIAL_OBSERVABILITY gate=PASS outcome=STEP_OBSERVABILITY_DEGRADED_NO_FALSE_CLAIM observability=OBSERVATION_DEGRADED feedback=NOT_REQUIRED sidecar=obs_event_fecb50ca edge=edge_obs_f782f932 receipt=runtime_step_receipt_987b71cd
+
+REVIEW_UNIT_FEEDBACK_TABLE
+runtime_attachment_step_02_F2_INVALID_SCHEMA feedback_id=unit_feedback_9c4ef1be kind=SCHEMA_FORMATION_FEEDBACK quality=BOUNDARY_AWARE_FAILURE repair_applied=False retry_authorized=False authority_expansion=False proposal_created=False next_command_created=False
+runtime_attachment_step_03_F3_AUTHORITY_REQUIRED feedback_id=unit_feedback_8534ac1a kind=ADMISSIBILITY_AUTHORITY_FEEDBACK quality=ACTIONABLE repair_applied=False retry_authorized=False authority_expansion=False proposal_created=False next_command_created=False
+runtime_attachment_step_04_F4_FORBIDDEN_INPUT feedback_id=unit_feedback_0f2a7527 kind=FORBIDDEN_INPUT_FEEDBACK quality=ACTIONABLE repair_applied=False retry_authorized=False authority_expansion=False proposal_created=False next_command_created=False
+runtime_attachment_step_05_F5_EXECUTION_FAILURE_TYPED_FEEDBACK feedback_id=unit_feedback_ed6376cb kind=EXECUTION_FAILURE_FEEDBACK quality=ACTIONABLE repair_applied=False retry_authorized=False authority_expansion=False proposal_created=False next_command_created=False
+
+REVIEW_RUNTIME_OBSERVABILITY_AND_FEEDBACK_ATTACHMENT_PASS
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

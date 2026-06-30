@@ -1,0 +1,336 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_200324
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_200324.txt
+
+BUILD_REPEATED_SLOT_EXECUTION_PLAN_CACHE_FIX_CANDIDATE_POLICY_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_REPEATED_SLOT_POLICY_SCRIPT
+
+PY_COMPILE
+
+BUILD_REPEATED_SLOT_POLICY
+{
+  "authorized_fix_candidate_ids": [
+    "FIX_CANDIDATE_REPEATED_SLOT_EXECUTION_PLAN_CACHE_V0"
+  ],
+  "authorizes_execution_skipping": false,
+  "authorizes_patch_application": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_slot_identity_collapse": false,
+  "created_at": "2026-06-20T19:03:24.790980+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "policy_id": "4207ab96",
+  "policy_path": "data/repeated_slot_execution_plan_cache_fix_candidate_policies/4207ab96.json",
+  "policy_sig8": "4207ab96",
+  "receipt_id": "6c7e627b",
+  "receipt_sig8": "6c7e627b",
+  "schema_version": "repeated_slot_execution_plan_cache_fix_candidate_policy_receipt_v0",
+  "slot_identity_matches_expected": true,
+  "source_after_profile_id": "00a75664",
+  "source_decision_id": "811e147b",
+  "target_burden_class": "BURDEN_REPEATED_SLOT_WORK",
+  "target_elapsed_ms": 8243,
+  "target_receipts": 270,
+  "target_rows": 9,
+  "terminal": {
+    "next_command_goal": "BUILD_REPEATED_SLOT_EXECUTION_PLAN_CACHE_FIX_CANDIDATE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+policy_json_path=data/repeated_slot_execution_plan_cache_fix_candidate_policies/4207ab96.json
+policy_receipt_path=data/repeated_slot_execution_plan_cache_fix_candidate_policy_receipts/4207ab96.json
+POLICY_ID=4207ab96
+
+ASSERT_REPEATED_SLOT_POLICY
+{
+  "authorizes_code_change": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_fix_candidate_count": 1,
+  "authorizes_fix_candidate_ids": [
+    "FIX_CANDIDATE_REPEATED_SLOT_EXECUTION_PLAN_CACHE_V0"
+  ],
+  "authorizes_patch_application": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_reusing_prior_run_results_as_execution": false,
+  "authorizes_slot_identity_collapse": false,
+  "failures": [],
+  "gate": "PASS",
+  "policy_id": "4207ab96",
+  "policy_sig8": "4207ab96",
+  "receipt_gate": "PASS",
+  "receipt_id": "6c7e627b",
+  "slot_identity_matches_expected": true,
+  "source_after_profile_id": "00a75664",
+  "source_decision_id": "811e147b",
+  "target_burden_class": "BURDEN_REPEATED_SLOT_WORK",
+  "target_burden_class_proven": true,
+  "target_elapsed_ms": 8243,
+  "target_receipts": 270,
+  "target_rows": 9,
+  "terminal": {
+    "next_command_goal": "BUILD_REPEATED_SLOT_EXECUTION_PLAN_CACHE_FIX_CANDIDATE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_REPEATED_SLOT_POLICY_SOURCE_MUTATIONS
+{
+  "case": "decision_gate_fail",
+  "expected": "decision_gate_not_PASS",
+  "failures": [
+    "decision_gate_not_PASS"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "wrong_next_burden_fail",
+  "expected": "decision_next_burden_class_mismatch",
+  "failures": [
+    "decision_next_burden_class_mismatch:BURDEN_CYCLE_SCAN"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "radius_authority_fail",
+  "expected": "decision_illegally_authorizes_radius_expansion",
+  "failures": [
+    "decision_illegally_authorizes_radius_expansion"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "after_profile_gate_fail",
+  "expected": "after_profile_gate_not_MICRO_BURDEN_PROFILE_PASS",
+  "failures": [
+    "after_profile_gate_not_MICRO_BURDEN_PROFILE_PASS"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "target_not_emitted_fail",
+  "expected": "target_burden_class_not_emitted_by_after_profile",
+  "failures": [
+    "target_burden_class_not_emitted_by_after_profile"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "slot_identity_fail",
+  "expected": "repeated_slot_identity_mismatch",
+  "failures": [
+    "repeated_slot_identity_mismatch:['slot_01_E_COLLAPSED', 'slot_02_E2', 'slot_03_E3', 'slot_04_D1', 'slot_05_D2', 'slot_06_B1', 'slot_07_B2', 'slot_08_C1', 'slot_09_A1']"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "execution_skipped_fail",
+  "expected": "after_profile_execution_skipped",
+  "failures": [
+    "after_profile_execution_skipped"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+POLICY_HEAD_JSON
+{
+  "authorization": {
+    "authorizes_code_change": false,
+    "authorizes_execution_skipping": false,
+    "authorizes_fix_candidate_count": 1,
+    "authorizes_fix_candidate_ids": [
+      "FIX_CANDIDATE_REPEATED_SLOT_EXECUTION_PLAN_CACHE_V0"
+    ],
+    "authorizes_fix_candidate_kind": "REPEATED_SLOT_EXECUTION_PLAN_CACHE_PROPOSAL",
+    "authorizes_gate_semantics_change": false,
+    "authorizes_law_semantics_change": false,
+    "authorizes_patch_application": false,
+    "authorizes_radius_expansion": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_receipt_schema_change": false,
+    "authorizes_reusing_prior_run_results_as_execution": false,
+    "authorizes_runner_semantics_change": false,
+    "authorizes_slot_identity_collapse": false
+  },
+  "authorized_fix_candidate": {
+    "allowed_scope": [
+      "Cache repeated-slot execution plan construction only.",
+      "Reuse immutable per-family/per-slot metadata only if slot identity remains explicit.",
+      "Preserve one run execution per repeated slot.",
+      "Preserve one run_id per slot.",
+      "Preserve slot_id fields and distinguishability.",
+      "Preserve raw receipt writes."
+    ],
+    "expected_metric_direction": {
+      "expected_elapsed_ms": "decrease_or_non_worse",
+      "expected_receipts_per_sec": "increase_or_non_worse",
+      "must_preserve_family_coverage_A_E": true,
+      "must_preserve_receipt_total_match_registry": true,
+      "must_preserve_rows": 9,
+      "must_preserve_slots": [
+        "slot_01_E1",
+        "slot_02_E2",
+        "slot_03_E3",
+        "slot_04_D1",
+        "slot_05_D2",
+        "slot_06_B1",
+        "slot_07_B2",
+        "slot_08_C1",
+        "slot_09_A1"
+      ],
+      "primary_metric": "elapsed_ms",
+      "secondary_metric": "receipts_per_sec",
+      "target_rows": "rows with burden_class == BURDEN_REPEATED_SLOT_WORK"
+    },
+    "fix_candidate_id": "FIX_CANDIDATE_REPEATED_SLOT_EXECUTION_PLAN_CACHE_V0",
+    "fix_candidate_kind": "REPEATED_SLOT_EXECUTION_PLAN_CACHE_PROPOSAL",
+    "forbidden_scope": [
+      "skip repeated slot execution",
+      "reuse prior run results as execution results",
+      "collapse repeated E/E/E or D/D or B/B slots",
+      "merge slot receipts",
+      "delete receipts",
+      "compress raw receipts",
+      "change law semantics",
+      "change gate semantics",
+      "change run semantics",
+      "change halt semantics",
+      "expand radius"
+    ],
+    "next_command_goal": "BUILD_REPEATED_SLOT_EXECUTION_PLAN_CACHE_FIX_CANDIDATE_V0",
+    "target_burden_class": "BURDEN_REPEATED_SLOT_WORK"
+  },
+  "gate": "PASS",
+  "policy_id": "4207ab96",
+  "required_retest": {
+    "after_profile_required": true,
+    "before_profile_id": "00a75664",
+    "comparison_artifact_schema": "repeated_slot_plan_cache_before_after_comparison_v0",
+    "comparison_required": true,
+    "pass_condition": [
+      "after profile gate MICRO_BURDEN_PROFILE_PASS",
+      "receipt totals match registry.sqlite",
+      "all five probes complete",
+      "family coverage A-E preserved",
+      "repeated slot identity preserved exactly",
+      "same repeated-slot row keys preserved",
+      "no gate semantics change",
+      "no law semantics change",
+      "no run semantics change",
+      "no execution skipping",
+      "BURDEN_REPEATED_SLOT_WORK target rows show non-worse elapsed_ms or explicit failure classification"
+    ],
+    "same_micro_suite_required": true,
+    "same_probe_specs_required": true,
+    "same_script": "scripts/wide_burden_profile_microruns.py --execute"
+  },
+  "source_after_profile": {
+    "db_receipt_delta": 1457,
+    "gate": "MICRO_BURDEN_PROFILE_PASS",
+    "profile_id": "00a75664",
+    "profile_receipts_total": 1457,
+    "profile_sig8": "00a75664"
+  },
+  "source_decision": {
+    "decision_id": "811e147b",
+    "decision_sig8": "811e147b",
+    "gate": "PASS",
+    "path": "data/db_write_fix_outcome_decisions/811e147b.json"
+  },
+  "target_burden_class": "BURDEN_REPEATED_SLOT_WORK",
+  "target_evidence": {
+    "burden_class": "BURDEN_REPEATED_SLOT_WORK",
+    "elapsed_ms": 8243,
+    "families": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "probes": [
+      "MICRO_04_REPEATED_SLOT_PRESSURE"
+    ],
+    "receipts": 270,
+    "receipts_per_sec": 32.755065,
+    "rows": 9,
+    "slot_identity_expected": [
+      "slot_01_E1",
+      "slot_02_E2",
+      "slot_03_E3",
+      "slot_04_D1",
+      "slot_05_D2",
+      "slot_06_B1",
+      "slot_07_B2",
+      "slot_08_C1",
+      "slot_09_A1"
+    ],
+    "slot_identity_matches_expected": true,
+    "slots": [
+      "slot_01_E1",
+      "slot_02_E2",
+      "slot_03_E3",
+      "slot_04_D1",
+      "slot_05_D2",
+      "slot_06_B1",
+      "slot_07_B2",
+      "slot_08_C1",
+      "slot_09_A1"
+    ]
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_REPEATED_SLOT_EXECUTION_PLAN_CACHE_FIX_CANDIDATE_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_185931_901119
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/build_repeated_slot_execution_plan_cache_fix_candidate_policy.py
+[master d51de89fb] add repeated slot execution plan cache policy
+ 2 files changed, 361 insertions(+)
+ create mode 100755 scripts/build_repeated_slot_execution_plan_cache_fix_candidate_policy.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

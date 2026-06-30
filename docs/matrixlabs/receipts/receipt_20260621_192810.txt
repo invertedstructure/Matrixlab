@@ -1,0 +1,394 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_192810
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_192810.txt
+
+IMPLEMENT_APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_APPROVED_RECIPE_IMPLEMENTATION
+
+PY_COMPILE
+
+IMPLEMENT_APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE
+{
+  "approved_bounds": {
+    "max_candidate_rows": 10000,
+    "max_cycles_per_case": 50,
+    "max_new_bands": 512,
+    "max_new_cases_total": 10,
+    "max_new_runs": 1,
+    "max_output_files": 16
+  },
+  "authority_guards": {
+    "ambient_workspace_inference_used": false,
+    "audit_or_debug_payload_in_signature_payload": false,
+    "candidate_accepted": false,
+    "candidate_rows_created": false,
+    "candidate_rows_created_total": 0,
+    "case_id_or_cycle_n_identity_patch_used": false,
+    "explicit_run_id": null,
+    "explicit_run_id_captured": false,
+    "full_occurrence_key_in_signature_payload": false,
+    "full_registry_scan_used": false,
+    "latest_or_mtime_selection_used": false,
+    "microhash_as_proof_used": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_written": false,
+    "rowid_or_receipt_hash_truth_surface_used": false,
+    "runner_command_available": true,
+    "runner_executed": true,
+    "runner_executions_total": 1,
+    "runner_precheck_attempted": true,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "runtime_semantic_changed": false,
+    "scale_mode_authorized": false,
+    "surface_manifest_written": true,
+    "surface_receipt_written": true,
+    "synthetic_fake_validation_rows_used": false,
+    "transition_compression_probe_run": false
+  },
+  "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+  "candidate_signature_distinct_count": 0,
+  "created_at": "2026-06-21T18:28:11.633610+00:00",
+  "explicit_run_id": null,
+  "failures": [],
+  "gate": "PASS",
+  "hold_code": "HOLD_APPROVED_RECIPE_RUNNER_COMMAND_FAILED",
+  "implementation_name": "IMPLEMENT_APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_V0",
+  "new_bands_created": 0,
+  "payload_forbidden_fields": [
+    "case_id",
+    "cycle_n",
+    "rowid",
+    "receipt_hash",
+    "receipt_path",
+    "audit_pointer",
+    "debug_payload",
+    "full_occurrence_key",
+    "registry_rowid"
+  ],
+  "policy_id": "c176d8d4",
+  "policy_receipt_id": "3288057c",
+  "receipt_files_found_total": 0,
+  "receipt_files_used": [],
+  "receipt_files_used_total": 0,
+  "receipt_id": "19b6cf75",
+  "receipt_sig8": "19b6cf75",
+  "receipt_type": "APPROVED_NEW_BOUNDED_VALIDATION_SURFACE_RECIPE_IMPLEMENTATION_RECEIPT",
+  "rows_created": 0,
+  "runner_command": [
+    "uv",
+    "run",
+    "python",
+    "src/matrixlab/cli.py",
+    "run",
+    "--families",
+    "projection_quotient",
+    "--depth-min",
+    "3",
+    "--depth-max",
+    "12",
+    "--cycles-per-case",
+    "50",
+    "--max-cells",
+    "50000"
+  ],
+  "runner_precheck": {
+    "failure": null,
+    "precheck_attempted": true,
+    "runner_command_available": true,
+    "runner_command_path_exists": true,
+    "runner_help_checked": true,
+    "runner_help_exit_code": 0,
+    "runner_help_stderr_tail": "",
+    "runner_help_stdout_tail": "                                                      \n Usage: cli.py run [OPTIONS]                                                    \n                                                                                \n\u256d\u2500 Options \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 --depth-min                              INTEGER  Smallest starting cycle    \u2502\n\u2502                                                   size.                      \u2502\n\u2502                                                   [default: 3]               \u2502\n\u2502 --depth-max                              INTEGER  Largest starting cycle     \u2502\n\u2502                                                   size.                      \u2502\n\u2502                                                   [default: 8]               \u2502\n\u2502 --families                               TEXT     Family letters: A,B,C,D,E. \u2502\n\u2502                                                   [default: A,B,C,D,E]       \u2502\n\u2502 --cycles-per-case                        INTEGER  Cycles per case. 0 means   \u2502\n\u2502                                                   depth_max.                 \u2502\n\u2502                                                   [default: 0]               \u2502\n\u2502 --max-cells                              INTEGER  Hard matrix cell limit     \u2502\n\u2502                                                   before halt.               \u2502\n\u2502                                                   [default: 250000]          \u2502\n\u2502 --strict-laws        --no-strict-laws             Halt immediately on law    \u2502\n\u2502                                                   failure.                   \u2502\n\u2502                                                   [default: no-strict-laws]  \u2502\n\u2502 --run-id                                 TEXT     Optional run id.           \u2502\n\u2502 --help                                            Show this message and      \u2502\n\u2502                                                   exit.                      \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f\n\n"
+  },
+  "runner_result": {
+    "captured_run_id": null,
+    "failure": "HOLD_APPROVED_RECIPE_RUNNER_COMMAND_FAILED",
+    "runner_executed": true,
+    "runner_exit_code": 2,
+    "runner_stderr_path": null,
+    "runner_stdout_path": "data/raw_delta_signature_candidate_approved_new_bounded_surface_run_logs/40c2ec3d_runner.json"
+  },
+  "schema_version": "raw_delta_signature_candidate_approved_new_bounded_surface_receipt_v0",
+  "selected_option_id": "OPTION_A_NARROWED",
+  "signature_payload_fields": [
+    "cv",
+    "state_hash_before",
+    "move_id",
+    "state_hash_after",
+    "raw_compression_ratio_sig6"
+  ],
+  "source_decision_id": "55b293ef",
+  "source_decision_receipt_id": "6dc33fbd",
+  "surface_id": "40c2ec3d",
+  "surface_manifest_path": "data/raw_delta_signature_candidate_approved_new_bounded_surface_manifests/40c2ec3d.json",
+  "surface_rows_path": "data/raw_delta_signature_candidate_approved_new_bounded_surface_rows/40c2ec3d.jsonl",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "HOLD_APPROVED_RECIPE_RUNNER_COMMAND_FAILED",
+    "type": "HOLD"
+  },
+  "truth_surface": "full_occurrence_key_to_candidate_delta_signature",
+  "valid_against": {
+    "candidate_design_id": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+    "policy_id": "7050f196",
+    "policy_receipt_id": "2c061175",
+    "receipt_id": "065849ef",
+    "selected_encoding_id": "raw_decimal_sig6",
+    "selected_target_raw_delta_field": "compression_ratio",
+    "surface_id": "40e5f5b4"
+  },
+  "warnings": []
+}
+surface_id=40c2ec3d
+surface_rows_path=data/raw_delta_signature_candidate_approved_new_bounded_surface_rows/40c2ec3d.jsonl
+surface_manifest_path=data/raw_delta_signature_candidate_approved_new_bounded_surface_manifests/40c2ec3d.json
+surface_receipt_path=data/raw_delta_signature_candidate_approved_new_bounded_surface_receipts/40c2ec3d.json
+SURFACE_ID=40c2ec3d
+
+ASSERT_APPROVED_NEW_BOUNDED_SURFACE_IMPLEMENTATION
+{
+  "authority_guards": {
+    "ambient_workspace_inference_used": false,
+    "audit_or_debug_payload_in_signature_payload": false,
+    "candidate_accepted": false,
+    "candidate_rows_created": false,
+    "candidate_rows_created_total": 0,
+    "case_id_or_cycle_n_identity_patch_used": false,
+    "explicit_run_id": null,
+    "explicit_run_id_captured": false,
+    "full_occurrence_key_in_signature_payload": false,
+    "full_registry_scan_used": false,
+    "latest_or_mtime_selection_used": false,
+    "microhash_as_proof_used": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_written": false,
+    "rowid_or_receipt_hash_truth_surface_used": false,
+    "runner_command_available": true,
+    "runner_executed": true,
+    "runner_executions_total": 1,
+    "runner_precheck_attempted": true,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "runtime_semantic_changed": false,
+    "scale_mode_authorized": false,
+    "surface_manifest_written": true,
+    "surface_receipt_written": true,
+    "synthetic_fake_validation_rows_used": false,
+    "transition_compression_probe_run": false
+  },
+  "explicit_run_id": null,
+  "gate": "PASS",
+  "hold_code": "HOLD_APPROVED_RECIPE_RUNNER_COMMAND_FAILED",
+  "new_bands_created": 0,
+  "receipt_files_used_total": 0,
+  "receipt_id": "19b6cf75",
+  "rows_created": 0,
+  "surface_id": "40c2ec3d",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "HOLD_APPROVED_RECIPE_RUNNER_COMMAND_FAILED",
+    "type": "HOLD"
+  }
+}
+
+NEGATIVE_CONTROLS_IMPLEMENTATION_VERIFIERS_NO_RUNNER_NO_WRITE
+{
+  "case": "policy_gate_fail",
+  "expected": "policy_gate_not_PASS",
+  "failures": [
+    "policy_gate_not_PASS:FAIL"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "policy_status_fail",
+  "expected": "policy_status_wrong",
+  "failures": [
+    "policy_status_wrong:EXECUTED"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "selected_option_fail",
+  "expected": "selected_option_wrong",
+  "failures": [
+    "selected_option_wrong:OPTION_B_EXISTING_RECEIPT_SURFACE_EXTRACTOR"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "approved_bounds_fail",
+  "expected": "approved_bounds_wrong",
+  "failures": [
+    "approved_bounds_wrong:{'max_candidate_rows': 10000, 'max_cycles_per_case': 50, 'max_new_bands': 512, 'max_new_cases_total': 10, 'max_new_runs': 999, 'max_output_files': 16}"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "candidate_acceptance_authority_fail",
+  "expected": "forbidden_authority_not_false:authorizes_candidate_acceptance",
+  "failures": [
+    "forbidden_authority_not_false:authorizes_candidate_acceptance:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "registry_read_authority_fail",
+  "expected": "forbidden_authority_not_false:authorizes_registry_sqlite_read",
+  "failures": [
+    "forbidden_authority_not_false:authorizes_registry_sqlite_read:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "runtime_code_authority_fail",
+  "expected": "forbidden_authority_not_false:authorizes_runtime_code_change",
+  "failures": [
+    "forbidden_authority_not_false:authorizes_runtime_code_change:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "runner_precheck_required_fail",
+  "expected": "runner_precheck_not_true",
+  "failures": [
+    "runner_precheck_not_true:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "payload_fields_fail",
+  "expected": "payload_fields_wrong",
+  "failures": [
+    "payload_fields_wrong:['cv', 'state_hash_before', 'move_id', 'state_hash_after', 'raw_compression_ratio_sig6', 'case_id']"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "next_gate_registry_fail",
+  "expected": "required_gate_not_true:must_not_read_registry_sqlite",
+  "failures": [
+    "required_gate_not_true:must_not_read_registry_sqlite:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "after": {
+    "manifest": "3a7bc2cd11697e7525442cb8876fafd9cd0e41e627f769c68b8595aae2d8d12a",
+    "receipt": "d7b0bc5f300bc58cd5935e40b56e4a49deb9b45e4dcea6ee057a45c617f5a410",
+    "rows": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "before": {
+    "manifest": "3a7bc2cd11697e7525442cb8876fafd9cd0e41e627f769c68b8595aae2d8d12a",
+    "receipt": "d7b0bc5f300bc58cd5935e40b56e4a49deb9b45e4dcea6ee057a45c617f5a410",
+    "rows": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_execute_runner": false,
+  "negative_controls_write_outputs": false
+}
+negative controls ok, no runner, no live writes
+
+IMPLEMENTATION_HEAD_JSON
+{
+  "authority_guards": {
+    "ambient_workspace_inference_used": false,
+    "audit_or_debug_payload_in_signature_payload": false,
+    "candidate_accepted": false,
+    "candidate_rows_created": false,
+    "candidate_rows_created_total": 0,
+    "case_id_or_cycle_n_identity_patch_used": false,
+    "explicit_run_id": null,
+    "explicit_run_id_captured": false,
+    "full_occurrence_key_in_signature_payload": false,
+    "full_registry_scan_used": false,
+    "latest_or_mtime_selection_used": false,
+    "microhash_as_proof_used": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_written": false,
+    "rowid_or_receipt_hash_truth_surface_used": false,
+    "runner_command_available": true,
+    "runner_executed": true,
+    "runner_executions_total": 1,
+    "runner_precheck_attempted": true,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "runtime_semantic_changed": false,
+    "scale_mode_authorized": false,
+    "surface_manifest_written": true,
+    "surface_receipt_written": true,
+    "synthetic_fake_validation_rows_used": false,
+    "transition_compression_probe_run": false
+  },
+  "explicit_run_id": null,
+  "gate": "PASS",
+  "hold_code": "HOLD_APPROVED_RECIPE_RUNNER_COMMAND_FAILED",
+  "new_bands_created": 0,
+  "receipt_files_found_total": 0,
+  "receipt_files_used_total": 0,
+  "receipt_id": "19b6cf75",
+  "rows_created": 0,
+  "surface_id": "40c2ec3d",
+  "surface_manifest_path": "data/raw_delta_signature_candidate_approved_new_bounded_surface_manifests/40c2ec3d.json",
+  "surface_rows_path": "data/raw_delta_signature_candidate_approved_new_bounded_surface_rows/40c2ec3d.jsonl",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "HOLD_APPROVED_RECIPE_RUNNER_COMMAND_FAILED",
+    "type": "HOLD"
+  }
+}
+
+VERIFY_RUNTIME_AND_PRIOR_PROBES_UNTOUCHED
+.gitignore
+runtime/prior probes untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/implement_approved_new_bounded_validation_surface_recipe_v0.py
+[master f8fe8bf86] implement approved new bounded validation surface recipe
+ 2 files changed, 938 insertions(+)
+ create mode 100755 scripts/implement_approved_new_bounded_validation_surface_recipe_v0.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

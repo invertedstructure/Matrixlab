@@ -1,0 +1,267 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_214547
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_214547.txt
+
+REPAIR_CV_ALIAS_PATCH_ASSERTION_AND_COMMIT_V0
+
+STATUS_BEFORE
+ M scripts/implement_approved_new_bounded_validation_surface_recipe_v0.py
+?? data/
+
+VERIFY_REQUIRED_FILES_EXIST
+
+PY_COMPILE_IMPLEMENTATION
+
+INSPECT_CV_ALIAS_ROW_SAMPLE_AND_RECEIPT
+{
+  "authority_guards": {
+    "ambient_workspace_inference_used": false,
+    "audit_or_debug_payload_in_signature_payload": false,
+    "candidate_accepted": false,
+    "candidate_rows_created": true,
+    "candidate_rows_created_total": 500,
+    "case_id_or_cycle_n_identity_patch_used": false,
+    "explicit_run_id": "run_20260621_183812_136149",
+    "explicit_run_id_captured": true,
+    "full_occurrence_key_in_signature_payload": false,
+    "full_registry_scan_used": false,
+    "latest_or_mtime_selection_used": false,
+    "microhash_as_proof_used": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_written": false,
+    "rowid_or_receipt_hash_truth_surface_used": false,
+    "runner_command_available": true,
+    "runner_executed": false,
+    "runner_executions_total": 0,
+    "runner_precheck_attempted": true,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "runtime_semantic_changed": false,
+    "scale_mode_authorized": false,
+    "surface_manifest_written": true,
+    "surface_receipt_written": true,
+    "synthetic_fake_validation_rows_used": false,
+    "transition_compression_probe_run": false
+  },
+  "candidate_field_alias_patch": "PATCH_APPROVED_RECIPE_CANDIDATE_FIELD_ALIAS_EXTRACTOR_V0",
+  "candidate_signature_distinct_count": 500,
+  "cv_fallback_rule_id": "CV_EQUALS_CANDIDATE_DESIGN_ID_WHEN_NATIVE_CV_ABSENT_V0",
+  "cv_source_counter": {
+    "CV_EQUALS_CANDIDATE_DESIGN_ID_WHEN_NATIVE_CV_ABSENT_V0": 500
+  },
+  "explicit_run_id": "run_20260621_183812_136149",
+  "gate": "PASS",
+  "hold_code": null,
+  "new_bands_created": 500,
+  "payload_cv_counter": {
+    "RAW_DELTA_SIGNATURE_CANDIDATE_V0": 500
+  },
+  "payload_key_shapes": {
+    "('cv', 'move_id', 'raw_compression_ratio_sig6', 'state_hash_after', 'state_hash_before')": 500
+  },
+  "receipt_id": "e5022cd2",
+  "rows_created": 500,
+  "sample_cv_source": "CV_EQUALS_CANDIDATE_DESIGN_ID_WHEN_NATIVE_CV_ABSENT_V0",
+  "sample_payload": {
+    "cv": "RAW_DELTA_SIGNATURE_CANDIDATE_V0",
+    "move_id": "duplicate_existing_column",
+    "raw_compression_ratio_sig6": "23",
+    "state_hash_after": "71cd3c44",
+    "state_hash_before": "eb4dda2d"
+  },
+  "sample_row_top_keys": [
+    "candidate_delta_signature",
+    "created_by",
+    "cv_fallback_rule_id",
+    "cv_source",
+    "full_occurrence_key",
+    "row_id",
+    "row_type",
+    "signature_payload",
+    "source_receipt_ref",
+    "source_run_id",
+    "source_surface_id",
+    "truth_surface"
+  ],
+  "surface_id": "4427ba4b",
+  "terminal": {
+    "next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_APPROVED_NEW_BOUNDED_SURFACE_PROBE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_CV_ALIAS_PATCH_NO_RUNNER_NO_WRITE
+{
+  "case": "policy_gate_fail",
+  "expected": "policy_gate_not_PASS",
+  "failures": [
+    "policy_gate_not_PASS:FAIL"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "policy_status_fail",
+  "expected": "policy_status_wrong",
+  "failures": [
+    "policy_status_wrong:EXECUTED"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "candidate_acceptance_authority_fail",
+  "expected": "forbidden_authority_not_false:authorizes_candidate_acceptance",
+  "failures": [
+    "forbidden_authority_not_false:authorizes_candidate_acceptance:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "registry_read_authority_fail",
+  "expected": "forbidden_authority_not_false:authorizes_registry_sqlite_read",
+  "failures": [
+    "forbidden_authority_not_false:authorizes_registry_sqlite_read:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "full_registry_scan_authority_fail",
+  "expected": "forbidden_authority_not_false:authorizes_full_registry_scan",
+  "failures": [
+    "forbidden_authority_not_false:authorizes_full_registry_scan:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "latest_mtime_authority_fail",
+  "expected": "forbidden_authority_not_false:authorizes_latest_or_mtime_selection",
+  "failures": [
+    "forbidden_authority_not_false:authorizes_latest_or_mtime_selection:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "payload_fields_fail",
+  "expected": "payload_fields_wrong",
+  "failures": [
+    "payload_fields_wrong:['cv', 'state_hash_before', 'move_id', 'state_hash_after', 'raw_compression_ratio_sig6', 'case_id']"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "next_gate_latest_fail",
+  "expected": "required_gate_not_true:must_not_use_latest_or_mtime",
+  "failures": [
+    "required_gate_not_true:must_not_use_latest_or_mtime:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "after": {
+    "manifest": "0d19bb638cd4aa86c5974d811f9ea462a322438906d538d358da3ea66c5256d0",
+    "receipt": "42f768f6f04964a78867e0e2d6f5cab91bf63d97f003bf37457707f2b9fd9a8c",
+    "rows": "aa5fce85827c9c561c313b020a0817de92af639b56229d413b3a2fff9fc9c008"
+  },
+  "before": {
+    "manifest": "0d19bb638cd4aa86c5974d811f9ea462a322438906d538d358da3ea66c5256d0",
+    "receipt": "42f768f6f04964a78867e0e2d6f5cab91bf63d97f003bf37457707f2b9fd9a8c",
+    "rows": "aa5fce85827c9c561c313b020a0817de92af639b56229d413b3a2fff9fc9c008"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_execute_runner": false,
+  "negative_controls_write_outputs": false
+}
+negative controls ok, no runner, no live writes
+
+REPAIR_CV_ALIAS_PATCH_HEAD_JSON
+{
+  "authority_guards": {
+    "ambient_workspace_inference_used": false,
+    "audit_or_debug_payload_in_signature_payload": false,
+    "candidate_accepted": false,
+    "candidate_rows_created": true,
+    "candidate_rows_created_total": 500,
+    "case_id_or_cycle_n_identity_patch_used": false,
+    "explicit_run_id": "run_20260621_183812_136149",
+    "explicit_run_id_captured": true,
+    "full_occurrence_key_in_signature_payload": false,
+    "full_registry_scan_used": false,
+    "latest_or_mtime_selection_used": false,
+    "microhash_as_proof_used": false,
+    "registry_inserted": false,
+    "registry_sqlite_read": false,
+    "registry_written": false,
+    "rowid_or_receipt_hash_truth_surface_used": false,
+    "runner_command_available": true,
+    "runner_executed": false,
+    "runner_executions_total": 0,
+    "runner_precheck_attempted": true,
+    "runtime_code_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "runtime_semantic_changed": false,
+    "scale_mode_authorized": false,
+    "surface_manifest_written": true,
+    "surface_receipt_written": true,
+    "synthetic_fake_validation_rows_used": false,
+    "transition_compression_probe_run": false
+  },
+  "candidate_field_alias_patch": "PATCH_APPROVED_RECIPE_CANDIDATE_FIELD_ALIAS_EXTRACTOR_V0",
+  "candidate_signature_distinct_count": 500,
+  "cv_fallback_rule_id": "CV_EQUALS_CANDIDATE_DESIGN_ID_WHEN_NATIVE_CV_ABSENT_V0",
+  "explicit_run_id": "run_20260621_183812_136149",
+  "gate": "PASS",
+  "hold_code": null,
+  "new_bands_created": 500,
+  "receipt_id": "e5022cd2",
+  "rows_created": 500,
+  "surface_id": "4427ba4b",
+  "surface_manifest_path": "data/raw_delta_signature_candidate_approved_new_bounded_surface_manifests/4427ba4b.json",
+  "surface_rows_path": "data/raw_delta_signature_candidate_approved_new_bounded_surface_rows/4427ba4b.jsonl",
+  "terminal": {
+    "next_command_goal": "BUILD_RAW_DELTA_SIGNATURE_CANDIDATE_APPROVED_NEW_BOUNDED_SURFACE_PROBE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_RUNTIME_AND_PRIOR_PROBES_UNTOUCHED
+scripts/implement_approved_new_bounded_validation_surface_recipe_v0.py
+runtime/prior probes untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ ...ved_new_bounded_validation_surface_recipe_v0.py | 28 +++++++++++++++++++++-
+ 1 file changed, 27 insertions(+), 1 deletion(-)
+
+STATUS_AFTER
+ M scripts/implement_approved_new_bounded_validation_surface_recipe_v0.py
+?? data/
+[master 5e9363ca1] patch approved recipe candidate field alias extractor
+ 1 file changed, 27 insertions(+), 1 deletion(-)
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

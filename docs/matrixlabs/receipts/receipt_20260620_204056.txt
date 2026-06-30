@@ -1,0 +1,563 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_204056
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_204056.txt
+
+RERUN_MICRO_BURDEN_PROFILE_AFTER_CYCLE_PERIOD_COMPRESSION_FIX_V0
+
+STATUS_BEFORE
+?? data/
+
+VERIFY_APPLICATION_AUTHORITY
+{
+  "application_gate": "PASS",
+  "application_id": "febc0111",
+  "application_sig8": "febc0111",
+  "before_profile_id": "24ac7037",
+  "candidate_gate": "PASS",
+  "certificate_count": 5,
+  "policy_gate": "PASS",
+  "receipt_gate": "PASS",
+  "semantics": {
+    "cycle_execution_skipping": false,
+    "early_halt_on_period_detection": false,
+    "execution_skipping": false,
+    "gate_semantics_change": false,
+    "halt_semantics_change": false,
+    "law_semantics_change": false,
+    "patch_application": true,
+    "radius_expansion": false,
+    "receipt_compression": false,
+    "receipt_deletion": false,
+    "receipt_schema_change": false,
+    "reusing_prior_cycle_results_as_execution": false,
+    "reusing_prior_run_results_as_execution": false,
+    "run_semantics_change": false,
+    "synthetic_cycle_receipts": false
+  },
+  "slot_identity_matches_expected": true,
+  "source_candidate_id": "7a058351",
+  "source_policy_id": "688b83a9",
+  "target_burden_class": "BURDEN_CYCLE_SCAN",
+  "terminal": {
+    "next_command_goal": "RERUN_MICRO_BURDEN_PROFILE_AFTER_CYCLE_PERIOD_COMPRESSION_FIX_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+PATCH_GITIGNORE
+
+RERUN_SAME_MICRO_SUITE_AFTER_CYCLE_PERIOD_COMPRESSION_FIX
+{
+  "burden_class_counts": {
+    "BURDEN_CYCLE_SCAN": 5,
+    "BURDEN_DB_WRITE": 5,
+    "BURDEN_DEPTH_SCAN": 5,
+    "BURDEN_RECEIPT_VOLUME": 1,
+    "BURDEN_REPEATED_SLOT_WORK": 9
+  },
+  "created_at": "2026-06-20T19:41:37.881955+00:00",
+  "csv_path": "data/micro_burden_profiles/45cd7660.csv",
+  "failures": [],
+  "families_seen": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "gate": "MICRO_BURDEN_PROFILE_PASS",
+  "non_unknown_burden_classes": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_DEPTH_SCAN",
+    "BURDEN_RECEIPT_VOLUME",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "probe_completion": {
+    "MICRO_01_WIDE_FAMILY_SMOKE": "PASS",
+    "MICRO_02_CYCLE_PRESSURE": "PASS",
+    "MICRO_03_DEPTH_PRESSURE": "PASS",
+    "MICRO_04_REPEATED_SLOT_PRESSURE": "PASS",
+    "MICRO_05_RECEIPT_WRITE_PRESSURE": "PASS"
+  },
+  "profile_id": "45cd7660",
+  "profile_path": "data/micro_burden_profiles/45cd7660.json",
+  "profile_sig8": "45cd7660",
+  "receipt_id": "f933f8a8",
+  "receipt_sig8": "f933f8a8",
+  "receipt_totals": {
+    "after": 1624889,
+    "before": 1623432,
+    "delta": 1457,
+    "matches_registry_sqlite": true,
+    "profile_total": 1457
+  },
+  "schema_version": "wide_burden_profile_microruns_receipt_v0",
+  "semantics": {
+    "execution_skipped": false,
+    "gate_semantics_changed": false,
+    "law_semantics_changed": false,
+    "passive_observability_layer": true,
+    "receipt_rows_deleted": false,
+    "receipts_compressed": false,
+    "runner_semantics_changed": false
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_BURDEN_BACKED_FIX_CANDIDATE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "top_20_receipt_sources_present": true,
+  "top_20_time_sources_present": true,
+  "warnings": []
+}
+profile_json_path=data/micro_burden_profiles/45cd7660.json
+profile_csv_path=data/micro_burden_profiles/45cd7660.csv
+profile_receipt_path=data/micro_burden_profile_receipts/45cd7660.json
+BEFORE_PROFILE_ID=24ac7037
+AFTER_PROFILE_ID=45cd7660
+
+ASSERT_AFTER_PROFILE_PASS_AND_CYCLE_PERIOD_OBSERVATION_PRESENT
+{
+  "after_db_receipt_delta": 1457,
+  "after_failures": [],
+  "after_families_seen": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "after_gate": "MICRO_BURDEN_PROFILE_PASS",
+  "after_non_unknown_burden_classes": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_DEPTH_SCAN",
+    "BURDEN_RECEIPT_VOLUME",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "after_profile_id": "45cd7660",
+  "after_profile_receipts_total": 1457,
+  "after_rows": 25,
+  "before_profile_id": "24ac7037",
+  "certificate_count": 5,
+  "certificate_scope": "post_execution_observation_metadata_only",
+  "cycle_period_semantics": {
+    "cycle_execution_skipping": false,
+    "early_halt_on_period_detection": false,
+    "execution_skipping": false,
+    "gate_semantics_change": false,
+    "halt_semantics_change": false,
+    "law_semantics_change": false,
+    "radius_expansion": false,
+    "receipt_compression": false,
+    "receipt_deletion": false,
+    "reusing_prior_cycle_results_as_execution": false,
+    "run_semantics_change": false,
+    "synthetic_cycle_receipts": false
+  },
+  "cycle_period_status": "APPLIED_POST_EXECUTION_METADATA_ONLY",
+  "does_not_certify_without_execution": true,
+  "does_not_change_cycles_per_case": true,
+  "does_not_change_halt_reason": true,
+  "does_not_early_halt_on_period_detection": true,
+  "does_not_emit_synthetic_receipts": true,
+  "does_not_reuse_prior_cycle_results_as_execution": true,
+  "does_not_skip_cycle_execution": true,
+  "expected_cycle_slot_ids": [
+    "MICRO_02_CYCLE_PRESSURE_A",
+    "MICRO_02_CYCLE_PRESSURE_B",
+    "MICRO_02_CYCLE_PRESSURE_C",
+    "MICRO_02_CYCLE_PRESSURE_D",
+    "MICRO_02_CYCLE_PRESSURE_E"
+  ],
+  "observed_cycle_slot_ids": [
+    "MICRO_02_CYCLE_PRESSURE_A",
+    "MICRO_02_CYCLE_PRESSURE_B",
+    "MICRO_02_CYCLE_PRESSURE_C",
+    "MICRO_02_CYCLE_PRESSURE_D",
+    "MICRO_02_CYCLE_PRESSURE_E"
+  ],
+  "slot_identity_matches_expected": true
+}
+
+WRITE_CYCLE_PERIOD_COMPARISON_SCRIPT
+
+PY_COMPILE_COMPARISON
+
+BUILD_CYCLE_PERIOD_COMPRESSION_BEFORE_AFTER_COMPARISON
+{
+  "after_profile_id": "45cd7660",
+  "before_profile_id": "24ac7037",
+  "comparison_id": "92bc87b6",
+  "comparison_path": "data/cycle_period_compression_before_after_comparisons/92bc87b6.json",
+  "comparison_sig8": "92bc87b6",
+  "created_at": "2026-06-20T19:41:38.177022+00:00",
+  "cycle_period_certificate_count": 5,
+  "cycle_period_metadata_present": true,
+  "cycle_slot_identity_preserved": true,
+  "failures": [],
+  "gate": "PASS",
+  "receipt_id": "fd9507be",
+  "receipt_sig8": "fd9507be",
+  "schema_version": "cycle_period_compression_before_after_comparison_receipt_v0",
+  "source_application_id": "febc0111",
+  "source_candidate_id": "7a058351",
+  "source_policy_id": "688b83a9",
+  "target_burden_class": "BURDEN_CYCLE_SCAN",
+  "target_delta": {
+    "after_elapsed_ms": 4315,
+    "after_receipts_per_sec": 133.487833,
+    "before_elapsed_ms": 4392,
+    "before_receipts_per_sec": 131.147541,
+    "elapsed_ms_delta": -77,
+    "elapsed_ratio_after_vs_before": 0.982468,
+    "receipts_per_sec_delta": 2.340292,
+    "speedup_before_over_after": 1.017845
+  },
+  "target_receipts_preserved": true,
+  "target_result": "TARGET_BURDEN_ELAPSED_NON_WORSE",
+  "terminal": {
+    "next_command_goal": "DECIDE_CYCLE_PERIOD_COMPRESSION_FIX_OUTCOME_OR_NEXT_BURDEN_CLASS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+comparison_json_path=data/cycle_period_compression_before_after_comparisons/92bc87b6.json
+comparison_receipt_path=data/cycle_period_compression_before_after_comparison_receipts/92bc87b6.json
+COMPARISON_ID=92bc87b6
+
+ASSERT_CYCLE_PERIOD_COMPRESSION_COMPARISON
+{
+  "after_profile_id": "45cd7660",
+  "before_profile_id": "24ac7037",
+  "comparison_id": "92bc87b6",
+  "comparison_sig8": "92bc87b6",
+  "cycle_period_observation": {
+    "certificate_count": 5,
+    "certificate_kind": "cycle_period_observation_certificate",
+    "certificate_scope": "post_execution_observation_metadata_only",
+    "does_not_certify_without_execution": true,
+    "does_not_change_cycles_per_case": true,
+    "does_not_change_halt_reason": true,
+    "does_not_early_halt_on_period_detection": true,
+    "does_not_emit_synthetic_receipts": true,
+    "does_not_reuse_prior_cycle_results_as_execution": true,
+    "does_not_skip_cycle_execution": true,
+    "expected_cycle_slot_ids": [
+      "MICRO_02_CYCLE_PRESSURE_A",
+      "MICRO_02_CYCLE_PRESSURE_B",
+      "MICRO_02_CYCLE_PRESSURE_C",
+      "MICRO_02_CYCLE_PRESSURE_D",
+      "MICRO_02_CYCLE_PRESSURE_E"
+    ],
+    "families_must_remain_A_E": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "observed_cycle_slot_ids": [
+      "MICRO_02_CYCLE_PRESSURE_A",
+      "MICRO_02_CYCLE_PRESSURE_B",
+      "MICRO_02_CYCLE_PRESSURE_C",
+      "MICRO_02_CYCLE_PRESSURE_D",
+      "MICRO_02_CYCLE_PRESSURE_E"
+    ],
+    "probe_must_remain": "MICRO_02_CYCLE_PRESSURE",
+    "semantics": {
+      "cycle_execution_skipping": false,
+      "early_halt_on_period_detection": false,
+      "execution_skipping": false,
+      "gate_semantics_change": false,
+      "halt_semantics_change": false,
+      "law_semantics_change": false,
+      "radius_expansion": false,
+      "receipt_compression": false,
+      "receipt_deletion": false,
+      "reusing_prior_cycle_results_as_execution": false,
+      "run_semantics_change": false,
+      "synthetic_cycle_receipts": false
+    },
+    "slot_identity_matches_expected": true,
+    "status": "APPLIED_POST_EXECUTION_METADATA_ONLY"
+  },
+  "failures": [],
+  "gate": "PASS",
+  "gate_rules": {
+    "after_profile_gate_pass": true,
+    "after_receipt_totals_match_registry": true,
+    "application_gate_pass": true,
+    "cycle_period_certificate_count_5": true,
+    "cycle_period_metadata_only_no_execution_substitution": true,
+    "cycle_period_metadata_present": true,
+    "cycle_slot_identity_preserved": true,
+    "family_coverage_A_E_preserved": true,
+    "no_execution_skipping": true,
+    "no_gate_semantics_changed": true,
+    "no_law_semantics_changed": true,
+    "no_receipt_deletion": true,
+    "no_runner_semantics_changed": true,
+    "profile_receipt_total_preserved": true,
+    "same_row_count": true,
+    "same_target_row_keys": true,
+    "target_cycle_elapsed_non_worse": true,
+    "target_receipts_preserved": true
+  },
+  "receipt_gate": "PASS",
+  "receipt_id": "fd9507be",
+  "source_application_id": "febc0111",
+  "source_candidate_id": "7a058351",
+  "source_policy_id": "688b83a9",
+  "target_after": {
+    "burden_class": "BURDEN_CYCLE_SCAN",
+    "elapsed_ms": 4315,
+    "families": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "probes": [
+      "MICRO_02_CYCLE_PRESSURE"
+    ],
+    "receipts": 576,
+    "receipts_per_sec": 133.487833,
+    "rows": 5,
+    "slots": [
+      "MICRO_02_CYCLE_PRESSURE_A",
+      "MICRO_02_CYCLE_PRESSURE_B",
+      "MICRO_02_CYCLE_PRESSURE_C",
+      "MICRO_02_CYCLE_PRESSURE_D",
+      "MICRO_02_CYCLE_PRESSURE_E"
+    ]
+  },
+  "target_before": {
+    "burden_class": "BURDEN_CYCLE_SCAN",
+    "elapsed_ms": 4392,
+    "families": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "probes": [
+      "MICRO_02_CYCLE_PRESSURE"
+    ],
+    "receipts": 576,
+    "receipts_per_sec": 131.147541,
+    "rows": 5,
+    "slots": [
+      "MICRO_02_CYCLE_PRESSURE_A",
+      "MICRO_02_CYCLE_PRESSURE_B",
+      "MICRO_02_CYCLE_PRESSURE_C",
+      "MICRO_02_CYCLE_PRESSURE_D",
+      "MICRO_02_CYCLE_PRESSURE_E"
+    ]
+  },
+  "target_burden_class": "BURDEN_CYCLE_SCAN",
+  "target_delta": {
+    "after_elapsed_ms": 4315,
+    "after_receipts_per_sec": 133.487833,
+    "before_elapsed_ms": 4392,
+    "before_receipts_per_sec": 131.147541,
+    "elapsed_ms_delta": -77,
+    "elapsed_ratio_after_vs_before": 0.982468,
+    "receipts_per_sec_delta": 2.340292,
+    "speedup_before_over_after": 1.017845
+  },
+  "target_result": "TARGET_BURDEN_ELAPSED_NON_WORSE",
+  "terminal": {
+    "next_command_goal": "DECIDE_CYCLE_PERIOD_COMPRESSION_FIX_OUTCOME_OR_NEXT_BURDEN_CLASS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+COMPARISON_HEAD_JSON
+{
+  "after_profile_id": "45cd7660",
+  "before_profile_id": "24ac7037",
+  "comparison_id": "92bc87b6",
+  "cycle_period_observation": {
+    "certificate_count": 5,
+    "certificate_kind": "cycle_period_observation_certificate",
+    "certificate_scope": "post_execution_observation_metadata_only",
+    "does_not_certify_without_execution": true,
+    "does_not_change_cycles_per_case": true,
+    "does_not_change_halt_reason": true,
+    "does_not_early_halt_on_period_detection": true,
+    "does_not_emit_synthetic_receipts": true,
+    "does_not_reuse_prior_cycle_results_as_execution": true,
+    "does_not_skip_cycle_execution": true,
+    "expected_cycle_slot_ids": [
+      "MICRO_02_CYCLE_PRESSURE_A",
+      "MICRO_02_CYCLE_PRESSURE_B",
+      "MICRO_02_CYCLE_PRESSURE_C",
+      "MICRO_02_CYCLE_PRESSURE_D",
+      "MICRO_02_CYCLE_PRESSURE_E"
+    ],
+    "families_must_remain_A_E": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "observed_cycle_slot_ids": [
+      "MICRO_02_CYCLE_PRESSURE_A",
+      "MICRO_02_CYCLE_PRESSURE_B",
+      "MICRO_02_CYCLE_PRESSURE_C",
+      "MICRO_02_CYCLE_PRESSURE_D",
+      "MICRO_02_CYCLE_PRESSURE_E"
+    ],
+    "probe_must_remain": "MICRO_02_CYCLE_PRESSURE",
+    "semantics": {
+      "cycle_execution_skipping": false,
+      "early_halt_on_period_detection": false,
+      "execution_skipping": false,
+      "gate_semantics_change": false,
+      "halt_semantics_change": false,
+      "law_semantics_change": false,
+      "radius_expansion": false,
+      "receipt_compression": false,
+      "receipt_deletion": false,
+      "reusing_prior_cycle_results_as_execution": false,
+      "run_semantics_change": false,
+      "synthetic_cycle_receipts": false
+    },
+    "slot_identity_matches_expected": true,
+    "status": "APPLIED_POST_EXECUTION_METADATA_ONLY"
+  },
+  "gate": "PASS",
+  "gate_rules": {
+    "after_profile_gate_pass": true,
+    "after_receipt_totals_match_registry": true,
+    "application_gate_pass": true,
+    "cycle_period_certificate_count_5": true,
+    "cycle_period_metadata_only_no_execution_substitution": true,
+    "cycle_period_metadata_present": true,
+    "cycle_slot_identity_preserved": true,
+    "family_coverage_A_E_preserved": true,
+    "no_execution_skipping": true,
+    "no_gate_semantics_changed": true,
+    "no_law_semantics_changed": true,
+    "no_receipt_deletion": true,
+    "no_runner_semantics_changed": true,
+    "profile_receipt_total_preserved": true,
+    "same_row_count": true,
+    "same_target_row_keys": true,
+    "target_cycle_elapsed_non_worse": true,
+    "target_receipts_preserved": true
+  },
+  "target_after": {
+    "burden_class": "BURDEN_CYCLE_SCAN",
+    "elapsed_ms": 4315,
+    "families": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "probes": [
+      "MICRO_02_CYCLE_PRESSURE"
+    ],
+    "receipts": 576,
+    "receipts_per_sec": 133.487833,
+    "rows": 5,
+    "slots": [
+      "MICRO_02_CYCLE_PRESSURE_A",
+      "MICRO_02_CYCLE_PRESSURE_B",
+      "MICRO_02_CYCLE_PRESSURE_C",
+      "MICRO_02_CYCLE_PRESSURE_D",
+      "MICRO_02_CYCLE_PRESSURE_E"
+    ]
+  },
+  "target_before": {
+    "burden_class": "BURDEN_CYCLE_SCAN",
+    "elapsed_ms": 4392,
+    "families": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "probes": [
+      "MICRO_02_CYCLE_PRESSURE"
+    ],
+    "receipts": 576,
+    "receipts_per_sec": 131.147541,
+    "rows": 5,
+    "slots": [
+      "MICRO_02_CYCLE_PRESSURE_A",
+      "MICRO_02_CYCLE_PRESSURE_B",
+      "MICRO_02_CYCLE_PRESSURE_C",
+      "MICRO_02_CYCLE_PRESSURE_D",
+      "MICRO_02_CYCLE_PRESSURE_E"
+    ]
+  },
+  "target_burden_class": "BURDEN_CYCLE_SCAN",
+  "target_delta": {
+    "after_elapsed_ms": 4315,
+    "after_receipts_per_sec": 133.487833,
+    "before_elapsed_ms": 4392,
+    "before_receipts_per_sec": 131.147541,
+    "elapsed_ms_delta": -77,
+    "elapsed_ratio_after_vs_before": 0.982468,
+    "receipts_per_sec_delta": 2.340292,
+    "speedup_before_over_after": 1.017845
+  },
+  "target_result": "TARGET_BURDEN_ELAPSED_NON_WORSE",
+  "terminal": {
+    "next_command_goal": "DECIDE_CYCLE_PERIOD_COMPRESSION_FIX_OUTCOME_OR_NEXT_BURDEN_CLASS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_194137_027873
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/compare_cycle_period_compression_before_after.py
+[master 53802d427] add cycle period compression before after comparison
+ 2 files changed, 415 insertions(+)
+ create mode 100755 scripts/compare_cycle_period_compression_before_after.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

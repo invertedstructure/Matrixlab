@@ -1,0 +1,207 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260619_134248
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260619_134248.txt
+
+BUILD_DOMAIN_SHIFT_RUNNER_SUPPORT_V0
+
+STATUS_BEFORE
+
+BACKUP
+CLI_SIG=ce52ae028d86
+BACKUP=/tmp/matrixlab_cli_before_domain_shift_runner_support_ce52ae028d86.py
+
+PATCH_GITIGNORE
+
+PATCH_CLI_DOMAIN_SHIFT_RUNNER_SUPPORT
+
+PY_COMPILE
+
+HELP_SMOKE
+help smoke ok:
+  /tmp/matrixlab_cli_help_after_domain_shift_runner_support.txt
+  /tmp/matrixlab_domain_shift_runner_support_help.txt
+
+RUN_DOMAIN_SHIFT_RUNNER_SUPPORT
+{
+  "command_argvs": [],
+  "command_count": 0,
+  "command_kind": "EXECUTE_DOMAIN_SHIFT_D1_SCHEDULE_REWEIGHT",
+  "command_lines": [],
+  "command_script": null,
+  "domain_shift_generator_id": "206ef0af",
+  "domain_shift_generator_payload_sig8": "206ef0af",
+  "domain_shift_runner_support_id": "2ded990f",
+  "domain_shift_runner_support_payload_sig8": "2ded990f",
+  "domain_shift_runner_support_schema_version": "domain_shift_runner_support_v0",
+  "failures": [
+    "parse_shifted_family_schedule_failed:'str' object has no attribute 'value'",
+    "runner_does_not_preserve_reweighted_family_schedule"
+  ],
+  "gate": "FAIL",
+  "input_domain_shift_generator": "206ef0af",
+  "input_domain_shift_generator_path": "data/domain_shift_generators/206ef0af.json",
+  "recomputed_domain_shift_generator_payload_sig8": "206ef0af",
+  "runner_support": {
+    "compact_family_schedule": "EEEDDBBCA",
+    "domain_shift_axis": "move_family_schedule_and_composition_pattern",
+    "domain_shift_label": "D1_schedule_reweight_existing_moves",
+    "expanded_family_names": [
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "projection_quotient",
+      "two_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "family_code_to_name": {
+      "A": "one_sided_suspension",
+      "B": "two_sided_suspension",
+      "C": "suspension_plus_repair",
+      "D": "projection_quotient",
+      "E": "relabel_symmetry_stress"
+    },
+    "family_name_to_code": {
+      "one_sided_suspension": "A",
+      "projection_quotient": "D",
+      "relabel_symmetry_stress": "E",
+      "suspension_plus_repair": "C",
+      "two_sided_suspension": "B"
+    },
+    "parse_preserves_reweighted_schedule": false,
+    "parsed_family_names": [],
+    "requires_new_classifier_semantics": false,
+    "requires_new_evaluator_semantics": false,
+    "requires_new_halt_vocabulary": false,
+    "requires_new_laws": false,
+    "requires_new_move_types": false,
+    "shifted_family_weights": {
+      "one_sided_suspension": 1,
+      "projection_quotient": 2,
+      "relabel_symmetry_stress": 3,
+      "suspension_plus_repair": 1,
+      "two_sided_suspension": 2
+    },
+    "support_kind": "EXISTING_STRESS_RUNNER_WITH_REWEIGHTED_FAMILIES",
+    "uses_existing_registered_moves_only": true
+  },
+  "shift_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+  "source_baseline": {
+    "coarse_profiles_total": 9,
+    "cycle_count": 5,
+    "eval_id": "a1ddb75b",
+    "ledger_id": "73c696a5",
+    "ledger_payload_sig8": "73c696a5",
+    "radius": 250,
+    "raw_profiles_total": 1010,
+    "recomputed_ledger_payload_sig8": "73c696a5",
+    "registered_moves_total": 250,
+    "run_id": "run_20260619_090132_512800",
+    "stop_reason": "MARGINAL_INFORMATION_FLATTENED_FOR_RADIUS_EXPANSION",
+    "verdict": "BOUNDED_VOCABULARY_CONTINUATION"
+  },
+  "source_cell": "CELL_0",
+  "target_cell": "CELL_1",
+  "target_generator_manifest": {
+    "allowed_family_set": [
+      "one_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "projection_quotient",
+      "relabel_symmetry_stress"
+    ],
+    "cell": "CELL_1",
+    "composition_pattern": "frontload_relabel_and_projection_then_apply_growth_and_repair_using_existing_moves_only",
+    "cycles_per_case": 250,
+    "depth_max": 250,
+    "depth_min": 3,
+    "domain_shift_axis": "move_family_schedule_and_composition_pattern",
+    "domain_shift_label": "D1_schedule_reweight_existing_moves",
+    "evaluator_delta": 0,
+    "execution_support_status": "MANIFEST_ONLY_NEEDS_RUNNER_SUPPORT",
+    "generator_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+    "generator_manifest_delta": 1,
+    "halt_vocabulary_delta": 0,
+    "law_delta": 0,
+    "max_cells": 300000,
+    "new_classifier_categories_allowed": false,
+    "new_halt_reasons_allowed": false,
+    "new_laws_allowed": false,
+    "new_move_types_allowed": false,
+    "ontology_delta": 0,
+    "profile_classifier_delta": 0,
+    "radius": 250,
+    "receipt_schema_delta": 0,
+    "registered_move_id_set": [
+      "add_row_and_link_column",
+      "append_zero_column",
+      "deterministic_row_col_relabel",
+      "duplicate_existing_column",
+      "quotient_merge_last_row",
+      "xor_repair_column"
+    ],
+    "registered_move_id_set_delta": 0,
+    "shifted_family_schedule": [
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "shifted_family_weights": {
+      "one_sided_suspension": 1,
+      "projection_quotient": 2,
+      "relabel_symmetry_stress": 3,
+      "suspension_plus_repair": 1,
+      "two_sided_suspension": 2
+    }
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "domain_shift_runner_support_failed",
+    "type": "STOP"
+  },
+  "transfer_contract_id": "50a01dcd",
+  "warnings": []
+}
+domain_shift_runner_support_path: data/domain_shift_runner_support/2ded990f.json
+
+VERIFY_DOMAIN_SHIFT_RUNNER_SUPPORT
+{
+  "command_lines": [],
+  "compact_family_schedule": "EEEDDBBCA",
+  "domain_shift_generator_id": "206ef0af",
+  "domain_shift_runner_support_id": "2ded990f",
+  "expanded_family_names": [
+    "relabel_symmetry_stress",
+    "relabel_symmetry_stress",
+    "relabel_symmetry_stress",
+    "projection_quotient",
+    "projection_quotient",
+    "two_sided_suspension",
+    "two_sided_suspension",
+    "suspension_plus_repair",
+    "one_sided_suspension"
+  ],
+  "gate": "FAIL",
+  "id_matches_filename": true,
+  "parse_preserves_reweighted_schedule": false,
+  "parsed_family_names": [],
+  "path": "data/domain_shift_runner_support/2ded990f.json",
+  "recomputed_sig": "2ded990f",
+  "sig_matches": true,
+  "stored_sig": "2ded990f",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "domain_shift_runner_support_failed",
+    "type": "STOP"
+  }
+}
+Traceback (most recent call last):
+  File "<stdin>", line 38, in <module>
+AssertionError
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

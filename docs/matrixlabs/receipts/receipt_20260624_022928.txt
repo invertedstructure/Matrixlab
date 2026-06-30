@@ -1,0 +1,61 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260624_022928
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260624_022928.txt
+
+BUILD_A1_STRATEGIC_DECISION_PACKET_LAYER_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+
+VERIFY_A1_BUILD_INPUTS
+present data/a0_self_classification_assertion_acceptance_patch_v0_receipts/6d14e637.json
+present data/a0_self_classification_assertion_acceptance_patch_v0/a0_transition_layer_final_acceptance_packet.json
+present data/a0_receipt_to_builder_transition_layer_v0_receipts/067fcaed.json
+present data/a0_receipt_to_builder_transition_layer_v0/a0_output_schema_v0.json
+present data/a0_receipt_to_builder_transition_layer_v0/a0_classification_enum_v0.json
+present data/a0_receipt_to_builder_transition_layer_v0/a0_command_candidate_schema_v0.json
+present data/a0_receipt_to_builder_transition_layer_v0/a0_missing_object_proposal_schema_v0.json
+present data/a0_receipt_to_builder_transition_layer_v0/a0_transition_layer_report.json
+present scripts/a0_receipt_to_builder_transition_layer_v0.py
+
+PATCH_GITIGNORE
+
+WRITE_A1_STRATEGIC_DECISION_PACKET_LAYER_RUNNER
+
+PY_COMPILE_A1_PACKETIZER
+
+RUN_A1_LAYER_BUILD_PROBES
+Traceback (most recent call last):
+  File "/home/asd/projects/matrixlab/scripts/a1_strategic_decision_packet_layer_v0.py", line 1164, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/asd/projects/matrixlab/scripts/a1_strategic_decision_packet_layer_v0.py", line 1157, in main
+    result = build_layer(Path(args.out_dir))
+  File "/home/asd/projects/matrixlab/scripts/a1_strategic_decision_packet_layer_v0.py", line 1070, in build_layer
+    artifacts = emit_static_artifacts(out_dir)
+  File "/home/asd/projects/matrixlab/scripts/a1_strategic_decision_packet_layer_v0.py", line 958, in emit_static_artifacts
+    artifacts["packet_schema"] = rel(p)
+                                 ~~~^^^
+  File "/home/asd/projects/matrixlab/scripts/a1_strategic_decision_packet_layer_v0.py", line 122, in rel
+    return path.relative_to(ROOT).as_posix()
+           ~~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 489, in relative_to
+    raise ValueError(f"{str(self)!r} is not in the subpath of {str(other)!r}")
+ValueError: 'data/a1_strategic_decision_packet_layer_v0/a1_packet_schema_v0.json' is not in the subpath of '/home/asd/projects/matrixlab'
+
+MLBLOCK_EXIT_CODE=1
+MLBLOCK_RECEIPT_END

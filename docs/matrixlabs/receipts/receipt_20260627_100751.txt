@@ -1,0 +1,83 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_100751
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_100751.txt
+
+REVIEW_C8_RERUN_WITH_LOCAL_DISCRIMINATOR_V0
+
+VERIFY_C8_RERUN_ARTIFACTS_PRESENT
+present data/c8_rerun_with_local_discriminator_v0_receipts/c8_rerun_with_local_discriminator_receipt_f44ca463.json
+present data/c8_rerun_with_local_discriminator_v0/c8_rerun_with_local_discriminator_open_packet_v0.json
+present data/c8_rerun_with_local_discriminator_v0/c8_rerun_with_local_discriminator_evidence_packet_v0.json
+present data/c8_rerun_with_local_discriminator_v0/local_discriminator_application_receipt_v0.json
+present data/c8_rerun_with_local_discriminator_v0/c8_rerun_transition_classification_v0.json
+present data/c8_rerun_with_local_discriminator_v0/c8_rerun_with_local_discriminator_readout_v0.json
+present data/c8_rerun_with_local_discriminator_v0/c8_rerun_with_local_discriminator_report.json
+present scripts/rerun_c8_with_local_transition_family_discriminator_v0.py
+
+PY_COMPILE_C8_RERUN_RUNNER
+
+VERIFY_C8_RERUN_RECEIPT
+{
+  "acceptance_gates_false_count": 0,
+  "c8_rerun_count": 1,
+  "c8_rerun_performed": true,
+  "failures": [],
+  "instrument_id": "local_transition_family_discriminator_2deb5cd1",
+  "local_discriminator_confirmed": true,
+  "missing_instrument_status_after_rerun": "LOCALLY_INSTRUMENTED_FOR_THIS_SURFACE",
+  "negative_controls_nonzero_count": 0,
+  "new_instrument_build": false,
+  "new_missing_instrument_proposal": false,
+  "outcome_class": "C8_RERUN_LOCAL_DISCRIMINATOR_APPLIED",
+  "receipt_id": "c8_rerun_with_local_discriminator_receipt_f44ca463",
+  "rerun_classification": "LOCAL_TRANSITION_FAMILY_CANDIDATE_CONFIRMED",
+  "review_gate": "PASS",
+  "status": "TYPED_C8_RERUN_WITH_LOCAL_DISCRIMINATOR_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_RERUN_WITH_LOCAL_DISCRIMINATOR_COMPLETE",
+    "type": "STOP"
+  }
+}
+
+VERIFY_C8_RERUN_CONTENT
+{
+  "application_status": "PASS",
+  "content_review_gate": "PASS",
+  "failures": [],
+  "missing_instrument_status_after_rerun": "LOCALLY_INSTRUMENTED_FOR_THIS_SURFACE",
+  "observed_label": "LOCAL_TRANSITION_FAMILY_CANDIDATE_CONFIRMED",
+  "open_scope": {
+    "max_c8_reruns": 1,
+    "max_cell1_builds": 0,
+    "max_discriminator_applications": 1,
+    "max_frontier_surfaces": 1,
+    "max_new_instrument_builds": 0,
+    "max_new_missing_instrument_proposals": 0,
+    "max_verification_probes": 0
+  },
+  "rerun_classification": "LOCAL_TRANSITION_FAMILY_CANDIDATE_CONFIRMED"
+}
+
+VERIFY_STAGED_SCOPE_C8_RERUN_ONLY
+staged_path_count=9
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+c8_rerun_receipts_staged=['data/c8_rerun_with_local_discriminator_v0_receipts/c8_rerun_with_local_discriminator_receipt_f44ca463.json']
+
+REVIEW_DIFF_STAT
+ .gitignore                                         |   6 +
+ .../c8_rerun_transition_classification_v0.json     |  22 +
+ ...ith_local_discriminator_evidence_packet_v0.json |  19 +
+ ...un_with_local_discriminator_open_packet_v0.json |  28 ++
+ ..._rerun_with_local_discriminator_readout_v0.json |  19 +
+ .../c8_rerun_with_local_discriminator_report.json  |  25 +
+ ...local_discriminator_application_receipt_v0.json |  19 +
+ ..._with_local_discriminator_receipt_f44ca463.json | 130 +++++
+ ...ith_local_transition_family_discriminator_v0.py | 531 +++++++++++++++++++++
+ 9 files changed, 799 insertions(+)
+
+REVIEW_C8_RERUN_WITH_LOCAL_DISCRIMINATOR_PASS
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

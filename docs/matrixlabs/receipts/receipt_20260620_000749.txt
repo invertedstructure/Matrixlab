@@ -1,0 +1,4174 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_000749
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_000749.txt
+
+RUN_RADIUS_75_SLOT_SEPARATED_UNDER_SCALABILITY_CONTRACT_V0
+
+STATUS_BEFORE
+
+PROCESS_CHECK
+no active MatrixLab stress process
+
+VERIFY_SCALABILITY_CONTRACT
+{
+  "baseline_linkage_check": {
+    "baseline_generator_resolves": true,
+    "baseline_generator_sig_matches": true,
+    "baseline_observation_resolves": true,
+    "baseline_observation_sig_matches": true,
+    "baseline_slot_execution_resolves": true,
+    "baseline_slot_execution_sig_matches": true,
+    "baseline_support_resolves": true,
+    "baseline_support_sig_matches": true,
+    "baseline_transfer_contract_resolves": true,
+    "baseline_transfer_contract_sig_matches": true
+  },
+  "baseline_observation_check": {
+    "aggregate_coarse_profiles_total": 9,
+    "aggregate_raw_total_by_slot_sum": 451,
+    "gate": "PASS",
+    "measurement_cleanliness_clean": true,
+    "outcome": "MEASUREMENT_TRANSFER_STABLE_CURVE",
+    "repeated_family_consistency_clean": true,
+    "semantic_pressure_detected": false,
+    "slot_count_expected": 9,
+    "slot_count_observed": 9,
+    "terminal_type": "ADVANCE"
+  },
+  "baseline_observation_id": "566a342b",
+  "contract_id": "ba39cd7b",
+  "contract_path": "data/scalability_contracts/ba39cd7b.json",
+  "contract_recomputed_sig8": "ba39cd7b",
+  "contract_sig8": "ba39cd7b",
+  "failures": [],
+  "gate": "PASS",
+  "input_contract": "ba39cd7b",
+  "terminal": {
+    "next_command_goal": "RUN_RADIUS_75_SLOT_SEPARATED_UNDER_SCALABILITY_CONTRACT_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "verification_id": "507f4ee8",
+  "verification_result": {
+    "failures": [],
+    "gate": "PASS",
+    "warnings": []
+  },
+  "verification_schema_version": "scalability_contract_verification_v0",
+  "verification_sig8": "507f4ee8",
+  "warnings": []
+}
+verification_path: data/scalability_contract_verifications/507f4ee8.json
+
+ASSERT_CONTRACT_AUTHORIZES_R75
+{
+  "baseline_observation_id": "566a342b",
+  "baseline_radius": 50,
+  "baseline_receipt_rows_sum": 21348,
+  "baseline_total_receipts_sum": 21348,
+  "contract_id": "ba39cd7b",
+  "execution_shape": "KEEP_9_SLOT_SEPARATED_RUNS",
+  "gate": "PASS",
+  "next_scale_step": "RADIUS_75_SLOT_SEPARATED",
+  "recomputed_sig": "ba39cd7b",
+  "representative_subset_status": "NOT_LICENSED_AT_V0",
+  "stored_sig": "ba39cd7b",
+  "terminal": {
+    "next_command_goal": "RUN_RADIUS_75_SLOT_SEPARATED_UNDER_SCALABILITY_CONTRACT_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+BUILD_R75_DOMAIN_SHIFT_GENERATOR
+{
+  "domain_shift_generator_id": "25e13690",
+  "domain_shift_generator_payload_sig8": "25e13690",
+  "domain_shift_generator_schema_version": "domain_shift_generator_v0",
+  "domain_shift_predicate": {
+    "evaluator_delta_zero": true,
+    "generator_manifest_delta_gt_zero": true,
+    "halt_vocabulary_delta_zero": true,
+    "law_delta_zero": true,
+    "ontology_delta_zero": true,
+    "profile_classifier_delta_zero": true,
+    "receipt_schema_delta_zero": true,
+    "registered_move_id_set_delta_zero": true
+  },
+  "failures": [],
+  "forbidden_change_check": {
+    "cheat_harness_meaning_changed": false,
+    "coarse_profile_vocabulary_definition_changed": false,
+    "evaluator_meaning_changed": false,
+    "halt_vocabulary_changed": false,
+    "law_checker_semantics_changed": false,
+    "move_ontology_changed": false,
+    "profile_classifier_semantics_changed": false,
+    "receipt_schema_changed": false
+  },
+  "gate": "PASS",
+  "identity_locks": {
+    "cheat_adversarial_schema_version": "agent_cheat_adversarial_receipt_v0",
+    "cheat_check_schema_version": "agent_cheat_check_receipt_v0",
+    "cheat_harness_identity": "agent-cheat-check+d478_style_and_agent-cheat-adversarial_temp_db_mutations",
+    "cli_sha256_after_contract_command": "3a5b791e66a3e33effe9b10b57e87026e0664ed834be6718e569cca300ef024b",
+    "evaluator_identity": "current_cli_agent_eval_no_delta_allowed",
+    "halt_vocabulary_identity": "current_cli_halt_vocabulary_no_delta_allowed",
+    "law_checker_identity": "current_cli_law_checker_no_delta_allowed",
+    "profile_classifier_identity": "current_cli_coarse_profile_classifier_no_delta_allowed",
+    "receipt_schema_identity": "registry_sqlite_receipts_table_and_json_receipts_current",
+    "source_ledger_schema_version": "agent_cycle_ledger_receipt_v1"
+  },
+  "input_transfer_contract": "50a01dcd",
+  "input_transfer_contract_path": "data/cell_transfer_contracts/50a01dcd.json",
+  "not_transferred_from_source_cell": [
+    "empirical_boundedness_claim",
+    "coarse_profile_total_value",
+    "raw_profile_growth_rate",
+    "radius_threshold",
+    "domain_specific_halt_distribution",
+    "future_domain_conclusion_strength"
+  ],
+  "recomputed_transfer_contract_payload_sig8": "50a01dcd",
+  "shift_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+  "source_baseline": {
+    "coarse_profiles_total": 9,
+    "cycle_count": 5,
+    "eval_id": "a1ddb75b",
+    "ledger_id": "73c696a5",
+    "ledger_payload_sig8": "73c696a5",
+    "radius": 250,
+    "raw_profiles_total": 1010,
+    "recomputed_ledger_payload_sig8": "73c696a5",
+    "registered_moves_total": 250,
+    "run_id": "run_20260619_090132_512800",
+    "stop_reason": "MARGINAL_INFORMATION_FLATTENED_FOR_RADIUS_EXPANSION",
+    "verdict": "BOUNDED_VOCABULARY_CONTINUATION"
+  },
+  "source_cell": "CELL_0",
+  "source_generator_manifest": {
+    "cell": "CELL_0",
+    "cycles_per_case": 250,
+    "depth_max": 250,
+    "depth_min": 3,
+    "families": "one_sided_suspension,two_sided_suspension,suspension_plus_repair,projection_quotient,relabel_symmetry_stress",
+    "generator_kind": "BASELINE_UNIFORM_FAMILY_DEPTH_SWEEP_V0",
+    "max_cells": null,
+    "observed_coarse_profiles_total": 9,
+    "observed_move_id_set": [
+      "add_row_and_link_column",
+      "append_zero_column",
+      "deterministic_row_col_relabel",
+      "duplicate_existing_column",
+      "quotient_merge_last_row",
+      "xor_repair_column"
+    ],
+    "observed_radius": 250,
+    "observed_raw_profiles_total": 1010,
+    "observed_registered_moves_total": 250,
+    "schedule_description": "uniform depth sweep over imported families under Cell 0 runner"
+  },
+  "target_cell": "CELL_1",
+  "target_generator_manifest": {
+    "allowed_family_set": [
+      "one_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "projection_quotient",
+      "relabel_symmetry_stress"
+    ],
+    "cell": "CELL_1",
+    "composition_pattern": "frontload_relabel_and_projection_then_apply_growth_and_repair_using_existing_moves_only",
+    "cycles_per_case": 75,
+    "depth_max": 75,
+    "depth_min": 3,
+    "domain_shift_axis": "move_family_schedule_and_composition_pattern",
+    "domain_shift_label": "D1_schedule_reweight_existing_moves",
+    "evaluator_delta": 0,
+    "execution_support_status": "MANIFEST_ONLY_NEEDS_RUNNER_SUPPORT",
+    "generator_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+    "generator_manifest_delta": 1,
+    "halt_vocabulary_delta": 0,
+    "law_delta": 0,
+    "max_cells": 50000,
+    "new_classifier_categories_allowed": false,
+    "new_halt_reasons_allowed": false,
+    "new_laws_allowed": false,
+    "new_move_types_allowed": false,
+    "ontology_delta": 0,
+    "profile_classifier_delta": 0,
+    "radius": 75,
+    "receipt_schema_delta": 0,
+    "registered_move_id_set": [
+      "add_row_and_link_column",
+      "append_zero_column",
+      "deterministic_row_col_relabel",
+      "duplicate_existing_column",
+      "quotient_merge_last_row",
+      "xor_repair_column"
+    ],
+    "registered_move_id_set_delta": 0,
+    "shifted_family_schedule": [
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "shifted_family_weights": {
+      "one_sided_suspension": 1,
+      "projection_quotient": 2,
+      "relabel_symmetry_stress": 3,
+      "suspension_plus_repair": 1,
+      "two_sided_suspension": 2
+    }
+  },
+  "target_probe_kind": "DOMAIN_SHIFT_PROBE",
+  "target_test_plan": {
+    "curve_goal": "PUSH_UNTIL_MARGINAL_INFORMATION_FLATTENS_FOR_TARGET_METRIC",
+    "outcome_set": [
+      "MEASUREMENT_TRANSFER_STABLE_CURVE",
+      "MEASUREMENT_TRANSFER_DIFFERENT_CURVE",
+      "STOP_DOMAIN_REQUIRES_ONTOLOGY_SHIFT",
+      "FAIL_MEASUREMENT_TRUST"
+    ],
+    "post_run_goal": "RUN_CHEAT_HARNESS_ON_TARGET_RECEIPTS",
+    "precheck_goal": "VERIFY_IMPORTED_RULER_IDENTITIES_BEFORE_RUN",
+    "run_goal": "RUN_SHIFTED_DOMAIN_UNDER_IMPORTED_EVALUATOR",
+    "runner_support_goal": "BUILD_DOMAIN_SHIFT_RUNNER_SUPPORT_V0"
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_DOMAIN_SHIFT_RUNNER_SUPPORT_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transfer_contract_id": "50a01dcd",
+  "transfer_contract_payload_sig8": "50a01dcd",
+  "transfer_kind": "MEASUREMENT_DISCIPLINE_ONLY",
+  "warnings": []
+}
+domain_shift_generator_path: data/domain_shift_generators/25e13690.json
+R75_GEN=25e13690
+
+BUILD_R75_SLOT_SUPPORT
+{
+  "command_kind": "EXECUTE_DOMAIN_SHIFT_D1_SLOT_SEPARATED",
+  "domain_shift_generator_id": "25e13690",
+  "domain_shift_generator_payload_sig8": "25e13690",
+  "domain_shift_slot_runner_support_id": "12a8d08f",
+  "domain_shift_slot_runner_support_payload_sig8": "12a8d08f",
+  "domain_shift_slot_runner_support_schema_version": "domain_shift_slot_runner_support_v0",
+  "failures": [],
+  "gate": "PASS",
+  "input_domain_shift_generator": "25e13690",
+  "input_domain_shift_generator_path": "data/domain_shift_generators/25e13690.json",
+  "recomputed_domain_shift_generator_payload_sig8": "25e13690",
+  "runner_support": {
+    "compact_family_schedule": "EEEDDBBCA",
+    "domain_shift_axis": "move_family_schedule_and_composition_pattern",
+    "domain_shift_label": "D1_schedule_reweight_existing_moves",
+    "duplicate_family_slots": {
+      "B": 2,
+      "D": 2,
+      "E": 3
+    },
+    "expanded_family_names": [
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "projection_quotient",
+      "two_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "family_code_to_name": {
+      "A": "one_sided_suspension",
+      "B": "two_sided_suspension",
+      "C": "suspension_plus_repair",
+      "D": "projection_quotient",
+      "E": "relabel_symmetry_stress"
+    },
+    "family_name_to_code": {
+      "one_sided_suspension": "A",
+      "projection_quotient": "D",
+      "relabel_symmetry_stress": "E",
+      "suspension_plus_repair": "C",
+      "two_sided_suspension": "B"
+    },
+    "family_slot_counts": {
+      "A": 1,
+      "B": 2,
+      "C": 1,
+      "D": 2,
+      "E": 3
+    },
+    "identity_failure_class": "IDENTITY_DISTINGUISHABILITY_DEFICIT",
+    "parsed_family_names": [
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "projection_quotient",
+      "two_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "preserves_repetition_distinguishability": true,
+    "reason_single_run_repetition_is_forbidden": "receipt projection is not slot-distinguished for repeated family entries; therefore repeated families must execute as separate run slots",
+    "requires_new_classifier_semantics": false,
+    "requires_new_evaluator_semantics": false,
+    "requires_new_halt_vocabulary": false,
+    "requires_new_laws": false,
+    "requires_new_move_types": false,
+    "slot_count": 9,
+    "slots": [
+      {
+        "distinguishability_key": "relabel_symmetry_stress|slot=1|occurrence=1",
+        "family": "relabel_symmetry_stress",
+        "family_code": "E",
+        "family_occurrence_n": 1,
+        "slot_label": "slot_01_E1",
+        "slot_n": 1
+      },
+      {
+        "distinguishability_key": "relabel_symmetry_stress|slot=2|occurrence=2",
+        "family": "relabel_symmetry_stress",
+        "family_code": "E",
+        "family_occurrence_n": 2,
+        "slot_label": "slot_02_E2",
+        "slot_n": 2
+      },
+      {
+        "distinguishability_key": "relabel_symmetry_stress|slot=3|occurrence=3",
+        "family": "relabel_symmetry_stress",
+        "family_code": "E",
+        "family_occurrence_n": 3,
+        "slot_label": "slot_03_E3",
+        "slot_n": 3
+      },
+      {
+        "distinguishability_key": "projection_quotient|slot=4|occurrence=1",
+        "family": "projection_quotient",
+        "family_code": "D",
+        "family_occurrence_n": 1,
+        "slot_label": "slot_04_D1",
+        "slot_n": 4
+      },
+      {
+        "distinguishability_key": "projection_quotient|slot=5|occurrence=2",
+        "family": "projection_quotient",
+        "family_code": "D",
+        "family_occurrence_n": 2,
+        "slot_label": "slot_05_D2",
+        "slot_n": 5
+      },
+      {
+        "distinguishability_key": "two_sided_suspension|slot=6|occurrence=1",
+        "family": "two_sided_suspension",
+        "family_code": "B",
+        "family_occurrence_n": 1,
+        "slot_label": "slot_06_B1",
+        "slot_n": 6
+      },
+      {
+        "distinguishability_key": "two_sided_suspension|slot=7|occurrence=2",
+        "family": "two_sided_suspension",
+        "family_code": "B",
+        "family_occurrence_n": 2,
+        "slot_label": "slot_07_B2",
+        "slot_n": 7
+      },
+      {
+        "distinguishability_key": "suspension_plus_repair|slot=8|occurrence=1",
+        "family": "suspension_plus_repair",
+        "family_code": "C",
+        "family_occurrence_n": 1,
+        "slot_label": "slot_08_C1",
+        "slot_n": 8
+      },
+      {
+        "distinguishability_key": "one_sided_suspension|slot=9|occurrence=1",
+        "family": "one_sided_suspension",
+        "family_code": "A",
+        "family_occurrence_n": 1,
+        "slot_label": "slot_09_A1",
+        "slot_n": 9
+      }
+    ],
+    "support_kind": "SLOT_SEPARATED_EXISTING_STRESS_RUNNER",
+    "uses_existing_registered_moves_only": true
+  },
+  "shift_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+  "slot_command_argvs": [
+    {
+      "commands": [
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "stress",
+          "--families",
+          "E",
+          "--depth-max",
+          "75",
+          "--cycles-per-case",
+          "75",
+          "--max-cells",
+          "50000",
+          "--strict-laws"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "gate",
+          "latest"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "agent-eval",
+          "latest",
+          "--previous",
+          "run_20260619_090132_512800"
+        ]
+      ],
+      "slot": {
+        "distinguishability_key": "relabel_symmetry_stress|slot=1|occurrence=1",
+        "family": "relabel_symmetry_stress",
+        "family_code": "E",
+        "family_occurrence_n": 1,
+        "slot_label": "slot_01_E1",
+        "slot_n": 1
+      }
+    },
+    {
+      "commands": [
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "stress",
+          "--families",
+          "E",
+          "--depth-max",
+          "75",
+          "--cycles-per-case",
+          "75",
+          "--max-cells",
+          "50000",
+          "--strict-laws"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "gate",
+          "latest"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "agent-eval",
+          "latest",
+          "--previous",
+          "run_20260619_090132_512800"
+        ]
+      ],
+      "slot": {
+        "distinguishability_key": "relabel_symmetry_stress|slot=2|occurrence=2",
+        "family": "relabel_symmetry_stress",
+        "family_code": "E",
+        "family_occurrence_n": 2,
+        "slot_label": "slot_02_E2",
+        "slot_n": 2
+      }
+    },
+    {
+      "commands": [
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "stress",
+          "--families",
+          "E",
+          "--depth-max",
+          "75",
+          "--cycles-per-case",
+          "75",
+          "--max-cells",
+          "50000",
+          "--strict-laws"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "gate",
+          "latest"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "agent-eval",
+          "latest",
+          "--previous",
+          "run_20260619_090132_512800"
+        ]
+      ],
+      "slot": {
+        "distinguishability_key": "relabel_symmetry_stress|slot=3|occurrence=3",
+        "family": "relabel_symmetry_stress",
+        "family_code": "E",
+        "family_occurrence_n": 3,
+        "slot_label": "slot_03_E3",
+        "slot_n": 3
+      }
+    },
+    {
+      "commands": [
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "stress",
+          "--families",
+          "D",
+          "--depth-max",
+          "75",
+          "--cycles-per-case",
+          "75",
+          "--max-cells",
+          "50000",
+          "--strict-laws"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "gate",
+          "latest"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "agent-eval",
+          "latest",
+          "--previous",
+          "run_20260619_090132_512800"
+        ]
+      ],
+      "slot": {
+        "distinguishability_key": "projection_quotient|slot=4|occurrence=1",
+        "family": "projection_quotient",
+        "family_code": "D",
+        "family_occurrence_n": 1,
+        "slot_label": "slot_04_D1",
+        "slot_n": 4
+      }
+    },
+    {
+      "commands": [
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "stress",
+          "--families",
+          "D",
+          "--depth-max",
+          "75",
+          "--cycles-per-case",
+          "75",
+          "--max-cells",
+          "50000",
+          "--strict-laws"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "gate",
+          "latest"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "agent-eval",
+          "latest",
+          "--previous",
+          "run_20260619_090132_512800"
+        ]
+      ],
+      "slot": {
+        "distinguishability_key": "projection_quotient|slot=5|occurrence=2",
+        "family": "projection_quotient",
+        "family_code": "D",
+        "family_occurrence_n": 2,
+        "slot_label": "slot_05_D2",
+        "slot_n": 5
+      }
+    },
+    {
+      "commands": [
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "stress",
+          "--families",
+          "B",
+          "--depth-max",
+          "75",
+          "--cycles-per-case",
+          "75",
+          "--max-cells",
+          "50000",
+          "--strict-laws"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "gate",
+          "latest"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "agent-eval",
+          "latest",
+          "--previous",
+          "run_20260619_090132_512800"
+        ]
+      ],
+      "slot": {
+        "distinguishability_key": "two_sided_suspension|slot=6|occurrence=1",
+        "family": "two_sided_suspension",
+        "family_code": "B",
+        "family_occurrence_n": 1,
+        "slot_label": "slot_06_B1",
+        "slot_n": 6
+      }
+    },
+    {
+      "commands": [
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "stress",
+          "--families",
+          "B",
+          "--depth-max",
+          "75",
+          "--cycles-per-case",
+          "75",
+          "--max-cells",
+          "50000",
+          "--strict-laws"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "gate",
+          "latest"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "agent-eval",
+          "latest",
+          "--previous",
+          "run_20260619_090132_512800"
+        ]
+      ],
+      "slot": {
+        "distinguishability_key": "two_sided_suspension|slot=7|occurrence=2",
+        "family": "two_sided_suspension",
+        "family_code": "B",
+        "family_occurrence_n": 2,
+        "slot_label": "slot_07_B2",
+        "slot_n": 7
+      }
+    },
+    {
+      "commands": [
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "stress",
+          "--families",
+          "C",
+          "--depth-max",
+          "75",
+          "--cycles-per-case",
+          "75",
+          "--max-cells",
+          "50000",
+          "--strict-laws"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "gate",
+          "latest"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "agent-eval",
+          "latest",
+          "--previous",
+          "run_20260619_090132_512800"
+        ]
+      ],
+      "slot": {
+        "distinguishability_key": "suspension_plus_repair|slot=8|occurrence=1",
+        "family": "suspension_plus_repair",
+        "family_code": "C",
+        "family_occurrence_n": 1,
+        "slot_label": "slot_08_C1",
+        "slot_n": 8
+      }
+    },
+    {
+      "commands": [
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "stress",
+          "--families",
+          "A",
+          "--depth-max",
+          "75",
+          "--cycles-per-case",
+          "75",
+          "--max-cells",
+          "50000",
+          "--strict-laws"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "gate",
+          "latest"
+        ],
+        [
+          "uv",
+          "run",
+          "python",
+          "src/matrixlab/cli.py",
+          "agent-eval",
+          "latest",
+          "--previous",
+          "run_20260619_090132_512800"
+        ]
+      ],
+      "slot": {
+        "distinguishability_key": "one_sided_suspension|slot=9|occurrence=1",
+        "family": "one_sided_suspension",
+        "family_code": "A",
+        "family_occurrence_n": 1,
+        "slot_label": "slot_09_A1",
+        "slot_n": 9
+      }
+    }
+  ],
+  "slot_command_count": 9,
+  "slot_command_lines": [
+    "echo DOMAIN_SHIFT_SLOT slot_01_E1 relabel_symmetry_stress|slot=1|occurrence=1",
+    "uv run python src/matrixlab/cli.py stress --families E --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws",
+    "uv run python src/matrixlab/cli.py gate latest",
+    "uv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800",
+    "echo DOMAIN_SHIFT_SLOT slot_02_E2 relabel_symmetry_stress|slot=2|occurrence=2",
+    "uv run python src/matrixlab/cli.py stress --families E --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws",
+    "uv run python src/matrixlab/cli.py gate latest",
+    "uv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800",
+    "echo DOMAIN_SHIFT_SLOT slot_03_E3 relabel_symmetry_stress|slot=3|occurrence=3",
+    "uv run python src/matrixlab/cli.py stress --families E --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws",
+    "uv run python src/matrixlab/cli.py gate latest",
+    "uv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800",
+    "echo DOMAIN_SHIFT_SLOT slot_04_D1 projection_quotient|slot=4|occurrence=1",
+    "uv run python src/matrixlab/cli.py stress --families D --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws",
+    "uv run python src/matrixlab/cli.py gate latest",
+    "uv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800",
+    "echo DOMAIN_SHIFT_SLOT slot_05_D2 projection_quotient|slot=5|occurrence=2",
+    "uv run python src/matrixlab/cli.py stress --families D --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws",
+    "uv run python src/matrixlab/cli.py gate latest",
+    "uv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800",
+    "echo DOMAIN_SHIFT_SLOT slot_06_B1 two_sided_suspension|slot=6|occurrence=1",
+    "uv run python src/matrixlab/cli.py stress --families B --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws",
+    "uv run python src/matrixlab/cli.py gate latest",
+    "uv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800",
+    "echo DOMAIN_SHIFT_SLOT slot_07_B2 two_sided_suspension|slot=7|occurrence=2",
+    "uv run python src/matrixlab/cli.py stress --families B --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws",
+    "uv run python src/matrixlab/cli.py gate latest",
+    "uv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800",
+    "echo DOMAIN_SHIFT_SLOT slot_08_C1 suspension_plus_repair|slot=8|occurrence=1",
+    "uv run python src/matrixlab/cli.py stress --families C --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws",
+    "uv run python src/matrixlab/cli.py gate latest",
+    "uv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800",
+    "echo DOMAIN_SHIFT_SLOT slot_09_A1 one_sided_suspension|slot=9|occurrence=1",
+    "uv run python src/matrixlab/cli.py stress --families A --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws",
+    "uv run python src/matrixlab/cli.py gate latest",
+    "uv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800"
+  ],
+  "slot_command_script": "echo DOMAIN_SHIFT_SLOT slot_01_E1 relabel_symmetry_stress|slot=1|occurrence=1\nuv run python src/matrixlab/cli.py stress --families E --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws\nuv run python src/matrixlab/cli.py gate latest\nuv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800\necho DOMAIN_SHIFT_SLOT slot_02_E2 relabel_symmetry_stress|slot=2|occurrence=2\nuv run python src/matrixlab/cli.py stress --families E --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws\nuv run python src/matrixlab/cli.py gate latest\nuv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800\necho DOMAIN_SHIFT_SLOT slot_03_E3 relabel_symmetry_stress|slot=3|occurrence=3\nuv run python src/matrixlab/cli.py stress --families E --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws\nuv run python src/matrixlab/cli.py gate latest\nuv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800\necho DOMAIN_SHIFT_SLOT slot_04_D1 projection_quotient|slot=4|occurrence=1\nuv run python src/matrixlab/cli.py stress --families D --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws\nuv run python src/matrixlab/cli.py gate latest\nuv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800\necho DOMAIN_SHIFT_SLOT slot_05_D2 projection_quotient|slot=5|occurrence=2\nuv run python src/matrixlab/cli.py stress --families D --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws\nuv run python src/matrixlab/cli.py gate latest\nuv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800\necho DOMAIN_SHIFT_SLOT slot_06_B1 two_sided_suspension|slot=6|occurrence=1\nuv run python src/matrixlab/cli.py stress --families B --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws\nuv run python src/matrixlab/cli.py gate latest\nuv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800\necho DOMAIN_SHIFT_SLOT slot_07_B2 two_sided_suspension|slot=7|occurrence=2\nuv run python src/matrixlab/cli.py stress --families B --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws\nuv run python src/matrixlab/cli.py gate latest\nuv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800\necho DOMAIN_SHIFT_SLOT slot_08_C1 suspension_plus_repair|slot=8|occurrence=1\nuv run python src/matrixlab/cli.py stress --families C --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws\nuv run python src/matrixlab/cli.py gate latest\nuv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800\necho DOMAIN_SHIFT_SLOT slot_09_A1 one_sided_suspension|slot=9|occurrence=1\nuv run python src/matrixlab/cli.py stress --families A --depth-max 75 --cycles-per-case 75 --max-cells 50000 --strict-laws\nuv run python src/matrixlab/cli.py gate latest\nuv run python src/matrixlab/cli.py agent-eval latest --previous run_20260619_090132_512800",
+  "source_baseline": {
+    "coarse_profiles_total": 9,
+    "cycle_count": 5,
+    "eval_id": "a1ddb75b",
+    "ledger_id": "73c696a5",
+    "ledger_payload_sig8": "73c696a5",
+    "radius": 250,
+    "raw_profiles_total": 1010,
+    "recomputed_ledger_payload_sig8": "73c696a5",
+    "registered_moves_total": 250,
+    "run_id": "run_20260619_090132_512800",
+    "stop_reason": "MARGINAL_INFORMATION_FLATTENED_FOR_RADIUS_EXPANSION",
+    "verdict": "BOUNDED_VOCABULARY_CONTINUATION"
+  },
+  "source_cell": "CELL_0",
+  "target_cell": "CELL_1",
+  "target_generator_manifest": {
+    "allowed_family_set": [
+      "one_sided_suspension",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "projection_quotient",
+      "relabel_symmetry_stress"
+    ],
+    "cell": "CELL_1",
+    "composition_pattern": "frontload_relabel_and_projection_then_apply_growth_and_repair_using_existing_moves_only",
+    "cycles_per_case": 75,
+    "depth_max": 75,
+    "depth_min": 3,
+    "domain_shift_axis": "move_family_schedule_and_composition_pattern",
+    "domain_shift_label": "D1_schedule_reweight_existing_moves",
+    "evaluator_delta": 0,
+    "execution_support_status": "MANIFEST_ONLY_NEEDS_RUNNER_SUPPORT",
+    "generator_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+    "generator_manifest_delta": 1,
+    "halt_vocabulary_delta": 0,
+    "law_delta": 0,
+    "max_cells": 50000,
+    "new_classifier_categories_allowed": false,
+    "new_halt_reasons_allowed": false,
+    "new_laws_allowed": false,
+    "new_move_types_allowed": false,
+    "ontology_delta": 0,
+    "profile_classifier_delta": 0,
+    "radius": 75,
+    "receipt_schema_delta": 0,
+    "registered_move_id_set": [
+      "add_row_and_link_column",
+      "append_zero_column",
+      "deterministic_row_col_relabel",
+      "duplicate_existing_column",
+      "quotient_merge_last_row",
+      "xor_repair_column"
+    ],
+    "registered_move_id_set_delta": 0,
+    "shifted_family_schedule": [
+      "relabel_symmetry_stress",
+      "projection_quotient",
+      "two_sided_suspension",
+      "suspension_plus_repair",
+      "one_sided_suspension"
+    ],
+    "shifted_family_weights": {
+      "one_sided_suspension": 1,
+      "projection_quotient": 2,
+      "relabel_symmetry_stress": 3,
+      "suspension_plus_repair": 1,
+      "two_sided_suspension": 2
+    }
+  },
+  "terminal": {
+    "next_command_goal": "MANUAL_EXECUTE_DOMAIN_SHIFT_SLOT_COMMANDS",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transfer_contract_id": "50a01dcd",
+  "warnings": []
+}
+domain_shift_slot_runner_support_path: data/domain_shift_slot_runner_support/12a8d08f.json
+R75_SUPPORT=12a8d08f
+
+EXECUTE_R75_SLOT_SEPARATED_RUNS
+R75_SLOT_START slot_01_E1 relabel_symmetry_stress|slot=1|occurrence=1
+MATRIXLAB_PROGRESS phase=STARTING run_id=? receipts=0/~5475 pct~=0.0 cases~=73 
+families=E depth=3..75 cycles=75 elapsed=0.0s
+MatrixLab run started: run_20260619_230752_590816
+Families: ['relabel_symmetry_stress']
+Depths: 3..75
+Cycles per case: 75
+Max cells per matrix: 50000
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=1/~5475 pct~=0.0 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=3 last_cycle=1 elapsed=0.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=189/~5475 pct~=3.5 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=7 last_cycle=30 elapsed=30.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=378/~5475 pct~=6.9 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=9 last_cycle=69 elapsed=60.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=558/~5475 pct~=10.2 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=12 last_cycle=24 elapsed=90.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=746/~5475 pct~=13.6 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=14 last_cycle=62 elapsed=120.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=922/~5475 pct~=16.8 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=17 last_cycle=13 elapsed=151.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=1000/~5475 pct~=18.3 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=18 last_cycle=16 elapsed=163.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=1179/~5475 pct~=21.5 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=20 last_cycle=45 elapsed=193.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=1359/~5475 pct~=24.8 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=22 last_cycle=75 elapsed=223.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=1545/~5475 pct~=28.2 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=25 last_cycle=36 elapsed=254.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=1735/~5475 pct~=31.7 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=28 last_cycle=1 elapsed=284.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=1919/~5475 pct~=35.1 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=30 last_cycle=35 elapsed=314.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=2000/~5475 pct~=36.5 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=31 last_cycle=41 elapsed=328.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=2187/~5475 pct~=39.9 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=34 last_cycle=3 elapsed=358.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=2374/~5475 pct~=43.4 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=36 last_cycle=40 elapsed=388.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=2550/~5475 pct~=46.6 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=38 last_cycle=66 elapsed=418.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=2725/~5475 pct~=49.8 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=41 last_cycle=16 elapsed=448.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=2907/~5475 pct~=53.1 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=43 last_cycle=48 elapsed=478.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=3000/~5475 pct~=54.8 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=44 last_cycle=66 elapsed=494.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=3177/~5475 pct~=58.0 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=47 last_cycle=18 elapsed=524.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=3355/~5475 pct~=61.3 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=49 last_cycle=46 elapsed=554.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=3534/~5475 pct~=64.5 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=51 last_cycle=75 elapsed=584.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=3725/~5475 pct~=68.0 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=54 last_cycle=41 elapsed=614.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=3911/~5475 pct~=71.4 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=57 last_cycle=2 elapsed=644.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=4000/~5475 pct~=73.1 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=58 last_cycle=16 elapsed=658.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=4188/~5475 pct~=76.5 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=60 last_cycle=54 elapsed=688.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=4375/~5475 pct~=79.9 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=63 last_cycle=16 elapsed=718.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=4564/~5475 pct~=83.4 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=65 last_cycle=55 elapsed=749.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=4752/~5475 pct~=86.8 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=68 last_cycle=18 elapsed=779.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=4933/~5475 pct~=90.1 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=70 last_cycle=49 elapsed=809.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=5000/~5475 pct~=91.3 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=71 last_cycle=41 elapsed=820.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_230752_590816 
+receipts=5184/~5475 pct~=94.7 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=73 last_cycle=75 elapsed=850.3s
+Done.
+{
+  "run_id": "run_20260619_230752_590816",
+  "created_utc": "2026-06-19T23:22:26.498478+00:00",
+  "families": [
+    "relabel_symmetry_stress"
+  ],
+  "depth_min": 3,
+  "depth_max": 75,
+  "cycles_per_case": 75,
+  "max_cells": 50000,
+  "total_cases": 73,
+  "total_receipts": 5334,
+  "halt_counts": {
+    "REPEATED_STATE_PERIODIC": 3,
+    "CYCLES_COMPLETE": 70
+  },
+  "max_registered_moves": 8,
+  "max_compression_ratio": 17.0,
+  "max_matrix_cells": 5625,
+  "max_registered_move_profiles": 8
+}
+MATRIXLAB_PROGRESS phase=POST_PROCESSING run_id=run_20260619_230752_590816 
+receipts=5334/~5475 pct~=97.4 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=75 last_cycle=75 elapsed=874.1s 
+note=stress_execute_run_returned
+MATRIXLAB_PROGRESS phase=COMPLETED run_id=run_20260619_230752_590816 
+receipts=5334/~5475 pct~=97.4 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=75 last_cycle=75 elapsed=874.1s 
+note=stress_command_done
+      Gate checks /       
+run_20260619_230752_590816
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    73 │
+│ total_receipts │  5334 │
+│ receipt_rows   │  5334 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │    70 │
+│ REPEATED_STATE_PERIODIC │     3 │
+└─────────────────────────┴───────┘
+GATE_PASS
+{
+  "classification": {
+    "compression_signal": "MIXED",
+    "continuation_radius_growth": "down",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "down",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": -7,
+    "continuation_radius_delta": -175,
+    "current_run_id": "run_20260619_230752_590816",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260619_090132_512800",
+    "raw_move_profiles_delta": -935,
+    "registered_moves_delta": -242,
+    "total_receipts_delta": -304000,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "b83bd680",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260619_230752_590816",
+    "run_20260619_090132_512800"
+  ],
+  "metrics": {
+    "coarse_move_profiles_total": 2,
+    "cycles_per_case": 75,
+    "depth_max": 75,
+    "depth_min": 3,
+    "families": "relabel_symmetry_stress",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 70,
+      "REPEATED_STATE_PERIODIC": 3
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 75,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 75,
+    "receipt_rows": 5334,
+    "receipt_sig8": "71a3f2af",
+    "registered_moves_total": 8,
+    "reused_shape": true,
+    "status": "DONE",
+    "total_cases": 73,
+    "total_receipts": 5334,
+    "unknown_laws": 0
+  },
+  "previous_vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 27.777778,
+    "continuation_per_raw_profile": 0.247525,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 250,
+    "raw_move_profiles_total": 1010,
+    "receipts_per_case": 249.462903,
+    "receipts_per_coarse_profile": 34370.444444,
+    "receipts_per_raw_profile": 306.271287,
+    "receipts_per_registered_move": 1237.336,
+    "registered_moves_total": 250
+  },
+  "profile_summary": {
+    "by_family": {
+      "relabel_symmetry_stress": 5334
+    },
+    "by_move": {
+      "deterministic_row_col_relabel": 5334
+    },
+    "coarse_profiles": {
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=0": 17,
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=many": 5317
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "vocabulary_growth_score": {
+    "coarse_move_profiles_total": 2,
+    "continuation_per_coarse_profile": 37.5,
+    "continuation_per_raw_profile": 1.0,
+    "continuation_per_registered_move": 9.375,
+    "continuation_radius": 75,
+    "raw_move_profiles_total": 75,
+    "receipts_per_case": 73.068493,
+    "receipts_per_coarse_profile": 2667.0,
+    "receipts_per_raw_profile": 71.12,
+    "receipts_per_registered_move": 666.75,
+    "registered_moves_total": 8
+  }
+}
+eval_path: data/evals/b83bd680.json
+R75_SLOT_DONE
+{
+  "boundary_count": 0,
+  "coarse_move_profiles_total": 2,
+  "compression_signal": "MIXED",
+  "cycles_per_case": 75,
+  "depth_max": 75,
+  "distinguishability_key": "relabel_symmetry_stress|slot=1|occurrence=1",
+  "eval_gate": "PASS",
+  "eval_id": "b83bd680",
+  "failure_mode": null,
+  "family": "relabel_symmetry_stress",
+  "family_code": "E",
+  "family_occurrence_n": 1,
+  "law_failures": 0,
+  "orphan_receipt_runs": 0,
+  "raw_move_profiles_total": 75,
+  "receipt_rows": 5334,
+  "receipt_sig8": "71a3f2af",
+  "registered_moves_total": 8,
+  "run_id": "run_20260619_230752_590816",
+  "slot_label": "slot_01_E1",
+  "slot_n": 1,
+  "status": "DONE",
+  "total_cases": 73,
+  "total_receipts": 5334,
+  "unknown_laws": 0
+}
+R75_PARTIAL_SUMMARY_PATH data/domain_shift_slot_runs/0db5d626.json
+R75_SLOT_START slot_02_E2 relabel_symmetry_stress|slot=2|occurrence=2
+MATRIXLAB_PROGRESS phase=STARTING run_id=? receipts=0/~5475 pct~=0.0 cases~=73 
+families=E depth=3..75 cycles=75 elapsed=0.0s
+MatrixLab run started: run_20260619_232249_751496
+Families: ['relabel_symmetry_stress']
+Depths: 3..75
+Cycles per case: 75
+Max cells per matrix: 50000
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=1/~5475 pct~=0.0 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=3 last_cycle=1 elapsed=0.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=190/~5475 pct~=3.5 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=7 last_cycle=31 elapsed=30.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=380/~5475 pct~=6.9 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=9 last_cycle=71 elapsed=60.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=567/~5475 pct~=10.4 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=12 last_cycle=33 elapsed=90.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=756/~5475 pct~=13.8 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=14 last_cycle=72 elapsed=120.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=943/~5475 pct~=17.2 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=17 last_cycle=34 elapsed=150.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=1000/~5475 pct~=18.3 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=18 last_cycle=16 elapsed=159.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=1194/~5475 pct~=21.8 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=20 last_cycle=60 elapsed=189.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=1381/~5475 pct~=25.2 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=23 last_cycle=22 elapsed=219.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=1564/~5475 pct~=28.6 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=25 last_cycle=55 elapsed=249.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=1757/~5475 pct~=32.1 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=28 last_cycle=23 elapsed=280.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=1945/~5475 pct~=35.5 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=30 last_cycle=61 elapsed=310.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=2000/~5475 pct~=36.5 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=31 last_cycle=41 elapsed=318.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=2193/~5475 pct~=40.1 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=34 last_cycle=9 elapsed=349.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=2378/~5475 pct~=43.4 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=36 last_cycle=44 elapsed=379.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=2562/~5475 pct~=46.8 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=39 last_cycle=3 elapsed=409.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=2749/~5475 pct~=50.2 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=41 last_cycle=40 elapsed=439.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=2938/~5475 pct~=53.7 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=44 last_cycle=4 elapsed=469.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=3000/~5475 pct~=54.8 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=44 last_cycle=66 elapsed=479.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=3190/~5475 pct~=58.3 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=47 last_cycle=31 elapsed=509.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=3382/~5475 pct~=61.8 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=49 last_cycle=73 elapsed=539.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=3570/~5475 pct~=65.2 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=52 last_cycle=36 elapsed=569.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=3755/~5475 pct~=68.6 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=54 last_cycle=71 elapsed=599.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=3934/~5475 pct~=71.9 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=57 last_cycle=25 elapsed=629.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=4000/~5475 pct~=73.1 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=58 last_cycle=16 elapsed=640.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=4177/~5475 pct~=76.3 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=60 last_cycle=43 elapsed=670.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=4359/~5475 pct~=79.6 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=62 last_cycle=75 elapsed=700.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=4539/~5475 pct~=82.9 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=65 last_cycle=30 elapsed=730.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=4713/~5475 pct~=86.1 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=67 last_cycle=54 elapsed=760.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=4899/~5475 pct~=89.5 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=70 last_cycle=15 elapsed=790.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=5000/~5475 pct~=91.3 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=71 last_cycle=41 elapsed=807.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_232249_751496 
+receipts=5191/~5475 pct~=94.8 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=74 last_cycle=7 elapsed=838.0s
+Done.
+{
+  "run_id": "run_20260619_232249_751496",
+  "created_utc": "2026-06-19T23:37:10.898438+00:00",
+  "families": [
+    "relabel_symmetry_stress"
+  ],
+  "depth_min": 3,
+  "depth_max": 75,
+  "cycles_per_case": 75,
+  "max_cells": 50000,
+  "total_cases": 73,
+  "total_receipts": 5334,
+  "halt_counts": {
+    "REPEATED_STATE_PERIODIC": 3,
+    "CYCLES_COMPLETE": 70
+  },
+  "max_registered_moves": 8,
+  "max_compression_ratio": 17.0,
+  "max_matrix_cells": 5625,
+  "max_registered_move_profiles": 8
+}
+MATRIXLAB_PROGRESS phase=POST_PROCESSING run_id=run_20260619_232249_751496 
+receipts=5334/~5475 pct~=97.4 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=75 last_cycle=75 elapsed=861.4s 
+note=stress_execute_run_returned
+MATRIXLAB_PROGRESS phase=COMPLETED run_id=run_20260619_232249_751496 
+receipts=5334/~5475 pct~=97.4 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=75 last_cycle=75 elapsed=861.4s 
+note=stress_command_done
+      Gate checks /       
+run_20260619_232249_751496
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    73 │
+│ total_receipts │  5334 │
+│ receipt_rows   │  5334 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │    70 │
+│ REPEATED_STATE_PERIODIC │     3 │
+└─────────────────────────┴───────┘
+GATE_PASS
+{
+  "classification": {
+    "compression_signal": "MIXED",
+    "continuation_radius_growth": "down",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "down",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": -7,
+    "continuation_radius_delta": -175,
+    "current_run_id": "run_20260619_232249_751496",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260619_090132_512800",
+    "raw_move_profiles_delta": -935,
+    "registered_moves_delta": -242,
+    "total_receipts_delta": -304000,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "a5e5356c",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260619_232249_751496",
+    "run_20260619_090132_512800"
+  ],
+  "metrics": {
+    "coarse_move_profiles_total": 2,
+    "cycles_per_case": 75,
+    "depth_max": 75,
+    "depth_min": 3,
+    "families": "relabel_symmetry_stress",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 70,
+      "REPEATED_STATE_PERIODIC": 3
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 75,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 75,
+    "receipt_rows": 5334,
+    "receipt_sig8": "8b69b983",
+    "registered_moves_total": 8,
+    "reused_shape": true,
+    "status": "DONE",
+    "total_cases": 73,
+    "total_receipts": 5334,
+    "unknown_laws": 0
+  },
+  "previous_vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 27.777778,
+    "continuation_per_raw_profile": 0.247525,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 250,
+    "raw_move_profiles_total": 1010,
+    "receipts_per_case": 249.462903,
+    "receipts_per_coarse_profile": 34370.444444,
+    "receipts_per_raw_profile": 306.271287,
+    "receipts_per_registered_move": 1237.336,
+    "registered_moves_total": 250
+  },
+  "profile_summary": {
+    "by_family": {
+      "relabel_symmetry_stress": 5334
+    },
+    "by_move": {
+      "deterministic_row_col_relabel": 5334
+    },
+    "coarse_profiles": {
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=0": 17,
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=many": 5317
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "vocabulary_growth_score": {
+    "coarse_move_profiles_total": 2,
+    "continuation_per_coarse_profile": 37.5,
+    "continuation_per_raw_profile": 1.0,
+    "continuation_per_registered_move": 9.375,
+    "continuation_radius": 75,
+    "raw_move_profiles_total": 75,
+    "receipts_per_case": 73.068493,
+    "receipts_per_coarse_profile": 2667.0,
+    "receipts_per_raw_profile": 71.12,
+    "receipts_per_registered_move": 666.75,
+    "registered_moves_total": 8
+  }
+}
+eval_path: data/evals/a5e5356c.json
+R75_SLOT_DONE
+{
+  "boundary_count": 0,
+  "coarse_move_profiles_total": 2,
+  "compression_signal": "MIXED",
+  "cycles_per_case": 75,
+  "depth_max": 75,
+  "distinguishability_key": "relabel_symmetry_stress|slot=2|occurrence=2",
+  "eval_gate": "PASS",
+  "eval_id": "a5e5356c",
+  "failure_mode": null,
+  "family": "relabel_symmetry_stress",
+  "family_code": "E",
+  "family_occurrence_n": 2,
+  "law_failures": 0,
+  "orphan_receipt_runs": 0,
+  "raw_move_profiles_total": 75,
+  "receipt_rows": 5334,
+  "receipt_sig8": "8b69b983",
+  "registered_moves_total": 8,
+  "run_id": "run_20260619_232249_751496",
+  "slot_label": "slot_02_E2",
+  "slot_n": 2,
+  "status": "DONE",
+  "total_cases": 73,
+  "total_receipts": 5334,
+  "unknown_laws": 0
+}
+R75_PARTIAL_SUMMARY_PATH data/domain_shift_slot_runs/2cad0629.json
+R75_SLOT_START slot_03_E3 relabel_symmetry_stress|slot=3|occurrence=3
+MATRIXLAB_PROGRESS phase=STARTING run_id=? receipts=0/~5475 pct~=0.0 cases~=73 
+families=E depth=3..75 cycles=75 elapsed=0.0s
+MatrixLab run started: run_20260619_233734_417952
+Families: ['relabel_symmetry_stress']
+Depths: 3..75
+Cycles per case: 75
+Max cells per matrix: 50000
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=1/~5475 pct~=0.0 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=3 last_cycle=1 elapsed=0.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=181/~5475 pct~=3.3 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=7 last_cycle=22 elapsed=30.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=367/~5475 pct~=6.7 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=9 last_cycle=58 elapsed=60.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=551/~5475 pct~=10.1 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=12 last_cycle=17 elapsed=90.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=725/~5475 pct~=13.2 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=14 last_cycle=41 elapsed=120.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=909/~5475 pct~=16.6 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=16 last_cycle=75 elapsed=150.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=1000/~5475 pct~=18.3 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=18 last_cycle=16 elapsed=164.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=1185/~5475 pct~=21.6 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=20 last_cycle=51 elapsed=194.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=1369/~5475 pct~=25.0 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=23 last_cycle=10 elapsed=224.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=1553/~5475 pct~=28.4 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=25 last_cycle=44 elapsed=255.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=1734/~5475 pct~=31.7 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=27 last_cycle=75 elapsed=285.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=1916/~5475 pct~=35.0 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=30 last_cycle=32 elapsed=315.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=2000/~5475 pct~=36.5 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=31 last_cycle=41 elapsed=328.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=2184/~5475 pct~=39.9 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=33 last_cycle=75 elapsed=358.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=2367/~5475 pct~=43.2 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=36 last_cycle=33 elapsed=388.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=2557/~5475 pct~=46.7 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=38 last_cycle=73 elapsed=418.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=2745/~5475 pct~=50.1 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=41 last_cycle=36 elapsed=448.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=2931/~5475 pct~=53.5 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=43 last_cycle=72 elapsed=478.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=3000/~5475 pct~=54.8 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=44 last_cycle=66 elapsed=490.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=3185/~5475 pct~=58.2 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=47 last_cycle=26 elapsed=521.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=3373/~5475 pct~=61.6 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=49 last_cycle=64 elapsed=551.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=3561/~5475 pct~=65.0 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=52 last_cycle=27 elapsed=581.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=3748/~5475 pct~=68.5 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=54 last_cycle=64 elapsed=611.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=3928/~5475 pct~=71.7 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=57 last_cycle=19 elapsed=641.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=4000/~5475 pct~=73.1 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=58 last_cycle=16 elapsed=652.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=4176/~5475 pct~=76.3 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=60 last_cycle=42 elapsed=682.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=4354/~5475 pct~=79.5 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=62 last_cycle=70 elapsed=712.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=4536/~5475 pct~=82.8 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=65 last_cycle=27 elapsed=743.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=4722/~5475 pct~=86.2 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=67 last_cycle=63 elapsed=773.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=4906/~5475 pct~=89.6 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=70 last_cycle=22 elapsed=803.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=5000/~5475 pct~=91.3 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=71 last_cycle=41 elapsed=818.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_233734_417952 
+receipts=5183/~5475 pct~=94.7 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=73 last_cycle=74 elapsed=848.8s
+Done.
+{
+  "run_id": "run_20260619_233734_417952",
+  "created_utc": "2026-06-19T23:52:08.186161+00:00",
+  "families": [
+    "relabel_symmetry_stress"
+  ],
+  "depth_min": 3,
+  "depth_max": 75,
+  "cycles_per_case": 75,
+  "max_cells": 50000,
+  "total_cases": 73,
+  "total_receipts": 5334,
+  "halt_counts": {
+    "REPEATED_STATE_PERIODIC": 3,
+    "CYCLES_COMPLETE": 70
+  },
+  "max_registered_moves": 8,
+  "max_compression_ratio": 17.0,
+  "max_matrix_cells": 5625,
+  "max_registered_move_profiles": 8
+}
+MATRIXLAB_PROGRESS phase=POST_PROCESSING run_id=run_20260619_233734_417952 
+receipts=5334/~5475 pct~=97.4 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=75 last_cycle=75 elapsed=873.9s 
+note=stress_execute_run_returned
+MATRIXLAB_PROGRESS phase=COMPLETED run_id=run_20260619_233734_417952 
+receipts=5334/~5475 pct~=97.4 cases~=73 families=E depth=3..75 cycles=75 
+last_family=relabel_symmetry_stress last_depth=75 last_cycle=75 elapsed=873.9s 
+note=stress_command_done
+      Gate checks /       
+run_20260619_233734_417952
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    73 │
+│ total_receipts │  5334 │
+│ receipt_rows   │  5334 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │    70 │
+│ REPEATED_STATE_PERIODIC │     3 │
+└─────────────────────────┴───────┘
+GATE_PASS
+{
+  "classification": {
+    "compression_signal": "MIXED",
+    "continuation_radius_growth": "down",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "down",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": -7,
+    "continuation_radius_delta": -175,
+    "current_run_id": "run_20260619_233734_417952",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260619_090132_512800",
+    "raw_move_profiles_delta": -935,
+    "registered_moves_delta": -242,
+    "total_receipts_delta": -304000,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "cc25c989",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260619_233734_417952",
+    "run_20260619_090132_512800"
+  ],
+  "metrics": {
+    "coarse_move_profiles_total": 2,
+    "cycles_per_case": 75,
+    "depth_max": 75,
+    "depth_min": 3,
+    "families": "relabel_symmetry_stress",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 70,
+      "REPEATED_STATE_PERIODIC": 3
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 75,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 75,
+    "receipt_rows": 5334,
+    "receipt_sig8": "549e59cb",
+    "registered_moves_total": 8,
+    "reused_shape": true,
+    "status": "DONE",
+    "total_cases": 73,
+    "total_receipts": 5334,
+    "unknown_laws": 0
+  },
+  "previous_vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 27.777778,
+    "continuation_per_raw_profile": 0.247525,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 250,
+    "raw_move_profiles_total": 1010,
+    "receipts_per_case": 249.462903,
+    "receipts_per_coarse_profile": 34370.444444,
+    "receipts_per_raw_profile": 306.271287,
+    "receipts_per_registered_move": 1237.336,
+    "registered_moves_total": 250
+  },
+  "profile_summary": {
+    "by_family": {
+      "relabel_symmetry_stress": 5334
+    },
+    "by_move": {
+      "deterministic_row_col_relabel": 5334
+    },
+    "coarse_profiles": {
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=0": 17,
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=many": 5317
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "vocabulary_growth_score": {
+    "coarse_move_profiles_total": 2,
+    "continuation_per_coarse_profile": 37.5,
+    "continuation_per_raw_profile": 1.0,
+    "continuation_per_registered_move": 9.375,
+    "continuation_radius": 75,
+    "raw_move_profiles_total": 75,
+    "receipts_per_case": 73.068493,
+    "receipts_per_coarse_profile": 2667.0,
+    "receipts_per_raw_profile": 71.12,
+    "receipts_per_registered_move": 666.75,
+    "registered_moves_total": 8
+  }
+}
+eval_path: data/evals/cc25c989.json
+R75_SLOT_DONE
+{
+  "boundary_count": 0,
+  "coarse_move_profiles_total": 2,
+  "compression_signal": "MIXED",
+  "cycles_per_case": 75,
+  "depth_max": 75,
+  "distinguishability_key": "relabel_symmetry_stress|slot=3|occurrence=3",
+  "eval_gate": "PASS",
+  "eval_id": "cc25c989",
+  "failure_mode": null,
+  "family": "relabel_symmetry_stress",
+  "family_code": "E",
+  "family_occurrence_n": 3,
+  "law_failures": 0,
+  "orphan_receipt_runs": 0,
+  "raw_move_profiles_total": 75,
+  "receipt_rows": 5334,
+  "receipt_sig8": "549e59cb",
+  "registered_moves_total": 8,
+  "run_id": "run_20260619_233734_417952",
+  "slot_label": "slot_03_E3",
+  "slot_n": 3,
+  "status": "DONE",
+  "total_cases": 73,
+  "total_receipts": 5334,
+  "unknown_laws": 0
+}
+R75_PARTIAL_SUMMARY_PATH data/domain_shift_slot_runs/8957aa73.json
+R75_SLOT_START slot_04_D1 projection_quotient|slot=4|occurrence=1
+MATRIXLAB_PROGRESS phase=STARTING run_id=? receipts=0/~5475 pct~=0.0 cases~=73 
+families=D depth=3..75 cycles=75 elapsed=0.0s
+MatrixLab run started: run_20260619_235230_174817
+Families: ['projection_quotient']
+Depths: 3..75
+Cycles per case: 75
+Max cells per matrix: 50000
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=1/~5475 pct~=0.0 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=3 last_cycle=1 elapsed=0.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=198/~5475 pct~=3.6 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=5 last_cycle=48 elapsed=30.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=385/~5475 pct~=7.0 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=8 last_cycle=10 elapsed=60.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=572/~5475 pct~=10.4 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=10 last_cycle=47 elapsed=90.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=756/~5475 pct~=13.8 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=13 last_cycle=6 elapsed=120.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=945/~5475 pct~=17.3 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=15 last_cycle=45 elapsed=150.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=1000/~5475 pct~=18.3 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=16 last_cycle=25 elapsed=159.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=1193/~5475 pct~=21.8 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=18 last_cycle=68 elapsed=189.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=1381/~5475 pct~=25.2 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=21 last_cycle=31 elapsed=219.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=1574/~5475 pct~=28.7 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=23 last_cycle=74 elapsed=249.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=1768/~5475 pct~=32.3 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=26 last_cycle=43 elapsed=279.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=1958/~5475 pct~=35.8 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=29 last_cycle=8 elapsed=309.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=2000/~5475 pct~=36.5 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=29 last_cycle=50 elapsed=316.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=2191/~5475 pct~=40.0 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=32 last_cycle=16 elapsed=346.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=2377/~5475 pct~=43.4 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=34 last_cycle=52 elapsed=376.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=2570/~5475 pct~=46.9 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=37 last_cycle=20 elapsed=406.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=2758/~5475 pct~=50.4 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=39 last_cycle=58 elapsed=436.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=2947/~5475 pct~=53.8 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=42 last_cycle=22 elapsed=466.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=3000/~5475 pct~=54.8 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=42 last_cycle=75 elapsed=474.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=3184/~5475 pct~=58.2 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=45 last_cycle=34 elapsed=504.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=3374/~5475 pct~=61.6 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=47 last_cycle=74 elapsed=534.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=3562/~5475 pct~=65.1 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=50 last_cycle=37 elapsed=564.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=3751/~5475 pct~=68.5 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=53 last_cycle=1 elapsed=594.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=3939/~5475 pct~=71.9 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=55 last_cycle=39 elapsed=624.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=4000/~5475 pct~=73.1 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=56 last_cycle=25 elapsed=635.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=4182/~5475 pct~=76.4 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=58 last_cycle=57 elapsed=665.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=4368/~5475 pct~=79.8 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=61 last_cycle=18 elapsed=695.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=4559/~5475 pct~=83.3 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=63 last_cycle=59 elapsed=725.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=4741/~5475 pct~=86.6 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=66 last_cycle=16 elapsed=755.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=4927/~5475 pct~=90.0 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=68 last_cycle=52 elapsed=785.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=5000/~5475 pct~=91.3 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=69 last_cycle=50 elapsed=797.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=5181/~5475 pct~=94.6 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=72 last_cycle=6 elapsed=827.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260619_235230_174817 
+receipts=5359/~5475 pct~=97.9 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=74 last_cycle=34 elapsed=857.9s
+Done.
+{
+  "run_id": "run_20260619_235230_174817",
+  "created_utc": "2026-06-20T00:07:07.534863+00:00",
+  "families": [
+    "projection_quotient"
+  ],
+  "depth_min": 3,
+  "depth_max": 75,
+  "cycles_per_case": 75,
+  "max_cells": 50000,
+  "total_cases": 73,
+  "total_receipts": 5475,
+  "halt_counts": {
+    "CYCLES_COMPLETE": 73
+  },
+  "max_registered_moves": 39,
+  "max_compression_ratio": 25.0,
+  "max_matrix_cells": 5700,
+  "max_registered_move_profiles": 39
+}
+MATRIXLAB_PROGRESS phase=POST_PROCESSING run_id=run_20260619_235230_174817 
+receipts=5475/~5475 pct~=100.0 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=75 last_cycle=75 elapsed=877.6s 
+note=stress_execute_run_returned
+MATRIXLAB_PROGRESS phase=COMPLETED run_id=run_20260619_235230_174817 
+receipts=5475/~5475 pct~=100.0 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=75 last_cycle=75 elapsed=877.6s 
+note=stress_command_done
+      Gate checks /       
+run_20260619_235230_174817
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    73 │
+│ total_receipts │  5475 │
+│ receipt_rows   │  5475 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    73 │
+└─────────────────┴───────┘
+GATE_PASS
+{
+  "classification": {
+    "compression_signal": "MIXED",
+    "continuation_radius_growth": "down",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "down",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": -6,
+    "continuation_radius_delta": -175,
+    "current_run_id": "run_20260619_235230_174817",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260619_090132_512800",
+    "raw_move_profiles_delta": -935,
+    "registered_moves_delta": -211,
+    "total_receipts_delta": -303859,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "fbfc20e6",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260619_235230_174817",
+    "run_20260619_090132_512800"
+  ],
+  "metrics": {
+    "coarse_move_profiles_total": 3,
+    "cycles_per_case": 75,
+    "depth_max": 75,
+    "depth_min": 3,
+    "families": "projection_quotient",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 73
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 75,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 75,
+    "receipt_rows": 5475,
+    "receipt_sig8": "7755884f",
+    "registered_moves_total": 39,
+    "reused_shape": true,
+    "status": "DONE",
+    "total_cases": 73,
+    "total_receipts": 5475,
+    "unknown_laws": 0
+  },
+  "previous_vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 27.777778,
+    "continuation_per_raw_profile": 0.247525,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 250,
+    "raw_move_profiles_total": 1010,
+    "receipts_per_case": 249.462903,
+    "receipts_per_coarse_profile": 34370.444444,
+    "receipts_per_raw_profile": 306.271287,
+    "receipts_per_registered_move": 1237.336,
+    "registered_moves_total": 250
+  },
+  "profile_summary": {
+    "by_family": {
+      "projection_quotient": 5475
+    },
+    "by_move": {
+      "append_zero_column": 3440,
+      "quotient_merge_last_row": 2035
+    },
+    "coarse_profiles": {
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=0": 3367,
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=1": 73,
+      "quotient_merge_last_row|dr=-1|dc=0|rank=-1|supp=-|newcols=many": 2035
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "vocabulary_growth_score": {
+    "coarse_move_profiles_total": 3,
+    "continuation_per_coarse_profile": 25.0,
+    "continuation_per_raw_profile": 1.0,
+    "continuation_per_registered_move": 1.923077,
+    "continuation_radius": 75,
+    "raw_move_profiles_total": 75,
+    "receipts_per_case": 75.0,
+    "receipts_per_coarse_profile": 1825.0,
+    "receipts_per_raw_profile": 73.0,
+    "receipts_per_registered_move": 140.384615,
+    "registered_moves_total": 39
+  }
+}
+eval_path: data/evals/fbfc20e6.json
+R75_SLOT_DONE
+{
+  "boundary_count": 0,
+  "coarse_move_profiles_total": 3,
+  "compression_signal": "MIXED",
+  "cycles_per_case": 75,
+  "depth_max": 75,
+  "distinguishability_key": "projection_quotient|slot=4|occurrence=1",
+  "eval_gate": "PASS",
+  "eval_id": "fbfc20e6",
+  "failure_mode": null,
+  "family": "projection_quotient",
+  "family_code": "D",
+  "family_occurrence_n": 1,
+  "law_failures": 0,
+  "orphan_receipt_runs": 0,
+  "raw_move_profiles_total": 75,
+  "receipt_rows": 5475,
+  "receipt_sig8": "7755884f",
+  "registered_moves_total": 39,
+  "run_id": "run_20260619_235230_174817",
+  "slot_label": "slot_04_D1",
+  "slot_n": 4,
+  "status": "DONE",
+  "total_cases": 73,
+  "total_receipts": 5475,
+  "unknown_laws": 0
+}
+R75_PARTIAL_SUMMARY_PATH data/domain_shift_slot_runs/cd12768c.json
+R75_SLOT_START slot_05_D2 projection_quotient|slot=5|occurrence=2
+MATRIXLAB_PROGRESS phase=STARTING run_id=? receipts=0/~5475 pct~=0.0 cases~=73 
+families=D depth=3..75 cycles=75 elapsed=0.0s
+MatrixLab run started: run_20260620_000731_258746
+Families: ['projection_quotient']
+Depths: 3..75
+Cycles per case: 75
+Max cells per matrix: 50000
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=1/~5475 pct~=0.0 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=3 last_cycle=1 elapsed=0.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=84/~5475 pct~=1.5 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=4 last_cycle=9 elapsed=30.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=167/~5475 pct~=3.1 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=5 last_cycle=17 elapsed=60.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=250/~5475 pct~=4.6 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=6 last_cycle=25 elapsed=90.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=417/~5475 pct~=7.6 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=8 last_cycle=42 elapsed=120.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=606/~5475 pct~=11.1 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=11 last_cycle=6 elapsed=151.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=794/~5475 pct~=14.5 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=13 last_cycle=44 elapsed=181.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=969/~5475 pct~=17.7 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=15 last_cycle=69 elapsed=211.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=1000/~5475 pct~=18.3 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=16 last_cycle=25 elapsed=216.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=1190/~5475 pct~=21.7 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=18 last_cycle=65 elapsed=246.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=1385/~5475 pct~=25.3 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=21 last_cycle=35 elapsed=276.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=1574/~5475 pct~=28.7 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=23 last_cycle=74 elapsed=306.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=1760/~5475 pct~=32.1 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=26 last_cycle=35 elapsed=336.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=1948/~5475 pct~=35.6 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=28 last_cycle=73 elapsed=366.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=2000/~5475 pct~=36.5 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=29 last_cycle=50 elapsed=374.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=2188/~5475 pct~=40.0 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=32 last_cycle=13 elapsed=404.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=2384/~5475 pct~=43.5 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=34 last_cycle=59 elapsed=434.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=2577/~5475 pct~=47.1 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=37 last_cycle=27 elapsed=464.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=2783/~5475 pct~=50.8 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=40 last_cycle=8 elapsed=494.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=2985/~5475 pct~=54.5 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=42 last_cycle=60 elapsed=524.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=3000/~5475 pct~=54.8 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=42 last_cycle=75 elapsed=526.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=3202/~5475 pct~=58.5 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=45 last_cycle=52 elapsed=556.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=3401/~5475 pct~=62.1 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=48 last_cycle=26 elapsed=586.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=3598/~5475 pct~=65.7 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=50 last_cycle=73 elapsed=617.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=3796/~5475 pct~=69.3 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=53 last_cycle=46 elapsed=647.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=4000/~5475 pct~=73.1 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=56 last_cycle=25 elapsed=676.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=4200/~5475 pct~=76.7 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=58 last_cycle=75 elapsed=706.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=4393/~5475 pct~=80.2 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=61 last_cycle=43 elapsed=736.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=4585/~5475 pct~=83.7 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=64 last_cycle=10 elapsed=766.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=4776/~5475 pct~=87.2 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=66 last_cycle=51 elapsed=796.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=4958/~5475 pct~=90.6 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=69 last_cycle=8 elapsed=826.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=5000/~5475 pct~=91.3 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=69 last_cycle=50 elapsed=834.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=5194/~5475 pct~=94.9 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=72 last_cycle=19 elapsed=864.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_000731_258746 
+receipts=5384/~5475 pct~=98.3 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=74 last_cycle=59 elapsed=894.3s
+Done.
+{
+  "run_id": "run_20260620_000731_258746",
+  "created_utc": "2026-06-20T00:22:40.093433+00:00",
+  "families": [
+    "projection_quotient"
+  ],
+  "depth_min": 3,
+  "depth_max": 75,
+  "cycles_per_case": 75,
+  "max_cells": 50000,
+  "total_cases": 73,
+  "total_receipts": 5475,
+  "halt_counts": {
+    "CYCLES_COMPLETE": 73
+  },
+  "max_registered_moves": 39,
+  "max_compression_ratio": 25.0,
+  "max_matrix_cells": 5700,
+  "max_registered_move_profiles": 39
+}
+MATRIXLAB_PROGRESS phase=POST_PROCESSING run_id=run_20260620_000731_258746 
+receipts=5475/~5475 pct~=100.0 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=75 last_cycle=75 elapsed=909.0s 
+note=stress_execute_run_returned
+MATRIXLAB_PROGRESS phase=COMPLETED run_id=run_20260620_000731_258746 
+receipts=5475/~5475 pct~=100.0 cases~=73 families=D depth=3..75 cycles=75 
+last_family=projection_quotient last_depth=75 last_cycle=75 elapsed=909.0s 
+note=stress_command_done
+      Gate checks /       
+run_20260620_000731_258746
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    73 │
+│ total_receipts │  5475 │
+│ receipt_rows   │  5475 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    73 │
+└─────────────────┴───────┘
+GATE_PASS
+{
+  "classification": {
+    "compression_signal": "MIXED",
+    "continuation_radius_growth": "down",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "down",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": -6,
+    "continuation_radius_delta": -175,
+    "current_run_id": "run_20260620_000731_258746",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260619_090132_512800",
+    "raw_move_profiles_delta": -935,
+    "registered_moves_delta": -211,
+    "total_receipts_delta": -303859,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "9cb9be8e",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260620_000731_258746",
+    "run_20260619_090132_512800"
+  ],
+  "metrics": {
+    "coarse_move_profiles_total": 3,
+    "cycles_per_case": 75,
+    "depth_max": 75,
+    "depth_min": 3,
+    "families": "projection_quotient",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 73
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 75,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 75,
+    "receipt_rows": 5475,
+    "receipt_sig8": "91e9b8af",
+    "registered_moves_total": 39,
+    "reused_shape": true,
+    "status": "DONE",
+    "total_cases": 73,
+    "total_receipts": 5475,
+    "unknown_laws": 0
+  },
+  "previous_vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 27.777778,
+    "continuation_per_raw_profile": 0.247525,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 250,
+    "raw_move_profiles_total": 1010,
+    "receipts_per_case": 249.462903,
+    "receipts_per_coarse_profile": 34370.444444,
+    "receipts_per_raw_profile": 306.271287,
+    "receipts_per_registered_move": 1237.336,
+    "registered_moves_total": 250
+  },
+  "profile_summary": {
+    "by_family": {
+      "projection_quotient": 5475
+    },
+    "by_move": {
+      "append_zero_column": 3440,
+      "quotient_merge_last_row": 2035
+    },
+    "coarse_profiles": {
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=0": 3367,
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=1": 73,
+      "quotient_merge_last_row|dr=-1|dc=0|rank=-1|supp=-|newcols=many": 2035
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "vocabulary_growth_score": {
+    "coarse_move_profiles_total": 3,
+    "continuation_per_coarse_profile": 25.0,
+    "continuation_per_raw_profile": 1.0,
+    "continuation_per_registered_move": 1.923077,
+    "continuation_radius": 75,
+    "raw_move_profiles_total": 75,
+    "receipts_per_case": 75.0,
+    "receipts_per_coarse_profile": 1825.0,
+    "receipts_per_raw_profile": 73.0,
+    "receipts_per_registered_move": 140.384615,
+    "registered_moves_total": 39
+  }
+}
+eval_path: data/evals/9cb9be8e.json
+R75_SLOT_DONE
+{
+  "boundary_count": 0,
+  "coarse_move_profiles_total": 3,
+  "compression_signal": "MIXED",
+  "cycles_per_case": 75,
+  "depth_max": 75,
+  "distinguishability_key": "projection_quotient|slot=5|occurrence=2",
+  "eval_gate": "PASS",
+  "eval_id": "9cb9be8e",
+  "failure_mode": null,
+  "family": "projection_quotient",
+  "family_code": "D",
+  "family_occurrence_n": 2,
+  "law_failures": 0,
+  "orphan_receipt_runs": 0,
+  "raw_move_profiles_total": 75,
+  "receipt_rows": 5475,
+  "receipt_sig8": "91e9b8af",
+  "registered_moves_total": 39,
+  "run_id": "run_20260620_000731_258746",
+  "slot_label": "slot_05_D2",
+  "slot_n": 5,
+  "status": "DONE",
+  "total_cases": 73,
+  "total_receipts": 5475,
+  "unknown_laws": 0
+}
+R75_PARTIAL_SUMMARY_PATH data/domain_shift_slot_runs/53611fd0.json
+R75_SLOT_START slot_06_B1 two_sided_suspension|slot=6|occurrence=1
+MATRIXLAB_PROGRESS phase=STARTING run_id=? receipts=0/~5475 pct~=0.0 cases~=73 
+families=B depth=3..75 cycles=75 elapsed=0.0s
+MatrixLab run started: run_20260620_002300_557420
+Families: ['two_sided_suspension']
+Depths: 3..75
+Cycles per case: 75
+Max cells per matrix: 50000
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=1/~5475 pct~=0.0 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=3 last_cycle=1 elapsed=0.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=192/~5475 pct~=3.5 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=5 last_cycle=42 elapsed=30.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=385/~5475 pct~=7.0 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=8 last_cycle=10 elapsed=60.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=569/~5475 pct~=10.4 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=10 last_cycle=44 elapsed=90.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=757/~5475 pct~=13.8 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=13 last_cycle=7 elapsed=120.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=946/~5475 pct~=17.3 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=15 last_cycle=46 elapsed=150.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=1000/~5475 pct~=18.3 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=16 last_cycle=25 elapsed=158.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=1186/~5475 pct~=21.7 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=18 last_cycle=61 elapsed=188.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=1372/~5475 pct~=25.1 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=21 last_cycle=22 elapsed=218.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=1561/~5475 pct~=28.5 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=23 last_cycle=61 elapsed=249.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=1747/~5475 pct~=31.9 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=26 last_cycle=22 elapsed=279.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=1927/~5475 pct~=35.2 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=28 last_cycle=52 elapsed=309.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=2000/~5475 pct~=36.5 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=29 last_cycle=50 elapsed=320.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=2185/~5475 pct~=39.9 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=32 last_cycle=10 elapsed=350.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=2372/~5475 pct~=43.3 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=34 last_cycle=47 elapsed=380.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=2556/~5475 pct~=46.7 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=37 last_cycle=6 elapsed=410.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=2749/~5475 pct~=50.2 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=39 last_cycle=49 elapsed=440.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=2930/~5475 pct~=53.5 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=42 last_cycle=5 elapsed=471.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=3000/~5475 pct~=54.8 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=42 last_cycle=75 elapsed=481.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=3182/~5475 pct~=58.1 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=45 last_cycle=32 elapsed=512.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=3363/~5475 pct~=61.4 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=47 last_cycle=63 elapsed=542.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=3546/~5475 pct~=64.8 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=50 last_cycle=21 elapsed=572.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=3733/~5475 pct~=68.2 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=52 last_cycle=58 elapsed=602.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=3915/~5475 pct~=71.5 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=55 last_cycle=15 elapsed=632.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=4000/~5475 pct~=73.1 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=56 last_cycle=25 elapsed=646.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=4179/~5475 pct~=76.3 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=58 last_cycle=54 elapsed=676.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=4354/~5475 pct~=79.5 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=61 last_cycle=4 elapsed=706.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=4533/~5475 pct~=82.8 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=63 last_cycle=33 elapsed=736.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=4716/~5475 pct~=86.1 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=65 last_cycle=66 elapsed=766.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=4902/~5475 pct~=89.5 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=68 last_cycle=27 elapsed=796.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=5000/~5475 pct~=91.3 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=69 last_cycle=50 elapsed=812.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=5184/~5475 pct~=94.7 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=72 last_cycle=9 elapsed=842.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_002300_557420 
+receipts=5370/~5475 pct~=98.1 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=74 last_cycle=45 elapsed=872.5s
+Done.
+{
+  "run_id": "run_20260620_002300_557420",
+  "created_utc": "2026-06-20T00:37:50.536585+00:00",
+  "families": [
+    "two_sided_suspension"
+  ],
+  "depth_min": 3,
+  "depth_max": 75,
+  "cycles_per_case": 75,
+  "max_cells": 50000,
+  "total_cases": 73,
+  "total_receipts": 5475,
+  "halt_counts": {
+    "CYCLES_COMPLETE": 73
+  },
+  "max_registered_moves": 75,
+  "max_compression_ratio": 1.0,
+  "max_matrix_cells": 22500,
+  "max_registered_move_profiles": 75
+}
+MATRIXLAB_PROGRESS phase=POST_PROCESSING run_id=run_20260620_002300_557420 
+receipts=5475/~5475 pct~=100.0 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=75 last_cycle=75 elapsed=890.2s 
+note=stress_execute_run_returned
+MATRIXLAB_PROGRESS phase=COMPLETED run_id=run_20260620_002300_557420 
+receipts=5475/~5475 pct~=100.0 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=75 last_cycle=75 elapsed=890.2s 
+note=stress_command_done
+      Gate checks /       
+run_20260620_002300_557420
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    73 │
+│ total_receipts │  5475 │
+│ receipt_rows   │  5475 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    73 │
+└─────────────────┴───────┘
+GATE_PASS
+{
+  "classification": {
+    "compression_signal": "MIXED",
+    "continuation_radius_growth": "down",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "down",
+    "new_shape_required": true,
+    "reused_shape": false
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": -8,
+    "continuation_radius_delta": -175,
+    "current_run_id": "run_20260620_002300_557420",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260619_090132_512800",
+    "raw_move_profiles_delta": -863,
+    "registered_moves_delta": -175,
+    "total_receipts_delta": -303859,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "dff2aaef",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260620_002300_557420",
+    "run_20260619_090132_512800"
+  ],
+  "metrics": {
+    "coarse_move_profiles_total": 1,
+    "cycles_per_case": 75,
+    "depth_max": 75,
+    "depth_min": 3,
+    "families": "two_sided_suspension",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 73
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 75,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 147,
+    "receipt_rows": 5475,
+    "receipt_sig8": "64174671",
+    "registered_moves_total": 75,
+    "reused_shape": false,
+    "status": "DONE",
+    "total_cases": 73,
+    "total_receipts": 5475,
+    "unknown_laws": 0
+  },
+  "previous_vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 27.777778,
+    "continuation_per_raw_profile": 0.247525,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 250,
+    "raw_move_profiles_total": 1010,
+    "receipts_per_case": 249.462903,
+    "receipts_per_coarse_profile": 34370.444444,
+    "receipts_per_raw_profile": 306.271287,
+    "receipts_per_registered_move": 1237.336,
+    "registered_moves_total": 250
+  },
+  "profile_summary": {
+    "by_family": {
+      "two_sided_suspension": 5475
+    },
+    "by_move": {
+      "add_row_and_link_column": 5475
+    },
+    "coarse_profiles": {
+      "add_row_and_link_column|dr=1|dc=1|rank=1|supp=+|newcols=many": 5475
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "vocabulary_growth_score": {
+    "coarse_move_profiles_total": 1,
+    "continuation_per_coarse_profile": 75.0,
+    "continuation_per_raw_profile": 0.510204,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 75,
+    "raw_move_profiles_total": 147,
+    "receipts_per_case": 75.0,
+    "receipts_per_coarse_profile": 5475.0,
+    "receipts_per_raw_profile": 37.244898,
+    "receipts_per_registered_move": 73.0,
+    "registered_moves_total": 75
+  }
+}
+eval_path: data/evals/dff2aaef.json
+R75_SLOT_DONE
+{
+  "boundary_count": 0,
+  "coarse_move_profiles_total": 1,
+  "compression_signal": "MIXED",
+  "cycles_per_case": 75,
+  "depth_max": 75,
+  "distinguishability_key": "two_sided_suspension|slot=6|occurrence=1",
+  "eval_gate": "PASS",
+  "eval_id": "dff2aaef",
+  "failure_mode": null,
+  "family": "two_sided_suspension",
+  "family_code": "B",
+  "family_occurrence_n": 1,
+  "law_failures": 0,
+  "orphan_receipt_runs": 0,
+  "raw_move_profiles_total": 147,
+  "receipt_rows": 5475,
+  "receipt_sig8": "64174671",
+  "registered_moves_total": 75,
+  "run_id": "run_20260620_002300_557420",
+  "slot_label": "slot_06_B1",
+  "slot_n": 6,
+  "status": "DONE",
+  "total_cases": 73,
+  "total_receipts": 5475,
+  "unknown_laws": 0
+}
+R75_PARTIAL_SUMMARY_PATH data/domain_shift_slot_runs/10e749a3.json
+R75_SLOT_START slot_07_B2 two_sided_suspension|slot=7|occurrence=2
+MATRIXLAB_PROGRESS phase=STARTING run_id=? receipts=0/~5475 pct~=0.0 cases~=73 
+families=B depth=3..75 cycles=75 elapsed=0.0s
+MatrixLab run started: run_20260620_003814_731693
+Families: ['two_sided_suspension']
+Depths: 3..75
+Cycles per case: 75
+Max cells per matrix: 50000
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=1/~5475 pct~=0.0 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=3 last_cycle=1 elapsed=0.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=187/~5475 pct~=3.4 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=5 last_cycle=37 elapsed=30.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=383/~5475 pct~=7.0 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=8 last_cycle=8 elapsed=60.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=570/~5475 pct~=10.4 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=10 last_cycle=45 elapsed=90.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=754/~5475 pct~=13.8 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=13 last_cycle=4 elapsed=120.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=945/~5475 pct~=17.3 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=15 last_cycle=45 elapsed=150.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=1000/~5475 pct~=18.3 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=16 last_cycle=25 elapsed=160.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=1180/~5475 pct~=21.6 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=18 last_cycle=55 elapsed=190.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=1355/~5475 pct~=24.7 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=21 last_cycle=5 elapsed=220.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=1529/~5475 pct~=27.9 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=23 last_cycle=29 elapsed=250.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=1712/~5475 pct~=31.3 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=25 last_cycle=62 elapsed=280.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=1898/~5475 pct~=34.7 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=28 last_cycle=23 elapsed=310.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=2000/~5475 pct~=36.5 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=29 last_cycle=50 elapsed=327.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=2187/~5475 pct~=39.9 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=32 last_cycle=12 elapsed=357.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=2371/~5475 pct~=43.3 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=34 last_cycle=46 elapsed=388.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=2555/~5475 pct~=46.7 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=37 last_cycle=5 elapsed=418.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=2741/~5475 pct~=50.1 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=39 last_cycle=41 elapsed=448.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=2922/~5475 pct~=53.4 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=41 last_cycle=72 elapsed=478.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=3000/~5475 pct~=54.8 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=42 last_cycle=75 elapsed=490.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=3185/~5475 pct~=58.2 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=45 last_cycle=35 elapsed=520.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=3365/~5475 pct~=61.5 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=47 last_cycle=65 elapsed=550.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=3541/~5475 pct~=64.7 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=50 last_cycle=16 elapsed=580.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=3728/~5475 pct~=68.1 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=52 last_cycle=53 elapsed=610.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=3913/~5475 pct~=71.5 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=55 last_cycle=13 elapsed=640.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=4000/~5475 pct~=73.1 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=56 last_cycle=25 elapsed=655.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=4184/~5475 pct~=76.4 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=58 last_cycle=59 elapsed=685.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=4365/~5475 pct~=79.7 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=61 last_cycle=15 elapsed=715.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=4543/~5475 pct~=83.0 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=63 last_cycle=43 elapsed=745.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=4722/~5475 pct~=86.2 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=65 last_cycle=72 elapsed=775.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=4897/~5475 pct~=89.4 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=68 last_cycle=22 elapsed=805.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=5000/~5475 pct~=91.3 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=69 last_cycle=50 elapsed=822.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=5177/~5475 pct~=94.6 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=72 last_cycle=2 elapsed=852.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_003814_731693 
+receipts=5357/~5475 pct~=97.8 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=74 last_cycle=32 elapsed=883.0s
+Done.
+{
+  "run_id": "run_20260620_003814_731693",
+  "created_utc": "2026-06-20T00:53:17.702813+00:00",
+  "families": [
+    "two_sided_suspension"
+  ],
+  "depth_min": 3,
+  "depth_max": 75,
+  "cycles_per_case": 75,
+  "max_cells": 50000,
+  "total_cases": 73,
+  "total_receipts": 5475,
+  "halt_counts": {
+    "CYCLES_COMPLETE": 73
+  },
+  "max_registered_moves": 75,
+  "max_compression_ratio": 1.0,
+  "max_matrix_cells": 22500,
+  "max_registered_move_profiles": 75
+}
+MATRIXLAB_PROGRESS phase=POST_PROCESSING run_id=run_20260620_003814_731693 
+receipts=5475/~5475 pct~=100.0 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=75 last_cycle=75 elapsed=903.2s 
+note=stress_execute_run_returned
+MATRIXLAB_PROGRESS phase=COMPLETED run_id=run_20260620_003814_731693 
+receipts=5475/~5475 pct~=100.0 cases~=73 families=B depth=3..75 cycles=75 
+last_family=two_sided_suspension last_depth=75 last_cycle=75 elapsed=903.2s 
+note=stress_command_done
+      Gate checks /       
+run_20260620_003814_731693
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    73 │
+│ total_receipts │  5475 │
+│ receipt_rows   │  5475 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    73 │
+└─────────────────┴───────┘
+GATE_PASS
+{
+  "classification": {
+    "compression_signal": "MIXED",
+    "continuation_radius_growth": "down",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "down",
+    "new_shape_required": true,
+    "reused_shape": false
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": -8,
+    "continuation_radius_delta": -175,
+    "current_run_id": "run_20260620_003814_731693",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260619_090132_512800",
+    "raw_move_profiles_delta": -863,
+    "registered_moves_delta": -175,
+    "total_receipts_delta": -303859,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "f17b302c",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260620_003814_731693",
+    "run_20260619_090132_512800"
+  ],
+  "metrics": {
+    "coarse_move_profiles_total": 1,
+    "cycles_per_case": 75,
+    "depth_max": 75,
+    "depth_min": 3,
+    "families": "two_sided_suspension",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 73
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 75,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 147,
+    "receipt_rows": 5475,
+    "receipt_sig8": "033088e0",
+    "registered_moves_total": 75,
+    "reused_shape": false,
+    "status": "DONE",
+    "total_cases": 73,
+    "total_receipts": 5475,
+    "unknown_laws": 0
+  },
+  "previous_vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 27.777778,
+    "continuation_per_raw_profile": 0.247525,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 250,
+    "raw_move_profiles_total": 1010,
+    "receipts_per_case": 249.462903,
+    "receipts_per_coarse_profile": 34370.444444,
+    "receipts_per_raw_profile": 306.271287,
+    "receipts_per_registered_move": 1237.336,
+    "registered_moves_total": 250
+  },
+  "profile_summary": {
+    "by_family": {
+      "two_sided_suspension": 5475
+    },
+    "by_move": {
+      "add_row_and_link_column": 5475
+    },
+    "coarse_profiles": {
+      "add_row_and_link_column|dr=1|dc=1|rank=1|supp=+|newcols=many": 5475
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "vocabulary_growth_score": {
+    "coarse_move_profiles_total": 1,
+    "continuation_per_coarse_profile": 75.0,
+    "continuation_per_raw_profile": 0.510204,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 75,
+    "raw_move_profiles_total": 147,
+    "receipts_per_case": 75.0,
+    "receipts_per_coarse_profile": 5475.0,
+    "receipts_per_raw_profile": 37.244898,
+    "receipts_per_registered_move": 73.0,
+    "registered_moves_total": 75
+  }
+}
+eval_path: data/evals/f17b302c.json
+R75_SLOT_DONE
+{
+  "boundary_count": 0,
+  "coarse_move_profiles_total": 1,
+  "compression_signal": "MIXED",
+  "cycles_per_case": 75,
+  "depth_max": 75,
+  "distinguishability_key": "two_sided_suspension|slot=7|occurrence=2",
+  "eval_gate": "PASS",
+  "eval_id": "f17b302c",
+  "failure_mode": null,
+  "family": "two_sided_suspension",
+  "family_code": "B",
+  "family_occurrence_n": 2,
+  "law_failures": 0,
+  "orphan_receipt_runs": 0,
+  "raw_move_profiles_total": 147,
+  "receipt_rows": 5475,
+  "receipt_sig8": "033088e0",
+  "registered_moves_total": 75,
+  "run_id": "run_20260620_003814_731693",
+  "slot_label": "slot_07_B2",
+  "slot_n": 7,
+  "status": "DONE",
+  "total_cases": 73,
+  "total_receipts": 5475,
+  "unknown_laws": 0
+}
+R75_PARTIAL_SUMMARY_PATH data/domain_shift_slot_runs/3f52db05.json
+R75_SLOT_START slot_08_C1 suspension_plus_repair|slot=8|occurrence=1
+MATRIXLAB_PROGRESS phase=STARTING run_id=? receipts=0/~5475 pct~=0.0 cases~=73 
+families=C depth=3..75 cycles=75 elapsed=0.0s
+MatrixLab run started: run_20260620_005341_615519
+Families: ['suspension_plus_repair']
+Depths: 3..75
+Cycles per case: 75
+Max cells per matrix: 50000
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=1/~5475 pct~=0.0 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=3 last_cycle=1 elapsed=0.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=190/~5475 pct~=3.5 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=5 last_cycle=40 elapsed=30.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=380/~5475 pct~=6.9 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=8 last_cycle=5 elapsed=60.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=573/~5475 pct~=10.5 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=10 last_cycle=48 elapsed=90.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=764/~5475 pct~=14.0 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=13 last_cycle=14 elapsed=120.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=956/~5475 pct~=17.5 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=15 last_cycle=56 elapsed=150.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=1000/~5475 pct~=18.3 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=16 last_cycle=25 elapsed=157.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=1187/~5475 pct~=21.7 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=18 last_cycle=62 elapsed=187.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=1381/~5475 pct~=25.2 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=21 last_cycle=31 elapsed=217.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=1575/~5475 pct~=28.8 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=23 last_cycle=75 elapsed=247.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=1769/~5475 pct~=32.3 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=26 last_cycle=44 elapsed=277.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=1961/~5475 pct~=35.8 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=29 last_cycle=11 elapsed=307.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=2000/~5475 pct~=36.5 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=29 last_cycle=50 elapsed=313.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=2196/~5475 pct~=40.1 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=32 last_cycle=21 elapsed=343.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=2381/~5475 pct~=43.5 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=34 last_cycle=56 elapsed=373.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=2566/~5475 pct~=46.9 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=37 last_cycle=16 elapsed=404.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=2756/~5475 pct~=50.3 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=39 last_cycle=56 elapsed=434.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=2940/~5475 pct~=53.7 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=42 last_cycle=15 elapsed=464.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=3000/~5475 pct~=54.8 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=42 last_cycle=75 elapsed=473.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=3187/~5475 pct~=58.2 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=45 last_cycle=37 elapsed=504.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=3373/~5475 pct~=61.6 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=47 last_cycle=73 elapsed=534.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=3558/~5475 pct~=65.0 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=50 last_cycle=33 elapsed=564.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=3745/~5475 pct~=68.4 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=52 last_cycle=70 elapsed=594.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=3927/~5475 pct~=71.7 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=55 last_cycle=27 elapsed=624.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=4000/~5475 pct~=73.1 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=56 last_cycle=25 elapsed=636.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=4174/~5475 pct~=76.2 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=58 last_cycle=49 elapsed=666.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=4349/~5475 pct~=79.4 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=60 last_cycle=74 elapsed=696.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=4523/~5475 pct~=82.6 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=63 last_cycle=23 elapsed=726.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=4697/~5475 pct~=85.8 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=65 last_cycle=47 elapsed=757.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=4870/~5475 pct~=88.9 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=67 last_cycle=70 elapsed=787.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=5000/~5475 pct~=91.3 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=69 last_cycle=50 elapsed=808.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=5177/~5475 pct~=94.6 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=72 last_cycle=2 elapsed=838.9s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_005341_615519 
+receipts=5352/~5475 pct~=97.8 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=74 last_cycle=27 elapsed=869.0s
+Done.
+{
+  "run_id": "run_20260620_005341_615519",
+  "created_utc": "2026-06-20T01:08:31.972194+00:00",
+  "families": [
+    "suspension_plus_repair"
+  ],
+  "depth_min": 3,
+  "depth_max": 75,
+  "cycles_per_case": 75,
+  "max_cells": 50000,
+  "total_cases": 73,
+  "total_receipts": 5475,
+  "halt_counts": {
+    "CYCLES_COMPLETE": 73
+  },
+  "max_registered_moves": 6,
+  "max_compression_ratio": 75.0,
+  "max_matrix_cells": 11250,
+  "max_registered_move_profiles": 6
+}
+MATRIXLAB_PROGRESS phase=POST_PROCESSING run_id=run_20260620_005341_615519 
+receipts=5475/~5475 pct~=100.0 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=75 last_cycle=75 elapsed=890.6s 
+note=stress_execute_run_returned
+MATRIXLAB_PROGRESS phase=COMPLETED run_id=run_20260620_005341_615519 
+receipts=5475/~5475 pct~=100.0 cases~=73 families=C depth=3..75 cycles=75 
+last_family=suspension_plus_repair last_depth=75 last_cycle=75 elapsed=890.6s 
+note=stress_command_done
+      Gate checks /       
+run_20260620_005341_615519
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    73 │
+│ total_receipts │  5475 │
+│ receipt_rows   │  5475 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    73 │
+└─────────────────┴───────┘
+GATE_PASS
+{
+  "classification": {
+    "compression_signal": "MIXED",
+    "continuation_radius_growth": "down",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "down",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": -7,
+    "continuation_radius_delta": -175,
+    "current_run_id": "run_20260620_005341_615519",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260619_090132_512800",
+    "raw_move_profiles_delta": -1004,
+    "registered_moves_delta": -244,
+    "total_receipts_delta": -303859,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "aa97103f",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260620_005341_615519",
+    "run_20260619_090132_512800"
+  ],
+  "metrics": {
+    "coarse_move_profiles_total": 2,
+    "cycles_per_case": 75,
+    "depth_max": 75,
+    "depth_min": 3,
+    "families": "suspension_plus_repair",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 73
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 75,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 6,
+    "receipt_rows": 5475,
+    "receipt_sig8": "1469c28d",
+    "registered_moves_total": 6,
+    "reused_shape": true,
+    "status": "DONE",
+    "total_cases": 73,
+    "total_receipts": 5475,
+    "unknown_laws": 0
+  },
+  "previous_vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 27.777778,
+    "continuation_per_raw_profile": 0.247525,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 250,
+    "raw_move_profiles_total": 1010,
+    "receipts_per_case": 249.462903,
+    "receipts_per_coarse_profile": 34370.444444,
+    "receipts_per_raw_profile": 306.271287,
+    "receipts_per_registered_move": 1237.336,
+    "registered_moves_total": 250
+  },
+  "profile_summary": {
+    "by_family": {
+      "suspension_plus_repair": 5475
+    },
+    "by_move": {
+      "xor_repair_column": 5475
+    },
+    "coarse_profiles": {
+      "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=0": 324,
+      "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=1": 5151
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "vocabulary_growth_score": {
+    "coarse_move_profiles_total": 2,
+    "continuation_per_coarse_profile": 37.5,
+    "continuation_per_raw_profile": 12.5,
+    "continuation_per_registered_move": 12.5,
+    "continuation_radius": 75,
+    "raw_move_profiles_total": 6,
+    "receipts_per_case": 75.0,
+    "receipts_per_coarse_profile": 2737.5,
+    "receipts_per_raw_profile": 912.5,
+    "receipts_per_registered_move": 912.5,
+    "registered_moves_total": 6
+  }
+}
+eval_path: data/evals/aa97103f.json
+R75_SLOT_DONE
+{
+  "boundary_count": 0,
+  "coarse_move_profiles_total": 2,
+  "compression_signal": "MIXED",
+  "cycles_per_case": 75,
+  "depth_max": 75,
+  "distinguishability_key": "suspension_plus_repair|slot=8|occurrence=1",
+  "eval_gate": "PASS",
+  "eval_id": "aa97103f",
+  "failure_mode": null,
+  "family": "suspension_plus_repair",
+  "family_code": "C",
+  "family_occurrence_n": 1,
+  "law_failures": 0,
+  "orphan_receipt_runs": 0,
+  "raw_move_profiles_total": 6,
+  "receipt_rows": 5475,
+  "receipt_sig8": "1469c28d",
+  "registered_moves_total": 6,
+  "run_id": "run_20260620_005341_615519",
+  "slot_label": "slot_08_C1",
+  "slot_n": 8,
+  "status": "DONE",
+  "total_cases": 73,
+  "total_receipts": 5475,
+  "unknown_laws": 0
+}
+R75_PARTIAL_SUMMARY_PATH data/domain_shift_slot_runs/70aa3e10.json
+R75_SLOT_START slot_09_A1 one_sided_suspension|slot=9|occurrence=1
+MATRIXLAB_PROGRESS phase=STARTING run_id=? receipts=0/~5475 pct~=0.0 cases~=73 
+families=A depth=3..75 cycles=75 elapsed=0.0s
+MatrixLab run started: run_20260620_010858_229321
+Families: ['one_sided_suspension']
+Depths: 3..75
+Cycles per case: 75
+Max cells per matrix: 50000
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=1/~5475 pct~=0.0 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=3 last_cycle=1 elapsed=0.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=181/~5475 pct~=3.3 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=5 last_cycle=31 elapsed=30.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=365/~5475 pct~=6.7 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=7 last_cycle=65 elapsed=60.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=549/~5475 pct~=10.0 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=10 last_cycle=24 elapsed=90.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=732/~5475 pct~=13.4 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=12 last_cycle=57 elapsed=120.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=919/~5475 pct~=16.8 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=15 last_cycle=19 elapsed=150.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=1000/~5475 pct~=18.3 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=16 last_cycle=25 elapsed=163.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=1187/~5475 pct~=21.7 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=18 last_cycle=62 elapsed=193.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=1373/~5475 pct~=25.1 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=21 last_cycle=23 elapsed=223.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=1549/~5475 pct~=28.3 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=23 last_cycle=49 elapsed=253.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=1706/~5475 pct~=31.2 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=25 last_cycle=56 elapsed=283.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=1890/~5475 pct~=34.5 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=28 last_cycle=15 elapsed=313.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=2000/~5475 pct~=36.5 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=29 last_cycle=50 elapsed=330.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=2191/~5475 pct~=40.0 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=32 last_cycle=16 elapsed=360.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=2380/~5475 pct~=43.5 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=34 last_cycle=55 elapsed=390.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=2575/~5475 pct~=47.0 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=37 last_cycle=25 elapsed=420.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=2763/~5475 pct~=50.5 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=39 last_cycle=63 elapsed=450.7s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=2951/~5475 pct~=53.9 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=42 last_cycle=26 elapsed=480.8s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=3000/~5475 pct~=54.8 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=42 last_cycle=75 elapsed=489.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=3185/~5475 pct~=58.2 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=45 last_cycle=35 elapsed=519.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=3372/~5475 pct~=61.6 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=47 last_cycle=72 elapsed=549.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=3560/~5475 pct~=65.0 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=50 last_cycle=35 elapsed=579.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=3748/~5475 pct~=68.5 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=52 last_cycle=73 elapsed=609.4s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=3933/~5475 pct~=71.8 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=55 last_cycle=33 elapsed=639.6s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=4000/~5475 pct~=73.1 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=56 last_cycle=25 elapsed=651.0s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=4178/~5475 pct~=76.3 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=58 last_cycle=53 elapsed=681.1s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=4360/~5475 pct~=79.6 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=61 last_cycle=10 elapsed=711.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=4540/~5475 pct~=82.9 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=63 last_cycle=40 elapsed=741.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=4710/~5475 pct~=86.0 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=65 last_cycle=60 elapsed=771.3s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=4884/~5475 pct~=89.2 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=68 last_cycle=9 elapsed=801.5s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=5000/~5475 pct~=91.3 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=69 last_cycle=50 elapsed=821.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=5175/~5475 pct~=94.5 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=71 last_cycle=75 elapsed=851.2s
+MATRIXLAB_PROGRESS phase=RUNNING run_id=run_20260620_010858_229321 
+receipts=5353/~5475 pct~=97.8 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=74 last_cycle=28 elapsed=881.4s
+Done.
+{
+  "run_id": "run_20260620_010858_229321",
+  "created_utc": "2026-06-20T01:24:00.158093+00:00",
+  "families": [
+    "one_sided_suspension"
+  ],
+  "depth_min": 3,
+  "depth_max": 75,
+  "cycles_per_case": 75,
+  "max_cells": 50000,
+  "total_cases": 73,
+  "total_receipts": 5475,
+  "halt_counts": {
+    "CYCLES_COMPLETE": 73
+  },
+  "max_registered_moves": 1,
+  "max_compression_ratio": 75.0,
+  "max_matrix_cells": 11250,
+  "max_registered_move_profiles": 1
+}
+MATRIXLAB_PROGRESS phase=POST_PROCESSING run_id=run_20260620_010858_229321 
+receipts=5475/~5475 pct~=100.0 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=75 last_cycle=75 elapsed=902.2s 
+note=stress_execute_run_returned
+MATRIXLAB_PROGRESS phase=COMPLETED run_id=run_20260620_010858_229321 
+receipts=5475/~5475 pct~=100.0 cases~=73 families=A depth=3..75 cycles=75 
+last_family=one_sided_suspension last_depth=75 last_cycle=75 elapsed=902.2s 
+note=stress_command_done
+      Gate checks /       
+run_20260620_010858_229321
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    73 │
+│ total_receipts │  5475 │
+│ receipt_rows   │  5475 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    73 │
+└─────────────────┴───────┘
+GATE_PASS
+{
+  "classification": {
+    "compression_signal": "MIXED",
+    "continuation_radius_growth": "down",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "down",
+    "new_shape_required": false,
+    "reused_shape": true
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": -8,
+    "continuation_radius_delta": -175,
+    "current_run_id": "run_20260620_010858_229321",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260619_090132_512800",
+    "raw_move_profiles_delta": -1009,
+    "registered_moves_delta": -249,
+    "total_receipts_delta": -303859,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "3a3c5e3b",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260620_010858_229321",
+    "run_20260619_090132_512800"
+  ],
+  "metrics": {
+    "coarse_move_profiles_total": 1,
+    "cycles_per_case": 75,
+    "depth_max": 75,
+    "depth_min": 3,
+    "families": "one_sided_suspension",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 73
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 75,
+    "new_shape_required": false,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 1,
+    "receipt_rows": 5475,
+    "receipt_sig8": "7dd7daab",
+    "registered_moves_total": 1,
+    "reused_shape": true,
+    "status": "DONE",
+    "total_cases": 73,
+    "total_receipts": 5475,
+    "unknown_laws": 0
+  },
+  "previous_vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 27.777778,
+    "continuation_per_raw_profile": 0.247525,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 250,
+    "raw_move_profiles_total": 1010,
+    "receipts_per_case": 249.462903,
+    "receipts_per_coarse_profile": 34370.444444,
+    "receipts_per_raw_profile": 306.271287,
+    "receipts_per_registered_move": 1237.336,
+    "registered_moves_total": 250
+  },
+  "profile_summary": {
+    "by_family": {
+      "one_sided_suspension": 5475
+    },
+    "by_move": {
+      "duplicate_existing_column": 5475
+    },
+    "coarse_profiles": {
+      "duplicate_existing_column|dr=0|dc=1|rank=0|supp=+|newcols=0": 5475
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "vocabulary_growth_score": {
+    "coarse_move_profiles_total": 1,
+    "continuation_per_coarse_profile": 75.0,
+    "continuation_per_raw_profile": 75.0,
+    "continuation_per_registered_move": 75.0,
+    "continuation_radius": 75,
+    "raw_move_profiles_total": 1,
+    "receipts_per_case": 75.0,
+    "receipts_per_coarse_profile": 5475.0,
+    "receipts_per_raw_profile": 5475.0,
+    "receipts_per_registered_move": 5475.0,
+    "registered_moves_total": 1
+  }
+}
+eval_path: data/evals/3a3c5e3b.json
+R75_SLOT_DONE
+{
+  "boundary_count": 0,
+  "coarse_move_profiles_total": 1,
+  "compression_signal": "MIXED",
+  "cycles_per_case": 75,
+  "depth_max": 75,
+  "distinguishability_key": "one_sided_suspension|slot=9|occurrence=1",
+  "eval_gate": "PASS",
+  "eval_id": "3a3c5e3b",
+  "failure_mode": null,
+  "family": "one_sided_suspension",
+  "family_code": "A",
+  "family_occurrence_n": 1,
+  "law_failures": 0,
+  "orphan_receipt_runs": 0,
+  "raw_move_profiles_total": 1,
+  "receipt_rows": 5475,
+  "receipt_sig8": "7dd7daab",
+  "registered_moves_total": 1,
+  "run_id": "run_20260620_010858_229321",
+  "slot_label": "slot_09_A1",
+  "slot_n": 9,
+  "status": "DONE",
+  "total_cases": 73,
+  "total_receipts": 5475,
+  "unknown_laws": 0
+}
+R75_PARTIAL_SUMMARY_PATH data/domain_shift_slot_runs/89e636d7.json
+R75_SLOT_RUN_SUMMARY
+{
+  "created_utc": "2026-06-19T23:07:52.357569+00:00",
+  "domain_shift_generator_id": "25e13690",
+  "domain_shift_slot_run_execution_id": "4b238a68",
+  "domain_shift_slot_run_schema_version": "domain_shift_slot_run_execution_v0",
+  "failures": [],
+  "gate": "PASS",
+  "max_cells": 50000,
+  "previous_baseline_run_id": "run_20260619_090132_512800",
+  "radius": 75,
+  "slot_count_expected": 9,
+  "slot_count_observed": 9,
+  "slot_results": [
+    {
+      "boundary_count": 0,
+      "coarse_move_profiles_total": 2,
+      "compression_signal": "MIXED",
+      "cycles_per_case": 75,
+      "depth_max": 75,
+      "distinguishability_key": "relabel_symmetry_stress|slot=1|occurrence=1",
+      "eval_gate": "PASS",
+      "eval_id": "b83bd680",
+      "failure_mode": null,
+      "family": "relabel_symmetry_stress",
+      "family_code": "E",
+      "family_occurrence_n": 1,
+      "law_failures": 0,
+      "orphan_receipt_runs": 0,
+      "raw_move_profiles_total": 75,
+      "receipt_rows": 5334,
+      "receipt_sig8": "71a3f2af",
+      "registered_moves_total": 8,
+      "run_id": "run_20260619_230752_590816",
+      "slot_label": "slot_01_E1",
+      "slot_n": 1,
+      "status": "DONE",
+      "total_cases": 73,
+      "total_receipts": 5334,
+      "unknown_laws": 0
+    },
+    {
+      "boundary_count": 0,
+      "coarse_move_profiles_total": 2,
+      "compression_signal": "MIXED",
+      "cycles_per_case": 75,
+      "depth_max": 75,
+      "distinguishability_key": "relabel_symmetry_stress|slot=2|occurrence=2",
+      "eval_gate": "PASS",
+      "eval_id": "a5e5356c",
+      "failure_mode": null,
+      "family": "relabel_symmetry_stress",
+      "family_code": "E",
+      "family_occurrence_n": 2,
+      "law_failures": 0,
+      "orphan_receipt_runs": 0,
+      "raw_move_profiles_total": 75,
+      "receipt_rows": 5334,
+      "receipt_sig8": "8b69b983",
+      "registered_moves_total": 8,
+      "run_id": "run_20260619_232249_751496",
+      "slot_label": "slot_02_E2",
+      "slot_n": 2,
+      "status": "DONE",
+      "total_cases": 73,
+      "total_receipts": 5334,
+      "unknown_laws": 0
+    },
+    {
+      "boundary_count": 0,
+      "coarse_move_profiles_total": 2,
+      "compression_signal": "MIXED",
+      "cycles_per_case": 75,
+      "depth_max": 75,
+      "distinguishability_key": "relabel_symmetry_stress|slot=3|occurrence=3",
+      "eval_gate": "PASS",
+      "eval_id": "cc25c989",
+      "failure_mode": null,
+      "family": "relabel_symmetry_stress",
+      "family_code": "E",
+      "family_occurrence_n": 3,
+      "law_failures": 0,
+      "orphan_receipt_runs": 0,
+      "raw_move_profiles_total": 75,
+      "receipt_rows": 5334,
+      "receipt_sig8": "549e59cb",
+      "registered_moves_total": 8,
+      "run_id": "run_20260619_233734_417952",
+      "slot_label": "slot_03_E3",
+      "slot_n": 3,
+      "status": "DONE",
+      "total_cases": 73,
+      "total_receipts": 5334,
+      "unknown_laws": 0
+    },
+    {
+      "boundary_count": 0,
+      "coarse_move_profiles_total": 3,
+      "compression_signal": "MIXED",
+      "cycles_per_case": 75,
+      "depth_max": 75,
+      "distinguishability_key": "projection_quotient|slot=4|occurrence=1",
+      "eval_gate": "PASS",
+      "eval_id": "fbfc20e6",
+      "failure_mode": null,
+      "family": "projection_quotient",
+      "family_code": "D",
+      "family_occurrence_n": 1,
+      "law_failures": 0,
+      "orphan_receipt_runs": 0,
+      "raw_move_profiles_total": 75,
+      "receipt_rows": 5475,
+      "receipt_sig8": "7755884f",
+      "registered_moves_total": 39,
+      "run_id": "run_20260619_235230_174817",
+      "slot_label": "slot_04_D1",
+      "slot_n": 4,
+      "status": "DONE",
+      "total_cases": 73,
+      "total_receipts": 5475,
+      "unknown_laws": 0
+    },
+    {
+      "boundary_count": 0,
+      "coarse_move_profiles_total": 3,
+      "compression_signal": "MIXED",
+      "cycles_per_case": 75,
+      "depth_max": 75,
+      "distinguishability_key": "projection_quotient|slot=5|occurrence=2",
+      "eval_gate": "PASS",
+      "eval_id": "9cb9be8e",
+      "failure_mode": null,
+      "family": "projection_quotient",
+      "family_code": "D",
+      "family_occurrence_n": 2,
+      "law_failures": 0,
+      "orphan_receipt_runs": 0,
+      "raw_move_profiles_total": 75,
+      "receipt_rows": 5475,
+      "receipt_sig8": "91e9b8af",
+      "registered_moves_total": 39,
+      "run_id": "run_20260620_000731_258746",
+      "slot_label": "slot_05_D2",
+      "slot_n": 5,
+      "status": "DONE",
+      "total_cases": 73,
+      "total_receipts": 5475,
+      "unknown_laws": 0
+    },
+    {
+      "boundary_count": 0,
+      "coarse_move_profiles_total": 1,
+      "compression_signal": "MIXED",
+      "cycles_per_case": 75,
+      "depth_max": 75,
+      "distinguishability_key": "two_sided_suspension|slot=6|occurrence=1",
+      "eval_gate": "PASS",
+      "eval_id": "dff2aaef",
+      "failure_mode": null,
+      "family": "two_sided_suspension",
+      "family_code": "B",
+      "family_occurrence_n": 1,
+      "law_failures": 0,
+      "orphan_receipt_runs": 0,
+      "raw_move_profiles_total": 147,
+      "receipt_rows": 5475,
+      "receipt_sig8": "64174671",
+      "registered_moves_total": 75,
+      "run_id": "run_20260620_002300_557420",
+      "slot_label": "slot_06_B1",
+      "slot_n": 6,
+      "status": "DONE",
+      "total_cases": 73,
+      "total_receipts": 5475,
+      "unknown_laws": 0
+    },
+    {
+      "boundary_count": 0,
+      "coarse_move_profiles_total": 1,
+      "compression_signal": "MIXED",
+      "cycles_per_case": 75,
+      "depth_max": 75,
+      "distinguishability_key": "two_sided_suspension|slot=7|occurrence=2",
+      "eval_gate": "PASS",
+      "eval_id": "f17b302c",
+      "failure_mode": null,
+      "family": "two_sided_suspension",
+      "family_code": "B",
+      "family_occurrence_n": 2,
+      "law_failures": 0,
+      "orphan_receipt_runs": 0,
+      "raw_move_profiles_total": 147,
+      "receipt_rows": 5475,
+      "receipt_sig8": "033088e0",
+      "registered_moves_total": 75,
+      "run_id": "run_20260620_003814_731693",
+      "slot_label": "slot_07_B2",
+      "slot_n": 7,
+      "status": "DONE",
+      "total_cases": 73,
+      "total_receipts": 5475,
+      "unknown_laws": 0
+    },
+    {
+      "boundary_count": 0,
+      "coarse_move_profiles_total": 2,
+      "compression_signal": "MIXED",
+      "cycles_per_case": 75,
+      "depth_max": 75,
+      "distinguishability_key": "suspension_plus_repair|slot=8|occurrence=1",
+      "eval_gate": "PASS",
+      "eval_id": "aa97103f",
+      "failure_mode": null,
+      "family": "suspension_plus_repair",
+      "family_code": "C",
+      "family_occurrence_n": 1,
+      "law_failures": 0,
+      "orphan_receipt_runs": 0,
+      "raw_move_profiles_total": 6,
+      "receipt_rows": 5475,
+      "receipt_sig8": "1469c28d",
+      "registered_moves_total": 6,
+      "run_id": "run_20260620_005341_615519",
+      "slot_label": "slot_08_C1",
+      "slot_n": 8,
+      "status": "DONE",
+      "total_cases": 73,
+      "total_receipts": 5475,
+      "unknown_laws": 0
+    },
+    {
+      "boundary_count": 0,
+      "coarse_move_profiles_total": 1,
+      "compression_signal": "MIXED",
+      "cycles_per_case": 75,
+      "depth_max": 75,
+      "distinguishability_key": "one_sided_suspension|slot=9|occurrence=1",
+      "eval_gate": "PASS",
+      "eval_id": "3a3c5e3b",
+      "failure_mode": null,
+      "family": "one_sided_suspension",
+      "family_code": "A",
+      "family_occurrence_n": 1,
+      "law_failures": 0,
+      "orphan_receipt_runs": 0,
+      "raw_move_profiles_total": 1,
+      "receipt_rows": 5475,
+      "receipt_sig8": "7dd7daab",
+      "registered_moves_total": 1,
+      "run_id": "run_20260620_010858_229321",
+      "slot_label": "slot_09_A1",
+      "slot_n": 9,
+      "status": "DONE",
+      "total_cases": 73,
+      "total_receipts": 5475,
+      "unknown_laws": 0
+    }
+  ],
+  "source_scalability_contract_id": "ba39cd7b",
+  "source_support_id": "12a8d08f",
+  "transfer_contract_id": "50a01dcd"
+}
+domain_shift_slot_run_execution_path: data/domain_shift_slot_runs/4b238a68.json
+
+VERIFY_R75_SLOT_EXECUTION
+{
+  "coarse_by_slot": {
+    "slot_01_E1": 2,
+    "slot_02_E2": 2,
+    "slot_03_E3": 2,
+    "slot_04_D1": 3,
+    "slot_05_D2": 3,
+    "slot_06_B1": 1,
+    "slot_07_B2": 1,
+    "slot_08_C1": 2,
+    "slot_09_A1": 1
+  },
+  "domain_shift_slot_run_execution_id": "4b238a68",
+  "eval_ids": [
+    "b83bd680",
+    "a5e5356c",
+    "cc25c989",
+    "fbfc20e6",
+    "9cb9be8e",
+    "dff2aaef",
+    "f17b302c",
+    "aa97103f",
+    "3a3c5e3b"
+  ],
+  "failures": [],
+  "gate": "PASS",
+  "max_cells": 50000,
+  "path": "data/domain_shift_slot_runs/4b238a68.json",
+  "radius": 75,
+  "raw_by_slot": {
+    "slot_01_E1": 75,
+    "slot_02_E2": 75,
+    "slot_03_E3": 75,
+    "slot_04_D1": 75,
+    "slot_05_D2": 75,
+    "slot_06_B1": 147,
+    "slot_07_B2": 147,
+    "slot_08_C1": 6,
+    "slot_09_A1": 1
+  },
+  "receipt_rows_by_slot": {
+    "slot_01_E1": 5334,
+    "slot_02_E2": 5334,
+    "slot_03_E3": 5334,
+    "slot_04_D1": 5475,
+    "slot_05_D2": 5475,
+    "slot_06_B1": 5475,
+    "slot_07_B2": 5475,
+    "slot_08_C1": 5475,
+    "slot_09_A1": 5475
+  },
+  "run_ids": [
+    "run_20260619_230752_590816",
+    "run_20260619_232249_751496",
+    "run_20260619_233734_417952",
+    "run_20260619_235230_174817",
+    "run_20260620_000731_258746",
+    "run_20260620_002300_557420",
+    "run_20260620_003814_731693",
+    "run_20260620_005341_615519",
+    "run_20260620_010858_229321"
+  ],
+  "slot_count_expected": 9,
+  "slot_count_observed": 9,
+  "slot_labels": [
+    "slot_01_E1",
+    "slot_02_E2",
+    "slot_03_E3",
+    "slot_04_D1",
+    "slot_05_D2",
+    "slot_06_B1",
+    "slot_07_B2",
+    "slot_08_C1",
+    "slot_09_A1"
+  ],
+  "source_scalability_contract_id": "ba39cd7b",
+  "source_support_id": "12a8d08f"
+}
+R75_EXEC=4b238a68
+
+OBSERVE_R75_SLOT_EXECUTION
+{
+  "domain_shift_generator_id": "25e13690",
+  "domain_shift_slot_observation_id": "289ec371",
+  "domain_shift_slot_observation_payload_sig8": "289ec371",
+  "domain_shift_slot_observation_schema_version": "domain_shift_slot_observation_v0",
+  "failures": [],
+  "gate": "PASS",
+  "input_slot_execution": "4b238a68",
+  "observation": {
+    "aggregate_by_family": {
+      "one_sided_suspension": {
+        "coarse_counts": [
+          1
+        ],
+        "eval_ids": [
+          "3a3c5e3b"
+        ],
+        "family_code": "A",
+        "raw_counts": [
+          1
+        ],
+        "receipt_rows": 5475,
+        "registered_counts": [
+          1
+        ],
+        "run_ids": [
+          "run_20260620_010858_229321"
+        ],
+        "slot_count": 1,
+        "total_receipts": 5475
+      },
+      "projection_quotient": {
+        "coarse_counts": [
+          3,
+          3
+        ],
+        "eval_ids": [
+          "fbfc20e6",
+          "9cb9be8e"
+        ],
+        "family_code": "D",
+        "raw_counts": [
+          75,
+          75
+        ],
+        "receipt_rows": 10950,
+        "registered_counts": [
+          39,
+          39
+        ],
+        "run_ids": [
+          "run_20260619_235230_174817",
+          "run_20260620_000731_258746"
+        ],
+        "slot_count": 2,
+        "total_receipts": 10950
+      },
+      "relabel_symmetry_stress": {
+        "coarse_counts": [
+          2,
+          2,
+          2
+        ],
+        "eval_ids": [
+          "b83bd680",
+          "a5e5356c",
+          "cc25c989"
+        ],
+        "family_code": "E",
+        "raw_counts": [
+          75,
+          75,
+          75
+        ],
+        "receipt_rows": 16002,
+        "registered_counts": [
+          8,
+          8,
+          8
+        ],
+        "run_ids": [
+          "run_20260619_230752_590816",
+          "run_20260619_232249_751496",
+          "run_20260619_233734_417952"
+        ],
+        "slot_count": 3,
+        "total_receipts": 16002
+      },
+      "suspension_plus_repair": {
+        "coarse_counts": [
+          2
+        ],
+        "eval_ids": [
+          "aa97103f"
+        ],
+        "family_code": "C",
+        "raw_counts": [
+          6
+        ],
+        "receipt_rows": 5475,
+        "registered_counts": [
+          6
+        ],
+        "run_ids": [
+          "run_20260620_005341_615519"
+        ],
+        "slot_count": 1,
+        "total_receipts": 5475
+      },
+      "two_sided_suspension": {
+        "coarse_counts": [
+          1,
+          1
+        ],
+        "eval_ids": [
+          "dff2aaef",
+          "f17b302c"
+        ],
+        "family_code": "B",
+        "raw_counts": [
+          147,
+          147
+        ],
+        "receipt_rows": 10950,
+        "registered_counts": [
+          75,
+          75
+        ],
+        "run_ids": [
+          "run_20260620_002300_557420",
+          "run_20260620_003814_731693"
+        ],
+        "slot_count": 2,
+        "total_receipts": 10950
+      }
+    },
+    "aggregate_by_move": {
+      "add_row_and_link_column": 10950,
+      "append_zero_column": 6880,
+      "deterministic_row_col_relabel": 16002,
+      "duplicate_existing_column": 5475,
+      "quotient_merge_last_row": 4070,
+      "xor_repair_column": 5475
+    },
+    "aggregate_coarse_profiles": {
+      "add_row_and_link_column|dr=1|dc=1|rank=1|supp=+|newcols=many": 10950,
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=0": 6734,
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=1": 146,
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=0": 51,
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=many": 15951,
+      "duplicate_existing_column|dr=0|dc=1|rank=0|supp=+|newcols=0": 5475,
+      "quotient_merge_last_row|dr=-1|dc=0|rank=-1|supp=-|newcols=many": 4070,
+      "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=0": 324,
+      "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=1": 5151
+    },
+    "aggregate_coarse_profiles_total": 9,
+    "aggregate_raw_total_by_slot_sum": 676,
+    "confidence_scope": "RADIUS_50_SLOT_SEPARATED_PROBE_ONLY",
+    "domain_shift_generator": {
+      "gate": "PASS",
+      "id": "25e13690",
+      "path": "data/domain_shift_generators/25e13690.json",
+      "recomputed_sig": "25e13690",
+      "stored_sig": "25e13690"
+    },
+    "eval_ids": [
+      "b83bd680",
+      "a5e5356c",
+      "cc25c989",
+      "fbfc20e6",
+      "9cb9be8e",
+      "dff2aaef",
+      "f17b302c",
+      "aa97103f",
+      "3a3c5e3b"
+    ],
+    "max_cells": 50000,
+    "measurement_cleanliness": {
+      "boundary_slots": [],
+      "dirty_slots": [],
+      "eval_gate_fail_slots": [],
+      "receipt_mismatch_slots": [],
+      "repeated_family_inconsistencies": {}
+    },
+    "outcome": "MEASUREMENT_TRANSFER_STABLE_CURVE",
+    "radius": 75,
+    "repeated_family_consistency": {
+      "one_sided_suspension": {
+        "coarse_consistent": true,
+        "coarse_counts": [
+          1
+        ],
+        "raw_consistent": true,
+        "raw_counts": [
+          1
+        ],
+        "registered_consistent": true,
+        "registered_counts": [
+          1
+        ],
+        "slot_count": 1
+      },
+      "projection_quotient": {
+        "coarse_consistent": true,
+        "coarse_counts": [
+          3,
+          3
+        ],
+        "raw_consistent": true,
+        "raw_counts": [
+          75,
+          75
+        ],
+        "registered_consistent": true,
+        "registered_counts": [
+          39,
+          39
+        ],
+        "slot_count": 2
+      },
+      "relabel_symmetry_stress": {
+        "coarse_consistent": true,
+        "coarse_counts": [
+          2,
+          2,
+          2
+        ],
+        "raw_consistent": true,
+        "raw_counts": [
+          75,
+          75,
+          75
+        ],
+        "registered_consistent": true,
+        "registered_counts": [
+          8,
+          8,
+          8
+        ],
+        "slot_count": 3
+      },
+      "suspension_plus_repair": {
+        "coarse_consistent": true,
+        "coarse_counts": [
+          2
+        ],
+        "raw_consistent": true,
+        "raw_counts": [
+          6
+        ],
+        "registered_consistent": true,
+        "registered_counts": [
+          6
+        ],
+        "slot_count": 1
+      },
+      "two_sided_suspension": {
+        "coarse_consistent": true,
+        "coarse_counts": [
+          1,
+          1
+        ],
+        "raw_consistent": true,
+        "raw_counts": [
+          147,
+          147
+        ],
+        "registered_consistent": true,
+        "registered_counts": [
+          75,
+          75
+        ],
+        "slot_count": 2
+      }
+    },
+    "run_ids": [
+      "run_20260619_230752_590816",
+      "run_20260619_232249_751496",
+      "run_20260619_233734_417952",
+      "run_20260619_235230_174817",
+      "run_20260620_000731_258746",
+      "run_20260620_002300_557420",
+      "run_20260620_003814_731693",
+      "run_20260620_005341_615519",
+      "run_20260620_010858_229321"
+    ],
+    "semantic_pressure": {
+      "requires_new_classifier_semantics": false,
+      "requires_new_evaluator_semantics": false,
+      "requires_new_halt_vocabulary": false,
+      "requires_new_laws": false,
+      "requires_new_move_types": false
+    },
+    "semantic_pressure_detected": false,
+    "slot_count_expected": 9,
+    "slot_count_observed": 9,
+    "slot_execution": {
+      "gate": "PASS",
+      "id": "4b238a68",
+      "input": "4b238a68",
+      "path": "data/domain_shift_slot_runs/4b238a68.json",
+      "recomputed_id": "4b238a68"
+    },
+    "slot_labels": [
+      "slot_01_E1",
+      "slot_02_E2",
+      "slot_03_E3",
+      "slot_04_D1",
+      "slot_05_D2",
+      "slot_06_B1",
+      "slot_07_B2",
+      "slot_08_C1",
+      "slot_09_A1"
+    ],
+    "slot_support": {
+      "gate": "PASS",
+      "id": "12a8d08f",
+      "path": "data/domain_shift_slot_runner_support/12a8d08f.json",
+      "recomputed_sig": "12a8d08f",
+      "stored_sig": "12a8d08f"
+    },
+    "source_coarse_profiles_total": 9,
+    "transfer_contract": {
+      "gate": "PASS",
+      "id": "50a01dcd",
+      "path": "data/cell_transfer_contracts/50a01dcd.json",
+      "recomputed_sig": "50a01dcd",
+      "stored_sig": "50a01dcd"
+    }
+  },
+  "shift_kind": "SCHEDULE_REWEIGHT_EXISTING_MOVES_V0",
+  "slot_execution_id": "4b238a68",
+  "source_cell": "CELL_0",
+  "source_support_id": "12a8d08f",
+  "target_cell": "CELL_1",
+  "terminal": {
+    "next_command_goal": "DECIDE_SCALE_RADIUS_OR_FREEZE_RADIUS_50_CELL1_OBSERVATION",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "transfer_contract_id": "50a01dcd",
+  "warnings": []
+}
+domain_shift_slot_observation_path: data/domain_shift_slot_observations/289ec371.json
+
+VERIFY_R75_SLOT_OBSERVATION
+{
+  "aggregate_coarse_profiles_total": 9,
+  "aggregate_raw_total_by_slot_sum": 676,
+  "confidence_scope": "RADIUS_50_SLOT_SEPARATED_PROBE_ONLY",
+  "domain_shift_slot_observation_id": "289ec371",
+  "gate": "PASS",
+  "measurement_cleanliness": {
+    "boundary_slots": [],
+    "dirty_slots": [],
+    "eval_gate_fail_slots": [],
+    "receipt_mismatch_slots": [],
+    "repeated_family_inconsistencies": {}
+  },
+  "outcome": "MEASUREMENT_TRANSFER_STABLE_CURVE",
+  "path": "data/domain_shift_slot_observations/289ec371.json",
+  "radius": 75,
+  "recomputed_sig": "289ec371",
+  "sig_matches": true,
+  "slot_count_expected": 9,
+  "slot_count_observed": 9,
+  "slot_execution_id": "4b238a68",
+  "source_support_id": "12a8d08f",
+  "stored_sig": "289ec371",
+  "terminal": {
+    "next_command_goal": "DECIDE_SCALE_RADIUS_OR_FREEZE_RADIUS_50_CELL1_OBSERVATION",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+STATUS_AFTER
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

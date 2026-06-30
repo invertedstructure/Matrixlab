@@ -1,0 +1,1818 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_141525
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_141525.txt
+
+BUILD_JURISDICTION_GATE_V0_POLICY_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+VERIFY_JURISDICTION_GATE_POLICY_INPUTS_TRACKED
+tracked data/move_registry_v0_implementation_receipts/bef08570.json
+tracked data/move_registry_v0_policies/34863965.json
+tracked data/move_registry_v0_policy_receipts/34863965.json
+tracked data/move_registry_v0/move_registry_v0.json
+tracked data/move_registry_v0/move_admission_gate_v0.json
+tracked data/move_registry_v0/applicable_move_inspection_schema_v0.json
+tracked data/move_registry_v0/blocked_move_record_schema_v0.json
+tracked data/move_registry_v0/selected_move_record_schema_v0.json
+tracked data/move_registry_v0/missing_move_proposal_stub_v0.json
+tracked data/move_registry_v0_demo/day4_demo_positive_run.json
+tracked data/move_registry_v0_demo/day4_demo_missing_move_run.json
+tracked data/halt_vocabulary_v0_implementation_receipts/75eabbe2.json
+tracked data/halt_vocabulary_v0_policies/0707a2d7.json
+tracked data/halt_vocabulary_v0/halt_vocabulary_v0.json
+tracked data/halt_record_schemas/halt_record_schema_v0.json
+tracked data/halt_to_next_handling_tables/halt_to_next_handling_table_v0.json
+tracked data/proceed_adapter_v0_implementation_receipts/363d2f4a.json
+tracked src/matrixlab/proceed_adapter_v0.py
+tracked data/jurisdiction_runner_v0_2_trace_ledger_hardening_implementation_receipts/cc24a11f.json
+tracked data/jurisdiction_runner_v0_2_trace_schemas/b4887660.json
+tracked data/jurisdiction_runner_v0_2_proposal_ledger_schemas/eee2a318.json
+tracked src/matrixlab/jurisdiction_runner_v0_2_trace_ledger.py
+tracked data/local_regime_v1_declarations/25802530.json
+
+PATCH_GITIGNORE
+
+WRITE_JURISDICTION_GATE_POLICY_BUILDER
+
+PY_COMPILE_JURISDICTION_GATE_POLICY_BUILDER
+
+RUN_JURISDICTION_GATE_POLICY_BUILDER
+{
+  "acceptance_gates": {
+    "JGP0_source_surface_verified": {
+      "description": "Consumes Day 4 move registry implementation, Day 3 halt vocabulary, proceed adapter, trace ledger, and local regime sources.",
+      "required": true
+    },
+    "JGP10_forbidden_move_cannot_execute_or_self_reframe": {
+      "description": "FORBIDDEN maps to STOP_FORBIDDEN_MOVE and cannot be proposed as currently shaped.",
+      "required": true
+    },
+    "JGP11_authority_verdicts_link_to_trace_receipt_readout": {
+      "description": "Authority verdicts are linkable into trace, receipt, and proceed-readout patches.",
+      "required": true
+    },
+    "JGP12_no_registry_taxonomy_jurisdiction_mutation": {
+      "description": "Policy cannot mutate registry, taxonomy, or jurisdiction profile.",
+      "required": true
+    },
+    "JGP13_day6_taxonomy_evolution_not_implemented": {
+      "description": "Day 5 does not implement taxonomy evolution.",
+      "required": true
+    },
+    "JGP14_patch_artifacts_only_no_old_schema_mutation": {
+      "description": "All patches are future-schema patches only.",
+      "required": true
+    },
+    "JGP1_jurisdiction_profile_schema_declared": {
+      "description": "Local jurisdiction profile schema is declared and explicitly non-global.",
+      "required": true
+    },
+    "JGP2_verdict_enum_declared": {
+      "description": "Five jurisdiction verdicts are declared.",
+      "required": true
+    },
+    "JGP3_halt_vocabulary_authority_patch_declared": {
+      "description": "Authority boundary halt patch is declared without mutating the base vocabulary.",
+      "required": true
+    },
+    "JGP4_move_authority_patch_declared": {
+      "description": "Move authority field patch is declared without mutating the Day 4 registry.",
+      "required": true
+    },
+    "JGP5_every_admissible_move_receives_authority_verdict": {
+      "description": "Implementation must verdict every admissible_pre_auth move.",
+      "required": true
+    },
+    "JGP6_selector_restricted_to_authorized_local": {
+      "description": "Selector input is authorized_executable_moves only.",
+      "required": true
+    },
+    "JGP7_proposal_required_emits_proposed_only_packet": {
+      "description": "REQUIRES_PROPOSAL emits PROPOSED_ONLY packet and does not execute.",
+      "required": true
+    },
+    "JGP8_extraction_required_halts_without_execution": {
+      "description": "REQUIRES_EXTRACTION maps to STOP_NEEDS_EXTRACTION and does not execute.",
+      "required": true
+    },
+    "JGP9_human_review_required_emits_review_request": {
+      "description": "REQUIRES_HUMAN_REVIEW emits review request and does not execute without approval.",
+      "required": true
+    }
+  },
+  "authority_blocked_move_record_schema": {
+    "authority_block_reasons": [
+      "AUTHORITY_BOUNDARY",
+      "PROPOSAL_ONLY",
+      "HUMAN_REVIEW_REQUIRED",
+      "EXTRACTION_REQUIRED",
+      "FORBIDDEN_BY_PROFILE"
+    ],
+    "required_fields": [
+      "blocked_move_id",
+      "move_id",
+      "block_reason",
+      "admissibility_status",
+      "authority_verdict",
+      "halt_pressure",
+      "authority_verdict_ref",
+      "proposal_ref",
+      "review_request_ref",
+      "must_not_impersonate"
+    ],
+    "schema_version": "authority_blocked_move_record_schema_v0"
+  },
+  "authority_guards": {
+    "day6_taxonomy_evolution_implemented": false,
+    "demo_verdicts_emitted_by_policy": false,
+    "final_authority_claimed": false,
+    "forbidden_move_softened_to_proposal": false,
+    "global_governance_claimed": false,
+    "hidden_continuation_authorized": false,
+    "human_silence_authorized": false,
+    "implementation_performed_by_policy": false,
+    "jurisdiction_gate_policy_built": true,
+    "jurisdiction_profile_modified": false,
+    "jurisdiction_resolved_globally": false,
+    "proof_claimed": false,
+    "proposal_accepted": false,
+    "proposal_executed": false,
+    "registry_mutated": false,
+    "source_halt_vocabulary_consumed": true,
+    "source_halt_vocabulary_modified": false,
+    "source_ledger_modified": false,
+    "source_local_regime_v1_modified": false,
+    "source_move_registry_consumed": true,
+    "source_move_registry_modified": false,
+    "source_proceed_adapter_consumed": true,
+    "source_proceed_adapter_modified": false,
+    "source_receipt_modified": false,
+    "source_trace_ledger_runner_modified": false,
+    "source_trace_ledger_surface_consumed": true,
+    "source_trace_modified": false,
+    "sqlite_registry_read": false,
+    "sqlite_registry_written": false,
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false
+  },
+  "authority_verdict_record_schema": {
+    "audit_law": [
+      "Every admissible_pre_auth move receives an authority verdict.",
+      "A blocked authority verdict is not move inadmissibility.",
+      "A human-review verdict is not rejection.",
+      "A forbidden verdict is not proposal permission."
+    ],
+    "required_fields": [
+      "authority_verdict_id",
+      "schema_version",
+      "run_id",
+      "unit_id",
+      "state_sig8",
+      "move_id",
+      "move_admissibility_status",
+      "jurisdiction_profile_id",
+      "authority_verdict",
+      "reason",
+      "allowed_effects",
+      "forbidden_effects_checked",
+      "terminal_if_not_authorized",
+      "proposal_ref",
+      "review_request_ref",
+      "extraction_request_ref",
+      "must_not_impersonate"
+    ],
+    "schema_version": "authority_verdict_record_schema_v0"
+  },
+  "authorized_operations_next": {
+    "emit_day5_demo_authority_receipt": true,
+    "emit_day5_demo_authorized_move": true,
+    "emit_day5_demo_extraction_required": true,
+    "emit_day5_demo_forbidden_move": true,
+    "emit_day5_demo_human_review_required": true,
+    "emit_day5_demo_proposal_required": true,
+    "emit_implementation_receipt": true,
+    "read_jurisdiction_gate_policy": true,
+    "read_jurisdiction_gate_policy_receipt": true,
+    "write_authority_blocked_move_record_schema_artifact": true,
+    "write_authority_verdict_record_schema_artifact": true,
+    "write_halt_vocabulary_authority_patch_artifact": true,
+    "write_human_review_request_schema_artifact": true,
+    "write_jurisdiction_gate_artifact": true,
+    "write_jurisdiction_profile_schema_artifact": true,
+    "write_jurisdiction_verdict_enum_artifact": true,
+    "write_move_authority_patch_artifact": true,
+    "write_move_inspection_authority_patch_artifact": true,
+    "write_proceed_readout_authority_patch_artifact": true,
+    "write_proposal_packet_schema_artifact": true,
+    "write_receipt_authority_patch_artifact": true,
+    "write_trace_authority_patch_artifact": true
+  },
+  "created_at": "2026-06-22T13:15:25.794775+00:00",
+  "day5_demo_authorized_move_plan": {
+    "admissible_move": "unit.mark_complete.v0",
+    "demo_name": "DAY5_AUTHORIZED_LOCAL_MOVE",
+    "expected_authority_verdict": "AUTHORIZED_LOCAL",
+    "expected_terminal": {
+      "next_unit_id": "receipt.emit_terminal.v0",
+      "type": "ADVANCE"
+    },
+    "schema_version": "day5_demo_authorized_move_plan_v0",
+    "state": {
+      "active_object": {
+        "completion_status": "PENDING",
+        "object_kind": "BUILD_UNIT"
+      },
+      "status": "VALID"
+    }
+  },
+  "day5_demo_extraction_required_plan": {
+    "admissible_move": "proto.import_behavior.v0",
+    "demo_name": "DAY5_EXTRACTION_REQUIRED",
+    "expected_authority_verdict": "REQUIRES_EXTRACTION",
+    "expected_halt": "STOP_NEEDS_EXTRACTION",
+    "must_not_execute": true,
+    "schema_version": "day5_demo_extraction_required_plan_v0"
+  },
+  "day5_demo_forbidden_move_plan": {
+    "admissible_move": "execute_unregistered_move.v0",
+    "demo_name": "DAY5_FORBIDDEN_MOVE",
+    "expected_authority_verdict": "FORBIDDEN",
+    "expected_halt": "STOP_FORBIDDEN_MOVE",
+    "must_not_execute": true,
+    "must_not_propose_as_currently_shaped": true,
+    "schema_version": "day5_demo_forbidden_move_plan_v0"
+  },
+  "day5_demo_human_review_required_plan": {
+    "admissible_move": "move_registry.add_candidate.v0",
+    "demo_name": "DAY5_HUMAN_REVIEW_REQUIRED",
+    "expected_authority_verdict": "REQUIRES_HUMAN_REVIEW",
+    "expected_halt": "STOP_HUMAN_REVIEW_REQUIRED",
+    "expected_review_default": "NO_EXECUTION",
+    "must_not_execute_without_review": true,
+    "must_not_mutate_registry": true,
+    "schema_version": "day5_demo_human_review_required_plan_v0"
+  },
+  "day5_demo_proposal_required_plan": {
+    "admissible_move": "boundary.emit_next_unit.v0",
+    "demo_name": "DAY5_PROPOSAL_REQUIRED",
+    "expected_authority_verdict": "REQUIRES_PROPOSAL",
+    "expected_halt": "STOP_PROPOSAL_REQUIRED",
+    "expected_proposal_status": "PROPOSED_ONLY",
+    "must_not_execute_candidate": true,
+    "must_not_register_candidate": true,
+    "schema_version": "day5_demo_proposal_required_plan_v0"
+  },
+  "failures": [],
+  "forbidden_operations_next": {
+    "ambient_workspace_authority": true,
+    "execute_forbidden_move": true,
+    "execute_non_authorized_move": true,
+    "execute_requires_extraction_move": true,
+    "execute_requires_human_review_move_without_approval": true,
+    "execute_requires_proposal_move": true,
+    "final_authority_claim": true,
+    "global_governance_claim": true,
+    "hidden_continuation_after_terminal": true,
+    "implement_day6_taxonomy_evolution": true,
+    "latest_or_mtime_selection": true,
+    "modify_local_regime_v1": true,
+    "modify_proceed_adapter_module": true,
+    "modify_trace_ledger_runner_module": true,
+    "mutate_existing_halt_vocabulary": true,
+    "mutate_existing_move_registry": true,
+    "mutate_existing_readout_files": true,
+    "mutate_existing_receipt_files": true,
+    "mutate_existing_trace_files": true,
+    "mutate_jurisdiction_profile": true,
+    "mutate_registry_from_proposal": true,
+    "mutate_taxonomy_from_proposal": true,
+    "proof_claim": true,
+    "select_from_admissible_without_authority": true,
+    "soften_forbidden_move_into_proposal_without_reformulation": true,
+    "sqlite_registry_read": true,
+    "sqlite_registry_write": true,
+    "treat_human_silence_as_authorization": true,
+    "treat_proposal_as_approval": true
+  },
+  "gate": "PASS",
+  "halt_vocabulary_authority_patch": {
+    "adds_canonical_entries": {
+      "STOP_AUTHORITY_BOUNDARY": {
+        "allowed_next_handling": [
+          "emit authority verdict",
+          "emit proposal if allowed",
+          "request human review if required",
+          "narrow the move or jurisdiction profile explicitly"
+        ],
+        "canonical_halt_code": "STOP_AUTHORITY_BOUNDARY",
+        "halt_code": "STOP_AUTHORITY_BOUNDARY",
+        "halt_family": "AUTHORITY",
+        "must_not_impersonate": [
+          "move invalidity",
+          "proof failure",
+          "runner error",
+          "human rejection"
+        ],
+        "smallest_honest_meaning": "A move is admissible, but the current jurisdiction profile does not authorize execution inside this unit."
+      },
+      "STOP_FORBIDDEN_MOVE": {
+        "allowed_next_handling": [
+          "record forbidden verdict",
+          "do not execute",
+          "do not propose as currently shaped",
+          "reformulate only through a separate lawful unit"
+        ],
+        "canonical_halt_code": "STOP_FORBIDDEN_MOVE",
+        "halt_code": "STOP_FORBIDDEN_MOVE",
+        "halt_family": "AUTHORITY",
+        "must_not_impersonate": [
+          "temporary lack of confidence",
+          "ordinary missing move",
+          "human review request"
+        ],
+        "smallest_honest_meaning": "The move is outside the current regime or violates a forbidden action/input rule."
+      },
+      "STOP_HUMAN_REVIEW_REQUIRED": {
+        "allowed_next_handling": [
+          "emit human review request",
+          "list approve/reject/defer/narrow/request-extraction options",
+          "do not execute until approved"
+        ],
+        "canonical_halt_code": "STOP_HUMAN_REVIEW_REQUIRED",
+        "halt_code": "STOP_HUMAN_REVIEW_REQUIRED",
+        "halt_family": "AUTHORITY",
+        "must_not_impersonate": [
+          "failure",
+          "forbidden move",
+          "completed decision",
+          "self-authorization"
+        ],
+        "smallest_honest_meaning": "The move is understandable but requires human approval before execution."
+      },
+      "STOP_PROPOSAL_REQUIRED": {
+        "allowed_next_handling": [
+          "emit proposal packet",
+          "await review",
+          "defer",
+          "narrow proposal"
+        ],
+        "canonical_halt_code": "STOP_PROPOSAL_REQUIRED",
+        "halt_code": "STOP_PROPOSAL_REQUIRED",
+        "halt_family": "AUTHORITY",
+        "must_not_impersonate": [
+          "accepted move",
+          "authorized execution",
+          "taxonomy upgrade",
+          "registry mutation"
+        ],
+        "smallest_honest_meaning": "The next move may be proposed but may not execute under the current jurisdiction."
+      }
+    },
+    "non_goal": "This is a patch declaration, not taxonomy evolution runtime and not in-place mutation.",
+    "patch_mode": "future_halt_vocabulary_patch_only_do_not_mutate_existing_halt_vocabulary",
+    "patch_reason": "Day 5 jurisdiction pressure requires distinguishing ordinary authority boundaries from authority violations.",
+    "reuses_existing_entries": {
+      "STOP_AUTHORITY_VIOLATION": "reserved for actual authority violation, not ordinary jurisdiction boundary",
+      "STOP_NEEDS_EXTRACTION": "used for REQUIRES_EXTRACTION verdict"
+    },
+    "schema_version": "halt_vocabulary_authority_patch_v0",
+    "source_halt_vocabulary_implementation_receipt_id": "75eabbe2"
+  },
+  "human_review_request_schema": {
+    "core_law": "No response means no execution.",
+    "decision_options": [
+      {
+        "meaning": "Authorize this exact move once under the declared unit.",
+        "option": "APPROVE"
+      },
+      {
+        "meaning": "Do not authorize this move.",
+        "option": "REJECT"
+      },
+      {
+        "meaning": "Keep proposal open but do not execute.",
+        "option": "DEFER"
+      },
+      {
+        "meaning": "Request a smaller proposal.",
+        "option": "NARROW"
+      },
+      {
+        "meaning": "Require extraction before review.",
+        "option": "REQUEST_EXTRACTION"
+      }
+    ],
+    "default_without_response": "NO_EXECUTION",
+    "required_fields": [
+      "review_request_id",
+      "schema_version",
+      "trigger_halt",
+      "move_id",
+      "authority_verdict",
+      "question",
+      "decision_options",
+      "default_without_response",
+      "must_not_impersonate"
+    ],
+    "schema_version": "human_review_request_schema_v0"
+  },
+  "jurisdiction_gate": {
+    "anti_laundering_law": [
+      "FORBIDDEN is checked before proposal.",
+      "REQUIRES_HUMAN_REVIEW is checked before proposal when registry/taxonomy/jurisdiction mutation is involved.",
+      "A registry mutation cannot be laundered through proposal-only wording.",
+      "A forbidden move cannot be softened into human review unless reformulated through a separate lawful unit."
+    ],
+    "core_law": "A move may be locally admissible and still not authorized.",
+    "execution_rule": "Only AUTHORIZED_LOCAL moves may execute.",
+    "pseudocode": [
+      "If move uses forbidden input: FORBIDDEN",
+      "If move action is forbidden: FORBIDDEN",
+      "If move depends on unextracted code/proto/history behavior: REQUIRES_EXTRACTION",
+      "If move mutates registry, taxonomy, jurisdiction, or authority profile: REQUIRES_HUMAN_REVIEW",
+      "If move is proposal-only: REQUIRES_PROPOSAL",
+      "If move kind/layer/effects are inside authorized_local: AUTHORIZED_LOCAL",
+      "Else: STOP_AUTHORITY_BOUNDARY fallback"
+    ],
+    "purpose": "Separate admissible_pre_auth moves from authorized executable moves.",
+    "schema_version": "jurisdiction_gate_v0",
+    "selector_rule": "Selector may only choose from authorized_executable_moves.",
+    "verdict_order": [
+      "FORBIDDEN",
+      "REQUIRES_EXTRACTION",
+      "REQUIRES_HUMAN_REVIEW",
+      "REQUIRES_PROPOSAL",
+      "AUTHORIZED_LOCAL",
+      "STOP_AUTHORITY_BOUNDARY_FALLBACK"
+    ]
+  },
+  "jurisdiction_profile_schema": {
+    "example_profile": {
+      "authorized_local": {
+        "explicitly_authorized_demo_moves": [
+          "state.validate_shape.v0",
+          "regime.validate_shape.v0",
+          "moves.compute_applicable.v0",
+          "selector.choose_move.v0",
+          "receipt.emit_terminal.v0"
+        ],
+        "layers": [
+          "OUTER",
+          "MOVE_SPACE",
+          "RECEIPT_TRACE"
+        ],
+        "max_effect": [
+          "state_status_update",
+          "trace_append",
+          "receipt_emit",
+          "readout_emit",
+          "local_projection_repair"
+        ],
+        "move_kinds": [
+          "CONTROL_CHECK",
+          "CONTROL_INSPECT",
+          "CONTROL_SELECT",
+          "CONTROL_EMIT",
+          "LOCAL_REPAIR"
+        ],
+        "pre_authorized_domain_transforms": [
+          "unit.mark_complete.v0"
+        ]
+      },
+      "forbidden": {
+        "actions": [
+          "self_authorize_taxonomy_delta",
+          "self_modify_jurisdiction_profile",
+          "execute_unregistered_move",
+          "promote_frontier_claim",
+          "collapse_theorem_and_witness_layers"
+        ],
+        "inputs": [
+          "chat_memory_authority",
+          "latest_file_guessing",
+          "mtime_selection",
+          "ambient_workspace_inference",
+          "ui_state_authority",
+          "unregistered_move_execution"
+        ]
+      },
+      "jurisdiction_profile_id": "jurisdiction_profile_v0",
+      "proposal_allowed": {
+        "conditions": [
+          "triggered_by_typed_halt",
+          "candidate_move_not_registered",
+          "proposal_does_not_mutate_registry"
+        ],
+        "move_kinds": [
+          "PROPOSAL_ONLY",
+          "DOMAIN_TRANSFORM"
+        ]
+      },
+      "requires_extraction": {
+        "conditions": [
+          "depends_on_unclassified_code_behavior",
+          "depends_on_proto_history",
+          "depends_on_non_imported_implementation_detail"
+        ]
+      },
+      "requires_human_review": {
+        "conditions": [
+          "changes_registry",
+          "accepts_taxonomy_delta",
+          "widens_jurisdiction",
+          "executes_domain_transform_not_pre_authorized",
+          "promotes_frontier_to_active_build"
+        ]
+      },
+      "schema_version": "jurisdiction_profile_schema_v0",
+      "scope": {
+        "active_object": "runner_surface_v0",
+        "layer": "OUTER",
+        "mode": "BUILD",
+        "unit_id": "proceed.unit.execute_declared_runner_unit.v0"
+      }
+    },
+    "must_not_impersonate": [
+      "global governance",
+      "final autonomy profile",
+      "human approval",
+      "future authorization"
+    ],
+    "profile_is_local": true,
+    "relative_to": [
+      "current_state",
+      "current_unit",
+      "current_layer",
+      "current_mode",
+      "current_active_object",
+      "current_source_surface"
+    ],
+    "required_fields": [
+      "jurisdiction_profile_id",
+      "schema_version",
+      "scope",
+      "authorized_local",
+      "proposal_allowed",
+      "requires_extraction",
+      "requires_human_review",
+      "forbidden"
+    ],
+    "schema_version": "jurisdiction_profile_schema_v0"
+  },
+  "jurisdiction_verdict_enum": {
+    "meanings": {
+      "AUTHORIZED_LOCAL": "runner may execute the move inside the current local jurisdiction profile",
+      "FORBIDDEN": "move is outside current regime or violates forbidden input/action rule",
+      "REQUIRES_EXTRACTION": "move depends on material that must be lawfully extracted first",
+      "REQUIRES_HUMAN_REVIEW": "move is understandable but requires human approval before execution",
+      "REQUIRES_PROPOSAL": "runner may describe the move and emit a proposal packet, but may not execute it"
+    },
+    "schema_version": "jurisdiction_verdict_enum_v0",
+    "verdict_to_halt": {
+      "AUTHORIZED_LOCAL": null,
+      "FORBIDDEN": "STOP_FORBIDDEN_MOVE",
+      "REQUIRES_EXTRACTION": "STOP_NEEDS_EXTRACTION",
+      "REQUIRES_HUMAN_REVIEW": "STOP_HUMAN_REVIEW_REQUIRED",
+      "REQUIRES_PROPOSAL": "STOP_PROPOSAL_REQUIRED"
+    },
+    "verdicts": [
+      "AUTHORIZED_LOCAL",
+      "REQUIRES_PROPOSAL",
+      "REQUIRES_EXTRACTION",
+      "REQUIRES_HUMAN_REVIEW",
+      "FORBIDDEN"
+    ]
+  },
+  "move_authority_patch": {
+    "add_field": {
+      "authority": {
+        "authority_tags": [
+          "<tag>"
+        ],
+        "forbidden_if": [
+          "requires_unregistered_input",
+          "would_modify_registry_without_review"
+        ],
+        "may_emit_proposal_if_denied": false,
+        "required_verdict": "AUTHORIZED_LOCAL|REQUIRES_PROPOSAL|REQUIRES_HUMAN_REVIEW",
+        "requires_human_review_if": []
+      }
+    },
+    "examples": {
+      "authorized_local": {
+        "authority_tags": [
+          "state_update",
+          "trace_append"
+        ],
+        "forbidden_if": [
+          "requires_unregistered_input",
+          "would_modify_registry"
+        ],
+        "may_emit_proposal_if_denied": false,
+        "required_verdict": "AUTHORIZED_LOCAL",
+        "requires_human_review_if": []
+      },
+      "proposal_only": {
+        "authority_tags": [
+          "proposal_emit_only"
+        ],
+        "execution_forbidden": true,
+        "may_emit_proposal_if_denied": true,
+        "must_not_mutate": [
+          "move_registry",
+          "taxonomy_registry",
+          "jurisdiction_profile"
+        ],
+        "required_verdict": "REQUIRES_PROPOSAL"
+      },
+      "registry_changing": {
+        "authority_tags": [
+          "registry_mutation"
+        ],
+        "execution_forbidden_without_review": true,
+        "may_emit_proposal_if_denied": true,
+        "required_verdict": "REQUIRES_HUMAN_REVIEW"
+      }
+    },
+    "patch_mode": "future_move_schema_patch_only_do_not_mutate_existing_move_registry",
+    "schema_version": "move_authority_patch_v0"
+  },
+  "move_inspection_authority_patch": {
+    "add_fields": {
+      "authority_checked_moves": [
+        {
+          "authority_verdict": "<verdict>",
+          "authority_verdict_ref": "<authority_verdict_id>",
+          "move_id": "<move_id>"
+        }
+      ],
+      "authorized_executable_moves": [
+        "<move_id>"
+      ],
+      "extraction_required_moves": [
+        "<move_id>"
+      ],
+      "forbidden_moves": [
+        "<move_id>"
+      ],
+      "human_review_required_moves": [
+        "<move_id>"
+      ],
+      "proposal_only_moves": [
+        "<move_id>"
+      ],
+      "selector_input": "authorized_executable_moves_only"
+    },
+    "patch_mode": "future_schema_patch_only_do_not_mutate_existing_day4_inspections",
+    "schema_version": "move_inspection_authority_patch_v0"
+  },
+  "policy_id": "57838400",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "policy_summary": {
+    "core_law": "A move may be locally admissible and still not authorized.",
+    "execution_rule": "Only AUTHORIZED_LOCAL moves may execute.",
+    "non_goal": "no final governance, no global autonomy, no proposal self-approval, no registry mutation, no Day 6 taxonomy evolution",
+    "purpose": "Separate admissible_pre_auth moves from authorized executable moves.",
+    "selector_rule": "Selector may only choose from authorized_executable_moves."
+  },
+  "proceed_readout_authority_patch": {
+    "add_fields": {
+      "authority_terminal": "ADVANCE|STOP",
+      "authority_verdict_refs": [
+        "<authority_verdict_id>"
+      ],
+      "authorized_executable_moves": [
+        "<move_id>"
+      ],
+      "human_review_request_ref": "<review_request_id|null>",
+      "jurisdiction_profile_ref": "<jurisdiction_profile_id>",
+      "proposal_packet_ref": "<proposal_id|null>"
+    },
+    "patch_mode": "future_schema_patch_only_do_not_mutate_existing_readouts",
+    "schema_version": "proceed_readout_authority_patch_v0"
+  },
+  "proposal_packet_schema": {
+    "core_law": [
+      "A proposal is not execution.",
+      "A proposal is not acceptance.",
+      "A proposal is not authority.",
+      "A proposal may not mutate registry, taxonomy, or jurisdiction profile."
+    ],
+    "required_fields": [
+      "proposal_id",
+      "schema_version",
+      "proposal_type",
+      "trigger",
+      "proposed_action",
+      "why_move_is_admissible",
+      "why_not_authorized",
+      "requested_decision",
+      "if_approved",
+      "if_rejected",
+      "must_not_impersonate",
+      "status"
+    ],
+    "schema_version": "proposal_packet_schema_v0",
+    "status": "PROPOSED_ONLY"
+  },
+  "receipt_authority_patch": {
+    "add_fields": {
+      "authority": {
+        "authorized_executable_moves": [
+          "<move_id>"
+        ],
+        "forbidden_moves_count": "<int>",
+        "human_review_requests_emitted": "<int>",
+        "proposal_packets_emitted": "<int>"
+      },
+      "jurisdiction": {
+        "jurisdiction_profile_id": "jurisdiction_profile_v0",
+        "verdict_counts": {
+          "AUTHORIZED_LOCAL": "<int>",
+          "FORBIDDEN": "<int>",
+          "REQUIRES_EXTRACTION": "<int>",
+          "REQUIRES_HUMAN_REVIEW": "<int>",
+          "REQUIRES_PROPOSAL": "<int>"
+        }
+      }
+    },
+    "patch_mode": "future_schema_patch_only_do_not_mutate_existing_receipts",
+    "schema_version": "receipt_authority_patch_v0"
+  },
+  "receipt_id": "993751b4",
+  "receipt_type": "JURISDICTION_GATE_V0_POLICY_RECEIPT",
+  "required_implementation_artifacts": {
+    "authority_blocked_move_record_schema": "data/jurisdiction_gate_v0/authority_blocked_move_record_schema_v0.json",
+    "authority_verdict_record_schema": "data/jurisdiction_gate_v0/authority_verdict_record_schema_v0.json",
+    "day5_demo_authority_receipt": "data/jurisdiction_gate_v0_demo/day5_demo_authority_receipt.json",
+    "day5_demo_authorized_move": "data/jurisdiction_gate_v0_demo/day5_demo_authorized_move.json",
+    "day5_demo_extraction_required": "data/jurisdiction_gate_v0_demo/day5_demo_extraction_required.json",
+    "day5_demo_forbidden_move": "data/jurisdiction_gate_v0_demo/day5_demo_forbidden_move.json",
+    "day5_demo_human_review_required": "data/jurisdiction_gate_v0_demo/day5_demo_human_review_required.json",
+    "day5_demo_proposal_required": "data/jurisdiction_gate_v0_demo/day5_demo_proposal_required.json",
+    "halt_vocabulary_authority_patch": "data/jurisdiction_gate_v0/halt_vocabulary_authority_patch_v0.json",
+    "human_review_request_schema": "data/jurisdiction_gate_v0/human_review_request_schema_v0.json",
+    "implementation_receipt": "data/jurisdiction_gate_v0_implementation_receipts/<receipt_id>.json",
+    "jurisdiction_gate": "data/jurisdiction_gate_v0/jurisdiction_gate_v0.json",
+    "jurisdiction_profile_schema": "data/jurisdiction_gate_v0/jurisdiction_profile_schema_v0.json",
+    "jurisdiction_verdict_enum": "data/jurisdiction_gate_v0/jurisdiction_verdict_enum_v0.json",
+    "move_authority_patch": "data/jurisdiction_gate_v0/move_authority_patch_v0.json",
+    "move_inspection_authority_patch": "data/jurisdiction_gate_v0_patches/move_inspection_authority_patch_v0.json",
+    "proceed_readout_authority_patch": "data/jurisdiction_gate_v0_patches/proceed_readout_authority_patch_v0.json",
+    "proposal_packet_schema": "data/jurisdiction_gate_v0/proposal_packet_schema_v0.json",
+    "receipt_authority_patch": "data/jurisdiction_gate_v0_patches/receipt_authority_patch_v0.json",
+    "trace_authority_patch": "data/jurisdiction_gate_v0_patches/trace_authority_patch_v0.json"
+  },
+  "safety_clauses": {
+    "does_not_accept_or_execute_proposals": true,
+    "does_not_claim_global_authority": true,
+    "does_not_claim_proof": true,
+    "does_not_emit_demo_verdicts": true,
+    "does_not_implement_day6_taxonomy_evolution": true,
+    "does_not_modify_halt_vocabulary": true,
+    "does_not_modify_move_registry": true,
+    "does_not_modify_source_modules": true,
+    "does_not_modify_source_regime": true,
+    "does_not_mutate_existing_artifacts": true,
+    "does_not_treat_human_silence_as_authorization": true,
+    "halt_vocabulary_authority_patch_only": true,
+    "next_unit_required_for_implementation": true,
+    "policy_only": true
+  },
+  "schema_version": "jurisdiction_gate_v0_policy_receipt_v0",
+  "source_halt_vocabulary_implementation_receipt_id": "75eabbe2",
+  "source_halt_vocabulary_policy_id": "0707a2d7",
+  "source_local_regime_hash": "25802530",
+  "source_move_registry_implementation_receipt_id": "bef08570",
+  "source_move_registry_policy_id": "34863965",
+  "source_move_registry_policy_receipt_id": "1264c091",
+  "source_proceed_adapter_implementation_receipt_id": "363d2f4a",
+  "source_proposal_ledger_schema_id": "eee2a318",
+  "source_trace_ledger_implementation_receipt_id": "cc24a11f",
+  "source_trace_schema_id": "b4887660",
+  "target_unit_id": "jurisdiction_gate.v0",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_JURISDICTION_GATE_V0_WITH_DEMO_VERDICTS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "trace_authority_patch": {
+    "add_fields": {
+      "authority_verdict": "<verdict>",
+      "authority_verdict_ref": "<authority_verdict_id>",
+      "authorized_executable_moves": [
+        "<move_id>"
+      ],
+      "human_review_request_ref": "<review_request_id|null>",
+      "jurisdiction_profile_id": "jurisdiction_profile_v0",
+      "proposal_packet_ref": "<proposal_id|null>",
+      "selector_input": "authorized_executable_moves_only"
+    },
+    "patch_mode": "future_schema_patch_only_do_not_mutate_existing_traces",
+    "schema_version": "trace_authority_patch_v0"
+  },
+  "unit_id": "BUILD_JURISDICTION_GATE_V0_POLICY_V0",
+  "warnings": []
+}
+jurisdiction_gate_policy_id=57838400
+jurisdiction_gate_policy_receipt_id=993751b4
+jurisdiction_gate_policy_path=data/jurisdiction_gate_v0_policies/57838400.json
+jurisdiction_gate_policy_receipt_path=data/jurisdiction_gate_v0_policy_receipts/57838400.json
+JURISDICTION_GATE_POLICY_ID=57838400
+JURISDICTION_GATE_POLICY_RECEIPT_ID=993751b4
+
+ASSERT_JURISDICTION_GATE_POLICY
+{
+  "acceptance_gates": [
+    "JGP0_source_surface_verified",
+    "JGP10_forbidden_move_cannot_execute_or_self_reframe",
+    "JGP11_authority_verdicts_link_to_trace_receipt_readout",
+    "JGP12_no_registry_taxonomy_jurisdiction_mutation",
+    "JGP13_day6_taxonomy_evolution_not_implemented",
+    "JGP14_patch_artifacts_only_no_old_schema_mutation",
+    "JGP1_jurisdiction_profile_schema_declared",
+    "JGP2_verdict_enum_declared",
+    "JGP3_halt_vocabulary_authority_patch_declared",
+    "JGP4_move_authority_patch_declared",
+    "JGP5_every_admissible_move_receives_authority_verdict",
+    "JGP6_selector_restricted_to_authorized_local",
+    "JGP7_proposal_required_emits_proposed_only_packet",
+    "JGP8_extraction_required_halts_without_execution",
+    "JGP9_human_review_required_emits_review_request"
+  ],
+  "authority_guards": {
+    "day6_taxonomy_evolution_implemented": false,
+    "demo_verdicts_emitted_by_policy": false,
+    "final_authority_claimed": false,
+    "forbidden_move_softened_to_proposal": false,
+    "global_governance_claimed": false,
+    "hidden_continuation_authorized": false,
+    "human_silence_authorized": false,
+    "implementation_performed_by_policy": false,
+    "jurisdiction_gate_policy_built": true,
+    "jurisdiction_profile_modified": false,
+    "jurisdiction_resolved_globally": false,
+    "proof_claimed": false,
+    "proposal_accepted": false,
+    "proposal_executed": false,
+    "registry_mutated": false,
+    "source_halt_vocabulary_consumed": true,
+    "source_halt_vocabulary_modified": false,
+    "source_ledger_modified": false,
+    "source_local_regime_v1_modified": false,
+    "source_move_registry_consumed": true,
+    "source_move_registry_modified": false,
+    "source_proceed_adapter_consumed": true,
+    "source_proceed_adapter_modified": false,
+    "source_receipt_modified": false,
+    "source_trace_ledger_runner_modified": false,
+    "source_trace_ledger_surface_consumed": true,
+    "source_trace_modified": false,
+    "sqlite_registry_read": false,
+    "sqlite_registry_written": false,
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false
+  },
+  "gate": "PASS",
+  "halt_patch_entries": [
+    "STOP_AUTHORITY_BOUNDARY",
+    "STOP_FORBIDDEN_MOVE",
+    "STOP_HUMAN_REVIEW_REQUIRED",
+    "STOP_PROPOSAL_REQUIRED"
+  ],
+  "policy_id": "57838400",
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "receipt_id": "993751b4",
+  "source_move_registry_implementation_receipt_id": "bef08570",
+  "target_unit_id": "jurisdiction_gate.v0",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_JURISDICTION_GATE_V0_WITH_DEMO_VERDICTS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "verdicts": [
+    "AUTHORIZED_LOCAL",
+    "REQUIRES_PROPOSAL",
+    "REQUIRES_EXTRACTION",
+    "REQUIRES_HUMAN_REVIEW",
+    "FORBIDDEN"
+  ]
+}
+
+NEGATIVE_CONTROLS_JURISDICTION_GATE_POLICY_NON_WRITING
+{
+  "case": "missing_verdicts_forbidden",
+  "failures": [
+    "verdict_enum_wrong:['AUTHORIZED_LOCAL']"
+  ]
+}
+{
+  "case": "bad_verdict_order_forbidden",
+  "failures": [
+    "jurisdiction_verdict_order_wrong:['AUTHORIZED_LOCAL', 'REQUIRES_PROPOSAL', 'REQUIRES_HUMAN_REVIEW', 'REQUIRES_EXTRACTION', 'FORBIDDEN']"
+  ]
+}
+{
+  "case": "selector_before_authority_forbidden",
+  "failures": [
+    "jurisdiction_selector_rule_wrong:Selector may choose from admissible_pre_auth_moves."
+  ]
+}
+{
+  "case": "proposal_auto_accepted_forbidden",
+  "failures": [
+    "proposal_schema_status_wrong:ACCEPTED"
+  ]
+}
+{
+  "case": "human_silence_authorization_forbidden",
+  "failures": [
+    "review_default_wrong:APPROVE"
+  ]
+}
+{
+  "case": "day6_taxonomy_smuggling_forbidden",
+  "failures": [
+    "authority_guard_not_false:day6_taxonomy_evolution_implemented:True"
+  ]
+}
+{
+  "case": "hidden_next_forbidden",
+  "failures": [
+    "terminal_next_wrong:HIDDEN_NEXT"
+  ]
+}
+{
+  "after": {
+    "policy": "edb6bb678cd814525764a204bf6d638566768d37447086867da546bce4fb54fb",
+    "receipt": "06b0b165fc0f67e8918891ca7ac6eb52836d7b222f4c53599716bb01252f8638"
+  },
+  "before": {
+    "policy": "edb6bb678cd814525764a204bf6d638566768d37447086867da546bce4fb54fb",
+    "receipt": "06b0b165fc0f67e8918891ca7ac6eb52836d7b222f4c53599716bb01252f8638"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+VERIFY_NO_RUNTIME_OR_REGISTRY_MUTATION
+.gitignore
+runtime and sqlite registry untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/build_jurisdiction_gate_v0_policy_v0.py
+
+PACKAGE_JURISDICTION_GATE_POLICY_ARTIFACTS
+packaged data/jurisdiction_gate_v0_policies/57838400.json
+packaged data/jurisdiction_gate_v0_policy_receipts/57838400.json
+[master fee6fe861] build jurisdiction gate v0 policy
+ 4 files changed, 2862 insertions(+)
+ create mode 100644 data/jurisdiction_gate_v0_policies/57838400.json
+ create mode 100644 data/jurisdiction_gate_v0_policy_receipts/57838400.json
+ create mode 100755 scripts/build_jurisdiction_gate_v0_policy_v0.py
+
+COMMIT_DONE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+NEXT_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+jurisdiction_gate_policy_id=57838400
+jurisdiction_gate_policy_receipt_id=993751b4
+jurisdiction_gate_policy_path=data/jurisdiction_gate_v0_policies/57838400.json
+jurisdiction_gate_policy_receipt_path=data/jurisdiction_gate_v0_policy_receipts/57838400.json
+{
+  "acceptance_gates": {
+    "JGP0_source_surface_verified": {
+      "description": "Consumes Day 4 move registry implementation, Day 3 halt vocabulary, proceed adapter, trace ledger, and local regime sources.",
+      "required": true
+    },
+    "JGP10_forbidden_move_cannot_execute_or_self_reframe": {
+      "description": "FORBIDDEN maps to STOP_FORBIDDEN_MOVE and cannot be proposed as currently shaped.",
+      "required": true
+    },
+    "JGP11_authority_verdicts_link_to_trace_receipt_readout": {
+      "description": "Authority verdicts are linkable into trace, receipt, and proceed-readout patches.",
+      "required": true
+    },
+    "JGP12_no_registry_taxonomy_jurisdiction_mutation": {
+      "description": "Policy cannot mutate registry, taxonomy, or jurisdiction profile.",
+      "required": true
+    },
+    "JGP13_day6_taxonomy_evolution_not_implemented": {
+      "description": "Day 5 does not implement taxonomy evolution.",
+      "required": true
+    },
+    "JGP14_patch_artifacts_only_no_old_schema_mutation": {
+      "description": "All patches are future-schema patches only.",
+      "required": true
+    },
+    "JGP1_jurisdiction_profile_schema_declared": {
+      "description": "Local jurisdiction profile schema is declared and explicitly non-global.",
+      "required": true
+    },
+    "JGP2_verdict_enum_declared": {
+      "description": "Five jurisdiction verdicts are declared.",
+      "required": true
+    },
+    "JGP3_halt_vocabulary_authority_patch_declared": {
+      "description": "Authority boundary halt patch is declared without mutating the base vocabulary.",
+      "required": true
+    },
+    "JGP4_move_authority_patch_declared": {
+      "description": "Move authority field patch is declared without mutating the Day 4 registry.",
+      "required": true
+    },
+    "JGP5_every_admissible_move_receives_authority_verdict": {
+      "description": "Implementation must verdict every admissible_pre_auth move.",
+      "required": true
+    },
+    "JGP6_selector_restricted_to_authorized_local": {
+      "description": "Selector input is authorized_executable_moves only.",
+      "required": true
+    },
+    "JGP7_proposal_required_emits_proposed_only_packet": {
+      "description": "REQUIRES_PROPOSAL emits PROPOSED_ONLY packet and does not execute.",
+      "required": true
+    },
+    "JGP8_extraction_required_halts_without_execution": {
+      "description": "REQUIRES_EXTRACTION maps to STOP_NEEDS_EXTRACTION and does not execute.",
+      "required": true
+    },
+    "JGP9_human_review_required_emits_review_request": {
+      "description": "REQUIRES_HUMAN_REVIEW emits review request and does not execute without approval.",
+      "required": true
+    }
+  },
+  "authority_blocked_move_record_schema": {
+    "authority_block_reasons": [
+      "AUTHORITY_BOUNDARY",
+      "PROPOSAL_ONLY",
+      "HUMAN_REVIEW_REQUIRED",
+      "EXTRACTION_REQUIRED",
+      "FORBIDDEN_BY_PROFILE"
+    ],
+    "required_fields": [
+      "blocked_move_id",
+      "move_id",
+      "block_reason",
+      "admissibility_status",
+      "authority_verdict",
+      "halt_pressure",
+      "authority_verdict_ref",
+      "proposal_ref",
+      "review_request_ref",
+      "must_not_impersonate"
+    ],
+    "schema_version": "authority_blocked_move_record_schema_v0"
+  },
+  "authority_guards": {
+    "day6_taxonomy_evolution_implemented": false,
+    "demo_verdicts_emitted_by_policy": false,
+    "final_authority_claimed": false,
+    "forbidden_move_softened_to_proposal": false,
+    "global_governance_claimed": false,
+    "hidden_continuation_authorized": false,
+    "human_silence_authorized": false,
+    "implementation_performed_by_policy": false,
+    "jurisdiction_gate_policy_built": true,
+    "jurisdiction_profile_modified": false,
+    "jurisdiction_resolved_globally": false,
+    "proof_claimed": false,
+    "proposal_accepted": false,
+    "proposal_executed": false,
+    "registry_mutated": false,
+    "source_halt_vocabulary_consumed": true,
+    "source_halt_vocabulary_modified": false,
+    "source_ledger_modified": false,
+    "source_local_regime_v1_modified": false,
+    "source_move_registry_consumed": true,
+    "source_move_registry_modified": false,
+    "source_proceed_adapter_consumed": true,
+    "source_proceed_adapter_modified": false,
+    "source_receipt_modified": false,
+    "source_trace_ledger_runner_modified": false,
+    "source_trace_ledger_surface_consumed": true,
+    "source_trace_modified": false,
+    "sqlite_registry_read": false,
+    "sqlite_registry_written": false,
+    "taxonomy_delta_applied": false,
+    "taxonomy_delta_promoted": false
+  },
+  "authority_verdict_record_schema": {
+    "audit_law": [
+      "Every admissible_pre_auth move receives an authority verdict.",
+      "A blocked authority verdict is not move inadmissibility.",
+      "A human-review verdict is not rejection.",
+      "A forbidden verdict is not proposal permission."
+    ],
+    "required_fields": [
+      "authority_verdict_id",
+      "schema_version",
+      "run_id",
+      "unit_id",
+      "state_sig8",
+      "move_id",
+      "move_admissibility_status",
+      "jurisdiction_profile_id",
+      "authority_verdict",
+      "reason",
+      "allowed_effects",
+      "forbidden_effects_checked",
+      "terminal_if_not_authorized",
+      "proposal_ref",
+      "review_request_ref",
+      "extraction_request_ref",
+      "must_not_impersonate"
+    ],
+    "schema_version": "authority_verdict_record_schema_v0"
+  },
+  "authorized_operations_next": {
+    "emit_day5_demo_authority_receipt": true,
+    "emit_day5_demo_authorized_move": true,
+    "emit_day5_demo_extraction_required": true,
+    "emit_day5_demo_forbidden_move": true,
+    "emit_day5_demo_human_review_required": true,
+    "emit_day5_demo_proposal_required": true,
+    "emit_implementation_receipt": true,
+    "read_jurisdiction_gate_policy": true,
+    "read_jurisdiction_gate_policy_receipt": true,
+    "write_authority_blocked_move_record_schema_artifact": true,
+    "write_authority_verdict_record_schema_artifact": true,
+    "write_halt_vocabulary_authority_patch_artifact": true,
+    "write_human_review_request_schema_artifact": true,
+    "write_jurisdiction_gate_artifact": true,
+    "write_jurisdiction_profile_schema_artifact": true,
+    "write_jurisdiction_verdict_enum_artifact": true,
+    "write_move_authority_patch_artifact": true,
+    "write_move_inspection_authority_patch_artifact": true,
+    "write_proceed_readout_authority_patch_artifact": true,
+    "write_proposal_packet_schema_artifact": true,
+    "write_receipt_authority_patch_artifact": true,
+    "write_trace_authority_patch_artifact": true
+  },
+  "day5_demo_authorized_move_plan": {
+    "admissible_move": "unit.mark_complete.v0",
+    "demo_name": "DAY5_AUTHORIZED_LOCAL_MOVE",
+    "expected_authority_verdict": "AUTHORIZED_LOCAL",
+    "expected_terminal": {
+      "next_unit_id": "receipt.emit_terminal.v0",
+      "type": "ADVANCE"
+    },
+    "schema_version": "day5_demo_authorized_move_plan_v0",
+    "state": {
+      "active_object": {
+        "completion_status": "PENDING",
+        "object_kind": "BUILD_UNIT"
+      },
+      "status": "VALID"
+    }
+  },
+  "day5_demo_extraction_required_plan": {
+    "admissible_move": "proto.import_behavior.v0",
+    "demo_name": "DAY5_EXTRACTION_REQUIRED",
+    "expected_authority_verdict": "REQUIRES_EXTRACTION",
+    "expected_halt": "STOP_NEEDS_EXTRACTION",
+    "must_not_execute": true,
+    "schema_version": "day5_demo_extraction_required_plan_v0"
+  },
+  "day5_demo_forbidden_move_plan": {
+    "admissible_move": "execute_unregistered_move.v0",
+    "demo_name": "DAY5_FORBIDDEN_MOVE",
+    "expected_authority_verdict": "FORBIDDEN",
+    "expected_halt": "STOP_FORBIDDEN_MOVE",
+    "must_not_execute": true,
+    "must_not_propose_as_currently_shaped": true,
+    "schema_version": "day5_demo_forbidden_move_plan_v0"
+  },
+  "day5_demo_human_review_required_plan": {
+    "admissible_move": "move_registry.add_candidate.v0",
+    "demo_name": "DAY5_HUMAN_REVIEW_REQUIRED",
+    "expected_authority_verdict": "REQUIRES_HUMAN_REVIEW",
+    "expected_halt": "STOP_HUMAN_REVIEW_REQUIRED",
+    "expected_review_default": "NO_EXECUTION",
+    "must_not_execute_without_review": true,
+    "must_not_mutate_registry": true,
+    "schema_version": "day5_demo_human_review_required_plan_v0"
+  },
+  "day5_demo_proposal_required_plan": {
+    "admissible_move": "boundary.emit_next_unit.v0",
+    "demo_name": "DAY5_PROPOSAL_REQUIRED",
+    "expected_authority_verdict": "REQUIRES_PROPOSAL",
+    "expected_halt": "STOP_PROPOSAL_REQUIRED",
+    "expected_proposal_status": "PROPOSED_ONLY",
+    "must_not_execute_candidate": true,
+    "must_not_register_candidate": true,
+    "schema_version": "day5_demo_proposal_required_plan_v0"
+  },
+  "forbidden_operations_next": {
+    "ambient_workspace_authority": true,
+    "execute_forbidden_move": true,
+    "execute_non_authorized_move": true,
+    "execute_requires_extraction_move": true,
+    "execute_requires_human_review_move_without_approval": true,
+    "execute_requires_proposal_move": true,
+    "final_authority_claim": true,
+    "global_governance_claim": true,
+    "hidden_continuation_after_terminal": true,
+    "implement_day6_taxonomy_evolution": true,
+    "latest_or_mtime_selection": true,
+    "modify_local_regime_v1": true,
+    "modify_proceed_adapter_module": true,
+    "modify_trace_ledger_runner_module": true,
+    "mutate_existing_halt_vocabulary": true,
+    "mutate_existing_move_registry": true,
+    "mutate_existing_readout_files": true,
+    "mutate_existing_receipt_files": true,
+    "mutate_existing_trace_files": true,
+    "mutate_jurisdiction_profile": true,
+    "mutate_registry_from_proposal": true,
+    "mutate_taxonomy_from_proposal": true,
+    "proof_claim": true,
+    "select_from_admissible_without_authority": true,
+    "soften_forbidden_move_into_proposal_without_reformulation": true,
+    "sqlite_registry_read": true,
+    "sqlite_registry_write": true,
+    "treat_human_silence_as_authorization": true,
+    "treat_proposal_as_approval": true
+  },
+  "gate": "PASS",
+  "halt_vocabulary_authority_patch": {
+    "adds_canonical_entries": {
+      "STOP_AUTHORITY_BOUNDARY": {
+        "allowed_next_handling": [
+          "emit authority verdict",
+          "emit proposal if allowed",
+          "request human review if required",
+          "narrow the move or jurisdiction profile explicitly"
+        ],
+        "canonical_halt_code": "STOP_AUTHORITY_BOUNDARY",
+        "halt_code": "STOP_AUTHORITY_BOUNDARY",
+        "halt_family": "AUTHORITY",
+        "must_not_impersonate": [
+          "move invalidity",
+          "proof failure",
+          "runner error",
+          "human rejection"
+        ],
+        "smallest_honest_meaning": "A move is admissible, but the current jurisdiction profile does not authorize execution inside this unit."
+      },
+      "STOP_FORBIDDEN_MOVE": {
+        "allowed_next_handling": [
+          "record forbidden verdict",
+          "do not execute",
+          "do not propose as currently shaped",
+          "reformulate only through a separate lawful unit"
+        ],
+        "canonical_halt_code": "STOP_FORBIDDEN_MOVE",
+        "halt_code": "STOP_FORBIDDEN_MOVE",
+        "halt_family": "AUTHORITY",
+        "must_not_impersonate": [
+          "temporary lack of confidence",
+          "ordinary missing move",
+          "human review request"
+        ],
+        "smallest_honest_meaning": "The move is outside the current regime or violates a forbidden action/input rule."
+      },
+      "STOP_HUMAN_REVIEW_REQUIRED": {
+        "allowed_next_handling": [
+          "emit human review request",
+          "list approve/reject/defer/narrow/request-extraction options",
+          "do not execute until approved"
+        ],
+        "canonical_halt_code": "STOP_HUMAN_REVIEW_REQUIRED",
+        "halt_code": "STOP_HUMAN_REVIEW_REQUIRED",
+        "halt_family": "AUTHORITY",
+        "must_not_impersonate": [
+          "failure",
+          "forbidden move",
+          "completed decision",
+          "self-authorization"
+        ],
+        "smallest_honest_meaning": "The move is understandable but requires human approval before execution."
+      },
+      "STOP_PROPOSAL_REQUIRED": {
+        "allowed_next_handling": [
+          "emit proposal packet",
+          "await review",
+          "defer",
+          "narrow proposal"
+        ],
+        "canonical_halt_code": "STOP_PROPOSAL_REQUIRED",
+        "halt_code": "STOP_PROPOSAL_REQUIRED",
+        "halt_family": "AUTHORITY",
+        "must_not_impersonate": [
+          "accepted move",
+          "authorized execution",
+          "taxonomy upgrade",
+          "registry mutation"
+        ],
+        "smallest_honest_meaning": "The next move may be proposed but may not execute under the current jurisdiction."
+      }
+    },
+    "non_goal": "This is a patch declaration, not taxonomy evolution runtime and not in-place mutation.",
+    "patch_mode": "future_halt_vocabulary_patch_only_do_not_mutate_existing_halt_vocabulary",
+    "patch_reason": "Day 5 jurisdiction pressure requires distinguishing ordinary authority boundaries from authority violations.",
+    "reuses_existing_entries": {
+      "STOP_AUTHORITY_VIOLATION": "reserved for actual authority violation, not ordinary jurisdiction boundary",
+      "STOP_NEEDS_EXTRACTION": "used for REQUIRES_EXTRACTION verdict"
+    },
+    "schema_version": "halt_vocabulary_authority_patch_v0",
+    "source_halt_vocabulary_implementation_receipt_id": "75eabbe2"
+  },
+  "human_review_request_schema": {
+    "core_law": "No response means no execution.",
+    "decision_options": [
+      {
+        "meaning": "Authorize this exact move once under the declared unit.",
+        "option": "APPROVE"
+      },
+      {
+        "meaning": "Do not authorize this move.",
+        "option": "REJECT"
+      },
+      {
+        "meaning": "Keep proposal open but do not execute.",
+        "option": "DEFER"
+      },
+      {
+        "meaning": "Request a smaller proposal.",
+        "option": "NARROW"
+      },
+      {
+        "meaning": "Require extraction before review.",
+        "option": "REQUEST_EXTRACTION"
+      }
+    ],
+    "default_without_response": "NO_EXECUTION",
+    "required_fields": [
+      "review_request_id",
+      "schema_version",
+      "trigger_halt",
+      "move_id",
+      "authority_verdict",
+      "question",
+      "decision_options",
+      "default_without_response",
+      "must_not_impersonate"
+    ],
+    "schema_version": "human_review_request_schema_v0"
+  },
+  "jurisdiction_gate": {
+    "anti_laundering_law": [
+      "FORBIDDEN is checked before proposal.",
+      "REQUIRES_HUMAN_REVIEW is checked before proposal when registry/taxonomy/jurisdiction mutation is involved.",
+      "A registry mutation cannot be laundered through proposal-only wording.",
+      "A forbidden move cannot be softened into human review unless reformulated through a separate lawful unit."
+    ],
+    "core_law": "A move may be locally admissible and still not authorized.",
+    "execution_rule": "Only AUTHORIZED_LOCAL moves may execute.",
+    "pseudocode": [
+      "If move uses forbidden input: FORBIDDEN",
+      "If move action is forbidden: FORBIDDEN",
+      "If move depends on unextracted code/proto/history behavior: REQUIRES_EXTRACTION",
+      "If move mutates registry, taxonomy, jurisdiction, or authority profile: REQUIRES_HUMAN_REVIEW",
+      "If move is proposal-only: REQUIRES_PROPOSAL",
+      "If move kind/layer/effects are inside authorized_local: AUTHORIZED_LOCAL",
+      "Else: STOP_AUTHORITY_BOUNDARY fallback"
+    ],
+    "purpose": "Separate admissible_pre_auth moves from authorized executable moves.",
+    "schema_version": "jurisdiction_gate_v0",
+    "selector_rule": "Selector may only choose from authorized_executable_moves.",
+    "verdict_order": [
+      "FORBIDDEN",
+      "REQUIRES_EXTRACTION",
+      "REQUIRES_HUMAN_REVIEW",
+      "REQUIRES_PROPOSAL",
+      "AUTHORIZED_LOCAL",
+      "STOP_AUTHORITY_BOUNDARY_FALLBACK"
+    ]
+  },
+  "jurisdiction_profile_schema": {
+    "example_profile": {
+      "authorized_local": {
+        "explicitly_authorized_demo_moves": [
+          "state.validate_shape.v0",
+          "regime.validate_shape.v0",
+          "moves.compute_applicable.v0",
+          "selector.choose_move.v0",
+          "receipt.emit_terminal.v0"
+        ],
+        "layers": [
+          "OUTER",
+          "MOVE_SPACE",
+          "RECEIPT_TRACE"
+        ],
+        "max_effect": [
+          "state_status_update",
+          "trace_append",
+          "receipt_emit",
+          "readout_emit",
+          "local_projection_repair"
+        ],
+        "move_kinds": [
+          "CONTROL_CHECK",
+          "CONTROL_INSPECT",
+          "CONTROL_SELECT",
+          "CONTROL_EMIT",
+          "LOCAL_REPAIR"
+        ],
+        "pre_authorized_domain_transforms": [
+          "unit.mark_complete.v0"
+        ]
+      },
+      "forbidden": {
+        "actions": [
+          "self_authorize_taxonomy_delta",
+          "self_modify_jurisdiction_profile",
+          "execute_unregistered_move",
+          "promote_frontier_claim",
+          "collapse_theorem_and_witness_layers"
+        ],
+        "inputs": [
+          "chat_memory_authority",
+          "latest_file_guessing",
+          "mtime_selection",
+          "ambient_workspace_inference",
+          "ui_state_authority",
+          "unregistered_move_execution"
+        ]
+      },
+      "jurisdiction_profile_id": "jurisdiction_profile_v0",
+      "proposal_allowed": {
+        "conditions": [
+          "triggered_by_typed_halt",
+          "candidate_move_not_registered",
+          "proposal_does_not_mutate_registry"
+        ],
+        "move_kinds": [
+          "PROPOSAL_ONLY",
+          "DOMAIN_TRANSFORM"
+        ]
+      },
+      "requires_extraction": {
+        "conditions": [
+          "depends_on_unclassified_code_behavior",
+          "depends_on_proto_history",
+          "depends_on_non_imported_implementation_detail"
+        ]
+      },
+      "requires_human_review": {
+        "conditions": [
+          "changes_registry",
+          "accepts_taxonomy_delta",
+          "widens_jurisdiction",
+          "executes_domain_transform_not_pre_authorized",
+          "promotes_frontier_to_active_build"
+        ]
+      },
+      "schema_version": "jurisdiction_profile_schema_v0",
+      "scope": {
+        "active_object": "runner_surface_v0",
+        "layer": "OUTER",
+        "mode": "BUILD",
+        "unit_id": "proceed.unit.execute_declared_runner_unit.v0"
+      }
+    },
+    "must_not_impersonate": [
+      "global governance",
+      "final autonomy profile",
+      "human approval",
+      "future authorization"
+    ],
+    "profile_is_local": true,
+    "relative_to": [
+      "current_state",
+      "current_unit",
+      "current_layer",
+      "current_mode",
+      "current_active_object",
+      "current_source_surface"
+    ],
+    "required_fields": [
+      "jurisdiction_profile_id",
+      "schema_version",
+      "scope",
+      "authorized_local",
+      "proposal_allowed",
+      "requires_extraction",
+      "requires_human_review",
+      "forbidden"
+    ],
+    "schema_version": "jurisdiction_profile_schema_v0"
+  },
+  "jurisdiction_verdict_enum": {
+    "meanings": {
+      "AUTHORIZED_LOCAL": "runner may execute the move inside the current local jurisdiction profile",
+      "FORBIDDEN": "move is outside current regime or violates forbidden input/action rule",
+      "REQUIRES_EXTRACTION": "move depends on material that must be lawfully extracted first",
+      "REQUIRES_HUMAN_REVIEW": "move is understandable but requires human approval before execution",
+      "REQUIRES_PROPOSAL": "runner may describe the move and emit a proposal packet, but may not execute it"
+    },
+    "schema_version": "jurisdiction_verdict_enum_v0",
+    "verdict_to_halt": {
+      "AUTHORIZED_LOCAL": null,
+      "FORBIDDEN": "STOP_FORBIDDEN_MOVE",
+      "REQUIRES_EXTRACTION": "STOP_NEEDS_EXTRACTION",
+      "REQUIRES_HUMAN_REVIEW": "STOP_HUMAN_REVIEW_REQUIRED",
+      "REQUIRES_PROPOSAL": "STOP_PROPOSAL_REQUIRED"
+    },
+    "verdicts": [
+      "AUTHORIZED_LOCAL",
+      "REQUIRES_PROPOSAL",
+      "REQUIRES_EXTRACTION",
+      "REQUIRES_HUMAN_REVIEW",
+      "FORBIDDEN"
+    ]
+  },
+  "move_authority_patch": {
+    "add_field": {
+      "authority": {
+        "authority_tags": [
+          "<tag>"
+        ],
+        "forbidden_if": [
+          "requires_unregistered_input",
+          "would_modify_registry_without_review"
+        ],
+        "may_emit_proposal_if_denied": false,
+        "required_verdict": "AUTHORIZED_LOCAL|REQUIRES_PROPOSAL|REQUIRES_HUMAN_REVIEW",
+        "requires_human_review_if": []
+      }
+    },
+    "examples": {
+      "authorized_local": {
+        "authority_tags": [
+          "state_update",
+          "trace_append"
+        ],
+        "forbidden_if": [
+          "requires_unregistered_input",
+          "would_modify_registry"
+        ],
+        "may_emit_proposal_if_denied": false,
+        "required_verdict": "AUTHORIZED_LOCAL",
+        "requires_human_review_if": []
+      },
+      "proposal_only": {
+        "authority_tags": [
+          "proposal_emit_only"
+        ],
+        "execution_forbidden": true,
+        "may_emit_proposal_if_denied": true,
+        "must_not_mutate": [
+          "move_registry",
+          "taxonomy_registry",
+          "jurisdiction_profile"
+        ],
+        "required_verdict": "REQUIRES_PROPOSAL"
+      },
+      "registry_changing": {
+        "authority_tags": [
+          "registry_mutation"
+        ],
+        "execution_forbidden_without_review": true,
+        "may_emit_proposal_if_denied": true,
+        "required_verdict": "REQUIRES_HUMAN_REVIEW"
+      }
+    },
+    "patch_mode": "future_move_schema_patch_only_do_not_mutate_existing_move_registry",
+    "schema_version": "move_authority_patch_v0"
+  },
+  "move_inspection_authority_patch": {
+    "add_fields": {
+      "authority_checked_moves": [
+        {
+          "authority_verdict": "<verdict>",
+          "authority_verdict_ref": "<authority_verdict_id>",
+          "move_id": "<move_id>"
+        }
+      ],
+      "authorized_executable_moves": [
+        "<move_id>"
+      ],
+      "extraction_required_moves": [
+        "<move_id>"
+      ],
+      "forbidden_moves": [
+        "<move_id>"
+      ],
+      "human_review_required_moves": [
+        "<move_id>"
+      ],
+      "proposal_only_moves": [
+        "<move_id>"
+      ],
+      "selector_input": "authorized_executable_moves_only"
+    },
+    "patch_mode": "future_schema_patch_only_do_not_mutate_existing_day4_inspections",
+    "schema_version": "move_inspection_authority_patch_v0"
+  },
+  "policy_status": "POLICY_ONLY_NOT_IMPLEMENTED",
+  "policy_summary": {
+    "core_law": "A move may be locally admissible and still not authorized.",
+    "execution_rule": "Only AUTHORIZED_LOCAL moves may execute.",
+    "non_goal": "no final governance, no global autonomy, no proposal self-approval, no registry mutation, no Day 6 taxonomy evolution",
+    "purpose": "Separate admissible_pre_auth moves from authorized executable moves.",
+    "selector_rule": "Selector may only choose from authorized_executable_moves."
+  },
+  "proceed_readout_authority_patch": {
+    "add_fields": {
+      "authority_terminal": "ADVANCE|STOP",
+      "authority_verdict_refs": [
+        "<authority_verdict_id>"
+      ],
+      "authorized_executable_moves": [
+        "<move_id>"
+      ],
+      "human_review_request_ref": "<review_request_id|null>",
+      "jurisdiction_profile_ref": "<jurisdiction_profile_id>",
+      "proposal_packet_ref": "<proposal_id|null>"
+    },
+    "patch_mode": "future_schema_patch_only_do_not_mutate_existing_readouts",
+    "schema_version": "proceed_readout_authority_patch_v0"
+  },
+  "proposal_packet_schema": {
+    "core_law": [
+      "A proposal is not execution.",
+      "A proposal is not acceptance.",
+      "A proposal is not authority.",
+      "A proposal may not mutate registry, taxonomy, or jurisdiction profile."
+    ],
+    "required_fields": [
+      "proposal_id",
+      "schema_version",
+      "proposal_type",
+      "trigger",
+      "proposed_action",
+      "why_move_is_admissible",
+      "why_not_authorized",
+      "requested_decision",
+      "if_approved",
+      "if_rejected",
+      "must_not_impersonate",
+      "status"
+    ],
+    "schema_version": "proposal_packet_schema_v0",
+    "status": "PROPOSED_ONLY"
+  },
+  "receipt_authority_patch": {
+    "add_fields": {
+      "authority": {
+        "authorized_executable_moves": [
+          "<move_id>"
+        ],
+        "forbidden_moves_count": "<int>",
+        "human_review_requests_emitted": "<int>",
+        "proposal_packets_emitted": "<int>"
+      },
+      "jurisdiction": {
+        "jurisdiction_profile_id": "jurisdiction_profile_v0",
+        "verdict_counts": {
+          "AUTHORIZED_LOCAL": "<int>",
+          "FORBIDDEN": "<int>",
+          "REQUIRES_EXTRACTION": "<int>",
+          "REQUIRES_HUMAN_REVIEW": "<int>",
+          "REQUIRES_PROPOSAL": "<int>"
+        }
+      }
+    },
+    "patch_mode": "future_schema_patch_only_do_not_mutate_existing_receipts",
+    "schema_version": "receipt_authority_patch_v0"
+  },
+  "required_implementation_artifacts": {
+    "authority_blocked_move_record_schema": "data/jurisdiction_gate_v0/authority_blocked_move_record_schema_v0.json",
+    "authority_verdict_record_schema": "data/jurisdiction_gate_v0/authority_verdict_record_schema_v0.json",
+    "day5_demo_authority_receipt": "data/jurisdiction_gate_v0_demo/day5_demo_authority_receipt.json",
+    "day5_demo_authorized_move": "data/jurisdiction_gate_v0_demo/day5_demo_authorized_move.json",
+    "day5_demo_extraction_required": "data/jurisdiction_gate_v0_demo/day5_demo_extraction_required.json",
+    "day5_demo_forbidden_move": "data/jurisdiction_gate_v0_demo/day5_demo_forbidden_move.json",
+    "day5_demo_human_review_required": "data/jurisdiction_gate_v0_demo/day5_demo_human_review_required.json",
+    "day5_demo_proposal_required": "data/jurisdiction_gate_v0_demo/day5_demo_proposal_required.json",
+    "halt_vocabulary_authority_patch": "data/jurisdiction_gate_v0/halt_vocabulary_authority_patch_v0.json",
+    "human_review_request_schema": "data/jurisdiction_gate_v0/human_review_request_schema_v0.json",
+    "implementation_receipt": "data/jurisdiction_gate_v0_implementation_receipts/<receipt_id>.json",
+    "jurisdiction_gate": "data/jurisdiction_gate_v0/jurisdiction_gate_v0.json",
+    "jurisdiction_profile_schema": "data/jurisdiction_gate_v0/jurisdiction_profile_schema_v0.json",
+    "jurisdiction_verdict_enum": "data/jurisdiction_gate_v0/jurisdiction_verdict_enum_v0.json",
+    "move_authority_patch": "data/jurisdiction_gate_v0/move_authority_patch_v0.json",
+    "move_inspection_authority_patch": "data/jurisdiction_gate_v0_patches/move_inspection_authority_patch_v0.json",
+    "proceed_readout_authority_patch": "data/jurisdiction_gate_v0_patches/proceed_readout_authority_patch_v0.json",
+    "proposal_packet_schema": "data/jurisdiction_gate_v0/proposal_packet_schema_v0.json",
+    "receipt_authority_patch": "data/jurisdiction_gate_v0_patches/receipt_authority_patch_v0.json",
+    "trace_authority_patch": "data/jurisdiction_gate_v0_patches/trace_authority_patch_v0.json"
+  },
+  "safety_clauses": {
+    "does_not_accept_or_execute_proposals": true,
+    "does_not_claim_global_authority": true,
+    "does_not_claim_proof": true,
+    "does_not_emit_demo_verdicts": true,
+    "does_not_implement_day6_taxonomy_evolution": true,
+    "does_not_modify_halt_vocabulary": true,
+    "does_not_modify_move_registry": true,
+    "does_not_modify_source_modules": true,
+    "does_not_modify_source_regime": true,
+    "does_not_mutate_existing_artifacts": true,
+    "does_not_treat_human_silence_as_authorization": true,
+    "halt_vocabulary_authority_patch_only": true,
+    "next_unit_required_for_implementation": true,
+    "policy_only": true
+  },
+  "source_halt_vocabulary_implementation_receipt_id": "75eabbe2",
+  "source_move_registry_implementation_receipt_id": "bef08570",
+  "source_proceed_adapter_implementation_receipt_id": "363d2f4a",
+  "source_trace_ledger_implementation_receipt_id": "cc24a11f",
+  "target_unit_id": "jurisdiction_gate.v0",
+  "terminal": {
+    "next_command_goal": "IMPLEMENT_JURISDICTION_GATE_V0_WITH_DEMO_VERDICTS_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "trace_authority_patch": {
+    "add_fields": {
+      "authority_verdict": "<verdict>",
+      "authority_verdict_ref": "<authority_verdict_id>",
+      "authorized_executable_moves": [
+        "<move_id>"
+      ],
+      "human_review_request_ref": "<review_request_id|null>",
+      "jurisdiction_profile_id": "jurisdiction_profile_v0",
+      "proposal_packet_ref": "<proposal_id|null>",
+      "selector_input": "authorized_executable_moves_only"
+    },
+    "patch_mode": "future_schema_patch_only_do_not_mutate_existing_traces",
+    "schema_version": "trace_authority_patch_v0"
+  }
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

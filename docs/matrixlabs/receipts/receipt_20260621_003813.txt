@@ -1,0 +1,547 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_003813
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_003813.txt
+
+IMPLEMENT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_PROBE
+
+STATUS_BEFORE
+?? data/
+
+WRITE_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_PROBE
+
+PY_COMPILE
+
+RUN_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_PROBE
+{
+  "authority_guards": {
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "registry_sqlite_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_band_run_authorized": false,
+    "scale_mode_authorized": false,
+    "source_surface_extension_authorized": false,
+    "stable_delta_candidate_acceptance_authorized": false
+  },
+  "burden_measurements": {
+    "actual_observer_overhead_ms": 8707,
+    "audit_sidecar_bytes": 26048,
+    "burden_ratio_projected": 0.38368958088775945,
+    "burden_ratio_signature_payload": 0.13168044787863933,
+    "candidate_signature_count": 176,
+    "debug_sidecar_bytes": 147173,
+    "full_receipt_bytes": 155042,
+    "full_receipt_count": 176,
+    "minimal_required_row_bytes": 74422,
+    "projected_scale_row_bytes": 59488,
+    "signature_payload_bytes": 20416
+  },
+  "candidate_design_id": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2",
+  "compression_version": "stable_delta_signature_v0.2_candidate",
+  "distinguishability_measurements": {
+    "collision_count": 0,
+    "distinct_candidate_signatures": 176,
+    "distinct_full_occurrence_keys": 176,
+    "distinguishability_retention_ratio": 1.0,
+    "false_merge_count": 0,
+    "false_split_count": 0,
+    "occurrences_total": 176
+  },
+  "failures": [],
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "negative_claims": {
+    "does_not_accept_candidate": true,
+    "does_not_authorize_scale_mode": true,
+    "does_not_change_runtime_receipt_emission": true,
+    "does_not_extend_source_surface": true,
+    "does_not_include_audit_pointer_in_signature_payload": true,
+    "does_not_include_case_id_as_primary_identity": true,
+    "does_not_include_cycle_n_as_primary_identity": true,
+    "does_not_include_full_occurrence_key_in_signature_payload": true,
+    "does_not_run_scale_bands": true,
+    "does_not_use_raw_receipt_hash_as_truth_surface": true,
+    "does_not_use_rowid_as_signature_identity": true,
+    "does_not_write_registry_sqlite": true
+  },
+  "pass_gates": {
+    "audit_recoverability": true,
+    "authority_containment": true,
+    "burden_reduction": true,
+    "debug_separation": true,
+    "no_false_merge": true,
+    "no_identity_leak": true,
+    "scale_precondition": true,
+    "source_surface_regression": true,
+    "truth_surface": true
+  },
+  "probe_id": "bcdb3d93",
+  "receipt_id": "484c18a3",
+  "selected_run_ids": [
+    "run_20260620_214806_723967"
+  ],
+  "signature_contract": {
+    "case_id_in_signature_payload": false,
+    "compact_delta_columns_measured_in_debug": [
+      "row_delta",
+      "col_delta",
+      "rank_delta",
+      "support_delta",
+      "distinct_column_types_before",
+      "distinct_column_types_after",
+      "new_column_types_added",
+      "compression_ratio"
+    ],
+    "cycle_n_in_signature_payload": false,
+    "signature_payload_forbidden_fields": [
+      "audit_pointer",
+      "case_id_as_primary_identity",
+      "created_at",
+      "created_utc",
+      "cycle_n_as_primary_identity",
+      "debug_payload",
+      "file_path",
+      "full_occurrence_key",
+      "full_receipt_hash",
+      "observer_notes",
+      "path",
+      "raw_full_receipt_hash",
+      "receipt_hash",
+      "receipt_path",
+      "receipt_rowid",
+      "receipt_sig8",
+      "rowid",
+      "timestamp"
+    ],
+    "signature_payload_required_fields": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after"
+    ]
+  },
+  "source_canonical_surface_probe_id": "07be6e6b",
+  "source_policy_id": "5bc46943",
+  "source_surface_check": {
+    "required_tuple": {
+      "move_id": "move_id",
+      "state_hash_after": "state_sig8_after",
+      "state_hash_before": "state_sig8_before"
+    },
+    "source_surface_regression_failures": [],
+    "surface_probe_patch_version": "alias_patch_state_sig8_before_after_v0",
+    "surface_probe_terminal_decision": "PASS_CANONICAL_TRANSITION_SURFACE_OBSERVER_ONLY"
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_POLICY",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_decision": "NEEDS_MORE_SCALE_AFTER_LOCAL_PASS",
+  "warnings": []
+}
+probe_id=bcdb3d93
+candidate_rows_path=data/stable_delta_signature_candidate_v0_2_rows/bcdb3d93.jsonl
+candidate_receipt_path=data/stable_delta_signature_candidate_v0_2_receipts/bcdb3d93.json
+V02_PROBE_ID=bcdb3d93
+
+ASSERT_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_PROBE
+{
+  "authority_guards": {
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "registry_sqlite_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_band_run_authorized": false,
+    "scale_mode_authorized": false,
+    "source_surface_extension_authorized": false,
+    "stable_delta_candidate_acceptance_authorized": false
+  },
+  "burden_measurements": {
+    "actual_observer_overhead_ms": 8707,
+    "audit_sidecar_bytes": 26048,
+    "burden_ratio_projected": 0.38368958088775945,
+    "burden_ratio_signature_payload": 0.13168044787863933,
+    "candidate_signature_count": 176,
+    "debug_sidecar_bytes": 147173,
+    "full_receipt_bytes": 155042,
+    "full_receipt_count": 176,
+    "minimal_required_row_bytes": 74422,
+    "projected_scale_row_bytes": 59488,
+    "signature_payload_bytes": 20416
+  },
+  "candidate_design_id": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2",
+  "compression_version": "stable_delta_signature_v0.2_candidate",
+  "distinguishability_measurements": {
+    "collision_count": 0,
+    "distinct_candidate_signatures": 176,
+    "distinct_full_occurrence_keys": 176,
+    "distinguishability_retention_ratio": 1.0,
+    "false_merge_count": 0,
+    "false_split_count": 0,
+    "occurrences_total": 176
+  },
+  "failures": [],
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "negative_claims": {
+    "does_not_accept_candidate": true,
+    "does_not_authorize_scale_mode": true,
+    "does_not_change_runtime_receipt_emission": true,
+    "does_not_extend_source_surface": true,
+    "does_not_include_audit_pointer_in_signature_payload": true,
+    "does_not_include_case_id_as_primary_identity": true,
+    "does_not_include_cycle_n_as_primary_identity": true,
+    "does_not_include_full_occurrence_key_in_signature_payload": true,
+    "does_not_run_scale_bands": true,
+    "does_not_use_raw_receipt_hash_as_truth_surface": true,
+    "does_not_use_rowid_as_signature_identity": true,
+    "does_not_write_registry_sqlite": true
+  },
+  "pass_gates": {
+    "audit_recoverability": true,
+    "authority_containment": true,
+    "burden_reduction": true,
+    "debug_separation": true,
+    "no_false_merge": true,
+    "no_identity_leak": true,
+    "scale_precondition": true,
+    "source_surface_regression": true,
+    "truth_surface": true
+  },
+  "probe_id": "bcdb3d93",
+  "receipt_id": "484c18a3",
+  "rows_loaded": 176,
+  "selected_run_ids": [
+    "run_20260620_214806_723967"
+  ],
+  "signature_contract": {
+    "case_id_in_signature_payload": false,
+    "compact_delta_columns_measured_in_debug": [
+      "row_delta",
+      "col_delta",
+      "rank_delta",
+      "support_delta",
+      "distinct_column_types_before",
+      "distinct_column_types_after",
+      "new_column_types_added",
+      "compression_ratio"
+    ],
+    "cycle_n_in_signature_payload": false,
+    "signature_payload_forbidden_fields": [
+      "audit_pointer",
+      "case_id_as_primary_identity",
+      "created_at",
+      "created_utc",
+      "cycle_n_as_primary_identity",
+      "debug_payload",
+      "file_path",
+      "full_occurrence_key",
+      "full_receipt_hash",
+      "observer_notes",
+      "path",
+      "raw_full_receipt_hash",
+      "receipt_hash",
+      "receipt_path",
+      "receipt_rowid",
+      "receipt_sig8",
+      "rowid",
+      "timestamp"
+    ],
+    "signature_payload_required_fields": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after"
+    ]
+  },
+  "source_canonical_surface_probe_id": "07be6e6b",
+  "source_policy_id": "5bc46943",
+  "source_surface_check": {
+    "required_tuple": {
+      "move_id": "move_id",
+      "state_hash_after": "state_sig8_after",
+      "state_hash_before": "state_sig8_before"
+    },
+    "source_surface_regression_failures": [],
+    "surface_probe_patch_version": "alias_patch_state_sig8_before_after_v0",
+    "surface_probe_terminal_decision": "PASS_CANONICAL_TRANSITION_SURFACE_OBSERVER_ONLY"
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_POLICY",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_decision": "NEEDS_MORE_SCALE_AFTER_LOCAL_PASS"
+}
+
+NEGATIVE_CONTROLS_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_PROBE
+{
+  "case": "policy_scale_mode_authority_fail",
+  "expected": "policy_illegal_authority:authorizes_scale_mode",
+  "failures": [
+    "policy_illegal_authority:authorizes_scale_mode:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "policy_raw_hash_authority_fail",
+  "expected": "policy_illegal_authority:authorizes_raw_receipt_hash_truth_surface",
+  "failures": [
+    "policy_illegal_authority:authorizes_raw_receipt_hash_truth_surface:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "policy_cycle_payload_fail",
+  "expected": "cycle_n_policy_allows_payload_unexpectedly",
+  "failures": [
+    "cycle_n_policy_allows_payload_unexpectedly"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "policy_touch_scope_fail",
+  "expected": "touch_scope_wrong",
+  "failures": [
+    "touch_scope_wrong:['scripts/canonical_transition_surface_probe_v0.py']"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "surface_terminal_regression_fail",
+  "expected": "surface_terminal_wrong",
+  "failures": [
+    "surface_terminal_wrong:FAIL_PACKAGING_NOISE_ONLY"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "surface_state_before_regression_fail",
+  "expected": "surface_summary_expected_true:state_hash_before_present",
+  "failures": [
+    "surface_summary_expected_true:state_hash_before_present:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "surface_registry_mutation_fail",
+  "expected": "surface_illegal_authority:registry_sqlite_changed",
+  "failures": [
+    "surface_illegal_authority:registry_sqlite_changed:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "rowid_identity_leak_fail",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+{
+  "case": "receipt_hash_identity_leak_fail",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+{
+  "case": "full_occurrence_key_identity_leak_fail",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+{
+  "case": "audit_pointer_identity_leak_fail",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+{
+  "case": "cycle_identity_leak_fail",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+{
+  "case": "case_identity_leak_fail",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+{
+  "case": "false_merge_detection_direct_control",
+  "expected_fail_condition_detected": true,
+  "gate": "FAIL"
+}
+negative controls ok
+
+STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_PROBE_HEAD_JSON
+{
+  "authority_guards": {
+    "observer_only": true,
+    "raw_receipt_hash_used_as_truth_surface": false,
+    "receipt_compression_authorized": false,
+    "receipt_deletion_authorized": false,
+    "receipt_replacement_authorized": false,
+    "registry_sqlite_changed": false,
+    "runtime_receipt_emission_changed": false,
+    "scale_band_run_authorized": false,
+    "scale_mode_authorized": false,
+    "source_surface_extension_authorized": false,
+    "stable_delta_candidate_acceptance_authorized": false
+  },
+  "burden_measurements": {
+    "actual_observer_overhead_ms": 8707,
+    "audit_sidecar_bytes": 26048,
+    "burden_ratio_projected": 0.38368958088775945,
+    "burden_ratio_signature_payload": 0.13168044787863933,
+    "candidate_signature_count": 176,
+    "debug_sidecar_bytes": 147173,
+    "full_receipt_bytes": 155042,
+    "full_receipt_count": 176,
+    "minimal_required_row_bytes": 74422,
+    "projected_scale_row_bytes": 59488,
+    "signature_payload_bytes": 20416
+  },
+  "candidate_design_id": "STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2",
+  "compression_version": "stable_delta_signature_v0.2_candidate",
+  "distinguishability_measurements": {
+    "collision_count": 0,
+    "distinct_candidate_signatures": 176,
+    "distinct_full_occurrence_keys": 176,
+    "distinguishability_retention_ratio": 1.0,
+    "false_merge_count": 0,
+    "false_split_count": 0,
+    "occurrences_total": 176
+  },
+  "gate": "PASS",
+  "mode": "OUTER_OBSERVER_ONLY",
+  "negative_claims": {
+    "does_not_accept_candidate": true,
+    "does_not_authorize_scale_mode": true,
+    "does_not_change_runtime_receipt_emission": true,
+    "does_not_extend_source_surface": true,
+    "does_not_include_audit_pointer_in_signature_payload": true,
+    "does_not_include_case_id_as_primary_identity": true,
+    "does_not_include_cycle_n_as_primary_identity": true,
+    "does_not_include_full_occurrence_key_in_signature_payload": true,
+    "does_not_run_scale_bands": true,
+    "does_not_use_raw_receipt_hash_as_truth_surface": true,
+    "does_not_use_rowid_as_signature_identity": true,
+    "does_not_write_registry_sqlite": true
+  },
+  "pass_gates": {
+    "audit_recoverability": true,
+    "authority_containment": true,
+    "burden_reduction": true,
+    "debug_separation": true,
+    "no_false_merge": true,
+    "no_identity_leak": true,
+    "scale_precondition": true,
+    "source_surface_regression": true,
+    "truth_surface": true
+  },
+  "probe_id": "bcdb3d93",
+  "receipt_id": "484c18a3",
+  "selected_run_ids": [
+    "run_20260620_214806_723967"
+  ],
+  "signature_contract": {
+    "case_id_in_signature_payload": false,
+    "compact_delta_columns_measured_in_debug": [
+      "row_delta",
+      "col_delta",
+      "rank_delta",
+      "support_delta",
+      "distinct_column_types_before",
+      "distinct_column_types_after",
+      "new_column_types_added",
+      "compression_ratio"
+    ],
+    "cycle_n_in_signature_payload": false,
+    "signature_payload_forbidden_fields": [
+      "audit_pointer",
+      "case_id_as_primary_identity",
+      "created_at",
+      "created_utc",
+      "cycle_n_as_primary_identity",
+      "debug_payload",
+      "file_path",
+      "full_occurrence_key",
+      "full_receipt_hash",
+      "observer_notes",
+      "path",
+      "raw_full_receipt_hash",
+      "receipt_hash",
+      "receipt_path",
+      "receipt_rowid",
+      "receipt_sig8",
+      "rowid",
+      "timestamp"
+    ],
+    "signature_payload_required_fields": [
+      "cv",
+      "state_hash_before",
+      "move_id",
+      "state_hash_after"
+    ]
+  },
+  "source_canonical_surface_probe_id": "07be6e6b",
+  "source_policy_id": "5bc46943",
+  "source_surface_check": {
+    "required_tuple": {
+      "move_id": "move_id",
+      "state_hash_after": "state_sig8_after",
+      "state_hash_before": "state_sig8_before"
+    },
+    "source_surface_regression_failures": [],
+    "surface_probe_patch_version": "alias_patch_state_sig8_before_after_v0",
+    "surface_probe_terminal_decision": "PASS_CANONICAL_TRANSITION_SURFACE_OBSERVER_ONLY"
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_STABLE_DELTA_SIGNATURE_CANDIDATE_V0_2_SCALE_BAND_POLICY",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "terminal_decision": "NEEDS_MORE_SCALE_AFTER_LOCAL_PASS"
+}
+
+VERIFY_TOUCH_SCOPE_ONLY_V02_PROBE_SCRIPT
+tracked touch scope ok
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+
+STATUS_AFTER
+?? data/
+?? scripts/stable_delta_signature_candidate_v0_2_probe.py
+[master e9cb948eb] implement stable delta signature candidate v0.2 probe
+ 1 file changed, 860 insertions(+)
+ create mode 100755 scripts/stable_delta_signature_candidate_v0_2_probe.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

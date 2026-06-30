@@ -1,0 +1,90 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_094912
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_094912.txt
+
+BOOKKEEPING_COMMIT_C8_ACCEPTED_INSTRUMENT_BUILD_PACKET_V0
+
+VERIFY_ACCEPTED_PACKET_ARTIFACTS_PRESENT
+present data/c8_accepted_instrument_build_packet_v0_receipts/c8_accepted_build_packet_receipt_36ac9c56.json
+present data/c8_accepted_instrument_build_packet_v0/accepted_instrument_build_packet_v0.json
+present data/c8_accepted_instrument_build_packet_v0/bounded_instrument_build_contract_v0.json
+present data/c8_accepted_instrument_build_packet_v0/c8_accepted_instrument_build_packet_readout_v0.json
+present data/c8_accepted_instrument_build_packet_v0/c8_accepted_instrument_build_packet_report.json
+present scripts/create_c8_accepted_instrument_build_packet_v0.py
+
+PY_COMPILE_ACCEPTED_PACKET_RUNNER
+
+VERIFY_ACCEPTED_PACKET_RECEIPT
+{
+  "acceptance_gates_false_count": 0,
+  "accepted_build_packet_id": "accepted_instrument_build_packet_2e67943c",
+  "authorized_future_unit": "BUILD_ONE_BOUNDED_LOCAL_TRANSITION_FAMILY_DISCRIMINATOR_V0",
+  "c8_rerun_now": false,
+  "cell1_build_now": false,
+  "commit_gate": "PASS",
+  "failures": [],
+  "instrument_built_now": false,
+  "negative_controls_nonzero_count": 0,
+  "outcome_class": "C8_ACCEPTED_INSTRUMENT_BUILD_PACKET_CREATED",
+  "receipt_id": "c8_accepted_build_packet_receipt_36ac9c56",
+  "status": "TYPED_C8_ACCEPTED_INSTRUMENT_BUILD_PACKET_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_ACCEPTED_INSTRUMENT_BUILD_PACKET_READY",
+    "type": "STOP"
+  },
+  "verification_probe_run_now": false
+}
+
+VERIFY_GIT_IDENTITY
+
+BOUND_ADD_ONLY_ACCEPTED_PACKET_ARTIFACTS
+
+VERIFY_NO_OUT_OF_SCOPE_STAGED_PATHS
+staged_path_count=7
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+accepted_packet_receipts_staged=['data/c8_accepted_instrument_build_packet_v0_receipts/c8_accepted_build_packet_receipt_36ac9c56.json']
+
+BOOKKEEPING_DIFF_STAT
+ .gitignore                                         |   6 +
+ .../accepted_instrument_build_packet_v0.json       |  71 +++
+ .../bounded_instrument_build_contract_v0.json      |  31 ++
+ ...ccepted_instrument_build_packet_readout_v0.json |  17 +
+ ...c8_accepted_instrument_build_packet_report.json |  23 +
+ .../c8_accepted_build_packet_receipt_36ac9c56.json | 134 ++++++
+ ...reate_c8_accepted_instrument_build_packet_v0.py | 505 +++++++++++++++++++++
+ 7 files changed, 787 insertions(+)
+
+BOOKKEEPING_COMMIT
+[master bd2e3fad7] Create C8 accepted instrument build packet
+ 7 files changed, 787 insertions(+)
+ create mode 100644 data/c8_accepted_instrument_build_packet_v0/accepted_instrument_build_packet_v0.json
+ create mode 100644 data/c8_accepted_instrument_build_packet_v0/bounded_instrument_build_contract_v0.json
+ create mode 100644 data/c8_accepted_instrument_build_packet_v0/c8_accepted_instrument_build_packet_readout_v0.json
+ create mode 100644 data/c8_accepted_instrument_build_packet_v0/c8_accepted_instrument_build_packet_report.json
+ create mode 100644 data/c8_accepted_instrument_build_packet_v0_receipts/c8_accepted_build_packet_receipt_36ac9c56.json
+ create mode 100755 scripts/create_c8_accepted_instrument_build_packet_v0.py
+
+BOOKKEEPING_COMMIT_RECEIPT
+commit_sha=bd2e3fad76d84cb8c0dcb0452ee08aa47e50a075
+accepted_packet_receipt=data/c8_accepted_instrument_build_packet_v0_receipts/c8_accepted_build_packet_receipt_36ac9c56.json
+accepted_packet_outcome=C8_ACCEPTED_INSTRUMENT_BUILD_PACKET_CREATED
+accepted_build_packet_id=accepted_instrument_build_packet_2e67943c
+proposal_id=missing_instrument_d56acf49
+instrument_kind=DISCRIMINATOR
+candidate_name=local_transition_family_discriminator_candidate
+authorized_future_unit=BUILD_ONE_BOUNDED_LOCAL_TRANSITION_FAMILY_DISCRIMINATOR_V0
+instrument_built_now=false
+cell1_build_now=false
+verification_probe_run_now=false
+repeat_run_now=false
+c8_rerun_now=false
+terminal_stop_code=STOP_C8_ACCEPTED_INSTRUMENT_BUILD_PACKET_READY
+
+STATUS_AFTER_COMMIT_RELEVANT
+
+BOOKKEEPING_COMMIT_C8_ACCEPTED_INSTRUMENT_BUILD_PACKET_COMPLETE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

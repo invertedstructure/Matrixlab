@@ -1,0 +1,59 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_081742
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_081742.txt
+
+C8_CLEAN_DUPLICATE_RECEIPT_AND_REVIEW_PREP
+
+VERIFY_NEW_RECEIPT_PRESENT
+
+REMOVE_OLD_DUPLICATE_RECEIPT_IF_PRESENT
+rm 'data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_c2c7a900.json'
+
+VERIFY_SINGLE_C8_RECEIPT_STAGED
+c8_receipts_staged=['data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_6e5dafcf.json']
+
+VERIFY_LATEST_C8_RECEIPT
+{
+  "failures": [],
+  "gate": "PASS",
+  "outcome_class": "C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED",
+  "receipt_id": "c8_basic_research_loop_specimen_receipt_6e5dafcf",
+  "run_id": "c8_specimen_16b05ccf",
+  "status": "TYPED_C8_BASIC_RESEARCH_LOOP_SPECIMEN_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_SPECIMEN_MISSING_INSTRUMENT_EXPOSED",
+    "type": "STOP"
+  }
+}
+
+STATUS_AFTER_DUPLICATE_CLEANUP
+M  .gitignore
+A  data/c8_basic_research_loop_specimen_v0/accepted_instrument_build_packet_v0.json
+A  data/c8_basic_research_loop_specimen_v0/bounded_probe_receipt_v0.json
+A  data/c8_basic_research_loop_specimen_v0/bounded_research_probe_packet_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_budget_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_profile_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_readout_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_report.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_rollup_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_basic_research_loop_specimen_transition_trace.json
+A  data/c8_basic_research_loop_specimen_v0/c8_decision_edge_observations_v0.jsonl
+A  data/c8_basic_research_loop_specimen_v0/c8_probe_admissibility_result_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_probe_schema_validation_result_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_repeat_once_packet_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_runtime_step_receipts_v0.jsonl
+A  data/c8_basic_research_loop_specimen_v0/c8_sidecar_events_v0.jsonl
+A  data/c8_basic_research_loop_specimen_v0/c8_specimen_open_decision_packet_v0.json
+A  data/c8_basic_research_loop_specimen_v0/c8_unit_feedback_records_v0.jsonl
+A  data/c8_basic_research_loop_specimen_v0/frontier_surface_contract_v0.json
+A  data/c8_basic_research_loop_specimen_v0/instrument_verification_receipt_v0.json
+A  data/c8_basic_research_loop_specimen_v0/missing_instrument_proposal_v0.json
+A  data/c8_basic_research_loop_specimen_v0/research_transition_classification_v0.json
+A  data/c8_basic_research_loop_specimen_v0_receipts/c8_basic_research_loop_specimen_receipt_6e5dafcf.json
+A  scripts/run_c8_basic_research_loop_specimen_v0.py
+
+C8_DUPLICATE_RECEIPT_CLEANED_READY_FOR_REVIEW
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

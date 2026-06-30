@@ -1,0 +1,490 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260625_022933
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260625_022933.txt
+
+DESIGN_UNIT_FEEDBACK_HARDENING_TARGET_V0
+
+STATUS_BEFORE_RELEVANT
+
+VERIFY_O2_DESIGN_BASIS
+present data/o1_decision_edge_observability_surface_closure_v0_receipts/e9d2dcf5.json
+present data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_reviewed_reference_v0.json
+present data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_reference_freeze_v0.json
+present data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_receipt_chain_v0.json
+present data/o1_decision_edge_observability_surface_closure_v0/o1_decision_edge_observability_surface_boundary_lock_v0.json
+present data/o1_decision_edge_observability_surface_closure_v0/o1_post_closure_o2_design_ready_surface_v0.json
+present data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_classification_v0.json
+present data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_authority_boundary_v0.json
+present data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_rollup_v0.json
+present data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_profile_v0.json
+present data/o1_decision_edge_observability_surface_closure_v0/o1_surface_closure_report.json
+present data/o1_decision_edge_observability_surface_v0/decision_edge_observation_records_v0.jsonl
+present data/o1_decision_edge_observability_surface_v0/decision_edge_observation_rollup_v0.json
+present data/o1_decision_edge_observability_surface_v0/decision_edge_observation_readout_v0.json
+
+PATCH_GITIGNORE
+
+WRITE_O2_TARGET_DESIGN_RUNNER
+
+PY_COMPILE_O2_TARGET_DESIGN
+
+RUN_O2_TARGET_DESIGN
+{
+  "acceptance_gate_results": {
+    "O2_DESIGN_0_O1_CLOSURE_RECEIPT_CONSUMED": true,
+    "O2_DESIGN_10_RETRY_GATE_RULE_FROZEN": true,
+    "O2_DESIGN_11_NONREPAIR_BOUNDARY_LOCKED": true,
+    "O2_DESIGN_12_ACCEPTANCE_GATES_FROZEN": true,
+    "O2_DESIGN_13_TERMINAL_RULES_FROZEN": true,
+    "O2_DESIGN_14_BUILD_UNIT_AUTHORIZED_NEXT": true,
+    "O2_DESIGN_15_NO_FEEDBACK_RECORDS_EMITTED": true,
+    "O2_DESIGN_16_NO_DEMO_RECORDS_EMITTED": true,
+    "O2_DESIGN_17_NO_LIVE_AUDIT_EXECUTED": true,
+    "O2_DESIGN_18_NO_REPAIR_APPLIED": true,
+    "O2_DESIGN_19_NO_RETRY_EXECUTED": true,
+    "O2_DESIGN_1_TARGET_DESIGN_EMITTED": true,
+    "O2_DESIGN_20_NO_TARGET_SELECTED_FOR_BUILD": true,
+    "O2_DESIGN_21_NO_RUNTIME_PATCH": true,
+    "O2_DESIGN_22_NO_SOURCE_MUTATION": true,
+    "O2_DESIGN_23_NO_PRIOR_RECEIPT_MUTATION": true,
+    "O2_DESIGN_24_NO_ARCHITECTURE_CHANGE": true,
+    "O2_DESIGN_25_NO_C5_OPENED": true,
+    "O2_DESIGN_26_NO_HIDDEN_NEXT_COMMAND": true,
+    "O2_DESIGN_27_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "O2_DESIGN_2_OBJECTIVE_CONTRACT_EMITTED": true,
+    "O2_DESIGN_3_STATIC_SCHEMA_AND_PROBE_ONLY_FROZEN": true,
+    "O2_DESIGN_4_LIVE_FEEDBACK_AUDIT_DEFERRED": true,
+    "O2_DESIGN_5_FEEDBACK_AXES_FROZEN": true,
+    "O2_DESIGN_6_QUALITY_ENUM_FROZEN": true,
+    "O2_DESIGN_7_REQUIRED_SCHEMAS_FROZEN": true,
+    "O2_DESIGN_8_DEMO_PROBE_BOUNDARY_FROZEN": true,
+    "O2_DESIGN_9_NEGATIVE_CONTROLS_FROZEN": true
+  },
+  "aggregate_metrics": {
+    "bad_counters_zero": true,
+    "build_mode": "O2_TARGET_DESIGN_ONLY",
+    "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / TARGET_DESIGN",
+    "mode": "DESIGN_ONLY / STATIC_SCHEMA_AND_PROBE_TARGET / NO_FEEDBACK_RECORDS_EMITTED",
+    "reason_codes": [
+      "O2_TARGET_DESIGN_EMITTED",
+      "O1_REVIEWED_REFERENCE_CONSUMED",
+      "STATIC_SCHEMA_AND_PROBE_ONLY_FROZEN_AS_INITIAL_MODE",
+      "LIVE_FEEDBACK_AUDIT_DEFERRED",
+      "FEEDBACK_AXES_FROZEN",
+      "QUALITY_ENUM_FROZEN",
+      "REQUIRED_SCHEMAS_FROZEN",
+      "DEMO_PROBE_BOUNDARY_FROZEN",
+      "NEGATIVE_CONTROLS_FROZEN",
+      "RETRY_GATE_RULE_FROZEN",
+      "NONREPAIR_BOUNDARY_LOCKED",
+      "BUILD_O2_UNIT_FEEDBACK_HARDENING_AUTHORIZED_NEXT",
+      "NO_FEEDBACK_RECORDS_EMITTED_IN_DESIGN_UNIT",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_C5_OPENED"
+    ],
+    "receipt_backed_claim": "The O2 unit feedback hardening target was designed from the closed O1 observability reference. The next authorized unit may build O2 in STATIC_SCHEMA_AND_PROBE_ONLY mode. This design freezes the feedback axes, quality enum, required schemas, demo/probe boundary, negative controls, retry gate rule, terminal rules, and non-repair boundary. It emits no feedback records, applies no repair, executes no retry, selects no target, patches no runtime, mutates no sources, and opens no C5.",
+    "recommended_next_handling": "BUILD_O2_UNIT_FEEDBACK_HARDENING_V0",
+    "schema_version": "o2_target_design_report_v0",
+    "status": "TYPED_O2_UNIT_FEEDBACK_HARDENING_TARGET_DESIGNED_BUILD_READY",
+    "target_unit_id": "observation.unit_feedback_hardening_target_design.v0",
+    "unit_id": "DESIGN_UNIT_FEEDBACK_HARDENING_TARGET_V0"
+  },
+  "build_mode": "O2_TARGET_DESIGN_ONLY",
+  "created_at": "2026-06-25T01:29:33.564903+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / TARGET_DESIGN",
+  "machine_readable_o2_target_design_summary": {
+    "acceptance_gate_count": 28,
+    "architecture_change": false,
+    "authorized_initial_mode": "STATIC_SCHEMA_AND_PROBE_ONLY",
+    "authorized_next_unit": "BUILD_O2_UNIT_FEEDBACK_HARDENING_V0",
+    "bad_counters_zero": true,
+    "c5_opened": false,
+    "demo_probe_boundary_frozen": true,
+    "demo_records_emitted": false,
+    "feedback_axes_frozen": true,
+    "feedback_axis_count": 13,
+    "feedback_records_emitted": false,
+    "latest_file_guessing": false,
+    "live_feedback_audit_deferred": true,
+    "live_feedback_audit_executed": false,
+    "mtime_selection": false,
+    "negative_control_count": 19,
+    "negative_controls_frozen": true,
+    "nonrepair_boundary_locked": true,
+    "o2_build_authorized_next": true,
+    "o2_target_designed": true,
+    "prior_receipt_mutated": false,
+    "quality_class_count": 9,
+    "quality_enum_frozen": true,
+    "reason_codes": [
+      "O2_TARGET_DESIGN_EMITTED",
+      "O1_REVIEWED_REFERENCE_CONSUMED",
+      "STATIC_SCHEMA_AND_PROBE_ONLY_FROZEN_AS_INITIAL_MODE",
+      "LIVE_FEEDBACK_AUDIT_DEFERRED",
+      "FEEDBACK_AXES_FROZEN",
+      "QUALITY_ENUM_FROZEN",
+      "REQUIRED_SCHEMAS_FROZEN",
+      "DEMO_PROBE_BOUNDARY_FROZEN",
+      "NEGATIVE_CONTROLS_FROZEN",
+      "RETRY_GATE_RULE_FROZEN",
+      "NONREPAIR_BOUNDARY_LOCKED",
+      "BUILD_O2_UNIT_FEEDBACK_HARDENING_AUTHORIZED_NEXT",
+      "NO_FEEDBACK_RECORDS_EMITTED_IN_DESIGN_UNIT",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_C5_OPENED"
+    ],
+    "recommended_next": "BUILD_O2_UNIT_FEEDBACK_HARDENING_V0",
+    "repair_applied": false,
+    "required_schemas_frozen": true,
+    "retry_executed": false,
+    "retry_gate_rule_frozen": true,
+    "runtime_patch_applied": false,
+    "source_mutated": false,
+    "status": "TYPED_O2_UNIT_FEEDBACK_HARDENING_TARGET_DESIGNED_BUILD_READY",
+    "target_selected_for_build": false
+  },
+  "mode": "DESIGN_ONLY / STATIC_SCHEMA_AND_PROBE_TARGET / NO_FEEDBACK_RECORDS_EMITTED",
+  "output_artifacts": {
+    "acceptance_gate_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_acceptance_gate_contract_v0.json",
+    "authority_boundary": "data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_authority_boundary_v0.json",
+    "build_unit_authorization": "data/o2_unit_feedback_hardening_target_design_v0/o2_build_unit_authorization_v0.json",
+    "classification": "data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_classification_v0.json",
+    "demo_probe_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_demo_probe_boundary_contract_v0.json",
+    "downstream_decision_table": "data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_downstream_decision_table_v0.json",
+    "feedback_axes_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_feedback_axes_contract_v0.json",
+    "implementation_receipt": "data/o2_unit_feedback_hardening_target_design_v0_receipts/e55e60e1.json",
+    "mode_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_initial_mode_contract_v0.json",
+    "negative_control_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_negative_control_contract_v0.json",
+    "nonrepair_boundary": "data/o2_unit_feedback_hardening_target_design_v0/o2_nonrepair_nonauthority_boundary_v0.json",
+    "objective_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_objective_contract_v0.json",
+    "profile": "data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_profile_v0.json",
+    "quality_enum_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_feedback_quality_enum_contract_v0.json",
+    "report": "data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_report.json",
+    "retry_gate_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_retry_gate_contract_v0.json",
+    "rollup": "data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_rollup_v0.json",
+    "schema_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_required_schema_contract_v0.json",
+    "source_scope_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_source_scope_contract_v0.json",
+    "target_design": "data/o2_unit_feedback_hardening_target_design_v0/o2_unit_feedback_hardening_target_design_v0.json",
+    "terminal_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_terminal_contract_v0.json",
+    "transition_trace": "data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_transition_trace.json"
+  },
+  "receipt_id": "e55e60e1",
+  "receipt_type": "TYPED_O2_UNIT_FEEDBACK_HARDENING_TARGET_DESIGN_RECEIPT",
+  "schema_version": "o2_target_design_receipt_v0",
+  "source_o1_closure_receipt_id": "e9d2dcf5",
+  "target_unit_id": "observation.unit_feedback_hardening_target_design.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_UNIT_FEEDBACK_HARDENING_TARGET_DESIGNED_BUILD_READY",
+    "type": "STOP"
+  },
+  "unit_id": "DESIGN_UNIT_FEEDBACK_HARDENING_TARGET_V0",
+  "warnings": []
+}
+o2_target_design_receipt_id=e55e60e1
+o2_target_design_receipt_path=data/o2_unit_feedback_hardening_target_design_v0_receipts/e55e60e1.json
+o2_target_design_path=data/o2_unit_feedback_hardening_target_design_v0/o2_unit_feedback_hardening_target_design_v0.json
+o2_objective_contract_path=data/o2_unit_feedback_hardening_target_design_v0/o2_objective_contract_v0.json
+o2_mode_contract_path=data/o2_unit_feedback_hardening_target_design_v0/o2_initial_mode_contract_v0.json
+o2_source_scope_contract_path=data/o2_unit_feedback_hardening_target_design_v0/o2_source_scope_contract_v0.json
+o2_feedback_axes_contract_path=data/o2_unit_feedback_hardening_target_design_v0/o2_feedback_axes_contract_v0.json
+o2_quality_enum_contract_path=data/o2_unit_feedback_hardening_target_design_v0/o2_feedback_quality_enum_contract_v0.json
+o2_demo_probe_contract_path=data/o2_unit_feedback_hardening_target_design_v0/o2_demo_probe_boundary_contract_v0.json
+o2_nonrepair_boundary_path=data/o2_unit_feedback_hardening_target_design_v0/o2_nonrepair_nonauthority_boundary_v0.json
+o2_build_unit_authorization_path=data/o2_unit_feedback_hardening_target_design_v0/o2_build_unit_authorization_v0.json
+o2_target_design_rollup_path=data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_rollup_v0.json
+o2_target_design_profile_path=data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_profile_v0.json
+
+ASSERT_O2_TARGET_DESIGN
+{
+  "authorized_initial_mode": "STATIC_SCHEMA_AND_PROBE_ONLY",
+  "authorized_next_unit": "BUILD_O2_UNIT_FEEDBACK_HARDENING_V0",
+  "bad_counters_zero": true,
+  "failures": [],
+  "feedback_axis_count": 13,
+  "gate": "PASS",
+  "live_feedback_audit_deferred": true,
+  "o2_target_designed": true,
+  "quality_class_count": 9,
+  "receipt_id": "e55e60e1",
+  "recommended_next": "BUILD_O2_UNIT_FEEDBACK_HARDENING_V0",
+  "status": "TYPED_O2_UNIT_FEEDBACK_HARDENING_TARGET_DESIGNED_BUILD_READY",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_UNIT_FEEDBACK_HARDENING_TARGET_DESIGNED_BUILD_READY",
+    "type": "STOP"
+  }
+}
+
+VERIFY_O2_TARGET_DESIGN_ONLY_NO_FEEDBACK_NO_REPAIR_NO_RETRY_NO_TARGET_NO_PATCH_NO_C5
+allowed_status_lines_checked
+O2 target designed; static schema/probe build authorized; no feedback records/no repair/no retry/no target/no patch/no source mutation/no C5
+
+SHOW_O2_TARGET_DESIGN_NEXT
+status=TYPED_O2_UNIT_FEEDBACK_HARDENING_TARGET_DESIGNED_BUILD_READY
+reason_codes=O2_TARGET_DESIGN_EMITTED,O1_REVIEWED_REFERENCE_CONSUMED,STATIC_SCHEMA_AND_PROBE_ONLY_FROZEN_AS_INITIAL_MODE,LIVE_FEEDBACK_AUDIT_DEFERRED,FEEDBACK_AXES_FROZEN,QUALITY_ENUM_FROZEN,REQUIRED_SCHEMAS_FROZEN,DEMO_PROBE_BOUNDARY_FROZEN,NEGATIVE_CONTROLS_FROZEN,RETRY_GATE_RULE_FROZEN,NONREPAIR_BOUNDARY_LOCKED,BUILD_O2_UNIT_FEEDBACK_HARDENING_AUTHORIZED_NEXT,NO_FEEDBACK_RECORDS_EMITTED_IN_DESIGN_UNIT,NO_REPAIR_APPLIED,NO_RETRY_EXECUTED,NO_TARGET_SELECTED_FOR_BUILD,NO_RUNTIME_PATCH_APPLIED,NO_C5_OPENED
+o2_target_designed=True
+o2_build_authorized_next=True
+authorized_next_unit=BUILD_O2_UNIT_FEEDBACK_HARDENING_V0
+authorized_initial_mode=STATIC_SCHEMA_AND_PROBE_ONLY
+live_feedback_audit_deferred=True
+feedback_axes_frozen=True
+quality_enum_frozen=True
+required_schemas_frozen=True
+demo_probe_boundary_frozen=True
+negative_controls_frozen=True
+retry_gate_rule_frozen=True
+nonrepair_boundary_locked=True
+feedback_axis_count=13
+quality_class_count=9
+acceptance_gate_count=28
+negative_control_count=19
+feedback_records_emitted=False
+demo_records_emitted=False
+live_feedback_audit_executed=False
+repair_applied=False
+retry_executed=False
+target_selected_for_build=False
+runtime_patch_applied=False
+source_mutated=False
+prior_receipt_mutated=False
+architecture_change=False
+c5_opened=False
+latest_file_guessing=False
+mtime_selection=False
+bad_counters_zero=True
+recommended_next=BUILD_O2_UNIT_FEEDBACK_HARDENING_V0
+
+DIFF_STAT_RELEVANT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER_RELEVANT
+?? scripts/design_unit_feedback_hardening_target_v0.py
+
+PACKAGE_O2_TARGET_DESIGN_ARTIFACTS
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_unit_feedback_hardening_target_design_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_objective_contract_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_initial_mode_contract_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_source_scope_contract_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_feedback_axes_contract_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_feedback_quality_enum_contract_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_required_schema_contract_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_demo_probe_boundary_contract_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_negative_control_contract_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_retry_gate_contract_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_nonrepair_nonauthority_boundary_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_acceptance_gate_contract_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_terminal_contract_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_build_unit_authorization_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_downstream_decision_table_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_classification_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_authority_boundary_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_rollup_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_profile_v0.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_report.json
+packaged data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_transition_trace.json
+[master 50fd2fdd6] design O2 unit feedback hardening target
+ 24 files changed, 1912 insertions(+)
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_acceptance_gate_contract_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_build_unit_authorization_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_demo_probe_boundary_contract_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_feedback_axes_contract_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_feedback_quality_enum_contract_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_initial_mode_contract_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_negative_control_contract_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_nonrepair_nonauthority_boundary_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_objective_contract_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_required_schema_contract_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_retry_gate_contract_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_source_scope_contract_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_authority_boundary_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_classification_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_downstream_decision_table_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_profile_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_report.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_rollup_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_transition_trace.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_terminal_contract_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0/o2_unit_feedback_hardening_target_design_v0.json
+ create mode 100644 data/o2_unit_feedback_hardening_target_design_v0_receipts/e55e60e1.json
+ create mode 100755 scripts/design_unit_feedback_hardening_target_v0.py
+
+COMMIT_DONE_RELEVANT
+
+O2_TARGET_DESIGN_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+o2_target_design_receipt_id=e55e60e1
+o2_target_design_receipt_path=data/o2_unit_feedback_hardening_target_design_v0_receipts/e55e60e1.json
+{
+  "acceptance_gate_results": {
+    "O2_DESIGN_0_O1_CLOSURE_RECEIPT_CONSUMED": true,
+    "O2_DESIGN_10_RETRY_GATE_RULE_FROZEN": true,
+    "O2_DESIGN_11_NONREPAIR_BOUNDARY_LOCKED": true,
+    "O2_DESIGN_12_ACCEPTANCE_GATES_FROZEN": true,
+    "O2_DESIGN_13_TERMINAL_RULES_FROZEN": true,
+    "O2_DESIGN_14_BUILD_UNIT_AUTHORIZED_NEXT": true,
+    "O2_DESIGN_15_NO_FEEDBACK_RECORDS_EMITTED": true,
+    "O2_DESIGN_16_NO_DEMO_RECORDS_EMITTED": true,
+    "O2_DESIGN_17_NO_LIVE_AUDIT_EXECUTED": true,
+    "O2_DESIGN_18_NO_REPAIR_APPLIED": true,
+    "O2_DESIGN_19_NO_RETRY_EXECUTED": true,
+    "O2_DESIGN_1_TARGET_DESIGN_EMITTED": true,
+    "O2_DESIGN_20_NO_TARGET_SELECTED_FOR_BUILD": true,
+    "O2_DESIGN_21_NO_RUNTIME_PATCH": true,
+    "O2_DESIGN_22_NO_SOURCE_MUTATION": true,
+    "O2_DESIGN_23_NO_PRIOR_RECEIPT_MUTATION": true,
+    "O2_DESIGN_24_NO_ARCHITECTURE_CHANGE": true,
+    "O2_DESIGN_25_NO_C5_OPENED": true,
+    "O2_DESIGN_26_NO_HIDDEN_NEXT_COMMAND": true,
+    "O2_DESIGN_27_ROLLUP_PROFILE_REPORT_TRACE_EMITTED": true,
+    "O2_DESIGN_2_OBJECTIVE_CONTRACT_EMITTED": true,
+    "O2_DESIGN_3_STATIC_SCHEMA_AND_PROBE_ONLY_FROZEN": true,
+    "O2_DESIGN_4_LIVE_FEEDBACK_AUDIT_DEFERRED": true,
+    "O2_DESIGN_5_FEEDBACK_AXES_FROZEN": true,
+    "O2_DESIGN_6_QUALITY_ENUM_FROZEN": true,
+    "O2_DESIGN_7_REQUIRED_SCHEMAS_FROZEN": true,
+    "O2_DESIGN_8_DEMO_PROBE_BOUNDARY_FROZEN": true,
+    "O2_DESIGN_9_NEGATIVE_CONTROLS_FROZEN": true
+  },
+  "aggregate_metrics": {
+    "bad_counters_zero": true,
+    "build_mode": "O2_TARGET_DESIGN_ONLY",
+    "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / TARGET_DESIGN",
+    "mode": "DESIGN_ONLY / STATIC_SCHEMA_AND_PROBE_TARGET / NO_FEEDBACK_RECORDS_EMITTED",
+    "reason_codes": [
+      "O2_TARGET_DESIGN_EMITTED",
+      "O1_REVIEWED_REFERENCE_CONSUMED",
+      "STATIC_SCHEMA_AND_PROBE_ONLY_FROZEN_AS_INITIAL_MODE",
+      "LIVE_FEEDBACK_AUDIT_DEFERRED",
+      "FEEDBACK_AXES_FROZEN",
+      "QUALITY_ENUM_FROZEN",
+      "REQUIRED_SCHEMAS_FROZEN",
+      "DEMO_PROBE_BOUNDARY_FROZEN",
+      "NEGATIVE_CONTROLS_FROZEN",
+      "RETRY_GATE_RULE_FROZEN",
+      "NONREPAIR_BOUNDARY_LOCKED",
+      "BUILD_O2_UNIT_FEEDBACK_HARDENING_AUTHORIZED_NEXT",
+      "NO_FEEDBACK_RECORDS_EMITTED_IN_DESIGN_UNIT",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_C5_OPENED"
+    ],
+    "receipt_backed_claim": "The O2 unit feedback hardening target was designed from the closed O1 observability reference. The next authorized unit may build O2 in STATIC_SCHEMA_AND_PROBE_ONLY mode. This design freezes the feedback axes, quality enum, required schemas, demo/probe boundary, negative controls, retry gate rule, terminal rules, and non-repair boundary. It emits no feedback records, applies no repair, executes no retry, selects no target, patches no runtime, mutates no sources, and opens no C5.",
+    "recommended_next_handling": "BUILD_O2_UNIT_FEEDBACK_HARDENING_V0",
+    "schema_version": "o2_target_design_report_v0",
+    "status": "TYPED_O2_UNIT_FEEDBACK_HARDENING_TARGET_DESIGNED_BUILD_READY",
+    "target_unit_id": "observation.unit_feedback_hardening_target_design.v0",
+    "unit_id": "DESIGN_UNIT_FEEDBACK_HARDENING_TARGET_V0"
+  },
+  "build_mode": "O2_TARGET_DESIGN_ONLY",
+  "created_at": "2026-06-25T01:29:33.564903+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "layer": "OBSERVATION_HARDENING / FAILURE_DIAGNOSTIC_QUALITY / TARGET_DESIGN",
+  "machine_readable_o2_target_design_summary": {
+    "acceptance_gate_count": 28,
+    "architecture_change": false,
+    "authorized_initial_mode": "STATIC_SCHEMA_AND_PROBE_ONLY",
+    "authorized_next_unit": "BUILD_O2_UNIT_FEEDBACK_HARDENING_V0",
+    "bad_counters_zero": true,
+    "c5_opened": false,
+    "demo_probe_boundary_frozen": true,
+    "demo_records_emitted": false,
+    "feedback_axes_frozen": true,
+    "feedback_axis_count": 13,
+    "feedback_records_emitted": false,
+    "latest_file_guessing": false,
+    "live_feedback_audit_deferred": true,
+    "live_feedback_audit_executed": false,
+    "mtime_selection": false,
+    "negative_control_count": 19,
+    "negative_controls_frozen": true,
+    "nonrepair_boundary_locked": true,
+    "o2_build_authorized_next": true,
+    "o2_target_designed": true,
+    "prior_receipt_mutated": false,
+    "quality_class_count": 9,
+    "quality_enum_frozen": true,
+    "reason_codes": [
+      "O2_TARGET_DESIGN_EMITTED",
+      "O1_REVIEWED_REFERENCE_CONSUMED",
+      "STATIC_SCHEMA_AND_PROBE_ONLY_FROZEN_AS_INITIAL_MODE",
+      "LIVE_FEEDBACK_AUDIT_DEFERRED",
+      "FEEDBACK_AXES_FROZEN",
+      "QUALITY_ENUM_FROZEN",
+      "REQUIRED_SCHEMAS_FROZEN",
+      "DEMO_PROBE_BOUNDARY_FROZEN",
+      "NEGATIVE_CONTROLS_FROZEN",
+      "RETRY_GATE_RULE_FROZEN",
+      "NONREPAIR_BOUNDARY_LOCKED",
+      "BUILD_O2_UNIT_FEEDBACK_HARDENING_AUTHORIZED_NEXT",
+      "NO_FEEDBACK_RECORDS_EMITTED_IN_DESIGN_UNIT",
+      "NO_REPAIR_APPLIED",
+      "NO_RETRY_EXECUTED",
+      "NO_TARGET_SELECTED_FOR_BUILD",
+      "NO_RUNTIME_PATCH_APPLIED",
+      "NO_C5_OPENED"
+    ],
+    "recommended_next": "BUILD_O2_UNIT_FEEDBACK_HARDENING_V0",
+    "repair_applied": false,
+    "required_schemas_frozen": true,
+    "retry_executed": false,
+    "retry_gate_rule_frozen": true,
+    "runtime_patch_applied": false,
+    "source_mutated": false,
+    "status": "TYPED_O2_UNIT_FEEDBACK_HARDENING_TARGET_DESIGNED_BUILD_READY",
+    "target_selected_for_build": false
+  },
+  "mode": "DESIGN_ONLY / STATIC_SCHEMA_AND_PROBE_TARGET / NO_FEEDBACK_RECORDS_EMITTED",
+  "output_artifacts": {
+    "acceptance_gate_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_acceptance_gate_contract_v0.json",
+    "authority_boundary": "data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_authority_boundary_v0.json",
+    "build_unit_authorization": "data/o2_unit_feedback_hardening_target_design_v0/o2_build_unit_authorization_v0.json",
+    "classification": "data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_classification_v0.json",
+    "demo_probe_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_demo_probe_boundary_contract_v0.json",
+    "downstream_decision_table": "data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_downstream_decision_table_v0.json",
+    "feedback_axes_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_feedback_axes_contract_v0.json",
+    "implementation_receipt": "data/o2_unit_feedback_hardening_target_design_v0_receipts/e55e60e1.json",
+    "mode_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_initial_mode_contract_v0.json",
+    "negative_control_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_negative_control_contract_v0.json",
+    "nonrepair_boundary": "data/o2_unit_feedback_hardening_target_design_v0/o2_nonrepair_nonauthority_boundary_v0.json",
+    "objective_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_objective_contract_v0.json",
+    "profile": "data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_profile_v0.json",
+    "quality_enum_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_feedback_quality_enum_contract_v0.json",
+    "report": "data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_report.json",
+    "retry_gate_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_retry_gate_contract_v0.json",
+    "rollup": "data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_rollup_v0.json",
+    "schema_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_required_schema_contract_v0.json",
+    "source_scope_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_source_scope_contract_v0.json",
+    "target_design": "data/o2_unit_feedback_hardening_target_design_v0/o2_unit_feedback_hardening_target_design_v0.json",
+    "terminal_contract": "data/o2_unit_feedback_hardening_target_design_v0/o2_terminal_contract_v0.json",
+    "transition_trace": "data/o2_unit_feedback_hardening_target_design_v0/o2_target_design_transition_trace.json"
+  },
+  "receipt_id": "e55e60e1",
+  "receipt_type": "TYPED_O2_UNIT_FEEDBACK_HARDENING_TARGET_DESIGN_RECEIPT",
+  "schema_version": "o2_target_design_receipt_v0",
+  "source_o1_closure_receipt_id": "e9d2dcf5",
+  "target_unit_id": "observation.unit_feedback_hardening_target_design.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_TYPED_O2_UNIT_FEEDBACK_HARDENING_TARGET_DESIGNED_BUILD_READY",
+    "type": "STOP"
+  },
+  "unit_id": "DESIGN_UNIT_FEEDBACK_HARDENING_TARGET_V0",
+  "warnings": []
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

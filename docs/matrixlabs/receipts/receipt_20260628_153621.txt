@@ -1,0 +1,210 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260628_153621
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260628_153621.txt
+
+ACCEPT_C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_FOR_EXECUTION_AFTER_REENTRY_V0
+
+VERIFY_RUNTIME_ADOPTION_BOUNDED_PROBE_PREP_SOURCES_PRESENT
+present data/c8_runtime_adoption_surface_bounded_probe_prep_after_reentry_v0_receipts/c8_runtime_adoption_bounded_probe_prep_receipt_0fc181c6.json
+present data/c8_runtime_adoption_surface_bounded_probe_prep_after_reentry_v0/c8_runtime_adoption_surface_bounded_probe_spec_v0.json
+present data/c8_runtime_adoption_surface_bounded_probe_prep_after_reentry_v0/c8_runtime_adoption_surface_bounded_probe_prep_packet_v0.json
+present data/c8_runtime_adoption_surface_bounded_probe_prep_after_reentry_v0/c8_runtime_adoption_surface_bounded_probe_prep_boundary_audit_v0.json
+present data/c8_runtime_adoption_surface_bounded_probe_prep_after_reentry_v0/c8_runtime_adoption_surface_bounded_probe_prep_report.json
+
+VERIFY_REQUIRED_COMMIT_PRESENT
+commit_present=b42f07945bf30c937d75c73a22f4056291d7c9aa
+
+PATCH_GITIGNORE
+
+WRITE_RUNTIME_ADOPTION_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_RUNNER
+
+PY_COMPILE_RUNTIME_ADOPTION_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_RUNNER
+
+RUN_RUNTIME_ADOPTION_BOUNDED_PROBE_EXECUTION_ACCEPTANCE
+{
+  "created_at": "2026-06-28T14:36:22.110729+00:00",
+  "failures": [],
+  "forbidden_counters": {
+    "c8_rerun_count": 0,
+    "cell1_build_count": 0,
+    "frontier_solved_claim_count": 0,
+    "general_cell1_authority_count": 0,
+    "global_solution_claim_count": 0,
+    "hidden_next_command_count": 0,
+    "instrument_build_count": 0,
+    "missing_instrument_proposal_count": 0,
+    "probe_executed_count": 0,
+    "research_mode_opened_count": 0,
+    "reusable_schema_authorized_count": 0,
+    "source_artifact_mutation_count": 0,
+    "verification_probe_count": 0
+  },
+  "gate": "PASS",
+  "gate_results": {
+    "EXECUTION_ACCEPTANCE_0_SOURCE_PREP_RECEIPT_PASS": true,
+    "EXECUTION_ACCEPTANCE_1_PROBE_PREP_READY_FOR_REVIEW": true,
+    "EXECUTION_ACCEPTANCE_2_HUMAN_DECISION_AVAILABLE": true,
+    "EXECUTION_ACCEPTANCE_3_EXACTLY_ONE_EXECUTION_AUTHORIZED": true,
+    "EXECUTION_ACCEPTANCE_4_EXECUTION_NOT_RUN_NOW": true,
+    "EXECUTION_ACCEPTANCE_5_NO_BUILD_RERUN_SCHEMA": true,
+    "EXECUTION_ACCEPTANCE_6_NO_GLOBAL_OR_FRONTIER_CLAIM": true,
+    "EXECUTION_ACCEPTANCE_7_SOURCE_ARTIFACTS_IMMUTABLE": true,
+    "EXECUTION_ACCEPTANCE_8_FORBIDDEN_COUNTERS_ZERO": true,
+    "EXECUTION_ACCEPTANCE_9_RESULT_REQUIRES_REVIEW": true
+  },
+  "machine_readable_execution_acceptance_summary": {
+    "authorized_future_probe_execution_count": 1,
+    "authorized_future_unit": "EXECUTE_C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_AFTER_REENTRY_V0",
+    "authorized_future_unit_count": 1,
+    "bounded_probe_execution_authorized": true,
+    "c8_rerun_now": false,
+    "cell1_built_now": false,
+    "forbidden_counters_zero": true,
+    "frontier_solved_claim": false,
+    "general_cell1_authority": false,
+    "global_solution_claim": false,
+    "human_decision": "ACCEPT_FOR_BOUNDED_PROBE_EXECUTION",
+    "instrument_built_now": false,
+    "missing_instrument_proposal_created_now": false,
+    "next_command_goal": null,
+    "probe_executed_now": false,
+    "probe_id": "c8_runtime_adoption_surface_bounded_probe_after_reentry_v0",
+    "probe_kind": "RUNTIME_ADOPTION_BOUNDARY_PROBE",
+    "probe_label": "C8_RUNTIME_ADOPTION_BOUNDED_PROBE_AFTER_REENTRY",
+    "probe_question": "What is the smallest controlled runtime-adoption probe that can expose typed halts, receipt mismatches, projection bugs, missing moves, or gate failures from the committed C8 chain, while stopping before probe execution authority, runtime build, C8 rerun, or reusable schema promotion?",
+    "recommended_review_unit": "REVIEW_C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_AFTER_REENTRY_V0",
+    "requires_review": true,
+    "research_mode_opened": false,
+    "reusable_schema_authorized": false,
+    "runtime_adoption_bounded_probe_execution_acceptance_complete": true,
+    "selected_surface_id": "c8_successor_surface_runtime_adoption_after_reentry_v0",
+    "selected_surface_kind": "RUNTIME_ADOPTION_SURFACE",
+    "selected_surface_label": "C8_RUNTIME_ADOPTION_AFTER_REUSE_AUTHORITY_CLOSURE_SURFACE",
+    "source_artifacts_mutated": false,
+    "source_prep_boundary_id": "c8_runtime_adoption_bounded_probe_prep_boundary_fe200a33",
+    "source_prep_packet_id": "c8_runtime_adoption_bounded_probe_prep_packet_23020f7d",
+    "source_prep_receipt_id": "c8_runtime_adoption_bounded_probe_prep_receipt_0fc181c6",
+    "source_probe_spec_id": "c8_runtime_adoption_bounded_probe_spec_d39f5710",
+    "verification_probe_run_now": false
+  },
+  "milestone": "C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_ACCEPTED_FOR_ONE_EXECUTION_AFTER_REENTRY",
+  "outcome_class": "C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_ACCEPTED_FOR_ONE_BOUNDED_EXECUTION_ONLY",
+  "output_artifacts": {
+    "boundary_audit": "data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_acceptance_boundary_audit_v0.json",
+    "execution_acceptance_decision": "data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_acceptance_decision_v0.json",
+    "execution_acceptance_packet": "data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_acceptance_packet_v0.json",
+    "execution_authority": "data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_authority_v0.json",
+    "readout": "data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_acceptance_readout_v0.json",
+    "receipt": "data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0_receipts/c8_runtime_adoption_bounded_probe_execution_acceptance_receipt_ab5b97de.json",
+    "report": "data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_acceptance_report.json"
+  },
+  "receipt_id": "c8_runtime_adoption_bounded_probe_execution_acceptance_receipt_ab5b97de",
+  "receipt_type": "TYPED_C8_RUNTIME_ADOPTION_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_RECEIPT",
+  "schema_version": "c8_runtime_adoption_bounded_probe_execution_acceptance_receipt_v0",
+  "source_artifact_immutability": {
+    "source_artifacts_mutated": false,
+    "source_hashes_after": {
+      "prep_boundary": "facc343f7e3859f062024eacfde5a1468e5d7977014aa0878b82d3f935e368c0",
+      "prep_packet": "9d2a50bbf89fdff8ccdf5aadf158f9b2bd8aa5246d3102ad8fda2b6af4329eed",
+      "prep_receipt": "6b02230eda3f1c11868ac6276195917b85201a5d441834f607744fd1fde40e7a",
+      "prep_report": "8cb9f7a9c4d976253b36a6d19c873d7cc61f27421bb95ecb04ec5bd0eecd6b6d",
+      "probe_spec": "a2db8ace1aa2253b49b6876613486b2536cffac925b2b229fd78aea960139421"
+    },
+    "source_hashes_before": {
+      "prep_boundary": "facc343f7e3859f062024eacfde5a1468e5d7977014aa0878b82d3f935e368c0",
+      "prep_packet": "9d2a50bbf89fdff8ccdf5aadf158f9b2bd8aa5246d3102ad8fda2b6af4329eed",
+      "prep_receipt": "6b02230eda3f1c11868ac6276195917b85201a5d441834f607744fd1fde40e7a",
+      "prep_report": "8cb9f7a9c4d976253b36a6d19c873d7cc61f27421bb95ecb04ec5bd0eecd6b6d",
+      "probe_spec": "a2db8ace1aa2253b49b6876613486b2536cffac925b2b229fd78aea960139421"
+    }
+  },
+  "status": "TYPED_C8_RUNTIME_ADOPTION_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_PASS",
+  "target_unit_id": "research.c8.runtime_adoption_surface.bounded_probe.accept_for_execution.after_reentry.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_EXECUTION_ACCEPTANCE_READY_FOR_REVIEW",
+    "type": "STOP"
+  },
+  "unit_id": "ACCEPT_C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_FOR_EXECUTION_AFTER_REENTRY_V0",
+  "warnings": []
+}
+runtime_adoption_bounded_probe_execution_acceptance_receipt_id=c8_runtime_adoption_bounded_probe_execution_acceptance_receipt_ab5b97de
+runtime_adoption_bounded_probe_execution_acceptance_receipt_path=data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0_receipts/c8_runtime_adoption_bounded_probe_execution_acceptance_receipt_ab5b97de.json
+runtime_adoption_bounded_probe_execution_acceptance_packet_path=data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_acceptance_packet_v0.json
+runtime_adoption_bounded_probe_execution_acceptance_decision_path=data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_acceptance_decision_v0.json
+runtime_adoption_bounded_probe_execution_authority_path=data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_authority_v0.json
+runtime_adoption_bounded_probe_execution_acceptance_boundary_path=data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_acceptance_boundary_audit_v0.json
+selected_surface_id=c8_successor_surface_runtime_adoption_after_reentry_v0
+selected_surface_kind=RUNTIME_ADOPTION_SURFACE
+probe_id=c8_runtime_adoption_surface_bounded_probe_after_reentry_v0
+probe_kind=RUNTIME_ADOPTION_BOUNDARY_PROBE
+bounded_probe_execution_authorized=true
+authorized_future_unit=EXECUTE_C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_AFTER_REENTRY_V0
+authorized_future_unit_count=1
+authorized_future_probe_execution_count=1
+probe_executed_now=false
+instrument_built_now=false
+c8_rerun_now=false
+reusable_schema_authorized=false
+recommended_review_unit=REVIEW_C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_AFTER_REENTRY_V0
+terminal_stop_code=STOP_C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_EXECUTION_ACCEPTANCE_READY_FOR_REVIEW
+
+ASSERT_RUNTIME_ADOPTION_BOUNDED_PROBE_EXECUTION_ACCEPTANCE
+{
+  "authorized_future_probe_execution_count": 1,
+  "authorized_future_unit": "EXECUTE_C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_AFTER_REENTRY_V0",
+  "authorized_future_unit_count": 1,
+  "bounded_probe_execution_authorized": true,
+  "c8_rerun_now": false,
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "gate_results_false_count": 0,
+  "human_decision": "ACCEPT_FOR_BOUNDED_PROBE_EXECUTION",
+  "instrument_built_now": false,
+  "outcome_class": "C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_ACCEPTED_FOR_ONE_BOUNDED_EXECUTION_ONLY",
+  "probe_executed_now": false,
+  "probe_id": "c8_runtime_adoption_surface_bounded_probe_after_reentry_v0",
+  "probe_kind": "RUNTIME_ADOPTION_BOUNDARY_PROBE",
+  "receipt_id": "c8_runtime_adoption_bounded_probe_execution_acceptance_receipt_ab5b97de",
+  "recommended_review_unit": "REVIEW_C8_RUNTIME_ADOPTION_SURFACE_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_AFTER_REENTRY_V0",
+  "reusable_schema_authorized": false,
+  "runtime_adoption_bounded_probe_execution_acceptance_gate": "PASS",
+  "selected_surface_id": "c8_successor_surface_runtime_adoption_after_reentry_v0",
+  "selected_surface_kind": "RUNTIME_ADOPTION_SURFACE",
+  "status": "TYPED_C8_RUNTIME_ADOPTION_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_EXECUTION_ACCEPTANCE_READY_FOR_REVIEW",
+    "type": "STOP"
+  }
+}
+
+FORCE_ADD_RUNTIME_ADOPTION_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_ARTIFACTS
+
+DIFF_STAT_RELEVANT
+ .gitignore                                         |   6 +
+ ...obe_execution_acceptance_boundary_audit_v0.json |  43 ++
+ ...ded_probe_execution_acceptance_decision_v0.json |  33 ++
+ ...unded_probe_execution_acceptance_packet_v0.json |  37 ++
+ ...nded_probe_execution_acceptance_readout_v0.json |  22 +
+ ..._bounded_probe_execution_acceptance_report.json |  35 ++
+ ...ption_bounded_probe_execution_authority_v0.json |  38 ++
+ ...robe_execution_acceptance_receipt_ab5b97de.json | 107 ++++
+ ...bounded_probe_for_execution_after_reentry_v0.py | 568 +++++++++++++++++++++
+ 9 files changed, 889 insertions(+)
+
+STATUS_AFTER_RELEVANT
+M  .gitignore
+A  data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_acceptance_boundary_audit_v0.json
+A  data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_acceptance_decision_v0.json
+A  data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_acceptance_packet_v0.json
+A  data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_acceptance_readout_v0.json
+A  data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_acceptance_report.json
+A  data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0/c8_runtime_adoption_bounded_probe_execution_authority_v0.json
+A  data/c8_runtime_adoption_bounded_probe_execution_acceptance_after_reentry_v0_receipts/c8_runtime_adoption_bounded_probe_execution_acceptance_receipt_ab5b97de.json
+A  scripts/accept_c8_runtime_adoption_bounded_probe_for_execution_after_reentry_v0.py
+
+C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_EXECUTION_ACCEPTANCE_AFTER_REENTRY_READY_FOR_REVIEW
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

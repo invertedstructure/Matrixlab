@@ -1,0 +1,1039 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260624_163013
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260624_163013.txt
+
+REPAIR_AND_RUN_CELL1_SCHEMA_CONSUMPTION_TEST_FROM_C4_HANDOFF_V0
+
+STATUS_BEFORE
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+?? scripts/run_cell1_schema_consumption_test_from_c4_handoff_v0.py
+
+VERIFY_REPAIR_REQUIRED_BASIS
+present scripts/run_cell1_schema_consumption_test_from_c4_handoff_v0.py
+present data/c4_consume_one_accepted_proposal_packet_v0_receipts/c56792b7.json
+present data/c4_consume_one_accepted_proposal_packet_v0/cell1_intake_packet_v0.json
+present data/c4_consume_one_accepted_proposal_packet_v0/cell1_handoff_packet_v0.json
+present data/c4_consume_one_accepted_proposal_packet_v0/no_runtime_patch_plan_v0.json
+present data/c4_consume_one_accepted_proposal_packet_v0/schema_consumption_probe_record_v0.json
+present data/c4_consume_one_accepted_proposal_packet_v0/verification_expectation_record_v0.json
+present data/c4_consume_one_accepted_proposal_packet_v0/c4_consumption_rollup_v0.json
+present data/accepted_proposal_packet_for_c4_consumption_v0_receipts/71bd1d92.json
+present data/accepted_proposal_packet_for_c4_consumption_v0/accepted_proposal_packet_v0.json
+present data/accepted_proposal_packet_for_c4_consumption_v0/review_decision_record_v0.json
+present data/c4_cell1_receipt_native_builder_preflight_rerun_v0_receipts/a17b6786.json
+present data/c4_cell1_receipt_native_builder_preflight_rerun_v0/c4_opening_gate_evaluation_v0_1.json
+present data/c1_proposal_interface_gap_patch_from_c3_v0_receipts/fffa3dd5.json
+present data/c1_proposal_interface_gap_patch_from_c3_v0/proposal_packet_schema_v0_1.json
+present data/c2_cell0_label_taxonomy_lane_cleaning_v0_receipts/348dabde.json
+present data/c2_cell0_label_taxonomy_lane_cleaning_v0/taxonomy_lane_registry_v0.json
+
+PATCH_PARTIAL_RUNNER_WITH_UV_PYTHON
+
+PY_COMPILE_CELL1_SCHEMA_TEST_RUNNER
+
+RUN_CELL1_SCHEMA_CONSUMPTION_TEST
+{
+  "acceptance_gate_results": {
+    "CELL1_SCHEMA_TEST_0_C4_CONSUMPTION_RECEIPT_CONSUMED": true,
+    "CELL1_SCHEMA_TEST_10_VERIFICATION_RECORD_PASS_SCHEMA_ONLY": true,
+    "CELL1_SCHEMA_TEST_11_NO_RUNTIME_PATCH_APPLIED": true,
+    "CELL1_SCHEMA_TEST_12_NO_TARGET_FILE_MODIFIED": true,
+    "CELL1_SCHEMA_TEST_13_NO_TAXONOMY_MUTATION": true,
+    "CELL1_SCHEMA_TEST_14_NO_C5_OPENED": true,
+    "CELL1_SCHEMA_TEST_15_NO_GENERAL_CELL1_AUTHORITY": true,
+    "CELL1_SCHEMA_TEST_16_NO_UNBOUNDED_PAYLOAD_INSPECTION": true,
+    "CELL1_SCHEMA_TEST_17_NO_PROPOSAL_STATUS_PROMOTION": true,
+    "CELL1_SCHEMA_TEST_18_NO_HIDDEN_NEXT_COMMAND": true,
+    "CELL1_SCHEMA_TEST_19_ROLLUP_PROFILE_REPORT_EMITTED": true,
+    "CELL1_SCHEMA_TEST_1_CELL1_INTAKE_PACKET_CONSUMED": true,
+    "CELL1_SCHEMA_TEST_2_HANDOFF_PACKET_CONSUMED": true,
+    "CELL1_SCHEMA_TEST_3_HANDOFF_TARGETS_THIS_UNIT": true,
+    "CELL1_SCHEMA_TEST_4_AUTHORITY_CHECK_PASS": true,
+    "CELL1_SCHEMA_TEST_5_INTAKE_CHECK_PASS": true,
+    "CELL1_SCHEMA_TEST_6_SCHEMA_BINDING_PASS": true,
+    "CELL1_SCHEMA_TEST_7_EXECUTION_RECORD_EMITTED": true,
+    "CELL1_SCHEMA_TEST_8_BOUNDED_CELL1_EXECUTION_OPENED": true,
+    "CELL1_SCHEMA_TEST_9_PROBE_RESULT_PASS": true
+  },
+  "active_object": "first bounded Cell 1 schema-consumption test from C4 handoff",
+  "aggregate_metrics": {
+    "authority_check_emitted_count": 1,
+    "build_mode": "CELL1_SCHEMA_CONSUMPTION_TEST_ONLY",
+    "c5_opened_count": 0,
+    "cell1_schema_consumption_tests_passed": 1,
+    "cell1_schema_consumption_tests_run": 1,
+    "execution_record_emitted_count": 1,
+    "general_cell1_authority_granted_count": 0,
+    "handoff_result_emitted_count": 1,
+    "hidden_next_command_count": 0,
+    "intake_check_emitted_count": 1,
+    "layer": "CELL_1 / SCHEMA_CONSUMPTION_TEST",
+    "mode": "CELL1_BOUNDED_TEST / SCHEMA_ONLY / NO_RUNTIME_PATCH",
+    "no_runtime_patch_observation_emitted_count": 1,
+    "prior_receipt_mutation_count": 0,
+    "probe_result_emitted_count": 1,
+    "profile_status": "CELL1_SCHEMA_CONSUMPTION_TEST_COMPLETE",
+    "recommended_next_handling": "CELL1_SCHEMA_CONSUMPTION_TEST_REVIEW_OR_CLOSE_V0",
+    "rollup": {
+      "accepted_proposal_fabricated_count": 0,
+      "build_mode": "CELL1_SCHEMA_CONSUMPTION_TEST_ONLY",
+      "c5_opened_count": 0,
+      "cell1_bounded_execution_opened_count": 1,
+      "cell1_schema_consumption_tests_passed": 1,
+      "cell1_schema_consumption_tests_run": 1,
+      "general_cell1_authority_granted_count": 0,
+      "hidden_next_command_count": 0,
+      "prior_receipt_mutation_count": 0,
+      "proposal_id": "accepted_artifact_review_interface_probe_v0",
+      "proposal_status_promoted_count": 0,
+      "proposed_only_consumed_as_accepted_count": 0,
+      "recommended_next": "CELL1_SCHEMA_CONSUMPTION_TEST_REVIEW_OR_CLOSE_V0",
+      "runtime_build_artifact_emitted_count": 0,
+      "runtime_patch_applied_count": 0,
+      "schema_binding_pass_count": 1,
+      "schema_consumption_probe_pass_count": 1,
+      "schema_consumption_verification_pass_count": 1,
+      "schema_version": "cell1_schema_consumption_test_rollup_v0",
+      "source_accepted_proposal_receipt_id": "71bd1d92",
+      "source_c1_patch_receipt_id": "fffa3dd5",
+      "source_c2_receipt_id": "348dabde",
+      "source_c4_consumption_receipt_id": "c56792b7",
+      "source_mutation_count": 0,
+      "target_file_modified_count": 0,
+      "taxonomy_registry_mutation_count": 0,
+      "unbounded_payload_inspection_count": 0,
+      "unexpected_builder_command_count": 0
+    },
+    "runtime_patch_applied_count": 0,
+    "schema_binding_record_emitted_count": 1,
+    "source_c4_handoff_consumed_count": 1,
+    "source_cell1_intake_packet_consumed_count": 1,
+    "source_mutation_count": 0,
+    "target_file_modified_count": 0,
+    "taxonomy_registry_mutation_count": 0,
+    "verification_record_emitted_count": 1
+  },
+  "build_mode": "CELL1_SCHEMA_CONSUMPTION_TEST_ONLY",
+  "cell1_schema_consumption_guards": {
+    "bounded_cell1_execution_opened": true,
+    "build_mode_cell1_schema_consumption_test_only": true,
+    "c5_opened": false,
+    "general_cell1_authority_granted": false,
+    "hidden_next_command": false,
+    "prior_receipts_mutated": false,
+    "runtime_patch_applied": false,
+    "schema_consumption_verification_passed": true,
+    "source_mutated": false,
+    "target_file_modified": false,
+    "taxonomy_registry_mutated": false,
+    "verification_scope_schema_only": true
+  },
+  "cell1_schema_consumption_summary": {
+    "bad_counters_zero": true,
+    "cell1_bounded_execution_opened_count": 1,
+    "cell1_schema_consumption_tests_passed": 1,
+    "cell1_schema_consumption_tests_run": 1,
+    "profile_status": "CELL1_SCHEMA_CONSUMPTION_TEST_COMPLETE",
+    "proposal_id": "accepted_artifact_review_interface_probe_v0",
+    "recommended_next": "CELL1_SCHEMA_CONSUMPTION_TEST_REVIEW_OR_CLOSE_V0",
+    "runtime_patch_applied": false,
+    "schema_consumption_verification_pass_count": 1,
+    "target_file_modified": false,
+    "verification_scope": "SCHEMA_CONSUMPTION_TEST_ONLY"
+  },
+  "created_at": "2026-06-24T15:30:13.320031+00:00",
+  "failures": [],
+  "gate": "PASS",
+  "human_decision": {
+    "authorized": [
+      "consume C4 handoff packet",
+      "consume Cell 1 intake packet",
+      "validate Cell 1 bounded authority",
+      "run schema-consumption-only Cell 1 test",
+      "emit execution record",
+      "emit schema-consumption probe result",
+      "emit verification record for schema-consumption test only",
+      "emit no-runtime-patch observation",
+      "emit Cell 1 schema-consumption test receipt",
+      "stop with no next command goal"
+    ],
+    "decision": "RUN_CELL1_SCHEMA_CONSUMPTION_TEST_FROM_C4_HANDOFF",
+    "not_authorized": [
+      "apply runtime patch",
+      "modify target files",
+      "mutate taxonomy registry",
+      "open C5",
+      "grant general Cell 1 authority",
+      "inspect unbounded payload",
+      "promote proposal status",
+      "fabricate accepted proposal",
+      "consume PROPOSED_ONLY as accepted",
+      "emit hidden next command"
+    ],
+    "scope": "Run the first bounded Cell 1 schema-consumption test from the C4 handoff. Consume the C4 consumption receipt, Cell 1 intake packet, handoff packet, no-runtime-patch plan, schema-consumption probe, and verification expectation. Validate authority and schema binding, execute schema-consumption-only test, emit Cell 1 execution/probe/verification records, no-runtime-patch observation, rollup, profile, report, and receipt. Do not apply runtime patches, modify target files, mutate taxonomy, open C5, grant general Cell 1 authority, inspect unbounded payload, or emit hidden next command."
+  },
+  "layer": "CELL_1 / SCHEMA_CONSUMPTION_TEST",
+  "mode": "CELL1_BOUNDED_TEST / SCHEMA_ONLY / NO_RUNTIME_PATCH",
+  "negative_controls": [
+    {
+      "case": "authority_check_fail",
+      "failures": [
+        "authority_check_not_pass"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "intake_check_fail",
+      "failures": [
+        "intake_check_not_pass"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "schema_binding_fail",
+      "failures": [
+        "schema_binding_not_pass"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "execution_status_fail",
+      "failures": [
+        "execution_status_not_pass"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "execution_claims_runtime_patch_fail",
+      "failures": [
+        "execution_claims_runtime_patch"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "execution_claims_target_file_modified_fail",
+      "failures": [
+        "execution_claims_target_file_modified"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "execution_grants_general_authority_fail",
+      "failures": [
+        "execution_grants_general_authority"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "probe_fail",
+      "failures": [
+        "probe_not_pass"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "probe_claims_runtime_patch_fail",
+      "failures": [
+        "probe_claims_runtime_patch"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "verification_fail",
+      "failures": [
+        "verification_not_pass"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "verification_scope_wrong_fail",
+      "failures": [
+        "verification_scope_wrong"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "no_patch_claims_runtime_patch_fail",
+      "failures": [
+        "no_patch_claims_runtime_patch"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "handoff_hidden_next_command_fail",
+      "failures": [
+        "handoff_hidden_next_command"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "runtime_patch_applied_fail",
+      "failures": [
+        "rollup_counter_nonzero:runtime_patch_applied_count:1",
+        "report_counter_nonzero:runtime_patch_applied_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "target_file_modified_fail",
+      "failures": [
+        "rollup_counter_nonzero:target_file_modified_count:1",
+        "report_counter_nonzero:target_file_modified_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "taxonomy_registry_mutated_fail",
+      "failures": [
+        "rollup_counter_nonzero:taxonomy_registry_mutation_count:1",
+        "report_counter_nonzero:taxonomy_registry_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "c5_opened_fail",
+      "failures": [
+        "rollup_counter_nonzero:c5_opened_count:1",
+        "report_counter_nonzero:c5_opened_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "general_cell1_authority_granted_fail",
+      "failures": [
+        "rollup_counter_nonzero:general_cell1_authority_granted_count:1",
+        "report_counter_nonzero:general_cell1_authority_granted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "unbounded_payload_inspection_fail",
+      "failures": [
+        "rollup_counter_nonzero:unbounded_payload_inspection_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "proposal_status_promoted_fail",
+      "failures": [
+        "rollup_counter_nonzero:proposal_status_promoted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "accepted_proposal_fabricated_fail",
+      "failures": [
+        "rollup_counter_nonzero:accepted_proposal_fabricated_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "proposed_only_consumed_as_accepted_fail",
+      "failures": [
+        "rollup_counter_nonzero:proposed_only_consumed_as_accepted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "hidden_next_command_fail",
+      "failures": [
+        "rollup_counter_nonzero:hidden_next_command_count:1",
+        "report_counter_nonzero:hidden_next_command_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "source_mutation_fail",
+      "failures": [
+        "rollup_counter_nonzero:source_mutation_count:1",
+        "report_counter_nonzero:source_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "prior_receipt_mutation_fail",
+      "failures": [
+        "rollup_counter_nonzero:prior_receipt_mutation_count:1",
+        "report_counter_nonzero:prior_receipt_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "unexpected_builder_command_fail",
+      "failures": [
+        "rollup_counter_nonzero:unexpected_builder_command_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "runtime_build_artifact_emitted_fail",
+      "failures": [
+        "rollup_counter_nonzero:runtime_build_artifact_emitted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "schema_tests_run_not_one_fail",
+      "failures": [
+        "schema_tests_run_not_one"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "schema_verification_pass_count_not_one_fail",
+      "failures": [
+        "schema_verification_pass_count_not_one"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    }
+  ],
+  "output_artifacts": {
+    "authority_check": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_authority_check_v0.json",
+    "execution_record": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_execution_record_v0.json",
+    "handoff_result": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_test_handoff_result_v0.json",
+    "implementation_receipt": "data/cell1_schema_consumption_test_from_c4_handoff_v0_receipts/e6b0fd97.json",
+    "intake_check": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_intake_check_v0.json",
+    "no_runtime_patch_observation": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_no_runtime_patch_observation_v0.json",
+    "probe_result": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_probe_result_v0.json",
+    "profile": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_profile_v0.json",
+    "report": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_report.json",
+    "rollup": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_rollup_v0.json",
+    "schema_binding_record": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_binding_record_v0.json",
+    "source_accepted_proposal_packet": "data/accepted_proposal_packet_for_c4_consumption_v0/accepted_proposal_packet_v0.json",
+    "source_c1_patch_schema": "data/c1_proposal_interface_gap_patch_from_c3_v0/proposal_packet_schema_v0_1.json",
+    "source_c2_lane_registry": "data/c2_cell0_label_taxonomy_lane_cleaning_v0/taxonomy_lane_registry_v0.json",
+    "source_c4_consumption_receipt": "data/c4_consume_one_accepted_proposal_packet_v0_receipts/c56792b7.json",
+    "source_c4_handoff_packet": "data/c4_consume_one_accepted_proposal_packet_v0/cell1_handoff_packet_v0.json",
+    "source_cell1_intake_packet": "data/c4_consume_one_accepted_proposal_packet_v0/cell1_intake_packet_v0.json",
+    "source_surface": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_test_source_surface_v0.json",
+    "transition_trace": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_transition_trace.json",
+    "verification_record": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_verification_record_v0.json"
+  },
+  "receipt_id": "e6b0fd97",
+  "receipt_type": "CELL1_SCHEMA_CONSUMPTION_TEST_RECEIPT",
+  "schema_version": "cell1_schema_consumption_test_receipt_v0",
+  "source_accepted_proposal_receipt_id": "71bd1d92",
+  "source_c1_patch_receipt_id": "fffa3dd5",
+  "source_c2_receipt_id": "348dabde",
+  "source_c4_consumption_receipt_id": "c56792b7",
+  "target_unit_id": "cell1.schema_consumption_test_from_c4_handoff.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_SCHEMA_CONSUMPTION_TEST_COMPLETE_REVIEW_OR_CLOSE",
+    "type": "STOP"
+  },
+  "unit_id": "RUN_CELL1_SCHEMA_CONSUMPTION_TEST_FROM_C4_HANDOFF_V0",
+  "warnings": []
+}
+cell1_schema_test_receipt_id=e6b0fd97
+cell1_schema_test_receipt_path=data/cell1_schema_consumption_test_from_c4_handoff_v0_receipts/e6b0fd97.json
+cell1_schema_test_verification_path=data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_verification_record_v0.json
+cell1_schema_test_rollup_path=data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_rollup_v0.json
+cell1_schema_test_profile_path=data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_profile_v0.json
+CELL1_SCHEMA_TEST_RECEIPT_ID=e6b0fd97
+CELL1_SCHEMA_TEST_RECEIPT_PATH=data/cell1_schema_consumption_test_from_c4_handoff_v0_receipts/e6b0fd97.json
+CELL1_SCHEMA_TEST_VERIFICATION_PATH=data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_verification_record_v0.json
+CELL1_SCHEMA_TEST_ROLLUP_PATH=data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_rollup_v0.json
+CELL1_SCHEMA_TEST_PROFILE_PATH=data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_profile_v0.json
+
+ASSERT_CELL1_SCHEMA_CONSUMPTION_TEST
+{
+  "gate": "PASS",
+  "negative_control_count": 29,
+  "negative_control_pass_count": 29,
+  "receipt_id": "e6b0fd97",
+  "summary": {
+    "bad_counters_zero": true,
+    "cell1_bounded_execution_opened_count": 1,
+    "cell1_schema_consumption_tests_passed": 1,
+    "cell1_schema_consumption_tests_run": 1,
+    "profile_status": "CELL1_SCHEMA_CONSUMPTION_TEST_COMPLETE",
+    "proposal_id": "accepted_artifact_review_interface_probe_v0",
+    "recommended_next": "CELL1_SCHEMA_CONSUMPTION_TEST_REVIEW_OR_CLOSE_V0",
+    "runtime_patch_applied": false,
+    "schema_consumption_verification_pass_count": 1,
+    "target_file_modified": false,
+    "verification_scope": "SCHEMA_CONSUMPTION_TEST_ONLY"
+  },
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_SCHEMA_CONSUMPTION_TEST_COMPLETE_REVIEW_OR_CLOSE",
+    "type": "STOP"
+  }
+}
+
+NEGATIVE_CONTROLS_CELL1_SCHEMA_TEST_NON_WRITING
+{
+  "negative_control_count": 29,
+  "negative_control_pass_count": 29,
+  "wrote_live_artifact_count": 0
+}
+{
+  "negative_controls_write_outputs": false,
+  "receipt_unchanged": true
+}
+
+VERIFY_NO_RUNTIME_PATCH_TARGET_FILE_C5_TAXONOMY_OR_FORBIDDEN_MUTATION
+allowed_status_lines_checked
+no runtime patch/target file modification/C5/taxonomy mutation; protected prior artifacts untouched; expected Cell1 schema test artifacts allowed
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260623_060237_751310
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    30 │
+│ total_receipts │   237 │
+│ receipt_rows   │   237 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │    29 │
+│ REPEATED_STATE_PERIODIC │     1 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+?? scripts/run_cell1_schema_consumption_test_from_c4_handoff_v0.py
+
+PACKAGE_CELL1_SCHEMA_CONSUMPTION_TEST_ARTIFACTS
+packaged data/cell1_schema_consumption_test_from_c4_handoff_v0_receipts/e6b0fd97.json
+packaged data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_test_source_surface_v0.json
+packaged data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_authority_check_v0.json
+packaged data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_intake_check_v0.json
+packaged data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_binding_record_v0.json
+packaged data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_execution_record_v0.json
+packaged data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_probe_result_v0.json
+packaged data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_verification_record_v0.json
+packaged data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_no_runtime_patch_observation_v0.json
+packaged data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_test_handoff_result_v0.json
+packaged data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_rollup_v0.json
+packaged data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_profile_v0.json
+packaged data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_report.json
+packaged data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_transition_trace.json
+[master b68f0de91] run cell1 schema consumption test from c4 handoff
+ 16 files changed, 1699 insertions(+)
+ create mode 100644 data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_authority_check_v0.json
+ create mode 100644 data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_intake_check_v0.json
+ create mode 100644 data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_no_runtime_patch_observation_v0.json
+ create mode 100644 data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_binding_record_v0.json
+ create mode 100644 data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_execution_record_v0.json
+ create mode 100644 data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_probe_result_v0.json
+ create mode 100644 data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_profile_v0.json
+ create mode 100644 data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_report.json
+ create mode 100644 data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_rollup_v0.json
+ create mode 100644 data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_transition_trace.json
+ create mode 100644 data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_verification_record_v0.json
+ create mode 100644 data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_test_handoff_result_v0.json
+ create mode 100644 data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_test_source_surface_v0.json
+ create mode 100644 data/cell1_schema_consumption_test_from_c4_handoff_v0_receipts/e6b0fd97.json
+ create mode 100755 scripts/run_cell1_schema_consumption_test_from_c4_handoff_v0.py
+
+COMMIT_DONE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/apply_current_surface_pressure_handling_loop_to_r1000_pressure_queue_v0.py
+
+CELL1_SCHEMA_TEST_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+cell1_schema_test_receipt_id=e6b0fd97
+cell1_schema_test_receipt_path=data/cell1_schema_consumption_test_from_c4_handoff_v0_receipts/e6b0fd97.json
+{
+  "acceptance_gate_results": {
+    "CELL1_SCHEMA_TEST_0_C4_CONSUMPTION_RECEIPT_CONSUMED": true,
+    "CELL1_SCHEMA_TEST_10_VERIFICATION_RECORD_PASS_SCHEMA_ONLY": true,
+    "CELL1_SCHEMA_TEST_11_NO_RUNTIME_PATCH_APPLIED": true,
+    "CELL1_SCHEMA_TEST_12_NO_TARGET_FILE_MODIFIED": true,
+    "CELL1_SCHEMA_TEST_13_NO_TAXONOMY_MUTATION": true,
+    "CELL1_SCHEMA_TEST_14_NO_C5_OPENED": true,
+    "CELL1_SCHEMA_TEST_15_NO_GENERAL_CELL1_AUTHORITY": true,
+    "CELL1_SCHEMA_TEST_16_NO_UNBOUNDED_PAYLOAD_INSPECTION": true,
+    "CELL1_SCHEMA_TEST_17_NO_PROPOSAL_STATUS_PROMOTION": true,
+    "CELL1_SCHEMA_TEST_18_NO_HIDDEN_NEXT_COMMAND": true,
+    "CELL1_SCHEMA_TEST_19_ROLLUP_PROFILE_REPORT_EMITTED": true,
+    "CELL1_SCHEMA_TEST_1_CELL1_INTAKE_PACKET_CONSUMED": true,
+    "CELL1_SCHEMA_TEST_2_HANDOFF_PACKET_CONSUMED": true,
+    "CELL1_SCHEMA_TEST_3_HANDOFF_TARGETS_THIS_UNIT": true,
+    "CELL1_SCHEMA_TEST_4_AUTHORITY_CHECK_PASS": true,
+    "CELL1_SCHEMA_TEST_5_INTAKE_CHECK_PASS": true,
+    "CELL1_SCHEMA_TEST_6_SCHEMA_BINDING_PASS": true,
+    "CELL1_SCHEMA_TEST_7_EXECUTION_RECORD_EMITTED": true,
+    "CELL1_SCHEMA_TEST_8_BOUNDED_CELL1_EXECUTION_OPENED": true,
+    "CELL1_SCHEMA_TEST_9_PROBE_RESULT_PASS": true
+  },
+  "aggregate_metrics": {
+    "authority_check_emitted_count": 1,
+    "build_mode": "CELL1_SCHEMA_CONSUMPTION_TEST_ONLY",
+    "c5_opened_count": 0,
+    "cell1_schema_consumption_tests_passed": 1,
+    "cell1_schema_consumption_tests_run": 1,
+    "execution_record_emitted_count": 1,
+    "general_cell1_authority_granted_count": 0,
+    "handoff_result_emitted_count": 1,
+    "hidden_next_command_count": 0,
+    "intake_check_emitted_count": 1,
+    "layer": "CELL_1 / SCHEMA_CONSUMPTION_TEST",
+    "mode": "CELL1_BOUNDED_TEST / SCHEMA_ONLY / NO_RUNTIME_PATCH",
+    "no_runtime_patch_observation_emitted_count": 1,
+    "prior_receipt_mutation_count": 0,
+    "probe_result_emitted_count": 1,
+    "profile_status": "CELL1_SCHEMA_CONSUMPTION_TEST_COMPLETE",
+    "recommended_next_handling": "CELL1_SCHEMA_CONSUMPTION_TEST_REVIEW_OR_CLOSE_V0",
+    "rollup": {
+      "accepted_proposal_fabricated_count": 0,
+      "build_mode": "CELL1_SCHEMA_CONSUMPTION_TEST_ONLY",
+      "c5_opened_count": 0,
+      "cell1_bounded_execution_opened_count": 1,
+      "cell1_schema_consumption_tests_passed": 1,
+      "cell1_schema_consumption_tests_run": 1,
+      "general_cell1_authority_granted_count": 0,
+      "hidden_next_command_count": 0,
+      "prior_receipt_mutation_count": 0,
+      "proposal_id": "accepted_artifact_review_interface_probe_v0",
+      "proposal_status_promoted_count": 0,
+      "proposed_only_consumed_as_accepted_count": 0,
+      "recommended_next": "CELL1_SCHEMA_CONSUMPTION_TEST_REVIEW_OR_CLOSE_V0",
+      "runtime_build_artifact_emitted_count": 0,
+      "runtime_patch_applied_count": 0,
+      "schema_binding_pass_count": 1,
+      "schema_consumption_probe_pass_count": 1,
+      "schema_consumption_verification_pass_count": 1,
+      "schema_version": "cell1_schema_consumption_test_rollup_v0",
+      "source_accepted_proposal_receipt_id": "71bd1d92",
+      "source_c1_patch_receipt_id": "fffa3dd5",
+      "source_c2_receipt_id": "348dabde",
+      "source_c4_consumption_receipt_id": "c56792b7",
+      "source_mutation_count": 0,
+      "target_file_modified_count": 0,
+      "taxonomy_registry_mutation_count": 0,
+      "unbounded_payload_inspection_count": 0,
+      "unexpected_builder_command_count": 0
+    },
+    "runtime_patch_applied_count": 0,
+    "schema_binding_record_emitted_count": 1,
+    "source_c4_handoff_consumed_count": 1,
+    "source_cell1_intake_packet_consumed_count": 1,
+    "source_mutation_count": 0,
+    "target_file_modified_count": 0,
+    "taxonomy_registry_mutation_count": 0,
+    "verification_record_emitted_count": 1
+  },
+  "build_mode": "CELL1_SCHEMA_CONSUMPTION_TEST_ONLY",
+  "cell1_schema_consumption_guards": {
+    "bounded_cell1_execution_opened": true,
+    "build_mode_cell1_schema_consumption_test_only": true,
+    "c5_opened": false,
+    "general_cell1_authority_granted": false,
+    "hidden_next_command": false,
+    "prior_receipts_mutated": false,
+    "runtime_patch_applied": false,
+    "schema_consumption_verification_passed": true,
+    "source_mutated": false,
+    "target_file_modified": false,
+    "taxonomy_registry_mutated": false,
+    "verification_scope_schema_only": true
+  },
+  "cell1_schema_consumption_summary": {
+    "bad_counters_zero": true,
+    "cell1_bounded_execution_opened_count": 1,
+    "cell1_schema_consumption_tests_passed": 1,
+    "cell1_schema_consumption_tests_run": 1,
+    "profile_status": "CELL1_SCHEMA_CONSUMPTION_TEST_COMPLETE",
+    "proposal_id": "accepted_artifact_review_interface_probe_v0",
+    "recommended_next": "CELL1_SCHEMA_CONSUMPTION_TEST_REVIEW_OR_CLOSE_V0",
+    "runtime_patch_applied": false,
+    "schema_consumption_verification_pass_count": 1,
+    "target_file_modified": false,
+    "verification_scope": "SCHEMA_CONSUMPTION_TEST_ONLY"
+  },
+  "gate": "PASS",
+  "human_decision": {
+    "authorized": [
+      "consume C4 handoff packet",
+      "consume Cell 1 intake packet",
+      "validate Cell 1 bounded authority",
+      "run schema-consumption-only Cell 1 test",
+      "emit execution record",
+      "emit schema-consumption probe result",
+      "emit verification record for schema-consumption test only",
+      "emit no-runtime-patch observation",
+      "emit Cell 1 schema-consumption test receipt",
+      "stop with no next command goal"
+    ],
+    "decision": "RUN_CELL1_SCHEMA_CONSUMPTION_TEST_FROM_C4_HANDOFF",
+    "not_authorized": [
+      "apply runtime patch",
+      "modify target files",
+      "mutate taxonomy registry",
+      "open C5",
+      "grant general Cell 1 authority",
+      "inspect unbounded payload",
+      "promote proposal status",
+      "fabricate accepted proposal",
+      "consume PROPOSED_ONLY as accepted",
+      "emit hidden next command"
+    ],
+    "scope": "Run the first bounded Cell 1 schema-consumption test from the C4 handoff. Consume the C4 consumption receipt, Cell 1 intake packet, handoff packet, no-runtime-patch plan, schema-consumption probe, and verification expectation. Validate authority and schema binding, execute schema-consumption-only test, emit Cell 1 execution/probe/verification records, no-runtime-patch observation, rollup, profile, report, and receipt. Do not apply runtime patches, modify target files, mutate taxonomy, open C5, grant general Cell 1 authority, inspect unbounded payload, or emit hidden next command."
+  },
+  "negative_controls": [
+    {
+      "case": "authority_check_fail",
+      "failures": [
+        "authority_check_not_pass"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "intake_check_fail",
+      "failures": [
+        "intake_check_not_pass"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "schema_binding_fail",
+      "failures": [
+        "schema_binding_not_pass"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "execution_status_fail",
+      "failures": [
+        "execution_status_not_pass"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "execution_claims_runtime_patch_fail",
+      "failures": [
+        "execution_claims_runtime_patch"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "execution_claims_target_file_modified_fail",
+      "failures": [
+        "execution_claims_target_file_modified"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "execution_grants_general_authority_fail",
+      "failures": [
+        "execution_grants_general_authority"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "probe_fail",
+      "failures": [
+        "probe_not_pass"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "probe_claims_runtime_patch_fail",
+      "failures": [
+        "probe_claims_runtime_patch"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "verification_fail",
+      "failures": [
+        "verification_not_pass"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "verification_scope_wrong_fail",
+      "failures": [
+        "verification_scope_wrong"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "no_patch_claims_runtime_patch_fail",
+      "failures": [
+        "no_patch_claims_runtime_patch"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "handoff_hidden_next_command_fail",
+      "failures": [
+        "handoff_hidden_next_command"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "runtime_patch_applied_fail",
+      "failures": [
+        "rollup_counter_nonzero:runtime_patch_applied_count:1",
+        "report_counter_nonzero:runtime_patch_applied_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "target_file_modified_fail",
+      "failures": [
+        "rollup_counter_nonzero:target_file_modified_count:1",
+        "report_counter_nonzero:target_file_modified_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "taxonomy_registry_mutated_fail",
+      "failures": [
+        "rollup_counter_nonzero:taxonomy_registry_mutation_count:1",
+        "report_counter_nonzero:taxonomy_registry_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "c5_opened_fail",
+      "failures": [
+        "rollup_counter_nonzero:c5_opened_count:1",
+        "report_counter_nonzero:c5_opened_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "general_cell1_authority_granted_fail",
+      "failures": [
+        "rollup_counter_nonzero:general_cell1_authority_granted_count:1",
+        "report_counter_nonzero:general_cell1_authority_granted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "unbounded_payload_inspection_fail",
+      "failures": [
+        "rollup_counter_nonzero:unbounded_payload_inspection_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "proposal_status_promoted_fail",
+      "failures": [
+        "rollup_counter_nonzero:proposal_status_promoted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "accepted_proposal_fabricated_fail",
+      "failures": [
+        "rollup_counter_nonzero:accepted_proposal_fabricated_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "proposed_only_consumed_as_accepted_fail",
+      "failures": [
+        "rollup_counter_nonzero:proposed_only_consumed_as_accepted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "hidden_next_command_fail",
+      "failures": [
+        "rollup_counter_nonzero:hidden_next_command_count:1",
+        "report_counter_nonzero:hidden_next_command_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "source_mutation_fail",
+      "failures": [
+        "rollup_counter_nonzero:source_mutation_count:1",
+        "report_counter_nonzero:source_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "prior_receipt_mutation_fail",
+      "failures": [
+        "rollup_counter_nonzero:prior_receipt_mutation_count:1",
+        "report_counter_nonzero:prior_receipt_mutation_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "unexpected_builder_command_fail",
+      "failures": [
+        "rollup_counter_nonzero:unexpected_builder_command_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "runtime_build_artifact_emitted_fail",
+      "failures": [
+        "rollup_counter_nonzero:runtime_build_artifact_emitted_count:1"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "schema_tests_run_not_one_fail",
+      "failures": [
+        "schema_tests_run_not_one"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    },
+    {
+      "case": "schema_verification_pass_count_not_one_fail",
+      "failures": [
+        "schema_verification_pass_count_not_one"
+      ],
+      "negative_control_pass": true,
+      "wrote_live_artifact": false
+    }
+  ],
+  "output_artifacts": {
+    "authority_check": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_authority_check_v0.json",
+    "execution_record": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_execution_record_v0.json",
+    "handoff_result": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_test_handoff_result_v0.json",
+    "implementation_receipt": "data/cell1_schema_consumption_test_from_c4_handoff_v0_receipts/e6b0fd97.json",
+    "intake_check": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_intake_check_v0.json",
+    "no_runtime_patch_observation": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_no_runtime_patch_observation_v0.json",
+    "probe_result": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_probe_result_v0.json",
+    "profile": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_profile_v0.json",
+    "report": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_report.json",
+    "rollup": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_rollup_v0.json",
+    "schema_binding_record": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_binding_record_v0.json",
+    "source_accepted_proposal_packet": "data/accepted_proposal_packet_for_c4_consumption_v0/accepted_proposal_packet_v0.json",
+    "source_c1_patch_schema": "data/c1_proposal_interface_gap_patch_from_c3_v0/proposal_packet_schema_v0_1.json",
+    "source_c2_lane_registry": "data/c2_cell0_label_taxonomy_lane_cleaning_v0/taxonomy_lane_registry_v0.json",
+    "source_c4_consumption_receipt": "data/c4_consume_one_accepted_proposal_packet_v0_receipts/c56792b7.json",
+    "source_c4_handoff_packet": "data/c4_consume_one_accepted_proposal_packet_v0/cell1_handoff_packet_v0.json",
+    "source_cell1_intake_packet": "data/c4_consume_one_accepted_proposal_packet_v0/cell1_intake_packet_v0.json",
+    "source_surface": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_test_source_surface_v0.json",
+    "transition_trace": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_test_transition_trace.json",
+    "verification_record": "data/cell1_schema_consumption_test_from_c4_handoff_v0/cell1_schema_consumption_verification_record_v0.json"
+  },
+  "source_accepted_proposal_receipt_id": "71bd1d92",
+  "source_c1_patch_receipt_id": "fffa3dd5",
+  "source_c2_receipt_id": "348dabde",
+  "source_c4_consumption_receipt_id": "c56792b7",
+  "target_unit_id": "cell1.schema_consumption_test_from_c4_handoff.v0",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_CELL1_SCHEMA_CONSUMPTION_TEST_COMPLETE_REVIEW_OR_CLOSE",
+    "type": "STOP"
+  },
+  "unit_id": "RUN_CELL1_SCHEMA_CONSUMPTION_TEST_FROM_C4_HANDOFF_V0"
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

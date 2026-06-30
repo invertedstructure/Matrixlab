@@ -1,0 +1,701 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260619_013839
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260619_013839.txt
+
+BOUNDARY_INSPECT_MAX_CELLS_EXCEEDED_RADIUS_150
+
+STATUS_BEFORE
+
+DB_SCHEMA_INVENTORY
+{
+  "db": "data/runs/registry.sqlite",
+  "schema": {
+    "receipts": [
+      {
+        "name": "run_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "case_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "family",
+        "type": "TEXT"
+      },
+      {
+        "name": "depth",
+        "type": "INTEGER"
+      },
+      {
+        "name": "cycle_n",
+        "type": "INTEGER"
+      },
+      {
+        "name": "move_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "registered_moves_total",
+        "type": "INTEGER"
+      },
+      {
+        "name": "moves_reused",
+        "type": "INTEGER"
+      },
+      {
+        "name": "new_move_required",
+        "type": "INTEGER"
+      },
+      {
+        "name": "rows",
+        "type": "INTEGER"
+      },
+      {
+        "name": "cols",
+        "type": "INTEGER"
+      },
+      {
+        "name": "cells",
+        "type": "INTEGER"
+      },
+      {
+        "name": "rank_before",
+        "type": "INTEGER"
+      },
+      {
+        "name": "rank_after",
+        "type": "INTEGER"
+      },
+      {
+        "name": "compression_ratio",
+        "type": "REAL"
+      },
+      {
+        "name": "trajectory_signature",
+        "type": "TEXT"
+      },
+      {
+        "name": "halt_reason",
+        "type": "TEXT"
+      },
+      {
+        "name": "state_sig8_before",
+        "type": "TEXT"
+      },
+      {
+        "name": "state_sig8_after",
+        "type": "TEXT"
+      },
+      {
+        "name": "receipt_path",
+        "type": "TEXT"
+      },
+      {
+        "name": "move_profile_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "row_delta",
+        "type": "INTEGER"
+      },
+      {
+        "name": "col_delta",
+        "type": "INTEGER"
+      },
+      {
+        "name": "rank_delta",
+        "type": "INTEGER"
+      },
+      {
+        "name": "support_delta",
+        "type": "INTEGER"
+      },
+      {
+        "name": "distinct_column_types_before",
+        "type": "INTEGER"
+      },
+      {
+        "name": "distinct_column_types_after",
+        "type": "INTEGER"
+      },
+      {
+        "name": "new_column_types_added",
+        "type": "INTEGER"
+      },
+      {
+        "name": "law_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "law_ok",
+        "type": "INTEGER"
+      },
+      {
+        "name": "law_fail_reason",
+        "type": "TEXT"
+      }
+    ],
+    "runs": [
+      {
+        "name": "run_id",
+        "type": "TEXT"
+      },
+      {
+        "name": "created_utc",
+        "type": "TEXT"
+      },
+      {
+        "name": "status",
+        "type": "TEXT"
+      },
+      {
+        "name": "families",
+        "type": "TEXT"
+      },
+      {
+        "name": "depth_min",
+        "type": "INTEGER"
+      },
+      {
+        "name": "depth_max",
+        "type": "INTEGER"
+      },
+      {
+        "name": "cycles_per_case",
+        "type": "INTEGER"
+      },
+      {
+        "name": "max_cells",
+        "type": "INTEGER"
+      },
+      {
+        "name": "total_cases",
+        "type": "INTEGER"
+      },
+      {
+        "name": "total_receipts",
+        "type": "INTEGER"
+      }
+    ]
+  },
+  "tables": [
+    "receipts",
+    "runs"
+  ]
+}
+
+FIND_BOUNDARY_ROWS
+{
+  "candidate_tables": [
+    {
+      "columns": [
+        "run_id",
+        "case_id",
+        "family",
+        "depth",
+        "cycle_n",
+        "move_id",
+        "registered_moves_total",
+        "moves_reused",
+        "new_move_required",
+        "rows",
+        "cols",
+        "cells",
+        "rank_before",
+        "rank_after",
+        "compression_ratio",
+        "trajectory_signature",
+        "halt_reason",
+        "state_sig8_before",
+        "state_sig8_after",
+        "receipt_path",
+        "move_profile_id",
+        "row_delta",
+        "col_delta",
+        "rank_delta",
+        "support_delta",
+        "distinct_column_types_before",
+        "distinct_column_types_after",
+        "new_column_types_added",
+        "law_id",
+        "law_ok",
+        "law_fail_reason"
+      ],
+      "table": "receipts"
+    }
+  ],
+  "halt_target": "MAX_CELLS_EXCEEDED",
+  "run_id": "run_20260618_235807_638720"
+}
+{
+  "boundary_count": 77,
+  "halt_col": "halt_reason",
+  "table": "receipts"
+}
+{
+  "sample_columns": [
+    "run_id",
+    "case_id",
+    "family",
+    "depth",
+    "cycle_n",
+    "halt_reason"
+  ],
+  "sample_rows_first_20": [
+    {
+      "case_id": "n100_two_sided_suspension",
+      "cycle_n": 124,
+      "depth": 100,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n101_two_sided_suspension",
+      "cycle_n": 123,
+      "depth": 101,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n102_two_sided_suspension",
+      "cycle_n": 122,
+      "depth": 102,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n103_two_sided_suspension",
+      "cycle_n": 121,
+      "depth": 103,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n104_two_sided_suspension",
+      "cycle_n": 120,
+      "depth": 104,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n105_two_sided_suspension",
+      "cycle_n": 119,
+      "depth": 105,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n106_two_sided_suspension",
+      "cycle_n": 118,
+      "depth": 106,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n107_two_sided_suspension",
+      "cycle_n": 117,
+      "depth": 107,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n108_two_sided_suspension",
+      "cycle_n": 116,
+      "depth": 108,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n109_two_sided_suspension",
+      "cycle_n": 115,
+      "depth": 109,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n110_two_sided_suspension",
+      "cycle_n": 114,
+      "depth": 110,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n111_two_sided_suspension",
+      "cycle_n": 113,
+      "depth": 111,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n112_two_sided_suspension",
+      "cycle_n": 112,
+      "depth": 112,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n113_two_sided_suspension",
+      "cycle_n": 111,
+      "depth": 113,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n114_two_sided_suspension",
+      "cycle_n": 110,
+      "depth": 114,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n115_two_sided_suspension",
+      "cycle_n": 109,
+      "depth": 115,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n116_two_sided_suspension",
+      "cycle_n": 108,
+      "depth": 116,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n117_two_sided_suspension",
+      "cycle_n": 107,
+      "depth": 117,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n118_two_sided_suspension",
+      "cycle_n": 106,
+      "depth": 118,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    },
+    {
+      "case_id": "n119_two_sided_suspension",
+      "cycle_n": 105,
+      "depth": 119,
+      "family": "two_sided_suspension",
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "run_id": "run_20260618_235807_638720"
+    }
+  ],
+  "table": "receipts"
+}
+{
+  "group_by": "family",
+  "rows": [
+    {
+      "key": "two_sided_suspension",
+      "n": 77
+    }
+  ],
+  "table": "receipts"
+}
+{
+  "group_by": "depth",
+  "rows": [
+    {
+      "key": 74,
+      "n": 1
+    },
+    {
+      "key": 75,
+      "n": 1
+    },
+    {
+      "key": 76,
+      "n": 1
+    },
+    {
+      "key": 77,
+      "n": 1
+    },
+    {
+      "key": 78,
+      "n": 1
+    },
+    {
+      "key": 79,
+      "n": 1
+    },
+    {
+      "key": 80,
+      "n": 1
+    },
+    {
+      "key": 81,
+      "n": 1
+    },
+    {
+      "key": 82,
+      "n": 1
+    },
+    {
+      "key": 83,
+      "n": 1
+    },
+    {
+      "key": 84,
+      "n": 1
+    },
+    {
+      "key": 85,
+      "n": 1
+    },
+    {
+      "key": 86,
+      "n": 1
+    },
+    {
+      "key": 87,
+      "n": 1
+    },
+    {
+      "key": 88,
+      "n": 1
+    },
+    {
+      "key": 89,
+      "n": 1
+    },
+    {
+      "key": 90,
+      "n": 1
+    },
+    {
+      "key": 91,
+      "n": 1
+    },
+    {
+      "key": 92,
+      "n": 1
+    },
+    {
+      "key": 93,
+      "n": 1
+    },
+    {
+      "key": 94,
+      "n": 1
+    },
+    {
+      "key": 95,
+      "n": 1
+    },
+    {
+      "key": 96,
+      "n": 1
+    },
+    {
+      "key": 97,
+      "n": 1
+    },
+    {
+      "key": 98,
+      "n": 1
+    },
+    {
+      "key": 99,
+      "n": 1
+    },
+    {
+      "key": 100,
+      "n": 1
+    },
+    {
+      "key": 101,
+      "n": 1
+    },
+    {
+      "key": 102,
+      "n": 1
+    },
+    {
+      "key": 103,
+      "n": 1
+    }
+  ],
+  "table": "receipts"
+}
+{
+  "group_by": "cycle_n",
+  "rows": [
+    {
+      "key": 74,
+      "n": 1
+    },
+    {
+      "key": 75,
+      "n": 1
+    },
+    {
+      "key": 76,
+      "n": 1
+    },
+    {
+      "key": 77,
+      "n": 1
+    },
+    {
+      "key": 78,
+      "n": 1
+    },
+    {
+      "key": 79,
+      "n": 1
+    },
+    {
+      "key": 80,
+      "n": 1
+    },
+    {
+      "key": 81,
+      "n": 1
+    },
+    {
+      "key": 82,
+      "n": 1
+    },
+    {
+      "key": 83,
+      "n": 1
+    },
+    {
+      "key": 84,
+      "n": 1
+    },
+    {
+      "key": 85,
+      "n": 1
+    },
+    {
+      "key": 86,
+      "n": 1
+    },
+    {
+      "key": 87,
+      "n": 1
+    },
+    {
+      "key": 88,
+      "n": 1
+    },
+    {
+      "key": 89,
+      "n": 1
+    },
+    {
+      "key": 90,
+      "n": 1
+    },
+    {
+      "key": 91,
+      "n": 1
+    },
+    {
+      "key": 92,
+      "n": 1
+    },
+    {
+      "key": 93,
+      "n": 1
+    },
+    {
+      "key": 94,
+      "n": 1
+    },
+    {
+      "key": 95,
+      "n": 1
+    },
+    {
+      "key": 96,
+      "n": 1
+    },
+    {
+      "key": 97,
+      "n": 1
+    },
+    {
+      "key": 98,
+      "n": 1
+    },
+    {
+      "key": 99,
+      "n": 1
+    },
+    {
+      "key": 100,
+      "n": 1
+    },
+    {
+      "key": 101,
+      "n": 1
+    },
+    {
+      "key": 102,
+      "n": 1
+    },
+    {
+      "key": 103,
+      "n": 1
+    }
+  ],
+  "table": "receipts"
+}
+
+BOUNDARY_DECISION_INPUTS
+{
+  "coarse_move_profiles_total": 9,
+  "compression_signal": "GOOD_WEAK",
+  "cycle_next_id": "99e3a4e2",
+  "cycle_observation_id": "31f9d160",
+  "cycles_per_case": 150,
+  "depth_max": 150,
+  "eval_id": "0a9048aa",
+  "halt_reason_counts": {
+    "CYCLES_COMPLETE": 660,
+    "MAX_CELLS_EXCEEDED": 77,
+    "REPEATED_STATE_PERIODIC": 3
+  },
+  "law_failures": 0,
+  "max_cells": 50000,
+  "max_cells_exceeded": 77,
+  "orphan_receipt_runs": 0,
+  "raw_move_profiles_total": 531,
+  "registered_moves_total": 150,
+  "run_id": "run_20260618_235807_638720",
+  "total_cases": 740,
+  "total_receipts": 107708,
+  "unknown_laws": 0
+}
+
+STATUS_AFTER
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

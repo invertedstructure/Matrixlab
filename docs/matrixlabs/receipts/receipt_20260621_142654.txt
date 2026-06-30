@@ -1,0 +1,446 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260621_142654
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260621_142654.txt
+
+DIAGNOSE_V0_3_FAILURE_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_V03_FAILURE_DIAGNOSTIC
+
+PY_COMPILE
+
+RUN_V03_FAILURE_DIAGNOSTIC
+{
+  "authority": {
+    "authorizes_candidate_acceptance": false,
+    "authorizes_case_id_or_cycle_n_primary_identity_patch": false,
+    "authorizes_full_registry_scan": false,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_registry_write": false,
+    "authorizes_rowid_or_receipt_hash_patch": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_mode": false,
+    "observer_only": true
+  },
+  "classification": {
+    "burden_class": "BURDEN_REGRESSION_CONFIRMED",
+    "interpretation": "The prior debug difference likely lived in raw delta values, but v0.3 promoted only coarse buckets, collapsing the useful distinction.",
+    "primary_class": "BUCKETIZATION_COLLAPSED_RAW_DELTA_DIFFERENCE"
+  },
+  "created_at": "2026-06-21T13:26:56.465354+00:00",
+  "decision": {
+    "authority_side_clean": true,
+    "candidate_v0_3_rejected_for_burden": true,
+    "candidate_v0_3_rejected_for_scale_acceptance": true,
+    "delta_bucket_coverage_clean": true,
+    "do_not_accept_candidate": true,
+    "do_not_change_runtime": true,
+    "do_not_full_registry_scan": true,
+    "do_not_patch_by_adding_case_id_or_cycle_n_as_primary_identity": true,
+    "do_not_patch_by_adding_rowid_or_receipt_hash": true,
+    "identity_leak_absent": true,
+    "next_design_pressure": "Determine whether a smaller raw-delta encoding can preserve separability without exceeding burden.",
+    "primary_blocker": "FALSE_MERGE_PERSISTS_AND_BURDEN_REGRESSED",
+    "recommended_next_command_goal": "BUILD_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_POLICY_V0",
+    "source_surface_clean": true
+  },
+  "diagnosis_status": "DIAGNOSED",
+  "diagnostic_id": "d0132dd4",
+  "diagnostic_name": "DIAGNOSE_V0_3_FAILURE_V0",
+  "diagnostic_path": "data/stable_delta_signature_candidate_v0_3_failure_diagnostics/d0132dd4.json",
+  "diagnostic_sig8": "d0132dd4",
+  "failures": [],
+  "gate": "PASS",
+  "prior_diagnostic_id": "62c8d96c",
+  "receipt_id": "13b228ac",
+  "receipt_sig8": "13b228ac",
+  "schema_version": "stable_delta_signature_candidate_v0_3_failure_diagnostic_receipt_v0",
+  "source_v02_scale_probe_id": "227e9426",
+  "source_v03_policy_id": "78a6fbec",
+  "source_v03_probe_id": "bd1beabe",
+  "source_v03_receipt_id": "c598371b",
+  "summary": {
+    "bands_failed": 266,
+    "bands_passed": 0,
+    "bands_total": 266,
+    "bucket_delta_differing_column_counts": {},
+    "collision_group_count_reconstructed": 10,
+    "failed_axis_counts": {
+      "available_run_ids": 10,
+      "case_id": 64,
+      "cycle_n": 65,
+      "depth": 64,
+      "family": 10,
+      "local_run_replay": 1,
+      "raw/cell size fields if present": 42,
+      "receipt_count": 10
+    },
+    "failed_reason_counts": {
+      "burden_regression": 266,
+      "false_merge": 10
+    },
+    "known_failed_axis_counts": {
+      "available_run_ids": 2,
+      "cycle_n": 2,
+      "family": 2,
+      "raw/cell size fields if present": 2,
+      "receipt_count": 2
+    },
+    "known_failed_bands_cleared": false,
+    "known_failed_bands_total": 10,
+    "known_failed_remaining_false_merge_bands": 10,
+    "prior_diagnostic_id": "62c8d96c",
+    "raw_delta_differing_column_counts": {
+      "compression_ratio": 10
+    },
+    "source_terminal_decision": "FAIL_V0_3_FALSE_MERGE_PERSISTS",
+    "source_v02_scale_probe_id": "227e9426",
+    "source_v03_policy_id": "78a6fbec",
+    "source_v03_probe_id": "bd1beabe",
+    "source_v03_receipt_id": "c598371b",
+    "worst_burden_ratio_projected": 1.1120250685468076,
+    "worst_distinguishability_retention_ratio": 0.8333333333333334,
+    "worst_false_merge_count": 1
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+diagnostic_id=d0132dd4
+diagnostic_json_path=data/stable_delta_signature_candidate_v0_3_failure_diagnostics/d0132dd4.json
+diagnostic_receipt_path=data/stable_delta_signature_candidate_v0_3_failure_diagnostic_receipts/d0132dd4.json
+V03_DIAGNOSTIC_ID=d0132dd4
+
+ASSERT_V03_FAILURE_DIAGNOSTIC
+{
+  "authority": {
+    "authorizes_candidate_acceptance": false,
+    "authorizes_case_id_or_cycle_n_primary_identity_patch": false,
+    "authorizes_full_registry_scan": false,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_registry_write": false,
+    "authorizes_rowid_or_receipt_hash_patch": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_mode": false,
+    "observer_only": true
+  },
+  "classification": {
+    "burden_class": "BURDEN_REGRESSION_CONFIRMED",
+    "interpretation": "The prior debug difference likely lived in raw delta values, but v0.3 promoted only coarse buckets, collapsing the useful distinction.",
+    "primary_class": "BUCKETIZATION_COLLAPSED_RAW_DELTA_DIFFERENCE"
+  },
+  "decision": {
+    "authority_side_clean": true,
+    "candidate_v0_3_rejected_for_burden": true,
+    "candidate_v0_3_rejected_for_scale_acceptance": true,
+    "delta_bucket_coverage_clean": true,
+    "do_not_accept_candidate": true,
+    "do_not_change_runtime": true,
+    "do_not_full_registry_scan": true,
+    "do_not_patch_by_adding_case_id_or_cycle_n_as_primary_identity": true,
+    "do_not_patch_by_adding_rowid_or_receipt_hash": true,
+    "identity_leak_absent": true,
+    "next_design_pressure": "Determine whether a smaller raw-delta encoding can preserve separability without exceeding burden.",
+    "primary_blocker": "FALSE_MERGE_PERSISTS_AND_BURDEN_REGRESSED",
+    "recommended_next_command_goal": "BUILD_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_POLICY_V0",
+    "source_surface_clean": true
+  },
+  "diagnosis_status": "DIAGNOSED",
+  "diagnostic_id": "d0132dd4",
+  "failures": [],
+  "gate": "PASS",
+  "receipt_id": "13b228ac",
+  "source_v03_probe_id": "bd1beabe",
+  "source_v03_receipt_id": "c598371b",
+  "summary": {
+    "bands_failed": 266,
+    "bands_passed": 0,
+    "bands_total": 266,
+    "bucket_delta_differing_column_counts": {},
+    "collision_group_count_reconstructed": 10,
+    "failed_axis_counts": {
+      "available_run_ids": 10,
+      "case_id": 64,
+      "cycle_n": 65,
+      "depth": 64,
+      "family": 10,
+      "local_run_replay": 1,
+      "raw/cell size fields if present": 42,
+      "receipt_count": 10
+    },
+    "failed_reason_counts": {
+      "burden_regression": 266,
+      "false_merge": 10
+    },
+    "known_failed_axis_counts": {
+      "available_run_ids": 2,
+      "cycle_n": 2,
+      "family": 2,
+      "raw/cell size fields if present": 2,
+      "receipt_count": 2
+    },
+    "known_failed_bands_cleared": false,
+    "known_failed_bands_total": 10,
+    "known_failed_remaining_false_merge_bands": 10,
+    "prior_diagnostic_id": "62c8d96c",
+    "raw_delta_differing_column_counts": {
+      "compression_ratio": 10
+    },
+    "source_terminal_decision": "FAIL_V0_3_FALSE_MERGE_PERSISTS",
+    "source_v02_scale_probe_id": "227e9426",
+    "source_v03_policy_id": "78a6fbec",
+    "source_v03_probe_id": "bd1beabe",
+    "source_v03_receipt_id": "c598371b",
+    "worst_burden_ratio_projected": 1.1120250685468076,
+    "worst_distinguishability_retention_ratio": 0.8333333333333334,
+    "worst_false_merge_count": 1
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_V03_FAILURE_DIAGNOSTIC
+{
+  "case": "v03_terminal_not_failure_fail",
+  "expected": "v03_terminal_wrong",
+  "failures": [
+    "v03_terminal_wrong:PASS_V0_3_BOUNDED_FALSE_MERGE_REPAIR"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "v03_burden_regression_hidden_fail",
+  "expected": "v03_burden_not_regressed",
+  "failures": [
+    "v03_burden_not_regressed:0.5"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "v03_remaining_false_merges_hidden_fail",
+  "expected": "known_failed_remaining_false_merge_bands_not_10",
+  "failures": [
+    "known_failed_remaining_false_merge_bands_not_10:0"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "v03_known_failed_gate_hidden_fail",
+  "expected": "v03_gate_expected_false:known_failed_bands_cleared",
+  "failures": [
+    "v03_gate_expected_false:known_failed_bands_cleared:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "v03_scale_mode_authority_fail",
+  "expected": "v03_authority_or_mutation_not_false:scale_mode_authorized",
+  "failures": [
+    "v03_authority_or_mutation_not_false:scale_mode_authorized:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "v03_full_registry_scan_fail",
+  "expected": "v03_authority_or_mutation_not_false:full_registry_scan_used",
+  "failures": [
+    "v03_authority_or_mutation_not_false:full_registry_scan_used:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "prior_diag_class_fail",
+  "expected": "prior_diag_class_wrong",
+  "failures": [
+    "prior_diag_class_wrong:OTHER"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "v02_source_terminal_fail",
+  "expected": "v02_scale_terminal_wrong",
+  "failures": [
+    "v02_scale_terminal_wrong:PASS_SCALE_BANDS_OBSERVER_ONLY"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "bucketization_collapsed_raw_delta_difference",
+  "classification": {
+    "burden_class": "BURDEN_REGRESSION_CONFIRMED",
+    "interpretation": "The prior debug difference likely lived in raw delta values, but v0.3 promoted only coarse buckets, collapsing the useful distinction.",
+    "primary_class": "BUCKETIZATION_COLLAPSED_RAW_DELTA_DIFFERENCE"
+  },
+  "expected": "BUCKETIZATION_COLLAPSED_RAW_DELTA_DIFFERENCE",
+  "gate": "PASS"
+}
+{
+  "case": "transition_and_delta_buckets_recur_identically",
+  "classification": {
+    "burden_class": "BURDEN_REGRESSION_CONFIRMED",
+    "interpretation": "The same transition and bucketized delta structure recurs across distinct occurrences; transition-local deltas are not enough.",
+    "primary_class": "TRANSITION_AND_DELTA_BUCKETS_RECUR_IDENTICALLY"
+  },
+  "expected": "TRANSITION_AND_DELTA_BUCKETS_RECUR_IDENTICALLY",
+  "gate": "PASS"
+}
+{
+  "case": "payload_construction_lost_bucket_difference",
+  "classification": {
+    "burden_class": "BURDEN_REGRESSION_CONFIRMED",
+    "interpretation": "The source rows expose bucket-level differences, but v0.3 payload construction failed to preserve them.",
+    "primary_class": "V03_PAYLOAD_CONSTRUCTION_LOST_AVAILABLE_BUCKET_DIFFERENCE"
+  },
+  "expected": "V03_PAYLOAD_CONSTRUCTION_LOST_AVAILABLE_BUCKET_DIFFERENCE",
+  "gate": "PASS"
+}
+negative controls ok
+
+V03_FAILURE_DIAGNOSTIC_HEAD_JSON
+{
+  "authority": {
+    "authorizes_candidate_acceptance": false,
+    "authorizes_case_id_or_cycle_n_primary_identity_patch": false,
+    "authorizes_full_registry_scan": false,
+    "authorizes_raw_receipt_hash_truth_surface": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_replacement": false,
+    "authorizes_registry_write": false,
+    "authorizes_rowid_or_receipt_hash_patch": false,
+    "authorizes_runtime_receipt_emission_change": false,
+    "authorizes_scale_mode": false,
+    "observer_only": true
+  },
+  "classification": {
+    "burden_class": "BURDEN_REGRESSION_CONFIRMED",
+    "interpretation": "The prior debug difference likely lived in raw delta values, but v0.3 promoted only coarse buckets, collapsing the useful distinction.",
+    "primary_class": "BUCKETIZATION_COLLAPSED_RAW_DELTA_DIFFERENCE"
+  },
+  "decision": {
+    "authority_side_clean": true,
+    "candidate_v0_3_rejected_for_burden": true,
+    "candidate_v0_3_rejected_for_scale_acceptance": true,
+    "delta_bucket_coverage_clean": true,
+    "do_not_accept_candidate": true,
+    "do_not_change_runtime": true,
+    "do_not_full_registry_scan": true,
+    "do_not_patch_by_adding_case_id_or_cycle_n_as_primary_identity": true,
+    "do_not_patch_by_adding_rowid_or_receipt_hash": true,
+    "identity_leak_absent": true,
+    "next_design_pressure": "Determine whether a smaller raw-delta encoding can preserve separability without exceeding burden.",
+    "primary_blocker": "FALSE_MERGE_PERSISTS_AND_BURDEN_REGRESSED",
+    "recommended_next_command_goal": "BUILD_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_POLICY_V0",
+    "source_surface_clean": true
+  },
+  "diagnosis_status": "DIAGNOSED",
+  "diagnostic_id": "d0132dd4",
+  "gate": "PASS",
+  "receipt_id": "13b228ac",
+  "source_v03_probe_id": "bd1beabe",
+  "summary": {
+    "bands_failed": 266,
+    "bands_passed": 0,
+    "bands_total": 266,
+    "bucket_delta_differing_column_counts": {},
+    "collision_group_count_reconstructed": 10,
+    "failed_axis_counts": {
+      "available_run_ids": 10,
+      "case_id": 64,
+      "cycle_n": 65,
+      "depth": 64,
+      "family": 10,
+      "local_run_replay": 1,
+      "raw/cell size fields if present": 42,
+      "receipt_count": 10
+    },
+    "failed_reason_counts": {
+      "burden_regression": 266,
+      "false_merge": 10
+    },
+    "known_failed_axis_counts": {
+      "available_run_ids": 2,
+      "cycle_n": 2,
+      "family": 2,
+      "raw/cell size fields if present": 2,
+      "receipt_count": 2
+    },
+    "known_failed_bands_cleared": false,
+    "known_failed_bands_total": 10,
+    "known_failed_remaining_false_merge_bands": 10,
+    "prior_diagnostic_id": "62c8d96c",
+    "raw_delta_differing_column_counts": {
+      "compression_ratio": 10
+    },
+    "source_terminal_decision": "FAIL_V0_3_FALSE_MERGE_PERSISTS",
+    "source_v02_scale_probe_id": "227e9426",
+    "source_v03_policy_id": "78a6fbec",
+    "source_v03_probe_id": "bd1beabe",
+    "source_v03_receipt_id": "c598371b",
+    "worst_burden_ratio_projected": 1.1120250685468076,
+    "worst_distinguishability_retention_ratio": 0.8333333333333334,
+    "worst_false_merge_count": 1
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_RAW_DELTA_COMPACTNESS_DIAGNOSTIC_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_RUNTIME_AND_PRIOR_PROBES_UNTOUCHED
+.gitignore
+runtime/prior probes untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_214806_723967
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/diagnose_v0_3_failure_v0.py
+[master d04327822] diagnose stable delta signature candidate v0.3 failure
+ 2 files changed, 565 insertions(+)
+ create mode 100755 scripts/diagnose_v0_3_failure_v0.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

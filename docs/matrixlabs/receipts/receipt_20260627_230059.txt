@@ -1,0 +1,96 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260627_230059
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260627_230059.txt
+
+BOOKKEEPING_COMMIT_C8_LOCAL_INSTRUMENTATION_LOOP_CLOSURE_V0
+
+VERIFY_C8_LOOP_CLOSURE_ARTIFACTS_PRESENT
+present data/c8_local_instrumentation_loop_closure_v0_receipts/c8_local_loop_closure_receipt_cce65018.json
+present data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_closure_packet_v0.json
+present data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_timeline_v0.json
+present data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_boundary_audit_v0.json
+present data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_closure_readout_v0.json
+present data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_closure_report.json
+present scripts/create_c8_local_instrumentation_loop_closure_v0.py
+
+PY_COMPILE_C8_LOOP_CLOSURE_RUNNER
+
+VERIFY_C8_LOOP_CLOSURE_RECEIPT
+{
+  "acceptance_gates_false_count": 0,
+  "chain_steps_closed": 6,
+  "closure_kind": "LOCAL_C8_BRANCH_INSTRUMENTATION_CLOSURE",
+  "commit_gate": "PASS",
+  "failures": [],
+  "final_rerun_classification": "LOCAL_TRANSITION_FAMILY_CANDIDATE_CONFIRMED",
+  "frontier_solved_claim": false,
+  "global_solution_claim": false,
+  "local_loop_closed": true,
+  "missing_instrument_status_after_rerun": "LOCALLY_INSTRUMENTED_FOR_THIS_SURFACE",
+  "negative_controls_nonzero_count": 0,
+  "outcome_class": "C8_LOCAL_INSTRUMENTATION_LOOP_CLOSED",
+  "receipt_id": "c8_local_loop_closure_receipt_cce65018",
+  "status": "TYPED_C8_LOCAL_INSTRUMENTATION_LOOP_CLOSURE_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_LOCAL_INSTRUMENTATION_LOOP_CLOSED",
+    "type": "STOP"
+  }
+}
+
+VERIFY_GIT_IDENTITY
+
+BOUND_ADD_ONLY_C8_LOOP_CLOSURE_ARTIFACTS
+
+VERIFY_NO_OUT_OF_SCOPE_STAGED_PATHS
+staged_path_count=8
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+c8_loop_closure_receipts_staged=['data/c8_local_instrumentation_loop_closure_v0_receipts/c8_local_loop_closure_receipt_cce65018.json']
+
+BOOKKEEPING_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...cal_instrumentation_loop_boundary_audit_v0.json |  30 ++
+ ...cal_instrumentation_loop_closure_packet_v0.json |  32 ++
+ ...al_instrumentation_loop_closure_readout_v0.json |  19 +
+ ..._local_instrumentation_loop_closure_report.json |  20 +
+ .../c8_local_instrumentation_loop_timeline_v0.json |  48 +++
+ .../c8_local_loop_closure_receipt_cce65018.json    | 120 ++++++
+ ...ate_c8_local_instrumentation_loop_closure_v0.py | 479 +++++++++++++++++++++
+ 8 files changed, 754 insertions(+)
+
+BOOKKEEPING_COMMIT
+[master 23b192495] Close C8 local instrumentation loop
+ 8 files changed, 754 insertions(+)
+ create mode 100644 data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_boundary_audit_v0.json
+ create mode 100644 data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_closure_packet_v0.json
+ create mode 100644 data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_closure_readout_v0.json
+ create mode 100644 data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_closure_report.json
+ create mode 100644 data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_timeline_v0.json
+ create mode 100644 data/c8_local_instrumentation_loop_closure_v0_receipts/c8_local_loop_closure_receipt_cce65018.json
+ create mode 100755 scripts/create_c8_local_instrumentation_loop_closure_v0.py
+
+BOOKKEEPING_COMMIT_RECEIPT
+commit_sha=23b192495425d88a29ceffa1bb6698dbdf62d52e
+closure_receipt=data/c8_local_instrumentation_loop_closure_v0_receipts/c8_local_loop_closure_receipt_cce65018.json
+closure_packet=data/c8_local_instrumentation_loop_closure_v0/c8_local_instrumentation_loop_closure_packet_v0.json
+closure_outcome=C8_LOCAL_INSTRUMENTATION_LOOP_CLOSED
+closure_packet_id=c8_local_loop_closure_8970734f
+proposal_id=missing_instrument_d56acf49
+accepted_build_packet_id=accepted_instrument_build_packet_2e67943c
+instrument_id=local_transition_family_discriminator_2deb5cd1
+final_rerun_receipt_id=c8_rerun_with_local_discriminator_receipt_f44ca463
+final_rerun_classification=LOCAL_TRANSITION_FAMILY_CANDIDATE_CONFIRMED
+missing_instrument_status_after_rerun=LOCALLY_INSTRUMENTED_FOR_THIS_SURFACE
+chain_steps_closed=6
+local_loop_closed=true
+global_solution_claim=false
+frontier_solved_claim=false
+terminal_stop_code=STOP_C8_LOCAL_INSTRUMENTATION_LOOP_CLOSED
+
+STATUS_AFTER_COMMIT_RELEVANT
+
+BOOKKEEPING_COMMIT_C8_LOCAL_INSTRUMENTATION_LOOP_CLOSURE_COMPLETE
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

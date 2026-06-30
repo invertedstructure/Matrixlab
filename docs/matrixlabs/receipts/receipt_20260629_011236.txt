@@ -1,0 +1,87 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260629_011236
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260629_011236.txt
+
+REVIEW_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0
+
+VERIFY_DIAGNOSTIC_ASSESSMENT_ARTIFACTS_PRESENT
+present data/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_receipt_2b262320.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_packet_v0.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_options_v0.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_boundary_audit_v0.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_readout_v0.json
+present data/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_after_runtime_adoption_closure_v0/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_report.json
+present scripts/create_c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_packet_after_runtime_adoption_closure_v0.py
+
+PY_COMPILE_DIAGNOSTIC_ASSESSMENT_RUNNER
+
+VERIFY_DIAGNOSTIC_ASSESSMENT_RECEIPT
+{
+  "additional_sample_discovery_now": false,
+  "c8_rerun_now": false,
+  "diagnostic_assessment_status": "FAILED_UNIT_SAMPLE_DIAGNOSTIC_FEEDBACK_USEFUL_WITH_SOURCE_STATUS_GAP_EXPOSED",
+  "failed_unit_sample_id": "c8_failed_unit_sample_ee4e6092",
+  "failed_unit_sample_source_path": "data/a0_current_receipt_chain_frontier_application_v0_receipts/c1d0f615.json",
+  "failures": [],
+  "forbidden_counters_nonzero_count": 0,
+  "gate_results_false_count": 0,
+  "if_accepted_authorizes_future_unit": "CREATE_C8_UNIT_FEEDBACK_HARDENING_DECISION_PACKET_FROM_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+  "instrument_built_now": false,
+  "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_PACKET_READY_FOR_REVIEW",
+  "probe_executed_now": false,
+  "probe_execution_authorized_now": false,
+  "receipt_id": "c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_receipt_2b262320",
+  "recommended_decision_class": "ACCEPT_SAMPLE_AS_USEFUL_DIAGNOSTIC_FEEDBACK_WITH_SOURCE_STATUS_GAP",
+  "recommended_human_decision": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_FOR_FEEDBACK_HARDENING_DECISION",
+  "reusable_schema_authorized": false,
+  "review_gate": "PASS",
+  "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_PACKET_PASS",
+  "terminal": {
+    "next_command_goal": null,
+    "stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_PACKET_READY_FOR_REVIEW",
+    "type": "STOP"
+  }
+}
+
+VERIFY_DIAGNOSTIC_ASSESSMENT_CONTENT
+{
+  "additional_sample_discovery_now": false,
+  "boundary_id": "c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_boundary_987942ec",
+  "c8_rerun_authorized_now": false,
+  "content_review_gate": "PASS",
+  "diagnostic_assessment_status": "FAILED_UNIT_SAMPLE_DIAGNOSTIC_FEEDBACK_USEFUL_WITH_SOURCE_STATUS_GAP_EXPOSED",
+  "failed_unit_sample_id": "c8_failed_unit_sample_ee4e6092",
+  "failed_unit_sample_source_path": "data/a0_current_receipt_chain_frontier_application_v0_receipts/c1d0f615.json",
+  "failures": [],
+  "if_accepted_authorizes_future_unit": "CREATE_C8_UNIT_FEEDBACK_HARDENING_DECISION_PACKET_FROM_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+  "instrument_build_authorized_now": false,
+  "options_id": "c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_options_373a4f21",
+  "packet_id": "c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_packet_4e6c1747",
+  "probe_executed_now": false,
+  "probe_execution_authorized_now": false,
+  "recommended_decision_class": "ACCEPT_SAMPLE_AS_USEFUL_DIAGNOSTIC_FEEDBACK_WITH_SOURCE_STATUS_GAP",
+  "recommended_human_decision": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_FOR_FEEDBACK_HARDENING_DECISION",
+  "reusable_schema_authorized_now": false
+}
+
+VERIFY_STAGED_SCOPE_DIAGNOSTIC_ASSESSMENT_ONLY
+staged_path_count=8
+out_of_scope_staged_path_count=0
+required_staged_missing_count=0
+diagnostic_assessment_receipts_staged=['data/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_receipt_2b262320.json']
+
+REVIEW_DIFF_STAT
+ .gitignore                                         |   6 +
+ ...le_diagnostic_assessment_boundary_audit_v0.json |  46 ++
+ ...it_sample_diagnostic_assessment_options_v0.json |  13 +
+ ...nit_sample_diagnostic_assessment_packet_v0.json |  82 ++++
+ ...it_sample_diagnostic_assessment_readout_v0.json |  22 +
+ ...d_unit_sample_diagnostic_assessment_report.json |  47 ++
+ ...ple_diagnostic_assessment_receipt_2b262320.json | 131 +++++
+ ...ent_packet_after_runtime_adoption_closure_v0.py | 533 +++++++++++++++++++++
+ 8 files changed, 880 insertions(+)
+
+REVIEW_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_PASS
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

@@ -1,0 +1,355 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_200129
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_200129.txt
+
+DECIDE_DB_WRITE_FIX_OUTCOME_OR_NEXT_BURDEN_CLASS_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_DB_WRITE_FIX_OUTCOME_DECISION_SCRIPT
+
+PY_COMPILE
+
+BUILD_DB_WRITE_FIX_OUTCOME_DECISION
+{
+  "authorizes_batching_patch": false,
+  "authorizes_more_db_write_patch": false,
+  "authorizes_radius_expansion": false,
+  "created_at": "2026-06-20T19:01:29.790340+00:00",
+  "db_write_fix_outcome": "ACCEPT_DB_WRITE_WAL_WRAPPER_FIX",
+  "db_write_metric_delta": {
+    "after_elapsed_ms": 4695,
+    "after_receipts": 90,
+    "after_receipts_per_sec": 19.169329,
+    "after_rows": 5,
+    "before_elapsed_ms": 18248,
+    "before_receipts": 90,
+    "before_receipts_per_sec": 4.932047,
+    "before_rows": 5,
+    "elapsed_ms_delta": -13553,
+    "elapsed_ratio_after_vs_before": 0.257288,
+    "receipts_per_sec_delta": 14.237282,
+    "speedup_before_over_after": 3.886688
+  },
+  "decision_id": "811e147b",
+  "decision_path": "data/db_write_fix_outcome_decisions/811e147b.json",
+  "decision_sig8": "811e147b",
+  "failures": [],
+  "gate": "PASS",
+  "next_burden_class": "BURDEN_REPEATED_SLOT_WORK",
+  "next_burden_selection_rule": "MAX_AFTER_ELAPSED_MS_EXCLUDING_DB_WRITE",
+  "receipt_id": "21f49f0d",
+  "receipt_sig8": "21f49f0d",
+  "schema_version": "db_write_fix_outcome_decision_receipt_v0",
+  "source_application_id": "ff45a8b0",
+  "source_comparison_id": "fe67c814",
+  "target_burden_class": "BURDEN_DB_WRITE",
+  "target_result": "TARGET_BURDEN_ELAPSED_NON_WORSE",
+  "terminal": {
+    "next_command_goal": "BUILD_REPEATED_SLOT_EXECUTION_PLAN_CACHE_FIX_CANDIDATE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+decision_json_path=data/db_write_fix_outcome_decisions/811e147b.json
+decision_receipt_path=data/db_write_fix_outcome_decision_receipts/811e147b.json
+DECISION_ID=811e147b
+
+ASSERT_DB_WRITE_FIX_OUTCOME_DECISION
+{
+  "after_profile_id": "00a75664",
+  "authorizes_batching_patch": false,
+  "authorizes_more_db_write_patch": false,
+  "authorizes_next_burden_policy": true,
+  "authorizes_radius_expansion": false,
+  "before_profile_id": "c89790f0",
+  "db_write_fix_outcome": "ACCEPT_DB_WRITE_WAL_WRAPPER_FIX",
+  "decision_id": "811e147b",
+  "decision_sig8": "811e147b",
+  "elapsed_ms_delta": -13553,
+  "failures": [],
+  "gate": "PASS",
+  "next_burden_class": "BURDEN_REPEATED_SLOT_WORK",
+  "next_command_goal": "BUILD_REPEATED_SLOT_EXECUTION_PLAN_CACHE_FIX_CANDIDATE_POLICY_V0",
+  "next_selection_rule": "MAX_AFTER_ELAPSED_MS_EXCLUDING_DB_WRITE",
+  "receipt_gate": "PASS",
+  "receipt_id": "21f49f0d",
+  "source_application_id": "ff45a8b0",
+  "source_candidate_id": "2de6e3c2",
+  "source_comparison_id": "fe67c814",
+  "speedup_before_over_after": 3.886688,
+  "target_burden_class": "BURDEN_DB_WRITE",
+  "target_result": "TARGET_BURDEN_ELAPSED_NON_WORSE",
+  "terminal": {
+    "next_command_goal": "BUILD_REPEATED_SLOT_EXECUTION_PLAN_CACHE_FIX_CANDIDATE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_DECISION_SOURCE_MUTATIONS
+{
+  "case": "comparison_gate_fail",
+  "expected": "comparison_gate_not_PASS",
+  "failures": [
+    "comparison_gate_not_PASS"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "target_worse_fail",
+  "expected": "target_result_not_accepting",
+  "failures": [
+    "target_result_not_accepting:TARGET_BURDEN_ELAPSED_WORSE"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "gate_rule_false_fail",
+  "expected": "comparison_gate_rule_false:no_gate_semantics_changed",
+  "failures": [
+    "comparison_gate_rule_false:no_gate_semantics_changed:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "after_receipt_mismatch_fail",
+  "expected": "after_profile_receipt_total_mismatch_registry",
+  "failures": [
+    "after_profile_receipt_total_mismatch_registry"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "after_execution_skipped_fail",
+  "expected": "after_profile_execution_skipped",
+  "failures": [
+    "after_profile_execution_skipped"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "application_receipt_deletion_fail",
+  "expected": "application_semantics_not_preserved:receipt_deletion",
+  "failures": [
+    "application_semantics_not_preserved:receipt_deletion:True"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+DECISION_HEAD_JSON
+{
+  "accepted_changes": [
+    "KEEP_SQLITE_WAL_CONNECTION_WRAPPER",
+    "KEEP_SQLITE_SYNCHRONOUS_NORMAL",
+    "KEEP_SQLITE_BUSY_TIMEOUT"
+  ],
+  "authorization": {
+    "authorizes_batching_patch": false,
+    "authorizes_execution_skipping": false,
+    "authorizes_gate_semantics_change": false,
+    "authorizes_law_semantics_change": false,
+    "authorizes_more_db_write_patch": false,
+    "authorizes_next_burden_policy": true,
+    "authorizes_radius_expansion": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_run_semantics_change": false,
+    "db_write_fix_accepted": true,
+    "next_burden_class": "BURDEN_REPEATED_SLOT_WORK"
+  },
+  "db_write_fix_outcome": "ACCEPT_DB_WRITE_WAL_WRAPPER_FIX",
+  "db_write_metric_delta": {
+    "after_elapsed_ms": 4695,
+    "after_receipts": 90,
+    "after_receipts_per_sec": 19.169329,
+    "after_rows": 5,
+    "before_elapsed_ms": 18248,
+    "before_receipts": 90,
+    "before_receipts_per_sec": 4.932047,
+    "before_rows": 5,
+    "elapsed_ms_delta": -13553,
+    "elapsed_ratio_after_vs_before": 0.257288,
+    "receipts_per_sec_delta": 14.237282,
+    "speedup_before_over_after": 3.886688
+  },
+  "decision_id": "811e147b",
+  "gate": "PASS",
+  "next_burden_selection": {
+    "ranked_candidates": [
+      {
+        "authority_note": "Plan/metadata reuse only; must not skip repeated slot execution or collapse identity.",
+        "burden_class": "BURDEN_REPEATED_SLOT_WORK",
+        "elapsed_ms": 8243,
+        "families": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "fix_family": "REPEATED_SLOT_EXECUTION_PLAN_CACHE",
+        "next_command_goal": "BUILD_REPEATED_SLOT_EXECUTION_PLAN_CACHE_FIX_CANDIDATE_POLICY_V0",
+        "probes": [
+          "MICRO_04_REPEATED_SLOT_PRESSURE"
+        ],
+        "receipts": 270,
+        "receipts_per_sec": 32.755065,
+        "rows": 9,
+        "slots": [
+          "slot_01_E1",
+          "slot_02_E2",
+          "slot_03_E3",
+          "slot_04_D1",
+          "slot_05_D2",
+          "slot_06_B1",
+          "slot_07_B2",
+          "slot_08_C1",
+          "slot_09_A1"
+        ]
+      },
+      {
+        "authority_note": "Future-run cycle-period policy only; no halt/law/gate semantics change.",
+        "burden_class": "BURDEN_CYCLE_SCAN",
+        "elapsed_ms": 4392,
+        "families": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "fix_family": "CYCLE_PERIOD_COMPRESSION_POLICY",
+        "next_command_goal": "BUILD_CYCLE_PERIOD_COMPRESSION_FIX_CANDIDATE_POLICY_V0",
+        "probes": [
+          "MICRO_02_CYCLE_PRESSURE"
+        ],
+        "receipts": 576,
+        "receipts_per_sec": 131.147541,
+        "rows": 5,
+        "slots": [
+          "MICRO_02_CYCLE_PRESSURE_A",
+          "MICRO_02_CYCLE_PRESSURE_B",
+          "MICRO_02_CYCLE_PRESSURE_C",
+          "MICRO_02_CYCLE_PRESSURE_D",
+          "MICRO_02_CYCLE_PRESSURE_E"
+        ]
+      },
+      {
+        "authority_note": "Future-run depth frontier policy only; no current probe skipping.",
+        "burden_class": "BURDEN_DEPTH_SCAN",
+        "elapsed_ms": 4179,
+        "families": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "fix_family": "FRONTIER_DEPTH_PROBE_POLICY",
+        "next_command_goal": "BUILD_FRONTIER_DEPTH_PROBE_FIX_CANDIDATE_POLICY_V0",
+        "probes": [
+          "MICRO_03_DEPTH_PRESSURE"
+        ],
+        "receipts": 345,
+        "receipts_per_sec": 82.555635,
+        "rows": 5,
+        "slots": [
+          "MICRO_03_DEPTH_PRESSURE_A",
+          "MICRO_03_DEPTH_PRESSURE_B",
+          "MICRO_03_DEPTH_PRESSURE_C",
+          "MICRO_03_DEPTH_PRESSURE_D",
+          "MICRO_03_DEPTH_PRESSURE_E"
+        ]
+      },
+      {
+        "authority_note": "Operator-view/read-side compression only; raw receipts remain authoritative.",
+        "burden_class": "BURDEN_RECEIPT_VOLUME",
+        "elapsed_ms": 1050,
+        "families": [
+          "E"
+        ],
+        "fix_family": "RECEIPT_VOLUME_READ_SIDE_ROLLUP_VIEW",
+        "next_command_goal": "BUILD_RECEIPT_VOLUME_ROLLUP_VIEW_FIX_CANDIDATE_POLICY_V0",
+        "probes": [
+          "MICRO_05_RECEIPT_WRITE_PRESSURE"
+        ],
+        "receipts": 176,
+        "receipts_per_sec": 167.619048,
+        "rows": 1,
+        "slots": [
+          "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+        ]
+      }
+    ],
+    "selected_authority_note": "Plan/metadata reuse only; must not skip repeated slot execution or collapse identity.",
+    "selected_burden_class": "BURDEN_REPEATED_SLOT_WORK",
+    "selected_fix_family": "REPEATED_SLOT_EXECUTION_PLAN_CACHE",
+    "selection_rule": "MAX_AFTER_ELAPSED_MS_EXCLUDING_DB_WRITE"
+  },
+  "rejected_or_deferred_changes": [
+    {
+      "change_id": "BATCH_RECEIPT_INSERTS_WITH_EXPLICIT_TRANSACTIONS",
+      "reason": "WAL-only wrapper produced target non-worse/improved result. Do not add batching without fresh burden evidence.",
+      "status": "NOT_AUTHORIZED_NOW"
+    }
+  ],
+  "required_next_gate": {
+    "next_policy_must_authorize_exactly_one_fix_candidate": true,
+    "next_policy_must_not_authorize_patch_application": true,
+    "next_policy_must_not_authorize_radius_expansion": true,
+    "next_policy_must_preserve_raw_receipts": true,
+    "next_policy_must_target_selected_burden_class": "BURDEN_REPEATED_SLOT_WORK",
+    "next_policy_must_use_after_profile_id": "00a75664"
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_REPEATED_SLOT_EXECUTION_PLAN_CACHE_FIX_CANDIDATE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_185931_901119
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/decide_db_write_fix_outcome_or_next_burden_class.py
+[master 6855b018d] add DB write fix outcome decision
+ 2 files changed, 388 insertions(+)
+ create mode 100755 scripts/decide_db_write_fix_outcome_or_next_burden_class.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

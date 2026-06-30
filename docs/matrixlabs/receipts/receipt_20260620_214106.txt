@@ -1,0 +1,424 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_214106
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_214106.txt
+
+DECIDE_CYCLE_PERIOD_COMPRESSION_FIX_OUTCOME_OR_NEXT_BURDEN_CLASS_V0
+
+STATUS_BEFORE
+?? data/
+
+PATCH_GITIGNORE
+
+WRITE_CYCLE_PERIOD_OUTCOME_DECISION_SCRIPT
+
+PY_COMPILE
+
+BUILD_CYCLE_PERIOD_COMPRESSION_OUTCOME_DECISION
+{
+  "accepted_burden_classes_excluded_from_next_selection": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "after_profile_id": "45cd7660",
+  "authorizes_cycle_execution_skipping": false,
+  "authorizes_early_halt_on_period_detection": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_more_cycle_period_patch": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_reusing_prior_cycle_results_as_execution": false,
+  "authorizes_synthetic_cycle_receipts": false,
+  "before_profile_id": "24ac7037",
+  "created_at": "2026-06-20T20:41:07.842441+00:00",
+  "cycle_period_fix_outcome": "ACCEPT_CYCLE_PERIOD_METADATA_CERTIFICATE_FIX",
+  "decision_id": "118d66ca",
+  "decision_path": "data/cycle_period_compression_fix_outcome_decisions/118d66ca.json",
+  "decision_sig8": "118d66ca",
+  "failures": [],
+  "gate": "PASS",
+  "next_burden_class": "BURDEN_DEPTH_SCAN",
+  "next_burden_selection_rule": "MAX_AFTER_ELAPSED_MS_EXCLUDING_ACCEPTED_BURDEN_CLASSES",
+  "receipt_id": "ec738df0",
+  "receipt_sig8": "ec738df0",
+  "schema_version": "cycle_period_compression_fix_outcome_decision_receipt_v0",
+  "source_application_id": "febc0111",
+  "source_candidate_id": "7a058351",
+  "source_comparison_id": "92bc87b6",
+  "source_policy_id": "688b83a9",
+  "target_burden_class": "BURDEN_CYCLE_SCAN",
+  "target_metric_delta": {
+    "after_elapsed_ms": 4315,
+    "after_receipts_per_sec": 133.487833,
+    "before_elapsed_ms": 4392,
+    "before_receipts_per_sec": 131.147541,
+    "elapsed_ms_delta": -77,
+    "elapsed_ratio_after_vs_before": 0.982468,
+    "receipts_per_sec_delta": 2.340292,
+    "speedup_before_over_after": 1.017845
+  },
+  "target_result": "TARGET_BURDEN_ELAPSED_NON_WORSE",
+  "terminal": {
+    "next_command_goal": "BUILD_FRONTIER_DEPTH_PROBE_FIX_CANDIDATE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": []
+}
+decision_json_path=data/cycle_period_compression_fix_outcome_decisions/118d66ca.json
+decision_receipt_path=data/cycle_period_compression_fix_outcome_decision_receipts/118d66ca.json
+DECISION_ID=118d66ca
+
+ASSERT_CYCLE_PERIOD_COMPRESSION_OUTCOME_DECISION
+{
+  "accepted_burden_classes_excluded_from_next_selection": [
+    "BURDEN_CYCLE_SCAN",
+    "BURDEN_DB_WRITE",
+    "BURDEN_REPEATED_SLOT_WORK"
+  ],
+  "after_profile_id": "45cd7660",
+  "authorizes_cycle_execution_skipping": false,
+  "authorizes_early_halt_on_period_detection": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_more_cycle_period_patch": false,
+  "authorizes_next_burden_policy": true,
+  "authorizes_patch_application": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_reusing_prior_cycle_results_as_execution": false,
+  "authorizes_synthetic_cycle_receipts": false,
+  "before_profile_id": "24ac7037",
+  "cycle_period_fix_outcome": "ACCEPT_CYCLE_PERIOD_METADATA_CERTIFICATE_FIX",
+  "decision_id": "118d66ca",
+  "decision_sig8": "118d66ca",
+  "elapsed_ms_delta": -77,
+  "failures": [],
+  "gate": "PASS",
+  "next_burden_class": "BURDEN_DEPTH_SCAN",
+  "next_command_goal": "BUILD_FRONTIER_DEPTH_PROBE_FIX_CANDIDATE_POLICY_V0",
+  "next_selection_rule": "MAX_AFTER_ELAPSED_MS_EXCLUDING_ACCEPTED_BURDEN_CLASSES",
+  "ranked_candidates": [
+    {
+      "authority_note": "Future-run depth/frontier probe policy only; no current probe skipping and no radius expansion.",
+      "burden_class": "BURDEN_DEPTH_SCAN",
+      "elapsed_ms": 4189,
+      "families": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "fix_family": "FRONTIER_DEPTH_PROBE_POLICY",
+      "next_command_goal": "BUILD_FRONTIER_DEPTH_PROBE_FIX_CANDIDATE_POLICY_V0",
+      "probes": [
+        "MICRO_03_DEPTH_PRESSURE"
+      ],
+      "receipts": 345,
+      "receipts_per_sec": 82.358558,
+      "rows": 5,
+      "slots": [
+        "MICRO_03_DEPTH_PRESSURE_A",
+        "MICRO_03_DEPTH_PRESSURE_B",
+        "MICRO_03_DEPTH_PRESSURE_C",
+        "MICRO_03_DEPTH_PRESSURE_D",
+        "MICRO_03_DEPTH_PRESSURE_E"
+      ]
+    },
+    {
+      "authority_note": "Operator-view/read-side rollup only; raw receipts remain authoritative.",
+      "burden_class": "BURDEN_RECEIPT_VOLUME",
+      "elapsed_ms": 1006,
+      "families": [
+        "E"
+      ],
+      "fix_family": "RECEIPT_VOLUME_READ_SIDE_ROLLUP_VIEW",
+      "next_command_goal": "BUILD_RECEIPT_VOLUME_ROLLUP_VIEW_FIX_CANDIDATE_POLICY_V0",
+      "probes": [
+        "MICRO_05_RECEIPT_WRITE_PRESSURE"
+      ],
+      "receipts": 176,
+      "receipts_per_sec": 174.950298,
+      "rows": 1,
+      "slots": [
+        "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+      ]
+    }
+  ],
+  "receipt_gate": "PASS",
+  "receipt_id": "ec738df0",
+  "source_application_id": "febc0111",
+  "source_candidate_id": "7a058351",
+  "source_comparison_id": "92bc87b6",
+  "source_policy_id": "688b83a9",
+  "speedup_before_over_after": 1.017845,
+  "target_burden_class": "BURDEN_CYCLE_SCAN",
+  "target_result": "TARGET_BURDEN_ELAPSED_NON_WORSE",
+  "terminal": {
+    "next_command_goal": "BUILD_FRONTIER_DEPTH_PROBE_FIX_CANDIDATE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_CYCLE_PERIOD_OUTCOME_DECISION
+{
+  "case": "comparison_gate_fail",
+  "expected": "comparison_gate_not_PASS",
+  "failures": [
+    "comparison_gate_not_PASS"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "target_worse_fail",
+  "expected": "comparison_target_result_not_accepted",
+  "failures": [
+    "comparison_target_result_not_accepted:TARGET_BURDEN_ELAPSED_WORSE"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "cycle_slot_gate_rule_false_fail",
+  "expected": "comparison_gate_rule_false:cycle_slot_identity_preserved",
+  "failures": [
+    "comparison_gate_rule_false:cycle_slot_identity_preserved:False"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "positive_elapsed_delta_fail",
+  "expected": "target_elapsed_delta_positive",
+  "failures": [
+    "target_elapsed_delta_positive"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "early_halt_marker_fail",
+  "expected": "cycle_period_early_halts_on_period_detection",
+  "failures": [
+    "cycle_period_early_halts_on_period_detection"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "synthetic_receipts_semantics_fail",
+  "expected": "cycle_period_observation_semantics_not_preserved:synthetic_cycle_receipts",
+  "failures": [
+    "cycle_period_observation_semantics_not_preserved:synthetic_cycle_receipts:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "application_cycle_skip_fail",
+  "expected": "application_semantics_not_preserved:cycle_execution_skipping",
+  "failures": [
+    "application_semantics_not_preserved:cycle_execution_skipping:True"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "after_certificate_count_fail",
+  "expected": "cycle_period_certificate_count_wrong",
+  "failures": [
+    "cycle_period_certificate_count_wrong:4"
+  ],
+  "gate": "FAIL"
+}
+{
+  "case": "after_profile_receipt_mismatch_fail",
+  "expected": "after_profile_receipt_total_mismatch_registry",
+  "failures": [
+    "after_profile_receipt_total_mismatch_registry",
+    "after_profile_receipt_total_not_1457:1458"
+  ],
+  "gate": "FAIL"
+}
+negative controls ok
+
+DECISION_HEAD_JSON
+{
+  "accepted_changes": [
+    "KEEP_CYCLE_PERIOD_METADATA_CERTIFICATE_OBJECT",
+    "KEEP_POST_EXECUTION_CYCLE_PERIOD_OBSERVATION_BUILDER",
+    "KEEP_CYCLE_PRESSURE_SLOT_IDENTITY_SURFACE",
+    "KEEP_CYCLES_PER_CASE_AND_HALT_SEMANTICS_PRESERVATION"
+  ],
+  "authorization": {
+    "accepted_burden_classes_excluded_from_next_selection": [
+      "BURDEN_CYCLE_SCAN",
+      "BURDEN_DB_WRITE",
+      "BURDEN_REPEATED_SLOT_WORK"
+    ],
+    "authorizes_code_change": false,
+    "authorizes_cycle_execution_skipping": false,
+    "authorizes_early_halt_on_period_detection": false,
+    "authorizes_execution_skipping": false,
+    "authorizes_gate_semantics_change": false,
+    "authorizes_halt_semantics_change": false,
+    "authorizes_law_semantics_change": false,
+    "authorizes_more_cycle_period_patch": false,
+    "authorizes_next_burden_policy": true,
+    "authorizes_patch_application": false,
+    "authorizes_radius_expansion": false,
+    "authorizes_receipt_compression": false,
+    "authorizes_receipt_deletion": false,
+    "authorizes_reusing_prior_cycle_results_as_execution": false,
+    "authorizes_reusing_prior_run_results_as_execution": false,
+    "authorizes_run_semantics_change": false,
+    "authorizes_synthetic_cycle_receipts": false,
+    "cycle_period_fix_accepted": true,
+    "next_burden_class": "BURDEN_DEPTH_SCAN"
+  },
+  "cycle_period_fix_outcome": "ACCEPT_CYCLE_PERIOD_METADATA_CERTIFICATE_FIX",
+  "decision_id": "118d66ca",
+  "gate": "PASS",
+  "next_burden_selection": {
+    "excluded_burden_classes": [
+      "BURDEN_CYCLE_SCAN",
+      "BURDEN_DB_WRITE",
+      "BURDEN_REPEATED_SLOT_WORK"
+    ],
+    "ranked_candidates": [
+      {
+        "authority_note": "Future-run depth/frontier probe policy only; no current probe skipping and no radius expansion.",
+        "burden_class": "BURDEN_DEPTH_SCAN",
+        "elapsed_ms": 4189,
+        "families": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "fix_family": "FRONTIER_DEPTH_PROBE_POLICY",
+        "next_command_goal": "BUILD_FRONTIER_DEPTH_PROBE_FIX_CANDIDATE_POLICY_V0",
+        "probes": [
+          "MICRO_03_DEPTH_PRESSURE"
+        ],
+        "receipts": 345,
+        "receipts_per_sec": 82.358558,
+        "rows": 5,
+        "slots": [
+          "MICRO_03_DEPTH_PRESSURE_A",
+          "MICRO_03_DEPTH_PRESSURE_B",
+          "MICRO_03_DEPTH_PRESSURE_C",
+          "MICRO_03_DEPTH_PRESSURE_D",
+          "MICRO_03_DEPTH_PRESSURE_E"
+        ]
+      },
+      {
+        "authority_note": "Operator-view/read-side rollup only; raw receipts remain authoritative.",
+        "burden_class": "BURDEN_RECEIPT_VOLUME",
+        "elapsed_ms": 1006,
+        "families": [
+          "E"
+        ],
+        "fix_family": "RECEIPT_VOLUME_READ_SIDE_ROLLUP_VIEW",
+        "next_command_goal": "BUILD_RECEIPT_VOLUME_ROLLUP_VIEW_FIX_CANDIDATE_POLICY_V0",
+        "probes": [
+          "MICRO_05_RECEIPT_WRITE_PRESSURE"
+        ],
+        "receipts": 176,
+        "receipts_per_sec": 174.950298,
+        "rows": 1,
+        "slots": [
+          "MICRO_05_RECEIPT_WRITE_PRESSURE_E"
+        ]
+      }
+    ],
+    "selected_authority_note": "Future-run depth/frontier probe policy only; no current probe skipping and no radius expansion.",
+    "selected_burden_class": "BURDEN_DEPTH_SCAN",
+    "selected_fix_family": "FRONTIER_DEPTH_PROBE_POLICY",
+    "selection_rule": "MAX_AFTER_ELAPSED_MS_EXCLUDING_ACCEPTED_BURDEN_CLASSES"
+  },
+  "rejected_or_deferred_changes": [
+    {
+      "change_id": "EARLY_HALT_ON_PERIOD_DETECTION",
+      "reason": "Would change halt semantics and invalidate cycle-pressure execution evidence.",
+      "status": "PERMANENTLY_FORBIDDEN"
+    },
+    {
+      "change_id": "SYNTHETIC_CYCLE_RECEIPTS",
+      "reason": "Receipts must reflect actual executed cycles, not inferred cycles.",
+      "status": "PERMANENTLY_FORBIDDEN"
+    },
+    {
+      "change_id": "SKIP_CYCLE_EXECUTION",
+      "reason": "Policy allowed metadata certificates only, not execution skipping.",
+      "status": "PERMANENTLY_FORBIDDEN"
+    },
+    {
+      "change_id": "MORE_CYCLE_PERIOD_PATCHING",
+      "reason": "Target is improved/non-worse; continue to next burden class instead of stacking patches.",
+      "status": "NOT_AUTHORIZED_NOW"
+    }
+  ],
+  "required_next_gate": {
+    "next_policy_must_authorize_exactly_one_fix_candidate": true,
+    "next_policy_must_not_authorize_patch_application": true,
+    "next_policy_must_not_authorize_radius_expansion": true,
+    "next_policy_must_not_reopen_accepted_classes_without_explicit_new_failure": [
+      "BURDEN_CYCLE_SCAN",
+      "BURDEN_DB_WRITE",
+      "BURDEN_REPEATED_SLOT_WORK"
+    ],
+    "next_policy_must_preserve_raw_receipts": true,
+    "next_policy_must_target_selected_burden_class": "BURDEN_DEPTH_SCAN",
+    "next_policy_must_use_after_profile_id": "45cd7660"
+  },
+  "target_metric_delta": {
+    "after_elapsed_ms": 4315,
+    "after_receipts_per_sec": 133.487833,
+    "before_elapsed_ms": 4392,
+    "before_receipts_per_sec": 131.147541,
+    "elapsed_ms_delta": -77,
+    "elapsed_ratio_after_vs_before": 0.982468,
+    "receipts_per_sec_delta": 2.340292,
+    "speedup_before_over_after": 1.017845
+  },
+  "terminal": {
+    "next_command_goal": "BUILD_FRONTIER_DEPTH_PROBE_FIX_CANDIDATE_POLICY_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_194137_027873
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   176 │
+│ receipt_rows   │   176 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │     8 │
+│ REPEATED_STATE_PERIODIC │     2 │
+└─────────────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/
+?? scripts/decide_cycle_period_compression_fix_outcome_or_next_burden_class.py
+[master 9a47ad56a] add cycle period compression fix outcome decision
+ 2 files changed, 491 insertions(+)
+ create mode 100755 scripts/decide_cycle_period_compression_fix_outcome_or_next_burden_class.py
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

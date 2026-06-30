@@ -1,0 +1,616 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260622_220423
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260622_220423.txt
+
+BUILD_PRESSURE_HANDLING_LOOP_PROTOCOL_V0
+
+STATUS_BEFORE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+VERIFY_PRESSURE_LOOP_PROTOCOL_INPUTS_TRACKED
+tracked data/r1000_candidate_c_top_group_classification_v0_receipts/7c9718e0.json
+tracked data/r1000_candidate_c_top_group_classification_v0/top_group_selection.json
+tracked data/r1000_candidate_c_top_group_classification_v0/top_group_event_membership.jsonl
+tracked data/r1000_candidate_c_top_group_classification_v0/top_group_representative_fragments.json
+tracked data/r1000_candidate_c_top_group_classification_v0/top_group_evidence_rollup.json
+tracked data/r1000_candidate_c_top_group_classification_v0/top_group_classification.json
+tracked data/r1000_candidate_c_top_group_classification_v0/top_group_decision_packet.json
+tracked data/r1000_candidate_c_top_group_classification_v0/top_group_repair_objective_proposal.json
+tracked data/r1000_pressure_scale_stability_candidate_c_v0_receipts/a121ff40.json
+tracked data/r250_pressure_candidate_c_interrogation_v0_receipts/fabba052.json
+tracked data/r250_pressure_coarsening_review_v0_receipts/f03689e3.json
+tracked data/r250_pressure_metrics_v0_receipts/f09b8395.json
+
+PATCH_GITIGNORE
+
+WRITE_PRESSURE_HANDLING_LOOP_PROTOCOL_BUILDER
+
+PY_COMPILE_PRESSURE_LOOP_PROTOCOL_BUILDER
+
+RUN_PRESSURE_LOOP_PROTOCOL_BUILDER
+{
+  "acceptance_gate_results": {
+    "PRESSURE_LOOP_0_SOURCE_SURFACE_VERIFIED": true,
+    "PRESSURE_LOOP_10_EVIDENCE_SUFFICIENCY_RULE_EMITTED": true,
+    "PRESSURE_LOOP_11_CLASSIFICATION_RULE_EMITTED": true,
+    "PRESSURE_LOOP_12_FIXABLE_TO_REPAIR_PROPOSAL_ONLY_RULE_EMITTED": true,
+    "PRESSURE_LOOP_13_HEALTHY_TO_ACCEPT_SKIP_RULE_EMITTED": true,
+    "PRESSURE_LOOP_14_NOT_ENOUGH_EVIDENCE_TO_EVIDENCE_REQUEST_RULE_EMITTED": true,
+    "PRESSURE_LOOP_15_RERUN_AFTER_HANDLING_RULE_EMITTED": true,
+    "PRESSURE_LOOP_16_PRESSURE_GONE_TO_NEXT_GROUP_RULE_EMITTED": true,
+    "PRESSURE_LOOP_17_NO_ACTIONABLE_GROUPS_TO_NEXT_OBJECTIVE_RULE_EMITTED": true,
+    "PRESSURE_LOOP_18_FIRST_APPLICATION_TARGET_EMITTED": true,
+    "PRESSURE_LOOP_19_NO_ACTION_EXECUTED": true,
+    "PRESSURE_LOOP_1_HUMAN_PROTOCOL_DECISION_RECORDED": true,
+    "PRESSURE_LOOP_20_NO_SOURCE_MUTATION": true,
+    "PRESSURE_LOOP_2_STATE_MACHINE_EMITTED": true,
+    "PRESSURE_LOOP_3_TRANSITION_RULES_EMITTED": true,
+    "PRESSURE_LOOP_4_PRESSURE_GROUP_SCHEMA_EMITTED": true,
+    "PRESSURE_LOOP_5_CLASSIFICATION_SCHEMA_EMITTED": true,
+    "PRESSURE_LOOP_6_EVIDENCE_SUFFICIENCY_SCHEMA_EMITTED": true,
+    "PRESSURE_LOOP_7_RESOLUTION_SCHEMA_EMITTED": true,
+    "PRESSURE_LOOP_8_NO_PRESSURE_TO_NEXT_OBJECTIVE_RULE_EMITTED": true,
+    "PRESSURE_LOOP_9_PRESSURE_TO_INSPECTION_RULE_EMITTED": true
+  },
+  "aggregate_metrics": {
+    "action_executed_count": 0,
+    "authority_widening_authorized_count": 0,
+    "classification_count": 3,
+    "evidence_sufficiency_class_count": 8,
+    "extraction_repair_authorized_count": 0,
+    "first_application_target": "APPLY_PRESSURE_HANDLING_LOOP_TO_R1000_TOP_GROUP_TAXONOMY_GAP_V0",
+    "hidden_next_command_count": 0,
+    "next_group_auto_opened_count": 0,
+    "next_objective_without_supplied_id_count": 0,
+    "optimization_authorized_count": 0,
+    "pressure_group_field_count": 21,
+    "ranked_protocol_globally_adopted_count": 0,
+    "repair_command_emitted_count": 0,
+    "repair_executed_count": 0,
+    "resolution_class_count": 5,
+    "source_mutation_count": 0,
+    "source_top_group_classification": "NOT_ENOUGH_EVIDENCE",
+    "source_top_group_key_hash": "38c604a1",
+    "state_count": 17,
+    "taxonomy_upgrade_authorized_count": 0,
+    "transition_count": 22
+  },
+  "created_at": "2026-06-22T21:04:23.869685+00:00",
+  "expected_next_unit_on_success": "APPLY_PRESSURE_HANDLING_LOOP_TO_R1000_TOP_GROUP_TAXONOMY_GAP_V0",
+  "failures": [],
+  "first_application_target": {
+    "classification": "NOT_ENOUGH_EVIDENCE",
+    "halt_reason": "STOP_TAXONOMY_GAP",
+    "handling_state": "HANDLE_NOT_ENOUGH_EVIDENCE",
+    "must_not_repair_taxonomy": true,
+    "next_handling": [
+      "request_or_gather_more_evidence",
+      "repeat_inspection",
+      "classify_when_evidence_is_sufficient"
+    ],
+    "next_unit_id": "APPLY_PRESSURE_HANDLING_LOOP_TO_R1000_TOP_GROUP_TAXONOMY_GAP_V0",
+    "parent_pressure_class": "TAXONOMY_PRESSURE",
+    "pressure_subtype": "missing_label",
+    "source_top_group_classification_receipt_id": "7c9718e0",
+    "top_group_count": 25,
+    "top_group_key_hash": "38c604a1"
+  },
+  "gate": "PASS",
+  "human_decision": {
+    "decision": "BUILD_FIXED_LOCAL_PRESSURE_HANDLING_LOOP_PROTOCOL",
+    "loop_rule": "pressure_authorizes_inspection_not_action",
+    "not_authorized": [
+      "repair_execution",
+      "taxonomy_upgrade",
+      "authority_widening",
+      "burden_optimization",
+      "extraction_repair",
+      "ranked_protocol_global_adoption",
+      "next_group_auto_open",
+      "next_objective_without_supplied_objective_id"
+    ],
+    "rank_rule": "stable_rank_authorizes_inspection_order_not_repair",
+    "scope": "protocol_construction_only"
+  },
+  "must_not_infer": [
+    "protocol construction is not pressure handling yet",
+    "pressure does not authorize action",
+    "pressure authorizes inspection",
+    "inspection plus enough evidence authorizes classification",
+    "classification may emit proposal, skip, evidence request, next group recommendation, or proceed recommendation",
+    "classification does not execute repair",
+    "stable rank authorizes inspection order only",
+    "stable rank does not authorize repair",
+    "no taxonomy upgrade from pressure alone",
+    "no authority widening from pressure alone",
+    "no optimization from pressure alone",
+    "no extraction repair from pressure alone",
+    "no next objective without supplied objective id"
+  ],
+  "output_artifacts": {
+    "implementation_receipt": "data/pressure_handling_loop_protocol_v0_receipts/6148b4fa.json",
+    "pressure_classification_schema": "data/pressure_handling_loop_protocol_v0/pressure_classification_schema_v0.json",
+    "pressure_evidence_sufficiency_schema": "data/pressure_handling_loop_protocol_v0/pressure_evidence_sufficiency_schema_v0.json",
+    "pressure_group_schema": "data/pressure_handling_loop_protocol_v0/pressure_group_schema_v0.json",
+    "pressure_handling_loop_decision_packet": "data/pressure_handling_loop_protocol_v0/pressure_handling_loop_decision_packet.json",
+    "pressure_handling_loop_protocol": "data/pressure_handling_loop_protocol_v0/pressure_handling_loop_protocol.json",
+    "pressure_handling_loop_report": "data/pressure_handling_loop_protocol_v0/pressure_handling_loop_report.json",
+    "pressure_handling_state_schema": "data/pressure_handling_loop_protocol_v0/pressure_handling_state_schema_v0.json",
+    "pressure_handling_transition_schema": "data/pressure_handling_loop_protocol_v0/pressure_handling_transition_schema_v0.json",
+    "pressure_resolution_schema": "data/pressure_handling_loop_protocol_v0/pressure_resolution_schema_v0.json"
+  },
+  "pressure_loop_guards": {
+    "action_executed": false,
+    "authority_widening_authorized": false,
+    "classification_schema_emitted": true,
+    "evidence_sufficiency_schema_emitted": true,
+    "extraction_repair_authorized": false,
+    "first_application_target_emitted": true,
+    "hidden_next_command": false,
+    "human_protocol_decision_recorded": true,
+    "next_group_auto_opened": false,
+    "next_objective_without_supplied_id": false,
+    "optimization_authorized": false,
+    "pressure_group_schema_emitted": true,
+    "ranked_protocol_globally_adopted": false,
+    "repair_command_emitted": false,
+    "repair_executed": false,
+    "resolution_schema_emitted": true,
+    "source_mutation": false,
+    "source_surface_verified": true,
+    "state_machine_emitted": true,
+    "taxonomy_upgrade_authorized": false,
+    "transition_rules_emitted": true
+  },
+  "receipt_id": "6148b4fa",
+  "receipt_type": "PRESSURE_HANDLING_LOOP_PROTOCOL_RECEIPT",
+  "schema_version": "pressure_handling_loop_protocol_receipt_v0",
+  "source_candidate_c_interrogation_receipt_id": "fabba052",
+  "source_coarsening_review_receipt_id": "f03689e3",
+  "source_pressure_metrics_repair_receipt_id": "f09b8395",
+  "source_r1000_scale_stability_receipt_id": "a121ff40",
+  "source_r1000_top_group_classification_receipt_id": "7c9718e0",
+  "target_unit_id": "pressure_handling_loop_protocol.v0",
+  "terminal": {
+    "next_command_goal": "APPLY_PRESSURE_HANDLING_LOOP_TO_R1000_TOP_GROUP_TAXONOMY_GAP_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "unit_id": "BUILD_PRESSURE_HANDLING_LOOP_PROTOCOL_V0",
+  "warnings": []
+}
+pressure_handling_loop_protocol_receipt_id=6148b4fa
+pressure_handling_loop_protocol_receipt_path=data/pressure_handling_loop_protocol_v0_receipts/6148b4fa.json
+pressure_handling_loop_protocol_path=data/pressure_handling_loop_protocol_v0/pressure_handling_loop_protocol.json
+pressure_handling_loop_decision_packet_path=data/pressure_handling_loop_protocol_v0/pressure_handling_loop_decision_packet.json
+PRESSURE_LOOP_RECEIPT_ID=6148b4fa
+PRESSURE_LOOP_RECEIPT_PATH=data/pressure_handling_loop_protocol_v0_receipts/6148b4fa.json
+PRESSURE_LOOP_PROTOCOL_PATH=data/pressure_handling_loop_protocol_v0/pressure_handling_loop_protocol.json
+PRESSURE_LOOP_PACKET_PATH=data/pressure_handling_loop_protocol_v0/pressure_handling_loop_decision_packet.json
+
+ASSERT_PRESSURE_LOOP_PROTOCOL
+{
+  "aggregate_metrics": {
+    "action_executed_count": 0,
+    "authority_widening_authorized_count": 0,
+    "classification_count": 3,
+    "evidence_sufficiency_class_count": 8,
+    "extraction_repair_authorized_count": 0,
+    "first_application_target": "APPLY_PRESSURE_HANDLING_LOOP_TO_R1000_TOP_GROUP_TAXONOMY_GAP_V0",
+    "hidden_next_command_count": 0,
+    "next_group_auto_opened_count": 0,
+    "next_objective_without_supplied_id_count": 0,
+    "optimization_authorized_count": 0,
+    "pressure_group_field_count": 21,
+    "ranked_protocol_globally_adopted_count": 0,
+    "repair_command_emitted_count": 0,
+    "repair_executed_count": 0,
+    "resolution_class_count": 5,
+    "source_mutation_count": 0,
+    "source_top_group_classification": "NOT_ENOUGH_EVIDENCE",
+    "source_top_group_key_hash": "38c604a1",
+    "state_count": 17,
+    "taxonomy_upgrade_authorized_count": 0,
+    "transition_count": 22
+  },
+  "first_application_target": {
+    "classification": "NOT_ENOUGH_EVIDENCE",
+    "halt_reason": "STOP_TAXONOMY_GAP",
+    "handling_state": "HANDLE_NOT_ENOUGH_EVIDENCE",
+    "must_not_repair_taxonomy": true,
+    "next_handling": [
+      "request_or_gather_more_evidence",
+      "repeat_inspection",
+      "classify_when_evidence_is_sufficient"
+    ],
+    "next_unit_id": "APPLY_PRESSURE_HANDLING_LOOP_TO_R1000_TOP_GROUP_TAXONOMY_GAP_V0",
+    "parent_pressure_class": "TAXONOMY_PRESSURE",
+    "pressure_subtype": "missing_label",
+    "source_top_group_classification_receipt_id": "7c9718e0",
+    "top_group_count": 25,
+    "top_group_key_hash": "38c604a1"
+  },
+  "gate": "PASS",
+  "receipt_id": "6148b4fa",
+  "terminal": {
+    "next_command_goal": "APPLY_PRESSURE_HANDLING_LOOP_TO_R1000_TOP_GROUP_TAXONOMY_GAP_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+NEGATIVE_CONTROLS_PRESSURE_LOOP_PROTOCOL_NON_WRITING
+{
+  "case": "pressure_authorizes_repair_fail",
+  "manual_detected": true
+}
+{
+  "case": "stable_rank_authorizes_repair_fail",
+  "manual_detected": true
+}
+{
+  "case": "fixable_executes_repair_fail",
+  "failures": [
+    "report_guard_not_false:repair_executed:True"
+  ]
+}
+{
+  "case": "taxonomy_upgrade_from_pressure_fail",
+  "failures": [
+    "protocol_guard_not_false:taxonomy_upgrade_authorized:True"
+  ]
+}
+{
+  "case": "authority_widening_from_pressure_fail",
+  "failures": [
+    "protocol_guard_not_false:authority_widening_authorized:True"
+  ]
+}
+{
+  "case": "optimization_from_pressure_fail",
+  "failures": [
+    "protocol_guard_not_false:optimization_authorized:True"
+  ]
+}
+{
+  "case": "extraction_repair_from_pressure_fail",
+  "failures": [
+    "protocol_guard_not_false:extraction_repair_authorized:True"
+  ]
+}
+{
+  "case": "not_enough_evidence_emits_repair_fail",
+  "manual_detected": true
+}
+{
+  "case": "healthy_expected_emits_repair_fail",
+  "manual_detected": true
+}
+{
+  "case": "next_group_auto_open_without_permission_fail",
+  "failures": [
+    "protocol_guard_not_false:next_group_auto_opened:True"
+  ]
+}
+{
+  "case": "next_objective_without_no_actionable_groups_fail",
+  "failures": [
+    "packet_guard_not_false:may_advance_without_next_unit_id:True"
+  ]
+}
+{
+  "case": "missing_rerun_after_handling_fail",
+  "failures": [
+    "required_transition_missing:rerun_after_handling:('RERUN_AFTER_HANDLING', 'accepted repair, accepted skip, or evidence update completed', 'CHECK_PRESSURE_RESOLUTION')"
+  ]
+}
+{
+  "case": "pressure_gone_not_checked_fail",
+  "failures": [
+    "required_transition_missing:pressure_gone_to_next_group:('CHECK_PRESSURE_RESOLUTION', 'PRESSURE_GONE', 'MOVE_TO_NEXT_PRESSURE_GROUP')"
+  ]
+}
+{
+  "case": "evidence_sufficiency_missing_fail",
+  "failures": [
+    "evidence_class_missing:EVIDENCE_SUFFICIENT_FOR_FIXABLE_CLASSIFICATION",
+    "evidence_class_missing:EVIDENCE_SUFFICIENT_FOR_HEALTHY_CLASSIFICATION",
+    "evidence_class_missing:EVIDENCE_INSUFFICIENT_NEEDS_MORE_FRAGMENTS",
+    "evidence_class_missing:EVIDENCE_INSUFFICIENT_NEEDS_DEEPER_MEMBERSHIP",
+    "evidence_class_missing:EVIDENCE_INSUFFICIENT_NEEDS_FIELD_EXTRACTION"
+  ]
+}
+{
+  "case": "evidence_request_without_missing_reason_fail",
+  "manual_detected": true
+}
+{
+  "case": "latest_or_mtime_selection_fail",
+  "source_policy": {
+    "selection_mode": "explicit_paths_only",
+    "uses_ambient_workspace_authority": false,
+    "uses_directory_scan_authority": false,
+    "uses_timestamp_selection": false
+  }
+}
+{
+  "case": "source_mutation_fail",
+  "failures": [
+    "metric_not_zero:source_mutation_count:1"
+  ]
+}
+{
+  "case": "hidden_next_command_fail",
+  "failures": [
+    "terminal_next_wrong:{'type': 'ADVANCE', 'next_command_goal': 'REPAIR_TAXONOMY_NOW', 'stop_code': None}"
+  ]
+}
+{
+  "case": "classification_multiple_classes_fail",
+  "manual_duplicate_detected": true
+}
+{
+  "after": {
+    "receipt": "e5f8ec92860b1314076a18fc0cb278d3a75528ad6bc1a778ec3e96c912055bff"
+  },
+  "before": {
+    "receipt": "e5f8ec92860b1314076a18fc0cb278d3a75528ad6bc1a778ec3e96c912055bff"
+  },
+  "live_artifact_unchanged": true,
+  "negative_controls_write_outputs": false
+}
+negative controls ok and non-writing
+
+VERIFY_NO_FORBIDDEN_SOURCE_RUNTIME_OR_REGISTRY_MUTATION
+source artifacts, runtime modules, and sqlite registry untouched
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260621_183812_136149
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │    10 │
+│ total_receipts │   500 │
+│ receipt_rows   │   500 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │    10 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+STATUS_AFTER
+ M .gitignore
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+?? scripts/build_pressure_handling_loop_protocol_v0.py
+
+PACKAGE_PRESSURE_LOOP_PROTOCOL_ARTIFACTS
+packaged data/pressure_handling_loop_protocol_v0_receipts/6148b4fa.json
+packaged data/pressure_handling_loop_protocol_v0/pressure_handling_state_schema_v0.json
+packaged data/pressure_handling_loop_protocol_v0/pressure_group_schema_v0.json
+packaged data/pressure_handling_loop_protocol_v0/pressure_classification_schema_v0.json
+packaged data/pressure_handling_loop_protocol_v0/pressure_evidence_sufficiency_schema_v0.json
+packaged data/pressure_handling_loop_protocol_v0/pressure_handling_transition_schema_v0.json
+packaged data/pressure_handling_loop_protocol_v0/pressure_resolution_schema_v0.json
+packaged data/pressure_handling_loop_protocol_v0/pressure_handling_loop_protocol.json
+packaged data/pressure_handling_loop_protocol_v0/pressure_handling_loop_report.json
+packaged data/pressure_handling_loop_protocol_v0/pressure_handling_loop_decision_packet.json
+[master 98c1a8f7d] build pressure handling loop protocol v0
+ 12 files changed, 2072 insertions(+)
+ create mode 100644 data/pressure_handling_loop_protocol_v0/pressure_classification_schema_v0.json
+ create mode 100644 data/pressure_handling_loop_protocol_v0/pressure_evidence_sufficiency_schema_v0.json
+ create mode 100644 data/pressure_handling_loop_protocol_v0/pressure_group_schema_v0.json
+ create mode 100644 data/pressure_handling_loop_protocol_v0/pressure_handling_loop_decision_packet.json
+ create mode 100644 data/pressure_handling_loop_protocol_v0/pressure_handling_loop_protocol.json
+ create mode 100644 data/pressure_handling_loop_protocol_v0/pressure_handling_loop_report.json
+ create mode 100644 data/pressure_handling_loop_protocol_v0/pressure_handling_state_schema_v0.json
+ create mode 100644 data/pressure_handling_loop_protocol_v0/pressure_handling_transition_schema_v0.json
+ create mode 100644 data/pressure_handling_loop_protocol_v0/pressure_resolution_schema_v0.json
+ create mode 100644 data/pressure_handling_loop_protocol_v0_receipts/6148b4fa.json
+ create mode 100755 scripts/build_pressure_handling_loop_protocol_v0.py
+
+COMMIT_DONE
+?? data/canonical_transition_surface_probe_receipts/
+?? data/canonical_transition_surface_probe_rows/
+?? data/cycle_period_compression_fix_candidate_commit_normalizations/
+?? data/db_write_wal_batched_receipt_write_fix_application_receipts/
+?? data/db_write_wal_batched_receipt_write_fix_applications/
+?? data/radius_125_slot_execution_summaries/
+?? data/stable_delta_signature_candidate_v0_1_receipts/
+?? data/stable_delta_signature_candidate_v0_1_rows/
+?? data/stable_delta_signature_candidate_v0_2_receipts/
+?? data/stable_delta_signature_candidate_v0_2_rows/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_receipts/
+?? data/stable_delta_signature_candidate_v0_2_scale_band_rows/
+?? data/stable_delta_signature_candidate_v0_3_receipts/
+?? data/stable_delta_signature_candidate_v0_3_rows/
+
+NEXT_RECEIPT_COPY_BLOCK
+MLBLOCK_RECEIPT_START
+pressure_handling_loop_protocol_receipt_id=6148b4fa
+pressure_handling_loop_protocol_receipt_path=data/pressure_handling_loop_protocol_v0_receipts/6148b4fa.json
+{
+  "acceptance_gate_results": {
+    "PRESSURE_LOOP_0_SOURCE_SURFACE_VERIFIED": true,
+    "PRESSURE_LOOP_10_EVIDENCE_SUFFICIENCY_RULE_EMITTED": true,
+    "PRESSURE_LOOP_11_CLASSIFICATION_RULE_EMITTED": true,
+    "PRESSURE_LOOP_12_FIXABLE_TO_REPAIR_PROPOSAL_ONLY_RULE_EMITTED": true,
+    "PRESSURE_LOOP_13_HEALTHY_TO_ACCEPT_SKIP_RULE_EMITTED": true,
+    "PRESSURE_LOOP_14_NOT_ENOUGH_EVIDENCE_TO_EVIDENCE_REQUEST_RULE_EMITTED": true,
+    "PRESSURE_LOOP_15_RERUN_AFTER_HANDLING_RULE_EMITTED": true,
+    "PRESSURE_LOOP_16_PRESSURE_GONE_TO_NEXT_GROUP_RULE_EMITTED": true,
+    "PRESSURE_LOOP_17_NO_ACTIONABLE_GROUPS_TO_NEXT_OBJECTIVE_RULE_EMITTED": true,
+    "PRESSURE_LOOP_18_FIRST_APPLICATION_TARGET_EMITTED": true,
+    "PRESSURE_LOOP_19_NO_ACTION_EXECUTED": true,
+    "PRESSURE_LOOP_1_HUMAN_PROTOCOL_DECISION_RECORDED": true,
+    "PRESSURE_LOOP_20_NO_SOURCE_MUTATION": true,
+    "PRESSURE_LOOP_2_STATE_MACHINE_EMITTED": true,
+    "PRESSURE_LOOP_3_TRANSITION_RULES_EMITTED": true,
+    "PRESSURE_LOOP_4_PRESSURE_GROUP_SCHEMA_EMITTED": true,
+    "PRESSURE_LOOP_5_CLASSIFICATION_SCHEMA_EMITTED": true,
+    "PRESSURE_LOOP_6_EVIDENCE_SUFFICIENCY_SCHEMA_EMITTED": true,
+    "PRESSURE_LOOP_7_RESOLUTION_SCHEMA_EMITTED": true,
+    "PRESSURE_LOOP_8_NO_PRESSURE_TO_NEXT_OBJECTIVE_RULE_EMITTED": true,
+    "PRESSURE_LOOP_9_PRESSURE_TO_INSPECTION_RULE_EMITTED": true
+  },
+  "aggregate_metrics": {
+    "action_executed_count": 0,
+    "authority_widening_authorized_count": 0,
+    "classification_count": 3,
+    "evidence_sufficiency_class_count": 8,
+    "extraction_repair_authorized_count": 0,
+    "first_application_target": "APPLY_PRESSURE_HANDLING_LOOP_TO_R1000_TOP_GROUP_TAXONOMY_GAP_V0",
+    "hidden_next_command_count": 0,
+    "next_group_auto_opened_count": 0,
+    "next_objective_without_supplied_id_count": 0,
+    "optimization_authorized_count": 0,
+    "pressure_group_field_count": 21,
+    "ranked_protocol_globally_adopted_count": 0,
+    "repair_command_emitted_count": 0,
+    "repair_executed_count": 0,
+    "resolution_class_count": 5,
+    "source_mutation_count": 0,
+    "source_top_group_classification": "NOT_ENOUGH_EVIDENCE",
+    "source_top_group_key_hash": "38c604a1",
+    "state_count": 17,
+    "taxonomy_upgrade_authorized_count": 0,
+    "transition_count": 22
+  },
+  "expected_next_unit_on_success": "APPLY_PRESSURE_HANDLING_LOOP_TO_R1000_TOP_GROUP_TAXONOMY_GAP_V0",
+  "first_application_target": {
+    "classification": "NOT_ENOUGH_EVIDENCE",
+    "halt_reason": "STOP_TAXONOMY_GAP",
+    "handling_state": "HANDLE_NOT_ENOUGH_EVIDENCE",
+    "must_not_repair_taxonomy": true,
+    "next_handling": [
+      "request_or_gather_more_evidence",
+      "repeat_inspection",
+      "classify_when_evidence_is_sufficient"
+    ],
+    "next_unit_id": "APPLY_PRESSURE_HANDLING_LOOP_TO_R1000_TOP_GROUP_TAXONOMY_GAP_V0",
+    "parent_pressure_class": "TAXONOMY_PRESSURE",
+    "pressure_subtype": "missing_label",
+    "source_top_group_classification_receipt_id": "7c9718e0",
+    "top_group_count": 25,
+    "top_group_key_hash": "38c604a1"
+  },
+  "gate": "PASS",
+  "human_decision": {
+    "decision": "BUILD_FIXED_LOCAL_PRESSURE_HANDLING_LOOP_PROTOCOL",
+    "loop_rule": "pressure_authorizes_inspection_not_action",
+    "not_authorized": [
+      "repair_execution",
+      "taxonomy_upgrade",
+      "authority_widening",
+      "burden_optimization",
+      "extraction_repair",
+      "ranked_protocol_global_adoption",
+      "next_group_auto_open",
+      "next_objective_without_supplied_objective_id"
+    ],
+    "rank_rule": "stable_rank_authorizes_inspection_order_not_repair",
+    "scope": "protocol_construction_only"
+  },
+  "must_not_infer": [
+    "protocol construction is not pressure handling yet",
+    "pressure does not authorize action",
+    "pressure authorizes inspection",
+    "inspection plus enough evidence authorizes classification",
+    "classification may emit proposal, skip, evidence request, next group recommendation, or proceed recommendation",
+    "classification does not execute repair",
+    "stable rank authorizes inspection order only",
+    "stable rank does not authorize repair",
+    "no taxonomy upgrade from pressure alone",
+    "no authority widening from pressure alone",
+    "no optimization from pressure alone",
+    "no extraction repair from pressure alone",
+    "no next objective without supplied objective id"
+  ],
+  "output_artifacts": {
+    "implementation_receipt": "data/pressure_handling_loop_protocol_v0_receipts/6148b4fa.json",
+    "pressure_classification_schema": "data/pressure_handling_loop_protocol_v0/pressure_classification_schema_v0.json",
+    "pressure_evidence_sufficiency_schema": "data/pressure_handling_loop_protocol_v0/pressure_evidence_sufficiency_schema_v0.json",
+    "pressure_group_schema": "data/pressure_handling_loop_protocol_v0/pressure_group_schema_v0.json",
+    "pressure_handling_loop_decision_packet": "data/pressure_handling_loop_protocol_v0/pressure_handling_loop_decision_packet.json",
+    "pressure_handling_loop_protocol": "data/pressure_handling_loop_protocol_v0/pressure_handling_loop_protocol.json",
+    "pressure_handling_loop_report": "data/pressure_handling_loop_protocol_v0/pressure_handling_loop_report.json",
+    "pressure_handling_state_schema": "data/pressure_handling_loop_protocol_v0/pressure_handling_state_schema_v0.json",
+    "pressure_handling_transition_schema": "data/pressure_handling_loop_protocol_v0/pressure_handling_transition_schema_v0.json",
+    "pressure_resolution_schema": "data/pressure_handling_loop_protocol_v0/pressure_resolution_schema_v0.json"
+  },
+  "pressure_loop_guards": {
+    "action_executed": false,
+    "authority_widening_authorized": false,
+    "classification_schema_emitted": true,
+    "evidence_sufficiency_schema_emitted": true,
+    "extraction_repair_authorized": false,
+    "first_application_target_emitted": true,
+    "hidden_next_command": false,
+    "human_protocol_decision_recorded": true,
+    "next_group_auto_opened": false,
+    "next_objective_without_supplied_id": false,
+    "optimization_authorized": false,
+    "pressure_group_schema_emitted": true,
+    "ranked_protocol_globally_adopted": false,
+    "repair_command_emitted": false,
+    "repair_executed": false,
+    "resolution_schema_emitted": true,
+    "source_mutation": false,
+    "source_surface_verified": true,
+    "state_machine_emitted": true,
+    "taxonomy_upgrade_authorized": false,
+    "transition_rules_emitted": true
+  },
+  "source_candidate_c_interrogation_receipt_id": "fabba052",
+  "source_coarsening_review_receipt_id": "f03689e3",
+  "source_pressure_metrics_repair_receipt_id": "f09b8395",
+  "source_r1000_scale_stability_receipt_id": "a121ff40",
+  "source_r1000_top_group_classification_receipt_id": "7c9718e0",
+  "target_unit_id": "pressure_handling_loop_protocol.v0",
+  "terminal": {
+    "next_command_goal": "APPLY_PRESSURE_HANDLING_LOOP_TO_R1000_TOP_GROUP_TAXONOMY_GAP_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "unit_id": "BUILD_PRESSURE_HANDLING_LOOP_PROTOCOL_V0"
+}
+MLBLOCK_RECEIPT_END
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

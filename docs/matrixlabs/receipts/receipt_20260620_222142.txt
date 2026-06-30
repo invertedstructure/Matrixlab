@@ -1,0 +1,298 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260620_222142
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260620_222142.txt
+
+APPLY_FRONTIER_DEPTH_PROBE_REVERT_V0
+
+STATUS_BEFORE
+?? data/
+
+VERIFY_FRONTIER_DEPTH_REVERT_PLAN_AUTHORITY
+{
+  "all_revert_markers_present": true,
+  "authorized_next_command_goal": "APPLY_FRONTIER_DEPTH_PROBE_REVERT_V0",
+  "authorizes_accepting_as_burden_fix": false,
+  "authorizes_apply_revert_command": true,
+  "authorizes_data_artifact_deletion": false,
+  "authorizes_depth_range_change": false,
+  "authorizes_execution_skipping": false,
+  "authorizes_more_frontier_depth_patching": false,
+  "authorizes_next_burden_policy": false,
+  "authorizes_observability_freeze": false,
+  "authorizes_radius_expansion": false,
+  "authorizes_receipt_deletion": false,
+  "failures": [],
+  "gate": "PASS",
+  "plan_id": "ce040a69",
+  "plan_sig8": "ce040a69",
+  "receipt_gate": "PASS",
+  "revert_kind": "REMOVE_FRONTIER_DEPTH_METADATA_CERTIFICATE_PATCH_ONLY",
+  "selected_disposition": "REVERT_FRONTIER_DEPTH_METADATA_CERTIFICATE_PATCH",
+  "source_application_id": "f537dd1f",
+  "source_candidate_id": "40429f27",
+  "source_comparison_id": "ed563880",
+  "source_decision_id": "22d0002e",
+  "source_policy_id": "42028fa3",
+  "target_files": [
+    "scripts/wide_burden_profile_microruns.py"
+  ],
+  "terminal": {
+    "next_command_goal": "APPLY_FRONTIER_DEPTH_PROBE_REVERT_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  }
+}
+
+PATCH_GITIGNORE
+
+APPLY_FRONTIER_DEPTH_REVERT_PATCH
+BEFORE_MARKERS
+{
+  "cycle_markers_present": {
+    "cycle_certificate_kind": true,
+    "cycle_observation_field": true,
+    "cycle_observation_helper": true,
+    "cycle_status": true
+  },
+  "frontier_markers_present": {
+    "certificate_scope": true,
+    "helper_class": true,
+    "observation_helper": true,
+    "profile_field": true,
+    "slot_ids": true,
+    "status": true
+  }
+}
+AFTER_MARKERS
+{
+  "changed": true,
+  "cycle_markers_present": {
+    "cycle_certificate_kind": true,
+    "cycle_observation_field": true,
+    "cycle_observation_helper": true,
+    "cycle_status": true
+  },
+  "frontier_markers_present": {
+    "certificate_scope": false,
+    "helper_class": false,
+    "observation_helper": false,
+    "profile_field": false,
+    "slot_ids": false,
+    "status": false
+  }
+}
+
+VERIFY_REVERT_PATCH_PRESENT_ABSENT
+{
+  "cycle_markers_present": {
+    "cycle_certificate_kind": true,
+    "cycle_observation_field": true,
+    "cycle_observation_helper": true,
+    "cycle_period_field": true,
+    "cycle_status": true
+  },
+  "frontier_markers_absent": {
+    "certificate_scope": true,
+    "frontier_depth_probe_field": true,
+    "helper_class": true,
+    "observation_helper": true,
+    "profile_field": true,
+    "slot_ids": true,
+    "status": true
+  }
+}
+
+PY_COMPILE
+
+SMOKE_RUN_AFTER_FRONTIER_DEPTH_REVERT
+MatrixLab run started: run_20260620_212142_908620
+Families: ['one_sided_suspension']
+Depths: 3..4
+Cycles per case: 2
+Max cells per matrix: 10000
+Done.
+{
+  "run_id": "run_20260620_212142_908620",
+  "created_utc": "2026-06-20T21:21:43.029548+00:00",
+  "families": [
+    "one_sided_suspension"
+  ],
+  "depth_min": 3,
+  "depth_max": 4,
+  "cycles_per_case": 2,
+  "max_cells": 10000,
+  "total_cases": 2,
+  "total_receipts": 4,
+  "halt_counts": {
+    "CYCLES_COMPLETE": 2
+  },
+  "max_registered_moves": 1,
+  "max_compression_ratio": 2.0,
+  "max_matrix_cells": 24,
+  "max_registered_move_profiles": 1
+}
+SMOKE_RUN_ID=run_20260620_212142_908620
+
+GATE_SMOKE_RUN
+      Gate checks /       
+run_20260620_212142_908620
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │     2 │
+│ total_receipts │     4 │
+│ receipt_rows   │     4 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │     2 │
+└─────────────────┴───────┘
+GATE_PASS
+
+VERIFY_SMOKE_RECEIPTS_MATCH
+{
+  "receipt_rows": 4,
+  "receipt_rows_match_run_total": true,
+  "run_id": "run_20260620_212142_908620",
+  "run_status": "DONE",
+  "run_total_receipts": 4
+}
+
+BUILD_REVERT_APPLICATION_RECEIPT
+REVERT_APPLICATION_ID=b3471a41
+{
+  "created_at": "2026-06-20T21:21:43.566537+00:00",
+  "cycle_period_markers_preserved": true,
+  "deleted_data_artifacts": false,
+  "deleted_receipts": false,
+  "failures": [],
+  "frontier_depth_markers_removed": true,
+  "gate": "PASS",
+  "receipt_id": "8c628836",
+  "receipt_sig8": "8c628836",
+  "revert_application_id": "b3471a41",
+  "revert_application_path": "data/frontier_depth_probe_revert_applications/b3471a41.json",
+  "revert_application_sig8": "b3471a41",
+  "schema_version": "frontier_depth_probe_revert_application_receipt_v0",
+  "selected_disposition": "REVERT_FRONTIER_DEPTH_METADATA_CERTIFICATE_PATCH",
+  "smoke": {
+    "receipt_rows": 4,
+    "receipt_rows_match_run_total": true,
+    "run_id": "run_20260620_212142_908620",
+    "status": "DONE",
+    "total_receipts": 4
+  },
+  "source_comparison_id": "ed563880",
+  "source_decision_id": "22d0002e",
+  "source_original_application_id": "f537dd1f",
+  "source_plan_id": "ce040a69",
+  "target_burden_class": "BURDEN_DEPTH_SCAN",
+  "terminal": {
+    "next_command_goal": "RERUN_MICRO_BURDEN_PROFILE_AFTER_FRONTIER_DEPTH_REVERT_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+ASSERT_REVERT_APPLICATION_RECEIPT
+{
+  "cycle_period_markers_preserved": true,
+  "deleted_data_artifacts": false,
+  "deleted_receipts": false,
+  "failures": [],
+  "frontier_depth_markers_removed": true,
+  "gate": "PASS",
+  "receipt_gate": "PASS",
+  "receipt_id": "8c628836",
+  "removed_frontier_depth_patch_only": true,
+  "revert_application_id": "b3471a41",
+  "revert_application_sig8": "b3471a41",
+  "selected_disposition": "REVERT_FRONTIER_DEPTH_METADATA_CERTIFICATE_PATCH",
+  "semantics": {
+    "data_artifact_deletion": false,
+    "depth_max_change": false,
+    "depth_min_change": false,
+    "depth_probe_skipping": false,
+    "depth_range_change": false,
+    "execution_skipping": false,
+    "frontier_case_skipping": false,
+    "gate_semantics_change": false,
+    "halt_semantics_change": false,
+    "law_semantics_change": false,
+    "radius_expansion": false,
+    "receipt_compression": false,
+    "receipt_deletion": false,
+    "reopening_accepted_burden_classes": false,
+    "reusing_prior_depth_results_as_execution": false,
+    "reusing_prior_run_results_as_execution": false,
+    "revert_application": true,
+    "run_semantics_change": false,
+    "synthetic_depth_receipts": false
+  },
+  "smoke": {
+    "receipt_rows": 4,
+    "receipt_rows_match_run_total": true,
+    "run_id": "run_20260620_212142_908620",
+    "status": "DONE",
+    "total_receipts": 4
+  },
+  "source_comparison_id": "ed563880",
+  "source_decision_id": "22d0002e",
+  "source_original_application_id": "f537dd1f",
+  "source_plan_id": "ce040a69",
+  "target_burden_class": "BURDEN_DEPTH_SCAN",
+  "terminal": {
+    "next_command_goal": "RERUN_MICRO_BURDEN_PROFILE_AFTER_FRONTIER_DEPTH_REVERT_V0",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "warnings": [
+    "TARGET_BURDEN_ELAPSED_WORSE:4189->4419"
+  ]
+}
+
+VERIFY_NO_SEMANTIC_FAILURE
+      Gate checks /       
+run_20260620_212142_908620
+┏━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ check          ┃ value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ status         │  DONE │
+│ total_cases    │     2 │
+│ total_receipts │     4 │
+│ receipt_rows   │     4 │
+│ law_failures   │     0 │
+│ unknown_laws   │     0 │
+└────────────────┴───────┘
+           Halts           
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason     ┃ count ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE │     2 │
+└─────────────────┴───────┘
+GATE_PASS
+
+DIFF_STAT
+ .gitignore                               |   6 ++
+ scripts/wide_burden_profile_microruns.py | 104 -------------------------------
+ 2 files changed, 6 insertions(+), 104 deletions(-)
+
+STATUS_AFTER
+ M .gitignore
+ M scripts/wide_burden_profile_microruns.py
+?? data/
+[master 823d570fa] revert frontier depth metadata certificate
+ 2 files changed, 6 insertions(+), 104 deletions(-)
+
+COMMIT_DONE
+?? data/
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END

@@ -1,0 +1,441 @@
+MLBLOCK_RECEIPT_START
+timestamp=20260619_014053
+receipt_file=/home/asd/matrixlab_receipts/receipt_20260619_014053.txt
+
+EXECUTE_RADIUS_150_MAXCELLS_75000_UNCLIP_TEST
+
+STATUS_BEFORE
+
+RUN_RADIUS_150_MAXCELLS_75000
+MatrixLab run started: run_20260619_004053_295821
+Families: ['one_sided_suspension', 'two_sided_suspension', 
+'suspension_plus_repair', 'projection_quotient', 'relabel_symmetry_stress']
+Depths: 3..150
+Cycles per case: 150
+Max cells per matrix: 75000
+Done.
+{
+  "run_id": "run_20260619_004053_295821",
+  "created_utc": "2026-06-19T01:17:44.277767+00:00",
+  "families": [
+    "one_sided_suspension",
+    "two_sided_suspension",
+    "suspension_plus_repair",
+    "projection_quotient",
+    "relabel_symmetry_stress"
+  ],
+  "depth_min": 3,
+  "depth_max": 150,
+  "cycles_per_case": 150,
+  "max_cells": 75000,
+  "total_cases": 740,
+  "total_receipts": 110283,
+  "halt_counts": {
+    "CYCLES_COMPLETE": 710,
+    "REPEATED_STATE_PERIODIC": 3,
+    "MAX_CELLS_EXCEEDED": 27
+  },
+  "max_registered_moves": 150,
+  "max_compression_ratio": 150.0,
+  "max_matrix_cells": 75076,
+  "max_registered_move_profiles": 150
+}
+       Gate checks /       
+run_20260619_004053_295821 
+┏━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃ check          ┃  value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ status         │   DONE │
+│ total_cases    │    740 │
+│ total_receipts │ 110283 │
+│ receipt_rows   │ 110283 │
+│ law_failures   │      0 │
+│ unknown_laws   │      0 │
+└────────────────┴────────┘
+               Halts               
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ halt_reason             ┃ count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ CYCLES_COMPLETE         │   710 │
+│ MAX_CELLS_EXCEEDED      │    27 │
+│ REPEATED_STATE_PERIODIC │     3 │
+└─────────────────────────┴───────┘
+GATE_PASS
+{
+  "classification": {
+    "compression_signal": "BAD",
+    "continuation_radius_growth": "flat",
+    "failure_mode": null,
+    "mutation_vocabulary_growth": "flat",
+    "new_shape_required": true,
+    "reused_shape": true
+  },
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": 0,
+    "continuation_radius_delta": 0,
+    "current_run_id": "run_20260619_004053_295821",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260618_235807_638720",
+    "raw_move_profiles_delta": 50,
+    "registered_moves_delta": 0,
+    "total_receipts_delta": 2575,
+    "unknown_laws_delta": 0
+  },
+  "eval_id": "0905a2e5",
+  "gate": "PASS",
+  "input_runs": [
+    "run_20260619_004053_295821",
+    "run_20260618_235807_638720"
+  ],
+  "metrics": {
+    "coarse_move_profiles_total": 9,
+    "cycles_per_case": 150,
+    "depth_max": 150,
+    "depth_min": 3,
+    "families": 
+"one_sided_suspension,two_sided_suspension,suspension_plus_repair,projection_quo
+tient,relabel_symmetry_stress",
+    "halt_reason_counts": {
+      "CYCLES_COMPLETE": 710,
+      "MAX_CELLS_EXCEEDED": 27,
+      "REPEATED_STATE_PERIODIC": 3
+    },
+    "law_failures": 0,
+    "max_moves_applied_before_halt": 150,
+    "new_shape_required": true,
+    "orphan_receipt_runs": 0,
+    "raw_move_profiles_total": 581,
+    "receipt_rows": 110283,
+    "receipt_sig8": "5c55c0ac",
+    "registered_moves_total": 150,
+    "reused_shape": true,
+    "status": "DONE",
+    "total_cases": 740,
+    "total_receipts": 110283,
+    "unknown_laws": 0
+  },
+  "previous_vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 16.666667,
+    "continuation_per_raw_profile": 0.282486,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 150,
+    "raw_move_profiles_total": 531,
+    "receipts_per_case": 145.551351,
+    "receipts_per_coarse_profile": 11967.555556,
+    "receipts_per_raw_profile": 202.839925,
+    "receipts_per_registered_move": 718.053333,
+    "registered_moves_total": 150
+  },
+  "profile_summary": {
+    "by_family": {
+      "one_sided_suspension": 22200,
+      "projection_quotient": 22200,
+      "relabel_symmetry_stress": 21834,
+      "suspension_plus_repair": 22200,
+      "two_sided_suspension": 21849
+    },
+    "by_move": {
+      "add_row_and_link_column": 21849,
+      "append_zero_column": 13875,
+      "deterministic_row_col_relabel": 21834,
+      "duplicate_existing_column": 22200,
+      "quotient_merge_last_row": 8325,
+      "xor_repair_column": 22200
+    },
+    "coarse_profiles": {
+      "add_row_and_link_column|dr=1|dc=1|rank=1|supp=+|newcols=many": 21849,
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=0": 13727,
+      "append_zero_column|dr=0|dc=1|rank=0|supp=0|newcols=1": 148,
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=0": 18,
+      "deterministic_row_col_relabel|dr=0|dc=0|rank=0|supp=0|newcols=many": 
+21816,
+      "duplicate_existing_column|dr=0|dc=1|rank=0|supp=+|newcols=0": 22200,
+      "quotient_merge_last_row|dr=-1|dc=0|rank=-1|supp=-|newcols=many": 8325,
+      "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=0": 880,
+      "xor_repair_column|dr=0|dc=1|rank=0|supp=+|newcols=1": 21320
+    }
+  },
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "vocabulary_growth_score": {
+    "coarse_move_profiles_total": 9,
+    "continuation_per_coarse_profile": 16.666667,
+    "continuation_per_raw_profile": 0.258176,
+    "continuation_per_registered_move": 1.0,
+    "continuation_radius": 150,
+    "raw_move_profiles_total": 581,
+    "receipts_per_case": 149.031081,
+    "receipts_per_coarse_profile": 12253.666667,
+    "receipts_per_raw_profile": 189.815835,
+    "receipts_per_registered_move": 735.22,
+    "registered_moves_total": 150
+  }
+}
+eval_path: data/evals/0905a2e5.json
+
+LATEST_RUN_AND_EVAL_SUMMARY
+{
+  "coarse_move_profiles_total": 9,
+  "compression_signal": "BAD",
+  "cycles_per_case": 150,
+  "delta_vs_previous": {
+    "coarse_move_profiles_delta": 0,
+    "continuation_radius_delta": 0,
+    "current_run_id": "run_20260619_004053_295821",
+    "law_failures_delta": 0,
+    "previous_run_id": "run_20260618_235807_638720",
+    "raw_move_profiles_delta": 50,
+    "registered_moves_delta": 0,
+    "total_receipts_delta": 2575,
+    "unknown_laws_delta": 0
+  },
+  "depth_max": 150,
+  "eval_id": "0905a2e5",
+  "failure_mode": null,
+  "gate": "PASS",
+  "halt_reason_counts": {
+    "CYCLES_COMPLETE": 710,
+    "MAX_CELLS_EXCEEDED": 27,
+    "REPEATED_STATE_PERIODIC": 3
+  },
+  "input_runs": [
+    "run_20260619_004053_295821",
+    "run_20260618_235807_638720"
+  ],
+  "latest_eval_path": "data/evals/0905a2e5.json",
+  "law_failures": 0,
+  "max_cells": null,
+  "orphan_receipt_runs": 0,
+  "raw_move_profiles_total": 581,
+  "receipt_sig8": "5c55c0ac",
+  "registered_moves_total": 150,
+  "terminal": {
+    "next_command_goal": "RUN_FULL_NORMAL_STRICT",
+    "stop_code": null,
+    "type": "ADVANCE"
+  },
+  "total_cases": 740,
+  "total_receipts": 110283,
+  "unknown_laws": 0
+}
+
+BOUNDARY_CHECK_NEW_RUN
+{
+  "halts": [
+    {
+      "halt_reason": null,
+      "n": 109543
+    },
+    {
+      "halt_reason": "CYCLES_COMPLETE",
+      "n": 710
+    },
+    {
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "n": 27
+    },
+    {
+      "halt_reason": "REPEATED_STATE_PERIODIC",
+      "n": 3
+    }
+  ],
+  "max_by_family": [
+    {
+      "family": "two_sided_suspension",
+      "max_cells_seen": 75076,
+      "receipt_rows": 21849
+    },
+    {
+      "family": "one_sided_suspension",
+      "max_cells_seen": 45000,
+      "receipt_rows": 22200
+    },
+    {
+      "family": "suspension_plus_repair",
+      "max_cells_seen": 45000,
+      "receipt_rows": 22200
+    },
+    {
+      "family": "projection_quotient",
+      "max_cells_seen": 22650,
+      "receipt_rows": 22200
+    },
+    {
+      "family": "relabel_symmetry_stress",
+      "max_cells_seen": 22500,
+      "receipt_rows": 21834
+    }
+  ],
+  "run_id": "run_20260619_004053_295821",
+  "two_sided_boundary_sample": [
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 150,
+      "depth": 124,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 149,
+      "depth": 125,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 148,
+      "depth": 126,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 147,
+      "depth": 127,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 146,
+      "depth": 128,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 145,
+      "depth": 129,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 144,
+      "depth": 130,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 143,
+      "depth": 131,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 142,
+      "depth": 132,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 141,
+      "depth": 133,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 140,
+      "depth": 134,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 139,
+      "depth": 135,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 138,
+      "depth": 136,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 137,
+      "depth": 137,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 136,
+      "depth": 138,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 135,
+      "depth": 139,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 134,
+      "depth": 140,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 133,
+      "depth": 141,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 132,
+      "depth": 142,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    },
+    {
+      "cells": 75076,
+      "cols": 274,
+      "cycle_n": 131,
+      "depth": 143,
+      "halt_reason": "MAX_CELLS_EXCEEDED",
+      "rows": 274
+    }
+  ]
+}
+
+STATUS_AFTER
+
+MLBLOCK_EXIT_CODE=0
+MLBLOCK_RECEIPT_END
