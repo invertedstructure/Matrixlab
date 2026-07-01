@@ -1,0 +1,134 @@
+{
+  "boundary_class": "HUMAN_AUTHORITY_BOUNDARY",
+  "boundary_record_id": "c8.n22.boundary_transition.v0",
+  "current_authority": {
+    "current_authority_state": "AUTH_STATE_OBSERVED_NOT_AUTHORIZED",
+    "current_observation_state": "OBSERVED_COMMITTED_PACKET_PREPARATION",
+    "execution_authority": "NOT_GRANTED",
+    "human_acceptance_state": "AUTH_EVENT_UNCONSUMED",
+    "next_unit_definition_authority": "NOT_GRANTED",
+    "promotion_authority": "NOT_GRANTED",
+    "reuse_authority": "NOT_GRANTED",
+    "runner_authority": "NOT_GRANTED"
+  },
+  "derived_checks": {
+    "authority_change_pending": true,
+    "human_acceptance_consumed": false,
+    "human_acceptance_required": true,
+    "machine_may_apply_transition": false,
+    "machine_may_define_next_unit": false,
+    "machine_may_execute": false,
+    "machine_may_prepare_decision_surface": true
+  },
+  "generated_by": "scripts/build_c8_n22_authority_boundary_transition_record_v0.py",
+  "human_readout_role": "DOWNSTREAM_PROJECTION_ONLY",
+  "machine_action_scope": {
+    "machine_forbidden_action_scopes": [
+      "APPLY_AUTHORITY_TRANSITION",
+      "DEFINE_NEXT_UNIT_WITHOUT_ACCEPTANCE",
+      "EXECUTE_UNIT",
+      "REWRITE_RECEIPTS",
+      "PROMOTE_TAXONOMY",
+      "AUTHORIZE_REUSE",
+      "GENERALIZE_UPDATER",
+      "ACTIVATE_RUNNER",
+      "SELECT_NEXT_UNIT"
+    ],
+    "machine_permitted_action_scope": "PREPARE_DECISION_SURFACE_ONLY"
+  },
+  "non_claims": [
+    "This boundary record is machine-primary and human-auditable.",
+    "Human Readout is downstream projection only.",
+    "This boundary record does not consume human acceptance.",
+    "This boundary record does not authorize the next C8 unit.",
+    "This boundary record does not define the next C8 unit.",
+    "This boundary record does not execute runtime/probe/build/rerun.",
+    "This boundary record does not rewrite receipts.",
+    "This boundary record does not promote taxonomy.",
+    "This boundary record does not authorize reuse.",
+    "This boundary record does not generalize the updater.",
+    "This boundary record does not create runner authority.",
+    "This boundary record does not validate theorem truth.",
+    "This boundary record does not validate receipt truth.",
+    "This boundary record does not validate edge lawfulness.",
+    "This boundary record only preserves the typed authority state for c8.n22."
+  ],
+  "preservation_context": {
+    "m4_closeout_wrapper_commit_sha": "6aa9070f2d7a845640a23370a742ee13723a3b51",
+    "uses_m4_as_semantic_dependency": false
+  },
+  "proposed_transition": {
+    "authority_change_if_accepted": [
+      "c8.n22 may be used as the accepted basis for defining the next bounded C8 unit"
+    ],
+    "authority_remaining_false_after_acceptance": [
+      "execution_authority",
+      "reuse_authority",
+      "promotion_authority",
+      "runner_authority",
+      "generic_updater_reuse_authority",
+      "auto_next_unit_selection_authority"
+    ],
+    "target_authority_state_if_accepted": "AUTH_STATE_ACCEPTED_AS_BASIS_FOR_NEXT_UNIT_DEFINITION",
+    "transition_id": "ACCEPT_AS_BASIS_FOR_NEXT_UNIT_DEFINITION",
+    "transition_kind": "HUMAN_AUTHORITY_TRANSITION"
+  },
+  "record_role": "MACHINE_PRIMARY_AUTHORITY_TRANSITION_RECORD",
+  "required_authority_event": {
+    "decision_receipt_required": true,
+    "decision_receipt_schema": "matrixlabs_human_decision_receipt_v0",
+    "required_actor": "HUMAN",
+    "required_event": "HUMAN_ACCEPTANCE",
+    "required_event_status": "AUTH_EVENT_UNCONSUMED"
+  },
+  "schema_version": "matrixlabs_authority_boundary_transition_record_v0",
+  "semantic_conservation": {
+    "commit_status_may_create_authority": false,
+    "observed_edge_may_imply_acceptance": false,
+    "prose_may_override_typed_fields": false,
+    "readout_may_add_meaning": false,
+    "readout_may_project": true,
+    "readout_update_may_choose_next_unit": false,
+    "receipt_existence_may_validate_truth": false,
+    "taxonomy_label_may_authorize_future_unit": false
+  },
+  "source": {
+    "source_commit_sha": "d4b19660db77ba53dbf68e0f3a0cfd3e8ce899f0",
+    "source_edge_id": "c8.e21_22",
+    "source_edge_status": "OBSERVED_READOUT_EDGE_ONLY",
+    "source_object_id": "c8.n22",
+    "source_object_type": "OBSERVED_PATH_NODE",
+    "source_path_version": "c8_observed_decision_path_v1",
+    "source_receipt_backing_kind": "SOURCE_COMMIT_ONLY_PACKET_PREPARATION",
+    "source_terminal_status": "OBSERVED_COMMITTED_PACKET_PREPARATION"
+  },
+  "source_commits": {
+    "m5_taxonomy_commit_sha": "099a003bf849cc0d4292c4980982166be291f405",
+    "m6_packet_commit_sha": "d21e162d7c52d57d8aa321434d533b99f7e46c23",
+    "m7a_proposal_commit_sha": "6461d1511b4091ea76a57b040684f4cc5521a3ba",
+    "m7b_apply_commit_sha": "d4b19660db77ba53dbf68e0f3a0cfd3e8ce899f0"
+  },
+  "source_hashes": {
+    "decision_path_index_v1_sha256": "f36ee79f14f631efba2cee29d44e7341e76427ad9827dee4354aa6677a3e6181",
+    "m5_taxonomy_sha256": "c5046881ee7ecd3e8f4fdcefc43342eb53b5ad8b82570bf952ca318032fea62a",
+    "m6_packet_sha256": "b98dffdd6d4aeb7216c6bbab8291d992f968b97c0cee5ecfd1a24f8e5b506984",
+    "m7b_apply_sha256": "98affbd3a1aa2f539aec7a0aee7b7751d992976a0c612e534cf27cf88217b2d9",
+    "observed_path_v1_sha256": "893a9d5d390e1f9e2394ac0177e32d2aef728e50d5b7d58e19d6e4151a701517",
+    "receipt_spine_v1_sha256": "345816fa8d3552b3a81bde93d8c688bf990a947039b60f75295fa33b3bc758fa"
+  },
+  "source_paths": {
+    "decision_path_index_v1": "docs/matrixlabs/observability/decision_path_index_v1.json",
+    "m5_taxonomy": "docs/matrixlabs/observability/proceed_surface_taxonomy_v0.json",
+    "m6_packet": "docs/matrixlabs/c8/continuation/c8_taxonomy_applied_continuation_packet_v0.json",
+    "m7b_apply": "docs/matrixlabs/observability/c8_observed_path_update_apply_v0.json",
+    "observed_path_v1": "docs/matrixlabs/architecture/c8_observed_decision_path_v1.json",
+    "receipt_spine_v1": "docs/matrixlabs/observability/receipt_spine_v1.json"
+  },
+  "transition_disposition": {
+    "classification_result": "HUMAN_ACCEPTANCE_REQUIRED",
+    "escalation_code": "AWAIT_HUMAN_DECISION",
+    "halt_code": "NONE",
+    "router_action": "PREPARE_HUMAN_DECISION_SURFACE",
+    "transition_status": "BLOCKED_PENDING_AUTHORITY_EVENT"
+  }
+}

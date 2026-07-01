@@ -78,6 +78,11 @@ C8_OBSERVED_PATH_UPDATE_APPLY_DOCS = [
     "docs/matrixlabs/observability/c8_observed_path_update_apply_v0.md",
 ]
 C8_OBSERVED_PATH_UPDATE_APPLY_GENERATOR = "scripts/build_c8_observed_path_update_apply_v0.py"
+C8_N22_AUTHORITY_BOUNDARY_DOCS = [
+    "docs/matrixlabs/boundary/c8_n22_authority_boundary_transition_record_v0.json",
+    "docs/matrixlabs/boundary/c8_n22_authority_boundary_transition_record_v0.md",
+]
+C8_N22_AUTHORITY_BOUNDARY_GENERATOR = "scripts/build_c8_n22_authority_boundary_transition_record_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -101,6 +106,8 @@ SOURCE_DOCS = [
     C8_OBSERVED_PATH_UPDATE_PROPOSAL_GENERATOR,
     *C8_OBSERVED_PATH_UPDATE_APPLY_DOCS,
     C8_OBSERVED_PATH_UPDATE_APPLY_GENERATOR,
+    *C8_N22_AUTHORITY_BOUNDARY_DOCS,
+    C8_N22_AUTHORITY_BOUNDARY_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
