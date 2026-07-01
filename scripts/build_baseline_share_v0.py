@@ -67,6 +67,17 @@ C8_OBSERVED_PATH_UPDATE_PROPOSAL_DOCS = [
     "docs/matrixlabs/observability/c8_observed_decision_path_update_m6_proposal_v0.md",
 ]
 C8_OBSERVED_PATH_UPDATE_PROPOSAL_GENERATOR = "scripts/build_c8_observed_path_update_proposal_m6_v0.py"
+C8_OBSERVED_PATH_UPDATE_APPLY_DOCS = [
+    "docs/matrixlabs/architecture/c8_observed_decision_path_v1.json",
+    "docs/matrixlabs/architecture/c8_observed_decision_path_v1.md",
+    "docs/matrixlabs/observability/decision_path_index_v1.json",
+    "docs/matrixlabs/observability/decision_path_index_v1.md",
+    "docs/matrixlabs/observability/receipt_spine_v1.json",
+    "docs/matrixlabs/observability/receipt_spine_v1.md",
+    "docs/matrixlabs/observability/c8_observed_path_update_apply_v0.json",
+    "docs/matrixlabs/observability/c8_observed_path_update_apply_v0.md",
+]
+C8_OBSERVED_PATH_UPDATE_APPLY_GENERATOR = "scripts/build_c8_observed_path_update_apply_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -88,6 +99,8 @@ SOURCE_DOCS = [
     C8_TAXONOMY_CONTINUATION_GENERATOR,
     *C8_OBSERVED_PATH_UPDATE_PROPOSAL_DOCS,
     C8_OBSERVED_PATH_UPDATE_PROPOSAL_GENERATOR,
+    *C8_OBSERVED_PATH_UPDATE_APPLY_DOCS,
+    C8_OBSERVED_PATH_UPDATE_APPLY_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",

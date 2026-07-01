@@ -1,0 +1,70 @@
+{
+  "applied_edge": {
+    "edge_id": "c8.e21_22",
+    "edge_kind": "committed_packet_preparation_observed",
+    "edge_status": "OBSERVED_READOUT_EDGE_ONLY"
+  },
+  "applied_node": {
+    "authorized_future_unit_status": "NOT_AUTHORIZED_BY_TAXONOMY_LABEL",
+    "human_boundary_status": "REQUIRED_NOT_YET_CONSUMED",
+    "node_id": "c8.n22",
+    "packet_status": "PACKET_PREPARED",
+    "receipt_backing_kind": "SOURCE_COMMIT_ONLY_PACKET_PREPARATION",
+    "taxonomy_use_result": "TAXONOMY_USE_PASS_WITH_ASSIGN_MIX"
+  },
+  "apply_mode": "APPLY_ONLY_AFTER_PROPOSAL_PASS",
+  "apply_status": "APPLY_PASS_APPEND_ONLY_READOUT_UPDATE",
+  "derived_surfaces": {
+    "decision_path_index_v1": "docs/matrixlabs/observability/decision_path_index_v1.json",
+    "derived_generation_status": "PASS",
+    "receipt_spine_v1": "docs/matrixlabs/observability/receipt_spine_v1.json"
+  },
+  "forbidden_effects": {
+    "decision_path_updater_created_as_authority": false,
+    "future_unit_authorized": false,
+    "next_c8_unit_chosen": false,
+    "receipts_rewritten": false,
+    "runner_authority_created": false,
+    "runtime_probe_build_rerun_executed": false,
+    "schema_promoted": false,
+    "uses_m4_as_semantic_dependency": false
+  },
+  "generated_by": "scripts/build_c8_observed_path_update_apply_v0.py",
+  "non_claims": [
+    "M7B does not choose the next C8 unit.",
+    "M7B does not consume human acceptance.",
+    "M7B does not authorize a future unit.",
+    "M7B does not execute runtime/probe/build/rerun.",
+    "M7B does not rewrite receipts.",
+    "M7B does not promote taxonomy.",
+    "M7B does not create runner authority.",
+    "M7B does not validate theorem truth.",
+    "M7B does not validate receipt truth.",
+    "M7B does not validate edge lawfulness.",
+    "M7B only applies a passed proposal as an append-only observed-path readout update."
+  ],
+  "path_update": {
+    "append_only": true,
+    "edges_after": 21,
+    "edges_before": 20,
+    "new_path": "docs/matrixlabs/architecture/c8_observed_decision_path_v1.json",
+    "new_terminal_node_id": "c8.n22",
+    "nodes_after": 22,
+    "nodes_before": 21,
+    "previous_path": "docs/matrixlabs/architecture/c8_observed_decision_path_v0.json",
+    "previous_terminal_node_id": "c8.n21",
+    "prior_edges_modified": false,
+    "prior_nodes_modified": false
+  },
+  "schema_version": "matrixlabs_c8_observed_path_update_apply_v0",
+  "source_proposal": {
+    "proposal_commit_sha": "6461d1511b4091ea76a57b040684f4cc5521a3ba",
+    "proposal_schema_version": "matrixlabs_c8_observed_path_update_proposal_v0",
+    "proposal_status": "UPDATER_PROPOSAL_PASS"
+  },
+  "terminal_result": {
+    "reason": "M7B applied the passed proposal as an append-only readout update and stopped.",
+    "type": "STOP_DONE"
+  },
+  "updater_role": "bounded_observed_decision_path_readout_updater_v0"
+}
