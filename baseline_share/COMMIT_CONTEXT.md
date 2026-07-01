@@ -1,7 +1,7 @@
 # Commit Context
 
-- Generated at UTC: `2026-07-01T19:37:59Z`
-- Current HEAD SHA: `099a003bf849cc0d4292c4980982166be291f405`
+- Generated at UTC: `2026-07-01T20:10:19Z`
+- Current HEAD SHA: `d21e162d7c52d57d8aa321434d533b99f7e46c23`
 - Branch: `master`
 - Worktree state at generation time: `dirty`
 - Generator script: `scripts/build_baseline_share_v0.py`
@@ -9,6 +9,7 @@
 ## Recent 10 commits
 
 ```text
+d21e162d7 Add C8 taxonomy-applied continuation packet v0
 099a003bf Add proceed surface taxonomy v0
 6aa9070f2 Add closeout wrapper v0
 58f4743e3 Add compression decompression law v0
@@ -18,29 +19,28 @@ e0e22d33e Add decision path index v0
 24619b142 Add MatrixLabs baseline share packet generator
 9f2fd5cce Add MatrixLabs architecture extraction reference layer
 a370223f0 Accept C8 post-patch surface decision
-4df5f80df Create C8 patch execution closure-readiness packet
 ```
 
 ## Git status short
 
 ```text
-M baseline_share/COMMIT_CONTEXT.md
- M baseline_share/CURRENT_STATE.md
- M baseline_share/MANIFEST.json
- M baseline_share/RECEIPT_POINTERS.md
- M scripts/build_baseline_share_v0.py
+M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/c8/
-?? scripts/build_c8_taxonomy_applied_continuation_packet_v0.py
+?? docs/matrixlabs/observability/c8_observed_decision_path_update_m6_proposal_v0.json
+?? docs/matrixlabs/observability/c8_observed_decision_path_update_m6_proposal_v0.md
+?? docs/matrixlabs/observability/observed_path_update_manifests/
+?? scripts/build_c8_observed_path_update_proposal_m6_v0.py
 ```
 
 ## Git status short excluding generated baseline_share
 
 ```text
- M scripts/build_baseline_share_v0.py
+M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/c8/
-?? scripts/build_c8_taxonomy_applied_continuation_packet_v0.py
+?? docs/matrixlabs/observability/c8_observed_decision_path_update_m6_proposal_v0.json
+?? docs/matrixlabs/observability/c8_observed_decision_path_update_m6_proposal_v0.md
+?? docs/matrixlabs/observability/observed_path_update_manifests/
+?? scripts/build_c8_observed_path_update_proposal_m6_v0.py
 ```
 
 ## Safety facts

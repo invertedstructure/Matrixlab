@@ -1,34 +1,34 @@
 # Current State
 
-Generated at UTC: `2026-07-01T19:37:59Z`
+Generated at UTC: `2026-07-01T20:10:19Z`
 
 ## Git context
 
-- Current HEAD SHA: `099a003bf849cc0d4292c4980982166be291f405`
+- Current HEAD SHA: `d21e162d7c52d57d8aa321434d533b99f7e46c23`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
 - Git status:
-- `M baseline_share/COMMIT_CONTEXT.md`
-- ` M baseline_share/CURRENT_STATE.md`
-- ` M baseline_share/MANIFEST.json`
-- ` M baseline_share/RECEIPT_POINTERS.md`
-- ` M scripts/build_baseline_share_v0.py`
+- `M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/c8/`
-- `?? scripts/build_c8_taxonomy_applied_continuation_packet_v0.py`
+- `?? docs/matrixlabs/observability/c8_observed_decision_path_update_m6_proposal_v0.json`
+- `?? docs/matrixlabs/observability/c8_observed_decision_path_update_m6_proposal_v0.md`
+- `?? docs/matrixlabs/observability/observed_path_update_manifests/`
+- `?? scripts/build_c8_observed_path_update_proposal_m6_v0.py`
 - Git status excluding generated `baseline_share/`:
-- ` M scripts/build_baseline_share_v0.py`
+- `M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/c8/`
-- `?? scripts/build_c8_taxonomy_applied_continuation_packet_v0.py`
+- `?? docs/matrixlabs/observability/c8_observed_decision_path_update_m6_proposal_v0.json`
+- `?? docs/matrixlabs/observability/c8_observed_decision_path_update_m6_proposal_v0.md`
+- `?? docs/matrixlabs/observability/observed_path_update_manifests/`
+- `?? scripts/build_c8_observed_path_update_proposal_m6_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `099a003bf849cc0d4292c4980982166be291f405`
-- Current C8 post-patch surface-decision acceptance commit: `099a003bf849cc0d4292c4980982166be291f405`
+- Current architecture extraction commit: `d21e162d7c52d57d8aa321434d533b99f7e46c23`
+- Current C8 post-patch surface-decision acceptance commit: `d21e162d7c52d57d8aa321434d533b99f7e46c23`
 
 ## High-level state
 
