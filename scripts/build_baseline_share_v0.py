@@ -56,6 +56,11 @@ PROCEED_SURFACE_TAXONOMY_DOCS = [
     "docs/matrixlabs/observability/proceed_surface_taxonomy_v0.md",
 ]
 PROCEED_SURFACE_TAXONOMY_GENERATOR = "scripts/build_proceed_surface_taxonomy_v0.py"
+C8_TAXONOMY_CONTINUATION_DOCS = [
+    "docs/matrixlabs/c8/continuation/c8_taxonomy_applied_continuation_packet_v0.json",
+    "docs/matrixlabs/c8/continuation/c8_taxonomy_applied_continuation_packet_v0.md",
+]
+C8_TAXONOMY_CONTINUATION_GENERATOR = "scripts/build_c8_taxonomy_applied_continuation_packet_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -73,6 +78,8 @@ SOURCE_DOCS = [
     CLOSEOUT_WRAPPER_GENERATOR,
     *PROCEED_SURFACE_TAXONOMY_DOCS,
     PROCEED_SURFACE_TAXONOMY_GENERATOR,
+    *C8_TAXONOMY_CONTINUATION_DOCS,
+    C8_TAXONOMY_CONTINUATION_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",

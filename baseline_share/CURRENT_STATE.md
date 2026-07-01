@@ -1,10 +1,10 @@
 # Current State
 
-Generated at UTC: `2026-07-01T18:46:47Z`
+Generated at UTC: `2026-07-01T19:37:59Z`
 
 ## Git context
 
-- Current HEAD SHA: `6aa9070f2d7a845640a23370a742ee13723a3b51`
+- Current HEAD SHA: `099a003bf849cc0d4292c4980982166be291f405`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
@@ -15,22 +15,20 @@ Generated at UTC: `2026-07-01T18:46:47Z`
 - ` M baseline_share/RECEIPT_POINTERS.md`
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/observability/proceed_surface_taxonomy_v0.json`
-- `?? docs/matrixlabs/observability/proceed_surface_taxonomy_v0.md`
-- `?? scripts/build_proceed_surface_taxonomy_v0.py`
+- `?? docs/matrixlabs/c8/`
+- `?? scripts/build_c8_taxonomy_applied_continuation_packet_v0.py`
 - Git status excluding generated `baseline_share/`:
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/observability/proceed_surface_taxonomy_v0.json`
-- `?? docs/matrixlabs/observability/proceed_surface_taxonomy_v0.md`
-- `?? scripts/build_proceed_surface_taxonomy_v0.py`
+- `?? docs/matrixlabs/c8/`
+- `?? scripts/build_c8_taxonomy_applied_continuation_packet_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `6aa9070f2d7a845640a23370a742ee13723a3b51`
-- Current C8 post-patch surface-decision acceptance commit: `6aa9070f2d7a845640a23370a742ee13723a3b51`
+- Current architecture extraction commit: `099a003bf849cc0d4292c4980982166be291f405`
+- Current C8 post-patch surface-decision acceptance commit: `099a003bf849cc0d4292c4980982166be291f405`
 
 ## High-level state
 
