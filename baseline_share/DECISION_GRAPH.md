@@ -56,3 +56,10 @@ Candidate compression areas, labeled as proposals only:
 - Any use of archived graphs/schemas as reusable/preapproved authority.
 
 Any future decision graph runner must carry explicit trigger object families, authority boundaries, source surfaces, receipt requirements, human-governed promotion rules, and fail-closed behavior before it can be more than an observation/archive layer.
+
+## Decision Path Index v0
+
+M1 observability/addressability surface for `docs/matrixlabs/architecture/c8_observed_decision_path_v0.json`. It is not authority, not receipt validation, and not compression.
+
+- `docs/matrixlabs/observability/decision_path_index_v0.json` - present
+- `docs/matrixlabs/observability/decision_path_index_v0.md` - present

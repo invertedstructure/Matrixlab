@@ -1,0 +1,1511 @@
+{
+  "address_contract": {
+    "edge_id_pattern": "c8.eNN_NN",
+    "edge_id_range": [
+      "c8.e01_02",
+      "c8.e20_21"
+    ],
+    "edge_ids_stable_within_source_readout": true,
+    "global_permanent_ids_claimed": false,
+    "node_id_pattern": "c8.nNN",
+    "node_id_range": [
+      "c8.n01",
+      "c8.n21"
+    ],
+    "node_ids_stable_within_source_readout": true,
+    "path_id": "c8",
+    "statements": [
+      "Node IDs are stable within c8_observed_decision_path_v0: c8.n01 ... c8.n21.",
+      "Edge IDs are stable within c8_observed_decision_path_v0: c8.e01_02 ... c8.e20_21.",
+      "These IDs are not claimed as global permanent IDs across future rewritten or separately observed paths."
+    ]
+  },
+  "edges": [
+    {
+      "edge_id": "c8.e01_02",
+      "edge_kind": "human_acceptance",
+      "from_node_id": "c8.n01",
+      "from_node_number": 1,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "The packet itself does not perform the acceptance or execute downstream work.",
+      "source_evidence_path": "data/c8_runtime_adoption_bounded_probe_closure_after_reentry_v0_receipts/c8_runtime_adoption_bounded_probe_closure_receipt_11e2b2ad.json",
+      "to_node_id": "c8.n02",
+      "to_node_number": 2,
+      "why_lawful": "The prior packet/readout stops at a review boundary and requires an explicit human acceptance node."
+    },
+    {
+      "edge_id": "c8.e02_03",
+      "edge_kind": "authorized_future_unit",
+      "from_node_id": "c8.n02",
+      "from_node_number": 2,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "Does not authorize adjacent runtimes, probes, builds, reruns, schema promotion, or hidden next work.",
+      "source_evidence_path": "data/c8_runtime_adoption_bounded_probe_closure_acceptance_after_reentry_v0_receipts/c8_runtime_adoption_bounded_probe_closure_acceptance_receipt_69984edf.json",
+      "to_node_id": "c8.n03",
+      "to_node_number": 3,
+      "why_lawful": "The acceptance receipt records a bounded human decision and, where present, exactly one authorized future unit after review."
+    },
+    {
+      "edge_id": "c8.e03_04",
+      "edge_kind": "human_acceptance",
+      "from_node_id": "c8.n03",
+      "from_node_number": 3,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "The packet itself does not perform the acceptance or execute downstream work.",
+      "source_evidence_path": "data/c8_successor_surface_selection_after_runtime_adoption_closure_v0_receipts/c8_successor_surface_selection_receipt_5a63647b.json",
+      "to_node_id": "c8.n04",
+      "to_node_number": 4,
+      "why_lawful": "The prior packet/readout stops at a review boundary and requires an explicit human acceptance node."
+    },
+    {
+      "edge_id": "c8.e04_05",
+      "edge_kind": "authorized_future_unit",
+      "from_node_id": "c8.n04",
+      "from_node_number": 4,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "Does not authorize adjacent runtimes, probes, builds, reruns, schema promotion, or hidden next work.",
+      "source_evidence_path": "data/c8_selected_successor_surface_acceptance_after_runtime_adoption_closure_v0_receipts/c8_selected_successor_surface_acceptance_receipt_fcd108ad.json",
+      "to_node_id": "c8.n05",
+      "to_node_number": 5,
+      "why_lawful": "The acceptance receipt records a bounded human decision and, where present, exactly one authorized future unit after review."
+    },
+    {
+      "edge_id": "c8.e05_06",
+      "edge_kind": "human_acceptance",
+      "from_node_id": "c8.n05",
+      "from_node_number": 5,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "The packet itself does not perform the acceptance or execute downstream work.",
+      "source_evidence_path": "data/c8_unit_feedback_hardening_bounded_probe_prep_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_bounded_probe_prep_receipt_d20aeb99.json",
+      "to_node_id": "c8.n06",
+      "to_node_number": 6,
+      "why_lawful": "The prior packet/readout stops at a review boundary and requires an explicit human acceptance node."
+    },
+    {
+      "edge_id": "c8.e06_07",
+      "edge_kind": "authorized_future_unit",
+      "from_node_id": "c8.n06",
+      "from_node_number": 6,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "Does not authorize adjacent runtimes, probes, builds, reruns, schema promotion, or hidden next work.",
+      "source_evidence_path": "data/c8_unit_feedback_hardening_bounded_probe_execution_acceptance_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_bounded_probe_execution_acceptance_receipt_b5f72068.json",
+      "to_node_id": "c8.n07",
+      "to_node_number": 7,
+      "why_lawful": "The acceptance receipt records a bounded human decision and the adjacent authority file names exactly one execution unit."
+    },
+    {
+      "edge_id": "c8.e07_08",
+      "edge_kind": "review_then_commit",
+      "from_node_id": "c8.n07",
+      "from_node_number": 7,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "Execution remains limited to the authorized unit and count.",
+      "source_evidence_path": "data/c8_unit_feedback_hardening_bounded_probe_execution_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_bounded_probe_execution_receipt_b35662b1.json",
+      "to_node_id": "c8.n08",
+      "to_node_number": 8,
+      "why_lawful": "Execution follows a prior bounded authorization and is preserved by commit/receipt evidence."
+    },
+    {
+      "edge_id": "c8.e08_09",
+      "edge_kind": "receipt_chain",
+      "from_node_id": "c8.n08",
+      "from_node_number": 8,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "Does not widen authority beyond the next bounded packet/review surface.",
+      "source_evidence_path": "data/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_receipt_c9e0fb77.json",
+      "to_node_id": "c8.n09",
+      "to_node_number": 9,
+      "why_lawful": "The next node consumes the previous source/receipt chain and preserves boundary counters."
+    },
+    {
+      "edge_id": "c8.e09_10",
+      "edge_kind": "receipt_chain",
+      "from_node_id": "c8.n09",
+      "from_node_number": 9,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "Does not widen authority beyond the next bounded packet/review surface.",
+      "source_evidence_path": "data/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_receipt_2b262320.json",
+      "to_node_id": "c8.n10",
+      "to_node_number": 10,
+      "why_lawful": "The next node consumes the previous source/receipt chain and preserves boundary counters."
+    },
+    {
+      "edge_id": "c8.e10_11",
+      "edge_kind": "receipt_chain",
+      "from_node_id": "c8.n10",
+      "from_node_number": 10,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "Does not widen authority beyond the next bounded packet/review surface.",
+      "source_evidence_path": "data/c8_unit_feedback_hardening_decision_packet_from_failed_unit_sample_diagnostic_assessment_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_decision_packet_receipt_8565c071.json",
+      "to_node_id": "c8.n11",
+      "to_node_number": 11,
+      "why_lawful": "The next node consumes the previous source/receipt chain and preserves boundary counters."
+    },
+    {
+      "edge_id": "c8.e11_12",
+      "edge_kind": "human_acceptance",
+      "from_node_id": "c8.n11",
+      "from_node_number": 11,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "The packet itself does not perform the acceptance or execute downstream work.",
+      "source_evidence_path": "data/c8_unit_feedback_hardening_source_status_gap_response_packet_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_source_status_gap_response_packet_receipt_f2a5ee2a.json",
+      "to_node_id": "c8.n12",
+      "to_node_number": 12,
+      "why_lawful": "The prior packet/readout stops at a review boundary and requires an explicit human acceptance node."
+    },
+    {
+      "edge_id": "c8.e12_13",
+      "edge_kind": "authorized_future_unit",
+      "from_node_id": "c8.n12",
+      "from_node_number": 12,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "Does not authorize adjacent runtimes, probes, builds, reruns, schema promotion, or hidden next work.",
+      "source_evidence_path": "data/c8_unit_feedback_hardening_source_status_gap_response_packet_acceptance_for_bounded_status_field_decision_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_source_status_gap_response_packet_acceptance_for_bounded_status_field_decision_receipt_460dce66.json",
+      "to_node_id": "c8.n13",
+      "to_node_number": 13,
+      "why_lawful": "The acceptance receipt records a bounded human decision and, where present, exactly one authorized future unit after review."
+    },
+    {
+      "edge_id": "c8.e13_14",
+      "edge_kind": "human_acceptance",
+      "from_node_id": "c8.n13",
+      "from_node_number": 13,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "The packet itself does not perform the acceptance or execute downstream work.",
+      "source_evidence_path": "data/c8_unit_feedback_hardening_bounded_source_status_field_decision_packet_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_bounded_source_status_field_decision_packet_receipt_30c28230.json",
+      "to_node_id": "c8.n14",
+      "to_node_number": 14,
+      "why_lawful": "The prior packet/readout stops at a review boundary and requires an explicit human acceptance node."
+    },
+    {
+      "edge_id": "c8.e14_15",
+      "edge_kind": "authorized_future_unit",
+      "from_node_id": "c8.n14",
+      "from_node_number": 14,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "Does not authorize adjacent runtimes, probes, builds, reruns, schema promotion, or hidden next work.",
+      "source_evidence_path": "data/c8_unit_feedback_hardening_bounded_source_status_field_decision_packet_acceptance_for_local_patch_plan_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_bounded_source_status_field_decision_packet_acceptance_for_local_patch_plan_receipt_396bb17a.json",
+      "to_node_id": "c8.n15",
+      "to_node_number": 15,
+      "why_lawful": "The acceptance receipt records a bounded human decision and, where present, exactly one authorized future unit after review."
+    },
+    {
+      "edge_id": "c8.e15_16",
+      "edge_kind": "human_acceptance",
+      "from_node_id": "c8.n15",
+      "from_node_number": 15,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "The packet itself does not perform the acceptance or execute downstream work.",
+      "source_evidence_path": "data/c8_unit_feedback_hardening_local_source_status_field_patch_plan_packet_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_local_source_status_field_patch_plan_packet_receipt_b10148ed.json",
+      "to_node_id": "c8.n16",
+      "to_node_number": 16,
+      "why_lawful": "The prior packet/readout stops at a review boundary and requires an explicit human acceptance node."
+    },
+    {
+      "edge_id": "c8.e16_17",
+      "edge_kind": "authorized_future_unit",
+      "from_node_id": "c8.n16",
+      "from_node_number": 16,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "Does not authorize adjacent runtimes, probes, builds, reruns, schema promotion, or hidden next work.",
+      "source_evidence_path": "data/c8_unit_feedback_hardening_local_source_status_field_patch_plan_packet_acceptance_for_bounded_patch_execution_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_local_source_status_field_patch_plan_packet_acceptance_for_bounded_patch_execution_receipt_a2a22d84.json",
+      "to_node_id": "c8.n17",
+      "to_node_number": 17,
+      "why_lawful": "The acceptance receipt records a bounded human decision and, where present, exactly one authorized future unit after review."
+    },
+    {
+      "edge_id": "c8.e17_18",
+      "edge_kind": "receipt_chain",
+      "from_node_id": "c8.n17",
+      "from_node_number": 17,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "Does not widen authority beyond the next bounded packet/review surface.",
+      "source_evidence_path": "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_once_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_local_source_status_field_patch_execution_once_receipt_13e2733e.json",
+      "to_node_id": "c8.n18",
+      "to_node_number": 18,
+      "why_lawful": "The next node consumes the previous source/receipt chain and preserves boundary counters."
+    },
+    {
+      "edge_id": "c8.e18_19",
+      "edge_kind": "human_acceptance",
+      "from_node_id": "c8.n18",
+      "from_node_number": 18,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "The packet itself does not perform the acceptance or execute downstream work.",
+      "source_evidence_path": "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_receipt_5f8b15fb.json",
+      "to_node_id": "c8.n19",
+      "to_node_number": 19,
+      "why_lawful": "The prior packet/readout stops at a review boundary and requires an explicit human acceptance node."
+    },
+    {
+      "edge_id": "c8.e19_20",
+      "edge_kind": "meta_transition",
+      "from_node_id": "c8.n19",
+      "from_node_number": 19,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "Does not execute the future post-patch surface decision or create reusable authority.",
+      "source_evidence_path": "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_receipt_22e01dcc.json",
+      "to_node_id": "c8.n20",
+      "to_node_number": 20,
+      "why_lawful": "C8 path moved into explicit source-backed architecture extraction after post-patch surface decision acceptance."
+    },
+    {
+      "edge_id": "c8.e20_21",
+      "edge_kind": "receipt_chain",
+      "from_node_id": "c8.n20",
+      "from_node_number": 20,
+      "index_role": "observed_edge_pointer",
+      "not_authorized": "Does not widen authority beyond the next bounded packet/review surface.",
+      "source_evidence_path": "docs/matrixlabs",
+      "to_node_id": "c8.n21",
+      "to_node_number": 21,
+      "why_lawful": "The next node consumes the previous source/receipt chain and preserves boundary counters."
+    }
+  ],
+  "field_policy": "source_fields_are_copied_or_null_preserved_without_reinterpretation",
+  "generated_by": "scripts/build_decision_path_index_v0.py",
+  "index_role": "source_preserving_lookup_surface",
+  "index_status": "PASS_SHAPE",
+  "index_validation": {
+    "authority_validation_performed": false,
+    "compression_validation_performed": false,
+    "edge_count": 20,
+    "edge_endpoints_resolve": true,
+    "edge_ids_unique": true,
+    "edges_forward_linear": true,
+    "index_status": "PASS_SHAPE",
+    "node_count": 21,
+    "node_ids_unique": true,
+    "node_numbers_contiguous": true,
+    "receipt_hash_validation_performed": false,
+    "receipt_validation_performed": false,
+    "source_readout_status_preserved": true,
+    "source_schema_version_preserved": true,
+    "taxonomy_validation_performed": false,
+    "validation_depth": "index_shape_only"
+  },
+  "index_warnings": [],
+  "lookups": {
+    "lookup_by_authorized_future_unit_present": {
+      "absent": [],
+      "present": [
+        "c8.n02",
+        "c8.n03",
+        "c8.n04",
+        "c8.n05",
+        "c8.n06",
+        "c8.n07",
+        "c8.n08",
+        "c8.n09",
+        "c8.n10",
+        "c8.n11",
+        "c8.n12",
+        "c8.n13",
+        "c8.n14",
+        "c8.n15",
+        "c8.n16",
+        "c8.n17",
+        "c8.n18",
+        "c8.n19"
+      ],
+      "unknown_or_null": [
+        "c8.n01",
+        "c8.n20",
+        "c8.n21"
+      ]
+    },
+    "lookup_by_commit_sha": {
+      "09fd897d047a347064b43ddaba8e67aec121042b": [
+        "c8.n03"
+      ],
+      "0daf2585b54b5f8ea930bfc6d58f9400075e06e2": [
+        "c8.n07"
+      ],
+      "24619b142b0b6a961532ced6f9458809e4c9ce7a": [
+        "c8.n21"
+      ],
+      "275a80b29e59651f2f3c4aa7fb3e33d7d14a42d7": [
+        "c8.n12"
+      ],
+      "41f876f7a18581304fc1e4538d823519c6789f84": [
+        "c8.n06"
+      ],
+      "4df5f80df3856c52812df088e543026e70e68efc": [
+        "c8.n18"
+      ],
+      "52cd947bde379263a5173bd8280dcb55dd16f360": [
+        "c8.n09"
+      ],
+      "60553debfcf293f39300c1d6d3c63306e84bfca5": [
+        "c8.n15"
+      ],
+      "654c2d79d3a25d9dd7c84454a2cbea1c50fcb35b": [
+        "c8.n16"
+      ],
+      "86722db2195415b27451e7d918922fdbd81158a1": [
+        "c8.n04"
+      ],
+      "9710da8514b29edb7b4754f0af662a0ec3d8fdd8": [
+        "c8.n10"
+      ],
+      "9f2fd5cceee3badd1e5dd55910150fe1242252b3": [
+        "c8.n20"
+      ],
+      "a370223f05ebdf110cf56f125052eb3128cdc814": [
+        "c8.n19"
+      ],
+      "ad79831da55a50aa1fe0b9658bc0a7acc80251b8": [
+        "c8.n02"
+      ],
+      "b52ed4c3e3edcc178f70069720dca7d2401aca2c": [
+        "c8.n05"
+      ],
+      "d65de6623ea95274ce08c5682cf20b9d0ad74647": [
+        "c8.n13"
+      ],
+      "e801c5f7649bfed4b5d3708c94ecccf29499db02": [
+        "c8.n17"
+      ],
+      "eb9916d843a7c8dcc435900cab97e233f2d17698": [
+        "c8.n01"
+      ],
+      "f8d9b27d32bd7219af18e989d128d7ab0b7d3a77": [
+        "c8.n11"
+      ],
+      "f9dbfc92cb2035cb408070ef014e842659f6a042": [
+        "c8.n08"
+      ],
+      "fcf51cb86fb5cad77e620397ed0712a2a179e15d": [
+        "c8.n14"
+      ]
+    },
+    "lookup_by_edge_id": {
+      "c8.e01_02": 0,
+      "c8.e02_03": 1,
+      "c8.e03_04": 2,
+      "c8.e04_05": 3,
+      "c8.e05_06": 4,
+      "c8.e06_07": 5,
+      "c8.e07_08": 6,
+      "c8.e08_09": 7,
+      "c8.e09_10": 8,
+      "c8.e10_11": 9,
+      "c8.e11_12": 10,
+      "c8.e12_13": 11,
+      "c8.e13_14": 12,
+      "c8.e14_15": 13,
+      "c8.e15_16": 14,
+      "c8.e16_17": 15,
+      "c8.e17_18": 16,
+      "c8.e18_19": 17,
+      "c8.e19_20": 18,
+      "c8.e20_21": 19
+    },
+    "lookup_by_edge_kind": {
+      "authorized_future_unit": [
+        "c8.e02_03",
+        "c8.e04_05",
+        "c8.e06_07",
+        "c8.e12_13",
+        "c8.e14_15",
+        "c8.e16_17"
+      ],
+      "human_acceptance": [
+        "c8.e01_02",
+        "c8.e03_04",
+        "c8.e05_06",
+        "c8.e11_12",
+        "c8.e13_14",
+        "c8.e15_16",
+        "c8.e18_19"
+      ],
+      "meta_transition": [
+        "c8.e19_20"
+      ],
+      "receipt_chain": [
+        "c8.e08_09",
+        "c8.e09_10",
+        "c8.e10_11",
+        "c8.e17_18",
+        "c8.e20_21"
+      ],
+      "review_then_commit": [
+        "c8.e07_08"
+      ]
+    },
+    "lookup_by_human_boundary": {
+      "not_required": [
+        "c8.n07",
+        "c8.n08",
+        "c8.n17",
+        "c8.n20",
+        "c8.n21"
+      ],
+      "required": [
+        "c8.n01",
+        "c8.n02",
+        "c8.n03",
+        "c8.n04",
+        "c8.n05",
+        "c8.n06",
+        "c8.n09",
+        "c8.n10",
+        "c8.n11",
+        "c8.n12",
+        "c8.n13",
+        "c8.n14",
+        "c8.n15",
+        "c8.n16",
+        "c8.n18",
+        "c8.n19"
+      ],
+      "unknown_or_null": []
+    },
+    "lookup_by_node_id": {
+      "c8.n01": 0,
+      "c8.n02": 1,
+      "c8.n03": 2,
+      "c8.n04": 3,
+      "c8.n05": 4,
+      "c8.n06": 5,
+      "c8.n07": 6,
+      "c8.n08": 7,
+      "c8.n09": 8,
+      "c8.n10": 9,
+      "c8.n11": 10,
+      "c8.n12": 11,
+      "c8.n13": 12,
+      "c8.n14": 13,
+      "c8.n15": 14,
+      "c8.n16": 15,
+      "c8.n17": 16,
+      "c8.n18": 17,
+      "c8.n19": 18,
+      "c8.n20": 19,
+      "c8.n21": 20
+    },
+    "lookup_by_node_kind": {
+      "bounded_execution": [
+        "c8.n07",
+        "c8.n08",
+        "c8.n17"
+      ],
+      "closure_readiness": [
+        "c8.n01",
+        "c8.n18"
+      ],
+      "human_acceptance": [
+        "c8.n02",
+        "c8.n04",
+        "c8.n06",
+        "c8.n12",
+        "c8.n14",
+        "c8.n16",
+        "c8.n19"
+      ],
+      "meta_handoff": [
+        "c8.n20",
+        "c8.n21"
+      ],
+      "packet_creation": [
+        "c8.n05",
+        "c8.n09",
+        "c8.n10",
+        "c8.n11",
+        "c8.n13",
+        "c8.n15"
+      ],
+      "surface_selection": [
+        "c8.n03"
+      ]
+    },
+    "lookup_by_outcome_class": {
+      "BOUNDED_PROBE_ACCEPTED_FOR_ONE_EXECUTION_REVIEW": [
+        "c8.n06"
+      ],
+      "C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_CLOSED_NO_NEW_AUTHORITY_RETURN_TO_SURFACE_SELECTION_ALLOWED": [
+        "c8.n02"
+      ],
+      "C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_CLOSURE_PACKET_READY_FOR_HUMAN_DECISION": [
+        "c8.n01"
+      ],
+      "C8_SELECTED_SUCCESSOR_SURFACE_ACCEPTED_FOR_BOUNDED_PROBE_PREP_REVIEW": [
+        "c8.n04"
+      ],
+      "C8_SUCCESSOR_SURFACE_SELECTION_READY_FOR_REVIEW": [
+        "c8.n03"
+      ],
+      "C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_READY_FOR_REVIEW": [
+        "c8.n07"
+      ],
+      "C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_PACKET_READY_FOR_REVIEW": [
+        "c8.n05"
+      ],
+      "C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_ACCEPTED_FOR_LOCAL_PATCH_PLAN": [
+        "c8.n14"
+      ],
+      "C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_READY_FOR_REVIEW": [
+        "c8.n13"
+      ],
+      "C8_UNIT_FEEDBACK_HARDENING_DECISION_PACKET_READY_FOR_REVIEW": [
+        "c8.n10"
+      ],
+      "C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_PACKET_READY_FOR_REVIEW": [
+        "c8.n09"
+      ],
+      "C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DISCOVERY_FOUND_ONE_SAMPLE": [
+        "c8.n08"
+      ],
+      "C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTED_ONCE_READY_FOR_REVIEW": [
+        "c8.n17"
+      ],
+      "C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_CLOSURE_READINESS_PACKET_ACCEPTED_FOR_POST_PATCH_SURFACE_DECISION": [
+        "c8.n19"
+      ],
+      "C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_CLOSURE_READINESS_PACKET_READY_FOR_REVIEW": [
+        "c8.n18"
+      ],
+      "C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_PLAN_PACKET_ACCEPTED_FOR_BOUNDED_PATCH_EXECUTION": [
+        "c8.n16"
+      ],
+      "C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_PLAN_PACKET_READY_FOR_REVIEW": [
+        "c8.n15"
+      ],
+      "C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_ACCEPTED_FOR_BOUNDED_STATUS_FIELD_DECISION": [
+        "c8.n12"
+      ],
+      "C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_READY_FOR_REVIEW": [
+        "c8.n11"
+      ],
+      "SOURCE_COMMIT_ONLY_META_HANDOFF": [
+        "c8.n20",
+        "c8.n21"
+      ]
+    },
+    "lookup_by_phase": {
+      "Architecture extraction reference layer": [
+        "c8.n20"
+      ],
+      "Baseline share packet generator": [
+        "c8.n21"
+      ],
+      "Bounded patch execution": [
+        "c8.n17"
+      ],
+      "Bounded patch-execution acceptance": [
+        "c8.n16"
+      ],
+      "Bounded source-status field decision packet": [
+        "c8.n13"
+      ],
+      "Bounded status-field decision acceptance": [
+        "c8.n12"
+      ],
+      "Closure-readiness packet": [
+        "c8.n18"
+      ],
+      "Failed-unit diagnostic assessment": [
+        "c8.n09"
+      ],
+      "Failed-unit sample discovery": [
+        "c8.n08"
+      ],
+      "Local patch-plan acceptance": [
+        "c8.n14"
+      ],
+      "Local patch-plan packet": [
+        "c8.n15"
+      ],
+      "Post-patch surface decision acceptance": [
+        "c8.n19"
+      ],
+      "Runtime adoption closure acceptance": [
+        "c8.n02"
+      ],
+      "Runtime adoption closure packet": [
+        "c8.n01"
+      ],
+      "Source-status gap response": [
+        "c8.n11"
+      ],
+      "Successor surface acceptance": [
+        "c8.n04"
+      ],
+      "Successor surface selection": [
+        "c8.n03"
+      ],
+      "Unit-feedback hardening bounded probe execution": [
+        "c8.n07"
+      ],
+      "Unit-feedback hardening bounded probe execution acceptance": [
+        "c8.n06"
+      ],
+      "Unit-feedback hardening bounded probe prep": [
+        "c8.n05"
+      ],
+      "Unit-feedback hardening decision packet": [
+        "c8.n10"
+      ]
+    },
+    "lookup_by_receipt_id": {
+      "c8_runtime_adoption_bounded_probe_closure_acceptance_receipt_69984edf": [
+        "c8.n02"
+      ],
+      "c8_runtime_adoption_bounded_probe_closure_receipt_11e2b2ad": [
+        "c8.n01"
+      ],
+      "c8_selected_successor_surface_acceptance_receipt_fcd108ad": [
+        "c8.n04"
+      ],
+      "c8_successor_surface_selection_receipt_5a63647b": [
+        "c8.n03"
+      ],
+      "c8_unit_feedback_hardening_bounded_probe_execution_acceptance_receipt_b5f72068": [
+        "c8.n06"
+      ],
+      "c8_unit_feedback_hardening_bounded_probe_execution_receipt_b35662b1": [
+        "c8.n07"
+      ],
+      "c8_unit_feedback_hardening_bounded_probe_prep_receipt_d20aeb99": [
+        "c8.n05"
+      ],
+      "c8_unit_feedback_hardening_bounded_source_status_field_decision_packet_acceptance_for_local_patch_plan_receipt_396bb17a": [
+        "c8.n14"
+      ],
+      "c8_unit_feedback_hardening_bounded_source_status_field_decision_packet_receipt_30c28230": [
+        "c8.n13"
+      ],
+      "c8_unit_feedback_hardening_decision_packet_receipt_8565c071": [
+        "c8.n10"
+      ],
+      "c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_receipt_2b262320": [
+        "c8.n09"
+      ],
+      "c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_receipt_c9e0fb77": [
+        "c8.n08"
+      ],
+      "c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_receipt_22e01dcc": [
+        "c8.n19"
+      ],
+      "c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_receipt_5f8b15fb": [
+        "c8.n18"
+      ],
+      "c8_unit_feedback_hardening_local_source_status_field_patch_execution_once_receipt_13e2733e": [
+        "c8.n17"
+      ],
+      "c8_unit_feedback_hardening_local_source_status_field_patch_plan_packet_acceptance_for_bounded_patch_execution_receipt_a2a22d84": [
+        "c8.n16"
+      ],
+      "c8_unit_feedback_hardening_local_source_status_field_patch_plan_packet_receipt_b10148ed": [
+        "c8.n15"
+      ],
+      "c8_unit_feedback_hardening_source_status_gap_response_packet_acceptance_for_bounded_status_field_decision_receipt_460dce66": [
+        "c8.n12"
+      ],
+      "c8_unit_feedback_hardening_source_status_gap_response_packet_receipt_f2a5ee2a": [
+        "c8.n11"
+      ],
+      "source_commit_only_meta_handoff": [
+        "c8.n20",
+        "c8.n21"
+      ]
+    },
+    "lookup_by_status": {
+      "NO_C8_RUNTIME_RECEIPT_META_HANDOFF": [
+        "c8.n20",
+        "c8.n21"
+      ],
+      "TYPED_C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_CLOSURE_ACCEPTANCE_PASS": [
+        "c8.n02"
+      ],
+      "TYPED_C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_CLOSURE_PACKET_PASS": [
+        "c8.n01"
+      ],
+      "TYPED_C8_SELECTED_SUCCESSOR_SURFACE_ACCEPTANCE_PASS": [
+        "c8.n04"
+      ],
+      "TYPED_C8_SUCCESSOR_SURFACE_SELECTION_PASS": [
+        "c8.n03"
+      ],
+      "TYPED_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_PASS": [
+        "c8.n06"
+      ],
+      "TYPED_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_PASS": [
+        "c8.n07"
+      ],
+      "TYPED_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_PACKET_PASS": [
+        "c8.n05"
+      ],
+      "TYPED_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_ACCEPTANCE_FOR_LOCAL_PATCH_PLAN_PASS": [
+        "c8.n14"
+      ],
+      "TYPED_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_PASS": [
+        "c8.n13"
+      ],
+      "TYPED_C8_UNIT_FEEDBACK_HARDENING_DECISION_PACKET_PASS": [
+        "c8.n10"
+      ],
+      "TYPED_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_PACKET_PASS": [
+        "c8.n09"
+      ],
+      "TYPED_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DISCOVERY_EXECUTION_PASS": [
+        "c8.n08"
+      ],
+      "TYPED_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_CLOSURE_READINESS_PACKET_ACCEPTANCE_FOR_POST_PATCH_SURFACE_DECISION_PASS": [
+        "c8.n19"
+      ],
+      "TYPED_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_CLOSURE_READINESS_PACKET_PASS": [
+        "c8.n18"
+      ],
+      "TYPED_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_ONCE_PASS": [
+        "c8.n17"
+      ],
+      "TYPED_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_PLAN_PACKET_ACCEPTANCE_FOR_BOUNDED_PATCH_EXECUTION_PASS": [
+        "c8.n16"
+      ],
+      "TYPED_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_PLAN_PACKET_PASS": [
+        "c8.n15"
+      ],
+      "TYPED_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_ACCEPTANCE_FOR_BOUNDED_STATUS_FIELD_DECISION_PASS": [
+        "c8.n12"
+      ],
+      "TYPED_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_PASS": [
+        "c8.n11"
+      ]
+    },
+    "lookup_by_terminal_stop_code": {
+      "STOP_C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_CLOSURE_ACCEPTANCE_READY_FOR_REVIEW": [
+        "c8.n02"
+      ],
+      "STOP_C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_CLOSURE_PACKET_READY_FOR_REVIEW": [
+        "c8.n01"
+      ],
+      "STOP_C8_SELECTED_SUCCESSOR_SURFACE_ACCEPTANCE_READY_FOR_REVIEW": [
+        "c8.n04"
+      ],
+      "STOP_C8_SUCCESSOR_SURFACE_SELECTION_READY_FOR_REVIEW": [
+        "c8.n03"
+      ],
+      "STOP_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_READY_FOR_REVIEW": [
+        "c8.n07"
+      ],
+      "STOP_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_PACKET_READY_FOR_REVIEW": [
+        "c8.n05"
+      ],
+      "STOP_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_ACCEPTANCE_FOR_LOCAL_PATCH_PLAN_READY_FOR_REVIEW": [
+        "c8.n14"
+      ],
+      "STOP_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_READY_FOR_REVIEW": [
+        "c8.n13"
+      ],
+      "STOP_C8_UNIT_FEEDBACK_HARDENING_DECISION_PACKET_READY_FOR_REVIEW": [
+        "c8.n10"
+      ],
+      "STOP_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_PACKET_READY_FOR_REVIEW": [
+        "c8.n09"
+      ],
+      "STOP_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DISCOVERY_FOUND_ONE_SAMPLE_READY_FOR_REVIEW": [
+        "c8.n08"
+      ],
+      "STOP_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_CLOSURE_READINESS_PACKET_ACCEPTANCE_FOR_POST_PATCH_SURFACE_DECISION_READY_FOR_REVIEW": [
+        "c8.n19"
+      ],
+      "STOP_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_CLOSURE_READINESS_PACKET_READY_FOR_REVIEW": [
+        "c8.n18"
+      ],
+      "STOP_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_ONCE_READY_FOR_REVIEW": [
+        "c8.n17"
+      ],
+      "STOP_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_PLAN_PACKET_ACCEPTANCE_FOR_BOUNDED_PATCH_EXECUTION_READY_FOR_REVIEW": [
+        "c8.n16"
+      ],
+      "STOP_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_PLAN_PACKET_READY_FOR_REVIEW": [
+        "c8.n15"
+      ],
+      "STOP_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_ACCEPTANCE_FOR_BOUNDED_STATUS_FIELD_DECISION_READY_FOR_REVIEW": [
+        "c8.n12"
+      ],
+      "STOP_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_READY_FOR_REVIEW": [
+        "c8.n11"
+      ]
+    }
+  },
+  "missing_source_field_policy": "preserve_as_null_and_record_in_index_warnings",
+  "nodes": [
+    {
+      "artifact_dir": "data/c8_runtime_adoption_bounded_probe_closure_after_reentry_v0",
+      "authorized_future_unit": null,
+      "commit_sha": "eb9916d843a7c8dcc435900cab97e233f2d17698",
+      "forbidden_actions_explicitly_preserved": [
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "missing_instrument_proposal_count",
+        "next_surface_selected_count",
+        "probe_executed_count",
+        "probe_execution_authorized_count",
+        "probe_prep_created_count"
+      ],
+      "human_boundary_required": true,
+      "human_decision_consumed": "ACCEPT_CLOSURE_NO_NEW_AUTHORITY_RETURN_TO_SURFACE_SELECTION",
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n01",
+      "node_kind": "closure_readiness",
+      "node_number": 1,
+      "outcome_class": "C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_CLOSURE_PACKET_READY_FOR_HUMAN_DECISION",
+      "phase": "Runtime adoption closure packet",
+      "receipt_id": "c8_runtime_adoption_bounded_probe_closure_receipt_11e2b2ad",
+      "receipt_path": "data/c8_runtime_adoption_bounded_probe_closure_after_reentry_v0_receipts/c8_runtime_adoption_bounded_probe_closure_receipt_11e2b2ad.json",
+      "source_node_number": 1,
+      "status": "TYPED_C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_CLOSURE_PACKET_PASS",
+      "terminal_stop_code": "STOP_C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_CLOSURE_PACKET_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "data/c8_runtime_adoption_bounded_probe_closure_acceptance_after_reentry_v0",
+      "authorized_future_unit": "CREATE_C8_RETURN_TO_SURFACE_SELECTION_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "ad79831da55a50aa1fe0b9658bc0a7acc80251b8",
+      "forbidden_actions_explicitly_preserved": [
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "missing_instrument_proposal_count",
+        "next_surface_selected_count",
+        "probe_executed_count",
+        "probe_execution_authorized_count",
+        "probe_prep_created_count"
+      ],
+      "human_boundary_required": true,
+      "human_decision_consumed": "ACCEPT_CLOSURE_NO_NEW_AUTHORITY_RETURN_TO_SURFACE_SELECTION",
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n02",
+      "node_kind": "human_acceptance",
+      "node_number": 2,
+      "outcome_class": "C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_CLOSED_NO_NEW_AUTHORITY_RETURN_TO_SURFACE_SELECTION_ALLOWED",
+      "phase": "Runtime adoption closure acceptance",
+      "receipt_id": "c8_runtime_adoption_bounded_probe_closure_acceptance_receipt_69984edf",
+      "receipt_path": "data/c8_runtime_adoption_bounded_probe_closure_acceptance_after_reentry_v0_receipts/c8_runtime_adoption_bounded_probe_closure_acceptance_receipt_69984edf.json",
+      "source_node_number": 2,
+      "status": "TYPED_C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_CLOSURE_ACCEPTANCE_PASS",
+      "terminal_stop_code": "STOP_C8_RUNTIME_ADOPTION_BOUNDARY_PROBE_CLOSURE_ACCEPTANCE_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "data/c8_successor_surface_selection_after_runtime_adoption_closure_v0",
+      "authorized_future_unit": "SELECT_C8_SUCCESSOR_SURFACE_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "09fd897d047a347064b43ddaba8e67aec121042b",
+      "forbidden_actions_explicitly_preserved": [
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "missing_instrument_proposal_count",
+        "probe_executed_count",
+        "probe_execution_authorized_count",
+        "probe_prep_created_count",
+        "research_mode_opened_count"
+      ],
+      "human_boundary_required": true,
+      "human_decision_consumed": "ACCEPT_SELECTED_SUCCESSOR_SURFACE_FOR_BOUNDED_PROBE_PREP_REVIEW",
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n03",
+      "node_kind": "surface_selection",
+      "node_number": 3,
+      "outcome_class": "C8_SUCCESSOR_SURFACE_SELECTION_READY_FOR_REVIEW",
+      "phase": "Successor surface selection",
+      "receipt_id": "c8_successor_surface_selection_receipt_5a63647b",
+      "receipt_path": "data/c8_successor_surface_selection_after_runtime_adoption_closure_v0_receipts/c8_successor_surface_selection_receipt_5a63647b.json",
+      "source_node_number": 3,
+      "status": "TYPED_C8_SUCCESSOR_SURFACE_SELECTION_PASS",
+      "terminal_stop_code": "STOP_C8_SUCCESSOR_SURFACE_SELECTION_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "data/c8_selected_successor_surface_acceptance_after_runtime_adoption_closure_v0",
+      "authorized_future_unit": "CREATE_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "86722db2195415b27451e7d918922fdbd81158a1",
+      "forbidden_actions_explicitly_preserved": [
+        "bounded_probe_prep_packet_created_count",
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "missing_instrument_proposal_count",
+        "probe_executed_count",
+        "probe_execution_authorized_count",
+        "research_mode_opened_count"
+      ],
+      "human_boundary_required": true,
+      "human_decision_consumed": "ACCEPT_SELECTED_SUCCESSOR_SURFACE_FOR_BOUNDED_PROBE_PREP_REVIEW",
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n04",
+      "node_kind": "human_acceptance",
+      "node_number": 4,
+      "outcome_class": "C8_SELECTED_SUCCESSOR_SURFACE_ACCEPTED_FOR_BOUNDED_PROBE_PREP_REVIEW",
+      "phase": "Successor surface acceptance",
+      "receipt_id": "c8_selected_successor_surface_acceptance_receipt_fcd108ad",
+      "receipt_path": "data/c8_selected_successor_surface_acceptance_after_runtime_adoption_closure_v0_receipts/c8_selected_successor_surface_acceptance_receipt_fcd108ad.json",
+      "source_node_number": 4,
+      "status": "TYPED_C8_SELECTED_SUCCESSOR_SURFACE_ACCEPTANCE_PASS",
+      "terminal_stop_code": "STOP_C8_SELECTED_SUCCESSOR_SURFACE_ACCEPTANCE_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "data/c8_unit_feedback_hardening_bounded_probe_prep_after_runtime_adoption_closure_v0",
+      "authorized_future_unit": "CREATE_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "b52ed4c3e3edcc178f70069720dca7d2401aca2c",
+      "forbidden_actions_explicitly_preserved": [
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "missing_instrument_proposal_count",
+        "probe_executed_count",
+        "probe_execution_authorized_count",
+        "research_mode_opened_count",
+        "reusable_schema_authorized_count"
+      ],
+      "human_boundary_required": true,
+      "human_decision_consumed": "ACCEPT_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_FOR_ONE_EXECUTION_REVIEW",
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n05",
+      "node_kind": "packet_creation",
+      "node_number": 5,
+      "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_PACKET_READY_FOR_REVIEW",
+      "phase": "Unit-feedback hardening bounded probe prep",
+      "receipt_id": "c8_unit_feedback_hardening_bounded_probe_prep_receipt_d20aeb99",
+      "receipt_path": "data/c8_unit_feedback_hardening_bounded_probe_prep_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_bounded_probe_prep_receipt_d20aeb99.json",
+      "source_node_number": 5,
+      "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_PACKET_PASS",
+      "terminal_stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_PACKET_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "data/c8_unit_feedback_hardening_bounded_probe_execution_acceptance_after_runtime_adoption_closure_v0",
+      "authorized_future_unit": "EXECUTE_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_ONCE_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "41f876f7a18581304fc1e4538d823519c6789f84",
+      "forbidden_actions_explicitly_preserved": [
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "missing_instrument_proposal_count",
+        "probe_executed_count",
+        "research_mode_opened_count",
+        "reusable_schema_authorized_count",
+        "source_artifact_mutation_count",
+        "verification_probe_count"
+      ],
+      "human_boundary_required": true,
+      "human_decision_consumed": "ACCEPT_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_PREP_FOR_ONE_EXECUTION_REVIEW",
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n06",
+      "node_kind": "human_acceptance",
+      "node_number": 6,
+      "outcome_class": "BOUNDED_PROBE_ACCEPTED_FOR_ONE_EXECUTION_REVIEW",
+      "phase": "Unit-feedback hardening bounded probe execution acceptance",
+      "receipt_id": "c8_unit_feedback_hardening_bounded_probe_execution_acceptance_receipt_b5f72068",
+      "receipt_path": "data/c8_unit_feedback_hardening_bounded_probe_execution_acceptance_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_bounded_probe_execution_acceptance_receipt_b5f72068.json",
+      "source_node_number": 6,
+      "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_ACCEPTANCE_PASS",
+      "terminal_stop_code": null
+    },
+    {
+      "artifact_dir": "data/c8_unit_feedback_hardening_bounded_probe_execution_after_runtime_adoption_closure_v0",
+      "authorized_future_unit": "EXECUTE_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_ONCE_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "0daf2585b54b5f8ea930bfc6d58f9400075e06e2",
+      "forbidden_actions_explicitly_preserved": [
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "missing_instrument_proposal_count",
+        "research_mode_opened_count",
+        "reusable_schema_authorized_count",
+        "second_probe_execution_count",
+        "source_artifact_mutation_count"
+      ],
+      "human_boundary_required": false,
+      "human_decision_consumed": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_OBSERVATION_FOR_REVIEW",
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n07",
+      "node_kind": "bounded_execution",
+      "node_number": 7,
+      "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_READY_FOR_REVIEW",
+      "phase": "Unit-feedback hardening bounded probe execution",
+      "receipt_id": "c8_unit_feedback_hardening_bounded_probe_execution_receipt_b35662b1",
+      "receipt_path": "data/c8_unit_feedback_hardening_bounded_probe_execution_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_bounded_probe_execution_receipt_b35662b1.json",
+      "source_node_number": 7,
+      "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_PASS",
+      "terminal_stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_PROBE_EXECUTION_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "data/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_after_runtime_adoption_closure_v0",
+      "authorized_future_unit": "EXECUTE_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DISCOVERY_ONCE_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "f9dbfc92cb2035cb408070ef014e842659f6a042",
+      "forbidden_actions_explicitly_preserved": [
+        "c8_rerun_count",
+        "cell1_build_count",
+        "failed_unit_sample_count_over_limit",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "missing_instrument_proposal_count",
+        "probe_executed_count",
+        "probe_execution_authorized_count",
+        "research_mode_opened_count"
+      ],
+      "human_boundary_required": false,
+      "human_decision_consumed": null,
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n08",
+      "node_kind": "bounded_execution",
+      "node_number": 8,
+      "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DISCOVERY_FOUND_ONE_SAMPLE",
+      "phase": "Failed-unit sample discovery",
+      "receipt_id": "c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_receipt_c9e0fb77",
+      "receipt_path": "data/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_failed_unit_sample_discovery_execution_receipt_c9e0fb77.json",
+      "source_node_number": 8,
+      "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DISCOVERY_EXECUTION_PASS",
+      "terminal_stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DISCOVERY_FOUND_ONE_SAMPLE_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "data/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_after_runtime_adoption_closure_v0",
+      "authorized_future_unit": "CREATE_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "52cd947bde379263a5173bd8280dcb55dd16f360",
+      "forbidden_actions_explicitly_preserved": [
+        "additional_sample_discovery_count",
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "missing_instrument_proposal_count",
+        "probe_executed_count",
+        "probe_execution_authorized_count",
+        "research_mode_opened_count"
+      ],
+      "human_boundary_required": true,
+      "human_decision_consumed": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_FOR_FEEDBACK_HARDENING_DECISION",
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n09",
+      "node_kind": "packet_creation",
+      "node_number": 9,
+      "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_PACKET_READY_FOR_REVIEW",
+      "phase": "Failed-unit diagnostic assessment",
+      "receipt_id": "c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_receipt_2b262320",
+      "receipt_path": "data/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_failed_unit_sample_diagnostic_assessment_receipt_2b262320.json",
+      "source_node_number": 9,
+      "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_PACKET_PASS",
+      "terminal_stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_PACKET_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "data/c8_unit_feedback_hardening_decision_packet_from_failed_unit_sample_diagnostic_assessment_after_runtime_adoption_closure_v0",
+      "authorized_future_unit": "CREATE_C8_UNIT_FEEDBACK_HARDENING_DECISION_PACKET_FROM_FAILED_UNIT_SAMPLE_DIAGNOSTIC_ASSESSMENT_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "9710da8514b29edb7b4754f0af662a0ec3d8fdd8",
+      "forbidden_actions_explicitly_preserved": [
+        "additional_sample_discovery_count",
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "missing_instrument_proposal_count",
+        "probe_executed_count",
+        "probe_execution_authorized_count",
+        "research_mode_opened_count"
+      ],
+      "human_boundary_required": true,
+      "human_decision_consumed": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_DECISION_PACKET_FOR_SOURCE_STATUS_GAP_RESPONSE",
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n10",
+      "node_kind": "packet_creation",
+      "node_number": 10,
+      "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_DECISION_PACKET_READY_FOR_REVIEW",
+      "phase": "Unit-feedback hardening decision packet",
+      "receipt_id": "c8_unit_feedback_hardening_decision_packet_receipt_8565c071",
+      "receipt_path": "data/c8_unit_feedback_hardening_decision_packet_from_failed_unit_sample_diagnostic_assessment_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_decision_packet_receipt_8565c071.json",
+      "source_node_number": 10,
+      "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_DECISION_PACKET_PASS",
+      "terminal_stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_DECISION_PACKET_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "data/c8_unit_feedback_hardening_source_status_gap_response_packet_after_runtime_adoption_closure_v0",
+      "authorized_future_unit": "CREATE_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "f8d9b27d32bd7219af18e989d128d7ab0b7d3a77",
+      "forbidden_actions_explicitly_preserved": [
+        "additional_sample_discovery_count",
+        "bounded_source_status_field_decision_packet_created_count",
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "missing_instrument_proposal_count",
+        "probe_executed_count",
+        "probe_execution_authorized_count"
+      ],
+      "human_boundary_required": true,
+      "human_decision_consumed": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_FOR_BOUNDED_STATUS_FIELD_DECISION",
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n11",
+      "node_kind": "packet_creation",
+      "node_number": 11,
+      "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_READY_FOR_REVIEW",
+      "phase": "Source-status gap response",
+      "receipt_id": "c8_unit_feedback_hardening_source_status_gap_response_packet_receipt_f2a5ee2a",
+      "receipt_path": "data/c8_unit_feedback_hardening_source_status_gap_response_packet_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_source_status_gap_response_packet_receipt_f2a5ee2a.json",
+      "source_node_number": 11,
+      "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_PASS",
+      "terminal_stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "data/c8_unit_feedback_hardening_source_status_gap_response_packet_acceptance_for_bounded_status_field_decision_after_runtime_adoption_closure_v0",
+      "authorized_future_unit": "CREATE_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "275a80b29e59651f2f3c4aa7fb3e33d7d14a42d7",
+      "forbidden_actions_explicitly_preserved": [
+        "additional_sample_discovery_count",
+        "bounded_source_status_field_decision_packet_created_count",
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "missing_instrument_proposal_count",
+        "probe_executed_count",
+        "probe_execution_authorized_count"
+      ],
+      "human_boundary_required": true,
+      "human_decision_consumed": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_FOR_BOUNDED_STATUS_FIELD_DECISION",
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n12",
+      "node_kind": "human_acceptance",
+      "node_number": 12,
+      "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_ACCEPTED_FOR_BOUNDED_STATUS_FIELD_DECISION",
+      "phase": "Bounded status-field decision acceptance",
+      "receipt_id": "c8_unit_feedback_hardening_source_status_gap_response_packet_acceptance_for_bounded_status_field_decision_receipt_460dce66",
+      "receipt_path": "data/c8_unit_feedback_hardening_source_status_gap_response_packet_acceptance_for_bounded_status_field_decision_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_source_status_gap_response_packet_acceptance_for_bounded_status_field_decision_receipt_460dce66.json",
+      "source_node_number": 12,
+      "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_ACCEPTANCE_FOR_BOUNDED_STATUS_FIELD_DECISION_PASS",
+      "terminal_stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_SOURCE_STATUS_GAP_RESPONSE_PACKET_ACCEPTANCE_FOR_BOUNDED_STATUS_FIELD_DECISION_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "data/c8_unit_feedback_hardening_bounded_source_status_field_decision_packet_after_runtime_adoption_closure_v0",
+      "authorized_future_unit": "CREATE_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "d65de6623ea95274ce08c5682cf20b9d0ad74647",
+      "forbidden_actions_explicitly_preserved": [
+        "additional_sample_discovery_count",
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "local_source_status_field_patch_plan_packet_created_count",
+        "missing_instrument_proposal_count",
+        "probe_executed_count",
+        "probe_execution_authorized_count"
+      ],
+      "human_boundary_required": true,
+      "human_decision_consumed": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_FOR_LOCAL_STATUS_FIELD_PATCH_PLAN",
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n13",
+      "node_kind": "packet_creation",
+      "node_number": 13,
+      "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_READY_FOR_REVIEW",
+      "phase": "Bounded source-status field decision packet",
+      "receipt_id": "c8_unit_feedback_hardening_bounded_source_status_field_decision_packet_receipt_30c28230",
+      "receipt_path": "data/c8_unit_feedback_hardening_bounded_source_status_field_decision_packet_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_bounded_source_status_field_decision_packet_receipt_30c28230.json",
+      "source_node_number": 13,
+      "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_PASS",
+      "terminal_stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "data/c8_unit_feedback_hardening_bounded_source_status_field_decision_packet_acceptance_for_local_patch_plan_after_runtime_adoption_closure_v0",
+      "authorized_future_unit": "CREATE_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_PLAN_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "fcf51cb86fb5cad77e620397ed0712a2a179e15d",
+      "forbidden_actions_explicitly_preserved": [
+        "additional_sample_discovery_count",
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "local_source_status_field_patch_plan_packet_created_count",
+        "missing_instrument_proposal_count",
+        "probe_executed_count",
+        "probe_execution_authorized_count"
+      ],
+      "human_boundary_required": true,
+      "human_decision_consumed": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_FOR_LOCAL_STATUS_FIELD_PATCH_PLAN",
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n14",
+      "node_kind": "human_acceptance",
+      "node_number": 14,
+      "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_ACCEPTED_FOR_LOCAL_PATCH_PLAN",
+      "phase": "Local patch-plan acceptance",
+      "receipt_id": "c8_unit_feedback_hardening_bounded_source_status_field_decision_packet_acceptance_for_local_patch_plan_receipt_396bb17a",
+      "receipt_path": "data/c8_unit_feedback_hardening_bounded_source_status_field_decision_packet_acceptance_for_local_patch_plan_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_bounded_source_status_field_decision_packet_acceptance_for_local_patch_plan_receipt_396bb17a.json",
+      "source_node_number": 14,
+      "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_ACCEPTANCE_FOR_LOCAL_PATCH_PLAN_PASS",
+      "terminal_stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_BOUNDED_SOURCE_STATUS_FIELD_DECISION_PACKET_ACCEPTANCE_FOR_LOCAL_PATCH_PLAN_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "data/c8_unit_feedback_hardening_local_source_status_field_patch_plan_packet_after_runtime_adoption_closure_v0",
+      "authorized_future_unit": "CREATE_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_PLAN_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "60553debfcf293f39300c1d6d3c63306e84bfca5",
+      "forbidden_actions_explicitly_preserved": [
+        "additional_sample_discovery_count",
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "missing_instrument_proposal_count",
+        "patch_execution_count",
+        "probe_executed_count",
+        "probe_execution_authorized_count"
+      ],
+      "human_boundary_required": true,
+      "human_decision_consumed": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_PLAN_PACKET_FOR_BOUNDED_PATCH_EXECUTION",
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n15",
+      "node_kind": "packet_creation",
+      "node_number": 15,
+      "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_PLAN_PACKET_READY_FOR_REVIEW",
+      "phase": "Local patch-plan packet",
+      "receipt_id": "c8_unit_feedback_hardening_local_source_status_field_patch_plan_packet_receipt_b10148ed",
+      "receipt_path": "data/c8_unit_feedback_hardening_local_source_status_field_patch_plan_packet_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_local_source_status_field_patch_plan_packet_receipt_b10148ed.json",
+      "source_node_number": 15,
+      "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_PLAN_PACKET_PASS",
+      "terminal_stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_PLAN_PACKET_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "data/c8_unit_feedback_hardening_local_source_status_field_patch_plan_packet_acceptance_for_bounded_patch_execution_after_runtime_adoption_closure_v0",
+      "authorized_future_unit": "EXECUTE_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_ONCE_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "654c2d79d3a25d9dd7c84454a2cbea1c50fcb35b",
+      "forbidden_actions_explicitly_preserved": [
+        "additional_sample_discovery_count",
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "missing_instrument_proposal_count",
+        "patch_execution_count",
+        "probe_executed_count",
+        "probe_execution_authorized_count"
+      ],
+      "human_boundary_required": true,
+      "human_decision_consumed": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_PLAN_PACKET_FOR_BOUNDED_PATCH_EXECUTION",
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n16",
+      "node_kind": "human_acceptance",
+      "node_number": 16,
+      "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_PLAN_PACKET_ACCEPTED_FOR_BOUNDED_PATCH_EXECUTION",
+      "phase": "Bounded patch-execution acceptance",
+      "receipt_id": "c8_unit_feedback_hardening_local_source_status_field_patch_plan_packet_acceptance_for_bounded_patch_execution_receipt_a2a22d84",
+      "receipt_path": "data/c8_unit_feedback_hardening_local_source_status_field_patch_plan_packet_acceptance_for_bounded_patch_execution_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_local_source_status_field_patch_plan_packet_acceptance_for_bounded_patch_execution_receipt_a2a22d84.json",
+      "source_node_number": 16,
+      "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_PLAN_PACKET_ACCEPTANCE_FOR_BOUNDED_PATCH_EXECUTION_PASS",
+      "terminal_stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_PLAN_PACKET_ACCEPTANCE_FOR_BOUNDED_PATCH_EXECUTION_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_once_after_runtime_adoption_closure_v0",
+      "authorized_future_unit": "EXECUTE_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_ONCE_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "e801c5f7649bfed4b5d3708c94ecccf29499db02",
+      "forbidden_actions_explicitly_preserved": [
+        "additional_sample_discovery_count",
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "missing_instrument_proposal_count",
+        "non_target_source_artifact_mutation_count",
+        "probe_executed_count",
+        "probe_execution_authorized_count"
+      ],
+      "human_boundary_required": false,
+      "human_decision_consumed": null,
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n17",
+      "node_kind": "bounded_execution",
+      "node_number": 17,
+      "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTED_ONCE_READY_FOR_REVIEW",
+      "phase": "Bounded patch execution",
+      "receipt_id": "c8_unit_feedback_hardening_local_source_status_field_patch_execution_once_receipt_13e2733e",
+      "receipt_path": "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_once_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_local_source_status_field_patch_execution_once_receipt_13e2733e.json",
+      "source_node_number": 17,
+      "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_ONCE_PASS",
+      "terminal_stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_ONCE_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_after_runtime_adoption_closure_v0",
+      "authorized_future_unit": "CREATE_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_CLOSURE_READINESS_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "4df5f80df3856c52812df088e543026e70e68efc",
+      "forbidden_actions_explicitly_preserved": [
+        "additional_sample_discovery_count",
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "missing_instrument_proposal_count",
+        "patch_execution_count",
+        "probe_executed_count",
+        "probe_execution_authorized_count"
+      ],
+      "human_boundary_required": true,
+      "human_decision_consumed": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_CLOSURE_READINESS_PACKET_FOR_POST_PATCH_SURFACE_DECISION",
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n18",
+      "node_kind": "closure_readiness",
+      "node_number": 18,
+      "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_CLOSURE_READINESS_PACKET_READY_FOR_REVIEW",
+      "phase": "Closure-readiness packet",
+      "receipt_id": "c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_receipt_5f8b15fb",
+      "receipt_path": "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_receipt_5f8b15fb.json",
+      "source_node_number": 18,
+      "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_CLOSURE_READINESS_PACKET_PASS",
+      "terminal_stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_CLOSURE_READINESS_PACKET_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
+      "authorized_future_unit": "CREATE_C8_UNIT_FEEDBACK_HARDENING_POST_SOURCE_STATUS_PATCH_SURFACE_DECISION_PACKET_AFTER_RUNTIME_ADOPTION_CLOSURE_V0",
+      "commit_sha": "a370223f05ebdf110cf56f125052eb3128cdc814",
+      "forbidden_actions_explicitly_preserved": [
+        "additional_sample_discovery_count",
+        "c8_rerun_count",
+        "cell1_build_count",
+        "frontier_solved_claim_count",
+        "general_cell1_authority_count",
+        "global_solution_claim_count",
+        "hidden_next_command_count",
+        "instrument_build_count",
+        "missing_instrument_proposal_count",
+        "patch_execution_count",
+        "probe_executed_count",
+        "probe_execution_authorized_count"
+      ],
+      "human_boundary_required": true,
+      "human_decision_consumed": "ACCEPT_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_CLOSURE_READINESS_PACKET_FOR_POST_PATCH_SURFACE_DECISION",
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n19",
+      "node_kind": "human_acceptance",
+      "node_number": 19,
+      "outcome_class": "C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_CLOSURE_READINESS_PACKET_ACCEPTED_FOR_POST_PATCH_SURFACE_DECISION",
+      "phase": "Post-patch surface decision acceptance",
+      "receipt_id": "c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_receipt_22e01dcc",
+      "receipt_path": "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_receipt_22e01dcc.json",
+      "source_node_number": 19,
+      "status": "TYPED_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_CLOSURE_READINESS_PACKET_ACCEPTANCE_FOR_POST_PATCH_SURFACE_DECISION_PASS",
+      "terminal_stop_code": "STOP_C8_UNIT_FEEDBACK_HARDENING_LOCAL_SOURCE_STATUS_FIELD_PATCH_EXECUTION_CLOSURE_READINESS_PACKET_ACCEPTANCE_FOR_POST_PATCH_SURFACE_DECISION_READY_FOR_REVIEW"
+    },
+    {
+      "artifact_dir": "docs/matrixlabs",
+      "authorized_future_unit": null,
+      "commit_sha": "9f2fd5cceee3badd1e5dd55910150fe1242252b3",
+      "forbidden_actions_explicitly_preserved": [],
+      "human_boundary_required": false,
+      "human_decision_consumed": null,
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n20",
+      "node_kind": "meta_handoff",
+      "node_number": 20,
+      "outcome_class": "SOURCE_COMMIT_ONLY_META_HANDOFF",
+      "phase": "Architecture extraction reference layer",
+      "receipt_id": "source_commit_only_meta_handoff",
+      "receipt_path": "",
+      "source_node_number": 20,
+      "status": "NO_C8_RUNTIME_RECEIPT_META_HANDOFF",
+      "terminal_stop_code": null
+    },
+    {
+      "artifact_dir": "baseline_share",
+      "authorized_future_unit": null,
+      "commit_sha": "24619b142b0b6a961532ced6f9458809e4c9ce7a",
+      "forbidden_actions_explicitly_preserved": [],
+      "human_boundary_required": false,
+      "human_decision_consumed": null,
+      "index_role": "observed_node_pointer",
+      "node_id": "c8.n21",
+      "node_kind": "meta_handoff",
+      "node_number": 21,
+      "outcome_class": "SOURCE_COMMIT_ONLY_META_HANDOFF",
+      "phase": "Baseline share packet generator",
+      "receipt_id": "source_commit_only_meta_handoff",
+      "receipt_path": "",
+      "source_node_number": 21,
+      "status": "NO_C8_RUNTIME_RECEIPT_META_HANDOFF",
+      "terminal_stop_code": null
+    }
+  ],
+  "non_claims": [
+    "decision_path_index_v0 does not validate receipt contents.",
+    "decision_path_index_v0 does not hash or verify receipt files.",
+    "decision_path_index_v0 does not prove edge lawfulness.",
+    "decision_path_index_v0 does not authorize future moves.",
+    "decision_path_index_v0 does not promote repeated node kinds or edge kinds into reusable schema.",
+    "decision_path_index_v0 does not classify proceed-surface taxonomy.",
+    "decision_path_index_v0 does not decide compression or decompression law.",
+    "decision_path_index_v0 only makes the observed C8 path addressable."
+  ],
+  "path_id": "c8",
+  "path_name": "C8 observed decision path",
+  "relationship_to_later_milestones": [
+    "M1 gives stable addresses.",
+    "M2 uses those addresses to build the receipt spine.",
+    "M3 defines what may be compressed and decompressed from those addresses.",
+    "M5 uses M1 and M3 to name proceed-surface roles without authority leak.",
+    "M7 may later update the index mechanically from committed source artifacts, but only after indexing and compression laws are tested."
+  ],
+  "schema_version": "matrixlabs_decision_path_index_v0",
+  "source": {
+    "source_commit_sha": "11f8c9d20e30e1c4f614d7405ff2610baa382f6a",
+    "source_json_sha256": "2883e4a86b2bbad9438f6694a4177e0e6db7d8e7b85b8ba1af098a4534a10cfd",
+    "source_path_json": "docs/matrixlabs/architecture/c8_observed_decision_path_v0.json",
+    "source_path_md": "docs/matrixlabs/architecture/c8_observed_decision_path_v0.md",
+    "source_readout_status": "observed_source_backed_not_runner",
+    "source_schema_version": "matrixlabs_c8_observed_decision_path_v0"
+  }
+}

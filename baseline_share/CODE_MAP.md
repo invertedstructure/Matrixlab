@@ -7,6 +7,7 @@ This is a map, not the full source. The repository remains the source of truth.
 - `data/` - packet, generated artifact, and receipt-backed evidence surface.
 - `scripts/` - repeatable unit scripts and generators. The baseline generator is `scripts/build_baseline_share_v0.py`.
 - `docs/matrixlabs/` - source-backed architecture extraction/readout layer.
+- `docs/matrixlabs/observability/` - generated source-preserving lookup surfaces.
 - `baseline_share/` - generated uploadable projection, not source of truth.
 
 ## Important architecture docs
@@ -17,6 +18,8 @@ This is a map, not the full source. The repository remains the source of truth.
 - `docs/matrixlabs/architecture/decision_graph_readout_v0.md`
 - `docs/matrixlabs/proposals/extraction_followup_questions_v0.md`
 - `docs/matrixlabs/raw/source_inventory_v0.md`
+- `docs/matrixlabs/observability/decision_path_index_v0.json`
+- `docs/matrixlabs/observability/decision_path_index_v0.md`
 
 ## Current C8 source-status / post-patch surface decision paths
 

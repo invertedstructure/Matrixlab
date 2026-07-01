@@ -30,6 +30,11 @@ INCLUDED_FILES = [
     "COMMIT_CONTEXT.md",
     "MANIFEST.json",
 ]
+OBSERVABILITY_INDEX_DOCS = [
+    "docs/matrixlabs/observability/decision_path_index_v0.json",
+    "docs/matrixlabs/observability/decision_path_index_v0.md",
+]
+OBSERVABILITY_INDEX_GENERATOR = "scripts/build_decision_path_index_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -37,6 +42,8 @@ SOURCE_DOCS = [
     "docs/matrixlabs/architecture/decision_graph_readout_v0.md",
     "docs/matrixlabs/proposals/extraction_followup_questions_v0.md",
     "docs/matrixlabs/raw/source_inventory_v0.md",
+    *OBSERVABILITY_INDEX_DOCS,
+    OBSERVABILITY_INDEX_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -327,6 +334,7 @@ This is a map, not the full source. The repository remains the source of truth.
 - `data/` - packet, generated artifact, and receipt-backed evidence surface.
 - `scripts/` - repeatable unit scripts and generators. The baseline generator is `{GENERATOR_SCRIPT}`.
 - `docs/matrixlabs/` - source-backed architecture extraction/readout layer.
+- `docs/matrixlabs/observability/` - generated source-preserving lookup surfaces.
 - `baseline_share/` - generated uploadable projection, not source of truth.
 
 ## Important architecture docs
@@ -337,6 +345,8 @@ This is a map, not the full source. The repository remains the source of truth.
 - `docs/matrixlabs/architecture/decision_graph_readout_v0.md`
 - `docs/matrixlabs/proposals/extraction_followup_questions_v0.md`
 - `docs/matrixlabs/raw/source_inventory_v0.md`
+- `docs/matrixlabs/observability/decision_path_index_v0.json`
+- `docs/matrixlabs/observability/decision_path_index_v0.md`
 
 ## Current C8 source-status / post-patch surface decision paths
 
@@ -351,7 +361,7 @@ This is a map, not the full source. The repository remains the source of truth.
 This map is a portable orientation layer. It does not copy the full source, rewrite receipts, promote schemas, or authorize execution."""
 
 
-def render_decision_graph(decision_doc: str) -> str:
+def render_decision_graph(decision_doc: str, root: Path) -> str:
     sections = [
         ("Observed Recurring Pattern", "Observed unit pattern"),
         ("Authority Boundary Notes", "Authority boundary by step"),
@@ -367,6 +377,17 @@ def render_decision_graph(decision_doc: str) -> str:
     ]
     for title, heading in sections:
         parts.extend(["", f"## {title}", "", compact_section(extract_section(decision_doc, heading), max_lines=42, max_chars=5000)])
+    parts.extend([
+        "",
+        "## Decision Path Index v0",
+        "",
+        "M1 observability/addressability surface for `docs/matrixlabs/architecture/c8_observed_decision_path_v0.json`. It is not authority, not receipt validation, and not compression.",
+        "",
+        *[
+            f"- `{path}` - {'present' if (root / path).exists() else 'missing/uncertain'}"
+            for path in OBSERVABILITY_INDEX_DOCS
+        ],
+    ])
     return "\n".join(parts)
 
 
@@ -543,7 +564,7 @@ def generate() -> int:
         ),
         "ARCHITECTURE_SUMMARY.md": render_architecture_summary(architecture_doc),
         "CODE_MAP.md": render_code_map(root),
-        "DECISION_GRAPH.md": render_decision_graph(decision_doc),
+        "DECISION_GRAPH.md": render_decision_graph(decision_doc, root),
         "OPEN_QUESTIONS.md": render_open_questions(proposals_doc),
         "RECEIPT_POINTERS.md": render_receipt_pointers(root, architecture_receipt_matches),
         "COMMIT_CONTEXT.md": render_commit_context(
