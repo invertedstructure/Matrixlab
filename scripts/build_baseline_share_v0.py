@@ -45,6 +45,12 @@ COMPRESSION_LAW_DOCS = [
     "docs/matrixlabs/observability/compression_decompression_law_v0.md",
 ]
 COMPRESSION_LAW_GENERATOR = "scripts/build_compression_decompression_law_v0.py"
+CLOSEOUT_WRAPPER_DOCS = [
+    "docs/matrixlabs/observability/closeout_wrapper_v0.json",
+    "docs/matrixlabs/observability/closeout_wrapper_v0.md",
+    "docs/matrixlabs/observability/closeout_manifests/matrixlabs_observability_m1_m3_closeout_v0.json",
+]
+CLOSEOUT_WRAPPER_GENERATOR = "scripts/matrixlab_closeout_wrapper_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -58,6 +64,8 @@ SOURCE_DOCS = [
     RECEIPT_SPINE_GENERATOR,
     *COMPRESSION_LAW_DOCS,
     COMPRESSION_LAW_GENERATOR,
+    *CLOSEOUT_WRAPPER_DOCS,
+    CLOSEOUT_WRAPPER_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",

@@ -1,32 +1,34 @@
 # Current State
 
-Generated at UTC: `2026-07-01T14:21:28Z`
+Generated at UTC: `2026-07-01T15:06:35Z`
 
 ## Git context
 
-- Current HEAD SHA: `e78ae91156521669e57bfca3c112d4b83e681d05`
+- Current HEAD SHA: `58f4743e38a6d49e877a7d8b81f0a82c30ad0915`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
 - Git status:
 - `M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/observability/compression_decompression_law_v0.json`
-- `?? docs/matrixlabs/observability/compression_decompression_law_v0.md`
-- `?? scripts/build_compression_decompression_law_v0.py`
+- `?? docs/matrixlabs/observability/closeout_manifests/`
+- `?? docs/matrixlabs/observability/closeout_wrapper_v0.json`
+- `?? docs/matrixlabs/observability/closeout_wrapper_v0.md`
+- `?? scripts/matrixlab_closeout_wrapper_v0.py`
 - Git status excluding generated `baseline_share/`:
 - `M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/observability/compression_decompression_law_v0.json`
-- `?? docs/matrixlabs/observability/compression_decompression_law_v0.md`
-- `?? scripts/build_compression_decompression_law_v0.py`
+- `?? docs/matrixlabs/observability/closeout_manifests/`
+- `?? docs/matrixlabs/observability/closeout_wrapper_v0.json`
+- `?? docs/matrixlabs/observability/closeout_wrapper_v0.md`
+- `?? scripts/matrixlab_closeout_wrapper_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `e78ae91156521669e57bfca3c112d4b83e681d05`
-- Current C8 post-patch surface-decision acceptance commit: `e78ae91156521669e57bfca3c112d4b83e681d05`
+- Current architecture extraction commit: `58f4743e38a6d49e877a7d8b81f0a82c30ad0915`
+- Current C8 post-patch surface-decision acceptance commit: `58f4743e38a6d49e877a7d8b81f0a82c30ad0915`
 
 ## High-level state
 

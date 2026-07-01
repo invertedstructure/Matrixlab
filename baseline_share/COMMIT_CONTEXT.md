@@ -1,7 +1,7 @@
 # Commit Context
 
-- Generated at UTC: `2026-07-01T14:21:28Z`
-- Current HEAD SHA: `e78ae91156521669e57bfca3c112d4b83e681d05`
+- Generated at UTC: `2026-07-01T15:06:35Z`
+- Current HEAD SHA: `58f4743e38a6d49e877a7d8b81f0a82c30ad0915`
 - Branch: `master`
 - Worktree state at generation time: `dirty`
 - Generator script: `scripts/build_baseline_share_v0.py`
@@ -9,6 +9,7 @@
 ## Recent 10 commits
 
 ```text
+58f4743e3 Add compression decompression law v0
 e78ae9115 Add receipt spine v0
 e0e22d33e Add decision path index v0
 11f8c9d20 Add C8 observed decision path readout
@@ -18,7 +19,6 @@ a370223f0 Accept C8 post-patch surface decision
 4df5f80df Create C8 patch execution closure-readiness packet
 e801c5f76 Execute C8 local source-status patch once
 654c2d79d Accept C8 bounded source-status patch execution
-60553debf Create C8 local source-status patch plan
 ```
 
 ## Git status short
@@ -26,9 +26,10 @@ e801c5f76 Execute C8 local source-status patch once
 ```text
 M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/observability/compression_decompression_law_v0.json
-?? docs/matrixlabs/observability/compression_decompression_law_v0.md
-?? scripts/build_compression_decompression_law_v0.py
+?? docs/matrixlabs/observability/closeout_manifests/
+?? docs/matrixlabs/observability/closeout_wrapper_v0.json
+?? docs/matrixlabs/observability/closeout_wrapper_v0.md
+?? scripts/matrixlab_closeout_wrapper_v0.py
 ```
 
 ## Git status short excluding generated baseline_share
@@ -36,9 +37,10 @@ M scripts/build_baseline_share_v0.py
 ```text
 M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/observability/compression_decompression_law_v0.json
-?? docs/matrixlabs/observability/compression_decompression_law_v0.md
-?? scripts/build_compression_decompression_law_v0.py
+?? docs/matrixlabs/observability/closeout_manifests/
+?? docs/matrixlabs/observability/closeout_wrapper_v0.json
+?? docs/matrixlabs/observability/closeout_wrapper_v0.md
+?? scripts/matrixlab_closeout_wrapper_v0.py
 ```
 
 ## Safety facts

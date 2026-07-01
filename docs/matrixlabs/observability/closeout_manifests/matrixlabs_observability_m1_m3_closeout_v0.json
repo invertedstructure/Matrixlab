@@ -1,0 +1,65 @@
+{
+  "allowed_paths": [
+    "docs/matrixlabs/observability/",
+    "docs/matrixlabs/architecture/c8_observed_decision_path_v0.json",
+    "docs/matrixlabs/architecture/c8_observed_decision_path_v0.md",
+    "scripts/matrixlab_closeout_wrapper_v0.py",
+    "scripts/build_baseline_share_v0.py",
+    "baseline_share/"
+  ],
+  "baseline_generator": "scripts/build_baseline_share_v0.py",
+  "closeout_commit_mode": "TWO_COMMIT_CLOSEOUT",
+  "closeout_readout_commit_message": {
+    "body": [
+      "Records closeout status for the declared unit scope.",
+      "Does not validate theorem truth, authorize next movement, or repair undeclared drift."
+    ],
+    "subject": "Add MatrixLab closeout readout v0"
+  },
+  "expected_artifacts": [
+    "docs/matrixlabs/observability/decision_path_index_v0.json",
+    "docs/matrixlabs/observability/decision_path_index_v0.md",
+    "docs/matrixlabs/observability/receipt_spine_v0.json",
+    "docs/matrixlabs/observability/receipt_spine_v0.md",
+    "docs/matrixlabs/observability/compression_decompression_law_v0.json",
+    "docs/matrixlabs/observability/compression_decompression_law_v0.md"
+  ],
+  "expected_baseline_projection_files": [
+    "baseline_share/README.md",
+    "baseline_share/CURRENT_STATE.md",
+    "baseline_share/MANIFEST.json",
+    "baseline_share/RECEIPT_POINTERS.md",
+    "baseline_share/COMMIT_CONTEXT.md"
+  ],
+  "forbidden_paths": [
+    "data/runtime_receipts/",
+    "app/",
+    ".env",
+    "secrets/",
+    "private/"
+  ],
+  "ignored_untracked_paths": [
+    "discussion_packets/"
+  ],
+  "nonclaims": [
+    "closeout_wrapper_v0 does not decide the next milestone.",
+    "closeout_wrapper_v0 does not validate theorem truth.",
+    "closeout_wrapper_v0 does not validate runtime truth.",
+    "closeout_wrapper_v0 does not validate receipt semantics.",
+    "closeout_wrapper_v0 does not authorize future units.",
+    "closeout_wrapper_v0 does not promote observed patterns.",
+    "closeout_wrapper_v0 does not create runner authority.",
+    "closeout_wrapper_v0 does not repair undeclared drift.",
+    "closeout_wrapper_v0 only preserves the declared closeout surface into git, baseline_share, and closeout readouts."
+  ],
+  "primary_commit_message": {
+    "body": [
+      "Unit: matrixlabs.observability.m1_m3.closeout.v0",
+      "Includes M1 decision_path_index_v0, M2 receipt_spine_v0, M3 compression_decompression_law_v0, and regenerated baseline_share.",
+      "Does not create runner authority, promote schemas, validate theorem truth, or authorize the next unit."
+    ],
+    "subject": "Seal MatrixLab observability closeout v0"
+  },
+  "schema_version": "matrixlabs_closeout_manifest_v0",
+  "unit_id": "matrixlabs.observability.m1_m3.closeout.v0"
+}
