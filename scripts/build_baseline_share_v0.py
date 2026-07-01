@@ -35,6 +35,11 @@ OBSERVABILITY_INDEX_DOCS = [
     "docs/matrixlabs/observability/decision_path_index_v0.md",
 ]
 OBSERVABILITY_INDEX_GENERATOR = "scripts/build_decision_path_index_v0.py"
+RECEIPT_SPINE_DOCS = [
+    "docs/matrixlabs/observability/receipt_spine_v0.json",
+    "docs/matrixlabs/observability/receipt_spine_v0.md",
+]
+RECEIPT_SPINE_GENERATOR = "scripts/build_receipt_spine_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -44,6 +49,8 @@ SOURCE_DOCS = [
     "docs/matrixlabs/raw/source_inventory_v0.md",
     *OBSERVABILITY_INDEX_DOCS,
     OBSERVABILITY_INDEX_GENERATOR,
+    *RECEIPT_SPINE_DOCS,
+    RECEIPT_SPINE_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
