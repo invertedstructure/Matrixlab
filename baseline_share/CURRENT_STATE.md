@@ -1,34 +1,36 @@
 # Current State
 
-Generated at UTC: `2026-07-01T15:06:35Z`
+Generated at UTC: `2026-07-01T18:46:47Z`
 
 ## Git context
 
-- Current HEAD SHA: `58f4743e38a6d49e877a7d8b81f0a82c30ad0915`
+- Current HEAD SHA: `6aa9070f2d7a845640a23370a742ee13723a3b51`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
 - Git status:
-- `M scripts/build_baseline_share_v0.py`
+- `M baseline_share/COMMIT_CONTEXT.md`
+- ` M baseline_share/CURRENT_STATE.md`
+- ` M baseline_share/MANIFEST.json`
+- ` M baseline_share/RECEIPT_POINTERS.md`
+- ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/observability/closeout_manifests/`
-- `?? docs/matrixlabs/observability/closeout_wrapper_v0.json`
-- `?? docs/matrixlabs/observability/closeout_wrapper_v0.md`
-- `?? scripts/matrixlab_closeout_wrapper_v0.py`
+- `?? docs/matrixlabs/observability/proceed_surface_taxonomy_v0.json`
+- `?? docs/matrixlabs/observability/proceed_surface_taxonomy_v0.md`
+- `?? scripts/build_proceed_surface_taxonomy_v0.py`
 - Git status excluding generated `baseline_share/`:
-- `M scripts/build_baseline_share_v0.py`
+- ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/observability/closeout_manifests/`
-- `?? docs/matrixlabs/observability/closeout_wrapper_v0.json`
-- `?? docs/matrixlabs/observability/closeout_wrapper_v0.md`
-- `?? scripts/matrixlab_closeout_wrapper_v0.py`
+- `?? docs/matrixlabs/observability/proceed_surface_taxonomy_v0.json`
+- `?? docs/matrixlabs/observability/proceed_surface_taxonomy_v0.md`
+- `?? scripts/build_proceed_surface_taxonomy_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `58f4743e38a6d49e877a7d8b81f0a82c30ad0915`
-- Current C8 post-patch surface-decision acceptance commit: `58f4743e38a6d49e877a7d8b81f0a82c30ad0915`
+- Current architecture extraction commit: `6aa9070f2d7a845640a23370a742ee13723a3b51`
+- Current C8 post-patch surface-decision acceptance commit: `6aa9070f2d7a845640a23370a742ee13723a3b51`
 
 ## High-level state
 
