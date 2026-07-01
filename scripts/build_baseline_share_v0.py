@@ -40,6 +40,11 @@ RECEIPT_SPINE_DOCS = [
     "docs/matrixlabs/observability/receipt_spine_v0.md",
 ]
 RECEIPT_SPINE_GENERATOR = "scripts/build_receipt_spine_v0.py"
+COMPRESSION_LAW_DOCS = [
+    "docs/matrixlabs/observability/compression_decompression_law_v0.json",
+    "docs/matrixlabs/observability/compression_decompression_law_v0.md",
+]
+COMPRESSION_LAW_GENERATOR = "scripts/build_compression_decompression_law_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -51,6 +56,8 @@ SOURCE_DOCS = [
     OBSERVABILITY_INDEX_GENERATOR,
     *RECEIPT_SPINE_DOCS,
     RECEIPT_SPINE_GENERATOR,
+    *COMPRESSION_LAW_DOCS,
+    COMPRESSION_LAW_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",

@@ -1,36 +1,32 @@
 # Current State
 
-Generated at UTC: `2026-07-01T13:58:24Z`
+Generated at UTC: `2026-07-01T14:21:28Z`
 
 ## Git context
 
-- Current HEAD SHA: `e0e22d33ee1fdfc9dad6964013162a58d6a0b169`
+- Current HEAD SHA: `e78ae91156521669e57bfca3c112d4b83e681d05`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
 - Git status:
-- `M baseline_share/COMMIT_CONTEXT.md`
-- ` M baseline_share/CURRENT_STATE.md`
-- ` M baseline_share/MANIFEST.json`
-- ` M baseline_share/RECEIPT_POINTERS.md`
-- ` M scripts/build_baseline_share_v0.py`
+- `M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/observability/receipt_spine_v0.json`
-- `?? docs/matrixlabs/observability/receipt_spine_v0.md`
-- `?? scripts/build_receipt_spine_v0.py`
+- `?? docs/matrixlabs/observability/compression_decompression_law_v0.json`
+- `?? docs/matrixlabs/observability/compression_decompression_law_v0.md`
+- `?? scripts/build_compression_decompression_law_v0.py`
 - Git status excluding generated `baseline_share/`:
-- ` M scripts/build_baseline_share_v0.py`
+- `M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/observability/receipt_spine_v0.json`
-- `?? docs/matrixlabs/observability/receipt_spine_v0.md`
-- `?? scripts/build_receipt_spine_v0.py`
+- `?? docs/matrixlabs/observability/compression_decompression_law_v0.json`
+- `?? docs/matrixlabs/observability/compression_decompression_law_v0.md`
+- `?? scripts/build_compression_decompression_law_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `e0e22d33ee1fdfc9dad6964013162a58d6a0b169`
-- Current C8 post-patch surface-decision acceptance commit: `e0e22d33ee1fdfc9dad6964013162a58d6a0b169`
+- Current architecture extraction commit: `e78ae91156521669e57bfca3c112d4b83e681d05`
+- Current C8 post-patch surface-decision acceptance commit: `e78ae91156521669e57bfca3c112d4b83e681d05`
 
 ## High-level state
 
