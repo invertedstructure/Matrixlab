@@ -1,7 +1,7 @@
 # Commit Context
 
-- Generated at UTC: `2026-07-02T00:49:35Z`
-- Current HEAD SHA: `c0e560c3d22d17ffcc734477c588a6f352950c13`
+- Generated at UTC: `2026-07-02T14:12:48Z`
+- Current HEAD SHA: `fa4deb54341ef17b0cdf71411220a0a68fea2ca8`
 - Branch: `master`
 - Worktree state at generation time: `dirty`
 - Generator script: `scripts/build_baseline_share_v0.py`
@@ -9,6 +9,7 @@
 ## Recent 10 commits
 
 ```text
+fa4deb543 Add C8 n22 authority boundary readabout v0
 c0e560c3d Add C8 n22 authority boundary record v0
 d4b19660d Apply C8 observed path update v0
 6461d1511 Add C8 observed path update proposal v0
@@ -18,7 +19,6 @@ d21e162d7 Add C8 taxonomy-applied continuation packet v0
 58f4743e3 Add compression decompression law v0
 e78ae9115 Add receipt spine v0
 e0e22d33e Add decision path index v0
-11f8c9d20 Add C8 observed decision path readout
 ```
 
 ## Git status short
@@ -26,8 +26,8 @@ e0e22d33e Add decision path index v0
 ```text
 M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/readabouts/
-?? scripts/build_c8_n22_authority_boundary_readabout_v0.py
+?? docs/matrixlabs/decision_surfaces/
+?? scripts/build_c8_n22_human_decision_surface_v0.py
 ```
 
 ## Git status short excluding generated baseline_share
@@ -35,8 +35,8 @@ M scripts/build_baseline_share_v0.py
 ```text
 M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/readabouts/
-?? scripts/build_c8_n22_authority_boundary_readabout_v0.py
+?? docs/matrixlabs/decision_surfaces/
+?? scripts/build_c8_n22_human_decision_surface_v0.py
 ```
 
 ## Safety facts

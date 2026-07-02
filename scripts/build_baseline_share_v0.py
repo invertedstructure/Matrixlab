@@ -88,6 +88,11 @@ C8_N22_AUTHORITY_BOUNDARY_READABOUT_DOCS = [
     "docs/matrixlabs/readabouts/c8_n22_authority_boundary_readabout_v0.md",
 ]
 C8_N22_AUTHORITY_BOUNDARY_READABOUT_GENERATOR = "scripts/build_c8_n22_authority_boundary_readabout_v0.py"
+C8_N22_HUMAN_DECISION_SURFACE_DOCS = [
+    "docs/matrixlabs/decision_surfaces/c8_n22_human_decision_surface_v0.json",
+    "docs/matrixlabs/decision_surfaces/c8_n22_human_decision_surface_v0.md",
+]
+C8_N22_HUMAN_DECISION_SURFACE_GENERATOR = "scripts/build_c8_n22_human_decision_surface_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -115,6 +120,8 @@ SOURCE_DOCS = [
     C8_N22_AUTHORITY_BOUNDARY_GENERATOR,
     *C8_N22_AUTHORITY_BOUNDARY_READABOUT_DOCS,
     C8_N22_AUTHORITY_BOUNDARY_READABOUT_GENERATOR,
+    *C8_N22_HUMAN_DECISION_SURFACE_DOCS,
+    C8_N22_HUMAN_DECISION_SURFACE_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -599,6 +606,13 @@ def build_manifest(
         "runtime_probe_build_rerun_executed": False,
         "receipts_rewritten": False,
         "full_receipt_stack_copied_into_baseline_share": False,
+        "human_decision_consumed": False,
+        "authority_state_changed": False,
+        "next_unit_defined": False,
+        "next_unit_authorized": False,
+        "execution_authorized": False,
+        "taxonomy_promoted": False,
+        "runner_authority_created": False,
     }
     return manifest
 

@@ -1,30 +1,30 @@
 # Current State
 
-Generated at UTC: `2026-07-02T00:49:35Z`
+Generated at UTC: `2026-07-02T14:12:48Z`
 
 ## Git context
 
-- Current HEAD SHA: `c0e560c3d22d17ffcc734477c588a6f352950c13`
+- Current HEAD SHA: `fa4deb54341ef17b0cdf71411220a0a68fea2ca8`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
 - Git status:
 - `M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/readabouts/`
-- `?? scripts/build_c8_n22_authority_boundary_readabout_v0.py`
+- `?? docs/matrixlabs/decision_surfaces/`
+- `?? scripts/build_c8_n22_human_decision_surface_v0.py`
 - Git status excluding generated `baseline_share/`:
 - `M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/readabouts/`
-- `?? scripts/build_c8_n22_authority_boundary_readabout_v0.py`
+- `?? docs/matrixlabs/decision_surfaces/`
+- `?? scripts/build_c8_n22_human_decision_surface_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `c0e560c3d22d17ffcc734477c588a6f352950c13`
-- Current C8 post-patch surface-decision acceptance commit: `c0e560c3d22d17ffcc734477c588a6f352950c13`
+- Current architecture extraction commit: `fa4deb54341ef17b0cdf71411220a0a68fea2ca8`
+- Current C8 post-patch surface-decision acceptance commit: `fa4deb54341ef17b0cdf71411220a0a68fea2ca8`
 
 ## High-level state
 

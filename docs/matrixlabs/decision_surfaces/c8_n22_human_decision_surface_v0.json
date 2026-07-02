@@ -1,0 +1,198 @@
+{
+  "authority_changed": false,
+  "authority_event_status_before": "AUTH_EVENT_UNCONSUMED",
+  "current_authority_state": "AUTH_STATE_OBSERVED_NOT_AUTHORIZED",
+  "decision_consumed": false,
+  "decision_options": [
+    {
+      "authority_effects": {
+        "basis_for_next_unit_definition_authority": "GRANTED",
+        "execution_authority": "NOT_GRANTED",
+        "next_unit_definition_authority": "NOT_GRANTED",
+        "next_unit_definition_surface_preparation_authority": "GRANTED",
+        "reuse_authority": "NOT_GRANTED",
+        "runner_authority": "NOT_GRANTED",
+        "taxonomy_promotion_authority": "NOT_GRANTED",
+        "updater_generalization_authority": "NOT_GRANTED"
+      },
+      "consumes_authority_event": "HUMAN_ACCEPTANCE",
+      "consumes_decision_event": "HUMAN_DECISION",
+      "decision_option_id": "DECISION_ACCEPT_AS_BASIS_FOR_NEXT_UNIT_DEFINITION",
+      "must_not_impersonate": [
+        "NEXT_UNIT_DEFINITION_FINALIZATION",
+        "EXECUTION_AUTHORITY",
+        "REUSE_AUTHORITY",
+        "TAXONOMY_PROMOTION",
+        "UPDATER_GENERALIZATION",
+        "RUNNER_AUTHORITY"
+      ],
+      "next_allowed_surface_if_selected": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE",
+      "option_kind": "AUTHORITY_EVENT_CONSUMING_OPTION",
+      "resulting_authority_state": "AUTH_STATE_ACCEPTED_AS_BASIS_FOR_NEXT_UNIT_DEFINITION"
+    },
+    {
+      "authority_effects": {
+        "basis_for_next_unit_definition_authority": "NOT_GRANTED",
+        "execution_authority": "NOT_GRANTED",
+        "next_unit_definition_authority": "NOT_GRANTED",
+        "next_unit_definition_surface_preparation_authority": "NOT_GRANTED",
+        "reuse_authority": "NOT_GRANTED",
+        "runner_authority": "NOT_GRANTED",
+        "taxonomy_promotion_authority": "NOT_GRANTED",
+        "updater_generalization_authority": "NOT_GRANTED"
+      },
+      "consumes_authority_event": "NONE",
+      "consumes_decision_event": "HUMAN_DECISION",
+      "decision_option_id": "DECISION_ACCEPT_AS_DISCUSSION_SURFACE_ONLY",
+      "must_not_impersonate": [
+        "ACCEPTED_AS_BASIS",
+        "AUTHORITY_ADVANCE",
+        "NEXT_UNIT_PREPARATION_AUTHORITY",
+        "EXECUTION_AUTHORITY"
+      ],
+      "next_allowed_surface_if_selected": "CONTINUE_DISCUSSION_OR_RETYPE_SURFACE",
+      "option_kind": "DECISION_CLASSIFYING_OPTION",
+      "resulting_authority_state": "AUTH_STATE_DISCUSSION_SURFACE_ONLY"
+    },
+    {
+      "authority_effects": {
+        "basis_for_next_unit_definition_authority": "NOT_GRANTED",
+        "execution_authority": "NOT_GRANTED",
+        "next_unit_definition_authority": "NOT_GRANTED",
+        "next_unit_definition_surface_preparation_authority": "NOT_GRANTED",
+        "reuse_authority": "NOT_GRANTED",
+        "runner_authority": "NOT_GRANTED",
+        "taxonomy_promotion_authority": "NOT_GRANTED",
+        "updater_generalization_authority": "NOT_GRANTED"
+      },
+      "consumes_authority_event": "NONE",
+      "consumes_decision_event": "HUMAN_DECISION",
+      "decision_option_id": "DECISION_REQUEST_RETYPE_OR_REVISE",
+      "must_not_impersonate": [
+        "AUTHORITY_ADVANCE",
+        "ACCEPTANCE",
+        "REJECTION",
+        "EXECUTION_AUTHORITY"
+      ],
+      "next_allowed_surface_if_selected": "PREPARE_RETYPE_OR_REVISE_SURFACE",
+      "option_kind": "NON_AUTHORITY_ADVANCING_OPTION",
+      "resulting_authority_state": "AUTH_STATE_OBSERVED_NOT_AUTHORIZED"
+    },
+    {
+      "authority_effects": {
+        "basis_for_next_unit_definition_authority": "NOT_GRANTED",
+        "execution_authority": "NOT_GRANTED",
+        "next_unit_definition_authority": "NOT_GRANTED",
+        "next_unit_definition_surface_preparation_authority": "NOT_GRANTED",
+        "reuse_authority": "NOT_GRANTED",
+        "runner_authority": "NOT_GRANTED",
+        "taxonomy_promotion_authority": "NOT_GRANTED",
+        "updater_generalization_authority": "NOT_GRANTED"
+      },
+      "consumes_authority_event": "NONE",
+      "consumes_decision_event": "HUMAN_DECISION",
+      "decision_option_id": "DECISION_DEFER",
+      "must_not_impersonate": [
+        "ACCEPTANCE",
+        "REJECTION",
+        "AUTHORITY_ADVANCE",
+        "EXECUTION_AUTHORITY"
+      ],
+      "next_allowed_surface_if_selected": "NONE_DECISION_DEFERRED",
+      "option_kind": "NON_AUTHORITY_CHANGING_OPTION",
+      "resulting_authority_state": "AUTH_STATE_OBSERVED_NOT_AUTHORIZED"
+    },
+    {
+      "authority_effects": {
+        "basis_for_next_unit_definition_authority": "NOT_GRANTED",
+        "execution_authority": "NOT_GRANTED",
+        "next_unit_definition_authority": "NOT_GRANTED",
+        "next_unit_definition_surface_preparation_authority": "NOT_GRANTED",
+        "reuse_authority": "NOT_GRANTED",
+        "runner_authority": "NOT_GRANTED",
+        "taxonomy_promotion_authority": "NOT_GRANTED",
+        "updater_generalization_authority": "NOT_GRANTED"
+      },
+      "consumes_authority_event": "NONE",
+      "consumes_decision_event": "HUMAN_DECISION",
+      "decision_option_id": "DECISION_REJECT_AS_BASIS",
+      "must_not_impersonate": [
+        "ACCEPTANCE",
+        "AUTHORITY_ADVANCE",
+        "RETYPE_REQUEST",
+        "EXECUTION_AUTHORITY"
+      ],
+      "next_allowed_surface_if_selected": "NONE_REJECTED_AS_BASIS",
+      "option_kind": "NON_AUTHORITY_ADVANCING_OPTION",
+      "resulting_authority_state": "AUTH_STATE_REJECTED_AS_BASIS_FOR_NEXT_UNIT_DEFINITION"
+    }
+  ],
+  "decision_surface_id": "c8.n22.human_decision_surface.v0",
+  "generated_by": "scripts/build_c8_n22_human_decision_surface_v0.py",
+  "non_claims": [
+    "This decision surface does not record a decision.",
+    "This decision surface does not consume HUMAN_ACCEPTANCE.",
+    "This decision surface does not change authority state.",
+    "The formal boundary record remains source of truth.",
+    "The Readabout remains downstream projection only.",
+    "Accept-as-basis authorizes only preparation of the next bounded unit definition surface.",
+    "This decision surface does not define the next bounded unit.",
+    "This decision surface does not finalize the next bounded unit.",
+    "Execution remains NOT_GRANTED.",
+    "Reuse remains NOT_GRANTED.",
+    "Taxonomy promotion remains NOT_GRANTED.",
+    "Updater generalization remains NOT_GRANTED.",
+    "Runner authority remains NOT_GRANTED."
+  ],
+  "requested_transition": "ACCEPT_AS_BASIS_FOR_NEXT_UNIT_DEFINITION",
+  "required_authority_event": "HUMAN_ACCEPTANCE",
+  "schema_version": "matrixlabs_human_decision_surface_v0",
+  "source": {
+    "boundary_record_path": "docs/matrixlabs/boundary/c8_n22_authority_boundary_transition_record_v0.json",
+    "boundary_record_schema_version": "matrixlabs_authority_boundary_transition_record_v0",
+    "formal_boundary_record_remains_source_of_truth": true,
+    "formal_boundary_record_role": "MACHINE_PRIMARY_AUTHORITY_TRANSITION_RECORD",
+    "readabout_is_projection_only": true,
+    "readabout_path": "docs/matrixlabs/readabouts/c8_n22_authority_boundary_readabout_v0.json",
+    "readabout_projection_mode": "FIELD_BACKED_PARITY_PROJECTION",
+    "readabout_role": "HUMAN_AUDIT_PROJECTION",
+    "readabout_schema_version": "matrixlabs_readabout_projection_v0",
+    "source_hashes": {
+      "boundary_record_sha256": "d7fca19043b801fcdf5e369597946eed715673fbf5a7aad3269e209ff68138e0",
+      "readabout_sha256": "a87f698393141909bc8cd26ccc6da8cb54b1c2328c3ab413e12577a2e3c66a30"
+    }
+  },
+  "source_boundary_record_id": "c8.n22.boundary_transition.v0",
+  "source_readabout_id": "c8.n22.authority_boundary.readabout.v0",
+  "surface_gate": {
+    "authority_changed": false,
+    "decision_consumed": false,
+    "decision_option_count": 5,
+    "decision_surface_gate": "DECISION_SURFACE_PASS_OPTIONS_PRESENTED_ONLY",
+    "execution_authority_granted_count": 0,
+    "failures": [],
+    "markdown_json_parity_status": "PASS",
+    "meaning_parity_status": "PASS",
+    "next_unit_definition_authority_granted_count": 0,
+    "recommendation_inserted": false,
+    "reuse_authority_granted_count": 0,
+    "runner_authority_granted_count": 0,
+    "selected_decision_present": false,
+    "taxonomy_promotion_authority_granted_count": 0,
+    "updater_generalization_authority_granted_count": 0
+  },
+  "surface_role": "HUMAN_DECISION_SURFACE",
+  "surface_status": "PRESENTS_TYPED_OPTIONS_ONLY",
+  "unsafe_to_infer": [
+    "Unsafe to infer: a decision has been selected.",
+    "Unsafe to infer: HUMAN_ACCEPTANCE has been consumed.",
+    "Unsafe to infer: authority state has changed.",
+    "Unsafe to infer: the next bounded unit is defined.",
+    "Unsafe to infer: the next bounded unit is authorized.",
+    "Unsafe to infer: execution is authorized.",
+    "Unsafe to infer: reuse is authorized.",
+    "Unsafe to infer: taxonomy has been promoted.",
+    "Unsafe to infer: updater generalization is authorized.",
+    "Unsafe to infer: runner authority exists."
+  ]
+}
