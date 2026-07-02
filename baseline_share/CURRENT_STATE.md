@@ -1,32 +1,32 @@
 # Current State
 
-Generated at UTC: `2026-07-02T19:07:38Z`
+Generated at UTC: `2026-07-02T19:29:25Z`
 
 ## Git context
 
-- Current HEAD SHA: `3bd78924073756c8a3640082897d6ade5780970d`
+- Current HEAD SHA: `d8a5116ec1be3756b1ad0aa6656187c91c71e87f`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
 - Git status:
 - `M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/boundary/c8_n22_authority_state_update_v0.json`
-- `?? docs/matrixlabs/boundary/c8_n22_authority_state_update_v0.md`
-- `?? scripts/build_c8_n22_authority_state_update_v0.py`
+- `?? docs/matrixlabs/boundary/c8_n22_authority_transition_closure_v0.json`
+- `?? docs/matrixlabs/boundary/c8_n22_authority_transition_closure_v0.md`
+- `?? scripts/build_c8_n22_authority_transition_closure_v0.py`
 - Git status excluding generated `baseline_share/`:
 - `M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/boundary/c8_n22_authority_state_update_v0.json`
-- `?? docs/matrixlabs/boundary/c8_n22_authority_state_update_v0.md`
-- `?? scripts/build_c8_n22_authority_state_update_v0.py`
+- `?? docs/matrixlabs/boundary/c8_n22_authority_transition_closure_v0.json`
+- `?? docs/matrixlabs/boundary/c8_n22_authority_transition_closure_v0.md`
+- `?? scripts/build_c8_n22_authority_transition_closure_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `3bd78924073756c8a3640082897d6ade5780970d`
-- Current C8 post-patch surface-decision acceptance commit: `3bd78924073756c8a3640082897d6ade5780970d`
+- Current architecture extraction commit: `d8a5116ec1be3756b1ad0aa6656187c91c71e87f`
+- Current C8 post-patch surface-decision acceptance commit: `d8a5116ec1be3756b1ad0aa6656187c91c71e87f`
 
 ## High-level state
 

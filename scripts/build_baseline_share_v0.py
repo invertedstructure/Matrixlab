@@ -103,6 +103,11 @@ C8_N22_AUTHORITY_STATE_UPDATE_DOCS = [
     "docs/matrixlabs/boundary/c8_n22_authority_state_update_v0.md",
 ]
 C8_N22_AUTHORITY_STATE_UPDATE_GENERATOR = "scripts/build_c8_n22_authority_state_update_v0.py"
+C8_N22_AUTHORITY_TRANSITION_CLOSURE_DOCS = [
+    "docs/matrixlabs/boundary/c8_n22_authority_transition_closure_v0.json",
+    "docs/matrixlabs/boundary/c8_n22_authority_transition_closure_v0.md",
+]
+C8_N22_AUTHORITY_TRANSITION_CLOSURE_GENERATOR = "scripts/build_c8_n22_authority_transition_closure_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -136,6 +141,8 @@ SOURCE_DOCS = [
     C8_N22_HUMAN_DECISION_RECEIPT_GENERATOR,
     *C8_N22_AUTHORITY_STATE_UPDATE_DOCS,
     C8_N22_AUTHORITY_STATE_UPDATE_GENERATOR,
+    *C8_N22_AUTHORITY_TRANSITION_CLOSURE_DOCS,
+    C8_N22_AUTHORITY_TRANSITION_CLOSURE_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -599,6 +606,7 @@ def build_manifest(
             hashes[rel] = sha256_file(path)
     a2_receipt_present = (root / C8_N22_HUMAN_DECISION_RECEIPT_DOCS[0]).exists()
     a3_update_present = (root / C8_N22_AUTHORITY_STATE_UPDATE_DOCS[0]).exists()
+    a4_closure_present = (root / C8_N22_AUTHORITY_TRANSITION_CLOSURE_DOCS[0]).exists()
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -640,7 +648,16 @@ def build_manifest(
         "basis_for_next_unit_definition_authority": "GRANTED" if a3_update_present else None,
         "next_unit_definition_surface_preparation_authority": "GRANTED" if a3_update_present else None,
         "a3_created": a3_update_present,
-        "a4_created": False,
+        "a4_created": a4_closure_present,
+        "block_a_closed": a4_closure_present,
+        "block_status": "BLOCK_A_PASS_AUTHORITY_ADVANCED_TO_BASIS" if a4_closure_present else None,
+        "closure_status": "AUTHORITY_TRANSITION_CLOSURE_PASS" if a4_closure_present else None,
+        "resulting_authority_state": "AUTH_STATE_ACCEPTED_AS_BASIS_FOR_NEXT_UNIT_DEFINITION" if a4_closure_present else None,
+        "next_lawful_surface": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE" if a4_closure_present else None,
+        "authority_transition_closed": a4_closure_present,
+        "observed_path_updated": False,
+        "observed_path_update_proposed": False,
+        "router_created": False,
     }
     return manifest
 

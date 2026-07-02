@@ -1,0 +1,145 @@
+{
+  "authority_transition_summary": {
+    "authority_event_applied": "HUMAN_ACCEPTANCE",
+    "authority_event_status_after": "AUTH_EVENT_CONSUMED",
+    "decision_receipt_application_status": "APPLIED_ONCE",
+    "prior_authority_state": "AUTH_STATE_OBSERVED_NOT_AUTHORIZED",
+    "resulting_authority_state": "AUTH_STATE_ACCEPTED_AS_BASIS_FOR_NEXT_UNIT_DEFINITION",
+    "selected_decision_option": "DECISION_ACCEPT_AS_BASIS_FOR_NEXT_UNIT_DEFINITION"
+  },
+  "block": {
+    "block_id": "BLOCK_A",
+    "block_name": "complete_one_human_authority_transition_cycle",
+    "block_status": "BLOCK_A_PASS_AUTHORITY_ADVANCED_TO_BASIS",
+    "block_terminal": true
+  },
+  "closure_gate": {
+    "authority_effects_match_a3": true,
+    "authority_event_applied": "HUMAN_ACCEPTANCE",
+    "authority_event_status_after": "AUTH_EVENT_CONSUMED",
+    "authority_update_gate": "AUTHORITY_UPDATE_PASS_DECISION_APPLIED",
+    "authority_update_present": true,
+    "basis_for_next_unit_definition_authority": "GRANTED",
+    "boundary_record_present": true,
+    "closure_status": "AUTHORITY_TRANSITION_CLOSURE_PASS",
+    "decision_receipt_application_status": "APPLIED_ONCE",
+    "decision_receipt_gate": "HUMAN_DECISION_RECEIPT_PASS_TYPED_DECISION_RECORDED",
+    "decision_receipt_present": true,
+    "decision_surface_present": true,
+    "decision_surface_status": "PRESENTS_TYPED_OPTIONS_ONLY",
+    "execution_authority": "NOT_GRANTED",
+    "failures": [],
+    "machine_permitted_action_scope": "PREPARE_NEXT_UNIT_DEFINITION_SURFACE_ONLY",
+    "next_lawful_surface": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE",
+    "next_lawful_surface_matches_a3": true,
+    "next_unit_definition_authority": "NOT_GRANTED",
+    "next_unit_definition_surface_preparation_authority": "GRANTED",
+    "observed_path_update_authority": "NOT_GRANTED",
+    "observed_path_update_detected": false,
+    "prior_authority_state": "AUTH_STATE_OBSERVED_NOT_AUTHORIZED",
+    "readabout_gate": "READABOUT_PASS_PARITY",
+    "readabout_present": true,
+    "receipt_rewrite_authority": "NOT_GRANTED",
+    "resulting_authority_state": "AUTH_STATE_ACCEPTED_AS_BASIS_FOR_NEXT_UNIT_DEFINITION",
+    "resulting_state_matches_a3": true,
+    "reuse_authority": "NOT_GRANTED",
+    "runner_authority": "NOT_GRANTED",
+    "selected_decision_option": "DECISION_ACCEPT_AS_BASIS_FOR_NEXT_UNIT_DEFINITION",
+    "source_chain_complete": true,
+    "stronger_authority_detected": false,
+    "taxonomy_promotion_authority": "NOT_GRANTED",
+    "updater_generalization_authority": "NOT_GRANTED"
+  },
+  "closure_id": "c8.n22.authority_transition_closure.v0",
+  "closure_role": "BLOCK_A_AUTHORITY_TRANSITION_CLOSURE",
+  "generated_by": "scripts/build_c8_n22_authority_transition_closure_v0.py",
+  "newly_authorized": {
+    "basis_for_next_unit_definition_authority": "GRANTED",
+    "next_unit_definition_authority": "NOT_GRANTED",
+    "next_unit_definition_surface_preparation_authority": "GRANTED"
+  },
+  "next_lawful_surface": {
+    "execution_allowed": false,
+    "machine_permitted_action_scope": "PREPARE_NEXT_UNIT_DEFINITION_SURFACE_ONLY",
+    "router_action": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE",
+    "surface_scope": "C8_N22_BASIS_ONLY"
+  },
+  "non_claims": [
+    "A4 does not execute the next bounded unit.",
+    "A4 does not define the next bounded unit.",
+    "A4 does not authorize the next bounded unit.",
+    "A4 does not finalize the next bounded unit definition.",
+    "A4 does not update the observed path.",
+    "A4 does not propose an observed-path update.",
+    "A4 does not apply an observed-path update.",
+    "A4 does not create a router.",
+    "A4 does not promote taxonomy.",
+    "A4 does not authorize reuse.",
+    "A4 does not generalize the updater.",
+    "A4 does not create runner authority.",
+    "A4 does not rewrite receipts.",
+    "A4 does not validate theorem truth.",
+    "A4 does not validate edge lawfulness.",
+    "A4 does not make Block A reusable.",
+    "A4 only closes and preserves the completed c8.n22 authority transition cycle.",
+    "The next lawful surface is preparation of the next bounded unit definition surface."
+  ],
+  "schema_version": "matrixlabs_authority_transition_closure_v0",
+  "source": {
+    "authority_update_path": "docs/matrixlabs/boundary/c8_n22_authority_state_update_v0.json",
+    "boundary_record_path": "docs/matrixlabs/boundary/c8_n22_authority_boundary_transition_record_v0.json",
+    "decision_receipt_path": "docs/matrixlabs/decisions/c8_n22_human_decision_receipt_v0.json",
+    "decision_surface_path": "docs/matrixlabs/decision_surfaces/c8_n22_human_decision_surface_v0.json",
+    "readabout_path": "docs/matrixlabs/readabouts/c8_n22_authority_boundary_readabout_v0.json",
+    "source_commits": {
+      "docs/matrixlabs/boundary/c8_n22_authority_boundary_transition_record_v0.json": "c0e560c3d22d17ffcc734477c588a6f352950c13",
+      "docs/matrixlabs/boundary/c8_n22_authority_state_update_v0.json": "d8a5116ec1be3756b1ad0aa6656187c91c71e87f",
+      "docs/matrixlabs/decision_surfaces/c8_n22_human_decision_surface_v0.json": "c006f0fd1a9833009c5660900534a692402fbe6e",
+      "docs/matrixlabs/decisions/c8_n22_human_decision_receipt_v0.json": "3bd78924073756c8a3640082897d6ade5780970d",
+      "docs/matrixlabs/readabouts/c8_n22_authority_boundary_readabout_v0.json": "fa4deb54341ef17b0cdf71411220a0a68fea2ca8"
+    },
+    "source_hashes": {
+      "authority_update_sha256": "198e00cfe4543c558dbb6a422179e4b423bb8dd065e52f4675bc10f5ce95cf34",
+      "boundary_record_sha256": "d7fca19043b801fcdf5e369597946eed715673fbf5a7aad3269e209ff68138e0",
+      "decision_receipt_sha256": "17db19ef6c9cb3ee2da18e8b17a5466610acacb0271e9465f8ce3f12795330ab",
+      "decision_surface_sha256": "42aa4bdb9aa188eacb2006a3dfb19c5934e8b277ed0df8fff8576afea53e7a09",
+      "readabout_sha256": "a87f698393141909bc8cd26ccc6da8cb54b1c2328c3ab413e12577a2e3c66a30"
+    }
+  },
+  "source_chain": {
+    "authority_update_id": "c8.n22.authority_state_update.v0",
+    "boundary_record_id": "c8.n22.boundary_transition.v0",
+    "decision_receipt_id": "c8.n22.human_decision_receipt.v0",
+    "decision_surface_id": "c8.n22.human_decision_surface.v0",
+    "readabout_id": "c8.n22.authority_boundary.readabout.v0"
+  },
+  "source_object_id": "c8.n22",
+  "source_roles": {
+    "authority_update_role": "FORMAL_AUTHORITY_STATE_TRANSITION_APPLICATION",
+    "boundary_record_role": "FORMAL_AUTHORITY_BOUNDARY_RECORD",
+    "decision_receipt_role": "HUMAN_DECISION_EVENT_RECEIPT",
+    "decision_surface_role": "HUMAN_DECISION_SURFACE",
+    "readabout_role": "AUDIT_REFERENCE_ONLY_DOWNSTREAM_PROJECTION"
+  },
+  "still_not_authorized": {
+    "execution_authority": "NOT_GRANTED",
+    "next_unit_definition_finalization_authority": "NOT_GRANTED",
+    "observed_path_update_authority": "NOT_GRANTED",
+    "receipt_rewrite_authority": "NOT_GRANTED",
+    "reuse_authority": "NOT_GRANTED",
+    "runner_authority": "NOT_GRANTED",
+    "taxonomy_promotion_authority": "NOT_GRANTED",
+    "updater_generalization_authority": "NOT_GRANTED"
+  },
+  "unsafe_to_infer": [
+    "Unsafe to infer: the next bounded unit has been defined.",
+    "Unsafe to infer: the next bounded unit has been authorized.",
+    "Unsafe to infer: the next bounded unit may execute.",
+    "Unsafe to infer: Block B exists.",
+    "Unsafe to infer: a router exists.",
+    "Unsafe to infer: the observed path has been updated.",
+    "Unsafe to infer: an observed-path update has been proposed.",
+    "Unsafe to infer: Block A is reusable.",
+    "Unsafe to infer: runtime execution is authorized."
+  ]
+}
