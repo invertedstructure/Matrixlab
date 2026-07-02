@@ -1,0 +1,133 @@
+{
+  "application_boundary": {
+    "authority_event_formally_consumed_by_this_receipt": false,
+    "authority_state_applied_by_this_receipt": false,
+    "next_required_object": "c8_n22_authority_state_update_v0",
+    "requires_authority_state_update_object": true
+  },
+  "authority_state_before": {
+    "authority_event_status_before": "AUTH_EVENT_UNCONSUMED",
+    "current_authority_state": "AUTH_STATE_OBSERVED_NOT_AUTHORIZED",
+    "required_authority_event": "HUMAN_ACCEPTANCE"
+  },
+  "decision_event": {
+    "decision_actor_class": "HUMAN",
+    "decision_event_status": "DECISION_EVENT_RECORDED",
+    "selected_decision_option": "DECISION_ACCEPT_AS_BASIS_FOR_NEXT_UNIT_DEFINITION",
+    "selection_source": "EXPLICIT_HUMAN_SELECTION",
+    "selection_source_status": "PRESENT",
+    "selection_source_text": "Accept as basis, proceed"
+  },
+  "decision_receipt_id": "c8.n22.human_decision_receipt.v0",
+  "generated_by": "scripts/build_c8_n22_human_decision_receipt_v0.py",
+  "non_claims": [
+    "A2 does not define the next bounded C8 unit.",
+    "A2 does not authorize final next-unit definition.",
+    "A2 does not execute runtime.",
+    "A2 does not rewrite receipts.",
+    "A2 does not promote taxonomy.",
+    "A2 does not authorize reuse.",
+    "A2 does not generalize the updater.",
+    "A2 does not create runner authority.",
+    "A2 does not apply the authority-state update.",
+    "A2 does not formally consume the authority event.",
+    "A2 records only the selected human decision option and its declared effects pending A3 application."
+  ],
+  "receipt_gate": {
+    "authority_event_before": "AUTH_EVENT_UNCONSUMED",
+    "authority_event_formally_consumed_by_this_receipt": false,
+    "authority_event_recorded_pending_a3_application": "HUMAN_ACCEPTANCE",
+    "authority_smuggling_detected": false,
+    "authority_state_applied_by_this_receipt": false,
+    "basis_for_next_unit_definition_authority_if_applied": "GRANTED",
+    "decision_receipt_gate": "HUMAN_DECISION_RECEIPT_PASS_TYPED_DECISION_RECORDED",
+    "execution_authority_if_applied": "NOT_GRANTED",
+    "failures": [],
+    "human_decision_event_present": true,
+    "human_decision_event_source_explicit": true,
+    "markdown_json_parity_status": "PASS",
+    "meaning_parity_status": "PASS",
+    "next_unit_definition_authority_if_applied": "NOT_GRANTED",
+    "next_unit_definition_surface_preparation_authority_if_applied": "GRANTED",
+    "requires_authority_state_update_object": true,
+    "reuse_authority_if_applied": "NOT_GRANTED",
+    "runner_authority_if_applied": "NOT_GRANTED",
+    "selected_decision_option": "DECISION_ACCEPT_AS_BASIS_FOR_NEXT_UNIT_DEFINITION",
+    "selected_option_effects_match_surface": true,
+    "selected_option_present_on_surface": true,
+    "source_boundary_record_present": true,
+    "source_decision_surface_present": true,
+    "source_readabout_present": true,
+    "taxonomy_promotion_authority_if_applied": "NOT_GRANTED",
+    "updater_generalization_authority_if_applied": "NOT_GRANTED"
+  },
+  "receipt_role": "HUMAN_DECISION_EVENT_RECEIPT",
+  "schema_version": "matrixlabs_human_decision_receipt_v0",
+  "selected_option_effects_from_surface": {
+    "authority_effects_if_applied_by_a3": {
+      "basis_for_next_unit_definition_authority": "GRANTED",
+      "execution_authority": "NOT_GRANTED",
+      "next_unit_definition_authority": "NOT_GRANTED",
+      "next_unit_definition_surface_preparation_authority": "GRANTED",
+      "reuse_authority": "NOT_GRANTED",
+      "runner_authority": "NOT_GRANTED",
+      "taxonomy_promotion_authority": "NOT_GRANTED",
+      "updater_generalization_authority": "NOT_GRANTED"
+    },
+    "authority_event_record_status": "AUTHORITY_EVENT_RECORDED_PENDING_A3_APPLICATION",
+    "authority_event_status_if_applied_by_a3": "AUTH_EVENT_CONSUMED",
+    "consumes_authority_event": "HUMAN_ACCEPTANCE",
+    "next_allowed_surface_if_applied_by_a3": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE",
+    "resulting_authority_state_if_applied_by_a3": "AUTH_STATE_ACCEPTED_AS_BASIS_FOR_NEXT_UNIT_DEFINITION"
+  },
+  "selected_option_from_surface": {
+    "authority_effects": {
+      "basis_for_next_unit_definition_authority": "GRANTED",
+      "execution_authority": "NOT_GRANTED",
+      "next_unit_definition_authority": "NOT_GRANTED",
+      "next_unit_definition_surface_preparation_authority": "GRANTED",
+      "reuse_authority": "NOT_GRANTED",
+      "runner_authority": "NOT_GRANTED",
+      "taxonomy_promotion_authority": "NOT_GRANTED",
+      "updater_generalization_authority": "NOT_GRANTED"
+    },
+    "consumes_authority_event": "HUMAN_ACCEPTANCE",
+    "consumes_decision_event": "HUMAN_DECISION",
+    "decision_option_id": "DECISION_ACCEPT_AS_BASIS_FOR_NEXT_UNIT_DEFINITION",
+    "must_not_impersonate": [
+      "NEXT_UNIT_DEFINITION_FINALIZATION",
+      "EXECUTION_AUTHORITY",
+      "REUSE_AUTHORITY",
+      "TAXONOMY_PROMOTION",
+      "UPDATER_GENERALIZATION",
+      "RUNNER_AUTHORITY"
+    ],
+    "next_allowed_surface_if_selected": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE",
+    "option_kind": "AUTHORITY_EVENT_CONSUMING_OPTION",
+    "resulting_authority_state": "AUTH_STATE_ACCEPTED_AS_BASIS_FOR_NEXT_UNIT_DEFINITION"
+  },
+  "source": {
+    "boundary_record_path": "docs/matrixlabs/boundary/c8_n22_authority_boundary_transition_record_v0.json",
+    "boundary_record_sha256": "d7fca19043b801fcdf5e369597946eed715673fbf5a7aad3269e209ff68138e0",
+    "decision_surface_commit_sha": "c006f0fd1a9833009c5660900534a692402fbe6e",
+    "decision_surface_path": "docs/matrixlabs/decision_surfaces/c8_n22_human_decision_surface_v0.json",
+    "decision_surface_sha256": "42aa4bdb9aa188eacb2006a3dfb19c5934e8b277ed0df8fff8576afea53e7a09",
+    "readabout_path": "docs/matrixlabs/readabouts/c8_n22_authority_boundary_readabout_v0.json",
+    "readabout_sha256": "a87f698393141909bc8cd26ccc6da8cb54b1c2328c3ab413e12577a2e3c66a30",
+    "selection_source_declared_by_prompt": true
+  },
+  "source_boundary_record_id": "c8.n22.boundary_transition.v0",
+  "source_decision_surface_id": "c8.n22.human_decision_surface.v0",
+  "source_readabout_id": "c8.n22.authority_boundary.readabout.v0",
+  "unsafe_to_infer": [
+    "Unsafe to infer: the authority-state update has been applied.",
+    "Unsafe to infer: HUMAN_ACCEPTANCE has been formally consumed.",
+    "Unsafe to infer: the next bounded C8 unit is defined.",
+    "Unsafe to infer: final next-unit definition is authorized.",
+    "Unsafe to infer: runtime execution is authorized.",
+    "Unsafe to infer: reuse is authorized.",
+    "Unsafe to infer: taxonomy is promoted.",
+    "Unsafe to infer: updater generalization is authorized.",
+    "Unsafe to infer: runner authority exists."
+  ]
+}

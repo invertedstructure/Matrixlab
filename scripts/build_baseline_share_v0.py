@@ -93,6 +93,11 @@ C8_N22_HUMAN_DECISION_SURFACE_DOCS = [
     "docs/matrixlabs/decision_surfaces/c8_n22_human_decision_surface_v0.md",
 ]
 C8_N22_HUMAN_DECISION_SURFACE_GENERATOR = "scripts/build_c8_n22_human_decision_surface_v0.py"
+C8_N22_HUMAN_DECISION_RECEIPT_DOCS = [
+    "docs/matrixlabs/decisions/c8_n22_human_decision_receipt_v0.json",
+    "docs/matrixlabs/decisions/c8_n22_human_decision_receipt_v0.md",
+]
+C8_N22_HUMAN_DECISION_RECEIPT_GENERATOR = "scripts/build_c8_n22_human_decision_receipt_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -122,6 +127,8 @@ SOURCE_DOCS = [
     C8_N22_AUTHORITY_BOUNDARY_READABOUT_GENERATOR,
     *C8_N22_HUMAN_DECISION_SURFACE_DOCS,
     C8_N22_HUMAN_DECISION_SURFACE_GENERATOR,
+    *C8_N22_HUMAN_DECISION_RECEIPT_DOCS,
+    C8_N22_HUMAN_DECISION_RECEIPT_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -583,6 +590,7 @@ def build_manifest(
             continue
         elif path.exists():
             hashes[rel] = sha256_file(path)
+    a2_receipt_present = (root / C8_N22_HUMAN_DECISION_RECEIPT_DOCS[0]).exists()
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -613,6 +621,13 @@ def build_manifest(
         "execution_authorized": False,
         "taxonomy_promoted": False,
         "runner_authority_created": False,
+        "human_decision_recorded": a2_receipt_present,
+        "selected_decision_option": "DECISION_ACCEPT_AS_BASIS_FOR_NEXT_UNIT_DEFINITION" if a2_receipt_present else None,
+        "human_acceptance_consumed": False,
+        "authority_event_formally_consumed": False,
+        "authority_state_applied": False,
+        "a3_created": False,
+        "a4_created": False,
     }
     return manifest
 
