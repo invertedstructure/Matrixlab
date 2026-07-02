@@ -1,0 +1,912 @@
+{
+  "decision_relevance": {
+    "decision_receipt_required": true,
+    "decision_receipt_schema": "matrixlabs_human_decision_receipt_v0",
+    "decision_requested": "ACCEPT_AS_BASIS_FOR_NEXT_UNIT_DEFINITION",
+    "human_decision_boundary_present": true
+  },
+  "freshness": {
+    "currentness_claim": "CURRENT_ONLY_RELATIVE_TO_VERIFIED_SOURCE_COMMIT",
+    "freshness_basis": "source_commit_sha",
+    "freshness_status": "SOURCE_COMMIT_VERIFIED"
+  },
+  "generated_by": "scripts/build_c8_n22_authority_boundary_readabout_v0.py",
+  "non_claims": [
+    {
+      "authority_sensitivity": "HIGH",
+      "human_language_non_claim": "The formal boundary record remains the authority source for this Readabout.",
+      "non_claim_id": "nonclaim.source_remains_authority",
+      "projection_status": "BACKED",
+      "projection_type": "NON_CLAIM_RENDER",
+      "source_field_paths": [
+        "$.record_role",
+        "$.human_readout_role"
+      ],
+      "source_values": {
+        "$.human_readout_role": "DOWNSTREAM_PROJECTION_ONLY",
+        "$.record_role": "MACHINE_PRIMARY_AUTHORITY_TRANSITION_RECORD"
+      }
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "human_language_non_claim": "This Readabout does not consume human acceptance.",
+      "non_claim_id": "nonclaim.no_human_acceptance_consumed",
+      "projection_status": "BACKED",
+      "projection_type": "NON_CLAIM_RENDER",
+      "source_field_paths": [
+        "$.current_authority.human_acceptance_state",
+        "$.required_authority_event.required_event_status"
+      ],
+      "source_values": {
+        "$.current_authority.human_acceptance_state": "AUTH_EVENT_UNCONSUMED",
+        "$.required_authority_event.required_event_status": "AUTH_EVENT_UNCONSUMED"
+      }
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "human_language_non_claim": "This Readabout does not define the next C8 unit.",
+      "non_claim_id": "nonclaim.no_next_unit_defined",
+      "projection_status": "BACKED",
+      "projection_type": "NON_CLAIM_RENDER",
+      "source_field_paths": [
+        "$.current_authority.next_unit_definition_authority",
+        "$.transition_disposition.transition_status"
+      ],
+      "source_values": {
+        "$.current_authority.next_unit_definition_authority": "NOT_GRANTED",
+        "$.transition_disposition.transition_status": "BLOCKED_PENDING_AUTHORITY_EVENT"
+      }
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "human_language_non_claim": "This Readabout does not authorize the next C8 unit.",
+      "non_claim_id": "nonclaim.no_next_unit_authorized",
+      "projection_status": "BACKED",
+      "projection_type": "NON_CLAIM_RENDER",
+      "source_field_paths": [
+        "$.current_authority.next_unit_definition_authority",
+        "$.machine_action_scope.machine_permitted_action_scope"
+      ],
+      "source_values": {
+        "$.current_authority.next_unit_definition_authority": "NOT_GRANTED",
+        "$.machine_action_scope.machine_permitted_action_scope": "PREPARE_DECISION_SURFACE_ONLY"
+      }
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "human_language_non_claim": "This Readabout does not authorize execution.",
+      "non_claim_id": "nonclaim.no_execution_authority",
+      "projection_status": "BACKED",
+      "projection_type": "NON_CLAIM_RENDER",
+      "source_field_paths": [
+        "$.current_authority.execution_authority",
+        "$.machine_action_scope.machine_permitted_action_scope"
+      ],
+      "source_values": {
+        "$.current_authority.execution_authority": "NOT_GRANTED",
+        "$.machine_action_scope.machine_permitted_action_scope": "PREPARE_DECISION_SURFACE_ONLY"
+      }
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "human_language_non_claim": "This Readabout does not rewrite receipts.",
+      "non_claim_id": "nonclaim.no_receipt_rewrite",
+      "projection_status": "BACKED",
+      "projection_type": "NON_CLAIM_RENDER",
+      "source_field_paths": [
+        "$.machine_action_scope.machine_forbidden_action_scopes"
+      ],
+      "source_values": {
+        "$.machine_action_scope.machine_forbidden_action_scopes": [
+          "APPLY_AUTHORITY_TRANSITION",
+          "DEFINE_NEXT_UNIT_WITHOUT_ACCEPTANCE",
+          "EXECUTE_UNIT",
+          "REWRITE_RECEIPTS",
+          "PROMOTE_TAXONOMY",
+          "AUTHORIZE_REUSE",
+          "GENERALIZE_UPDATER",
+          "ACTIVATE_RUNNER",
+          "SELECT_NEXT_UNIT"
+        ]
+      }
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "human_language_non_claim": "This Readabout does not promote taxonomy.",
+      "non_claim_id": "nonclaim.no_taxonomy_promotion",
+      "projection_status": "BACKED",
+      "projection_type": "NON_CLAIM_RENDER",
+      "source_field_paths": [
+        "$.current_authority.promotion_authority",
+        "$.machine_action_scope.machine_forbidden_action_scopes"
+      ],
+      "source_values": {
+        "$.current_authority.promotion_authority": "NOT_GRANTED",
+        "$.machine_action_scope.machine_forbidden_action_scopes": [
+          "APPLY_AUTHORITY_TRANSITION",
+          "DEFINE_NEXT_UNIT_WITHOUT_ACCEPTANCE",
+          "EXECUTE_UNIT",
+          "REWRITE_RECEIPTS",
+          "PROMOTE_TAXONOMY",
+          "AUTHORIZE_REUSE",
+          "GENERALIZE_UPDATER",
+          "ACTIVATE_RUNNER",
+          "SELECT_NEXT_UNIT"
+        ]
+      }
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "human_language_non_claim": "This Readabout does not authorize reuse.",
+      "non_claim_id": "nonclaim.no_reuse_authority",
+      "projection_status": "BACKED",
+      "projection_type": "NON_CLAIM_RENDER",
+      "source_field_paths": [
+        "$.current_authority.reuse_authority",
+        "$.machine_action_scope.machine_forbidden_action_scopes"
+      ],
+      "source_values": {
+        "$.current_authority.reuse_authority": "NOT_GRANTED",
+        "$.machine_action_scope.machine_forbidden_action_scopes": [
+          "APPLY_AUTHORITY_TRANSITION",
+          "DEFINE_NEXT_UNIT_WITHOUT_ACCEPTANCE",
+          "EXECUTE_UNIT",
+          "REWRITE_RECEIPTS",
+          "PROMOTE_TAXONOMY",
+          "AUTHORIZE_REUSE",
+          "GENERALIZE_UPDATER",
+          "ACTIVATE_RUNNER",
+          "SELECT_NEXT_UNIT"
+        ]
+      }
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "human_language_non_claim": "This Readabout does not generalize the updater.",
+      "non_claim_id": "nonclaim.no_updater_generalization",
+      "projection_status": "BACKED",
+      "projection_type": "NON_CLAIM_RENDER",
+      "source_field_paths": [
+        "$.machine_action_scope.machine_forbidden_action_scopes",
+        "$.proposed_transition.authority_remaining_false_after_acceptance"
+      ],
+      "source_values": {
+        "$.machine_action_scope.machine_forbidden_action_scopes": [
+          "APPLY_AUTHORITY_TRANSITION",
+          "DEFINE_NEXT_UNIT_WITHOUT_ACCEPTANCE",
+          "EXECUTE_UNIT",
+          "REWRITE_RECEIPTS",
+          "PROMOTE_TAXONOMY",
+          "AUTHORIZE_REUSE",
+          "GENERALIZE_UPDATER",
+          "ACTIVATE_RUNNER",
+          "SELECT_NEXT_UNIT"
+        ],
+        "$.proposed_transition.authority_remaining_false_after_acceptance": [
+          "execution_authority",
+          "reuse_authority",
+          "promotion_authority",
+          "runner_authority",
+          "generic_updater_reuse_authority",
+          "auto_next_unit_selection_authority"
+        ]
+      }
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "human_language_non_claim": "This Readabout does not create runner authority.",
+      "non_claim_id": "nonclaim.no_runner_authority",
+      "projection_status": "BACKED",
+      "projection_type": "NON_CLAIM_RENDER",
+      "source_field_paths": [
+        "$.current_authority.runner_authority",
+        "$.machine_action_scope.machine_forbidden_action_scopes"
+      ],
+      "source_values": {
+        "$.current_authority.runner_authority": "NOT_GRANTED",
+        "$.machine_action_scope.machine_forbidden_action_scopes": [
+          "APPLY_AUTHORITY_TRANSITION",
+          "DEFINE_NEXT_UNIT_WITHOUT_ACCEPTANCE",
+          "EXECUTE_UNIT",
+          "REWRITE_RECEIPTS",
+          "PROMOTE_TAXONOMY",
+          "AUTHORIZE_REUSE",
+          "GENERALIZE_UPDATER",
+          "ACTIVATE_RUNNER",
+          "SELECT_NEXT_UNIT"
+        ]
+      }
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "human_language_non_claim": "This Readabout does not validate theorem truth.",
+      "non_claim_id": "nonclaim.no_theorem_truth_validation",
+      "projection_status": "BACKED",
+      "projection_type": "NON_CLAIM_RENDER",
+      "source_field_paths": [
+        "$.non_claims"
+      ],
+      "source_values": {
+        "$.non_claims": [
+          "This boundary record is machine-primary and human-auditable.",
+          "Human Readout is downstream projection only.",
+          "This boundary record does not consume human acceptance.",
+          "This boundary record does not authorize the next C8 unit.",
+          "This boundary record does not define the next C8 unit.",
+          "This boundary record does not execute runtime/probe/build/rerun.",
+          "This boundary record does not rewrite receipts.",
+          "This boundary record does not promote taxonomy.",
+          "This boundary record does not authorize reuse.",
+          "This boundary record does not generalize the updater.",
+          "This boundary record does not create runner authority.",
+          "This boundary record does not validate theorem truth.",
+          "This boundary record does not validate receipt truth.",
+          "This boundary record does not validate edge lawfulness.",
+          "This boundary record only preserves the typed authority state for c8.n22."
+        ]
+      }
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "human_language_non_claim": "This Readabout does not validate receipt truth.",
+      "non_claim_id": "nonclaim.no_receipt_truth_validation",
+      "projection_status": "BACKED",
+      "projection_type": "NON_CLAIM_RENDER",
+      "source_field_paths": [
+        "$.semantic_conservation.receipt_existence_may_validate_truth",
+        "$.non_claims"
+      ],
+      "source_values": {
+        "$.non_claims": [
+          "This boundary record is machine-primary and human-auditable.",
+          "Human Readout is downstream projection only.",
+          "This boundary record does not consume human acceptance.",
+          "This boundary record does not authorize the next C8 unit.",
+          "This boundary record does not define the next C8 unit.",
+          "This boundary record does not execute runtime/probe/build/rerun.",
+          "This boundary record does not rewrite receipts.",
+          "This boundary record does not promote taxonomy.",
+          "This boundary record does not authorize reuse.",
+          "This boundary record does not generalize the updater.",
+          "This boundary record does not create runner authority.",
+          "This boundary record does not validate theorem truth.",
+          "This boundary record does not validate receipt truth.",
+          "This boundary record does not validate edge lawfulness.",
+          "This boundary record only preserves the typed authority state for c8.n22."
+        ],
+        "$.semantic_conservation.receipt_existence_may_validate_truth": false
+      }
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "human_language_non_claim": "This Readabout does not validate edge lawfulness.",
+      "non_claim_id": "nonclaim.no_edge_lawfulness_validation",
+      "projection_status": "BACKED",
+      "projection_type": "NON_CLAIM_RENDER",
+      "source_field_paths": [
+        "$.source.source_edge_status",
+        "$.non_claims"
+      ],
+      "source_values": {
+        "$.non_claims": [
+          "This boundary record is machine-primary and human-auditable.",
+          "Human Readout is downstream projection only.",
+          "This boundary record does not consume human acceptance.",
+          "This boundary record does not authorize the next C8 unit.",
+          "This boundary record does not define the next C8 unit.",
+          "This boundary record does not execute runtime/probe/build/rerun.",
+          "This boundary record does not rewrite receipts.",
+          "This boundary record does not promote taxonomy.",
+          "This boundary record does not authorize reuse.",
+          "This boundary record does not generalize the updater.",
+          "This boundary record does not create runner authority.",
+          "This boundary record does not validate theorem truth.",
+          "This boundary record does not validate receipt truth.",
+          "This boundary record does not validate edge lawfulness.",
+          "This boundary record only preserves the typed authority state for c8.n22."
+        ],
+        "$.source.source_edge_status": "OBSERVED_READOUT_EDGE_ONLY"
+      }
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "human_language_non_claim": "This Readabout does not recommend an action.",
+      "non_claim_id": "nonclaim.no_recommendation",
+      "projection_status": "BACKED",
+      "projection_type": "NON_CLAIM_RENDER",
+      "source_field_paths": [
+        "$.record_role",
+        "$.human_readout_role",
+        "$.transition_disposition.transition_status"
+      ],
+      "source_values": {
+        "$.human_readout_role": "DOWNSTREAM_PROJECTION_ONLY",
+        "$.record_role": "MACHINE_PRIMARY_AUTHORITY_TRANSITION_RECORD",
+        "$.transition_disposition.transition_status": "BLOCKED_PENDING_AUTHORITY_EVENT"
+      }
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "human_language_non_claim": "This Readabout is not a human decision surface.",
+      "non_claim_id": "nonclaim.not_decision_surface",
+      "projection_status": "BACKED",
+      "projection_type": "NON_CLAIM_RENDER",
+      "source_field_paths": [
+        "$.human_readout_role",
+        "$.machine_action_scope.machine_permitted_action_scope"
+      ],
+      "source_values": {
+        "$.human_readout_role": "DOWNSTREAM_PROJECTION_ONLY",
+        "$.machine_action_scope.machine_permitted_action_scope": "PREPARE_DECISION_SURFACE_ONLY"
+      }
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "human_language_non_claim": "This Readabout is not a decision receipt.",
+      "non_claim_id": "nonclaim.not_decision_receipt",
+      "projection_status": "BACKED",
+      "projection_type": "NON_CLAIM_RENDER",
+      "source_field_paths": [
+        "$.required_authority_event.decision_receipt_required",
+        "$.required_authority_event.decision_receipt_schema",
+        "$.required_authority_event.required_event_status"
+      ],
+      "source_values": {
+        "$.required_authority_event.decision_receipt_required": true,
+        "$.required_authority_event.decision_receipt_schema": "matrixlabs_human_decision_receipt_v0",
+        "$.required_authority_event.required_event_status": "AUTH_EVENT_UNCONSUMED"
+      }
+    }
+  ],
+  "projection_claims": [
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "claim.source.identity",
+      "human_language_claim": "This Readabout projects the formal boundary record c8.n22.boundary_transition.v0.",
+      "projection_status": "BACKED",
+      "projection_type": "DIRECT_FIELD_RENDER",
+      "source_field_paths": [
+        "$.boundary_record_id",
+        "$.schema_version",
+        "$.record_role",
+        "$.human_readout_role"
+      ],
+      "source_values": {
+        "$.boundary_record_id": "c8.n22.boundary_transition.v0",
+        "$.human_readout_role": "DOWNSTREAM_PROJECTION_ONLY",
+        "$.record_role": "MACHINE_PRIMARY_AUTHORITY_TRANSITION_RECORD",
+        "$.schema_version": "matrixlabs_authority_boundary_transition_record_v0"
+      },
+      "template_id": "template.source.identity.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "claim.source.truth_role",
+      "human_language_claim": "The formal boundary record remains the source of truth; this Readabout is a downstream projection only.",
+      "projection_status": "BACKED",
+      "projection_type": "FIELD_GROUPING",
+      "source_field_paths": [
+        "$.record_role",
+        "$.human_readout_role"
+      ],
+      "source_values": {
+        "$.human_readout_role": "DOWNSTREAM_PROJECTION_ONLY",
+        "$.record_role": "MACHINE_PRIMARY_AUTHORITY_TRANSITION_RECORD"
+      },
+      "template_id": "template.source.truth_role.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "claim.source.object",
+      "human_language_claim": "The source object is c8.n22 in c8_observed_decision_path_v1.",
+      "projection_status": "BACKED",
+      "projection_type": "DIRECT_FIELD_RENDER",
+      "source_field_paths": [
+        "$.source.source_object_id",
+        "$.source.source_path_version"
+      ],
+      "source_values": {
+        "$.source.source_object_id": "c8.n22",
+        "$.source.source_path_version": "c8_observed_decision_path_v1"
+      },
+      "template_id": "template.source.object.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "claim.boundary.class",
+      "human_language_claim": "The boundary record classifies c8.n22 as a human authority boundary.",
+      "projection_status": "BACKED",
+      "projection_type": "DIRECT_FIELD_RENDER",
+      "source_field_paths": [
+        "$.boundary_class"
+      ],
+      "source_values": {
+        "$.boundary_class": "HUMAN_AUTHORITY_BOUNDARY"
+      },
+      "template_id": "template.boundary.class.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "claim.current_authority.observed_not_authorized",
+      "human_language_claim": "c8.n22 has been observed, but it is not authorized for progression.",
+      "projection_status": "BACKED",
+      "projection_type": "FIELD_EXPANSION",
+      "source_field_paths": [
+        "$.current_authority.current_authority_state",
+        "$.current_authority.current_observation_state"
+      ],
+      "source_values": {
+        "$.current_authority.current_authority_state": "AUTH_STATE_OBSERVED_NOT_AUTHORIZED",
+        "$.current_authority.current_observation_state": "OBSERVED_COMMITTED_PACKET_PREPARATION"
+      },
+      "template_id": "template.authority_state.observed_not_authorized.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "claim.transition.requested",
+      "human_language_claim": "The proposed transition is to accept c8.n22 as the basis for defining the next bounded C8 unit.",
+      "projection_status": "BACKED",
+      "projection_type": "FIELD_EXPANSION",
+      "source_field_paths": [
+        "$.proposed_transition.transition_id",
+        "$.proposed_transition.target_authority_state_if_accepted",
+        "$.proposed_transition.authority_change_if_accepted"
+      ],
+      "source_values": {
+        "$.proposed_transition.authority_change_if_accepted": [
+          "c8.n22 may be used as the accepted basis for defining the next bounded C8 unit"
+        ],
+        "$.proposed_transition.target_authority_state_if_accepted": "AUTH_STATE_ACCEPTED_AS_BASIS_FOR_NEXT_UNIT_DEFINITION",
+        "$.proposed_transition.transition_id": "ACCEPT_AS_BASIS_FOR_NEXT_UNIT_DEFINITION"
+      },
+      "template_id": "template.transition.requested.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "claim.authority_event.required",
+      "human_language_claim": "This transition requires human acceptance.",
+      "projection_status": "BACKED",
+      "projection_type": "FIELD_EXPANSION",
+      "source_field_paths": [
+        "$.required_authority_event.required_event",
+        "$.required_authority_event.required_actor"
+      ],
+      "source_values": {
+        "$.required_authority_event.required_actor": "HUMAN",
+        "$.required_authority_event.required_event": "HUMAN_ACCEPTANCE"
+      },
+      "template_id": "template.authority_event.required.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "claim.authority_event.unconsumed",
+      "human_language_claim": "The required human acceptance event has not been consumed.",
+      "projection_status": "BACKED",
+      "projection_type": "FIELD_EXPANSION",
+      "source_field_paths": [
+        "$.required_authority_event.required_event_status",
+        "$.current_authority.human_acceptance_state"
+      ],
+      "source_values": {
+        "$.current_authority.human_acceptance_state": "AUTH_EVENT_UNCONSUMED",
+        "$.required_authority_event.required_event_status": "AUTH_EVENT_UNCONSUMED"
+      },
+      "template_id": "template.authority_event.unconsumed.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "claim.machine_scope.prepare_only",
+      "human_language_claim": "The machine may prepare the human decision surface only.",
+      "projection_status": "BACKED",
+      "projection_type": "FIELD_EXPANSION",
+      "source_field_paths": [
+        "$.machine_action_scope.machine_permitted_action_scope"
+      ],
+      "source_values": {
+        "$.machine_action_scope.machine_permitted_action_scope": "PREPARE_DECISION_SURFACE_ONLY"
+      },
+      "template_id": "template.machine_scope.prepare_decision_surface_only.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "claim.machine_scope.forbidden",
+      "human_language_claim": "The machine may not apply the authority transition, define the next unit without acceptance, execute a unit, rewrite receipts, promote taxonomy, authorize reuse, generalize the updater, activate runner authority, or select the next unit.",
+      "projection_status": "BACKED",
+      "projection_type": "FIELD_EXPANSION",
+      "source_field_paths": [
+        "$.machine_action_scope.machine_forbidden_action_scopes"
+      ],
+      "source_values": {
+        "$.machine_action_scope.machine_forbidden_action_scopes": [
+          "APPLY_AUTHORITY_TRANSITION",
+          "DEFINE_NEXT_UNIT_WITHOUT_ACCEPTANCE",
+          "EXECUTE_UNIT",
+          "REWRITE_RECEIPTS",
+          "PROMOTE_TAXONOMY",
+          "AUTHORIZE_REUSE",
+          "GENERALIZE_UPDATER",
+          "ACTIVATE_RUNNER",
+          "SELECT_NEXT_UNIT"
+        ]
+      },
+      "template_id": "template.machine_scope.forbidden.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "claim.transition.blocked_pending_authority",
+      "human_language_claim": "Progression is blocked pending the required authority event.",
+      "projection_status": "BACKED",
+      "projection_type": "FIELD_EXPANSION",
+      "source_field_paths": [
+        "$.transition_disposition.transition_status",
+        "$.transition_disposition.classification_result",
+        "$.transition_disposition.escalation_code"
+      ],
+      "source_values": {
+        "$.transition_disposition.classification_result": "HUMAN_ACCEPTANCE_REQUIRED",
+        "$.transition_disposition.escalation_code": "AWAIT_HUMAN_DECISION",
+        "$.transition_disposition.transition_status": "BLOCKED_PENDING_AUTHORITY_EVENT"
+      },
+      "template_id": "template.transition.blocked_pending_authority_event.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "claim.router.prepare_decision_surface",
+      "human_language_claim": "The router action is to prepare the human decision surface.",
+      "projection_status": "BACKED",
+      "projection_type": "DIRECT_FIELD_RENDER",
+      "source_field_paths": [
+        "$.transition_disposition.router_action"
+      ],
+      "source_values": {
+        "$.transition_disposition.router_action": "PREPARE_HUMAN_DECISION_SURFACE"
+      },
+      "template_id": "template.router.prepare_decision_surface.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "claim.semantic_conservation",
+      "human_language_claim": "The Readabout may project the source record, but it may not add meaning, override typed fields, use taxonomy labels as future-unit authorization, treat commit status as authority, treat receipt existence as truth validation, treat the observed edge as acceptance, or treat the readout update as next-unit selection.",
+      "projection_status": "BACKED",
+      "projection_type": "FIELD_GROUPING",
+      "source_field_paths": [
+        "$.semantic_conservation.readout_may_project",
+        "$.semantic_conservation.readout_may_add_meaning",
+        "$.semantic_conservation.prose_may_override_typed_fields",
+        "$.semantic_conservation.taxonomy_label_may_authorize_future_unit",
+        "$.semantic_conservation.commit_status_may_create_authority",
+        "$.semantic_conservation.receipt_existence_may_validate_truth",
+        "$.semantic_conservation.observed_edge_may_imply_acceptance",
+        "$.semantic_conservation.readout_update_may_choose_next_unit"
+      ],
+      "source_values": {
+        "$.semantic_conservation.commit_status_may_create_authority": false,
+        "$.semantic_conservation.observed_edge_may_imply_acceptance": false,
+        "$.semantic_conservation.prose_may_override_typed_fields": false,
+        "$.semantic_conservation.readout_may_add_meaning": false,
+        "$.semantic_conservation.readout_may_project": true,
+        "$.semantic_conservation.readout_update_may_choose_next_unit": false,
+        "$.semantic_conservation.receipt_existence_may_validate_truth": false,
+        "$.semantic_conservation.taxonomy_label_may_authorize_future_unit": false
+      },
+      "template_id": "template.semantic_conservation.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "claim.decision_relevance",
+      "human_language_claim": "The relevant later human decision is whether to accept c8.n22 as the basis for next-unit definition, and a decision receipt is required for that authority event.",
+      "projection_status": "BACKED",
+      "projection_type": "PROJECTION_RULE_RENDER",
+      "source_field_paths": [
+        "$.proposed_transition.transition_id",
+        "$.required_authority_event.decision_receipt_required",
+        "$.required_authority_event.decision_receipt_schema"
+      ],
+      "source_values": {
+        "$.proposed_transition.transition_id": "ACCEPT_AS_BASIS_FOR_NEXT_UNIT_DEFINITION",
+        "$.required_authority_event.decision_receipt_required": true,
+        "$.required_authority_event.decision_receipt_schema": "matrixlabs_human_decision_receipt_v0"
+      },
+      "template_id": "template.decision_relevance.v0"
+    }
+  ],
+  "projection_gate": {
+    "authority_collapse_count": 0,
+    "authority_collapse_detected": false,
+    "markdown_json_parity_status": "PASS",
+    "meaning_parity_status": "PASS",
+    "missing_required_source_field_count": 0,
+    "preparation_execution_collapse_detected": false,
+    "projection_claim_count": 14,
+    "proposal_authority_collapse_detected": false,
+    "readabout_gate": "READABOUT_PASS_PARITY",
+    "recommendation_inserted": false,
+    "source_object_id": "c8.n22.boundary_transition.v0",
+    "source_schema_version": "matrixlabs_authority_boundary_transition_record_v0",
+    "unbacked_load_bearing_claim_count": 0,
+    "unsafe_to_infer_count": 10,
+    "unsafe_to_infer_section_present": true,
+    "unsupported_claim_count": 0
+  },
+  "projection_mode": "FIELD_BACKED_PARITY_PROJECTION",
+  "projection_templates": {
+    "template.authority_state.observed_not_authorized.v0": {
+      "projection_type": "FIELD_EXPANSION",
+      "required_source_field_paths": [
+        "$.current_authority.current_authority_state"
+      ],
+      "template": "The source object has been observed, but it has not been granted authority for progression.",
+      "trigger_value": "AUTH_STATE_OBSERVED_NOT_AUTHORIZED"
+    },
+    "template.machine_scope.prepare_decision_surface_only.v0": {
+      "projection_type": "FIELD_EXPANSION",
+      "required_source_field_paths": [
+        "$.machine_action_scope.machine_permitted_action_scope"
+      ],
+      "template": "The machine may prepare the human decision surface only.",
+      "trigger_value": "PREPARE_DECISION_SURFACE_ONLY"
+    },
+    "template.transition.blocked_pending_authority_event.v0": {
+      "projection_type": "FIELD_EXPANSION",
+      "required_source_field_paths": [
+        "$.transition_disposition.transition_status",
+        "$.required_authority_event.required_event",
+        "$.required_authority_event.required_event_status"
+      ],
+      "template": "Progression is blocked until the required authority event is consumed.",
+      "trigger_value": "BLOCKED_PENDING_AUTHORITY_EVENT"
+    }
+  },
+  "readabout_packet_id": "c8.n22.authority_boundary.readabout.v0",
+  "readabout_role": "HUMAN_AUDIT_PROJECTION",
+  "schema_version": "matrixlabs_readabout_projection_v0",
+  "source": {
+    "source_commit_sha": "c0e560c3d22d17ffcc734477c588a6f352950c13",
+    "source_object_id": "c8.n22.boundary_transition.v0",
+    "source_object_type": "AUTHORITY_BOUNDARY_TRANSITION_RECORD",
+    "source_path": "docs/matrixlabs/boundary/c8_n22_authority_boundary_transition_record_v0.json",
+    "source_schema_version": "matrixlabs_authority_boundary_transition_record_v0"
+  },
+  "source_hashes": {
+    "boundary_record_sha256": "d7fca19043b801fcdf5e369597946eed715673fbf5a7aad3269e209ff68138e0",
+    "m5_taxonomy_sha256": "c5046881ee7ecd3e8f4fdcefc43342eb53b5ad8b82570bf952ca318032fea62a",
+    "m6_packet_sha256": "b98dffdd6d4aeb7216c6bbab8291d992f968b97c0cee5ecfd1a24f8e5b506984",
+    "m7b_apply_sha256": "98affbd3a1aa2f539aec7a0aee7b7751d992976a0c612e534cf27cf88217b2d9",
+    "observed_path_v1_sha256": "893a9d5d390e1f9e2394ac0177e32d2aef728e50d5b7d58e19d6e4151a701517"
+  },
+  "source_of_truth_role": "FORMAL_SOURCE_OBJECT_REMAINS_AUTHORITY",
+  "unsafe_to_infer": [
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "unsafe.next_unit_defined",
+      "human_language_claim": "Unsafe to infer: the next C8 unit is defined.",
+      "projection_status": "BACKED",
+      "projection_type": "UNSAFE_INFERENCE_BLOCK",
+      "source_field_paths": [
+        "$.current_authority.next_unit_definition_authority",
+        "$.transition_disposition.transition_status"
+      ],
+      "source_values": {
+        "$.current_authority.next_unit_definition_authority": "NOT_GRANTED",
+        "$.transition_disposition.transition_status": "BLOCKED_PENDING_AUTHORITY_EVENT"
+      },
+      "template_id": "template.unsafe.next_unit_defined.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "unsafe.next_unit_authorized",
+      "human_language_claim": "Unsafe to infer: the next C8 unit is authorized.",
+      "projection_status": "BACKED",
+      "projection_type": "UNSAFE_INFERENCE_BLOCK",
+      "source_field_paths": [
+        "$.current_authority.next_unit_definition_authority",
+        "$.required_authority_event.required_event_status"
+      ],
+      "source_values": {
+        "$.current_authority.next_unit_definition_authority": "NOT_GRANTED",
+        "$.required_authority_event.required_event_status": "AUTH_EVENT_UNCONSUMED"
+      },
+      "template_id": "template.unsafe.next_unit_authorized.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "unsafe.execution_authorized",
+      "human_language_claim": "Unsafe to infer: execution of a next C8 unit is authorized.",
+      "projection_status": "BACKED",
+      "projection_type": "UNSAFE_INFERENCE_BLOCK",
+      "source_field_paths": [
+        "$.current_authority.execution_authority",
+        "$.machine_action_scope.machine_permitted_action_scope",
+        "$.transition_disposition.transition_status"
+      ],
+      "source_values": {
+        "$.current_authority.execution_authority": "NOT_GRANTED",
+        "$.machine_action_scope.machine_permitted_action_scope": "PREPARE_DECISION_SURFACE_ONLY",
+        "$.transition_disposition.transition_status": "BLOCKED_PENDING_AUTHORITY_EVENT"
+      },
+      "template_id": "template.unsafe.execution_authorized.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "unsafe.human_acceptance_consumed",
+      "human_language_claim": "Unsafe to infer: human acceptance has been consumed.",
+      "projection_status": "BACKED",
+      "projection_type": "UNSAFE_INFERENCE_BLOCK",
+      "source_field_paths": [
+        "$.current_authority.human_acceptance_state",
+        "$.required_authority_event.required_event_status"
+      ],
+      "source_values": {
+        "$.current_authority.human_acceptance_state": "AUTH_EVENT_UNCONSUMED",
+        "$.required_authority_event.required_event_status": "AUTH_EVENT_UNCONSUMED"
+      },
+      "template_id": "template.unsafe.human_acceptance_consumed.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "unsafe.taxonomy_promoted",
+      "human_language_claim": "Unsafe to infer: taxonomy is promoted.",
+      "projection_status": "BACKED",
+      "projection_type": "UNSAFE_INFERENCE_BLOCK",
+      "source_field_paths": [
+        "$.current_authority.promotion_authority",
+        "$.semantic_conservation.taxonomy_label_may_authorize_future_unit"
+      ],
+      "source_values": {
+        "$.current_authority.promotion_authority": "NOT_GRANTED",
+        "$.semantic_conservation.taxonomy_label_may_authorize_future_unit": false
+      },
+      "template_id": "template.unsafe.taxonomy_promoted.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "unsafe.reuse_authorized",
+      "human_language_claim": "Unsafe to infer: reuse is authorized.",
+      "projection_status": "BACKED",
+      "projection_type": "UNSAFE_INFERENCE_BLOCK",
+      "source_field_paths": [
+        "$.current_authority.reuse_authority",
+        "$.machine_action_scope.machine_forbidden_action_scopes"
+      ],
+      "source_values": {
+        "$.current_authority.reuse_authority": "NOT_GRANTED",
+        "$.machine_action_scope.machine_forbidden_action_scopes": [
+          "APPLY_AUTHORITY_TRANSITION",
+          "DEFINE_NEXT_UNIT_WITHOUT_ACCEPTANCE",
+          "EXECUTE_UNIT",
+          "REWRITE_RECEIPTS",
+          "PROMOTE_TAXONOMY",
+          "AUTHORIZE_REUSE",
+          "GENERALIZE_UPDATER",
+          "ACTIVATE_RUNNER",
+          "SELECT_NEXT_UNIT"
+        ]
+      },
+      "template_id": "template.unsafe.reuse_authorized.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "unsafe.updater_generalized",
+      "human_language_claim": "Unsafe to infer: updater generalization is authorized.",
+      "projection_status": "BACKED",
+      "projection_type": "UNSAFE_INFERENCE_BLOCK",
+      "source_field_paths": [
+        "$.machine_action_scope.machine_forbidden_action_scopes",
+        "$.proposed_transition.authority_remaining_false_after_acceptance"
+      ],
+      "source_values": {
+        "$.machine_action_scope.machine_forbidden_action_scopes": [
+          "APPLY_AUTHORITY_TRANSITION",
+          "DEFINE_NEXT_UNIT_WITHOUT_ACCEPTANCE",
+          "EXECUTE_UNIT",
+          "REWRITE_RECEIPTS",
+          "PROMOTE_TAXONOMY",
+          "AUTHORIZE_REUSE",
+          "GENERALIZE_UPDATER",
+          "ACTIVATE_RUNNER",
+          "SELECT_NEXT_UNIT"
+        ],
+        "$.proposed_transition.authority_remaining_false_after_acceptance": [
+          "execution_authority",
+          "reuse_authority",
+          "promotion_authority",
+          "runner_authority",
+          "generic_updater_reuse_authority",
+          "auto_next_unit_selection_authority"
+        ]
+      },
+      "template_id": "template.unsafe.updater_generalized.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "unsafe.runner_authority_exists",
+      "human_language_claim": "Unsafe to infer: runner authority exists.",
+      "projection_status": "BACKED",
+      "projection_type": "UNSAFE_INFERENCE_BLOCK",
+      "source_field_paths": [
+        "$.current_authority.runner_authority",
+        "$.machine_action_scope.machine_forbidden_action_scopes"
+      ],
+      "source_values": {
+        "$.current_authority.runner_authority": "NOT_GRANTED",
+        "$.machine_action_scope.machine_forbidden_action_scopes": [
+          "APPLY_AUTHORITY_TRANSITION",
+          "DEFINE_NEXT_UNIT_WITHOUT_ACCEPTANCE",
+          "EXECUTE_UNIT",
+          "REWRITE_RECEIPTS",
+          "PROMOTE_TAXONOMY",
+          "AUTHORIZE_REUSE",
+          "GENERALIZE_UPDATER",
+          "ACTIVATE_RUNNER",
+          "SELECT_NEXT_UNIT"
+        ]
+      },
+      "template_id": "template.unsafe.runner_authority_exists.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "unsafe.receipt_truth_validated",
+      "human_language_claim": "Unsafe to infer: receipt truth is validated.",
+      "projection_status": "BACKED",
+      "projection_type": "UNSAFE_INFERENCE_BLOCK",
+      "source_field_paths": [
+        "$.semantic_conservation.receipt_existence_may_validate_truth",
+        "$.non_claims"
+      ],
+      "source_values": {
+        "$.non_claims": [
+          "This boundary record is machine-primary and human-auditable.",
+          "Human Readout is downstream projection only.",
+          "This boundary record does not consume human acceptance.",
+          "This boundary record does not authorize the next C8 unit.",
+          "This boundary record does not define the next C8 unit.",
+          "This boundary record does not execute runtime/probe/build/rerun.",
+          "This boundary record does not rewrite receipts.",
+          "This boundary record does not promote taxonomy.",
+          "This boundary record does not authorize reuse.",
+          "This boundary record does not generalize the updater.",
+          "This boundary record does not create runner authority.",
+          "This boundary record does not validate theorem truth.",
+          "This boundary record does not validate receipt truth.",
+          "This boundary record does not validate edge lawfulness.",
+          "This boundary record only preserves the typed authority state for c8.n22."
+        ],
+        "$.semantic_conservation.receipt_existence_may_validate_truth": false
+      },
+      "template_id": "template.unsafe.receipt_truth_validated.v0"
+    },
+    {
+      "authority_sensitivity": "HIGH",
+      "claim_id": "unsafe.edge_lawfulness_validated",
+      "human_language_claim": "Unsafe to infer: edge lawfulness is validated.",
+      "projection_status": "BACKED",
+      "projection_type": "UNSAFE_INFERENCE_BLOCK",
+      "source_field_paths": [
+        "$.source.source_edge_status",
+        "$.non_claims"
+      ],
+      "source_values": {
+        "$.non_claims": [
+          "This boundary record is machine-primary and human-auditable.",
+          "Human Readout is downstream projection only.",
+          "This boundary record does not consume human acceptance.",
+          "This boundary record does not authorize the next C8 unit.",
+          "This boundary record does not define the next C8 unit.",
+          "This boundary record does not execute runtime/probe/build/rerun.",
+          "This boundary record does not rewrite receipts.",
+          "This boundary record does not promote taxonomy.",
+          "This boundary record does not authorize reuse.",
+          "This boundary record does not generalize the updater.",
+          "This boundary record does not create runner authority.",
+          "This boundary record does not validate theorem truth.",
+          "This boundary record does not validate receipt truth.",
+          "This boundary record does not validate edge lawfulness.",
+          "This boundary record only preserves the typed authority state for c8.n22."
+        ],
+        "$.source.source_edge_status": "OBSERVED_READOUT_EDGE_ONLY"
+      },
+      "template_id": "template.unsafe.edge_lawfulness_validated.v0"
+    }
+  ],
+  "unsupported_or_absent_fields": []
+}
