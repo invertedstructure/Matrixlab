@@ -113,6 +113,11 @@ C8_N22_REQUESTED_ACTION_DOCS = [
     "docs/matrixlabs/router/c8_n22_requested_action_prepare_next_unit_definition_surface_v0.md",
 ]
 C8_N22_REQUESTED_ACTION_GENERATOR = "scripts/build_c8_n22_requested_action_prepare_next_unit_definition_surface_v0.py"
+C8_N22_AUTHORITY_ROUTE_CLASSIFICATION_DOCS = [
+    "docs/matrixlabs/router/c8_n22_authority_route_classification_v0.json",
+    "docs/matrixlabs/router/c8_n22_authority_route_classification_v0.md",
+]
+C8_N22_AUTHORITY_ROUTE_CLASSIFICATION_GENERATOR = "scripts/build_c8_n22_authority_route_classification_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -150,6 +155,8 @@ SOURCE_DOCS = [
     C8_N22_AUTHORITY_TRANSITION_CLOSURE_GENERATOR,
     *C8_N22_REQUESTED_ACTION_DOCS,
     C8_N22_REQUESTED_ACTION_GENERATOR,
+    *C8_N22_AUTHORITY_ROUTE_CLASSIFICATION_DOCS,
+    C8_N22_AUTHORITY_ROUTE_CLASSIFICATION_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -615,6 +622,7 @@ def build_manifest(
     a3_update_present = (root / C8_N22_AUTHORITY_STATE_UPDATE_DOCS[0]).exists()
     a4_closure_present = (root / C8_N22_AUTHORITY_TRANSITION_CLOSURE_DOCS[0]).exists()
     b1_requested_action_present = (root / C8_N22_REQUESTED_ACTION_DOCS[0]).exists()
+    b2_route_classification_present = (root / C8_N22_AUTHORITY_ROUTE_CLASSIFICATION_DOCS[0]).exists()
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -668,14 +676,30 @@ def build_manifest(
         "requested_action_scope": "PREPARE_SURFACE_ONLY" if b1_requested_action_present else None,
         "request_status": "REQUEST_DECLARED_FOR_CLASSIFICATION_ONLY" if b1_requested_action_present else None,
         "source_authority_state": "AUTH_STATE_ACCEPTED_AS_BASIS_FOR_NEXT_UNIT_DEFINITION" if b1_requested_action_present else None,
-        "route_classification_emitted": False,
+        "route_classification_emitted": b2_route_classification_present,
+        "router_classification_record_created": b2_route_classification_present,
+        "route_disposition": "ROUTE_MACHINE_MAY_PREPARE_ONLY" if b2_route_classification_present else None,
+        "classified_action_status": "ADMISSIBLE_AS_SEPARATE_PREPARATION_OBJECT" if b2_route_classification_present else None,
+        "allowed_machine_action_scope": "PREPARE_SURFACE_ONLY" if b2_route_classification_present else None,
+        "allowed_scope": "C8_N22_BASIS_ONLY" if b2_route_classification_present else None,
+        "router_gate_status": "ROUTER_PASS_CLASSIFICATION_ONLY" if b2_route_classification_present else None,
+        "requested_action_executed": False,
+        "action_executed": False,
         "requested_output_created": False,
         "authority_state_changed_by_b1": False,
+        "authority_state_changed_by_b2": False,
+        "runtime_executed": False,
+        "receipt_rewritten": False,
+        "reuse_authorized": False,
+        "updater_generalized": False,
+        "router_authority_created": False,
+        "reusable_router_created": False,
+        "validator_archive_created": False,
         "observed_path_updated": False,
         "observed_path_update_proposed": False,
-        "router_classification_created": False,
+        "router_classification_created": b2_route_classification_present,
         "router_created": False,
-        "b2_created": False,
+        "b2_created": b2_route_classification_present,
         "b3_created": False,
     }
     return manifest

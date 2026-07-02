@@ -1,7 +1,7 @@
 # Commit Context
 
-- Generated at UTC: `2026-07-02T20:31:21Z`
-- Current HEAD SHA: `7e8a1b5594f3ee725d0393ab27433b7650ec489d`
+- Generated at UTC: `2026-07-02T21:05:21Z`
+- Current HEAD SHA: `636324fbd28e6bdcc895144d82e47311fcdd5f72`
 - Branch: `master`
 - Worktree state at generation time: `dirty`
 - Generator script: `scripts/build_baseline_share_v0.py`
@@ -9,6 +9,7 @@
 ## Recent 10 commits
 
 ```text
+636324fbd Add C8 n22 requested action record v0
 7e8a1b559 Close C8 n22 authority transition v0
 d8a5116ec Add C8 n22 authority state update v0
 3bd789240 Add C8 n22 human decision receipt v0
@@ -18,7 +19,6 @@ c0e560c3d Add C8 n22 authority boundary record v0
 d4b19660d Apply C8 observed path update v0
 6461d1511 Add C8 observed path update proposal v0
 d21e162d7 Add C8 taxonomy-applied continuation packet v0
-099a003bf Add proceed surface taxonomy v0
 ```
 
 ## Git status short
@@ -26,8 +26,9 @@ d21e162d7 Add C8 taxonomy-applied continuation packet v0
 ```text
 M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/router/
-?? scripts/build_c8_n22_requested_action_prepare_next_unit_definition_surface_v0.py
+?? docs/matrixlabs/router/c8_n22_authority_route_classification_v0.json
+?? docs/matrixlabs/router/c8_n22_authority_route_classification_v0.md
+?? scripts/build_c8_n22_authority_route_classification_v0.py
 ```
 
 ## Git status short excluding generated baseline_share
@@ -35,8 +36,9 @@ M scripts/build_baseline_share_v0.py
 ```text
 M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/router/
-?? scripts/build_c8_n22_requested_action_prepare_next_unit_definition_surface_v0.py
+?? docs/matrixlabs/router/c8_n22_authority_route_classification_v0.json
+?? docs/matrixlabs/router/c8_n22_authority_route_classification_v0.md
+?? scripts/build_c8_n22_authority_route_classification_v0.py
 ```
 
 ## Safety facts
