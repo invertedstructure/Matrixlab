@@ -98,6 +98,11 @@ C8_N22_HUMAN_DECISION_RECEIPT_DOCS = [
     "docs/matrixlabs/decisions/c8_n22_human_decision_receipt_v0.md",
 ]
 C8_N22_HUMAN_DECISION_RECEIPT_GENERATOR = "scripts/build_c8_n22_human_decision_receipt_v0.py"
+C8_N22_AUTHORITY_STATE_UPDATE_DOCS = [
+    "docs/matrixlabs/boundary/c8_n22_authority_state_update_v0.json",
+    "docs/matrixlabs/boundary/c8_n22_authority_state_update_v0.md",
+]
+C8_N22_AUTHORITY_STATE_UPDATE_GENERATOR = "scripts/build_c8_n22_authority_state_update_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -129,6 +134,8 @@ SOURCE_DOCS = [
     C8_N22_HUMAN_DECISION_SURFACE_GENERATOR,
     *C8_N22_HUMAN_DECISION_RECEIPT_DOCS,
     C8_N22_HUMAN_DECISION_RECEIPT_GENERATOR,
+    *C8_N22_AUTHORITY_STATE_UPDATE_DOCS,
+    C8_N22_AUTHORITY_STATE_UPDATE_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -591,6 +598,7 @@ def build_manifest(
         elif path.exists():
             hashes[rel] = sha256_file(path)
     a2_receipt_present = (root / C8_N22_HUMAN_DECISION_RECEIPT_DOCS[0]).exists()
+    a3_update_present = (root / C8_N22_AUTHORITY_STATE_UPDATE_DOCS[0]).exists()
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -615,18 +623,23 @@ def build_manifest(
         "receipts_rewritten": False,
         "full_receipt_stack_copied_into_baseline_share": False,
         "human_decision_consumed": False,
-        "authority_state_changed": False,
+        "authority_state_changed": a3_update_present,
         "next_unit_defined": False,
         "next_unit_authorized": False,
         "execution_authorized": False,
         "taxonomy_promoted": False,
         "runner_authority_created": False,
-        "human_decision_recorded": a2_receipt_present,
-        "selected_decision_option": "DECISION_ACCEPT_AS_BASIS_FOR_NEXT_UNIT_DEFINITION" if a2_receipt_present else None,
-        "human_acceptance_consumed": False,
-        "authority_event_formally_consumed": False,
-        "authority_state_applied": False,
-        "a3_created": False,
+        "human_decision_recorded": a2_receipt_present or a3_update_present,
+        "selected_decision_option": "DECISION_ACCEPT_AS_BASIS_FOR_NEXT_UNIT_DEFINITION" if (a2_receipt_present or a3_update_present) else None,
+        "human_acceptance_consumed": a3_update_present,
+        "authority_event_formally_consumed": a3_update_present,
+        "authority_state_applied": a3_update_present,
+        "decision_receipt_applied": a3_update_present,
+        "new_authority_state": "AUTH_STATE_ACCEPTED_AS_BASIS_FOR_NEXT_UNIT_DEFINITION" if a3_update_present else None,
+        "next_allowed_router_action": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE" if a3_update_present else None,
+        "basis_for_next_unit_definition_authority": "GRANTED" if a3_update_present else None,
+        "next_unit_definition_surface_preparation_authority": "GRANTED" if a3_update_present else None,
+        "a3_created": a3_update_present,
         "a4_created": False,
     }
     return manifest

@@ -1,0 +1,156 @@
+{
+  "application_record": {
+    "application_id": "c8.n22.authority_state_update.v0",
+    "applies_decision_receipt_id": "c8.n22.human_decision_receipt.v0",
+    "decision_receipt_application_status": "APPLIED_ONCE"
+  },
+  "applied_decision": {
+    "decision_actor_class": "HUMAN",
+    "decision_receipt_application_status_before": "NOT_APPLIED",
+    "decision_receipt_status": "HUMAN_DECISION_RECEIPT_PASS_TYPED_DECISION_RECORDED",
+    "selected_decision_option": "DECISION_ACCEPT_AS_BASIS_FOR_NEXT_UNIT_DEFINITION",
+    "selection_source": "EXPLICIT_HUMAN_SELECTION"
+  },
+  "authority_effects_after_update": {
+    "basis_for_next_unit_definition_authority": "GRANTED",
+    "execution_authority": "NOT_GRANTED",
+    "next_unit_definition_authority": "NOT_GRANTED",
+    "next_unit_definition_surface_preparation_authority": "GRANTED",
+    "reuse_authority": "NOT_GRANTED",
+    "runner_authority": "NOT_GRANTED",
+    "taxonomy_promotion_authority": "NOT_GRANTED",
+    "updater_generalization_authority": "NOT_GRANTED"
+  },
+  "authority_state_after": {
+    "authority_event_applied": "HUMAN_ACCEPTANCE",
+    "authority_event_status_after": "AUTH_EVENT_CONSUMED",
+    "new_authority_state": "AUTH_STATE_ACCEPTED_AS_BASIS_FOR_NEXT_UNIT_DEFINITION"
+  },
+  "authority_state_before": {
+    "authority_event_status_before": "AUTH_EVENT_UNCONSUMED",
+    "current_authority_state": "AUTH_STATE_OBSERVED_NOT_AUTHORIZED",
+    "required_authority_event": "HUMAN_ACCEPTANCE"
+  },
+  "authority_update_id": "c8.n22.authority_state_update.v0",
+  "generated_by": "scripts/build_c8_n22_authority_state_update_v0.py",
+  "local_transition_table": {
+    "entries": [
+      {
+        "authority_effects_after_update": {
+          "basis_for_next_unit_definition_authority": "GRANTED",
+          "execution_authority": "NOT_GRANTED",
+          "next_unit_definition_authority": "NOT_GRANTED",
+          "next_unit_definition_surface_preparation_authority": "GRANTED",
+          "reuse_authority": "NOT_GRANTED",
+          "runner_authority": "NOT_GRANTED",
+          "taxonomy_promotion_authority": "NOT_GRANTED",
+          "updater_generalization_authority": "NOT_GRANTED"
+        },
+        "authority_event_status_after": "AUTH_EVENT_CONSUMED",
+        "new_authority_state": "AUTH_STATE_ACCEPTED_AS_BASIS_FOR_NEXT_UNIT_DEFINITION",
+        "next_allowed_router_action": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE",
+        "required_authority_event_from_receipt": "HUMAN_ACCEPTANCE",
+        "required_prior_state": "AUTH_STATE_OBSERVED_NOT_AUTHORIZED",
+        "required_receipt_application_status_before": "NOT_APPLIED",
+        "selected_decision_option": "DECISION_ACCEPT_AS_BASIS_FOR_NEXT_UNIT_DEFINITION"
+      }
+    ],
+    "transition_table_id": "c8.n22.applied_decision_transition_table.v0",
+    "transition_table_scope": "LOCAL_A3_SELECTED_RECEIPT_ONLY"
+  },
+  "next_router_state": {
+    "machine_forbidden_action_scopes": [
+      "FINALIZE_NEXT_UNIT_DEFINITION_WITHOUT_SEPARATE_AUTHORITY",
+      "EXECUTE_UNIT",
+      "REWRITE_RECEIPTS",
+      "PROMOTE_TAXONOMY",
+      "AUTHORIZE_REUSE",
+      "GENERALIZE_UPDATER",
+      "ACTIVATE_RUNNER"
+    ],
+    "machine_permitted_action_scope": "PREPARE_NEXT_UNIT_DEFINITION_SURFACE_ONLY",
+    "next_allowed_router_action": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE"
+  },
+  "non_claims": [
+    "A3 does not execute the next bounded unit.",
+    "A3 does not define the next bounded unit as final.",
+    "A3 does not authorize final next-unit definition.",
+    "A3 does not promote taxonomy.",
+    "A3 does not authorize reuse.",
+    "A3 does not generalize the updater.",
+    "A3 does not create runner authority.",
+    "A3 does not rewrite receipts.",
+    "A3 does not validate theorem truth.",
+    "A3 does not validate edge lawfulness.",
+    "A3 does not validate receipt truth beyond verifying the declared A2 receipt fields against A1 and the local transition table.",
+    "A3 only applies the selected human decision receipt to the formal c8.n22 authority state.",
+    "A3 authorizes preparation of the next bounded unit definition surface only.",
+    "A3 does not create, finalize, authorize, or execute that next bounded unit."
+  ],
+  "schema_version": "matrixlabs_authority_state_update_v0",
+  "source": {
+    "boundary_record_path": "docs/matrixlabs/boundary/c8_n22_authority_boundary_transition_record_v0.json",
+    "boundary_record_sha256": "d7fca19043b801fcdf5e369597946eed715673fbf5a7aad3269e209ff68138e0",
+    "decision_receipt_commit_sha": "3bd78924073756c8a3640082897d6ade5780970d",
+    "decision_receipt_path": "docs/matrixlabs/decisions/c8_n22_human_decision_receipt_v0.json",
+    "decision_receipt_sha256": "17db19ef6c9cb3ee2da18e8b17a5466610acacb0271e9465f8ce3f12795330ab",
+    "decision_surface_commit_sha": "c006f0fd1a9833009c5660900534a692402fbe6e",
+    "decision_surface_path": "docs/matrixlabs/decision_surfaces/c8_n22_human_decision_surface_v0.json",
+    "decision_surface_sha256": "42aa4bdb9aa188eacb2006a3dfb19c5934e8b277ed0df8fff8576afea53e7a09",
+    "readabout_authority_role": "AUDIT_REFERENCE_ONLY_DOWNSTREAM_PROJECTION",
+    "readabout_path": "docs/matrixlabs/readabouts/c8_n22_authority_boundary_readabout_v0.json",
+    "readabout_sha256": "a87f698393141909bc8cd26ccc6da8cb54b1c2328c3ab413e12577a2e3c66a30"
+  },
+  "source_boundary_record_id": "c8.n22.boundary_transition.v0",
+  "source_decision_receipt_id": "c8.n22.human_decision_receipt.v0",
+  "source_decision_surface_id": "c8.n22.human_decision_surface.v0",
+  "source_readabout_id": "c8.n22.authority_boundary.readabout.v0",
+  "source_readabout_role": "AUDIT_REFERENCE_ONLY_DOWNSTREAM_PROJECTION",
+  "unsafe_to_infer": [
+    "Unsafe to infer: the next bounded unit has been defined.",
+    "Unsafe to infer: the next bounded unit has been finalized.",
+    "Unsafe to infer: the next bounded unit may execute.",
+    "Unsafe to infer: runtime execution is authorized.",
+    "Unsafe to infer: receipts may be rewritten.",
+    "Unsafe to infer: taxonomy has been promoted.",
+    "Unsafe to infer: reuse is authorized.",
+    "Unsafe to infer: updater generalization is authorized.",
+    "Unsafe to infer: runner authority exists."
+  ],
+  "update_gate": {
+    "authority_event_applied": "HUMAN_ACCEPTANCE",
+    "authority_event_matches_receipt": true,
+    "authority_event_status_after": "AUTH_EVENT_CONSUMED",
+    "authority_smuggling_detected": false,
+    "authority_state_update_gate": "AUTHORITY_UPDATE_PASS_DECISION_APPLIED",
+    "basis_for_next_unit_definition_authority": "GRANTED",
+    "decision_receipt_application_status": "APPLIED_ONCE",
+    "decision_receipt_not_already_applied_elsewhere": true,
+    "decision_receipt_valid": true,
+    "execution_authority": "NOT_GRANTED",
+    "failures": [],
+    "machine_permitted_action_scope": "PREPARE_NEXT_UNIT_DEFINITION_SURFACE_ONLY",
+    "new_authority_state": "AUTH_STATE_ACCEPTED_AS_BASIS_FOR_NEXT_UNIT_DEFINITION",
+    "next_allowed_router_action": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE",
+    "next_unit_definition_authority": "NOT_GRANTED",
+    "next_unit_definition_surface_preparation_authority": "GRANTED",
+    "prior_authority_state": "AUTH_STATE_OBSERVED_NOT_AUTHORIZED",
+    "prior_state_matches_transition_table": true,
+    "reuse_authority": "NOT_GRANTED",
+    "runner_authority": "NOT_GRANTED",
+    "selected_decision_option": "DECISION_ACCEPT_AS_BASIS_FOR_NEXT_UNIT_DEFINITION",
+    "selected_option_effects_match_surface": true,
+    "selected_option_present_on_surface": true,
+    "source_boundary_record_present": true,
+    "source_decision_receipt_present": true,
+    "source_decision_surface_present": true,
+    "source_readabout_present": true,
+    "state_transition_matches_selected_option": true,
+    "taxonomy_promotion_authority": "NOT_GRANTED",
+    "transition_table_entry_count": 1,
+    "transition_table_entry_found": true,
+    "transition_table_scope": "LOCAL_A3_SELECTED_RECEIPT_ONLY",
+    "updater_generalization_authority": "NOT_GRANTED"
+  },
+  "update_role": "FORMAL_AUTHORITY_STATE_TRANSITION_APPLICATION"
+}
