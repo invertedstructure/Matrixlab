@@ -123,6 +123,11 @@ C8_N22_READ_ONLY_ROUTER_SPECIMEN_CLOSURE_DOCS = [
     "docs/matrixlabs/router/c8_n22_read_only_router_specimen_closure_v0.md",
 ]
 C8_N22_READ_ONLY_ROUTER_SPECIMEN_CLOSURE_GENERATOR = "scripts/build_c8_n22_read_only_router_specimen_closure_v0.py"
+VALIDATOR_ARCHIVE_SCHEMA_CONTRACT_DOCS = [
+    "docs/matrixlabs/validator_archive/validator_archive_entry_schema_contract_v0.json",
+    "docs/matrixlabs/validator_archive/validator_archive_entry_schema_contract_v0.md",
+]
+VALIDATOR_ARCHIVE_SCHEMA_CONTRACT_GENERATOR = "scripts/build_validator_archive_entry_schema_contract_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -164,6 +169,8 @@ SOURCE_DOCS = [
     C8_N22_AUTHORITY_ROUTE_CLASSIFICATION_GENERATOR,
     *C8_N22_READ_ONLY_ROUTER_SPECIMEN_CLOSURE_DOCS,
     C8_N22_READ_ONLY_ROUTER_SPECIMEN_CLOSURE_GENERATOR,
+    *VALIDATOR_ARCHIVE_SCHEMA_CONTRACT_DOCS,
+    VALIDATOR_ARCHIVE_SCHEMA_CONTRACT_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -631,6 +638,7 @@ def build_manifest(
     b1_requested_action_present = (root / C8_N22_REQUESTED_ACTION_DOCS[0]).exists()
     b2_route_classification_present = (root / C8_N22_AUTHORITY_ROUTE_CLASSIFICATION_DOCS[0]).exists()
     b3_router_specimen_closure_present = (root / C8_N22_READ_ONLY_ROUTER_SPECIMEN_CLOSURE_DOCS[0]).exists()
+    c1_archive_schema_contract_present = (root / VALIDATOR_ARCHIVE_SCHEMA_CONTRACT_DOCS[0]).exists()
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -714,6 +722,21 @@ def build_manifest(
         "authority_state_changed_by_b3": False,
         "observed_path_updated": False,
         "observed_path_update_proposed": False,
+        "archive_schema_contract_created": c1_archive_schema_contract_present,
+        "archive_schema_contract_id": "validator_archive_entry_schema_contract.v0" if c1_archive_schema_contract_present else None,
+        "contract_status": "ARCHIVE_SCHEMA_PASS_CONTRACT_DEFINED" if c1_archive_schema_contract_present else None,
+        "required_field_group_count": 18 if c1_archive_schema_contract_present else None,
+        "required_field_groups_present": c1_archive_schema_contract_present,
+        "archive_entry_created": False,
+        "candidate_entry_created": False,
+        "promotion_granted": False,
+        "reuse_authority_granted": False,
+        "active_archive_entry_created": False,
+        "auto_disposition_allowed": False,
+        "c2_created": False,
+        "c3_created": False,
+        "promotion_receipt_created": False,
+        "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,
         "router_created": False,
         "b2_created": b2_route_classification_present,

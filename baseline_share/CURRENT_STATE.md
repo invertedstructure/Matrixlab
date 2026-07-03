@@ -1,32 +1,34 @@
 # Current State
 
-Generated at UTC: `2026-07-03T01:51:14Z`
+Generated at UTC: `2026-07-03T03:24:18Z`
 
 ## Git context
 
-- Current HEAD SHA: `b6f19b7de99a7d074091c38661e4ceb28ba3d378`
+- Current HEAD SHA: `e1f540582ecaa540e0e180b0715e653f54751ba5`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
 - Git status:
-- `M scripts/build_baseline_share_v0.py`
+- `M baseline_share/COMMIT_CONTEXT.md`
+- ` M baseline_share/CURRENT_STATE.md`
+- ` M baseline_share/MANIFEST.json`
+- ` M baseline_share/RECEIPT_POINTERS.md`
+- ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/router/c8_n22_read_only_router_specimen_closure_v0.json`
-- `?? docs/matrixlabs/router/c8_n22_read_only_router_specimen_closure_v0.md`
-- `?? scripts/build_c8_n22_read_only_router_specimen_closure_v0.py`
+- `?? docs/matrixlabs/validator_archive/`
+- `?? scripts/build_validator_archive_entry_schema_contract_v0.py`
 - Git status excluding generated `baseline_share/`:
-- `M scripts/build_baseline_share_v0.py`
+- ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/router/c8_n22_read_only_router_specimen_closure_v0.json`
-- `?? docs/matrixlabs/router/c8_n22_read_only_router_specimen_closure_v0.md`
-- `?? scripts/build_c8_n22_read_only_router_specimen_closure_v0.py`
+- `?? docs/matrixlabs/validator_archive/`
+- `?? scripts/build_validator_archive_entry_schema_contract_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `b6f19b7de99a7d074091c38661e4ceb28ba3d378`
-- Current C8 post-patch surface-decision acceptance commit: `b6f19b7de99a7d074091c38661e4ceb28ba3d378`
+- Current architecture extraction commit: `e1f540582ecaa540e0e180b0715e653f54751ba5`
+- Current C8 post-patch surface-decision acceptance commit: `e1f540582ecaa540e0e180b0715e653f54751ba5`
 
 ## High-level state
 

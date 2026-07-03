@@ -1,0 +1,567 @@
+{
+  "archive_schema_contract_id": "validator_archive_entry_schema_contract.v0",
+  "contract_authority_state": {
+    "activation_status": "ACTIVATION_NOT_APPLICABLE_TO_CONTRACT",
+    "archive_entry_creation_status": "NO_ARCHIVE_ENTRY_CREATED_BY_CONTRACT",
+    "auto_disposition_status": "AUTO_DISPOSITION_NOT_ALLOWED_BY_CONTRACT",
+    "candidate_entry_creation_status": "NO_CANDIDATE_ENTRY_CREATED_BY_CONTRACT",
+    "promotion_status": "PROMOTION_NOT_GRANTED_BY_CONTRACT",
+    "reuse_authority_status": "REUSE_AUTHORITY_NOT_GRANTED_BY_CONTRACT",
+    "runner_authority_status": "RUNNER_AUTHORITY_NOT_CREATED_BY_CONTRACT"
+  },
+  "contract_gate": {
+    "active_archive_entry_created": false,
+    "archive_entry_created": false,
+    "archive_schema_gate": "ARCHIVE_SCHEMA_PASS_CONTRACT_DEFINED",
+    "archive_status_group_present": true,
+    "authority_creation_detected": false,
+    "authority_scope_group_present": true,
+    "auto_disposition_allowed": false,
+    "candidate_entry_created": false,
+    "escalation_conditions_group_present": true,
+    "failures": [],
+    "forbidden_authority_changes_group_present": true,
+    "freshness_rules_group_present": true,
+    "halt_conditions_group_present": true,
+    "identity_group_present": true,
+    "input_object_shape_group_present": true,
+    "machine_action_scope_group_present": true,
+    "output_object_shape_group_present": true,
+    "promotion_and_reuse_status_group_present": true,
+    "promotion_granted": false,
+    "radius_discipline_group_present": true,
+    "readabout_projection_hooks_group_present": true,
+    "receipt_obligations_group_present": true,
+    "requested_action_scope_group_present": true,
+    "required_field_group_count": 18,
+    "required_field_groups_present": true,
+    "reuse_authority_granted": false,
+    "revocation_and_expiry_group_present": true,
+    "runner_authority_created": false,
+    "source_basis_group_present": true,
+    "validator_requirements_group_present": true
+  },
+  "contract_laws": {
+    "archive_entry_status_does_not_imply_reuse_authority": true,
+    "candidate_source_specimen_is_not_sufficient_for_active_reuse": true,
+    "no_forever_by_omission": true,
+    "no_implicit_radius_expansion": true,
+    "no_receipt_obligations_no_preapproval": true,
+    "preapproved_inactive_entry_is_not_active": true,
+    "promotion_status_does_not_imply_activation_status": true,
+    "readabout_projection_is_downstream_only": true,
+    "schema_contract_does_not_create_candidate": true,
+    "schema_contract_does_not_create_entry": true
+  },
+  "contract_role": "ARCHIVE_ENTRY_CONTRACT_ONLY",
+  "contract_status": "ARCHIVE_SCHEMA_PASS_CONTRACT_DEFINED",
+  "derived_non_effect_checks": {
+    "allows_auto_disposition": false,
+    "creates_active_entry": false,
+    "creates_archive_entry": false,
+    "creates_candidate_entry": false,
+    "creates_runner_authority": false,
+    "grants_promotion": false,
+    "grants_reuse_authority": false
+  },
+  "entry_status_vocabulary": {
+    "activation_status": [
+      "ACTIVATION_NOT_APPLICABLE",
+      "ACTIVATION_INACTIVE",
+      "ACTIVATION_ACTIVE",
+      "ACTIVATION_REVOKED",
+      "ACTIVATION_EXPIRED"
+    ],
+    "archive_entry_status": [
+      "ARCHIVE_STATUS_NONE",
+      "ARCHIVE_STATUS_CANDIDATE",
+      "ARCHIVE_STATUS_REVIEW_REQUIRED",
+      "ARCHIVE_STATUS_PREAPPROVED_INACTIVE",
+      "ARCHIVE_STATUS_PREAPPROVED_ACTIVE",
+      "ARCHIVE_STATUS_REVOKED",
+      "ARCHIVE_STATUS_EXPIRED"
+    ],
+    "promotion_status": [
+      "PROMOTION_NOT_REQUESTED",
+      "PROMOTION_PENDING_HUMAN_DECISION",
+      "PROMOTION_GRANTED_FOR_DECLARED_SCOPE",
+      "PROMOTION_REJECTED",
+      "PROMOTION_REVOKED"
+    ],
+    "reuse_authority_status": [
+      "REUSE_AUTHORITY_NOT_GRANTED",
+      "REUSE_AUTHORITY_GRANTED_FOR_DECLARED_SCOPE"
+    ]
+  },
+  "failure_vocabulary": [
+    "ARCHIVE_SCHEMA_FAIL_IDENTITY_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_STATUS_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_SOURCE_BASIS_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_AUTHORITY_SCOPE_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_REQUESTED_ACTION_SCOPE_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_INPUT_SHAPE_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_OUTPUT_SHAPE_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_MACHINE_SCOPE_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_RADIUS_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_VALIDATOR_REQUIREMENTS_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_RECEIPT_OBLIGATIONS_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_HALT_CONDITIONS_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_ESCALATION_CONDITIONS_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_FRESHNESS_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_FORBIDDEN_AUTHORITY_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_PROMOTION_REUSE_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_REVOCATION_EXPIRY_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_READABOUT_HOOKS_GROUP_MISSING",
+    "ARCHIVE_SCHEMA_FAIL_ARCHIVE_ENTRY_CREATED",
+    "ARCHIVE_SCHEMA_FAIL_CANDIDATE_ENTRY_CREATED",
+    "ARCHIVE_SCHEMA_FAIL_PROMOTION_GRANTED",
+    "ARCHIVE_SCHEMA_FAIL_REUSE_GRANTED",
+    "ARCHIVE_SCHEMA_FAIL_ACTIVE_ENTRY_CREATED",
+    "ARCHIVE_SCHEMA_FAIL_AUTO_DISPOSITION_ALLOWED",
+    "ARCHIVE_SCHEMA_FAIL_RUNNER_AUTHORITY_CREATED",
+    "ARCHIVE_SCHEMA_FAIL_INSTANCE_VALUE_INSERTED",
+    "ARCHIVE_SCHEMA_FAIL_MARKDOWN_JSON_PARITY",
+    "ARCHIVE_SCHEMA_FAIL_RECOMMENDATION_INSERTED"
+  ],
+  "field_group_contracts": [
+    {
+      "group_id": "identity",
+      "group_role": "MAKE_ARCHIVE_ENTRIES_ADDRESSABLE_AND_VERSIONED",
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_IDENTITY_GROUP_MISSING",
+      "non_impersonation": [
+        "identity_does_not_imply_validity",
+        "identity_does_not_imply_reuse_authority"
+      ],
+      "required_fields": [
+        "archive_entry_id",
+        "archive_entry_version",
+        "archive_entry_kind",
+        "archive_entry_status",
+        "created_from_source_kind",
+        "created_from_source_id",
+        "created_at_or_commit_context"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    {
+      "group_id": "archive_status",
+      "group_role": "SEPARATE_CANDIDATE_REVIEW_PREAPPROVED_ACTIVE_REVOKED_AND_EXPIRED_STATES",
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_STATUS_GROUP_MISSING",
+      "non_impersonation": [
+        "archive_entry_status_does_not_imply_reuse_authority",
+        "promotion_status_does_not_imply_activation_status",
+        "preapproved_inactive_does_not_mean_active"
+      ],
+      "required_fields": [
+        "archive_entry_status",
+        "promotion_status",
+        "reuse_authority_status",
+        "activation_status",
+        "expiration_status",
+        "revocation_status"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    {
+      "group_id": "source_basis",
+      "group_role": "DECLARE_WHAT_SPECIMEN_DECISION_OR_PROMOTION_OBJECT_PRODUCED_THE_ENTRY",
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_SOURCE_BASIS_GROUP_MISSING",
+      "non_impersonation": [
+        "candidate_source_specimen_is_not_sufficient_for_active_reuse",
+        "active_entries_require_promotion_decision_receipt_id"
+      ],
+      "required_fields": [
+        "source_specimen_kind",
+        "source_specimen_id",
+        "source_route_classification_id",
+        "source_decision_receipt_id",
+        "source_promotion_receipt_id",
+        "source_commit_sha",
+        "source_artifact_paths"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    {
+      "group_id": "authority_scope",
+      "group_role": "DEFINE_WHEN_ENTRY_MAY_APPLY",
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_AUTHORITY_SCOPE_GROUP_MISSING",
+      "non_impersonation": [
+        "does_not_grant_authority",
+        "does_not_extend_scope_by_similarity",
+        "must_not_apply_to_merely_observed_objects_unless_explicitly_scoped"
+      ],
+      "required_fields": [
+        "allowed_current_authority_state",
+        "allowed_prior_authority_event_status",
+        "allowed_basis_scope",
+        "allowed_source_object_type",
+        "allowed_source_object_status",
+        "forbidden_current_authority_states"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    {
+      "forbidden_action_examples": [
+        "EXECUTE_UNIT",
+        "PROMOTE_SCHEMA",
+        "AUTHORIZE_REUSE",
+        "ACTIVATE_RUNNER",
+        "REWRITE_RECEIPTS"
+      ],
+      "group_id": "requested_action_scope",
+      "group_role": "DEFINE_EXACT_REQUESTED_ACTION_THE_ENTRY_MAY_ROUTE_OR_PERMIT",
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_REQUESTED_ACTION_SCOPE_GROUP_MISSING",
+      "non_impersonation": [
+        "does_not_authorize_forbidden_requested_actions",
+        "does_not_generalize_by_action_similarity"
+      ],
+      "required_fields": [
+        "allowed_requested_action",
+        "allowed_requested_action_scope",
+        "allowed_output_kind",
+        "forbidden_requested_actions"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    {
+      "group_id": "input_object_shape",
+      "group_role": "ENSURE_ENTRY_APPLIES_ONLY_TO_EXPECTED_FORMAL_INPUT_OBJECTS",
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_INPUT_SHAPE_GROUP_MISSING",
+      "non_impersonation": [
+        "must_not_operate_on_loose_prose",
+        "must_not_operate_on_markdown_as_source_authority",
+        "must_not_operate_on_chat_text_as_source_authority",
+        "must_not_operate_on_readabout_projection_as_source_authority"
+      ],
+      "required_fields": [
+        "required_input_object_type",
+        "required_input_schema_version",
+        "required_input_authority_fields",
+        "required_input_source_fields",
+        "required_input_non_effect_fields",
+        "required_input_commit_or_freshness_fields"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    {
+      "group_id": "output_object_shape",
+      "group_role": "DEFINE_OUTPUT_OBJECT_SHAPE_IF_ENTRY_IS_LATER_ACTIVE",
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_OUTPUT_SHAPE_GROUP_MISSING",
+      "non_impersonation": [
+        "contract_defines_field_but_does_not_fill_instance_value",
+        "output_shape_does_not_authorize_output_creation"
+      ],
+      "required_fields": [
+        "allowed_output_object_type",
+        "allowed_output_schema_version",
+        "required_output_fields",
+        "required_output_nonclaims",
+        "required_output_receipts"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    {
+      "group_id": "machine_action_scope",
+      "group_role": "STATE_WHAT_MACHINE_MAY_DO_UNDER_AN_ACTIVE_ENTRY",
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_MACHINE_SCOPE_GROUP_MISSING",
+      "non_impersonation": [
+        "contract_defines_scopes_but_authorizes_none",
+        "auto_disposition_requires_explicit_active_entry"
+      ],
+      "required_fields": [
+        "machine_action_scope",
+        "auto_disposition_allowed",
+        "human_review_required",
+        "human_acceptance_required",
+        "action_performs_authority_change"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE",
+      "scope_vocabulary_defined_by_contract": [
+        "CLASSIFY_ONLY",
+        "PREPARE_SURFACE_ONLY",
+        "APPLY_AUTHORITY_TRANSITION",
+        "EXECUTE_LOCAL_UNIT",
+        "BATCH_EXECUTE_WITH_RADIUS"
+      ]
+    },
+    {
+      "group_id": "radius_discipline",
+      "group_role": "PREVENT_SINGLE_USE_BEHAVIOR_FROM_BECOMING_BROAD_AUTOMATION",
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_RADIUS_GROUP_MISSING",
+      "non_impersonation": [
+        "candidate_entries_must_use_radius_0_candidate_only",
+        "active_entries_may_expand_radius_only_if_promotion_and_activation_explicitly_grant_it",
+        "no_implicit_radius_expansion"
+      ],
+      "radius_vocabulary_defined_by_contract": [
+        "RADIUS_0_CANDIDATE_ONLY",
+        "RADIUS_1_SINGLE_OBJECT",
+        "RADIUS_N_DECLARED_BATCH"
+      ],
+      "required_fields": [
+        "radius_mode",
+        "radius_limit",
+        "radius_unit",
+        "radius_consumed_per_action",
+        "radius_reset_rule",
+        "radius_escalation_rule",
+        "radius_expansion_requires_decision"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    {
+      "example_validators": [
+        "authority_state_match_validator",
+        "requested_action_scope_validator",
+        "basis_scope_validator",
+        "forbidden_effects_validator",
+        "output_shape_validator",
+        "freshness_validator",
+        "radius_validator"
+      ],
+      "group_id": "validator_requirements",
+      "group_role": "DECLARE_CHECKS_THAT_MUST_PASS_BEFORE_ENTRY_CAN_BE_USED",
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_VALIDATOR_REQUIREMENTS_GROUP_MISSING",
+      "non_impersonation": [
+        "missing_validator_halts_use",
+        "validator_pass_does_not_bypass_receipt_obligations"
+      ],
+      "required_fields": [
+        "required_validators",
+        "validator_versions",
+        "validator_input_fields",
+        "validator_pass_statuses",
+        "validator_fail_statuses"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    {
+      "group_id": "receipt_obligations",
+      "group_role": "DECLARE_RECEIPTS_REQUIRED_WHEN_AN_ACTIVE_ENTRY_IS_USED",
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_RECEIPT_OBLIGATIONS_GROUP_MISSING",
+      "non_impersonation": [
+        "no_receipt_obligations_no_preapproval",
+        "receipts_are_required_for_active_entry_use"
+      ],
+      "required_fields": [
+        "required_receipts_before_action",
+        "required_receipts_during_action",
+        "required_receipts_after_action",
+        "required_closeout_receipt",
+        "required_baseline_projection"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    {
+      "group_id": "halt_conditions",
+      "group_role": "DEFINE_WHEN_MACHINE_MUST_STOP",
+      "initial_halt_codes": [
+        "HALT_AUTHORITY_STATE_MISMATCH",
+        "HALT_REQUESTED_ACTION_SCOPE_MISMATCH",
+        "HALT_BASIS_SCOPE_MISMATCH",
+        "HALT_OUTPUT_KIND_MISMATCH",
+        "HALT_FORBIDDEN_EFFECT_DETECTED",
+        "HALT_VALIDATOR_MISSING",
+        "HALT_RADIUS_EXCEEDED",
+        "HALT_SOURCE_FRESHNESS_UNKNOWN"
+      ],
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_HALT_CONDITIONS_GROUP_MISSING",
+      "non_impersonation": [
+        "every_archive_entry_must_declare_halt_conditions",
+        "halt_does_not_equal_escalation"
+      ],
+      "required_fields": [
+        "mandatory_halt_conditions",
+        "halt_codes",
+        "halt_receipt_required",
+        "halt_readabout_required_if_human_facing"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    {
+      "group_id": "escalation_conditions",
+      "group_role": "DEFINE_WHEN_MACHINE_MUST_ROUTE_TO_REVIEW_INSTEAD_OF_ACTING",
+      "initial_escalation_codes": [
+        "ESCALATE_BOUNDARY_UNCLEAR",
+        "ESCALATE_SCHEMA_SCOPE_AMBIGUOUS",
+        "ESCALATE_FRESHNESS_UNKNOWN",
+        "ESCALATE_OUTPUT_SHAPE_UNEXPECTED",
+        "ESCALATE_AUTHORITY_CHANGE_REQUESTED",
+        "ESCALATE_HUMAN_PROMOTION_REQUIRED"
+      ],
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_ESCALATION_CONDITIONS_GROUP_MISSING",
+      "non_impersonation": [
+        "escalation_routes_to_review_but_does_not_authorize_action",
+        "escalation_does_not_equal_halt"
+      ],
+      "required_fields": [
+        "mandatory_escalation_conditions",
+        "escalation_codes",
+        "escalation_target",
+        "escalation_surface_required"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    {
+      "allowed_freshness_statuses_defined_by_contract": [
+        "SOURCE_COMMIT_VERIFIED"
+      ],
+      "group_id": "freshness_rules",
+      "group_role": "PREVENT_STALE_SOURCE_FROM_BEING_TREATED_AS_CURRENT_AUTHORITY",
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_FRESHNESS_GROUP_MISSING",
+      "non_impersonation": [
+        "readabout_may_project_freshness_but_is_not_source_authority",
+        "unknown_freshness_halts"
+      ],
+      "required_fields": [
+        "freshness_required",
+        "freshness_basis",
+        "allowed_freshness_statuses",
+        "stale_source_halt_code",
+        "unknown_freshness_halt_code"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    {
+      "forbidden_authority_classes": [
+        "EXECUTION_AUTHORITY",
+        "REUSE_AUTHORITY",
+        "TAXONOMY_PROMOTION_AUTHORITY",
+        "UPDATER_GENERALIZATION_AUTHORITY",
+        "RUNNER_AUTHORITY",
+        "RECEIPT_REWRITE_AUTHORITY",
+        "OBSERVED_PATH_UPDATE_AUTHORITY"
+      ],
+      "group_id": "forbidden_authority_changes",
+      "group_role": "PREVENT_ARCHIVE_USE_FROM_SMUGGLING_STRONGER_AUTHORITY",
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_FORBIDDEN_AUTHORITY_GROUP_MISSING",
+      "non_impersonation": [
+        "no_implicit_default",
+        "forbidden_authority_changes_must_be_checked"
+      ],
+      "required_authority_status_vocabulary": [
+        "NOT_GRANTED",
+        "GRANTED_FOR_DECLARED_SCOPE",
+        "FORBIDDEN"
+      ],
+      "required_fields": [
+        "forbidden_authority_changes",
+        "forbidden_side_effects",
+        "required_non_effect_checks"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    {
+      "active_entry_required_values": {
+        "activation_receipt_id": "REQUIRED",
+        "activation_status": "ACTIVATION_ACTIVE",
+        "promotion_decision_receipt_id": "REQUIRED",
+        "reuse_scope": "REQUIRED"
+      },
+      "candidate_entry_required_values": {
+        "activation_status": "ACTIVATION_NOT_APPLICABLE",
+        "promotion_status": "PROMOTION_NOT_REQUESTED",
+        "reuse_authority_status": "REUSE_AUTHORITY_NOT_GRANTED"
+      },
+      "group_id": "promotion_and_reuse_status",
+      "group_role": "MAKE_PROMOTION_REUSE_AND_ACTIVATION_EXPLICIT_AUTHORITY_STATES",
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_PROMOTION_REUSE_GROUP_MISSING",
+      "non_impersonation": [
+        "promotion_does_not_imply_activation",
+        "reuse_authority_requires_declared_scope",
+        "active_use_requires_activation_receipt"
+      ],
+      "preapproved_inactive_required_values": {
+        "activation_status": "ACTIVATION_INACTIVE",
+        "promotion_decision_receipt_id": "REQUIRED",
+        "reuse_scope": "REQUIRED"
+      },
+      "required_fields": [
+        "promotion_status",
+        "promotion_decision_receipt_id",
+        "promotion_scope",
+        "reuse_authority_status",
+        "reuse_scope",
+        "reuse_activation_status"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    {
+      "group_id": "revocation_and_expiry",
+      "group_role": "MAKE_PREAPPROVAL_REVERSIBLE_AND_BOUNDED",
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_REVOCATION_EXPIRY_GROUP_MISSING",
+      "non_impersonation": [
+        "no_forever_by_omission",
+        "revocation_status_must_be_explicit"
+      ],
+      "required_fields": [
+        "expiry_rule",
+        "review_required_after",
+        "revocation_status",
+        "revocation_reason",
+        "revocation_receipt_id"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE",
+      "v0_minimum_expiry_rule": "NONE_DECLARED_FOR_V0"
+    },
+    {
+      "group_id": "readabout_projection_hooks",
+      "group_role": "MAKE_ARCHIVE_ENTRIES_PROJECTABLE_INTO_HUMAN_AUDIT_LANGUAGE_WITHOUT_REWRITING_MEANING",
+      "missing_field_halt": "ARCHIVE_SCHEMA_FAIL_READABOUT_HOOKS_GROUP_MISSING",
+      "non_impersonation": [
+        "human_facing_projection_is_downstream_and_field_backed",
+        "archive_entries_remain_formal_source_objects",
+        "readabout_projection_does_not_create_authority"
+      ],
+      "required_fields": [
+        "readabout_required_for_human_promotion",
+        "readabout_projection_allowed",
+        "source_of_truth_role",
+        "projection_claim_requirements"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    }
+  ],
+  "generated_by": "scripts/build_validator_archive_entry_schema_contract_v0.py",
+  "non_claims": [
+    "C.1 does not create an archive entry.",
+    "C.1 does not create a candidate archive entry.",
+    "C.1 does not represent the prior router specimen as a candidate.",
+    "C.1 does not grant promotion.",
+    "C.1 does not authorize reuse.",
+    "C.1 does not activate an archive entry.",
+    "C.1 does not allow auto-disposition.",
+    "C.1 does not create runner authority.",
+    "C.1 does not execute or prepare any move.",
+    "C.1 only defines the required contract shape for future validator archive entries."
+  ],
+  "required_field_groups": [
+    "identity",
+    "archive_status",
+    "source_basis",
+    "authority_scope",
+    "requested_action_scope",
+    "input_object_shape",
+    "output_object_shape",
+    "machine_action_scope",
+    "radius_discipline",
+    "validator_requirements",
+    "receipt_obligations",
+    "halt_conditions",
+    "escalation_conditions",
+    "freshness_rules",
+    "forbidden_authority_changes",
+    "promotion_and_reuse_status",
+    "revocation_and_expiry",
+    "readabout_projection_hooks"
+  ],
+  "schema_version": "matrixlabs_validator_archive_entry_schema_contract_v0",
+  "terminal_transition": "ADVANCE(C2_VALIDATOR_ARCHIVE_CANDIDATE_ENTRY_PENDING)",
+  "unsafe_to_infer": [
+    "schema_contract_implies_schema_authorization",
+    "candidate_entry_implies_reuse_authority",
+    "promotion_implies_activation",
+    "preapproved_inactive_implies_active",
+    "local_specimen_implies_reusable_authority"
+  ]
+}
