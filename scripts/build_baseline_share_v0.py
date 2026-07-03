@@ -128,6 +128,11 @@ VALIDATOR_ARCHIVE_SCHEMA_CONTRACT_DOCS = [
     "docs/matrixlabs/validator_archive/validator_archive_entry_schema_contract_v0.md",
 ]
 VALIDATOR_ARCHIVE_SCHEMA_CONTRACT_GENERATOR = "scripts/build_validator_archive_entry_schema_contract_v0.py"
+C8_N22_CANDIDATE_ARCHIVE_ENTRY_DOCS = [
+    "docs/matrixlabs/validator_archive/candidates/c8_n22_prepare_next_unit_definition_candidate_archive_entry_v0.json",
+    "docs/matrixlabs/validator_archive/candidates/c8_n22_prepare_next_unit_definition_candidate_archive_entry_v0.md",
+]
+C8_N22_CANDIDATE_ARCHIVE_ENTRY_GENERATOR = "scripts/build_c8_n22_prepare_next_unit_definition_candidate_archive_entry_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -171,6 +176,8 @@ SOURCE_DOCS = [
     C8_N22_READ_ONLY_ROUTER_SPECIMEN_CLOSURE_GENERATOR,
     *VALIDATOR_ARCHIVE_SCHEMA_CONTRACT_DOCS,
     VALIDATOR_ARCHIVE_SCHEMA_CONTRACT_GENERATOR,
+    *C8_N22_CANDIDATE_ARCHIVE_ENTRY_DOCS,
+    C8_N22_CANDIDATE_ARCHIVE_ENTRY_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -639,6 +646,7 @@ def build_manifest(
     b2_route_classification_present = (root / C8_N22_AUTHORITY_ROUTE_CLASSIFICATION_DOCS[0]).exists()
     b3_router_specimen_closure_present = (root / C8_N22_READ_ONLY_ROUTER_SPECIMEN_CLOSURE_DOCS[0]).exists()
     c1_archive_schema_contract_present = (root / VALIDATOR_ARCHIVE_SCHEMA_CONTRACT_DOCS[0]).exists()
+    c2_candidate_archive_entry_present = (root / C8_N22_CANDIDATE_ARCHIVE_ENTRY_DOCS[0]).exists()
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -733,7 +741,20 @@ def build_manifest(
         "reuse_authority_granted": False,
         "active_archive_entry_created": False,
         "auto_disposition_allowed": False,
-        "c2_created": False,
+        "candidate_archive_entry_created": c2_candidate_archive_entry_present,
+        "candidate_archive_entry_id": "candidate.c8.n22.prepare_next_unit_definition_surface.v0" if c2_candidate_archive_entry_present else None,
+        "candidate_entry_gate": "CANDIDATE_ARCHIVE_ENTRY_PASS_REPRESENTABLE_NOT_PROMOTED" if c2_candidate_archive_entry_present else None,
+        "candidate_representation_gate": "CANDIDATE_ARCHIVE_ENTRY_PASS_REPRESENTABLE" if c2_candidate_archive_entry_present else None,
+        "candidate_non_promotion_gate": "CANDIDATE_ARCHIVE_ENTRY_PASS_NOT_PROMOTED" if c2_candidate_archive_entry_present else None,
+        "archive_entry_status": "ARCHIVE_STATUS_CANDIDATE" if c2_candidate_archive_entry_present else None,
+        "promotion_status": "PROMOTION_NOT_REQUESTED" if c2_candidate_archive_entry_present else None,
+        "reuse_authority_status": "REUSE_AUTHORITY_NOT_GRANTED" if c2_candidate_archive_entry_present else None,
+        "activation_status": "ACTIVATION_NOT_APPLICABLE" if c2_candidate_archive_entry_present else None,
+        "radius_limit_now": "RADIUS_0_CANDIDATE_ONLY" if c2_candidate_archive_entry_present else None,
+        "candidate_move_performed": False,
+        "authority_changed": False,
+        "preapproved_archive_entry_created": False,
+        "c2_created": c2_candidate_archive_entry_present,
         "c3_created": False,
         "promotion_receipt_created": False,
         "activation_object_created": False,

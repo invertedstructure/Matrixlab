@@ -1,7 +1,7 @@
 # Commit Context
 
-- Generated at UTC: `2026-07-03T03:24:18Z`
-- Current HEAD SHA: `e1f540582ecaa540e0e180b0715e653f54751ba5`
+- Generated at UTC: `2026-07-03T04:14:57Z`
+- Current HEAD SHA: `96223d2a9827543c27f93a1c0a16a6670a97de71`
 - Branch: `master`
 - Worktree state at generation time: `dirty`
 - Generator script: `scripts/build_baseline_share_v0.py`
@@ -9,6 +9,7 @@
 ## Recent 10 commits
 
 ```text
+96223d2a9 Add validator archive entry schema contract v0
 e1f540582 Close C8 n22 read-only router specimen v0
 b6f19b7de Add C8 n22 authority route classification v0
 636324fbd Add C8 n22 requested action record v0
@@ -18,7 +19,6 @@ d8a5116ec Add C8 n22 authority state update v0
 c006f0fd1 Add C8 n22 human decision surface v0
 fa4deb543 Add C8 n22 authority boundary readabout v0
 c0e560c3d Add C8 n22 authority boundary record v0
-d4b19660d Apply C8 observed path update v0
 ```
 
 ## Git status short
@@ -30,8 +30,8 @@ M baseline_share/COMMIT_CONTEXT.md
  M baseline_share/RECEIPT_POINTERS.md
  M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/validator_archive/
-?? scripts/build_validator_archive_entry_schema_contract_v0.py
+?? docs/matrixlabs/validator_archive/candidates/
+?? scripts/build_c8_n22_prepare_next_unit_definition_candidate_archive_entry_v0.py
 ```
 
 ## Git status short excluding generated baseline_share
@@ -39,8 +39,8 @@ M baseline_share/COMMIT_CONTEXT.md
 ```text
  M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/validator_archive/
-?? scripts/build_validator_archive_entry_schema_contract_v0.py
+?? docs/matrixlabs/validator_archive/candidates/
+?? scripts/build_c8_n22_prepare_next_unit_definition_candidate_archive_entry_v0.py
 ```
 
 ## Safety facts
