@@ -118,6 +118,11 @@ C8_N22_AUTHORITY_ROUTE_CLASSIFICATION_DOCS = [
     "docs/matrixlabs/router/c8_n22_authority_route_classification_v0.md",
 ]
 C8_N22_AUTHORITY_ROUTE_CLASSIFICATION_GENERATOR = "scripts/build_c8_n22_authority_route_classification_v0.py"
+C8_N22_READ_ONLY_ROUTER_SPECIMEN_CLOSURE_DOCS = [
+    "docs/matrixlabs/router/c8_n22_read_only_router_specimen_closure_v0.json",
+    "docs/matrixlabs/router/c8_n22_read_only_router_specimen_closure_v0.md",
+]
+C8_N22_READ_ONLY_ROUTER_SPECIMEN_CLOSURE_GENERATOR = "scripts/build_c8_n22_read_only_router_specimen_closure_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -157,6 +162,8 @@ SOURCE_DOCS = [
     C8_N22_REQUESTED_ACTION_GENERATOR,
     *C8_N22_AUTHORITY_ROUTE_CLASSIFICATION_DOCS,
     C8_N22_AUTHORITY_ROUTE_CLASSIFICATION_GENERATOR,
+    *C8_N22_READ_ONLY_ROUTER_SPECIMEN_CLOSURE_DOCS,
+    C8_N22_READ_ONLY_ROUTER_SPECIMEN_CLOSURE_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -623,6 +630,7 @@ def build_manifest(
     a4_closure_present = (root / C8_N22_AUTHORITY_TRANSITION_CLOSURE_DOCS[0]).exists()
     b1_requested_action_present = (root / C8_N22_REQUESTED_ACTION_DOCS[0]).exists()
     b2_route_classification_present = (root / C8_N22_AUTHORITY_ROUTE_CLASSIFICATION_DOCS[0]).exists()
+    b3_router_specimen_closure_present = (root / C8_N22_READ_ONLY_ROUTER_SPECIMEN_CLOSURE_DOCS[0]).exists()
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -666,8 +674,10 @@ def build_manifest(
         "a3_created": a3_update_present,
         "a4_created": a4_closure_present,
         "block_a_closed": a4_closure_present,
-        "block_status": "BLOCK_A_PASS_AUTHORITY_ADVANCED_TO_BASIS" if a4_closure_present else None,
-        "closure_status": "AUTHORITY_TRANSITION_CLOSURE_PASS" if a4_closure_present else None,
+        "block_a_status": "BLOCK_A_PASS_AUTHORITY_ADVANCED_TO_BASIS" if a4_closure_present else None,
+        "authority_transition_closure_status": "AUTHORITY_TRANSITION_CLOSURE_PASS" if a4_closure_present else None,
+        "block_status": "BLOCK_B_PASS_READ_ONLY_ROUTE_CLASSIFIED" if b3_router_specimen_closure_present else ("BLOCK_A_PASS_AUTHORITY_ADVANCED_TO_BASIS" if a4_closure_present else None),
+        "closure_status": "ROUTER_SPECIMEN_CLOSURE_PASS_ALLOWED_PREPARE_ONLY" if b3_router_specimen_closure_present else ("AUTHORITY_TRANSITION_CLOSURE_PASS" if a4_closure_present else None),
         "resulting_authority_state": "AUTH_STATE_ACCEPTED_AS_BASIS_FOR_NEXT_UNIT_DEFINITION" if a4_closure_present else None,
         "next_lawful_surface": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE" if a4_closure_present else None,
         "authority_transition_closed": a4_closure_present,
@@ -695,12 +705,19 @@ def build_manifest(
         "router_authority_created": False,
         "reusable_router_created": False,
         "validator_archive_created": False,
+        "router_specimen_closure_created": b3_router_specimen_closure_present,
+        "router_specimen_closure_id": "c8.n22.router_specimen_closure.v0" if b3_router_specimen_closure_present else None,
+        "route_result_copied_exactly_from_b2": b3_router_specimen_closure_present,
+        "next_separately_preparable_object_class": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE_OBJECT" if b3_router_specimen_closure_present else None,
+        "specimen_status": "ARCHIVABLE_LOCAL_SPECIMEN" if b3_router_specimen_closure_present else None,
+        "next_unit_definition_surface_prepared": False,
+        "authority_state_changed_by_b3": False,
         "observed_path_updated": False,
         "observed_path_update_proposed": False,
         "router_classification_created": b2_route_classification_present,
         "router_created": False,
         "b2_created": b2_route_classification_present,
-        "b3_created": False,
+        "b3_created": b3_router_specimen_closure_present,
     }
     return manifest
 

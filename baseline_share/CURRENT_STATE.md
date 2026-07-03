@@ -1,32 +1,32 @@
 # Current State
 
-Generated at UTC: `2026-07-02T21:05:21Z`
+Generated at UTC: `2026-07-03T01:51:14Z`
 
 ## Git context
 
-- Current HEAD SHA: `636324fbd28e6bdcc895144d82e47311fcdd5f72`
+- Current HEAD SHA: `b6f19b7de99a7d074091c38661e4ceb28ba3d378`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
 - Git status:
 - `M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/router/c8_n22_authority_route_classification_v0.json`
-- `?? docs/matrixlabs/router/c8_n22_authority_route_classification_v0.md`
-- `?? scripts/build_c8_n22_authority_route_classification_v0.py`
+- `?? docs/matrixlabs/router/c8_n22_read_only_router_specimen_closure_v0.json`
+- `?? docs/matrixlabs/router/c8_n22_read_only_router_specimen_closure_v0.md`
+- `?? scripts/build_c8_n22_read_only_router_specimen_closure_v0.py`
 - Git status excluding generated `baseline_share/`:
 - `M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/router/c8_n22_authority_route_classification_v0.json`
-- `?? docs/matrixlabs/router/c8_n22_authority_route_classification_v0.md`
-- `?? scripts/build_c8_n22_authority_route_classification_v0.py`
+- `?? docs/matrixlabs/router/c8_n22_read_only_router_specimen_closure_v0.json`
+- `?? docs/matrixlabs/router/c8_n22_read_only_router_specimen_closure_v0.md`
+- `?? scripts/build_c8_n22_read_only_router_specimen_closure_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `636324fbd28e6bdcc895144d82e47311fcdd5f72`
-- Current C8 post-patch surface-decision acceptance commit: `636324fbd28e6bdcc895144d82e47311fcdd5f72`
+- Current architecture extraction commit: `b6f19b7de99a7d074091c38661e4ceb28ba3d378`
+- Current C8 post-patch surface-decision acceptance commit: `b6f19b7de99a7d074091c38661e4ceb28ba3d378`
 
 ## High-level state
 
