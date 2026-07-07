@@ -1,10 +1,10 @@
 # Current State
 
-Generated at UTC: `2026-07-03T04:14:57Z`
+Generated at UTC: `2026-07-07T23:08:54Z`
 
 ## Git context
 
-- Current HEAD SHA: `96223d2a9827543c27f93a1c0a16a6670a97de71`
+- Current HEAD SHA: `674c601136f381c9d85605f646900998b24ddfe9`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
@@ -15,20 +15,20 @@ Generated at UTC: `2026-07-03T04:14:57Z`
 - ` M baseline_share/RECEIPT_POINTERS.md`
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/validator_archive/candidates/`
-- `?? scripts/build_c8_n22_prepare_next_unit_definition_candidate_archive_entry_v0.py`
+- `?? docs/matrixlabs/validator_archive/audits/`
+- `?? scripts/build_c8_n22_candidate_archive_entry_admissibility_audit_v0.py`
 - Git status excluding generated `baseline_share/`:
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/validator_archive/candidates/`
-- `?? scripts/build_c8_n22_prepare_next_unit_definition_candidate_archive_entry_v0.py`
+- `?? docs/matrixlabs/validator_archive/audits/`
+- `?? scripts/build_c8_n22_candidate_archive_entry_admissibility_audit_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `96223d2a9827543c27f93a1c0a16a6670a97de71`
-- Current C8 post-patch surface-decision acceptance commit: `96223d2a9827543c27f93a1c0a16a6670a97de71`
+- Current architecture extraction commit: `674c601136f381c9d85605f646900998b24ddfe9`
+- Current C8 post-patch surface-decision acceptance commit: `674c601136f381c9d85605f646900998b24ddfe9`
 
 ## High-level state
 
