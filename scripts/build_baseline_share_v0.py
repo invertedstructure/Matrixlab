@@ -162,6 +162,11 @@ C8_N22_UNIT_SURFACE_DOCS = [
     "docs/matrixlabs/unit_surfaces/c8_n22_next_bounded_unit_definition_surface_v0.md",
 ]
 C8_N22_MACHINE_PROCEED_GENERATOR = "scripts/build_c8_n22_prepare_next_unit_definition_surface_machine_proceed_v0.py"
+C8_N22_MACHINE_PROCEED_CLOSURE_DOCS = [
+    "docs/matrixlabs/proceed/c8_n22_machine_proceed_closure_v0.json",
+    "docs/matrixlabs/proceed/c8_n22_machine_proceed_closure_v0.md",
+]
+C8_N22_MACHINE_PROCEED_CLOSURE_GENERATOR = "scripts/build_c8_n22_machine_proceed_closure_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -218,6 +223,8 @@ SOURCE_DOCS = [
     *C8_N22_MACHINE_PROCEED_DOCS,
     *C8_N22_UNIT_SURFACE_DOCS,
     C8_N22_MACHINE_PROCEED_GENERATOR,
+    *C8_N22_MACHINE_PROCEED_CLOSURE_DOCS,
+    C8_N22_MACHINE_PROCEED_CLOSURE_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -693,6 +700,7 @@ def build_manifest(
     d3_active_archive_entry_present = (root / C8_N22_ACTIVE_ARCHIVE_ENTRY_DOCS[0]).exists()
     d4_machine_proceed_present = (root / C8_N22_MACHINE_PROCEED_DOCS[0]).exists()
     d4_unit_surface_present = (root / C8_N22_UNIT_SURFACE_DOCS[0]).exists()
+    d5_machine_proceed_closure_present = (root / C8_N22_MACHINE_PROCEED_CLOSURE_DOCS[0]).exists()
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -840,7 +848,7 @@ def build_manifest(
         "human_selection_explicit": d2_promotion_decision_receipt_present,
         "selected_option_present_on_surface": d2_promotion_decision_receipt_present,
         "selected_option_scope_matches_surface": d2_promotion_decision_receipt_present,
-        "next_required_object": "D5_MACHINE_PROCEED_CLOSURE" if d4_machine_proceed_present else ("D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY" if d3_active_archive_entry_present else ("c8_n22_prepare_next_unit_definition_active_archive_entry_v0" if d2_promotion_decision_receipt_present else None)),
+        "next_required_object": "NONE_BLOCK_D_CLOSED" if d5_machine_proceed_closure_present else ("D5_MACHINE_PROCEED_CLOSURE" if d4_machine_proceed_present else ("D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY" if d3_active_archive_entry_present else ("c8_n22_prepare_next_unit_definition_active_archive_entry_v0" if d2_promotion_decision_receipt_present else None))),
         "active_archive_entry_created_by_this_receipt": False,
         "inactive_archive_entry_created_by_this_receipt": False,
         "reuse_authority_applied_by_this_receipt": False,
@@ -855,6 +863,7 @@ def build_manifest(
         "d2_created": d2_promotion_decision_receipt_present,
         "d3_created": d3_active_archive_entry_present,
         "d4_created": d4_machine_proceed_present,
+        "d5_created": d5_machine_proceed_closure_present,
         "active_archive_entry_materialized": d3_active_archive_entry_present,
         "active_archive_entry_id": "active.c8.n22.prepare_next_unit_definition_surface.v0" if d3_active_archive_entry_present else None,
         "active_archive_entry_materialization_gate": "ACTIVE_ARCHIVE_ENTRY_PASS_MATERIALIZED_FOR_DECLARED_SCOPE" if d3_active_archive_entry_present else None,
@@ -907,6 +916,18 @@ def build_manifest(
         "unit_surface_created": d4_unit_surface_present,
         "unit_surface_id": "c8.n22.next_bounded_unit_definition_surface.v0" if d4_unit_surface_present else None,
         "unit_surface_status": "NEXT_UNIT_DEFINITION_SURFACE_PREPARED_NOT_EXECUTED" if d4_unit_surface_present else None,
+        "block_d_closed": d5_machine_proceed_closure_present,
+        "block_d_status": "BLOCK_D_PASS_ONE_RADIUS_BOUND_MACHINE_PREPARE_MOVE" if d5_machine_proceed_closure_present else None,
+        "machine_proceed_closure_created": d5_machine_proceed_closure_present,
+        "machine_proceed_closure_id": "c8.n22.machine_proceed_closure.v0" if d5_machine_proceed_closure_present else None,
+        "machine_proceed_closure_gate": "MACHINE_PROCEED_CLOSURE_PASS_RADIUS_EXHAUSTED_STOP" if d5_machine_proceed_closure_present else None,
+        "radius_after_d5": 0 if d5_machine_proceed_closure_present else None,
+        "same_radius_may_be_reused": False,
+        "additional_machine_proceed_authorized": False,
+        "radius_renewed_by_closure": False,
+        "active_archive_scope_expanded": False,
+        "active_archive_entry_rewritten_by_closure": False,
+        "active_archive_entry_mutated_by_closure": False,
         "unit_executed": False,
         "reuse_scope_expanded": False,
         "additional_radius_created": False,
@@ -915,7 +936,7 @@ def build_manifest(
         "active_archive_entry_mutated": False,
         "runtime_authorized": False,
         "authority_transition_authorized": False,
-        "terminal_transition": "ADVANCE(D5_MACHINE_PROCEED_CLOSURE_PENDING)" if d4_machine_proceed_present else ("ADVANCE(D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY_PENDING)" if d3_active_archive_entry_present else None),
+        "terminal_transition": "STOP_BLOCK_D_MACHINE_PROCEED_CLOSED" if d5_machine_proceed_closure_present else ("ADVANCE(D5_MACHINE_PROCEED_CLOSURE_PENDING)" if d4_machine_proceed_present else ("ADVANCE(D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY_PENDING)" if d3_active_archive_entry_present else None)),
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,
