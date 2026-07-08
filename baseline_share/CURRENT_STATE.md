@@ -1,10 +1,10 @@
 # Current State
 
-Generated at UTC: `2026-07-08T19:26:11Z`
+Generated at UTC: `2026-07-08T19:51:37Z`
 
 ## Git context
 
-- Current HEAD SHA: `9042b3012f9fca29a96f2fe36807b77993faf0d8`
+- Current HEAD SHA: `5fe49bc460db856dfa33dc8940c363038b4c9c0b`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
@@ -12,23 +12,22 @@ Generated at UTC: `2026-07-08T19:26:11Z`
 - `M baseline_share/COMMIT_CONTEXT.md`
 - ` M baseline_share/CURRENT_STATE.md`
 - ` M baseline_share/MANIFEST.json`
-- ` M baseline_share/RECEIPT_POINTERS.md`
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/registry/`
-- `?? scripts/build_compression_trace_registry_entry_schema_contract_v0.py`
+- `?? docs/matrixlabs/registry/candidates/`
+- `?? scripts/build_c8_n22_radius_bound_prepare_trace_registry_candidate_v0.py`
 - Git status excluding generated `baseline_share/`:
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/registry/`
-- `?? scripts/build_compression_trace_registry_entry_schema_contract_v0.py`
+- `?? docs/matrixlabs/registry/candidates/`
+- `?? scripts/build_c8_n22_radius_bound_prepare_trace_registry_candidate_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `9042b3012f9fca29a96f2fe36807b77993faf0d8`
-- Current C8 post-patch surface-decision acceptance commit: `9042b3012f9fca29a96f2fe36807b77993faf0d8`
+- Current architecture extraction commit: `5fe49bc460db856dfa33dc8940c363038b4c9c0b`
+- Current C8 post-patch surface-decision acceptance commit: `5fe49bc460db856dfa33dc8940c363038b4c9c0b`
 
 ## High-level state
 

@@ -1,0 +1,383 @@
+{
+  "activation_boundaries": {
+    "activation_requires_human_decision": true,
+    "activation_requires_separate_apply_object": true,
+    "activation_status": "ACTIVATION_INACTIVE",
+    "active_registry_entry_created": false,
+    "candidate_can_self_activate": false
+  },
+  "admissibility_audit_status": "PENDING_F3_ADMISSIBILITY_AUDIT",
+  "allowed_candidate_use": {
+    "active_registry_lookup": false,
+    "authority_decision_source": false,
+    "candidate_queue_display": true,
+    "dashboard_projection": true,
+    "future_comparison_seed": true,
+    "human_review": true,
+    "machine_proceed_source": false,
+    "reuse_authorization_source": false,
+    "runner_source": false,
+    "trace_search": true
+  },
+  "audit_requirements": {
+    "f3_must_verify": [
+      "schema_contract_present",
+      "candidate_present",
+      "compression_closure_present",
+      "compression_closure_status_pass",
+      "decompression_audit_status_pass",
+      "required_field_groups_present",
+      "specimen_count_declared",
+      "specimen_count_equals_one",
+      "local_only_status_preserved",
+      "no_generalization_claimed",
+      "no_multi_specimen_stability_claimed",
+      "no_cross_context_stability_claimed",
+      "no_active_registry_created",
+      "no_reuse_authorized",
+      "no_radius_renewed",
+      "no_runner_authority_created"
+    ],
+    "next_required_object": "c8_n22_radius_bound_prepare_trace_registry_candidate_audit_v0",
+    "requires_registry_candidate_admissibility_audit": true
+  },
+  "authority_boundaries": {
+    "candidate_authorizes_execution": false,
+    "candidate_authorizes_reuse": false,
+    "candidate_changes_authority_state": false,
+    "candidate_grants_authority": false,
+    "candidate_replaces_source_authority": false,
+    "source_records_remain_authority": true
+  },
+  "block_id": "BLOCK_F",
+  "block_unit_id": "F2_LOCAL_REGISTRY_CANDIDATE_ENTRY",
+  "candidate_creation_status": "REGISTRY_CANDIDATE_PASS_CREATED_LOCAL_ONLY_PENDING_AUDIT",
+  "candidate_field_groups_present": [
+    "entry_identity",
+    "source_compression_closure",
+    "source_compressed_packet",
+    "source_decompression_audit",
+    "trace_label",
+    "trace_scope",
+    "specimen_evidence",
+    "generalization_status",
+    "allowed_candidate_use",
+    "forbidden_candidate_use",
+    "decompression_requirements",
+    "authority_boundaries",
+    "radius_boundaries",
+    "runner_boundaries",
+    "activation_boundaries",
+    "promotion_boundaries",
+    "revocation_or_expiry",
+    "audit_requirements"
+  ],
+  "candidate_gate": {
+    "active_registry_entry_created": false,
+    "additional_machine_proceed_authorized": false,
+    "admissibility_audit_passed": false,
+    "admissibility_audit_status": "PENDING_F3_ADMISSIBILITY_AUDIT",
+    "authority_smuggling_detected": false,
+    "candidate_status": "REGISTRY_STATUS_CANDIDATE",
+    "compressed_packet_present": true,
+    "compression_closure_passed": true,
+    "compression_closure_present": true,
+    "compression_closure_status": "COMPRESSION_CLOSURE_PASS_OBSERVABILITY_ONLY",
+    "cross_context_stability_claimed": false,
+    "decompression_audit_passed": true,
+    "decompression_audit_present": true,
+    "decompression_audit_status": "DECOMPRESSION_AUDIT_PASS_CRITICAL_FIELD_PARITY",
+    "evidence_kind": "SINGLE_LOCAL_SPECIMEN",
+    "failures": [],
+    "general_shape_claimed": false,
+    "generalization_overclaim_detected": false,
+    "generalization_status": "LOCAL_SPECIMEN_ONLY_NOT_GENERALIZED",
+    "generalized_pattern_created": false,
+    "local_only_status_declared": true,
+    "machine_action_performed": false,
+    "multi_specimen_stability_claimed": false,
+    "next_required_object": "c8_n22_radius_bound_prepare_trace_registry_candidate_audit_v0",
+    "radius_renewed": false,
+    "registry_candidate_gate": "REGISTRY_CANDIDATE_PASS_CREATED_LOCAL_ONLY_PENDING_AUDIT",
+    "registry_entry_activated": false,
+    "registry_schema_contract_present": true,
+    "registry_schema_id": "compression_trace_registry_entry_schema_contract.v0",
+    "reuse_authorized": false,
+    "runner_authority_created": false,
+    "runner_authority_smuggling_detected": false,
+    "source_authority_replaced": false,
+    "specimen_count": 1,
+    "specimen_count_declared": true,
+    "trace_label": "C8_N22_RADIUS_BOUND_PREPARE_TRACE_V0",
+    "trace_scope": "C8_N22_LOCAL_SPECIMEN_ONLY"
+  },
+  "candidate_non_effects": {
+    "active_registry_entry_created": false,
+    "additional_machine_proceed_authorized": false,
+    "f3_audit_created": false,
+    "f3_audit_passed": false,
+    "generalized_pattern_created": false,
+    "machine_action_performed": false,
+    "radius_renewed": false,
+    "registry_entry_activated": false,
+    "reuse_authorized": false,
+    "runner_authority_created": false,
+    "source_authority_replaced": false
+  },
+  "candidate_pass_meaning": {
+    "active_registry_acceptance_passed": false,
+    "admissibility_audit_passed": false,
+    "creation_gate_passed": true,
+    "pass_does_not_mean_reusable": true
+  },
+  "candidate_registration_boundary": {
+    "candidate_card_created": true,
+    "candidate_queue_entry_only": true,
+    "trace_registered_as_active_entry": false,
+    "trace_registered_as_reusable_pattern": false
+  },
+  "candidate_role": "COMPRESSION_TRACE_REGISTRY_CANDIDATE",
+  "candidate_status": "REGISTRY_STATUS_CANDIDATE",
+  "decompression_requirements": {
+    "candidate_may_stand_alone_without_source": false,
+    "critical_field_parity_required": true,
+    "decompression_audit_required": true,
+    "source_decompression_audit_id": "c8.n22.radius_bound_prepare_trace.decompression_audit.v0",
+    "source_records_remain_authority": true
+  },
+  "f3_handoff": {
+    "f2_terminal_transition": "ADVANCE(F3_REGISTRY_CANDIDATE_ADMISSIBILITY_AUDIT_PENDING)",
+    "f3_audit_created_by_f2": false,
+    "f3_audit_passed_by_f2": false,
+    "next_required_object": "c8_n22_radius_bound_prepare_trace_registry_candidate_audit_v0",
+    "next_required_unit": "F3_REGISTRY_CANDIDATE_ADMISSIBILITY_AUDIT"
+  },
+  "failure_vocabulary": [
+    "REGISTRY_CANDIDATE_FAIL_SCHEMA_CONTRACT_MISSING",
+    "REGISTRY_CANDIDATE_FAIL_SCHEMA_CONTRACT_NOT_PASS",
+    "REGISTRY_CANDIDATE_FAIL_SCHEMA_CONTRACT_COMPLIANCE_MISSING",
+    "REGISTRY_CANDIDATE_FAIL_COMPRESSION_CLOSURE_MISSING",
+    "REGISTRY_CANDIDATE_FAIL_COMPRESSION_CLOSURE_NOT_PASS",
+    "REGISTRY_CANDIDATE_FAIL_COMPRESSED_PACKET_MISSING",
+    "REGISTRY_CANDIDATE_FAIL_DECOMPRESSION_AUDIT_MISSING",
+    "REGISTRY_CANDIDATE_FAIL_DECOMPRESSION_AUDIT_NOT_PASS",
+    "REGISTRY_CANDIDATE_FAIL_SOURCE_HASH_MISMATCH",
+    "REGISTRY_CANDIDATE_FAIL_TRACE_LABEL_MISSING",
+    "REGISTRY_CANDIDATE_FAIL_TRACE_SCOPE_MISSING",
+    "REGISTRY_CANDIDATE_FAIL_SPECIMEN_COUNT_MISSING",
+    "REGISTRY_CANDIDATE_FAIL_SPECIMEN_COUNT_NOT_ONE",
+    "REGISTRY_CANDIDATE_FAIL_LOCAL_ONLY_STATUS_MISSING",
+    "REGISTRY_CANDIDATE_FAIL_ADMISSIBILITY_AUDIT_STATUS_MISSING",
+    "REGISTRY_CANDIDATE_FAIL_GENERALIZATION_CLAIMED",
+    "REGISTRY_CANDIDATE_FAIL_MULTI_SPECIMEN_STABILITY_CLAIMED",
+    "REGISTRY_CANDIDATE_FAIL_CROSS_CONTEXT_STABILITY_CLAIMED",
+    "REGISTRY_CANDIDATE_FAIL_ACTIVE_REGISTRY_CREATED",
+    "REGISTRY_CANDIDATE_FAIL_REUSE_AUTHORIZED",
+    "REGISTRY_CANDIDATE_FAIL_RADIUS_RENEWED",
+    "REGISTRY_CANDIDATE_FAIL_ADDITIONAL_MACHINE_PROCEED_AUTHORIZED",
+    "REGISTRY_CANDIDATE_FAIL_MACHINE_ACTION_PERFORMED",
+    "REGISTRY_CANDIDATE_FAIL_RUNNER_AUTHORITY_CREATED",
+    "REGISTRY_CANDIDATE_FAIL_SOURCE_AUTHORITY_REPLACED",
+    "REGISTRY_CANDIDATE_FAIL_F3_AUDIT_PRETENDED_PASS",
+    "REGISTRY_CANDIDATE_FAIL_GENERALIZED_PATTERN_CREATED"
+  ],
+  "forbidden_candidate_use": {
+    "authorize_execution": true,
+    "authorize_machine_proceed": true,
+    "authorize_reuse": true,
+    "claim_cross_context_stability": true,
+    "claim_generalization": true,
+    "claim_multi_specimen_stability": true,
+    "promote_schema": true,
+    "promote_taxonomy": true,
+    "renew_radius": true,
+    "replace_source_authority": true,
+    "route_runner": true
+  },
+  "generalization_status": {
+    "cross_context_stability_claimed": false,
+    "general_shape_claimed": false,
+    "generalization_status": "LOCAL_SPECIMEN_ONLY_NOT_GENERALIZED",
+    "local_candidate_only": true,
+    "multi_specimen_stability_claimed": false,
+    "single_specimen_only": true
+  },
+  "generated_by": "scripts/build_c8_n22_radius_bound_prepare_trace_registry_candidate_v0.py",
+  "key_non_claims": [
+    "registry candidate \u2260 active registry entry",
+    "single specimen \u2260 generalized pattern",
+    "trace label \u2260 machine authority",
+    "candidate queue \u2260 runner input",
+    "F.2 created \u2260 F.3 admissibility audited",
+    "candidate pass \u2260 reusable trace"
+  ],
+  "most_important_failures": [
+    "REGISTRY_CANDIDATE_FAIL_GENERALIZATION_CLAIMED",
+    "REGISTRY_CANDIDATE_FAIL_ACTIVE_REGISTRY_CREATED",
+    "REGISTRY_CANDIDATE_FAIL_REUSE_AUTHORIZED",
+    "REGISTRY_CANDIDATE_FAIL_RUNNER_AUTHORITY_CREATED",
+    "REGISTRY_CANDIDATE_FAIL_F3_AUDIT_PRETENDED_PASS"
+  ],
+  "non_claims": [
+    "F.2 does not activate a registry entry.",
+    "F.2 does not promote the trace label.",
+    "F.2 does not claim generalization.",
+    "F.2 does not claim multi-specimen stability.",
+    "F.2 does not claim cross-context stability.",
+    "F.2 does not replace source authority.",
+    "F.2 does not authorize reuse.",
+    "F.2 does not renew radius.",
+    "F.2 does not authorize another machine proceed.",
+    "F.2 does not perform machine action.",
+    "F.2 does not execute anything.",
+    "F.2 does not create runner authority.",
+    "F.2 does not pass F.3 admissibility audit.",
+    "F.2 only creates a local registry candidate entry for one audited compressed trace."
+  ],
+  "precommit_c8_n22_registry_candidate_gate": "PASS",
+  "promotion_boundaries": {
+    "promotion_apply_required": true,
+    "promotion_decision_required": true,
+    "promotion_granted_by_candidate": false,
+    "promotion_receipt_required": true,
+    "promotion_status": "REGISTRY_PROMOTION_NOT_REQUESTED"
+  },
+  "radius_boundaries": {
+    "additional_use_requires_new_authority_or_radius": true,
+    "candidate_authorizes_additional_machine_proceed": false,
+    "candidate_creates_radius": false,
+    "candidate_renews_radius": false,
+    "source_radius_after": 0,
+    "source_radius_exhausted": true,
+    "source_radius_limit": "RADIUS_1_SINGLE_C8_N22_BASIS_OBJECT"
+  },
+  "registry_candidate_gate": "REGISTRY_CANDIDATE_PASS_CREATED_LOCAL_ONLY_PENDING_AUDIT",
+  "registry_candidate_id": "candidate.registry.c8_n22_radius_bound_prepare_trace.v0",
+  "revocation_or_expiry": {
+    "expiry_status": "NOT_EXPIRED",
+    "invalidated_by_source_mismatch": false,
+    "revocation_requires_record": true,
+    "revocation_status": "NOT_REVOKED",
+    "supersession_status": "NOT_SUPERSEDED"
+  },
+  "runner_boundaries": {
+    "candidate_authorizes_runner": false,
+    "candidate_defines_runner_policy": false,
+    "candidate_is_runner_input": false,
+    "candidate_routes_runner": false,
+    "future_runner_analysis_may_reference_candidate_after_admissibility_or_separate_surface": true,
+    "reference_does_not_create_runner_authority": true,
+    "runner_authority_created": false
+  },
+  "schema_contract_compliance": {
+    "activation_boundaries_match_contract": true,
+    "audit_requirements_match_contract": true,
+    "authority_boundaries_match_contract": true,
+    "candidate_declares_all_required_groups": true,
+    "candidate_field_group_count_present": 18,
+    "candidate_stage_allowed_use_matches_contract": true,
+    "candidate_stage_forbidden_use_matches_contract": true,
+    "promotion_boundaries_match_contract": true,
+    "radius_boundaries_match_contract": true,
+    "required_field_group_count_from_contract": 18,
+    "runner_boundaries_match_contract": true,
+    "source_registry_schema_id": "compression_trace_registry_entry_schema_contract.v0"
+  },
+  "schema_version": "matrixlabs_compression_trace_registry_candidate_v0",
+  "source_compressed_packet": {
+    "compressed_packet_id": "c8.n22.radius_bound_prepare_trace.compressed_packet.v0",
+    "packet_role": "COMPRESSED_OBSERVABILITY_PACKET",
+    "source_records_remain_authority": true,
+    "trace_label": "C8_N22_RADIUS_BOUND_PREPARE_TRACE_V0"
+  },
+  "source_compression_closure": {
+    "active_registry_created_by_closure": false,
+    "allowed_use_from_closure": "OBSERVABILITY_SHORTCUT_ONLY",
+    "block_status": "BLOCK_E_PASS_OBSERVABILITY_COMPRESSION_WITH_DECOMPRESSION_PARITY",
+    "compression_closure_id": "c8.n22.compression_specimen_closure.v0",
+    "compression_closure_status": "COMPRESSION_CLOSURE_PASS_OBSERVABILITY_ONLY",
+    "formal_source_chain_remains_authority": true,
+    "registry_candidate_surface_created_by_closure": false,
+    "registry_entry_created_by_closure": false,
+    "runner_authority_created_by_closure": false
+  },
+  "source_decompression_audit": {
+    "all_critical_field_groups_recovered": true,
+    "all_possible_fields_audited": false,
+    "critical_field_group_count_checked": 15,
+    "critical_field_group_count_passed": 15,
+    "decompression_audit_id": "c8.n22.radius_bound_prepare_trace.decompression_audit.v0",
+    "decompression_audit_status": "DECOMPRESSION_AUDIT_PASS_CRITICAL_FIELD_PARITY",
+    "full_trace_equivalence_claimed": false
+  },
+  "source_hashes": {
+    "source_file_commits": {
+      "docs/matrixlabs/compression/c8_n22_compression_specimen_closure_v0.json": "9042b3012f9fca29a96f2fe36807b77993faf0d8",
+      "docs/matrixlabs/compression/c8_n22_radius_bound_prepare_trace_compressed_packet_v0.json": "2ee413f30ec9dd1653d5e61907c687da67d5cadb",
+      "docs/matrixlabs/compression/c8_n22_radius_bound_prepare_trace_decompression_audit_v0.json": "726a9b76381a9808f982e2251d0e9a48acaf303e",
+      "docs/matrixlabs/proceed/c8_n22_machine_proceed_closure_v0.json": "0cdbfda86b178290e4794cffa5ffdbbe3e817a90",
+      "docs/matrixlabs/registry/compression_trace_registry_entry_schema_contract_v0.json": "5fe49bc460db856dfa33dc8940c363038b4c9c0b"
+    },
+    "source_file_hash_algorithm": "sha256",
+    "source_file_hashes": {
+      "docs/matrixlabs/compression/c8_n22_compression_specimen_closure_v0.json": "13352e50ecd9082bb27e1c7c0c78c1c3ff485e9e42c5722f884f10e814c5a16b",
+      "docs/matrixlabs/compression/c8_n22_radius_bound_prepare_trace_compressed_packet_v0.json": "d266f0d468f865fe3111cbfe7068be7656c9f84fbf4e73763cf628b601420c2d",
+      "docs/matrixlabs/compression/c8_n22_radius_bound_prepare_trace_decompression_audit_v0.json": "6e67d287b5091807719723573ec8a59178086b08b3f908778ec0c6a8cb08dce8",
+      "docs/matrixlabs/proceed/c8_n22_machine_proceed_closure_v0.json": "cd165a66e5a929ad9ebf0f6115fd27ef5a20db168f3d9ebe19c7a6231f75e825",
+      "docs/matrixlabs/registry/compression_trace_registry_entry_schema_contract_v0.json": "a278fb4226a268aea47ac4944fc69e89eb4834a2a7303007f1a5502c803579eb"
+    },
+    "source_hash_verification_basis": "WORKTREE_FILE_MATCHES_HEAD_BLOB"
+  },
+  "source_integrity": {
+    "compressed_packet_hash_verified": true,
+    "compressed_packet_present": true,
+    "compression_closure_hash_verified": true,
+    "compression_closure_present": true,
+    "decompression_audit_hash_verified": true,
+    "decompression_audit_present": true,
+    "directory_scan_authority_allowed": false,
+    "mtime_or_latest_resolution_allowed": false,
+    "registry_schema_contract_hash_verified": true,
+    "registry_schema_contract_present": true,
+    "source_identity_resolved_by_explicit_paths": true
+  },
+  "source_registry_schema_contract": {
+    "registry_kind": "COMPRESSION_TRACE_OBSERVABILITY_REGISTRY",
+    "registry_schema_id": "compression_trace_registry_entry_schema_contract.v0",
+    "required_field_group_count": 18,
+    "schema_role": "REGISTRY_ENTRY_CONTRACT_ONLY",
+    "schema_scope": "COMPRESSION_STABLE_TRACE_CANDIDATES_ONLY",
+    "schema_status": "REGISTRY_SCHEMA_PASS_CONTRACT_DEFINED_ONLY",
+    "schema_version": "matrixlabs_compression_trace_registry_entry_schema_contract_v0"
+  },
+  "specimen_evidence": {
+    "critical_fields_preserved_by_e3_audit": true,
+    "cross_context_stability_claimed": false,
+    "decompression_parity_passed": true,
+    "evidence_kind": "SINGLE_LOCAL_SPECIMEN",
+    "minimum_specimens_for_generalization_met": false,
+    "multi_specimen_stability_claimed": false,
+    "source_trace_ids": [
+      "C8_N22_RADIUS_BOUND_PREPARE_TRACE_V0"
+    ],
+    "specimen_count": 1,
+    "specimen_ids": [
+      "c8.n22.machine_proceed_closure.v0"
+    ]
+  },
+  "stability_boundary": {
+    "multi_specimen_stability_requires_future_candidates_and_audit": true,
+    "single_specimen_is_generalization_evidence": false,
+    "single_specimen_is_runner_admissibility_evidence": false,
+    "single_specimen_is_stability_evidence": false
+  },
+  "terminal_transition": "ADVANCE(F3_REGISTRY_CANDIDATE_ADMISSIBILITY_AUDIT_PENDING)",
+  "trace_identity": {
+    "trace_label": "C8_N22_RADIUS_BOUND_PREPARE_TRACE_V0",
+    "trace_label_authority_effect": "NONE",
+    "trace_label_definition": "completed local C8 n22 radius-bound prepare trace",
+    "trace_label_reuse_effect": "NONE",
+    "trace_label_runner_effect": "NONE",
+    "trace_scope": "C8_N22_LOCAL_SPECIMEN_ONLY"
+  }
+}

@@ -192,6 +192,11 @@ COMPRESSION_TRACE_REGISTRY_SCHEMA_CONTRACT_DOCS = [
     "docs/matrixlabs/registry/compression_trace_registry_entry_schema_contract_v0.md",
 ]
 COMPRESSION_TRACE_REGISTRY_SCHEMA_CONTRACT_GENERATOR = "scripts/build_compression_trace_registry_entry_schema_contract_v0.py"
+C8_N22_TRACE_REGISTRY_CANDIDATE_DOCS = [
+    "docs/matrixlabs/registry/candidates/c8_n22_radius_bound_prepare_trace_registry_candidate_v0.json",
+    "docs/matrixlabs/registry/candidates/c8_n22_radius_bound_prepare_trace_registry_candidate_v0.md",
+]
+C8_N22_TRACE_REGISTRY_CANDIDATE_GENERATOR = "scripts/build_c8_n22_radius_bound_prepare_trace_registry_candidate_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -260,6 +265,8 @@ SOURCE_DOCS = [
     C8_N22_COMPRESSION_CLOSURE_GENERATOR,
     *COMPRESSION_TRACE_REGISTRY_SCHEMA_CONTRACT_DOCS,
     COMPRESSION_TRACE_REGISTRY_SCHEMA_CONTRACT_GENERATOR,
+    *C8_N22_TRACE_REGISTRY_CANDIDATE_DOCS,
+    C8_N22_TRACE_REGISTRY_CANDIDATE_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -741,6 +748,7 @@ def build_manifest(
     e3_decompression_audit_present = (root / C8_N22_DECOMPRESSION_AUDIT_DOCS[0]).exists()
     e4_compression_closure_present = (root / C8_N22_COMPRESSION_CLOSURE_DOCS[0]).exists()
     f1_registry_schema_contract_present = (root / COMPRESSION_TRACE_REGISTRY_SCHEMA_CONTRACT_DOCS[0]).exists()
+    f2_trace_registry_candidate_present = (root / C8_N22_TRACE_REGISTRY_CANDIDATE_DOCS[0]).exists()
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -888,7 +896,7 @@ def build_manifest(
         "human_selection_explicit": d2_promotion_decision_receipt_present,
         "selected_option_present_on_surface": d2_promotion_decision_receipt_present,
         "selected_option_scope_matches_surface": d2_promotion_decision_receipt_present,
-        "next_required_object": "F2_LOCAL_REGISTRY_CANDIDATE_ENTRY" if f1_registry_schema_contract_present else ("NONE_BLOCK_E_CLOSED" if e4_compression_closure_present else ("E4_COMPRESSION_CLOSURE" if e3_decompression_audit_present else ("E3_DECOMPRESSION_PARITY_AUDIT" if e2_compressed_packet_present else ("E2_COMPRESSED_SPECIMEN_PACKET" if e1_compression_target_present else ("NONE_BLOCK_D_CLOSED" if d5_machine_proceed_closure_present else ("D5_MACHINE_PROCEED_CLOSURE" if d4_machine_proceed_present else ("D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY" if d3_active_archive_entry_present else ("c8_n22_prepare_next_unit_definition_active_archive_entry_v0" if d2_promotion_decision_receipt_present else None)))))))),
+        "next_required_object": "c8_n22_radius_bound_prepare_trace_registry_candidate_audit_v0" if f2_trace_registry_candidate_present else ("F2_LOCAL_REGISTRY_CANDIDATE_ENTRY" if f1_registry_schema_contract_present else ("NONE_BLOCK_E_CLOSED" if e4_compression_closure_present else ("E4_COMPRESSION_CLOSURE" if e3_decompression_audit_present else ("E3_DECOMPRESSION_PARITY_AUDIT" if e2_compressed_packet_present else ("E2_COMPRESSED_SPECIMEN_PACKET" if e1_compression_target_present else ("NONE_BLOCK_D_CLOSED" if d5_machine_proceed_closure_present else ("D5_MACHINE_PROCEED_CLOSURE" if d4_machine_proceed_present else ("D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY" if d3_active_archive_entry_present else ("c8_n22_prepare_next_unit_definition_active_archive_entry_v0" if d2_promotion_decision_receipt_present else None))))))))),
         "active_archive_entry_created_by_this_receipt": False,
         "inactive_archive_entry_created_by_this_receipt": False,
         "reuse_authority_applied_by_this_receipt": False,
@@ -1027,7 +1035,7 @@ def build_manifest(
         "authority_transition_authorized": False,
         "block_f_started": f1_registry_schema_contract_present,
         "block_f_closed": False,
-        "block_f_status": "BLOCK_F_REGISTRY_SCHEMA_CONTRACT_DEFINED" if f1_registry_schema_contract_present else None,
+        "block_f_status": "BLOCK_F_LOCAL_REGISTRY_CANDIDATE_CREATED_PENDING_AUDIT" if f2_trace_registry_candidate_present else ("BLOCK_F_REGISTRY_SCHEMA_CONTRACT_DEFINED" if f1_registry_schema_contract_present else None),
         "registry_schema_contract_created": f1_registry_schema_contract_present,
         "registry_schema_id": "compression_trace_registry_entry_schema_contract.v0" if f1_registry_schema_contract_present else None,
         "schema_role": "REGISTRY_ENTRY_CONTRACT_ONLY" if f1_registry_schema_contract_present else None,
@@ -1040,11 +1048,30 @@ def build_manifest(
         "machine_proceed_authorized": False,
         "source_authority_replaced": False,
         "generalized_pattern_created": False,
+        "registry_candidate_created": f2_trace_registry_candidate_present,
+        "registry_candidate_id": "candidate.registry.c8_n22_radius_bound_prepare_trace.v0" if f2_trace_registry_candidate_present else None,
+        "candidate_status": "REGISTRY_STATUS_CANDIDATE" if f2_trace_registry_candidate_present else None,
+        "candidate_creation_status": "REGISTRY_CANDIDATE_PASS_CREATED_LOCAL_ONLY_PENDING_AUDIT" if f2_trace_registry_candidate_present else None,
+        "admissibility_audit_status": "PENDING_F3_ADMISSIBILITY_AUDIT" if f2_trace_registry_candidate_present else None,
+        "admissibility_audit_passed": False,
+        "trace_label": "C8_N22_RADIUS_BOUND_PREPARE_TRACE_V0" if f2_trace_registry_candidate_present else None,
+        "trace_scope": "C8_N22_LOCAL_SPECIMEN_ONLY" if f2_trace_registry_candidate_present else None,
+        "specimen_count": 1 if f2_trace_registry_candidate_present else None,
+        "evidence_kind": "SINGLE_LOCAL_SPECIMEN" if f2_trace_registry_candidate_present else None,
+        "generalization_status": "LOCAL_SPECIMEN_ONLY_NOT_GENERALIZED" if f2_trace_registry_candidate_present else None,
+        "general_shape_claimed": False,
+        "multi_specimen_stability_claimed": False,
+        "cross_context_stability_claimed": False,
+        "active_registry_entry_created": False,
+        "reusable_trace": False,
+        "runner_candidate": False,
+        "machine_can_use_candidate": False,
+        "next_required_unit": "F3_REGISTRY_CANDIDATE_ADMISSIBILITY_AUDIT" if f2_trace_registry_candidate_present else None,
         "next_possible_separate_object_family": "LOCAL_COMPRESSION_TRACE_REGISTRY_CANDIDATE_ENTRY" if f1_registry_schema_contract_present else None,
         "example_future_candidate_object": "c8_n22_radius_bound_prepare_trace_registry_candidate_v0" if f1_registry_schema_contract_present else None,
         "example_candidate_created_by_f1": False,
         "selected_as_next_unit_by_f1": False,
-        "terminal_transition": "ADVANCE(F2_LOCAL_REGISTRY_CANDIDATE_ENTRY_PENDING)" if f1_registry_schema_contract_present else ("STOP_BLOCK_E_COMPRESSION_CLOSURE_COMPLETE" if e4_compression_closure_present else ("ADVANCE(E4_COMPRESSION_CLOSURE_PENDING)" if e3_decompression_audit_present else ("ADVANCE(E3_DECOMPRESSION_PARITY_AUDIT_PENDING)" if e2_compressed_packet_present else ("ADVANCE(E2_COMPRESSED_SPECIMEN_PACKET_PENDING)" if e1_compression_target_present else ("STOP_BLOCK_D_MACHINE_PROCEED_CLOSED" if d5_machine_proceed_closure_present else ("ADVANCE(D5_MACHINE_PROCEED_CLOSURE_PENDING)" if d4_machine_proceed_present else ("ADVANCE(D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY_PENDING)" if d3_active_archive_entry_present else None))))))),
+        "terminal_transition": "ADVANCE(F3_REGISTRY_CANDIDATE_ADMISSIBILITY_AUDIT_PENDING)" if f2_trace_registry_candidate_present else ("ADVANCE(F2_LOCAL_REGISTRY_CANDIDATE_ENTRY_PENDING)" if f1_registry_schema_contract_present else ("STOP_BLOCK_E_COMPRESSION_CLOSURE_COMPLETE" if e4_compression_closure_present else ("ADVANCE(E4_COMPRESSION_CLOSURE_PENDING)" if e3_decompression_audit_present else ("ADVANCE(E3_DECOMPRESSION_PARITY_AUDIT_PENDING)" if e2_compressed_packet_present else ("ADVANCE(E2_COMPRESSED_SPECIMEN_PACKET_PENDING)" if e1_compression_target_present else ("STOP_BLOCK_D_MACHINE_PROCEED_CLOSED" if d5_machine_proceed_closure_present else ("ADVANCE(D5_MACHINE_PROCEED_CLOSURE_PENDING)" if d4_machine_proceed_present else ("ADVANCE(D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY_PENDING)" if d3_active_archive_entry_present else None)))))))),
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,
