@@ -1,10 +1,10 @@
 # Current State
 
-Generated at UTC: `2026-07-08T13:15:30Z`
+Generated at UTC: `2026-07-08T15:52:08Z`
 
 ## Git context
 
-- Current HEAD SHA: `0cdbfda86b178290e4794cffa5ffdbbe3e817a90`
+- Current HEAD SHA: `e5371799eb7df74e5e881a100f4ad10d4f1ee1a8`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
@@ -12,23 +12,24 @@ Generated at UTC: `2026-07-08T13:15:30Z`
 - `M baseline_share/COMMIT_CONTEXT.md`
 - ` M baseline_share/CURRENT_STATE.md`
 - ` M baseline_share/MANIFEST.json`
-- ` M baseline_share/RECEIPT_POINTERS.md`
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/compression/`
-- `?? scripts/build_c8_n22_authority_action_trace_compression_target_v0.py`
+- `?? docs/matrixlabs/compression/c8_n22_radius_bound_prepare_trace_compressed_packet_v0.json`
+- `?? docs/matrixlabs/compression/c8_n22_radius_bound_prepare_trace_compressed_packet_v0.md`
+- `?? scripts/build_c8_n22_radius_bound_prepare_trace_compressed_packet_v0.py`
 - Git status excluding generated `baseline_share/`:
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/compression/`
-- `?? scripts/build_c8_n22_authority_action_trace_compression_target_v0.py`
+- `?? docs/matrixlabs/compression/c8_n22_radius_bound_prepare_trace_compressed_packet_v0.json`
+- `?? docs/matrixlabs/compression/c8_n22_radius_bound_prepare_trace_compressed_packet_v0.md`
+- `?? scripts/build_c8_n22_radius_bound_prepare_trace_compressed_packet_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `0cdbfda86b178290e4794cffa5ffdbbe3e817a90`
-- Current C8 post-patch surface-decision acceptance commit: `0cdbfda86b178290e4794cffa5ffdbbe3e817a90`
+- Current architecture extraction commit: `e5371799eb7df74e5e881a100f4ad10d4f1ee1a8`
+- Current C8 post-patch surface-decision acceptance commit: `e5371799eb7df74e5e881a100f4ad10d4f1ee1a8`
 
 ## High-level state
 
