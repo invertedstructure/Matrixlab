@@ -138,6 +138,11 @@ C8_N22_CANDIDATE_ARCHIVE_ADMISSIBILITY_AUDIT_DOCS = [
     "docs/matrixlabs/validator_archive/audits/c8_n22_candidate_archive_entry_admissibility_audit_v0.md",
 ]
 C8_N22_CANDIDATE_ARCHIVE_ADMISSIBILITY_AUDIT_GENERATOR = "scripts/build_c8_n22_candidate_archive_entry_admissibility_audit_v0.py"
+C8_N22_CANDIDATE_PROMOTION_DECISION_SURFACE_DOCS = [
+    "docs/matrixlabs/validator_archive/promotion/c8_n22_candidate_promotion_decision_surface_v0.json",
+    "docs/matrixlabs/validator_archive/promotion/c8_n22_candidate_promotion_decision_surface_v0.md",
+]
+C8_N22_CANDIDATE_PROMOTION_DECISION_SURFACE_GENERATOR = "scripts/build_c8_n22_candidate_promotion_decision_surface_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -185,6 +190,8 @@ SOURCE_DOCS = [
     C8_N22_CANDIDATE_ARCHIVE_ENTRY_GENERATOR,
     *C8_N22_CANDIDATE_ARCHIVE_ADMISSIBILITY_AUDIT_DOCS,
     C8_N22_CANDIDATE_ARCHIVE_ADMISSIBILITY_AUDIT_GENERATOR,
+    *C8_N22_CANDIDATE_PROMOTION_DECISION_SURFACE_DOCS,
+    C8_N22_CANDIDATE_PROMOTION_DECISION_SURFACE_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -655,6 +662,7 @@ def build_manifest(
     c1_archive_schema_contract_present = (root / VALIDATOR_ARCHIVE_SCHEMA_CONTRACT_DOCS[0]).exists()
     c2_candidate_archive_entry_present = (root / C8_N22_CANDIDATE_ARCHIVE_ENTRY_DOCS[0]).exists()
     c3_candidate_archive_audit_present = (root / C8_N22_CANDIDATE_ARCHIVE_ADMISSIBILITY_AUDIT_DOCS[0]).exists()
+    d1_promotion_decision_surface_present = (root / C8_N22_CANDIDATE_PROMOTION_DECISION_SURFACE_DOCS[0]).exists()
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -775,8 +783,27 @@ def build_manifest(
         "preparation_surface_created": False,
         "preapproved_archive_entry_created": False,
         "human_promotion_decision_surface_created": False,
+        "promotion_decision_surface_created": d1_promotion_decision_surface_present,
+        "promotion_decision_surface_id": "c8.n22.candidate_promotion_decision_surface.v0" if d1_promotion_decision_surface_present else None,
+        "promotion_decision_surface_gate": "PROMOTION_DECISION_SURFACE_PASS_OPTIONS_PRESENTED_ONLY" if d1_promotion_decision_surface_present else None,
+        "decision_options_present": d1_promotion_decision_surface_present,
+        "decision_option_count": 5 if d1_promotion_decision_surface_present else None,
+        "positive_option_id": "DECISION_PROMOTE_CANDIDATE_FOR_DECLARED_SCOPE" if d1_promotion_decision_surface_present else None,
+        "positive_option_radius": "RADIUS_1_SINGLE_C8_N22_BASIS_OBJECT" if d1_promotion_decision_surface_present else None,
+        "decision_option_selected_by_this_surface": False,
+        "promotion_decision_recorded_by_this_surface": False,
+        "promotion_granted_by_this_surface": False,
+        "reuse_authority_granted_by_this_surface": False,
+        "activation_created_by_this_surface": False,
+        "active_archive_entry_created_by_this_surface": False,
+        "inactive_archive_entry_created_by_this_surface": False,
+        "machine_proceed_performed_by_this_surface": False,
+        "next_unit_definition_surface_prepared_by_this_surface": False,
+        "authority_changed_by_this_surface": False,
+        "runner_authority_created_by_this_surface": False,
         "c2_created": c2_candidate_archive_entry_present,
         "c3_created": c3_candidate_archive_audit_present,
+        "d1_created": d1_promotion_decision_surface_present,
         "promotion_receipt_created": False,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,
