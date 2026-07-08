@@ -1,0 +1,602 @@
+{
+  "allowed_activation_statuses": [
+    "ACTIVATION_INACTIVE",
+    "ACTIVATION_ACTIVE_OBSERVABILITY_ONLY",
+    "ACTIVATION_REVOKED"
+  ],
+  "allowed_entry_statuses": [
+    "REGISTRY_STATUS_CANDIDATE",
+    "REGISTRY_STATUS_REVIEW_REQUIRED",
+    "REGISTRY_STATUS_ACCEPTED_INACTIVE",
+    "REGISTRY_STATUS_ACTIVE_OBSERVABILITY_ONLY",
+    "REGISTRY_STATUS_REVOKED",
+    "REGISTRY_STATUS_EXPIRED"
+  ],
+  "allowed_generalization_statuses": [
+    "LOCAL_SPECIMEN_ONLY_NOT_GENERALIZED",
+    "MULTI_SPECIMEN_OBSERVED_NOT_GENERALIZED",
+    "GENERALIZATION_CANDIDATE_REVIEW_REQUIRED",
+    "GENERALIZATION_ACCEPTED_FOR_OBSERVABILITY_ONLY"
+  ],
+  "allowed_promotion_statuses": [
+    "REGISTRY_PROMOTION_NOT_REQUESTED",
+    "REGISTRY_PROMOTION_PENDING_HUMAN_DECISION",
+    "REGISTRY_PROMOTION_GRANTED_FOR_OBSERVABILITY_ONLY",
+    "REGISTRY_PROMOTION_REJECTED"
+  ],
+  "block_id": "BLOCK_F",
+  "block_unit_id": "F1_COMPRESSION_TRACE_REGISTRY_ENTRY_SCHEMA_CONTRACT",
+  "candidate_stage_allowed_use": {
+    "active_registry_lookup": false,
+    "authority_decision_source": false,
+    "candidate_queue_display": true,
+    "dashboard_projection": true,
+    "future_comparison_seed": true,
+    "human_review": true,
+    "machine_proceed_source": false,
+    "reuse_authorization_source": false,
+    "runner_source": false,
+    "trace_search": true
+  },
+  "candidate_stage_forbidden_use": {
+    "authorize_execution": true,
+    "authorize_machine_proceed": true,
+    "authorize_reuse": true,
+    "promote_schema": true,
+    "promote_taxonomy": true,
+    "renew_radius": true,
+    "replace_source_authority": true,
+    "route_runner": true
+  },
+  "contract_applicability": {
+    "applies_to": "COMPRESSION_STABLE_TRACE_CANDIDATES_ONLY",
+    "does_not_apply_to_active_archive_entries": true,
+    "does_not_apply_to_machine_proceed_authority": true,
+    "does_not_apply_to_runner_policies": true,
+    "does_not_apply_to_runtime_traces": true,
+    "does_not_apply_to_uncompressed_receipts": true,
+    "requires_observability_only_closure": true,
+    "requires_passing_compression_closure": true,
+    "requires_source_records_remain_authority": true
+  },
+  "failure_vocabulary": [
+    "REGISTRY_SCHEMA_FAIL_REQUIRED_FIELD_GROUPS_MISSING",
+    "REGISTRY_SCHEMA_FAIL_ENTRY_STATUSES_MISSING",
+    "REGISTRY_SCHEMA_FAIL_PROMOTION_STATUSES_MISSING",
+    "REGISTRY_SCHEMA_FAIL_GENERALIZATION_STATUSES_MISSING",
+    "REGISTRY_SCHEMA_FAIL_ACTIVATION_STATUSES_MISSING",
+    "REGISTRY_SCHEMA_FAIL_ALLOWED_USE_MISSING",
+    "REGISTRY_SCHEMA_FAIL_FORBIDDEN_USE_MISSING",
+    "REGISTRY_SCHEMA_FAIL_AUTHORITY_BOUNDARIES_MISSING",
+    "REGISTRY_SCHEMA_FAIL_RADIUS_BOUNDARIES_MISSING",
+    "REGISTRY_SCHEMA_FAIL_RUNNER_BOUNDARIES_MISSING",
+    "REGISTRY_SCHEMA_FAIL_ACTIVATION_BOUNDARIES_MISSING",
+    "REGISTRY_SCHEMA_FAIL_PROMOTION_BOUNDARIES_MISSING",
+    "REGISTRY_SCHEMA_FAIL_AUDIT_REQUIREMENTS_MISSING",
+    "REGISTRY_SCHEMA_FAIL_CONTRACT_APPLICABILITY_MISSING",
+    "REGISTRY_SCHEMA_FAIL_SPECIMEN_COUNT_DISCIPLINE_MISSING",
+    "REGISTRY_SCHEMA_FAIL_STAGE_SEPARATION_MISSING",
+    "REGISTRY_SCHEMA_FAIL_PROMOTION_ACTIVATION_SPLIT_MISSING",
+    "REGISTRY_SCHEMA_FAIL_SELF_AUTHORIZATION_BOUNDARY_MISSING",
+    "REGISTRY_SCHEMA_FAIL_SINGLE_SPECIMEN_GENERALIZATION_COLLAPSE",
+    "REGISTRY_SCHEMA_FAIL_CANDIDATE_ENTRY_CREATED",
+    "REGISTRY_SCHEMA_FAIL_ACTIVE_REGISTRY_CREATED",
+    "REGISTRY_SCHEMA_FAIL_REGISTRY_USE_AUTHORIZED",
+    "REGISTRY_SCHEMA_FAIL_REUSE_AUTHORIZED",
+    "REGISTRY_SCHEMA_FAIL_RADIUS_RENEWED",
+    "REGISTRY_SCHEMA_FAIL_MACHINE_PROCEED_AUTHORIZED",
+    "REGISTRY_SCHEMA_FAIL_MACHINE_ACTION_PERFORMED",
+    "REGISTRY_SCHEMA_FAIL_RUNNER_AUTHORITY_CREATED",
+    "REGISTRY_SCHEMA_FAIL_SOURCE_AUTHORITY_REPLACED",
+    "REGISTRY_SCHEMA_FAIL_GENERALIZED_PATTERN_CREATED"
+  ],
+  "future_comparison_seed_boundary": {
+    "may_count_as_stability_evidence_without_later_audit": false,
+    "may_create_generalized_pattern_by_itself": false,
+    "may_seed_future_comparison": true,
+    "requires_multi_specimen_audit_for_generalization": true
+  },
+  "generated_by": "scripts/build_compression_trace_registry_entry_schema_contract_v0.py",
+  "key_non_claims": [
+    "registry schema contract \u2260 registry candidate",
+    "registry candidate \u2260 active registry entry",
+    "observability registry \u2260 source authority",
+    "observability registry \u2260 runner authority",
+    "single specimen \u2260 generalized pattern",
+    "schema contract \u2260 self-authorization"
+  ],
+  "most_important_failures": [
+    "REGISTRY_SCHEMA_FAIL_SINGLE_SPECIMEN_GENERALIZATION_COLLAPSE",
+    "REGISTRY_SCHEMA_FAIL_CANDIDATE_ENTRY_CREATED",
+    "REGISTRY_SCHEMA_FAIL_ACTIVE_REGISTRY_CREATED",
+    "REGISTRY_SCHEMA_FAIL_REUSE_AUTHORIZED",
+    "REGISTRY_SCHEMA_FAIL_MACHINE_PROCEED_AUTHORIZED",
+    "REGISTRY_SCHEMA_FAIL_RUNNER_AUTHORITY_CREATED",
+    "REGISTRY_SCHEMA_FAIL_SELF_AUTHORIZATION_BOUNDARY_MISSING"
+  ],
+  "next_possible_separate_object": {
+    "example_candidate_created_by_f1": false,
+    "example_future_candidate_object": "c8_n22_radius_bound_prepare_trace_registry_candidate_v0",
+    "next_possible_separate_object_family": "LOCAL_COMPRESSION_TRACE_REGISTRY_CANDIDATE_ENTRY",
+    "requires_separate_f2_unit": true,
+    "selected_as_next_unit_by_f1": false
+  },
+  "non_claims": [
+    "F.1 does not create a registry candidate entry.",
+    "F.1 does not register the C8 n22 trace.",
+    "F.1 does not create an active registry entry.",
+    "F.1 does not promote a trace label.",
+    "F.1 does not claim generalization.",
+    "F.1 does not authorize reuse.",
+    "F.1 does not renew radius.",
+    "F.1 does not authorize machine proceed.",
+    "F.1 does not perform machine action.",
+    "F.1 does not execute anything.",
+    "F.1 does not create runner authority.",
+    "F.1 only defines the contract future compression-trace registry candidates must satisfy."
+  ],
+  "precommit_compression_trace_registry_schema_gate": "PASS",
+  "predecessor_context": {
+    "human_start_required_for_block_f": true,
+    "predecessor_authorizes_schema_contract": false,
+    "predecessor_block": "BLOCK_E",
+    "predecessor_object": "c8.n22.compression_specimen_closure.v0",
+    "predecessor_role": "MOTIVATING_CLOSED_SPECIMEN_ONLY"
+  },
+  "predecessor_evidence": {
+    "predecessor_commit_sha": "9042b3012f9fca29a96f2fe36807b77993faf0d8",
+    "predecessor_file_hash_algorithm": "sha256",
+    "predecessor_file_sha256": "13352e50ecd9082bb27e1c7c0c78c1c3ff485e9e42c5722f884f10e814c5a16b",
+    "predecessor_path": "docs/matrixlabs/compression/c8_n22_compression_specimen_closure_v0.json",
+    "predecessor_worktree_matches_head_blob": true
+  },
+  "promotion_activation_split": {
+    "activation_requires_separate_apply_object": true,
+    "activation_requires_status_transition_record": true,
+    "active_registry_entry_materialization_required": true,
+    "promotion_granted_does_not_equal_active": true
+  },
+  "registry_kind": "COMPRESSION_TRACE_OBSERVABILITY_REGISTRY",
+  "registry_schema_gate": "REGISTRY_SCHEMA_PASS_CONTRACT_DEFINED_ONLY",
+  "registry_schema_id": "compression_trace_registry_entry_schema_contract.v0",
+  "required_field_group_contracts": {
+    "activation_boundaries": {
+      "candidate_stage_values": {
+        "activation_requires_human_decision": true,
+        "activation_requires_separate_apply_object": true,
+        "activation_status": "ACTIVATION_INACTIVE",
+        "active_registry_entry_created": false
+      },
+      "contract": "Candidate status is not active status; activation requires a later apply object.",
+      "required_fields": [
+        "active_registry_entry_created",
+        "activation_status",
+        "activation_requires_human_decision",
+        "activation_requires_separate_apply_object"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    "allowed_candidate_use": {
+      "allowed_candidate_use": {
+        "active_registry_lookup": false,
+        "authority_decision_source": false,
+        "candidate_queue_display": true,
+        "dashboard_projection": true,
+        "future_comparison_seed": true,
+        "human_review": true,
+        "machine_proceed_source": false,
+        "reuse_authorization_source": false,
+        "runner_source": false,
+        "trace_search": true
+      },
+      "allowed_values": {
+        "active_registry_lookup": false,
+        "authority_decision_source": false,
+        "candidate_queue_display": true,
+        "dashboard_projection": true,
+        "future_comparison_seed": true,
+        "human_review": true,
+        "machine_proceed_source": false,
+        "reuse_authorization_source": false,
+        "runner_source": false,
+        "trace_search": true
+      },
+      "contract": "Candidate-stage use is review, index, search, display, and comparison seed only.",
+      "required_fields": [
+        "candidate_queue_display",
+        "human_review",
+        "trace_search",
+        "future_comparison_seed",
+        "dashboard_projection",
+        "active_registry_lookup",
+        "authority_decision_source",
+        "reuse_authorization_source",
+        "machine_proceed_source",
+        "runner_source"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    "audit_requirements": {
+      "contract": "The later F.3 audit must be mechanical and must check schema, source, specimen, local-only, and non-effect boundaries.",
+      "required_fields": [
+        "schema present",
+        "candidate present",
+        "source E.4 closure present",
+        "E.4 status pass",
+        "E.3 status pass",
+        "required fields present",
+        "specimen_count declared",
+        "local-only status preserved",
+        "no active registry created",
+        "no reuse authorized",
+        "no radius renewed",
+        "no runner authority created"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    "authority_boundaries": {
+      "authority_boundaries": {
+        "candidate_authorizes_execution": false,
+        "candidate_authorizes_reuse": false,
+        "candidate_changes_authority_state": false,
+        "candidate_grants_authority": false,
+        "candidate_replaces_source_authority": false
+      },
+      "candidate_stage_values": {
+        "candidate_authorizes_execution": false,
+        "candidate_authorizes_reuse": false,
+        "candidate_changes_authority_state": false,
+        "candidate_grants_authority": false,
+        "candidate_replaces_source_authority": false
+      },
+      "contract": "Candidate-stage authority fields must all be false.",
+      "required_fields": [
+        "candidate_grants_authority",
+        "candidate_replaces_source_authority",
+        "candidate_authorizes_reuse",
+        "candidate_authorizes_execution",
+        "candidate_changes_authority_state"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    "decompression_requirements": {
+      "candidate_may_stand_alone": false,
+      "contract": "Every future candidate must preserve decompression traceability and may not stand alone.",
+      "required_fields": [
+        "decompression_audit_required",
+        "source_decompression_audit_id",
+        "critical_field_parity_required",
+        "source_records_remain_authority"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    "entry_identity": {
+      "contract": "Every future candidate must identify itself, its role, status, registry kind, and schema.",
+      "example_future_values": {
+        "entry_role": "COMPRESSION_TRACE_REGISTRY_CANDIDATE",
+        "entry_status": "REGISTRY_STATUS_CANDIDATE",
+        "registry_candidate_id": "candidate.registry.c8_n22_radius_bound_prepare_trace.v0"
+      },
+      "example_values_created_by_f1": false,
+      "required_fields": [
+        "registry_candidate_id",
+        "entry_role",
+        "entry_status",
+        "registry_kind",
+        "schema_version"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    "forbidden_candidate_use": {
+      "contract": "Every future candidate must carry forbidden uses that prevent candidate-stage authority drift.",
+      "forbidden_candidate_use": {
+        "authorize_execution": true,
+        "authorize_machine_proceed": true,
+        "authorize_reuse": true,
+        "promote_schema": true,
+        "promote_taxonomy": true,
+        "renew_radius": true,
+        "replace_source_authority": true,
+        "route_runner": true
+      },
+      "forbidden_values": {
+        "authorize_execution": true,
+        "authorize_machine_proceed": true,
+        "authorize_reuse": true,
+        "promote_schema": true,
+        "promote_taxonomy": true,
+        "renew_radius": true,
+        "replace_source_authority": true,
+        "route_runner": true
+      },
+      "required_fields": [
+        "replace_source_authority",
+        "authorize_reuse",
+        "renew_radius",
+        "authorize_machine_proceed",
+        "authorize_execution",
+        "route_runner",
+        "promote_schema",
+        "promote_taxonomy"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    "generalization_status": {
+      "contract": "Every future candidate must say whether it generalizes and preserve local-only status for a single specimen.",
+      "example_future_values": {
+        "cross_context_stability_claimed": false,
+        "general_shape_claimed": false,
+        "generalization_status": "LOCAL_SPECIMEN_ONLY_NOT_GENERALIZED",
+        "local_candidate_only": true,
+        "multi_specimen_stability_claimed": false
+      },
+      "required_fields": [
+        "general_shape_claimed",
+        "multi_specimen_stability_claimed",
+        "cross_context_stability_claimed",
+        "local_candidate_only",
+        "generalization_status"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    "promotion_boundaries": {
+      "candidate_stage_values": {
+        "promotion_decision_required": true,
+        "promotion_status": "REGISTRY_PROMOTION_NOT_REQUESTED"
+      },
+      "contract": "Promotion requires a later decision and receipt; promotion does not silently activate an entry.",
+      "required_fields": [
+        "promotion_status",
+        "promotion_decision_required",
+        "promotion_receipt_required",
+        "promotion_apply_required"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    "radius_boundaries": {
+      "contract": "A registry candidate cannot revive exhausted radius or create additional machine proceed.",
+      "example_future_values": {
+        "candidate_authorizes_additional_machine_proceed": false,
+        "candidate_creates_radius": false,
+        "candidate_renews_radius": false,
+        "source_radius_after": 0,
+        "source_radius_exhausted": true
+      },
+      "required_fields": [
+        "source_radius_after",
+        "source_radius_exhausted",
+        "candidate_renews_radius",
+        "candidate_creates_radius",
+        "candidate_authorizes_additional_machine_proceed"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    "revocation_or_expiry": {
+      "contract": "Every future candidate needs revocation, expiry, supersession, and source-mismatch invalidation fields.",
+      "default_candidate_values_later": {
+        "expiry_status": "NOT_EXPIRED",
+        "revocation_status": "NOT_REVOKED",
+        "supersession_status": "NOT_SUPERSEDED"
+      },
+      "required_fields": [
+        "revocation_status",
+        "expiry_status",
+        "supersession_status",
+        "invalidated_by_source_mismatch"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    "runner_boundaries": {
+      "candidate_stage_values": {
+        "candidate_authorizes_runner": false,
+        "candidate_defines_runner_policy": false,
+        "candidate_is_runner_input": false,
+        "candidate_routes_runner": false,
+        "runner_authority_created": false
+      },
+      "contract": "A registry candidate may support later runner analysis but cannot be runner authority.",
+      "required_fields": [
+        "candidate_is_runner_input",
+        "candidate_authorizes_runner",
+        "candidate_defines_runner_policy",
+        "candidate_routes_runner",
+        "runner_authority_created"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    "source_compressed_packet": {
+      "contract": "Every future candidate must reference the compressed packet while preserving source authority.",
+      "required_fields": [
+        "compressed_packet_id",
+        "target_trace_label",
+        "packet_status",
+        "source_records_remain_authority"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    "source_compression_closure": {
+      "contract": "Every future candidate must reference an E.4-style passing observability-only compression closure.",
+      "no_passing_closure_no_registry_candidate": true,
+      "required_fields": [
+        "source_compression_closure_id",
+        "source_compression_closure_status",
+        "source_block_status",
+        "allowed_use_from_closure"
+      ],
+      "required_status": "COMPRESSION_CLOSURE_PASS_OBSERVABILITY_ONLY",
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    "source_decompression_audit": {
+      "contract": "Every future candidate must reference the decompression audit and carry its critical-field parity status.",
+      "no_decompression_pass_no_registry_candidate": true,
+      "required_fields": [
+        "decompression_audit_id",
+        "decompression_audit_status",
+        "critical_field_group_count_checked",
+        "critical_field_group_count_passed",
+        "all_critical_field_groups_recovered"
+      ],
+      "required_status": "DECOMPRESSION_AUDIT_PASS_CRITICAL_FIELD_PARITY",
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    "specimen_evidence": {
+      "contract": "Every future candidate must declare specimen count and source trace evidence explicitly.",
+      "example_future_values": {
+        "evidence_kind": "SINGLE_LOCAL_SPECIMEN",
+        "specimen_count": 1
+      },
+      "required_fields": [
+        "specimen_count",
+        "specimen_ids",
+        "source_trace_ids",
+        "evidence_kind"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    "trace_label": {
+      "contract": "Every future candidate must declare the trace label and explicitly state it has no authority effect.",
+      "example_future_values": {
+        "trace_label": "C8_N22_RADIUS_BOUND_PREPARE_TRACE_V0",
+        "trace_label_authority_effect": "NONE",
+        "trace_label_scope": "C8_N22_LOCAL_SPECIMEN_ONLY"
+      },
+      "example_values_created_by_f1": false,
+      "required_fields": [
+        "trace_label",
+        "trace_label_definition",
+        "trace_label_scope",
+        "trace_label_authority_effect"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    },
+    "trace_scope": {
+      "contract": "Every future candidate must separate local specimen, multi-specimen observation, generalized shape, and active registry class.",
+      "example_future_values": {
+        "cross_context_claimed": false,
+        "trace_scope": "C8_N22_LOCAL_SPECIMEN_ONLY"
+      },
+      "required_fields": [
+        "trace_scope",
+        "basis_scope",
+        "context_scope",
+        "cross_context_claimed"
+      ],
+      "required_scope_distinctions": [
+        "local specimen",
+        "multi-specimen observation",
+        "generalized shape",
+        "active registry class"
+      ],
+      "required_value_policy": "MUST_BE_EXPLICIT_NO_DEFAULT_INFERENCE"
+    }
+  },
+  "required_field_group_count": 18,
+  "required_field_groups": [
+    "entry_identity",
+    "source_compression_closure",
+    "source_compressed_packet",
+    "source_decompression_audit",
+    "trace_label",
+    "trace_scope",
+    "specimen_evidence",
+    "generalization_status",
+    "allowed_candidate_use",
+    "forbidden_candidate_use",
+    "decompression_requirements",
+    "authority_boundaries",
+    "radius_boundaries",
+    "runner_boundaries",
+    "activation_boundaries",
+    "promotion_boundaries",
+    "revocation_or_expiry",
+    "audit_requirements"
+  ],
+  "schema_gate": {
+    "activation_boundaries_declared": true,
+    "active_registry_created_by_schema": false,
+    "allowed_activation_statuses_declared": true,
+    "allowed_entry_statuses_declared": true,
+    "allowed_generalization_statuses_declared": true,
+    "allowed_promotion_statuses_declared": true,
+    "audit_requirements_declared": true,
+    "authority_boundaries_declared": true,
+    "candidate_active_use_stage_separation_declared": true,
+    "candidate_entry_created_by_schema": false,
+    "candidate_stage_allowed_uses_declared": true,
+    "candidate_stage_forbidden_uses_declared": true,
+    "contract_applicability_boundaries_declared": true,
+    "failures": [],
+    "future_comparison_seed_boundary_declared": true,
+    "generalized_pattern_created_by_schema": false,
+    "machine_action_performed_by_schema": false,
+    "machine_proceed_authorized_by_schema": false,
+    "promotion_activation_split_declared": true,
+    "promotion_boundaries_declared": true,
+    "radius_boundaries_declared": true,
+    "radius_renewed_by_schema": false,
+    "registry_entry_activated_by_schema": false,
+    "registry_kind": "COMPRESSION_TRACE_OBSERVABILITY_REGISTRY",
+    "registry_schema_gate": "REGISTRY_SCHEMA_PASS_CONTRACT_DEFINED_ONLY",
+    "registry_use_authorized_by_schema": false,
+    "required_field_group_count": 18,
+    "required_field_groups_declared": true,
+    "reuse_authorized_by_schema": false,
+    "runner_authority_created_by_schema": false,
+    "runner_boundaries_declared": true,
+    "schema_role": "REGISTRY_ENTRY_CONTRACT_ONLY",
+    "schema_scope": "COMPRESSION_STABLE_TRACE_CANDIDATES_ONLY",
+    "self_authorization_boundary_declared": true,
+    "single_specimen_does_not_equal_generalized_pattern": true,
+    "source_authority_replaced_by_schema": false,
+    "source_records_remain_authority_required": true,
+    "specimen_count_laws_declared": true
+  },
+  "schema_laws": {
+    "observability_registry_does_not_equal_runner_authority": true,
+    "observability_registry_does_not_equal_source_authority": true,
+    "registry_candidate_does_not_equal_active_registry_entry": true,
+    "registry_schema_contract_does_not_create_candidate": true,
+    "single_specimen_does_not_equal_generalized_pattern": true,
+    "source_records_remain_authority_required": true
+  },
+  "schema_non_effects": {
+    "active_registry_created_by_schema": false,
+    "candidate_entry_created_by_schema": false,
+    "generalized_pattern_created_by_schema": false,
+    "machine_action_performed_by_schema": false,
+    "machine_proceed_authorized_by_schema": false,
+    "radius_renewed_by_schema": false,
+    "registry_entry_activated_by_schema": false,
+    "registry_use_authorized_by_schema": false,
+    "reuse_authorized_by_schema": false,
+    "runner_authority_created_by_schema": false,
+    "source_authority_replaced_by_schema": false
+  },
+  "schema_role": "REGISTRY_ENTRY_CONTRACT_ONLY",
+  "schema_scope": "COMPRESSION_STABLE_TRACE_CANDIDATES_ONLY",
+  "schema_status": "REGISTRY_SCHEMA_PASS_CONTRACT_DEFINED_ONLY",
+  "schema_version": "matrixlabs_compression_trace_registry_entry_schema_contract_v0",
+  "self_authorization_boundary": {
+    "activation_requires_separate_human_decision": true,
+    "candidate_audit_requires_separate_unit": true,
+    "candidate_creation_requires_separate_unit": true,
+    "schema_contract_authorizes_its_own_use": false,
+    "schema_contract_self_activates": false,
+    "schema_contract_self_promotes": false
+  },
+  "specimen_count_laws": {
+    "multi_specimen_status_requires_separate_evidence": true,
+    "single_specimen_must_remain_local_only": true,
+    "specimen_count_may_not_be_inflated_by_schema": true,
+    "specimen_count_must_be_explicit": true,
+    "specimen_count_must_equal_listed_specimen_ids": true,
+    "specimen_ids_must_be_listed": true
+  },
+  "terminal_transition": "ADVANCE(F2_LOCAL_REGISTRY_CANDIDATE_ENTRY_PENDING)",
+  "use_stage_separation": {
+    "active_registry_use_defined_by_f1": false,
+    "active_registry_use_requires_later_activation_contract": true,
+    "candidate_stage_use_defined": true,
+    "candidate_stage_use_may_not_be_imported_as_active_use": true
+  }
+}
