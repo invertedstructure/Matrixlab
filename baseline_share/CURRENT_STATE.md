@@ -1,10 +1,10 @@
 # Current State
 
-Generated at UTC: `2026-07-08T11:44:13Z`
+Generated at UTC: `2026-07-08T13:15:30Z`
 
 ## Git context
 
-- Current HEAD SHA: `c3c926f51898b64c8b431ff026973736e8073ec8`
+- Current HEAD SHA: `0cdbfda86b178290e4794cffa5ffdbbe3e817a90`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
@@ -15,22 +15,20 @@ Generated at UTC: `2026-07-08T11:44:13Z`
 - ` M baseline_share/RECEIPT_POINTERS.md`
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/proceed/c8_n22_machine_proceed_closure_v0.json`
-- `?? docs/matrixlabs/proceed/c8_n22_machine_proceed_closure_v0.md`
-- `?? scripts/build_c8_n22_machine_proceed_closure_v0.py`
+- `?? docs/matrixlabs/compression/`
+- `?? scripts/build_c8_n22_authority_action_trace_compression_target_v0.py`
 - Git status excluding generated `baseline_share/`:
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/proceed/c8_n22_machine_proceed_closure_v0.json`
-- `?? docs/matrixlabs/proceed/c8_n22_machine_proceed_closure_v0.md`
-- `?? scripts/build_c8_n22_machine_proceed_closure_v0.py`
+- `?? docs/matrixlabs/compression/`
+- `?? scripts/build_c8_n22_authority_action_trace_compression_target_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `c3c926f51898b64c8b431ff026973736e8073ec8`
-- Current C8 post-patch surface-decision acceptance commit: `c3c926f51898b64c8b431ff026973736e8073ec8`
+- Current architecture extraction commit: `0cdbfda86b178290e4794cffa5ffdbbe3e817a90`
+- Current C8 post-patch surface-decision acceptance commit: `0cdbfda86b178290e4794cffa5ffdbbe3e817a90`
 
 ## High-level state
 

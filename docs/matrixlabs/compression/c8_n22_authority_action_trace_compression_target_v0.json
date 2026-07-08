@@ -1,0 +1,430 @@
+{
+  "authority_substitution_boundary": {
+    "compressed_packet_may_authorize_machine_proceed": false,
+    "compressed_packet_may_replace_source_records_as_authority": false,
+    "compressed_packet_may_satisfy_active_entry_requirement": false,
+    "compressed_packet_may_satisfy_human_decision_requirement": false,
+    "compressed_packet_may_satisfy_radius_requirement": false
+  },
+  "block_e_status": "BLOCK_E_COMPRESSION_TARGET_DECLARED",
+  "block_id": "BLOCK_E",
+  "block_unit_id": "E1_COMPRESSION_TARGET_DECLARATION",
+  "compression_boundary": {
+    "allowed_effect": "DECLARE_TARGET_AND_CRITICAL_FIELDS_ONLY",
+    "authority_changed_by_e1": false,
+    "compressed_packet_created_by_e1": false,
+    "compression_performed_by_e1": false,
+    "compression_registry_created_by_e1": false,
+    "decompression_audit_performed_by_e1": false,
+    "machine_action_performed_by_e1": false,
+    "radius_renewed_by_e1": false,
+    "reuse_authorized_by_e1": false,
+    "runner_authority_created_by_e1": false,
+    "source_records_replaced_by_e1": false
+  },
+  "compression_mode": "OBSERVABILITY_COMPRESSION_ONLY",
+  "compression_target_gate": "COMPRESSION_TARGET_PASS_DECLARED_ONLY",
+  "compression_target_id": "c8.n22.authority_action_trace.compression_target.v0",
+  "critical_field_group_count": 15,
+  "critical_field_groups": [
+    "authority_state_transition",
+    "human_authority_decision",
+    "requested_action",
+    "route_classification",
+    "candidate_archive_status",
+    "candidate_audit_status",
+    "promotion_decision",
+    "active_archive_entry",
+    "machine_proceed_action",
+    "radius_accounting",
+    "created_output_surface",
+    "confirmed_non_effects",
+    "remaining_forbidden_authorities",
+    "post_use_stop_state",
+    "next_possible_separate_surface"
+  ],
+  "expected_critical_values": {
+    "active_archive_entry": {
+      "activation_status": "ACTIVATION_ACTIVE",
+      "entry_status": "ARCHIVE_STATUS_PREAPPROVED_ACTIVE",
+      "promotion_status": "PROMOTION_GRANTED_FOR_DECLARED_SCOPE",
+      "radius_limit": "RADIUS_1_SINGLE_C8_N22_BASIS_OBJECT",
+      "reuse_authority_status": "REUSE_AUTHORITY_GRANTED_FOR_DECLARED_SCOPE"
+    },
+    "authority_state_transition": {
+      "prior_authority_state": "AUTH_STATE_OBSERVED_NOT_AUTHORIZED",
+      "resulting_authority_state": "AUTH_STATE_ACCEPTED_AS_BASIS_FOR_NEXT_UNIT_DEFINITION"
+    },
+    "candidate_archive_status": {
+      "activation_status": "ACTIVATION_NOT_APPLICABLE",
+      "activation_status_reason": "CANDIDATE_ENTRY_NOT_ACTIVATABLE",
+      "candidate_radius": "RADIUS_0_CANDIDATE_ONLY",
+      "entry_status": "ARCHIVE_STATUS_CANDIDATE",
+      "promotion_status_before_D": "PROMOTION_NOT_REQUESTED",
+      "reuse_authority_status_before_D": "REUSE_AUTHORITY_NOT_GRANTED"
+    },
+    "candidate_audit_status": {
+      "candidate_active": false,
+      "candidate_audit_status": "CANDIDATE_AUDIT_PASS_CONTRACT_CONFORMANT_NOT_PROMOTED",
+      "candidate_contract_conformant": true,
+      "candidate_promoted": false,
+      "candidate_reusable": false
+    },
+    "created_output_surface": {
+      "execution_status": "NOT_EXECUTED",
+      "output_basis": "c8.n22",
+      "output_object_type": "NEXT_BOUNDED_UNIT_DEFINITION_SURFACE",
+      "output_scope": "SURFACE_ONLY",
+      "output_surface_status": "NEXT_UNIT_DEFINITION_SURFACE_PREPARED_NOT_EXECUTED"
+    },
+    "machine_proceed_action": {
+      "performed_action": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE",
+      "performed_action_scope": "PREPARE_SURFACE_ONLY",
+      "performed_basis_scope": "C8_N22_BASIS_ONLY",
+      "performed_output_kind": "NEXT_BOUNDED_UNIT_DEFINITION_SURFACE",
+      "performed_source_object_id": "c8.n22"
+    },
+    "next_possible_separate_surface": {
+      "authorized_by_closure": false,
+      "created_by_closure": false,
+      "machine_may_prepare_without_new_authority": false,
+      "next_possible_separate_surface": "REVIEW_OR_DECISION_SURFACE_FOR_CREATED_NEXT_UNIT"
+    },
+    "post_use_stop_state": {
+      "active_entry_remains_audit_source": true,
+      "additional_use_requires_new_authority_or_radius": true,
+      "entry_has_remaining_radius": false,
+      "entry_may_authorize_additional_machine_proceed": false,
+      "radius_exhausted": true,
+      "same_radius_may_be_reused": false
+    },
+    "promotion_decision": {
+      "basis_scope": "C8_N22_BASIS_ONLY",
+      "radius_selected": "RADIUS_1_SINGLE_C8_N22_BASIS_OBJECT",
+      "selected_promotion_option": "DECISION_PROMOTE_CANDIDATE_FOR_DECLARED_SCOPE",
+      "source_object_id": "c8.n22"
+    },
+    "radius_accounting": {
+      "further_machine_proceed_authorized_under_this_radius": false,
+      "radius_after": 0,
+      "radius_before": 1,
+      "radius_consumed": 1,
+      "radius_exhausted": true,
+      "radius_limit": "RADIUS_1_SINGLE_C8_N22_BASIS_OBJECT",
+      "radius_renewed": false
+    },
+    "requested_action": {
+      "basis_scope": "C8_N22_BASIS_ONLY",
+      "requested_action": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE",
+      "requested_action_scope": "PREPARE_SURFACE_ONLY",
+      "source_object_id": "c8.n22"
+    },
+    "route_classification": {
+      "action_executed_by_router": false,
+      "authority_changed_by_router": false,
+      "route_disposition": "ROUTE_MACHINE_MAY_PREPARE_ONLY",
+      "router_mode": "CLASSIFY_ONLY_NO_ACTION"
+    }
+  },
+  "failure_vocabulary": [
+    "COMPRESSION_TARGET_FAIL_AUTHORITY_TRANSITION_CLOSURE_MISSING",
+    "COMPRESSION_TARGET_FAIL_ROUTER_SPECIMEN_CLOSURE_MISSING",
+    "COMPRESSION_TARGET_FAIL_CANDIDATE_AUDIT_MISSING",
+    "COMPRESSION_TARGET_FAIL_MACHINE_PROCEED_CLOSURE_MISSING",
+    "COMPRESSION_TARGET_FAIL_SOURCE_CHAIN_INCOMPLETE",
+    "COMPRESSION_TARGET_FAIL_SOURCE_ARTIFACT_AMBIGUOUS",
+    "COMPRESSION_TARGET_FAIL_SOURCE_ARTIFACT_PATH_MISSING",
+    "COMPRESSION_TARGET_FAIL_SOURCE_ARTIFACT_HASH_MISSING",
+    "COMPRESSION_TARGET_FAIL_TARGET_LABEL_MISSING",
+    "COMPRESSION_TARGET_FAIL_COMPRESSION_MODE_MISSING",
+    "COMPRESSION_TARGET_FAIL_CRITICAL_FIELD_GROUPS_MISSING",
+    "COMPRESSION_TARGET_FAIL_REQUIRED_RECOVERABLE_FIELDS_MISSING",
+    "COMPRESSION_TARGET_FAIL_AUTHORITY_FIELD_GROUP_MISSING",
+    "COMPRESSION_TARGET_FAIL_RADIUS_FIELD_GROUP_MISSING",
+    "COMPRESSION_TARGET_FAIL_NON_EFFECT_FIELD_GROUP_MISSING",
+    "COMPRESSION_TARGET_FAIL_STOP_STATE_FIELD_GROUP_MISSING",
+    "COMPRESSION_TARGET_FAIL_AUTHORITY_SUBSTITUTION_BOUNDARY_MISSING",
+    "COMPRESSION_TARGET_FAIL_COMPRESSION_PERFORMED_INSIDE_DECLARATION",
+    "COMPRESSION_TARGET_FAIL_COMPRESSED_PACKET_CREATED_INSIDE_DECLARATION",
+    "COMPRESSION_TARGET_FAIL_DECOMPRESSION_AUDIT_PERFORMED_INSIDE_DECLARATION",
+    "COMPRESSION_TARGET_FAIL_REGISTRY_CREATED_INSIDE_DECLARATION",
+    "COMPRESSION_TARGET_FAIL_AUTHORITY_CHANGED",
+    "COMPRESSION_TARGET_FAIL_REUSE_AUTHORIZED",
+    "COMPRESSION_TARGET_FAIL_RADIUS_RENEWED",
+    "COMPRESSION_TARGET_FAIL_MACHINE_ACTION_PERFORMED",
+    "COMPRESSION_TARGET_FAIL_RUNNER_AUTHORITY_CREATED",
+    "COMPRESSION_TARGET_FAIL_SOURCE_RECORDS_REPLACED"
+  ],
+  "generated_by": "scripts/build_c8_n22_authority_action_trace_compression_target_v0.py",
+  "key_non_claims": [
+    "compression target declaration \u2260 compressed packet",
+    "declaring critical fields \u2260 proving they were preserved",
+    "observability compression \u2260 authority compression",
+    "compressed packet \u2260 authority source"
+  ],
+  "non_claims": [
+    "E.1 does not compress the trace.",
+    "E.1 does not create a compressed packet.",
+    "E.1 does not audit decompression.",
+    "E.1 does not create a registry entry.",
+    "E.1 does not authorize reuse.",
+    "E.1 does not renew radius.",
+    "E.1 does not perform machine action.",
+    "E.1 does not replace source records.",
+    "E.1 does not create runner authority.",
+    "E.1 only declares the compression target and the critical fields that must be preserved."
+  ],
+  "precommit_c8_n22_compression_target_gate": "PASS",
+  "required_later_audit": {
+    "audit_must_compare_against_source_chain": true,
+    "audit_must_compare_source_hashes": true,
+    "audit_must_fail_on_authority_strengthening": true,
+    "audit_must_fail_on_radius_renewal": true,
+    "audit_must_fail_on_runner_authority": true,
+    "audit_must_fail_on_source_record_replacement": true,
+    "audit_must_recover_all_critical_field_groups": true,
+    "audit_must_recover_all_required_recoverable_fields": true,
+    "decompression_audit_required": true
+  },
+  "required_recoverable_fields_by_group": {
+    "active_archive_entry": [
+      "active_archive_entry_id",
+      "entry_status",
+      "promotion_status",
+      "reuse_authority_status",
+      "activation_status",
+      "declared_scope",
+      "radius_limit",
+      "radius_remaining_before_use"
+    ],
+    "authority_state_transition": [
+      "prior_authority_state",
+      "selected_human_authority_decision",
+      "authority_event_consumed",
+      "resulting_authority_state",
+      "next_allowed_router_action"
+    ],
+    "candidate_archive_status": [
+      "candidate_entry_id",
+      "entry_status",
+      "promotion_status_before_D",
+      "reuse_authority_status_before_D",
+      "activation_status",
+      "activation_status_reason",
+      "candidate_radius"
+    ],
+    "candidate_audit_status": [
+      "candidate_audit_id",
+      "candidate_audit_status",
+      "candidate_contract_conformant",
+      "candidate_promoted",
+      "candidate_reusable",
+      "candidate_active"
+    ],
+    "confirmed_non_effects": [
+      "unit_executed",
+      "runtime_executed",
+      "authority_changed",
+      "receipts_rewritten",
+      "taxonomy_promoted",
+      "reuse_scope_expanded",
+      "updater_generalized",
+      "runner_authority_created",
+      "additional_radius_created",
+      "active_archive_scope_expanded",
+      "active_archive_entry_rewritten_by_closure",
+      "active_archive_entry_mutated_by_closure"
+    ],
+    "created_output_surface": [
+      "output_surface_id",
+      "output_object_type",
+      "output_scope",
+      "output_basis",
+      "execution_status",
+      "output_surface_status"
+    ],
+    "human_authority_decision": [
+      "decision_surface_id",
+      "decision_receipt_id",
+      "selected_decision_option",
+      "decision_actor_class",
+      "authority_event_status"
+    ],
+    "machine_proceed_action": [
+      "machine_proceed_id",
+      "performed_action",
+      "performed_action_scope",
+      "performed_basis_scope",
+      "performed_source_object_id",
+      "performed_output_kind",
+      "validators_passed"
+    ],
+    "next_possible_separate_surface": [
+      "next_possible_separate_surface",
+      "created_by_closure",
+      "authorized_by_closure",
+      "machine_may_prepare_without_new_authority"
+    ],
+    "post_use_stop_state": [
+      "radius_exhausted",
+      "active_entry_remains_audit_source",
+      "entry_has_remaining_radius",
+      "entry_may_authorize_additional_machine_proceed",
+      "additional_use_requires_new_authority_or_radius",
+      "same_radius_may_be_reused"
+    ],
+    "promotion_decision": [
+      "promotion_decision_surface_id",
+      "promotion_decision_receipt_id",
+      "selected_promotion_option",
+      "promotion_scope",
+      "radius_selected",
+      "basis_scope",
+      "source_object_id"
+    ],
+    "radius_accounting": [
+      "radius_limit",
+      "radius_before",
+      "radius_consumed",
+      "radius_after",
+      "radius_exhausted",
+      "radius_renewed",
+      "further_machine_proceed_authorized_under_this_radius"
+    ],
+    "remaining_forbidden_authorities": [
+      "execution_remains_unauthorized",
+      "runtime_remains_unauthorized",
+      "receipt_rewrite_remains_unauthorized",
+      "taxonomy_promotion_remains_unauthorized",
+      "reuse_expansion_remains_unauthorized",
+      "updater_generalization_remains_unauthorized",
+      "runner_remains_unauthorized",
+      "radius_renewal_remains_unauthorized"
+    ],
+    "requested_action": [
+      "requested_action_record_id",
+      "requested_action",
+      "requested_action_scope",
+      "requested_output_kind",
+      "basis_scope",
+      "source_object_id"
+    ],
+    "route_classification": [
+      "route_classification_id",
+      "router_mode",
+      "route_disposition",
+      "classification_only",
+      "action_executed_by_router",
+      "authority_changed_by_router"
+    ]
+  },
+  "schema_version": "matrixlabs_compression_target_declaration_v0",
+  "source_artifacts": {
+    "authority_transition_closure": {
+      "artifact_id": "c8.n22.authority_transition_closure.v0",
+      "path": "docs/matrixlabs/boundary/c8_n22_authority_transition_closure_v0.json",
+      "sha256": "12f0db02faa5a220487ce7f968dc56d09154267872cbf1bf91f2d17f75b8a39e",
+      "sig8": "12f0db02"
+    },
+    "candidate_archive_audit": {
+      "artifact_id": "c8.n22.candidate_archive_entry.admissibility_audit.v0",
+      "path": "docs/matrixlabs/validator_archive/audits/c8_n22_candidate_archive_entry_admissibility_audit_v0.json",
+      "sha256": "fa47bc2cf3e6745100ccc5d8a3e7de7f7f051d4f170a2d438fa4895b33d55ee8",
+      "sig8": "fa47bc2c"
+    },
+    "machine_proceed_closure": {
+      "artifact_id": "c8.n22.machine_proceed_closure.v0",
+      "path": "docs/matrixlabs/proceed/c8_n22_machine_proceed_closure_v0.json",
+      "sha256": "cd165a66e5a929ad9ebf0f6115fd27ef5a20db168f3d9ebe19c7a6231f75e825",
+      "sig8": "cd165a66"
+    },
+    "router_specimen_closure": {
+      "artifact_id": "c8.n22.router_specimen_closure.v0",
+      "path": "docs/matrixlabs/router/c8_n22_read_only_router_specimen_closure_v0.json",
+      "sha256": "cad09964fd7b253930e707d63d79421ef06e233237a7d5e30687d964b07602d6",
+      "sig8": "cad09964"
+    }
+  },
+  "source_chain": {
+    "authority_transition_closure_id": "c8.n22.authority_transition_closure.v0",
+    "candidate_archive_audit_id": "c8.n22.candidate_archive_entry.admissibility_audit.v0",
+    "machine_proceed_closure_id": "c8.n22.machine_proceed_closure.v0",
+    "router_specimen_closure_id": "c8.n22.router_specimen_closure.v0",
+    "source_chain_complete": true
+  },
+  "source_identity_policy": {
+    "directory_scan_authority_allowed": false,
+    "mtime_or_latest_file_resolution_allowed": false,
+    "source_hashes_required_for_later_audit": true,
+    "source_refs_are_manifest_bound": true
+  },
+  "supporting_source_artifacts": {
+    "active_archive_entry": {
+      "artifact_id": "active.c8.n22.prepare_next_unit_definition_surface.v0",
+      "path": "docs/matrixlabs/validator_archive/active/c8_n22_prepare_next_unit_definition_active_archive_entry_v0.json",
+      "sha256": "be07fcf22efea1abc7af24c998051bbe47a5d0e1fd783675b574688193514159",
+      "sig8": "be07fcf2"
+    },
+    "authority_state_update": {
+      "artifact_id": "c8.n22.authority_state_update.v0",
+      "path": "docs/matrixlabs/boundary/c8_n22_authority_state_update_v0.json",
+      "sha256": "198e00cfe4543c558dbb6a422179e4b423bb8dd065e52f4675bc10f5ce95cf34",
+      "sig8": "198e00cf"
+    },
+    "candidate_archive_entry": {
+      "artifact_id": "candidate.c8.n22.prepare_next_unit_definition_surface.v0",
+      "path": "docs/matrixlabs/validator_archive/candidates/c8_n22_prepare_next_unit_definition_candidate_archive_entry_v0.json",
+      "sha256": "0ad74b0a5acc8d27b47bbe9165e775a97b52843cf50aded5d604e6aa03556b08",
+      "sig8": "0ad74b0a"
+    },
+    "machine_proceed": {
+      "artifact_id": "c8.n22.prepare_next_unit_definition_surface.machine_proceed.v0",
+      "path": "docs/matrixlabs/proceed/c8_n22_prepare_next_unit_definition_surface_machine_proceed_v0.json",
+      "sha256": "df7a25ed8c9efff35b532f0dacac4000ff22319e35394edd3fd4a1a55ac66dc6",
+      "sig8": "df7a25ed"
+    },
+    "output_surface": {
+      "artifact_id": "c8.n22.next_bounded_unit_definition_surface.v0",
+      "path": "docs/matrixlabs/unit_surfaces/c8_n22_next_bounded_unit_definition_surface_v0.json",
+      "sha256": "e8b0af8342ee2ceb144ddb22866917ede8f229c3d8913c5fb215f54e0d5841ce",
+      "sig8": "e8b0af83"
+    },
+    "route_classification": {
+      "artifact_id": "c8.n22.route.prepare_next_unit_definition_surface.v0",
+      "path": "docs/matrixlabs/router/c8_n22_authority_route_classification_v0.json",
+      "sha256": "8784869ea66738f6741612313183c9cfc01ac3f67034db5c7703c92ee0911d91",
+      "sig8": "8784869e"
+    }
+  },
+  "target_gate": {
+    "authority_changed_by_e1": false,
+    "authority_substitution_boundary_declared": true,
+    "authority_transition_closure_present": true,
+    "candidate_archive_audit_present": true,
+    "compressed_packet_created_by_e1": false,
+    "compression_mode": "OBSERVABILITY_COMPRESSION_ONLY",
+    "compression_performed_by_e1": false,
+    "compression_registry_created_by_e1": false,
+    "compression_target_gate": "COMPRESSION_TARGET_PASS_DECLARED_ONLY",
+    "critical_field_group_count": 15,
+    "critical_field_groups_declared": true,
+    "decompression_audit_performed_by_e1": false,
+    "failures": [],
+    "machine_action_performed_by_e1": false,
+    "machine_proceed_closure_present": true,
+    "radius_renewed_by_e1": false,
+    "required_recoverable_fields_declared": true,
+    "reuse_authorized_by_e1": false,
+    "router_specimen_closure_present": true,
+    "runner_authority_created_by_e1": false,
+    "source_artifact_hashes_recorded": true,
+    "source_artifact_paths_recorded": true,
+    "source_chain_complete": true,
+    "source_records_replaced_by_e1": false,
+    "target_trace_label": "C8_N22_RADIUS_BOUND_PREPARE_TRACE_V0"
+  },
+  "target_role": "DECLARE_COMPLETED_TRACE_FOR_COMPRESSION",
+  "target_status": "COMPRESSION_TARGET_PASS_DECLARED_ONLY",
+  "target_trace_label": "C8_N22_RADIUS_BOUND_PREPARE_TRACE_V0",
+  "terminal_transition": "ADVANCE(E2_COMPRESSED_SPECIMEN_PACKET_PENDING)"
+}
