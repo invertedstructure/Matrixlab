@@ -1,7 +1,7 @@
 # Commit Context
 
-- Generated at UTC: `2026-07-08T00:10:38Z`
-- Current HEAD SHA: `f49dfab97774414330682151e6e3fffeb7ba6f66`
+- Generated at UTC: `2026-07-08T01:07:47Z`
+- Current HEAD SHA: `a457bf08eb263cdbdad01a4eef6b7e7e2b11f230`
 - Branch: `master`
 - Worktree state at generation time: `dirty`
 - Generator script: `scripts/build_baseline_share_v0.py`
@@ -9,6 +9,7 @@
 ## Recent 10 commits
 
 ```text
+a457bf08e Add C8 n22 candidate promotion surface v0
 f49dfab97 Add C8 n22 candidate archive audit v0
 674c60113 Add C8 n22 candidate archive entry v0
 96223d2a9 Add validator archive entry schema contract v0
@@ -18,7 +19,6 @@ b6f19b7de Add C8 n22 authority route classification v0
 7e8a1b559 Close C8 n22 authority transition v0
 d8a5116ec Add C8 n22 authority state update v0
 3bd789240 Add C8 n22 human decision receipt v0
-c006f0fd1 Add C8 n22 human decision surface v0
 ```
 
 ## Git status short
@@ -30,8 +30,9 @@ M baseline_share/COMMIT_CONTEXT.md
  M baseline_share/RECEIPT_POINTERS.md
  M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/validator_archive/promotion/
-?? scripts/build_c8_n22_candidate_promotion_decision_surface_v0.py
+?? docs/matrixlabs/validator_archive/promotion/c8_n22_candidate_promotion_decision_receipt_v0.json
+?? docs/matrixlabs/validator_archive/promotion/c8_n22_candidate_promotion_decision_receipt_v0.md
+?? scripts/build_c8_n22_candidate_promotion_decision_receipt_v0.py
 ```
 
 ## Git status short excluding generated baseline_share
@@ -39,8 +40,9 @@ M baseline_share/COMMIT_CONTEXT.md
 ```text
  M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/validator_archive/promotion/
-?? scripts/build_c8_n22_candidate_promotion_decision_surface_v0.py
+?? docs/matrixlabs/validator_archive/promotion/c8_n22_candidate_promotion_decision_receipt_v0.json
+?? docs/matrixlabs/validator_archive/promotion/c8_n22_candidate_promotion_decision_receipt_v0.md
+?? scripts/build_c8_n22_candidate_promotion_decision_receipt_v0.py
 ```
 
 ## Safety facts

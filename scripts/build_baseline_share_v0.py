@@ -143,6 +143,11 @@ C8_N22_CANDIDATE_PROMOTION_DECISION_SURFACE_DOCS = [
     "docs/matrixlabs/validator_archive/promotion/c8_n22_candidate_promotion_decision_surface_v0.md",
 ]
 C8_N22_CANDIDATE_PROMOTION_DECISION_SURFACE_GENERATOR = "scripts/build_c8_n22_candidate_promotion_decision_surface_v0.py"
+C8_N22_CANDIDATE_PROMOTION_DECISION_RECEIPT_DOCS = [
+    "docs/matrixlabs/validator_archive/promotion/c8_n22_candidate_promotion_decision_receipt_v0.json",
+    "docs/matrixlabs/validator_archive/promotion/c8_n22_candidate_promotion_decision_receipt_v0.md",
+]
+C8_N22_CANDIDATE_PROMOTION_DECISION_RECEIPT_GENERATOR = "scripts/build_c8_n22_candidate_promotion_decision_receipt_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -192,6 +197,8 @@ SOURCE_DOCS = [
     C8_N22_CANDIDATE_ARCHIVE_ADMISSIBILITY_AUDIT_GENERATOR,
     *C8_N22_CANDIDATE_PROMOTION_DECISION_SURFACE_DOCS,
     C8_N22_CANDIDATE_PROMOTION_DECISION_SURFACE_GENERATOR,
+    *C8_N22_CANDIDATE_PROMOTION_DECISION_RECEIPT_DOCS,
+    C8_N22_CANDIDATE_PROMOTION_DECISION_RECEIPT_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -663,6 +670,7 @@ def build_manifest(
     c2_candidate_archive_entry_present = (root / C8_N22_CANDIDATE_ARCHIVE_ENTRY_DOCS[0]).exists()
     c3_candidate_archive_audit_present = (root / C8_N22_CANDIDATE_ARCHIVE_ADMISSIBILITY_AUDIT_DOCS[0]).exists()
     d1_promotion_decision_surface_present = (root / C8_N22_CANDIDATE_PROMOTION_DECISION_SURFACE_DOCS[0]).exists()
+    d2_promotion_decision_receipt_present = (root / C8_N22_CANDIDATE_PROMOTION_DECISION_RECEIPT_DOCS[0]).exists()
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -801,10 +809,29 @@ def build_manifest(
         "next_unit_definition_surface_prepared_by_this_surface": False,
         "authority_changed_by_this_surface": False,
         "runner_authority_created_by_this_surface": False,
+        "promotion_decision_receipt_created": d2_promotion_decision_receipt_present,
+        "promotion_decision_receipt_id": "c8.n22.candidate_promotion_decision_receipt.v0" if d2_promotion_decision_receipt_present else None,
+        "promotion_decision_receipt_gate": "PROMOTION_DECISION_RECEIPT_PASS_TYPED_DECISION_RECORDED" if d2_promotion_decision_receipt_present else None,
+        "selected_promotion_option": "DECISION_PROMOTE_CANDIDATE_FOR_DECLARED_SCOPE" if d2_promotion_decision_receipt_present else None,
+        "decision_actor_class": "HUMAN" if d2_promotion_decision_receipt_present else None,
+        "selection_source": "EXPLICIT_HUMAN_SELECTION" if d2_promotion_decision_receipt_present else None,
+        "human_selection_explicit": d2_promotion_decision_receipt_present,
+        "selected_option_present_on_surface": d2_promotion_decision_receipt_present,
+        "selected_option_scope_matches_surface": d2_promotion_decision_receipt_present,
+        "next_required_object": "c8_n22_prepare_next_unit_definition_active_archive_entry_v0" if d2_promotion_decision_receipt_present else None,
+        "active_archive_entry_created_by_this_receipt": False,
+        "inactive_archive_entry_created_by_this_receipt": False,
+        "reuse_authority_applied_by_this_receipt": False,
+        "activation_applied_by_this_receipt": False,
+        "machine_proceed_performed_by_this_receipt": False,
+        "next_unit_definition_surface_prepared_by_this_receipt": False,
+        "authority_changed_by_this_receipt": False,
+        "runner_authority_created_by_this_receipt": False,
         "c2_created": c2_candidate_archive_entry_present,
         "c3_created": c3_candidate_archive_audit_present,
         "d1_created": d1_promotion_decision_surface_present,
-        "promotion_receipt_created": False,
+        "d2_created": d2_promotion_decision_receipt_present,
+        "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,
         "router_created": False,

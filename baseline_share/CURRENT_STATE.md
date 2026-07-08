@@ -1,10 +1,10 @@
 # Current State
 
-Generated at UTC: `2026-07-08T00:10:38Z`
+Generated at UTC: `2026-07-08T01:07:47Z`
 
 ## Git context
 
-- Current HEAD SHA: `f49dfab97774414330682151e6e3fffeb7ba6f66`
+- Current HEAD SHA: `a457bf08eb263cdbdad01a4eef6b7e7e2b11f230`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
@@ -15,20 +15,22 @@ Generated at UTC: `2026-07-08T00:10:38Z`
 - ` M baseline_share/RECEIPT_POINTERS.md`
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/validator_archive/promotion/`
-- `?? scripts/build_c8_n22_candidate_promotion_decision_surface_v0.py`
+- `?? docs/matrixlabs/validator_archive/promotion/c8_n22_candidate_promotion_decision_receipt_v0.json`
+- `?? docs/matrixlabs/validator_archive/promotion/c8_n22_candidate_promotion_decision_receipt_v0.md`
+- `?? scripts/build_c8_n22_candidate_promotion_decision_receipt_v0.py`
 - Git status excluding generated `baseline_share/`:
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/validator_archive/promotion/`
-- `?? scripts/build_c8_n22_candidate_promotion_decision_surface_v0.py`
+- `?? docs/matrixlabs/validator_archive/promotion/c8_n22_candidate_promotion_decision_receipt_v0.json`
+- `?? docs/matrixlabs/validator_archive/promotion/c8_n22_candidate_promotion_decision_receipt_v0.md`
+- `?? scripts/build_c8_n22_candidate_promotion_decision_receipt_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `f49dfab97774414330682151e6e3fffeb7ba6f66`
-- Current C8 post-patch surface-decision acceptance commit: `f49dfab97774414330682151e6e3fffeb7ba6f66`
+- Current architecture extraction commit: `a457bf08eb263cdbdad01a4eef6b7e7e2b11f230`
+- Current C8 post-patch surface-decision acceptance commit: `a457bf08eb263cdbdad01a4eef6b7e7e2b11f230`
 
 ## High-level state
 
