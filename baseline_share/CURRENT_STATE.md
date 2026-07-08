@@ -1,10 +1,10 @@
 # Current State
 
-Generated at UTC: `2026-07-08T16:45:53Z`
+Generated at UTC: `2026-07-08T18:09:55Z`
 
 ## Git context
 
-- Current HEAD SHA: `2ee413f30ec9dd1653d5e61907c687da67d5cadb`
+- Current HEAD SHA: `726a9b76381a9808f982e2251d0e9a48acaf303e`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
@@ -12,25 +12,24 @@ Generated at UTC: `2026-07-08T16:45:53Z`
 - `M baseline_share/COMMIT_CONTEXT.md`
 - ` M baseline_share/CURRENT_STATE.md`
 - ` M baseline_share/MANIFEST.json`
-- ` M baseline_share/RECEIPT_POINTERS.md`
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/compression/c8_n22_radius_bound_prepare_trace_decompression_audit_v0.json`
-- `?? docs/matrixlabs/compression/c8_n22_radius_bound_prepare_trace_decompression_audit_v0.md`
-- `?? scripts/build_c8_n22_radius_bound_prepare_trace_decompression_audit_v0.py`
+- `?? docs/matrixlabs/compression/c8_n22_compression_specimen_closure_v0.json`
+- `?? docs/matrixlabs/compression/c8_n22_compression_specimen_closure_v0.md`
+- `?? scripts/build_c8_n22_compression_specimen_closure_v0.py`
 - Git status excluding generated `baseline_share/`:
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/compression/c8_n22_radius_bound_prepare_trace_decompression_audit_v0.json`
-- `?? docs/matrixlabs/compression/c8_n22_radius_bound_prepare_trace_decompression_audit_v0.md`
-- `?? scripts/build_c8_n22_radius_bound_prepare_trace_decompression_audit_v0.py`
+- `?? docs/matrixlabs/compression/c8_n22_compression_specimen_closure_v0.json`
+- `?? docs/matrixlabs/compression/c8_n22_compression_specimen_closure_v0.md`
+- `?? scripts/build_c8_n22_compression_specimen_closure_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `2ee413f30ec9dd1653d5e61907c687da67d5cadb`
-- Current C8 post-patch surface-decision acceptance commit: `2ee413f30ec9dd1653d5e61907c687da67d5cadb`
+- Current architecture extraction commit: `726a9b76381a9808f982e2251d0e9a48acaf303e`
+- Current C8 post-patch surface-decision acceptance commit: `726a9b76381a9808f982e2251d0e9a48acaf303e`
 
 ## High-level state
 
