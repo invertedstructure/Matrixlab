@@ -1,10 +1,10 @@
 # Current State
 
-Generated at UTC: `2026-07-08T01:58:22Z`
+Generated at UTC: `2026-07-08T10:31:23Z`
 
 ## Git context
 
-- Current HEAD SHA: `41233ed53084b9ceb2348661d07342feaf65cac7`
+- Current HEAD SHA: `d4eda408759be982c2d9dff2622a54b9dd7b7ac0`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
@@ -15,20 +15,22 @@ Generated at UTC: `2026-07-08T01:58:22Z`
 - ` M baseline_share/RECEIPT_POINTERS.md`
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/validator_archive/active/`
-- `?? scripts/build_c8_n22_prepare_next_unit_definition_active_archive_entry_v0.py`
+- `?? docs/matrixlabs/proceed/`
+- `?? docs/matrixlabs/unit_surfaces/`
+- `?? scripts/build_c8_n22_prepare_next_unit_definition_surface_machine_proceed_v0.py`
 - Git status excluding generated `baseline_share/`:
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/validator_archive/active/`
-- `?? scripts/build_c8_n22_prepare_next_unit_definition_active_archive_entry_v0.py`
+- `?? docs/matrixlabs/proceed/`
+- `?? docs/matrixlabs/unit_surfaces/`
+- `?? scripts/build_c8_n22_prepare_next_unit_definition_surface_machine_proceed_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `41233ed53084b9ceb2348661d07342feaf65cac7`
-- Current C8 post-patch surface-decision acceptance commit: `41233ed53084b9ceb2348661d07342feaf65cac7`
+- Current architecture extraction commit: `d4eda408759be982c2d9dff2622a54b9dd7b7ac0`
+- Current C8 post-patch surface-decision acceptance commit: `d4eda408759be982c2d9dff2622a54b9dd7b7ac0`
 
 ## High-level state
 

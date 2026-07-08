@@ -153,6 +153,15 @@ C8_N22_ACTIVE_ARCHIVE_ENTRY_DOCS = [
     "docs/matrixlabs/validator_archive/active/c8_n22_prepare_next_unit_definition_active_archive_entry_v0.md",
 ]
 C8_N22_ACTIVE_ARCHIVE_ENTRY_GENERATOR = "scripts/build_c8_n22_prepare_next_unit_definition_active_archive_entry_v0.py"
+C8_N22_MACHINE_PROCEED_DOCS = [
+    "docs/matrixlabs/proceed/c8_n22_prepare_next_unit_definition_surface_machine_proceed_v0.json",
+    "docs/matrixlabs/proceed/c8_n22_prepare_next_unit_definition_surface_machine_proceed_v0.md",
+]
+C8_N22_UNIT_SURFACE_DOCS = [
+    "docs/matrixlabs/unit_surfaces/c8_n22_next_bounded_unit_definition_surface_v0.json",
+    "docs/matrixlabs/unit_surfaces/c8_n22_next_bounded_unit_definition_surface_v0.md",
+]
+C8_N22_MACHINE_PROCEED_GENERATOR = "scripts/build_c8_n22_prepare_next_unit_definition_surface_machine_proceed_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -206,6 +215,9 @@ SOURCE_DOCS = [
     C8_N22_CANDIDATE_PROMOTION_DECISION_RECEIPT_GENERATOR,
     *C8_N22_ACTIVE_ARCHIVE_ENTRY_DOCS,
     C8_N22_ACTIVE_ARCHIVE_ENTRY_GENERATOR,
+    *C8_N22_MACHINE_PROCEED_DOCS,
+    *C8_N22_UNIT_SURFACE_DOCS,
+    C8_N22_MACHINE_PROCEED_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -679,6 +691,8 @@ def build_manifest(
     d1_promotion_decision_surface_present = (root / C8_N22_CANDIDATE_PROMOTION_DECISION_SURFACE_DOCS[0]).exists()
     d2_promotion_decision_receipt_present = (root / C8_N22_CANDIDATE_PROMOTION_DECISION_RECEIPT_DOCS[0]).exists()
     d3_active_archive_entry_present = (root / C8_N22_ACTIVE_ARCHIVE_ENTRY_DOCS[0]).exists()
+    d4_machine_proceed_present = (root / C8_N22_MACHINE_PROCEED_DOCS[0]).exists()
+    d4_unit_surface_present = (root / C8_N22_UNIT_SURFACE_DOCS[0]).exists()
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -741,9 +755,9 @@ def build_manifest(
         "allowed_machine_action_scope": "PREPARE_SURFACE_ONLY" if b2_route_classification_present else None,
         "allowed_scope": "C8_N22_BASIS_ONLY" if b2_route_classification_present else None,
         "router_gate_status": "ROUTER_PASS_CLASSIFICATION_ONLY" if b2_route_classification_present else None,
-        "requested_action_executed": False,
-        "action_executed": False,
-        "requested_output_created": False,
+        "requested_action_executed": d4_machine_proceed_present,
+        "action_executed": d4_machine_proceed_present,
+        "requested_output_created": d4_unit_surface_present,
         "authority_state_changed_by_b1": False,
         "authority_state_changed_by_b2": False,
         "runtime_executed": False,
@@ -758,7 +772,7 @@ def build_manifest(
         "route_result_copied_exactly_from_b2": b3_router_specimen_closure_present,
         "next_separately_preparable_object_class": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE_OBJECT" if b3_router_specimen_closure_present else None,
         "specimen_status": "ARCHIVABLE_LOCAL_SPECIMEN" if b3_router_specimen_closure_present else None,
-        "next_unit_definition_surface_prepared": False,
+        "next_unit_definition_surface_prepared": d4_unit_surface_present,
         "authority_state_changed_by_b3": False,
         "observed_path_updated": False,
         "observed_path_update_proposed": False,
@@ -796,7 +810,7 @@ def build_manifest(
         "radius_limit_now": "RADIUS_1_SINGLE_C8_N22_BASIS_OBJECT" if d3_active_archive_entry_present else ("RADIUS_0_CANDIDATE_ONLY" if c2_candidate_archive_entry_present else None),
         "candidate_move_performed": False,
         "authority_changed": False,
-        "preparation_surface_created": False,
+        "preparation_surface_created": d4_unit_surface_present,
         "preapproved_archive_entry_created": False,
         "human_promotion_decision_surface_created": False,
         "promotion_decision_surface_created": d1_promotion_decision_surface_present,
@@ -826,7 +840,7 @@ def build_manifest(
         "human_selection_explicit": d2_promotion_decision_receipt_present,
         "selected_option_present_on_surface": d2_promotion_decision_receipt_present,
         "selected_option_scope_matches_surface": d2_promotion_decision_receipt_present,
-        "next_required_object": "D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY" if d3_active_archive_entry_present else ("c8_n22_prepare_next_unit_definition_active_archive_entry_v0" if d2_promotion_decision_receipt_present else None),
+        "next_required_object": "D5_MACHINE_PROCEED_CLOSURE" if d4_machine_proceed_present else ("D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY" if d3_active_archive_entry_present else ("c8_n22_prepare_next_unit_definition_active_archive_entry_v0" if d2_promotion_decision_receipt_present else None)),
         "active_archive_entry_created_by_this_receipt": False,
         "inactive_archive_entry_created_by_this_receipt": False,
         "reuse_authority_applied_by_this_receipt": False,
@@ -840,6 +854,7 @@ def build_manifest(
         "d1_created": d1_promotion_decision_surface_present,
         "d2_created": d2_promotion_decision_receipt_present,
         "d3_created": d3_active_archive_entry_present,
+        "d4_created": d4_machine_proceed_present,
         "active_archive_entry_materialized": d3_active_archive_entry_present,
         "active_archive_entry_id": "active.c8.n22.prepare_next_unit_definition_surface.v0" if d3_active_archive_entry_present else None,
         "active_archive_entry_materialization_gate": "ACTIVE_ARCHIVE_ENTRY_PASS_MATERIALIZED_FOR_DECLARED_SCOPE" if d3_active_archive_entry_present else None,
@@ -872,7 +887,35 @@ def build_manifest(
         "scope_expanded_by_this_materialization": False,
         "radius_consumed_by_this_materialization": False,
         "activation_object_created_by_this_materialization": False,
-        "terminal_transition": "ADVANCE(D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY_PENDING)" if d3_active_archive_entry_present else None,
+        "machine_proceed_created": d4_machine_proceed_present,
+        "machine_proceed_id": "c8.n22.prepare_next_unit_definition_surface.machine_proceed.v0" if d4_machine_proceed_present else None,
+        "machine_proceed_gate": "MACHINE_PROCEED_PASS_RADIUS_BOUND_PREPARATION_ONLY" if d4_machine_proceed_present else None,
+        "performed_action": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE" if d4_machine_proceed_present else None,
+        "performed_action_scope": "PREPARE_SURFACE_ONLY" if d4_machine_proceed_present else None,
+        "basis_scope": "C8_N22_BASIS_ONLY" if d4_machine_proceed_present else None,
+        "source_object_id": "c8.n22" if d4_machine_proceed_present else None,
+        "output_object_id": "c8.n22.next_bounded_unit_definition_surface.v0" if d4_machine_proceed_present else None,
+        "output_object_type": "NEXT_BOUNDED_UNIT_DEFINITION_SURFACE" if d4_machine_proceed_present else None,
+        "output_scope": "SURFACE_ONLY" if d4_machine_proceed_present else None,
+        "output_execution_status": "NOT_EXECUTED" if d4_machine_proceed_present else None,
+        "radius_limit": "RADIUS_1_SINGLE_C8_N22_BASIS_OBJECT" if d4_machine_proceed_present else None,
+        "radius_before": 1 if d4_machine_proceed_present else None,
+        "radius_consumed": 1 if d4_machine_proceed_present else None,
+        "radius_after": 0 if d4_machine_proceed_present else None,
+        "radius_exhausted": d4_machine_proceed_present,
+        "radius_renewed_by_this_proceed": False,
+        "unit_surface_created": d4_unit_surface_present,
+        "unit_surface_id": "c8.n22.next_bounded_unit_definition_surface.v0" if d4_unit_surface_present else None,
+        "unit_surface_status": "NEXT_UNIT_DEFINITION_SURFACE_PREPARED_NOT_EXECUTED" if d4_unit_surface_present else None,
+        "unit_executed": False,
+        "reuse_scope_expanded": False,
+        "additional_radius_created": False,
+        "radius_renewed": False,
+        "active_archive_entry_rewritten": False,
+        "active_archive_entry_mutated": False,
+        "runtime_authorized": False,
+        "authority_transition_authorized": False,
+        "terminal_transition": "ADVANCE(D5_MACHINE_PROCEED_CLOSURE_PENDING)" if d4_machine_proceed_present else ("ADVANCE(D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY_PENDING)" if d3_active_archive_entry_present else None),
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,
