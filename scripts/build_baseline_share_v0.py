@@ -177,6 +177,11 @@ C8_N22_COMPRESSED_PACKET_DOCS = [
     "docs/matrixlabs/compression/c8_n22_radius_bound_prepare_trace_compressed_packet_v0.md",
 ]
 C8_N22_COMPRESSED_PACKET_GENERATOR = "scripts/build_c8_n22_radius_bound_prepare_trace_compressed_packet_v0.py"
+C8_N22_DECOMPRESSION_AUDIT_DOCS = [
+    "docs/matrixlabs/compression/c8_n22_radius_bound_prepare_trace_decompression_audit_v0.json",
+    "docs/matrixlabs/compression/c8_n22_radius_bound_prepare_trace_decompression_audit_v0.md",
+]
+C8_N22_DECOMPRESSION_AUDIT_GENERATOR = "scripts/build_c8_n22_radius_bound_prepare_trace_decompression_audit_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -239,6 +244,8 @@ SOURCE_DOCS = [
     C8_N22_COMPRESSION_TARGET_GENERATOR,
     *C8_N22_COMPRESSED_PACKET_DOCS,
     C8_N22_COMPRESSED_PACKET_GENERATOR,
+    *C8_N22_DECOMPRESSION_AUDIT_DOCS,
+    C8_N22_DECOMPRESSION_AUDIT_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -717,6 +724,7 @@ def build_manifest(
     d5_machine_proceed_closure_present = (root / C8_N22_MACHINE_PROCEED_CLOSURE_DOCS[0]).exists()
     e1_compression_target_present = (root / C8_N22_COMPRESSION_TARGET_DOCS[0]).exists()
     e2_compressed_packet_present = (root / C8_N22_COMPRESSED_PACKET_DOCS[0]).exists()
+    e3_decompression_audit_present = (root / C8_N22_DECOMPRESSION_AUDIT_DOCS[0]).exists()
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -864,7 +872,7 @@ def build_manifest(
         "human_selection_explicit": d2_promotion_decision_receipt_present,
         "selected_option_present_on_surface": d2_promotion_decision_receipt_present,
         "selected_option_scope_matches_surface": d2_promotion_decision_receipt_present,
-        "next_required_object": "E3_DECOMPRESSION_PARITY_AUDIT" if e2_compressed_packet_present else ("E2_COMPRESSED_SPECIMEN_PACKET" if e1_compression_target_present else ("NONE_BLOCK_D_CLOSED" if d5_machine_proceed_closure_present else ("D5_MACHINE_PROCEED_CLOSURE" if d4_machine_proceed_present else ("D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY" if d3_active_archive_entry_present else ("c8_n22_prepare_next_unit_definition_active_archive_entry_v0" if d2_promotion_decision_receipt_present else None))))),
+        "next_required_object": "E4_COMPRESSION_CLOSURE" if e3_decompression_audit_present else ("E3_DECOMPRESSION_PARITY_AUDIT" if e2_compressed_packet_present else ("E2_COMPRESSED_SPECIMEN_PACKET" if e1_compression_target_present else ("NONE_BLOCK_D_CLOSED" if d5_machine_proceed_closure_present else ("D5_MACHINE_PROCEED_CLOSURE" if d4_machine_proceed_present else ("D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY" if d3_active_archive_entry_present else ("c8_n22_prepare_next_unit_definition_active_archive_entry_v0" if d2_promotion_decision_receipt_present else None)))))),
         "active_archive_entry_created_by_this_receipt": False,
         "inactive_archive_entry_created_by_this_receipt": False,
         "reuse_authority_applied_by_this_receipt": False,
@@ -945,7 +953,7 @@ def build_manifest(
         "active_archive_scope_expanded": False,
         "active_archive_entry_rewritten_by_closure": False,
         "active_archive_entry_mutated_by_closure": False,
-        "block_e_status": "BLOCK_E_COMPRESSED_PACKET_CREATED" if e2_compressed_packet_present else ("BLOCK_E_COMPRESSION_TARGET_DECLARED" if e1_compression_target_present else None),
+        "block_e_status": "BLOCK_E_DECOMPRESSION_AUDIT_PASSED" if e3_decompression_audit_present else ("BLOCK_E_COMPRESSED_PACKET_CREATED" if e2_compressed_packet_present else ("BLOCK_E_COMPRESSION_TARGET_DECLARED" if e1_compression_target_present else None)),
         "compression_target_created": e1_compression_target_present,
         "compression_target_id": "c8.n22.authority_action_trace.compression_target.v0" if e1_compression_target_present else None,
         "target_trace_label": "C8_N22_RADIUS_BOUND_PREPARE_TRACE_V0" if e1_compression_target_present else None,
@@ -956,8 +964,21 @@ def build_manifest(
         "compressed_packet_id": "c8.n22.radius_bound_prepare_trace.compressed_packet.v0" if e2_compressed_packet_present else None,
         "packet_status": "COMPRESSED_PACKET_CREATED_PENDING_DECOMPRESSION_AUDIT" if e2_compressed_packet_present else None,
         "packet_trusted_as_observability_shortcut": False,
-        "decompression_audit_performed": False,
-        "decompression_parity_passed": False,
+        "e3_created": e3_decompression_audit_present,
+        "decompression_audit_performed": e3_decompression_audit_present,
+        "decompression_audit_id": "c8.n22.radius_bound_prepare_trace.decompression_audit.v0" if e3_decompression_audit_present else None,
+        "decompression_audit_status": "DECOMPRESSION_AUDIT_PASS_CRITICAL_FIELD_PARITY" if e3_decompression_audit_present else None,
+        "decompression_parity_passed": e3_decompression_audit_present,
+        "eligible_for_e4_observability_closure": e3_decompression_audit_present,
+        "critical_field_group_count_checked": 15 if e3_decompression_audit_present else None,
+        "critical_field_group_count_passed": 15 if e3_decompression_audit_present else None,
+        "compressed_summary_matches_sources": e3_decompression_audit_present,
+        "source_file_hashes_match_e1_manifest": e3_decompression_audit_present,
+        "authority_strengthened_by_compression": False,
+        "reuse_authorized_by_compression": False,
+        "radius_renewed_by_compression": False,
+        "additional_machine_proceed_authorized_by_compression": False,
+        "runner_authority_created_by_compression": False,
         "compression_closed": False,
         "compression_registry_created": False,
         "machine_action_performed": False,
@@ -966,7 +987,7 @@ def build_manifest(
         "compression_passed": False,
         "trace_compressed": False,
         "packet_created": e2_compressed_packet_present,
-        "decompression_audit_passed": False,
+        "decompression_audit_passed": e3_decompression_audit_present,
         "registry_created": False,
         "unit_executed": False,
         "reuse_scope_expanded": False,
@@ -976,7 +997,7 @@ def build_manifest(
         "active_archive_entry_mutated": False,
         "runtime_authorized": False,
         "authority_transition_authorized": False,
-        "terminal_transition": "ADVANCE(E3_DECOMPRESSION_PARITY_AUDIT_PENDING)" if e2_compressed_packet_present else ("ADVANCE(E2_COMPRESSED_SPECIMEN_PACKET_PENDING)" if e1_compression_target_present else ("STOP_BLOCK_D_MACHINE_PROCEED_CLOSED" if d5_machine_proceed_closure_present else ("ADVANCE(D5_MACHINE_PROCEED_CLOSURE_PENDING)" if d4_machine_proceed_present else ("ADVANCE(D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY_PENDING)" if d3_active_archive_entry_present else None)))),
+        "terminal_transition": "ADVANCE(E4_COMPRESSION_CLOSURE_PENDING)" if e3_decompression_audit_present else ("ADVANCE(E3_DECOMPRESSION_PARITY_AUDIT_PENDING)" if e2_compressed_packet_present else ("ADVANCE(E2_COMPRESSED_SPECIMEN_PACKET_PENDING)" if e1_compression_target_present else ("STOP_BLOCK_D_MACHINE_PROCEED_CLOSED" if d5_machine_proceed_closure_present else ("ADVANCE(D5_MACHINE_PROCEED_CLOSURE_PENDING)" if d4_machine_proceed_present else ("ADVANCE(D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY_PENDING)" if d3_active_archive_entry_present else None))))),
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,
