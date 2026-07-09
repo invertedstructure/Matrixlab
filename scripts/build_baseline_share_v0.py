@@ -326,6 +326,13 @@ PHASE_VS0_NEGATIVE_PROBE_DOCS = [
 PHASE_VS0_NEGATIVE_PROBE_SCRIPT = (
     "scripts/run_phase_vs0_negative_probe_battery_v0.py"
 )
+PHASE_VS0_EVIDENCE_YIELD_REPORT_DOCS = [
+    "docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.json",
+    "docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.md",
+]
+PHASE_VS0_EVIDENCE_YIELD_REPORT_SCRIPT = (
+    "scripts/build_phase_vs0_evidence_yield_report_v0.py"
+)
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -408,6 +415,8 @@ SOURCE_DOCS = [
     PHASE_VS0_HAPPY_PATH_VERIFICATION_SCRIPT,
     *PHASE_VS0_NEGATIVE_PROBE_DOCS,
     PHASE_VS0_NEGATIVE_PROBE_SCRIPT,
+    *PHASE_VS0_EVIDENCE_YIELD_REPORT_DOCS,
+    PHASE_VS0_EVIDENCE_YIELD_REPORT_SCRIPT,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -953,6 +962,37 @@ def build_manifest(
     phase_vs0_yield = phase_vs0_negative_probe_battery.get(
         "evidence_yield_class", {}
     )
+    phase_vs0_evidence_yield_report_path = (
+        root / PHASE_VS0_EVIDENCE_YIELD_REPORT_DOCS[0]
+    )
+    phase_vs0_evidence_yield_report_present = (
+        phase_vs0_evidence_yield_report_path.exists()
+    )
+    phase_vs0_evidence_yield_report = (
+        json.loads(
+            phase_vs0_evidence_yield_report_path.read_text(encoding="utf-8")
+        )
+        if phase_vs0_evidence_yield_report_present
+        else {}
+    )
+    phase_vs0_evidence_yield_report_status = (
+        phase_vs0_evidence_yield_report.get("yield_result", {}).get(
+            "evidence_yield_report_status"
+        )
+    )
+    phase_vs0_evidence_yield_report_passed = (
+        phase_vs0_evidence_yield_report_status
+        == "VS0_5_EVIDENCE_YIELD_REPORT_PASS_USEFUL_EVIDENCE_PRESENT"
+    )
+    phase_vs0_yield_summary = phase_vs0_evidence_yield_report.get(
+        "yield_summary", {}
+    )
+    phase_vs0_overclaim_guard = phase_vs0_evidence_yield_report.get(
+        "overclaim_guard", {}
+    )
+    phase_vs0_closure_readiness = phase_vs0_evidence_yield_report.get(
+        "closure_readiness_boundary", {}
+    )
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -1296,8 +1336,8 @@ def build_manifest(
         "example_candidate_created_by_f1": False,
         "selected_as_next_unit_by_f1": False,
         "terminal_transition": "STOP_BLOCK_F_REGISTRY_CANDIDATE_CLOSURE_COMPLETE" if f4_trace_registry_candidate_closure_present else ("ADVANCE(F4_REGISTRY_CANDIDATE_CLOSURE_PENDING)" if f3_trace_registry_candidate_audit_present else ("ADVANCE(F3_REGISTRY_CANDIDATE_ADMISSIBILITY_AUDIT_PENDING)" if f2_trace_registry_candidate_present else ("ADVANCE(F2_LOCAL_REGISTRY_CANDIDATE_ENTRY_PENDING)" if f1_registry_schema_contract_present else ("STOP_BLOCK_E_COMPRESSION_CLOSURE_COMPLETE" if e4_compression_closure_present else ("ADVANCE(E4_COMPRESSION_CLOSURE_PENDING)" if e3_decompression_audit_present else ("ADVANCE(E3_DECOMPRESSION_PARITY_AUDIT_PENDING)" if e2_compressed_packet_present else ("ADVANCE(E2_COMPRESSED_SPECIMEN_PACKET_PENDING)" if e1_compression_target_present else ("STOP_BLOCK_D_MACHINE_PROCEED_CLOSED" if d5_machine_proceed_closure_present else ("ADVANCE(D5_MACHINE_PROCEED_CLOSURE_PENDING)" if d4_machine_proceed_present else ("ADVANCE(D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY_PENDING)" if d3_active_archive_entry_present else None)))))))))),
-        "phase_vs0_status": phase_vs0_negative_probe_battery_status if phase_vs0_negative_probe_battery_present else (phase_vs0_happy_path_verification_status if phase_vs0_happy_path_verification_present else ("VS0_2_HAPPY_PATH_BUILD_PASS_A_TO_F_PHASE_SPECIMEN_CREATED" if phase_vs0_happy_path_build_present else ("VS0_PREFLIGHT_PASS_SCOPE_DECLARED" if phase_vs0_source_inventory_present else None))),
-        "phase_vs0_current_unit": "VS0.4.NEGATIVE_SHORTCUT_PROBE_BATTERY" if phase_vs0_negative_probe_battery_present else ("VS0.3_HAPPY_PATH_CLOSURE_VERIFICATION" if phase_vs0_happy_path_verification_present else ("VS0.2_HAPPY_PATH_A_TO_F_ARTIFACT_BUILD" if phase_vs0_happy_path_build_present else ("VS0.1_SOURCE_INVENTORY_AND_PREFLIGHT" if phase_vs0_source_inventory_present else None))),
+        "phase_vs0_status": phase_vs0_evidence_yield_report_status if phase_vs0_evidence_yield_report_present else (phase_vs0_negative_probe_battery_status if phase_vs0_negative_probe_battery_present else (phase_vs0_happy_path_verification_status if phase_vs0_happy_path_verification_present else ("VS0_2_HAPPY_PATH_BUILD_PASS_A_TO_F_PHASE_SPECIMEN_CREATED" if phase_vs0_happy_path_build_present else ("VS0_PREFLIGHT_PASS_SCOPE_DECLARED" if phase_vs0_source_inventory_present else None)))),
+        "phase_vs0_current_unit": "VS0.5_EVIDENCE_YIELD_REPORT" if phase_vs0_evidence_yield_report_present else ("VS0.4.NEGATIVE_SHORTCUT_PROBE_BATTERY" if phase_vs0_negative_probe_battery_present else ("VS0.3_HAPPY_PATH_CLOSURE_VERIFICATION" if phase_vs0_happy_path_verification_present else ("VS0.2_HAPPY_PATH_A_TO_F_ARTIFACT_BUILD" if phase_vs0_happy_path_build_present else ("VS0.1_SOURCE_INVENTORY_AND_PREFLIGHT" if phase_vs0_source_inventory_present else None)))),
         "phase_vs0_start_mode": "FROM_COMMITTED_BLOCK_F_CANDIDATE_CHAIN" if phase_vs0_source_inventory_present else None,
         "phase_vs0_declared_start_source": "c8.n22.radius_bound_prepare_trace.registry_candidate_closure.v0" if phase_vs0_source_inventory_present else None,
         "phase_vs0_declared_start_source_path": "docs/matrixlabs/registry/closures/c8_n22_radius_bound_prepare_trace_registry_candidate_closure_v0.json" if phase_vs0_source_inventory_present else None,
@@ -1376,8 +1416,26 @@ def build_manifest(
         "phase_vs0_future_live_runtime_coverage_claimed": phase_vs0_coverage.get("future_live_runtime_coverage_claimed"),
         "phase_vs0_phase_closure_claimed": phase_vs0_coverage.get("phase_closure_claimed"),
         "phase_vs0_negative_probe_battery_passed": phase_vs0_negative_probe_battery_passed,
-        "phase_vs0_next_required_object": phase_vs0_negative_probe_battery.get("next_required_object") if phase_vs0_negative_probe_battery_passed else (phase_vs0_happy_path_verification.get("next_required_object") if phase_vs0_happy_path_verification_passed else ("phase_vs0_happy_path_verification_v0" if not phase_vs0_happy_path_verification_present and phase_vs0_happy_path_build_present else None)),
-        "phase_vs0_terminal_transition": phase_vs0_negative_probe_battery.get("terminal_transition") if phase_vs0_negative_probe_battery_present else (phase_vs0_happy_path_verification.get("terminal_transition") if phase_vs0_happy_path_verification_present else ("ADVANCE(VS0_3_HAPPY_PATH_CLOSURE_VERIFICATION_PENDING)" if phase_vs0_happy_path_build_present else ("ADVANCE(VS0_2_HAPPY_PATH_A_TO_F_ARTIFACT_BUILD_PENDING)" if phase_vs0_source_inventory_present else None))),
+        "phase_vs0_evidence_yield_report_id": "phase_vs0_evidence_yield_report_v0" if phase_vs0_evidence_yield_report_present else None,
+        "phase_vs0_source_vs0_4_commit_sha": phase_vs0_evidence_yield_report.get("source_commits", {}).get("source_vs0_4_commit_sha"),
+        "phase_vs0_confirmation_yield_event_count": phase_vs0_yield_summary.get("confirmation_yield_events"),
+        "phase_vs0_diagnostic_yield_event_count": phase_vs0_yield_summary.get("diagnostic_yield_events"),
+        "phase_vs0_total_decision_relevant_events": phase_vs0_yield_summary.get("total_decision_relevant_events"),
+        "phase_vs0_event_count_is_descriptive_not_value_claim": phase_vs0_yield_summary.get("event_count_is_descriptive_not_value_claim"),
+        "phase_vs0_decision_relevant_evidence_present": phase_vs0_yield_summary.get("decision_relevant_evidence_present"),
+        "phase_vs0_sufficient_input_for_vs0_6_phase_closure": phase_vs0_closure_readiness.get("sufficient_input_for_vs0_6_phase_closure"),
+        "phase_vs0_phase_closure_performed_by_vs0_5": phase_vs0_closure_readiness.get("vs0_6_phase_closure_performed", False),
+        "phase_vs0_phase_closed": phase_vs0_closure_readiness.get("phase_closed", False),
+        "phase_vs0_coverage_overclaim_detected": phase_vs0_overclaim_guard.get("coverage_overclaim_detected", False),
+        "phase_vs0_performance_optimization_claimed": phase_vs0_overclaim_guard.get("performance_optimization_claimed", False),
+        "phase_vs0_scale_optimization_claimed": phase_vs0_overclaim_guard.get("scale_optimization_claimed", False),
+        "phase_vs0_active_registry_claimed": phase_vs0_overclaim_guard.get("active_registry_claimed", False),
+        "phase_vs0_registry_promotion_claimed": phase_vs0_overclaim_guard.get("registry_promotion_claimed", False),
+        "phase_vs0_trace_generalization_claimed": phase_vs0_overclaim_guard.get("trace_generalization_claimed", False),
+        "phase_vs0_runner_readiness_claimed": phase_vs0_overclaim_guard.get("runner_readiness_claimed", False),
+        "phase_vs0_evidence_yield_report_passed": phase_vs0_evidence_yield_report_passed,
+        "phase_vs0_next_required_object": phase_vs0_evidence_yield_report.get("next_required_object") if phase_vs0_evidence_yield_report_passed else (phase_vs0_negative_probe_battery.get("next_required_object") if phase_vs0_negative_probe_battery_passed else (phase_vs0_happy_path_verification.get("next_required_object") if phase_vs0_happy_path_verification_passed else ("phase_vs0_happy_path_verification_v0" if not phase_vs0_happy_path_verification_present and phase_vs0_happy_path_build_present else None))),
+        "phase_vs0_terminal_transition": phase_vs0_evidence_yield_report.get("terminal_transition") if phase_vs0_evidence_yield_report_present else (phase_vs0_negative_probe_battery.get("terminal_transition") if phase_vs0_negative_probe_battery_present else (phase_vs0_happy_path_verification.get("terminal_transition") if phase_vs0_happy_path_verification_present else ("ADVANCE(VS0_3_HAPPY_PATH_CLOSURE_VERIFICATION_PENDING)" if phase_vs0_happy_path_build_present else ("ADVANCE(VS0_2_HAPPY_PATH_A_TO_F_ARTIFACT_BUILD_PENDING)" if phase_vs0_source_inventory_present else None)))),
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,
