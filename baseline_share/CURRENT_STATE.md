@@ -1,10 +1,10 @@
 # Current State
 
-Generated at UTC: `2026-07-09T13:06:38Z`
+Generated at UTC: `2026-07-09T13:50:54Z`
 
 ## Git context
 
-- Current HEAD SHA: `9f7277608f8e475fa84f6e4697e0db0903200aac`
+- Current HEAD SHA: `daec73d1a631225a00b7d0ad967880dd9d3b301c`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
@@ -15,22 +15,20 @@ Generated at UTC: `2026-07-09T13:06:38Z`
 - ` M baseline_share/RECEIPT_POINTERS.md`
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.json`
-- `?? docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.md`
-- `?? scripts/verify_phase_vs0_happy_path_v0.py`
+- `?? docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/`
+- `?? scripts/run_phase_vs0_negative_probe_battery_v0.py`
 - Git status excluding generated `baseline_share/`:
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.json`
-- `?? docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.md`
-- `?? scripts/verify_phase_vs0_happy_path_v0.py`
+- `?? docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/`
+- `?? scripts/run_phase_vs0_negative_probe_battery_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `9f7277608f8e475fa84f6e4697e0db0903200aac`
-- Current C8 post-patch surface-decision acceptance commit: `9f7277608f8e475fa84f6e4697e0db0903200aac`
+- Current architecture extraction commit: `daec73d1a631225a00b7d0ad967880dd9d3b301c`
+- Current C8 post-patch surface-decision acceptance commit: `daec73d1a631225a00b7d0ad967880dd9d3b301c`
 
 ## High-level state
 

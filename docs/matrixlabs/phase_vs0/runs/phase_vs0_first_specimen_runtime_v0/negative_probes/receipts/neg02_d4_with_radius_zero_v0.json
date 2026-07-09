@@ -1,0 +1,58 @@
+{
+  "attempted_illegal_move": {
+    "illegal_condition": "RADIUS_REMAINING_BEFORE_ZERO",
+    "move": "D4_MACHINE_PROCEED"
+  },
+  "diagnostic_fields": {
+    "actual_value": 0,
+    "expected_value": 1,
+    "missing_fields": null,
+    "missing_object": null,
+    "next_lawful_surface": "REQUEST_NEW_RADIUS_OR_HUMAN_AUTHORITY",
+    "self_repair_performed": false,
+    "source_boundary": "D3/D4 radius boundary from verified phase specimen",
+    "violated_boundary": "RADIUS_1_SINGLE_OBJECT_REQUIRED",
+    "violating_field": "radius_remaining_before",
+    "violating_field_group": null,
+    "violating_fields": null,
+    "violating_object": "synthetic.neg02_d4_with_radius_zero.fixture.v0"
+  },
+  "evidence_yield_class": {
+    "reason": "illegal shortcut was stopped with typed diagnostic fields",
+    "yield_branch": "DIAGNOSTIC_YIELD"
+  },
+  "expected_result": {
+    "allowed_local_equivalent_stop_code": null,
+    "expected_probe_pass_label": "NEG02_PASS_TYPED_STOP_RADIUS_EXCEEDED",
+    "expected_stop_code": "MACHINE_PROCEED_FAIL_RADIUS_EXCEEDED",
+    "expected_yield_branch": "DIAGNOSTIC_YIELD",
+    "should_stop": true
+  },
+  "observed_result": {
+    "ambiguous_stop": false,
+    "observed_stop_code": "MACHINE_PROCEED_FAIL_RADIUS_EXCEEDED",
+    "stopped": true,
+    "unexpected_success": false
+  },
+  "probe_id": "NEG02_D4_WITH_RADIUS_ZERO",
+  "probe_role": "NEGATIVE_SHORTCUT_PROBE",
+  "probe_safety": {
+    "active_registry_created": false,
+    "canonical_source_chain_mutated": false,
+    "happy_path_mutated": false,
+    "radius_renewed": false,
+    "runner_authority_created": false,
+    "source_authority_replaced": false
+  },
+  "probe_status": "NEGATIVE_PROBE_PASS_TYPED_STOP_OBSERVED",
+  "schema_version": "matrixlabs_phase_vs0_negative_probe_receipt_v0",
+  "source_verified_specimen": {
+    "all_indexed_artifact_hashes_match_current_file_content": true,
+    "chain_index_hash_verification_status": "CHAIN_INDEX_HASH_VERIFICATION_PASS",
+    "chain_index_id": "phase_vs0_a_to_f_chain_index_v0",
+    "happy_path_verification_gate": "VS0_3_HAPPY_PATH_VERIFICATION_PASS_A_TO_F_PHASE_SPECIMEN_VERIFIED",
+    "source_build_binding_status": "VS0_3_SOURCE_BUILD_BINDING_PASS_ORIGINAL_BUILD_PLUS_REPAIR_COMMIT",
+    "source_happy_path_verification_commit_sha": "daec73d1a631225a00b7d0ad967880dd9d3b301c",
+    "verification_id": "phase_vs0_happy_path_verification_v0"
+  }
+}

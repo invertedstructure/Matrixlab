@@ -1,0 +1,157 @@
+{
+  "all_possible_illegal_shortcuts_tested": false,
+  "definition_role": "SELECTED_SYNTHETIC_CONTRACT_LEVEL_NEGATIVE_PROBES",
+  "definition_set_id": "phase_vs0_negative_probe_definitions_v0",
+  "definitions": [
+    {
+      "actual_value": "missing",
+      "attempted_illegal_move": "D4_MACHINE_PROCEED",
+      "expected_probe_pass_label": "NEG01_PASS_TYPED_STOP_ACTIVE_ENTRY_MISSING",
+      "expected_stop_code": "MACHINE_PROCEED_FAIL_ACTIVE_ENTRY_MISSING",
+      "expected_value": "present active archive entry",
+      "illegal_condition": "ACTIVE_ARCHIVE_ENTRY_MISSING",
+      "missing_object": "active.c8.n22.prepare_next_unit_definition_surface.v0",
+      "next_lawful_surface": "D3_ACTIVE_ARCHIVE_ENTRY_MATERIALIZATION",
+      "probe_id": "NEG01_D4_WITHOUT_ACTIVE_ENTRY",
+      "source_boundary": "verified phase specimen D-chain dependency",
+      "violated_boundary": "ACTIVE_ARCHIVE_ENTRY_REQUIRED_BEFORE_MACHINE_PROCEED"
+    },
+    {
+      "actual_value": 0,
+      "attempted_illegal_move": "D4_MACHINE_PROCEED",
+      "expected_probe_pass_label": "NEG02_PASS_TYPED_STOP_RADIUS_EXCEEDED",
+      "expected_stop_code": "MACHINE_PROCEED_FAIL_RADIUS_EXCEEDED",
+      "expected_value": 1,
+      "illegal_condition": "RADIUS_REMAINING_BEFORE_ZERO",
+      "next_lawful_surface": "REQUEST_NEW_RADIUS_OR_HUMAN_AUTHORITY",
+      "probe_id": "NEG02_D4_WITH_RADIUS_ZERO",
+      "source_boundary": "D3/D4 radius boundary from verified phase specimen",
+      "violated_boundary": "RADIUS_1_SINGLE_OBJECT_REQUIRED",
+      "violating_field": "radius_remaining_before"
+    },
+    {
+      "actual_value": "missing",
+      "attempted_illegal_move": "E2_COMPRESSED_PACKET_CREATION",
+      "expected_probe_pass_label": "NEG03_PASS_TYPED_STOP_COMPRESSION_TARGET_MISSING",
+      "expected_stop_code": "COMPRESSED_PACKET_FAIL_COMPRESSION_TARGET_MISSING",
+      "expected_value": "present E1 compression target declaration",
+      "illegal_condition": "COMPRESSION_TARGET_MISSING",
+      "missing_object": "c8.n22.authority_action_trace.compression_target.v0",
+      "next_lawful_surface": "E1_COMPRESSION_TARGET_DECLARATION",
+      "probe_id": "NEG03_E2_WITHOUT_E1_TARGET",
+      "source_boundary": "verified phase specimen E-chain dependency",
+      "violated_boundary": "COMPRESSION_TARGET_REQUIRED_BEFORE_PACKET"
+    },
+    {
+      "actual_value": "radius_after and radius_exhausted missing",
+      "attempted_illegal_move": "E3_DECOMPRESSION_AUDIT",
+      "expected_probe_pass_label": "NEG04_PASS_TYPED_STOP_RADIUS_FIELD_DROPPED",
+      "expected_stop_code": "DECOMPRESSION_AUDIT_FAIL_RADIUS_FIELD_DROPPED",
+      "expected_value": "radius_after and radius_exhausted present",
+      "illegal_condition": "RADIUS_ACCOUNTING_FIELDS_DROPPED",
+      "missing_fields": [
+        "radius_after",
+        "radius_exhausted"
+      ],
+      "next_lawful_surface": "REPAIR_COMPRESSED_PACKET_RADIUS_ACCOUNTING_FIELDS",
+      "probe_id": "NEG04_E3_WITH_DROPPED_RADIUS_FIELD",
+      "source_boundary": "D5_RADIUS_EXHAUSTED_STOP_STATE",
+      "violated_boundary": "CRITICAL_RADIUS_FIELDS_MUST_SURVIVE_COMPRESSION",
+      "violating_field_group": "radius_accounting"
+    },
+    {
+      "actual_value": "DECOMPRESSION_AUDIT_FAIL_RADIUS_FIELD_DROPPED",
+      "attempted_illegal_move": "E4_COMPRESSION_CLOSURE",
+      "expected_probe_pass_label": "NEG05_PASS_TYPED_STOP_DECOMPRESSION_AUDIT_NOT_PASS",
+      "expected_stop_code": "COMPRESSION_CLOSURE_FAIL_DECOMPRESSION_AUDIT_NOT_PASS",
+      "expected_value": "DECOMPRESSION_AUDIT_PASS_CRITICAL_FIELD_PARITY",
+      "illegal_condition": "DECOMPRESSION_AUDIT_NOT_PASS",
+      "next_lawful_surface": "REPAIR_OR_REBUILD_E3_DECOMPRESSION_AUDIT",
+      "probe_id": "NEG05_E4_WITH_FAILED_DECOMPRESSION_AUDIT",
+      "source_boundary": "verified phase specimen E3/E4 dependency",
+      "violated_boundary": "E4_REQUIRES_E3_PASS",
+      "violating_field": "decompression_audit_status",
+      "violating_object": "synthetic.neg05.decompression_audit_failed.v0"
+    },
+    {
+      "actual_value": "missing",
+      "attempted_illegal_move": "F2_REGISTRY_CANDIDATE_CREATION",
+      "expected_probe_pass_label": "NEG06_PASS_TYPED_STOP_COMPRESSION_CLOSURE_MISSING",
+      "expected_stop_code": "REGISTRY_CANDIDATE_FAIL_COMPRESSION_CLOSURE_MISSING",
+      "expected_value": "present E4 observability-only compression closure",
+      "illegal_condition": "E4_COMPRESSION_CLOSURE_MISSING",
+      "missing_object": "c8.n22.compression_specimen_closure.v0",
+      "next_lawful_surface": "E4_COMPRESSION_SPECIMEN_CLOSURE",
+      "probe_id": "NEG06_F2_WITHOUT_E4_CLOSURE",
+      "source_boundary": "verified phase specimen E4/F2 dependency",
+      "violated_boundary": "E4_COMPRESSION_CLOSURE_REQUIRED_BEFORE_F2"
+    },
+    {
+      "actual_value": {
+        "multi_specimen_stability_claimed": true,
+        "specimen_count": 1
+      },
+      "attempted_illegal_move": "F2_REGISTRY_CANDIDATE_CREATION",
+      "expected_probe_pass_label": "NEG07_PASS_TYPED_STOP_SPECIMEN_COUNT_OVERCLAIM",
+      "expected_stop_code": "REGISTRY_CANDIDATE_FAIL_MULTI_SPECIMEN_STABILITY_CLAIMED",
+      "expected_value": {
+        "multi_specimen_stability_claimed": false
+      },
+      "illegal_condition": "MULTI_SPECIMEN_STABILITY_CLAIMED_WITH_SINGLE_SPECIMEN",
+      "next_lawful_surface": "MULTI_SPECIMEN_STABILITY_AUDIT_SURFACE",
+      "probe_id": "NEG07_F2_WITH_SPECIMEN_COUNT_OVERCLAIM",
+      "source_boundary": "F2 single local specimen evidence boundary",
+      "violated_boundary": "SINGLE_LOCAL_SPECIMEN_CANNOT_CLAIM_MULTI_SPECIMEN_STABILITY",
+      "violating_fields": {
+        "multi_specimen_stability_claimed": true,
+        "specimen_count": 1
+      }
+    },
+    {
+      "actual_value": true,
+      "attempted_illegal_move": "F3_REGISTRY_CANDIDATE_AUDIT",
+      "expected_probe_pass_label": "NEG08_PASS_TYPED_STOP_GENERALIZATION_CLAIMED",
+      "expected_stop_code": "REGISTRY_CANDIDATE_AUDIT_FAIL_GENERALIZATION_CLAIMED",
+      "expected_value": false,
+      "illegal_condition": "GENERAL_SHAPE_CLAIMED",
+      "next_lawful_surface": "GENERALIZATION_CANDIDATE_REVIEW_OR_MULTI_SPECIMEN_AUDIT",
+      "probe_id": "NEG08_F3_WITH_GENERALIZATION_CLAIMED",
+      "source_boundary": "LOCAL_SPECIMEN_ONLY_NOT_GENERALIZED",
+      "violated_boundary": "F3_LOCAL_SPECIMEN_ONLY_AUDIT_BOUNDARY",
+      "violating_field": "general_shape_claimed"
+    },
+    {
+      "actual_value": true,
+      "attempted_illegal_move": "F4_REGISTRY_CANDIDATE_CLOSURE",
+      "expected_probe_pass_label": "NEG09_PASS_TYPED_STOP_ACTIVE_REGISTRY_CREATED",
+      "expected_stop_code": "REGISTRY_CANDIDATE_CLOSURE_FAIL_ACTIVE_REGISTRY_CREATED",
+      "expected_value": false,
+      "illegal_condition": "ACTIVE_REGISTRY_ENTRY_CREATED_TRUE",
+      "next_lawful_surface": "HUMAN_REGISTRY_PROMOTION_DECISION_SURFACE",
+      "probe_id": "NEG09_F4_WITH_ACTIVE_REGISTRY_CREATED",
+      "source_boundary": "REGISTRY_STATUS_CANDIDATE_ONLY",
+      "violated_boundary": "F4_CANDIDATE_ONLY_CLOSURE",
+      "violating_field": "active_registry_entry_created"
+    },
+    {
+      "actual_value": true,
+      "allowed_local_equivalent_stop_code": "REGISTRY_CANDIDATE_CLOSURE_FAIL_RUNNER_AUTHORITY_CREATED",
+      "attempted_illegal_move": "SET_RUNNER_AUTHORITY_TRUE",
+      "expected_probe_pass_label": "NEG10_PASS_TYPED_STOP_RUNNER_AUTHORITY_CREATED",
+      "expected_stop_code": "VS0_FAIL_RUNNER_AUTHORITY_CREATED",
+      "expected_value": false,
+      "illegal_condition": "RUNNER_AUTHORITY_CREATED_TRUE",
+      "next_lawful_surface": "RUNNER_PRECONDITION_AUDIT_V0",
+      "probe_id": "NEG10_ANY_WITH_RUNNER_AUTHORITY_TRUE",
+      "source_boundary": "VS0 no-runner-authority boundary",
+      "violated_boundary": "PHASE_VS0_FORBIDS_RUNNER_AUTHORITY",
+      "violating_field": "runner_authority_created"
+    }
+  ],
+  "phase_id": "PHASE_VS0",
+  "phase_step": "VS0.4",
+  "probe_count": 10,
+  "probe_evaluator_must_be_valid": true,
+  "probe_fixture_invalidity_allowed": true,
+  "schema_version": "matrixlabs_phase_vs0_negative_probe_definitions_v0"
+}

@@ -1,7 +1,7 @@
 # Commit Context
 
-- Generated at UTC: `2026-07-09T13:06:38Z`
-- Current HEAD SHA: `9f7277608f8e475fa84f6e4697e0db0903200aac`
+- Generated at UTC: `2026-07-09T13:50:54Z`
+- Current HEAD SHA: `daec73d1a631225a00b7d0ad967880dd9d3b301c`
 - Branch: `master`
 - Worktree state at generation time: `dirty`
 - Generator script: `scripts/build_baseline_share_v0.py`
@@ -9,6 +9,7 @@
 ## Recent 10 commits
 
 ```text
+daec73d1a Add Phase VS0.3 happy-path verification v0
 9f7277608 Repair Phase VS0.2 A-to-F chain index hash parity
 49ebcf139 Add Phase VS0 happy-path A-to-F specimen build v0
 742643e35 Add Phase VS0 source inventory preflight v0
@@ -18,7 +19,6 @@ a7bffbe41 Add C8 n22 registry candidate admissibility audit v0
 5fe49bc46 Add compression trace registry entry schema contract v0
 9042b3012 Add C8 n22 compression specimen closure v0
 726a9b763 Add C8 n22 radius-bound prepare trace decompression audit v0
-2ee413f30 Add C8 n22 radius-bound prepare trace compressed packet v0
 ```
 
 ## Git status short
@@ -30,9 +30,8 @@ M baseline_share/COMMIT_CONTEXT.md
  M baseline_share/RECEIPT_POINTERS.md
  M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.json
-?? docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.md
-?? scripts/verify_phase_vs0_happy_path_v0.py
+?? docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/
+?? scripts/run_phase_vs0_negative_probe_battery_v0.py
 ```
 
 ## Git status short excluding generated baseline_share
@@ -40,9 +39,8 @@ M baseline_share/COMMIT_CONTEXT.md
 ```text
  M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.json
-?? docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.md
-?? scripts/verify_phase_vs0_happy_path_v0.py
+?? docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/
+?? scripts/run_phase_vs0_negative_probe_battery_v0.py
 ```
 
 ## Safety facts
