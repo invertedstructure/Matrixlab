@@ -1,0 +1,387 @@
+{
+  "authority_boundary": {
+    "closure_authorizes_active_registry": false,
+    "closure_authorizes_additional_machine_proceed": false,
+    "closure_authorizes_generalization": false,
+    "closure_authorizes_next_unit_execution": false,
+    "closure_authorizes_radius_renewal": false,
+    "closure_authorizes_runner": false,
+    "closure_grants_new_authority": false,
+    "closure_replaces_source_authority": false
+  },
+  "closure_claim_scope": {
+    "closed_phase_id": "PHASE_VS0",
+    "closed_phase_name": "A_TO_F_FIRST_SPECIMEN_RUNTIME_V0",
+    "future_phase_selected": false,
+    "global_system_closed": false,
+    "phase_vs0_closed": true,
+    "registry_closed_or_promoted": false,
+    "runner_closed_or_ready": false
+  },
+  "closure_execution_mode": {
+    "adds_new_evidence": false,
+    "creates_active_registry": false,
+    "creates_next_decision_surface": false,
+    "creates_runner_authority": false,
+    "generalizes_trace": false,
+    "mutates_prior_vs0_artifacts": false,
+    "phase_closure_only": true,
+    "promotes_registry_candidate": false,
+    "rebuilds_evidence_yield_report": false,
+    "reruns_happy_path_verification": false,
+    "runs_new_negative_probes": false,
+    "selects_next_phase": false
+  },
+  "closure_gate": "VS0_6_PHASE_CLOSURE_PASS_FIRST_A_TO_F_SPECIMEN_WITH_TYPED_STOPS_AND_EVIDENCE_YIELD",
+  "closure_id": "phase_vs0_closure_v0",
+  "closure_role": "PHASE_CLOSURE_ONLY",
+  "confirmed_boundaries": {
+    "active_registry_created": false,
+    "additional_machine_proceed_authorized": false,
+    "next_unit_executed": false,
+    "performance_optimization_claimed": false,
+    "runner_authority_created": false,
+    "runner_readiness_claimed": false,
+    "scale_optimization_claimed": false,
+    "source_authority_replaced_by_compression": false,
+    "trace_generalized": false
+  },
+  "coverage_boundary": {
+    "all_possible_illegal_shortcuts_tested": false,
+    "cross_context_generalization_claimed": false,
+    "future_live_runtime_coverage_claimed": false,
+    "general_runtime_safety_claimed": false,
+    "multi_specimen_stability_claimed": false,
+    "selected_negative_probe_battery_passed": true,
+    "selected_probe_battery_only": true
+  },
+  "definition": "VS0.6 is a machine-primary phase closure object that consumes the committed VS0.1 source inventory, VS0.2 happy-path build receipt, VS0.3 happy-path verification, VS0.4 negative probe battery, and VS0.5 Evidence Yield report; verifies that each required phase step passed; records source hashes and closure-critical non-effects; emits the final bounded Phase VS0 result; and closes the phase without claiming active registry, trace generalization, performance optimization, scale optimization, total illegal-path coverage, runner readiness, next-phase selection, or any new authority.",
+  "evidence_summary": {
+    "confirmation_yield_events": 4,
+    "confirmation_yield_sources": [
+      "VS0.1 preflight pass",
+      "VS0.2 happy-path build pass",
+      "VS0.3 happy-path verification pass",
+      "VS0.4 negative battery execution pass",
+      "VS0.5 Evidence Yield report pass"
+    ],
+    "decision_relevant_evidence_present": true,
+    "diagnostic_yield_events": 10,
+    "diagnostic_yield_sources": [
+      "VS0.4 selected negative probe typed stops"
+    ],
+    "event_count_is_descriptive_not_value_claim": true,
+    "evidence_yield_report_recomputed_by_vs0_6": false,
+    "evidence_yield_result": "USEFUL_EVIDENCE_PRESENT",
+    "total_decision_relevant_events": 14
+  },
+  "failure_vocabulary": [
+    "VS0_6_STOP_SOURCE_INVENTORY_MISSING",
+    "VS0_6_STOP_SOURCE_INVENTORY_NOT_PASS",
+    "VS0_6_STOP_HAPPY_PATH_BUILD_MISSING",
+    "VS0_6_STOP_HAPPY_PATH_BUILD_NOT_PASS",
+    "VS0_6_STOP_HAPPY_PATH_VERIFICATION_MISSING",
+    "VS0_6_STOP_HAPPY_PATH_VERIFICATION_NOT_PASS",
+    "VS0_6_STOP_NEGATIVE_PROBE_BATTERY_MISSING",
+    "VS0_6_STOP_NEGATIVE_PROBE_BATTERY_NOT_PASS",
+    "VS0_6_STOP_EVIDENCE_YIELD_REPORT_MISSING",
+    "VS0_6_STOP_EVIDENCE_YIELD_REPORT_NOT_PASS",
+    "VS0_6_FAIL_CONFIRMATION_YIELD_ABSENT",
+    "VS0_6_FAIL_DIAGNOSTIC_YIELD_ABSENT",
+    "VS0_6_FAIL_DECISION_RELEVANT_EVIDENCE_ABSENT",
+    "VS0_6_FAIL_SOURCE_HASH_SNAPSHOT_MISSING",
+    "VS0_6_FAIL_SOURCE_COMMIT_SNAPSHOT_MISSING",
+    "VS0_6_FAIL_PRIOR_VS0_SOURCE_MUTATED",
+    "VS0_6_FAIL_EVIDENCE_YIELD_REPORT_MUTATED",
+    "VS0_6_FAIL_A_TO_F_ARTIFACTS_MUTATED",
+    "VS0_6_FAIL_NEGATIVE_PROBE_RECEIPTS_MUTATED",
+    "VS0_6_FAIL_PHASE_CLOSURE_PRECLAIMED",
+    "VS0_6_FAIL_ACTIVE_REGISTRY_CLAIMED",
+    "VS0_6_FAIL_REGISTRY_PROMOTION_CLAIMED",
+    "VS0_6_FAIL_TRACE_GENERALIZATION_CLAIMED",
+    "VS0_6_FAIL_PERFORMANCE_OPTIMIZATION_CLAIMED",
+    "VS0_6_FAIL_SCALE_OPTIMIZATION_CLAIMED",
+    "VS0_6_FAIL_RUNNER_READINESS_CLAIMED",
+    "VS0_6_FAIL_RUNNER_AUTHORITY_CREATED",
+    "VS0_6_FAIL_NEXT_PHASE_AUTO_SELECTED",
+    "VS0_6_FAIL_NEXT_SURFACE_CREATED_INSIDE_CLOSURE",
+    "VS0_6_FAIL_DISCUSSION_PACKETS_IN_SCOPE",
+    "VS0_6_FAIL_TOTAL_ILLEGAL_PATH_COVERAGE_CLAIMED"
+  ],
+  "failures": [],
+  "next_lawful_surface": {
+    "decision_required": true,
+    "human_decision_required": true,
+    "machine_may_select_next_phase": false,
+    "next_phase_auto_selected": false,
+    "recommended_options": [
+      "RUNNER_PRECONDITION_AUDIT_V0",
+      "UNIT_FEEDBACK_HARDENING_V0",
+      "ACTIVE_OBSERVABILITY_REGISTRY_PROMOTION_V0",
+      "MULTI_SPECIMEN_STABILITY_SURFACE_V0",
+      "STOP_AFTER_VS0_ARCHIVE_ONLY"
+    ],
+    "recommended_options_are_non_binding": true,
+    "surface_artifact_created_by_closure": false,
+    "surface_name": "POST_VS0_DIRECTION_DECISION_SURFACE",
+    "surface_named_by_closure": true
+  },
+  "phase_id": "PHASE_VS0",
+  "phase_name": "A_TO_F_FIRST_SPECIMEN_RUNTIME_V0",
+  "phase_pass_scope": {
+    "cross_context_generalization_claimed": false,
+    "future_live_runtime_coverage_claimed": false,
+    "local_phase_pass": true,
+    "multi_specimen_stability_claimed": false,
+    "runner_readiness_claimed": false,
+    "selected_negative_probe_battery_only": true,
+    "single_a_to_f_specimen": true
+  },
+  "phase_result": {
+    "a_to_f_phase_specimen_created": true,
+    "confirmation_yield_present": true,
+    "decision_relevant_evidence_present": true,
+    "diagnostic_yield_present": true,
+    "evidence_yield_reported": true,
+    "happy_path_verified": true,
+    "negative_probe_battery_passed": true
+  },
+  "phase_status": "PHASE_VS0_PASS_FIRST_A_TO_F_SPECIMEN_WITH_TYPED_NEGATIVE_STOPS_AND_EVIDENCE_YIELD",
+  "phase_step": "VS0.6",
+  "phase_vs0_closure_gate": "VS0_6_PHASE_CLOSURE_PASS_FIRST_A_TO_F_SPECIMEN_WITH_TYPED_STOPS_AND_EVIDENCE_YIELD",
+  "precommit_phase_vs0_closure_gate": "PASS",
+  "schema_version": "matrixlabs_phase_vs0_closure_v0",
+  "short_form": "VS0.6 seals the VS0 evidence packet.",
+  "source_commits": {
+    "commit_bindings_recorded": true,
+    "vs0_1_source_inventory_commit_sha": "742643e358af9bdb54efdcdcabdf667cbc48fd85",
+    "vs0_2_happy_path_build_original_commit_sha": "49ebcf1393893bbbc61c5fcd48359770c3e554e7",
+    "vs0_2_happy_path_build_repair_commit_sha": "9f7277608f8e475fa84f6e4697e0db0903200aac",
+    "vs0_3_happy_path_verification_commit_sha": "daec73d1a631225a00b7d0ad967880dd9d3b301c",
+    "vs0_4_negative_probe_battery_commit_sha": "6f1fb917564dd70262520778c1c8ced7a825a525",
+    "vs0_5_evidence_yield_report_commit_sha": "1a1306a2c84ef747d1a5aa50e706048b5800fa04"
+  },
+  "source_hash_snapshot": {
+    "after_closure": {
+      "a_to_f_artifacts": {
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/a1_human_decision_surface_v0.json": "9ec1e7bfe1da68e44664ecd95b155e2412b5eedfda00d0f1d14d9bb4936b23a1",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/a2_human_decision_receipt_v0.json": "20d8178d5c68fe6f7160487bd28dfac909cb7229f9b1811c80a106c1c52bb203",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/a3_authority_state_update_v0.json": "20c3101cbc6da410d5d60cc5456d5d222f712126ac55b897efb206cc80d728f2",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/a4_authority_transition_closure_v0.json": "815ff57ad3fc45ae587e9f7ba7ae353e20f37fe13cd3af7057bd4214c81a8023",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/b1_requested_action_prepare_next_unit_definition_surface_v0.json": "b9f2def5fbabff8d143b3c5315390090640714c9bacf2a1880a11c41d54b0f5c",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/b2_authority_route_classification_v0.json": "e0bfc2be85bfdda0b6bf8f77717b34f74b04e0a17dc57ac6ccaaa88b7c22a842",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/b3_router_specimen_closure_v0.json": "56ffa590d09c03df34720f5af33366ec576c47748728a0548c3cca7e4a22dc27",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/c1_validator_archive_entry_schema_v0.json": "6e251a84fdde7376c97d68ab8a9ba9a5be12a0ba9d6410f804cf258958e8f474",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/c2_candidate_archive_entry_v0.json": "4b6f6fef4640b1da3d6d2b381ab97343e4f106ed9ce114d69615d8c17d93ea9b",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/c3_candidate_archive_admissibility_audit_v0.json": "2323c69ac4020c198ef3f437f5497c273fca28f34fb97751a5150453e62cad5c",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d1_candidate_promotion_decision_surface_v0.json": "bb53e55a46636dcaa7eb79144546a622a76ce76e278a09c6252ea2d0ea3fd2ae",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d2_candidate_promotion_decision_receipt_v0.json": "00e13ba31cf845ed3644f11862ca0516721a269e9a4466b13b271f41b271220b",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d3_active_archive_entry_v0.json": "87316bc2be0e0143c0558f604e3afa02b5887cf532558e59a2b8849308ccd025",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d4_machine_proceed_v0.json": "c00b0ed4961baef87d468682ce424480809129340fa69f25d2d82b5e34050b66",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d4_next_bounded_unit_definition_surface_v0.json": "8c42ec8af428ae487ba55085f830897034d502ee8eccda2a532123f1831c6970",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d5_machine_proceed_closure_v0.json": "d912be95b6007f4b3040086371b5efd9c2b95f88be623475ebbc245fafa72ab6",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/e1_compression_target_v0.json": "94d02104f7c1f4225d10e45fbcd84e7055c5b0b097466c116dbca675a5c4c93a",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/e2_compressed_packet_v0.json": "5564ed5ea6715cc2fe25cbf402bbf4007ec73f0ba061861f28273c9702dcd9dd",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/e3_decompression_audit_v0.json": "2ea42160942dcfb606fbaf637bea2e0b59d3827c91e44be3087f7da9820bf409",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/e4_compression_specimen_closure_v0.json": "ed7786bbf1a3364f31dd1a37af70b820227b964c2086a7a092962a4843350ba8",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/f1_registry_entry_schema_v0.json": "921956bb712a5e24f7d6951150b16073d7cd83156441c7ef48f7edce16e7dcbe",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/f2_registry_candidate_v0.json": "225a54431c518c9ffb9474e53328ab96381780c27a44ec3df48e51e84cb0c1ed",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/f3_registry_candidate_audit_v0.json": "3b3e439dfd14576fc32454a58d329cfb0c5319997bb2cdbc196b5353bcb25871",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/f4_registry_candidate_closure_projection_v0.json": "273397b2deb8c5ae9405ba9707e8ba57aa20f44328d417f86a473ce9c1f000a0",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/phase_vs0_a_to_f_chain_index_v0.json": "2494a324b1ceea2bcc63f0faf67382d1d7c37d52dd7f7b82b2ef91f90b818096",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/phase_vs0_a_to_f_chain_index_v0.md": "86b6dad00cc16b99dd8ffbfa56b8f564b26c568a7e12ca7079d7cc1066e5e62c"
+      },
+      "negative_probe_receipts": {
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg01_d4_without_active_entry_v0.json": "51d89de080507e2a15a4215d9aa223714be545eb7f431633632b7f3d183cfc85",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg02_d4_with_radius_zero_v0.json": "d41ed28c63b2a4cf9609d9aa8ab4df01ecb02e983b606ebe64f1373656c7c61d",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg03_e2_without_e1_target_v0.json": "7fe756b2beca34cda31facf1143f7594834cb2ecc97cbd0cae977609c1c25ce4",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg04_e3_with_dropped_radius_field_v0.json": "ec778234fd17516268a3a359a01aedc66695739a6da67b19b5ed94324ae6d756",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg05_e4_with_failed_decompression_audit_v0.json": "92be3671d81002bcc2e22365fd217885af00e7ba636fee042249fd7040741fc1",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg06_f2_without_e4_closure_v0.json": "8798cd76360e0c8b816564c72995185e2b425ba13e14279e4db3efe1fef04325",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg07_f2_with_specimen_count_overclaim_v0.json": "645196041405d11117cc351420af38441cc83b402fd5554458ad02aea4551594",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg08_f3_with_generalization_claimed_v0.json": "979b7912f4226f7f600f9655e2c1506eb407cac38e55f9d2cbd7532a239b1992",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg09_f4_with_active_registry_created_v0.json": "080f25201ecb7e31060f88cc0c5ba60534be54cf5fb5fcbc0271524dde01e287",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg10_any_with_runner_authority_true_v0.json": "6b9f5c6415a4fbaed13bda05ec1b166d0bc5d24d76b48b3ff5bd8877cea68976"
+      },
+      "vs0_1_source_inventory": {
+        "docs/matrixlabs/phase_vs0/phase_vs0_source_inventory_v0.json": "9113423ccf9b863e9a8ce13a91595c2d5dab3b6ccb6b4f95c6d0a31b32dd9c64",
+        "docs/matrixlabs/phase_vs0/phase_vs0_source_inventory_v0.md": "2b4a9cac94158aafac51f66f8481152922051d89ac22e9db9d01c98ac22b8e9f"
+      },
+      "vs0_2_happy_path_build": {
+        "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_build_receipt_v0.json": "f11c5b96e1052e9b69df9a683027c1c35a6bdde2cab3816eefa41f1c582b718d",
+        "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_build_receipt_v0.md": "8d7dc69bc4d2927b42f748293682d8c64eca712656324b19641c93d13b4df4ad"
+      },
+      "vs0_3_happy_path_verification": {
+        "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.json": "edd5fe9c7ba6c775397461fd762b2b57aa38595402fd7a514261fce2086b9c4c",
+        "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.md": "87b226181581bfd9ffbbecc51417f5718e008bbd6a572acaa59ebdf9a06057d8"
+      },
+      "vs0_4_negative_probe_battery": {
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_battery_v0.json": "3cc9c78beaba738c6c6e7533f8d7cc0b4fff0b837db5f7fdac2a33e664421740",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_battery_v0.md": "6defd4538af84e9751c12e70c61db1598ac4381e3f842e7c7dd9adc797836818",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_definitions_v0.json": "1e6008f19de10e6e0369b7dbea9cef43898e06abf2792616dc26c5a160d59b05"
+      },
+      "vs0_5_evidence_yield_report": {
+        "docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.json": "526df5159db50963421eb61274796d46d734a2d16bfc2165b2ebd9ade4bd8353",
+        "docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.md": "1d6bff56db537c8788df9b15be011020a008d7f28a856c05b5e2093ddf44ba85"
+      }
+    },
+    "all_source_hashes_unchanged_by_vs0_6": true,
+    "groups": {
+      "a_to_f_artifacts": {
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/a1_human_decision_surface_v0.json": "9ec1e7bfe1da68e44664ecd95b155e2412b5eedfda00d0f1d14d9bb4936b23a1",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/a2_human_decision_receipt_v0.json": "20d8178d5c68fe6f7160487bd28dfac909cb7229f9b1811c80a106c1c52bb203",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/a3_authority_state_update_v0.json": "20c3101cbc6da410d5d60cc5456d5d222f712126ac55b897efb206cc80d728f2",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/a4_authority_transition_closure_v0.json": "815ff57ad3fc45ae587e9f7ba7ae353e20f37fe13cd3af7057bd4214c81a8023",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/b1_requested_action_prepare_next_unit_definition_surface_v0.json": "b9f2def5fbabff8d143b3c5315390090640714c9bacf2a1880a11c41d54b0f5c",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/b2_authority_route_classification_v0.json": "e0bfc2be85bfdda0b6bf8f77717b34f74b04e0a17dc57ac6ccaaa88b7c22a842",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/b3_router_specimen_closure_v0.json": "56ffa590d09c03df34720f5af33366ec576c47748728a0548c3cca7e4a22dc27",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/c1_validator_archive_entry_schema_v0.json": "6e251a84fdde7376c97d68ab8a9ba9a5be12a0ba9d6410f804cf258958e8f474",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/c2_candidate_archive_entry_v0.json": "4b6f6fef4640b1da3d6d2b381ab97343e4f106ed9ce114d69615d8c17d93ea9b",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/c3_candidate_archive_admissibility_audit_v0.json": "2323c69ac4020c198ef3f437f5497c273fca28f34fb97751a5150453e62cad5c",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d1_candidate_promotion_decision_surface_v0.json": "bb53e55a46636dcaa7eb79144546a622a76ce76e278a09c6252ea2d0ea3fd2ae",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d2_candidate_promotion_decision_receipt_v0.json": "00e13ba31cf845ed3644f11862ca0516721a269e9a4466b13b271f41b271220b",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d3_active_archive_entry_v0.json": "87316bc2be0e0143c0558f604e3afa02b5887cf532558e59a2b8849308ccd025",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d4_machine_proceed_v0.json": "c00b0ed4961baef87d468682ce424480809129340fa69f25d2d82b5e34050b66",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d4_next_bounded_unit_definition_surface_v0.json": "8c42ec8af428ae487ba55085f830897034d502ee8eccda2a532123f1831c6970",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d5_machine_proceed_closure_v0.json": "d912be95b6007f4b3040086371b5efd9c2b95f88be623475ebbc245fafa72ab6",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/e1_compression_target_v0.json": "94d02104f7c1f4225d10e45fbcd84e7055c5b0b097466c116dbca675a5c4c93a",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/e2_compressed_packet_v0.json": "5564ed5ea6715cc2fe25cbf402bbf4007ec73f0ba061861f28273c9702dcd9dd",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/e3_decompression_audit_v0.json": "2ea42160942dcfb606fbaf637bea2e0b59d3827c91e44be3087f7da9820bf409",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/e4_compression_specimen_closure_v0.json": "ed7786bbf1a3364f31dd1a37af70b820227b964c2086a7a092962a4843350ba8",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/f1_registry_entry_schema_v0.json": "921956bb712a5e24f7d6951150b16073d7cd83156441c7ef48f7edce16e7dcbe",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/f2_registry_candidate_v0.json": "225a54431c518c9ffb9474e53328ab96381780c27a44ec3df48e51e84cb0c1ed",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/f3_registry_candidate_audit_v0.json": "3b3e439dfd14576fc32454a58d329cfb0c5319997bb2cdbc196b5353bcb25871",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/f4_registry_candidate_closure_projection_v0.json": "273397b2deb8c5ae9405ba9707e8ba57aa20f44328d417f86a473ce9c1f000a0",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/phase_vs0_a_to_f_chain_index_v0.json": "2494a324b1ceea2bcc63f0faf67382d1d7c37d52dd7f7b82b2ef91f90b818096",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/phase_vs0_a_to_f_chain_index_v0.md": "86b6dad00cc16b99dd8ffbfa56b8f564b26c568a7e12ca7079d7cc1066e5e62c"
+      },
+      "negative_probe_receipts": {
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg01_d4_without_active_entry_v0.json": "51d89de080507e2a15a4215d9aa223714be545eb7f431633632b7f3d183cfc85",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg02_d4_with_radius_zero_v0.json": "d41ed28c63b2a4cf9609d9aa8ab4df01ecb02e983b606ebe64f1373656c7c61d",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg03_e2_without_e1_target_v0.json": "7fe756b2beca34cda31facf1143f7594834cb2ecc97cbd0cae977609c1c25ce4",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg04_e3_with_dropped_radius_field_v0.json": "ec778234fd17516268a3a359a01aedc66695739a6da67b19b5ed94324ae6d756",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg05_e4_with_failed_decompression_audit_v0.json": "92be3671d81002bcc2e22365fd217885af00e7ba636fee042249fd7040741fc1",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg06_f2_without_e4_closure_v0.json": "8798cd76360e0c8b816564c72995185e2b425ba13e14279e4db3efe1fef04325",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg07_f2_with_specimen_count_overclaim_v0.json": "645196041405d11117cc351420af38441cc83b402fd5554458ad02aea4551594",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg08_f3_with_generalization_claimed_v0.json": "979b7912f4226f7f600f9655e2c1506eb407cac38e55f9d2cbd7532a239b1992",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg09_f4_with_active_registry_created_v0.json": "080f25201ecb7e31060f88cc0c5ba60534be54cf5fb5fcbc0271524dde01e287",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg10_any_with_runner_authority_true_v0.json": "6b9f5c6415a4fbaed13bda05ec1b166d0bc5d24d76b48b3ff5bd8877cea68976"
+      },
+      "vs0_1_source_inventory": {
+        "docs/matrixlabs/phase_vs0/phase_vs0_source_inventory_v0.json": "9113423ccf9b863e9a8ce13a91595c2d5dab3b6ccb6b4f95c6d0a31b32dd9c64",
+        "docs/matrixlabs/phase_vs0/phase_vs0_source_inventory_v0.md": "2b4a9cac94158aafac51f66f8481152922051d89ac22e9db9d01c98ac22b8e9f"
+      },
+      "vs0_2_happy_path_build": {
+        "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_build_receipt_v0.json": "f11c5b96e1052e9b69df9a683027c1c35a6bdde2cab3816eefa41f1c582b718d",
+        "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_build_receipt_v0.md": "8d7dc69bc4d2927b42f748293682d8c64eca712656324b19641c93d13b4df4ad"
+      },
+      "vs0_3_happy_path_verification": {
+        "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.json": "edd5fe9c7ba6c775397461fd762b2b57aa38595402fd7a514261fce2086b9c4c",
+        "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.md": "87b226181581bfd9ffbbecc51417f5718e008bbd6a572acaa59ebdf9a06057d8"
+      },
+      "vs0_4_negative_probe_battery": {
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_battery_v0.json": "3cc9c78beaba738c6c6e7533f8d7cc0b4fff0b837db5f7fdac2a33e664421740",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_battery_v0.md": "6defd4538af84e9751c12e70c61db1598ac4381e3f842e7c7dd9adc797836818",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_definitions_v0.json": "1e6008f19de10e6e0369b7dbea9cef43898e06abf2792616dc26c5a160d59b05"
+      },
+      "vs0_5_evidence_yield_report": {
+        "docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.json": "526df5159db50963421eb61274796d46d734a2d16bfc2165b2ebd9ade4bd8353",
+        "docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.md": "1d6bff56db537c8788df9b15be011020a008d7f28a856c05b5e2093ddf44ba85"
+      }
+    },
+    "hash_algorithm": "sha256",
+    "inputs": {
+      "docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.json": "526df5159db50963421eb61274796d46d734a2d16bfc2165b2ebd9ade4bd8353",
+      "docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.md": "1d6bff56db537c8788df9b15be011020a008d7f28a856c05b5e2093ddf44ba85",
+      "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_build_receipt_v0.json": "f11c5b96e1052e9b69df9a683027c1c35a6bdde2cab3816eefa41f1c582b718d",
+      "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_build_receipt_v0.md": "8d7dc69bc4d2927b42f748293682d8c64eca712656324b19641c93d13b4df4ad",
+      "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.json": "edd5fe9c7ba6c775397461fd762b2b57aa38595402fd7a514261fce2086b9c4c",
+      "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.md": "87b226181581bfd9ffbbecc51417f5718e008bbd6a572acaa59ebdf9a06057d8",
+      "docs/matrixlabs/phase_vs0/phase_vs0_source_inventory_v0.json": "9113423ccf9b863e9a8ce13a91595c2d5dab3b6ccb6b4f95c6d0a31b32dd9c64",
+      "docs/matrixlabs/phase_vs0/phase_vs0_source_inventory_v0.md": "2b4a9cac94158aafac51f66f8481152922051d89ac22e9db9d01c98ac22b8e9f",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/a1_human_decision_surface_v0.json": "9ec1e7bfe1da68e44664ecd95b155e2412b5eedfda00d0f1d14d9bb4936b23a1",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/a2_human_decision_receipt_v0.json": "20d8178d5c68fe6f7160487bd28dfac909cb7229f9b1811c80a106c1c52bb203",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/a3_authority_state_update_v0.json": "20c3101cbc6da410d5d60cc5456d5d222f712126ac55b897efb206cc80d728f2",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/a4_authority_transition_closure_v0.json": "815ff57ad3fc45ae587e9f7ba7ae353e20f37fe13cd3af7057bd4214c81a8023",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/b1_requested_action_prepare_next_unit_definition_surface_v0.json": "b9f2def5fbabff8d143b3c5315390090640714c9bacf2a1880a11c41d54b0f5c",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/b2_authority_route_classification_v0.json": "e0bfc2be85bfdda0b6bf8f77717b34f74b04e0a17dc57ac6ccaaa88b7c22a842",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/b3_router_specimen_closure_v0.json": "56ffa590d09c03df34720f5af33366ec576c47748728a0548c3cca7e4a22dc27",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/c1_validator_archive_entry_schema_v0.json": "6e251a84fdde7376c97d68ab8a9ba9a5be12a0ba9d6410f804cf258958e8f474",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/c2_candidate_archive_entry_v0.json": "4b6f6fef4640b1da3d6d2b381ab97343e4f106ed9ce114d69615d8c17d93ea9b",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/c3_candidate_archive_admissibility_audit_v0.json": "2323c69ac4020c198ef3f437f5497c273fca28f34fb97751a5150453e62cad5c",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d1_candidate_promotion_decision_surface_v0.json": "bb53e55a46636dcaa7eb79144546a622a76ce76e278a09c6252ea2d0ea3fd2ae",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d2_candidate_promotion_decision_receipt_v0.json": "00e13ba31cf845ed3644f11862ca0516721a269e9a4466b13b271f41b271220b",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d3_active_archive_entry_v0.json": "87316bc2be0e0143c0558f604e3afa02b5887cf532558e59a2b8849308ccd025",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d4_machine_proceed_v0.json": "c00b0ed4961baef87d468682ce424480809129340fa69f25d2d82b5e34050b66",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d4_next_bounded_unit_definition_surface_v0.json": "8c42ec8af428ae487ba55085f830897034d502ee8eccda2a532123f1831c6970",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d5_machine_proceed_closure_v0.json": "d912be95b6007f4b3040086371b5efd9c2b95f88be623475ebbc245fafa72ab6",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/e1_compression_target_v0.json": "94d02104f7c1f4225d10e45fbcd84e7055c5b0b097466c116dbca675a5c4c93a",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/e2_compressed_packet_v0.json": "5564ed5ea6715cc2fe25cbf402bbf4007ec73f0ba061861f28273c9702dcd9dd",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/e3_decompression_audit_v0.json": "2ea42160942dcfb606fbaf637bea2e0b59d3827c91e44be3087f7da9820bf409",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/e4_compression_specimen_closure_v0.json": "ed7786bbf1a3364f31dd1a37af70b820227b964c2086a7a092962a4843350ba8",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/f1_registry_entry_schema_v0.json": "921956bb712a5e24f7d6951150b16073d7cd83156441c7ef48f7edce16e7dcbe",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/f2_registry_candidate_v0.json": "225a54431c518c9ffb9474e53328ab96381780c27a44ec3df48e51e84cb0c1ed",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/f3_registry_candidate_audit_v0.json": "3b3e439dfd14576fc32454a58d329cfb0c5319997bb2cdbc196b5353bcb25871",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/f4_registry_candidate_closure_projection_v0.json": "273397b2deb8c5ae9405ba9707e8ba57aa20f44328d417f86a473ce9c1f000a0",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/phase_vs0_a_to_f_chain_index_v0.json": "2494a324b1ceea2bcc63f0faf67382d1d7c37d52dd7f7b82b2ef91f90b818096",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/phase_vs0_a_to_f_chain_index_v0.md": "86b6dad00cc16b99dd8ffbfa56b8f564b26c568a7e12ca7079d7cc1066e5e62c",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_battery_v0.json": "3cc9c78beaba738c6c6e7533f8d7cc0b4fff0b837db5f7fdac2a33e664421740",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_battery_v0.md": "6defd4538af84e9751c12e70c61db1598ac4381e3f842e7c7dd9adc797836818",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_definitions_v0.json": "1e6008f19de10e6e0369b7dbea9cef43898e06abf2792616dc26c5a160d59b05",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg01_d4_without_active_entry_v0.json": "51d89de080507e2a15a4215d9aa223714be545eb7f431633632b7f3d183cfc85",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg02_d4_with_radius_zero_v0.json": "d41ed28c63b2a4cf9609d9aa8ab4df01ecb02e983b606ebe64f1373656c7c61d",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg03_e2_without_e1_target_v0.json": "7fe756b2beca34cda31facf1143f7594834cb2ecc97cbd0cae977609c1c25ce4",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg04_e3_with_dropped_radius_field_v0.json": "ec778234fd17516268a3a359a01aedc66695739a6da67b19b5ed94324ae6d756",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg05_e4_with_failed_decompression_audit_v0.json": "92be3671d81002bcc2e22365fd217885af00e7ba636fee042249fd7040741fc1",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg06_f2_without_e4_closure_v0.json": "8798cd76360e0c8b816564c72995185e2b425ba13e14279e4db3efe1fef04325",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg07_f2_with_specimen_count_overclaim_v0.json": "645196041405d11117cc351420af38441cc83b402fd5554458ad02aea4551594",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg08_f3_with_generalization_claimed_v0.json": "979b7912f4226f7f600f9655e2c1506eb407cac38e55f9d2cbd7532a239b1992",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg09_f4_with_active_registry_created_v0.json": "080f25201ecb7e31060f88cc0c5ba60534be54cf5fb5fcbc0271524dde01e287",
+      "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/receipts/neg10_any_with_runner_authority_true_v0.json": "6b9f5c6415a4fbaed13bda05ec1b166d0bc5d24d76b48b3ff5bd8877cea68976"
+    },
+    "source_hashes_recorded": true
+  },
+  "source_preservation": {
+    "a_to_f_artifacts_mutated_by_vs0_6": false,
+    "negative_probe_receipts_mutated_by_vs0_6": false,
+    "vs0_1_source_inventory_mutated_by_vs0_6": false,
+    "vs0_2_happy_path_build_mutated_by_vs0_6": false,
+    "vs0_3_happy_path_verification_mutated_by_vs0_6": false,
+    "vs0_4_negative_probe_battery_mutated_by_vs0_6": false,
+    "vs0_5_evidence_yield_report_mutated_by_vs0_6": false
+  },
+  "source_steps": {
+    "vs0_1": {
+      "artifact": "phase_vs0_source_inventory_v0",
+      "passed": true,
+      "path": "docs/matrixlabs/phase_vs0/phase_vs0_source_inventory_v0.json",
+      "required_status": "VS0_PREFLIGHT_PASS_SCOPE_DECLARED"
+    },
+    "vs0_2": {
+      "artifact": "phase_vs0_happy_path_build_receipt_v0",
+      "passed": true,
+      "path": "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_build_receipt_v0.json",
+      "required_status": "VS0_2_HAPPY_PATH_BUILD_PASS_A_TO_F_PHASE_SPECIMEN_CREATED"
+    },
+    "vs0_3": {
+      "artifact": "phase_vs0_happy_path_verification_v0",
+      "passed": true,
+      "path": "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.json",
+      "required_status": "VS0_3_HAPPY_PATH_VERIFICATION_PASS_A_TO_F_PHASE_SPECIMEN_VERIFIED"
+    },
+    "vs0_4": {
+      "artifact": "phase_vs0_negative_probe_battery_v0",
+      "passed": true,
+      "path": "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_battery_v0.json",
+      "required_status": "VS0_4_NEGATIVE_PROBES_PASS_TYPED_STOPS"
+    },
+    "vs0_5": {
+      "artifact": "phase_vs0_evidence_yield_report_v0",
+      "passed": true,
+      "path": "docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.json",
+      "required_status": "VS0_5_EVIDENCE_YIELD_REPORT_PASS_USEFUL_EVIDENCE_PRESENT"
+    }
+  },
+  "source_vs0_5_required_before_closure": true,
+  "terminal_transition": "ADVANCE(BOOKKEEPING_COMMIT_PHASE_VS0_CLOSURE_V0_PENDING)"
+}
