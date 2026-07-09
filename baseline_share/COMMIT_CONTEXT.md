@@ -1,7 +1,7 @@
 # Commit Context
 
-- Generated at UTC: `2026-07-08T21:15:17Z`
-- Current HEAD SHA: `a7bffbe4130125276aa1ce803523ed253edfe54b`
+- Generated at UTC: `2026-07-09T00:39:27Z`
+- Current HEAD SHA: `fb4a0ce1678b0f9e84952b32f5be6937b111df4d`
 - Branch: `master`
 - Worktree state at generation time: `dirty`
 - Generator script: `scripts/build_baseline_share_v0.py`
@@ -9,6 +9,7 @@
 ## Recent 10 commits
 
 ```text
+fb4a0ce16 Add C8 n22 registry candidate closure v0
 a7bffbe41 Add C8 n22 registry candidate admissibility audit v0
 84a816590 Add C8 n22 radius-bound prepare trace registry candidate v0
 5fe49bc46 Add compression trace registry entry schema contract v0
@@ -18,7 +19,6 @@ a7bffbe41 Add C8 n22 registry candidate admissibility audit v0
 e5371799e Add C8 n22 authority action trace compression target v0
 0cdbfda86 Add C8 n22 machine proceed closure v0
 c3c926f51 Add C8 n22 machine proceed v0
-d4eda4087 Add C8 n22 active archive entry v0
 ```
 
 ## Git status short
@@ -30,8 +30,8 @@ M baseline_share/COMMIT_CONTEXT.md
  M baseline_share/RECEIPT_POINTERS.md
  M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/registry/closures/
-?? scripts/build_c8_n22_radius_bound_prepare_trace_registry_candidate_closure_v0.py
+?? docs/matrixlabs/phase_vs0/
+?? scripts/build_phase_vs0_source_inventory_v0.py
 ```
 
 ## Git status short excluding generated baseline_share
@@ -39,8 +39,8 @@ M baseline_share/COMMIT_CONTEXT.md
 ```text
  M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/registry/closures/
-?? scripts/build_c8_n22_radius_bound_prepare_trace_registry_candidate_closure_v0.py
+?? docs/matrixlabs/phase_vs0/
+?? scripts/build_phase_vs0_source_inventory_v0.py
 ```
 
 ## Safety facts

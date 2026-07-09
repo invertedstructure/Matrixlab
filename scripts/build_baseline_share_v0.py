@@ -207,6 +207,11 @@ C8_N22_TRACE_REGISTRY_CANDIDATE_CLOSURE_DOCS = [
     "docs/matrixlabs/registry/closures/c8_n22_radius_bound_prepare_trace_registry_candidate_closure_v0.md",
 ]
 C8_N22_TRACE_REGISTRY_CANDIDATE_CLOSURE_GENERATOR = "scripts/build_c8_n22_radius_bound_prepare_trace_registry_candidate_closure_v0.py"
+PHASE_VS0_SOURCE_INVENTORY_DOCS = [
+    "docs/matrixlabs/phase_vs0/phase_vs0_source_inventory_v0.json",
+    "docs/matrixlabs/phase_vs0/phase_vs0_source_inventory_v0.md",
+]
+PHASE_VS0_SOURCE_INVENTORY_GENERATOR = "scripts/build_phase_vs0_source_inventory_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -281,6 +286,8 @@ SOURCE_DOCS = [
     C8_N22_TRACE_REGISTRY_CANDIDATE_AUDIT_GENERATOR,
     *C8_N22_TRACE_REGISTRY_CANDIDATE_CLOSURE_DOCS,
     C8_N22_TRACE_REGISTRY_CANDIDATE_CLOSURE_GENERATOR,
+    *PHASE_VS0_SOURCE_INVENTORY_DOCS,
+    PHASE_VS0_SOURCE_INVENTORY_GENERATOR,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -765,6 +772,7 @@ def build_manifest(
     f2_trace_registry_candidate_present = (root / C8_N22_TRACE_REGISTRY_CANDIDATE_DOCS[0]).exists()
     f3_trace_registry_candidate_audit_present = (root / C8_N22_TRACE_REGISTRY_CANDIDATE_AUDIT_DOCS[0]).exists()
     f4_trace_registry_candidate_closure_present = (root / C8_N22_TRACE_REGISTRY_CANDIDATE_CLOSURE_DOCS[0]).exists()
+    phase_vs0_source_inventory_present = (root / PHASE_VS0_SOURCE_INVENTORY_DOCS[0]).exists()
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -1108,6 +1116,25 @@ def build_manifest(
         "example_candidate_created_by_f1": False,
         "selected_as_next_unit_by_f1": False,
         "terminal_transition": "STOP_BLOCK_F_REGISTRY_CANDIDATE_CLOSURE_COMPLETE" if f4_trace_registry_candidate_closure_present else ("ADVANCE(F4_REGISTRY_CANDIDATE_CLOSURE_PENDING)" if f3_trace_registry_candidate_audit_present else ("ADVANCE(F3_REGISTRY_CANDIDATE_ADMISSIBILITY_AUDIT_PENDING)" if f2_trace_registry_candidate_present else ("ADVANCE(F2_LOCAL_REGISTRY_CANDIDATE_ENTRY_PENDING)" if f1_registry_schema_contract_present else ("STOP_BLOCK_E_COMPRESSION_CLOSURE_COMPLETE" if e4_compression_closure_present else ("ADVANCE(E4_COMPRESSION_CLOSURE_PENDING)" if e3_decompression_audit_present else ("ADVANCE(E3_DECOMPRESSION_PARITY_AUDIT_PENDING)" if e2_compressed_packet_present else ("ADVANCE(E2_COMPRESSED_SPECIMEN_PACKET_PENDING)" if e1_compression_target_present else ("STOP_BLOCK_D_MACHINE_PROCEED_CLOSED" if d5_machine_proceed_closure_present else ("ADVANCE(D5_MACHINE_PROCEED_CLOSURE_PENDING)" if d4_machine_proceed_present else ("ADVANCE(D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY_PENDING)" if d3_active_archive_entry_present else None)))))))))),
+        "phase_vs0_status": "VS0_PREFLIGHT_PASS_SCOPE_DECLARED" if phase_vs0_source_inventory_present else None,
+        "phase_vs0_current_unit": "VS0.1_SOURCE_INVENTORY_AND_PREFLIGHT" if phase_vs0_source_inventory_present else None,
+        "phase_vs0_start_mode": "FROM_COMMITTED_BLOCK_F_CANDIDATE_CHAIN" if phase_vs0_source_inventory_present else None,
+        "phase_vs0_declared_start_source": "c8.n22.radius_bound_prepare_trace.registry_candidate_closure.v0" if phase_vs0_source_inventory_present else None,
+        "phase_vs0_declared_start_source_path": "docs/matrixlabs/registry/closures/c8_n22_radius_bound_prepare_trace_registry_candidate_closure_v0.json" if phase_vs0_source_inventory_present else None,
+        "phase_vs0_preflight_decision": "PROCEED_TO_VS0_2_HAPPY_PATH_BUILD" if phase_vs0_source_inventory_present else None,
+        "phase_vs0_evidence_yield_branch": "CONFIRMATION_YIELD" if phase_vs0_source_inventory_present else None,
+        "phase_vs0_required_start_sources_missing": False,
+        "phase_vs0_expected_outputs_namespace": "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0" if phase_vs0_source_inventory_present else None,
+        "phase_vs0_expected_vs0_outputs_missing_treated_as_failure": False,
+        "phase_vs0_a_to_f_specimen_built_by_vs0_1": False,
+        "phase_vs0_authority_changed_by_vs0_1": False,
+        "phase_vs0_machine_action_performed_by_vs0_1": False,
+        "phase_vs0_radius_renewed_by_vs0_1": False,
+        "phase_vs0_registry_activated_by_vs0_1": False,
+        "phase_vs0_runner_authority_created_by_vs0_1": False,
+        "phase_vs0_phase_closure_created_by_vs0_1": False,
+        "phase_vs0_discussion_packets_committed": False,
+        "phase_vs0_terminal_transition": "ADVANCE(VS0_2_HAPPY_PATH_A_TO_F_ARTIFACT_BUILD_PENDING)" if phase_vs0_source_inventory_present else None,
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,
