@@ -23,6 +23,22 @@ from typing import Iterable
 def _baseline_filter_uncommitted_vs0_3_markers_v1() -> None:
     from pathlib import Path as _Path
 
+    verification_path = _Path(
+        "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.json"
+    )
+    if verification_path.is_file():
+        try:
+            verification = json.loads(verification_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            verification = {}
+        if (
+            verification.get("verification_result", {}).get(
+                "happy_path_verification_status"
+            )
+            == "VS0_3_HAPPY_PATH_VERIFICATION_PASS_A_TO_F_PHASE_SPECIMEN_VERIFIED"
+        ):
+            return
+
     baseline_root = _Path("baseline_share")
     if not baseline_root.exists():
         return
@@ -523,11 +539,18 @@ def ensure_safe_baseline_dir(root: Path) -> Path:
         raise GenerationError(
             "baseline_share/ exists but has no recognizable MANIFEST.json; refusing to overwrite"
         )
+    manifest_text = read_text(manifest)
     try:
-        data = json.loads(read_text(manifest))
+        data = json.loads(manifest_text)
     except json.JSONDecodeError as exc:
+        generated_markers = [
+            f'"schema_version": "{SCHEMA_VERSION}"',
+            f'"generator_script": "{GENERATOR_SCRIPT}"',
+        ]
+        if all(marker in manifest_text for marker in generated_markers):
+            return baseline
         raise GenerationError(
-            "baseline_share/MANIFEST.json is not valid JSON; refusing to overwrite"
+            "baseline_share/MANIFEST.json is not valid JSON and lacks generator identity; refusing to overwrite"
         ) from exc
     if (
         data.get("schema_version") != SCHEMA_VERSION

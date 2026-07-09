@@ -4,7 +4,7 @@ This packet does not copy the full receipt stack. Receipts remain evidence and s
 
 ## Full receipt locations
 
-- External WSL receipt archive: `/home/asd/matrixlab_receipts/` - present; file count: `812`.
+- External WSL receipt archive: `/home/asd/matrixlab_receipts/` - present; file count: `814`.
 - Repo architecture extraction receipt copy: `docs/matrixlabs/receipts/` - present; file count: `714`.
 
 ## Current load-bearing recent receipt pointers
@@ -13,6 +13,8 @@ This packet does not copy the full receipt stack. Receipts remain evidence and s
 
 ## Architecture extraction terminal receipt pointer
 
+- `/home/asd/matrixlab_receipts/quarantine_vs0_3_diagnostic_20260709_133716/docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.json`
+- `/home/asd/matrixlab_receipts/quarantine_vs0_3_diagnostic_20260709_133716/scripts/verify_phase_vs0_happy_path_v0.py`
 - `/home/asd/matrixlab_receipts/receipt_20260625_002318.txt`
 - `/home/asd/matrixlab_receipts/receipt_20260625_002942.txt`
 - `/home/asd/matrixlab_receipts/receipt_20260630_144848.txt`
