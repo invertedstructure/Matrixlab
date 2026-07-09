@@ -1,10 +1,10 @@
 # Current State
 
-Generated at UTC: `2026-07-09T00:39:27Z`
+Generated at UTC: `2026-07-09T11:48:43Z`
 
 ## Git context
 
-- Current HEAD SHA: `fb4a0ce1678b0f9e84952b32f5be6937b111df4d`
+- Current HEAD SHA: `742643e358af9bdb54efdcdcabdf667cbc48fd85`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
@@ -15,20 +15,24 @@ Generated at UTC: `2026-07-09T00:39:27Z`
 - ` M baseline_share/RECEIPT_POINTERS.md`
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/phase_vs0/`
-- `?? scripts/build_phase_vs0_source_inventory_v0.py`
+- `?? docs/matrixlabs/phase_vs0/phase_vs0_happy_path_build_receipt_v0.json`
+- `?? docs/matrixlabs/phase_vs0/phase_vs0_happy_path_build_receipt_v0.md`
+- `?? docs/matrixlabs/phase_vs0/runs/`
+- `?? scripts/build_phase_vs0_a_to_f_first_specimen_v0.py`
 - Git status excluding generated `baseline_share/`:
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/phase_vs0/`
-- `?? scripts/build_phase_vs0_source_inventory_v0.py`
+- `?? docs/matrixlabs/phase_vs0/phase_vs0_happy_path_build_receipt_v0.json`
+- `?? docs/matrixlabs/phase_vs0/phase_vs0_happy_path_build_receipt_v0.md`
+- `?? docs/matrixlabs/phase_vs0/runs/`
+- `?? scripts/build_phase_vs0_a_to_f_first_specimen_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `fb4a0ce1678b0f9e84952b32f5be6937b111df4d`
-- Current C8 post-patch surface-decision acceptance commit: `fb4a0ce1678b0f9e84952b32f5be6937b111df4d`
+- Current architecture extraction commit: `742643e358af9bdb54efdcdcabdf667cbc48fd85`
+- Current C8 post-patch surface-decision acceptance commit: `742643e358af9bdb54efdcdcabdf667cbc48fd85`
 
 ## High-level state
 
