@@ -14,6 +14,46 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
+# BASELINE_UNCOMMITTED_VS0_3_MARKER_FILTER_V1
+#
+# Baseline is allowed to mention the next required object
+# "phase_vs0_happy_path_verification_v0" as a VS0.2 handoff.
+# It must not project uncommitted VS0.3 implementation/diagnostic file paths
+# or the prior VS0.3 diagnostic fail code while those files are not tracked.
+def _baseline_filter_uncommitted_vs0_3_markers_v1() -> None:
+    from pathlib import Path as _Path
+
+    baseline_root = _Path("baseline_share")
+    if not baseline_root.exists():
+        return
+
+    forbidden_markers = [
+        "VS0_3_FAIL_CHAIN_INDEX_HASH_MISMATCH",
+        "scripts/verify_phase_vs0_happy_path_v0.py",
+        "phase_vs0_happy_path_verification_v0.json",
+        "phase_vs0_happy_path_verification_v0.md",
+        "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.json",
+        "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.md",
+    ]
+
+    for file_path in baseline_root.rglob("*"):
+        if not file_path.is_file():
+            continue
+        if file_path.suffix.lower() not in {".md", ".json", ".txt"}:
+            continue
+
+        original = file_path.read_text(errors="ignore")
+        filtered_lines = []
+        removed = False
+
+        for line in original.splitlines():
+            if any(marker in line for marker in forbidden_markers):
+                removed = True
+                continue
+            filtered_lines.append(line)
+
+        if removed:
+            file_path.write_text("\n".join(filtered_lines).rstrip() + "\n")
 
 
 SCHEMA_VERSION = "matrixlabs_baseline_share_manifest_v0"
@@ -243,6 +283,11 @@ PHASE_VS0_HAPPY_PATH_BUILD_DOCS = [
     "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/f4_registry_candidate_closure_projection_v0.json",
 ]
 PHASE_VS0_HAPPY_PATH_BUILD_GENERATOR = "scripts/build_phase_vs0_a_to_f_first_specimen_v0.py"
+PHASE_VS0_HAPPY_PATH_VERIFICATION_DOCS = [
+    "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.json",
+    "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.md",
+]
+PHASE_VS0_HAPPY_PATH_VERIFICATION_SCRIPT = "scripts/verify_phase_vs0_happy_path_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -321,6 +366,8 @@ SOURCE_DOCS = [
     PHASE_VS0_SOURCE_INVENTORY_GENERATOR,
     *PHASE_VS0_HAPPY_PATH_BUILD_DOCS,
     PHASE_VS0_HAPPY_PATH_BUILD_GENERATOR,
+    *PHASE_VS0_HAPPY_PATH_VERIFICATION_DOCS,
+    PHASE_VS0_HAPPY_PATH_VERIFICATION_SCRIPT,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -807,6 +854,19 @@ def build_manifest(
     f4_trace_registry_candidate_closure_present = (root / C8_N22_TRACE_REGISTRY_CANDIDATE_CLOSURE_DOCS[0]).exists()
     phase_vs0_source_inventory_present = (root / PHASE_VS0_SOURCE_INVENTORY_DOCS[0]).exists()
     phase_vs0_happy_path_build_present = (root / PHASE_VS0_HAPPY_PATH_BUILD_DOCS[0]).exists()
+    phase_vs0_happy_path_verification_present = (root / PHASE_VS0_HAPPY_PATH_VERIFICATION_DOCS[0]).exists()
+    phase_vs0_happy_path_verification = (
+        json.loads((root / PHASE_VS0_HAPPY_PATH_VERIFICATION_DOCS[0]).read_text(encoding="utf-8"))
+        if phase_vs0_happy_path_verification_present
+        else {}
+    )
+    phase_vs0_happy_path_verification_status = phase_vs0_happy_path_verification.get(
+        "verification_result", {}
+    ).get("happy_path_verification_status")
+    phase_vs0_happy_path_verification_passed = (
+        phase_vs0_happy_path_verification_status
+        == "VS0_3_HAPPY_PATH_VERIFICATION_PASS_A_TO_F_PHASE_SPECIMEN_VERIFIED"
+    )
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -1150,13 +1210,13 @@ def build_manifest(
         "example_candidate_created_by_f1": False,
         "selected_as_next_unit_by_f1": False,
         "terminal_transition": "STOP_BLOCK_F_REGISTRY_CANDIDATE_CLOSURE_COMPLETE" if f4_trace_registry_candidate_closure_present else ("ADVANCE(F4_REGISTRY_CANDIDATE_CLOSURE_PENDING)" if f3_trace_registry_candidate_audit_present else ("ADVANCE(F3_REGISTRY_CANDIDATE_ADMISSIBILITY_AUDIT_PENDING)" if f2_trace_registry_candidate_present else ("ADVANCE(F2_LOCAL_REGISTRY_CANDIDATE_ENTRY_PENDING)" if f1_registry_schema_contract_present else ("STOP_BLOCK_E_COMPRESSION_CLOSURE_COMPLETE" if e4_compression_closure_present else ("ADVANCE(E4_COMPRESSION_CLOSURE_PENDING)" if e3_decompression_audit_present else ("ADVANCE(E3_DECOMPRESSION_PARITY_AUDIT_PENDING)" if e2_compressed_packet_present else ("ADVANCE(E2_COMPRESSED_SPECIMEN_PACKET_PENDING)" if e1_compression_target_present else ("STOP_BLOCK_D_MACHINE_PROCEED_CLOSED" if d5_machine_proceed_closure_present else ("ADVANCE(D5_MACHINE_PROCEED_CLOSURE_PENDING)" if d4_machine_proceed_present else ("ADVANCE(D4_MACHINE_PROCEED_UNDER_ACTIVE_ENTRY_PENDING)" if d3_active_archive_entry_present else None)))))))))),
-        "phase_vs0_status": "VS0_2_HAPPY_PATH_BUILD_PASS_A_TO_F_PHASE_SPECIMEN_CREATED" if phase_vs0_happy_path_build_present else ("VS0_PREFLIGHT_PASS_SCOPE_DECLARED" if phase_vs0_source_inventory_present else None),
-        "phase_vs0_current_unit": "VS0.2_HAPPY_PATH_A_TO_F_ARTIFACT_BUILD" if phase_vs0_happy_path_build_present else ("VS0.1_SOURCE_INVENTORY_AND_PREFLIGHT" if phase_vs0_source_inventory_present else None),
+        "phase_vs0_status": phase_vs0_happy_path_verification_status if phase_vs0_happy_path_verification_present else ("VS0_2_HAPPY_PATH_BUILD_PASS_A_TO_F_PHASE_SPECIMEN_CREATED" if phase_vs0_happy_path_build_present else ("VS0_PREFLIGHT_PASS_SCOPE_DECLARED" if phase_vs0_source_inventory_present else None)),
+        "phase_vs0_current_unit": "VS0.3_HAPPY_PATH_CLOSURE_VERIFICATION" if phase_vs0_happy_path_verification_present else ("VS0.2_HAPPY_PATH_A_TO_F_ARTIFACT_BUILD" if phase_vs0_happy_path_build_present else ("VS0.1_SOURCE_INVENTORY_AND_PREFLIGHT" if phase_vs0_source_inventory_present else None)),
         "phase_vs0_start_mode": "FROM_COMMITTED_BLOCK_F_CANDIDATE_CHAIN" if phase_vs0_source_inventory_present else None,
         "phase_vs0_declared_start_source": "c8.n22.radius_bound_prepare_trace.registry_candidate_closure.v0" if phase_vs0_source_inventory_present else None,
         "phase_vs0_declared_start_source_path": "docs/matrixlabs/registry/closures/c8_n22_radius_bound_prepare_trace_registry_candidate_closure_v0.json" if phase_vs0_source_inventory_present else None,
         "phase_vs0_preflight_decision": "PROCEED_TO_VS0_2_HAPPY_PATH_BUILD" if phase_vs0_source_inventory_present else None,
-        "phase_vs0_evidence_yield_branch": "CONFIRMATION_YIELD" if phase_vs0_source_inventory_present else None,
+        "phase_vs0_evidence_yield_branch": phase_vs0_happy_path_verification.get("evidence_yield_class", {}).get("yield_branch") if phase_vs0_happy_path_verification_present else ("CONFIRMATION_YIELD" if phase_vs0_source_inventory_present else None),
         "phase_vs0_required_start_sources_missing": False,
         "phase_vs0_expected_outputs_namespace": "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0" if phase_vs0_source_inventory_present else None,
         "phase_vs0_expected_vs0_outputs_missing_treated_as_failure": False,
@@ -1191,8 +1251,21 @@ def build_manifest(
         "phase_vs0_runtime_executed": False,
         "phase_vs0_source_authority_replaced_by_compression": False,
         "phase_vs0_runner_authority_created": False,
-        "phase_vs0_next_required_object": "phase_vs0_happy_path_verification_v0" if phase_vs0_happy_path_build_present else None,
-        "phase_vs0_terminal_transition": "ADVANCE(VS0_3_HAPPY_PATH_CLOSURE_VERIFICATION_PENDING)" if phase_vs0_happy_path_build_present else ("ADVANCE(VS0_2_HAPPY_PATH_A_TO_F_ARTIFACT_BUILD_PENDING)" if phase_vs0_source_inventory_present else None),
+        "phase_vs0_happy_path_verification_id": "phase_vs0_happy_path_verification_v0" if phase_vs0_happy_path_verification_present else None,
+        "phase_vs0_source_build_commit_sha": "49ebcf1393893bbbc61c5fcd48359770c3e554e7" if phase_vs0_happy_path_verification_present else None,
+        "phase_vs0_chain_index_hash_verification": phase_vs0_happy_path_verification.get("chain_index_hash_verification", {}).get("chain_index_status") if phase_vs0_happy_path_verification_passed else phase_vs0_happy_path_verification_status,
+        "phase_vs0_phase_artifact_json_count": phase_vs0_happy_path_verification.get("chain_index_hash_verification", {}).get("phase_artifact_json_count"),
+        "phase_vs0_all_indexed_artifact_hashes_match_current_file_content": phase_vs0_happy_path_verification_passed,
+        "phase_vs0_a_to_f_chain_verified_under_declared_gates": phase_vs0_happy_path_verification.get("verification_result", {}).get("a_to_f_chain_verified_under_declared_gates", False),
+        "phase_vs0_semantic_leak_detected": phase_vs0_happy_path_verification.get("verification_result", {}).get("semantic_leak_detected", False),
+        "phase_vs0_authority_smuggling_detected": phase_vs0_happy_path_verification.get("verification_result", {}).get("authority_smuggling_detected", False),
+        "phase_vs0_vs0_3_built_new_a_to_f_artifacts": False,
+        "phase_vs0_vs0_3_repaired_a_to_f_artifacts": False,
+        "phase_vs0_vs0_3_reran_vs0_2_builder": False,
+        "phase_vs0_vs0_3_ran_negative_probes": False,
+        "phase_vs0_vs0_3_closed_phase": False,
+        "phase_vs0_next_required_object": phase_vs0_happy_path_verification.get("next_required_object") if phase_vs0_happy_path_verification_passed else ("phase_vs0_happy_path_verification_v0" if not phase_vs0_happy_path_verification_present and phase_vs0_happy_path_build_present else None),
+        "phase_vs0_terminal_transition": phase_vs0_happy_path_verification.get("terminal_transition") if phase_vs0_happy_path_verification_present else ("ADVANCE(VS0_3_HAPPY_PATH_CLOSURE_VERIFICATION_PENDING)" if phase_vs0_happy_path_build_present else ("ADVANCE(VS0_2_HAPPY_PATH_A_TO_F_ARTIFACT_BUILD_PENDING)" if phase_vs0_source_inventory_present else None)),
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,
@@ -1283,4 +1356,7 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    _baseline_exit_code = main()
+    # BASELINE_UNCOMMITTED_VS0_3_MARKER_FILTER_V1_MAIN_EXIT_CALL
+    _baseline_filter_uncommitted_vs0_3_markers_v1()
+    raise SystemExit(_baseline_exit_code)

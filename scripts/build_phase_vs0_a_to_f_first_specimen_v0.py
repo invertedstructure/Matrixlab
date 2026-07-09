@@ -7,49 +7,6 @@ run namespace. It records one D4 preparation action and performs no runtime.
 """
 
 from __future__ import annotations
-# VS0_2_D5_ANCHORS_AND_MARKDOWN_TITLE_POST_RENDER_GUARD_V1
-import atexit as _vs0_2_atexit
-import json as _vs0_2_json
-from pathlib import Path as _VS0_2_Path
-
-def _vs0_2_post_render_anchor_guard_v1() -> None:
-    d5_path = _VS0_2_Path("docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d5_machine_proceed_closure_v0.json")
-    if d5_path.exists():
-        d5 = _vs0_2_json.loads(d5_path.read_text())
-        d5.setdefault("d4_machine_preparation_action_anchor", {})
-        d5["d4_machine_preparation_action_anchor"].update({
-            "machine_action": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE",
-            "action_scope": "PREPARE_SURFACE_ONLY",
-            "anchor_role": "VS0_2_D5_EXACT_PREPARATION_ACTION_AND_SCOPE_ANCHOR"
-        })
-        d5.setdefault("machine_action_boundary", {})
-        d5["machine_action_boundary"].update({
-            "d4_machine_preparation_action_performed": True,
-            "machine_action_count": 1,
-            "machine_action_performed_outside_d4": False,
-            "machine_action_performed_after_d5": False,
-            "allowed_machine_action": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE",
-            "allowed_action_scope": "PREPARE_SURFACE_ONLY"
-        })
-        d5_path.write_text(_vs0_2_json.dumps(d5, indent=2, sort_keys=True, ensure_ascii=False) + "\n")
-
-    md_path = _VS0_2_Path("docs/matrixlabs/phase_vs0/phase_vs0_happy_path_build_receipt_v0.md")
-    required_title = "# Phase VS0 happy-path A→F build receipt v0"
-    if md_path.exists():
-        md = md_path.read_text()
-        if required_title not in md:
-            lines = md.splitlines()
-            if lines and lines[0].startswith("# "):
-                lines[0] = required_title
-                md = "\n".join(lines) + "\n"
-            else:
-                md = required_title + "\n\n" + md
-            md_path.write_text(md)
-    else:
-        md_path.parent.mkdir(parents=True, exist_ok=True)
-        md_path.write_text(required_title + "\n\n## Non-claim\n\nVS0.2 builds the happy-path phase specimen. It does not replace VS0.3 independent verification.\n")
-
-_vs0_2_atexit.register(_vs0_2_post_render_anchor_guard_v1)
 
 import hashlib
 import json
@@ -271,9 +228,14 @@ def load_committed_json(root: Path, relative_path: str) -> tuple[dict[str, Any],
 
 def validate_dirty_scope(root: Path) -> None:
     status = run_git(root, ["status", "--short"]).splitlines()
-    allowed_exact = {GENERATOR, "scripts/build_baseline_share_v0.py"}
+    allowed_exact = {
+        GENERATOR,
+        "scripts/build_baseline_share_v0.py",
+        "scripts/verify_phase_vs0_happy_path_v0.py",
+    }
     allowed_prefixes = (
         "baseline_share/",
+        "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_verification_v0.",
         "docs/matrixlabs/phase_vs0/phase_vs0_happy_path_build_receipt_v0.",
         f"{OUTPUT_ROOT}/",
     )
@@ -658,6 +620,12 @@ def build_d_chain(root: Path, sources: dict[str, dict[str, Any]]) -> None:
         "D4_OUTPUT",
         sources,
         {
+            "machine_action": "PREPARE_NEXT_BOUNDED_UNIT_DEFINITION_SURFACE",
+            "action_scope": "PREPARE_SURFACE_ONLY",
+            "machine_action_count": 1,
+            "machine_preparation_action_performed": True,
+            "machine_action_performed_outside_d4": False,
+            "machine_action_performed_after_d5": False,
             "closure_status": "MACHINE_PROCEED_CLOSURE_PASS_RADIUS_EXHAUSTED_STOP",
             "d_chain_builder_status": SEGMENT_STATUS["D"],
             "radius_before": 1,
@@ -1034,7 +1002,7 @@ def build_receipt(
 def write_receipt_markdown(root: Path) -> None:
     write_text(
         root / RECEIPT_MD,
-        f"""# Phase VS0 happy-path A-to-F build receipt v0
+        f"""# Phase VS0 happy-path A→F build receipt v0
 
 ## Status
 
@@ -1140,7 +1108,7 @@ def write_stop_receipt(root: Path, exc: BuildStop) -> None:
     write_json(root / RECEIPT_JSON, receipt)
     write_text(
         root / RECEIPT_MD,
-        f"# Phase VS0 happy-path A-to-F build receipt v0\n\n"
+        f"# Phase VS0 happy-path A→F build receipt v0\n\n"
         f"## Status\n\n{exc.code}\n\n"
         f"## Terminal transition\n\nSTOP({exc.code})",
     )

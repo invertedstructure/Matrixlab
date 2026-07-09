@@ -1,10 +1,10 @@
 # Current State
 
-Generated at UTC: `2026-07-09T11:48:43Z`
+Generated at UTC: `2026-07-09T12:44:19Z`
 
 ## Git context
 
-- Current HEAD SHA: `742643e358af9bdb54efdcdcabdf667cbc48fd85`
+- Current HEAD SHA: `49ebcf1393893bbbc61c5fcd48359770c3e554e7`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
@@ -13,26 +13,26 @@ Generated at UTC: `2026-07-09T11:48:43Z`
 - ` M baseline_share/CURRENT_STATE.md`
 - ` M baseline_share/MANIFEST.json`
 - ` M baseline_share/RECEIPT_POINTERS.md`
+- ` M docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d5_machine_proceed_closure_v0.json`
+- ` M docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/phase_vs0_a_to_f_chain_index_v0.json`
+- ` M docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/phase_vs0_a_to_f_chain_index_v0.md`
 - ` M scripts/build_baseline_share_v0.py`
+- ` M scripts/build_phase_vs0_a_to_f_first_specimen_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/phase_vs0/phase_vs0_happy_path_build_receipt_v0.json`
-- `?? docs/matrixlabs/phase_vs0/phase_vs0_happy_path_build_receipt_v0.md`
-- `?? docs/matrixlabs/phase_vs0/runs/`
-- `?? scripts/build_phase_vs0_a_to_f_first_specimen_v0.py`
 - Git status excluding generated `baseline_share/`:
+- ` M docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/d5_machine_proceed_closure_v0.json`
+- ` M docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/phase_vs0_a_to_f_chain_index_v0.json`
+- ` M docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/a_to_f/phase_vs0_a_to_f_chain_index_v0.md`
 - ` M scripts/build_baseline_share_v0.py`
+- ` M scripts/build_phase_vs0_a_to_f_first_specimen_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/phase_vs0/phase_vs0_happy_path_build_receipt_v0.json`
-- `?? docs/matrixlabs/phase_vs0/phase_vs0_happy_path_build_receipt_v0.md`
-- `?? docs/matrixlabs/phase_vs0/runs/`
-- `?? scripts/build_phase_vs0_a_to_f_first_specimen_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `742643e358af9bdb54efdcdcabdf667cbc48fd85`
-- Current C8 post-patch surface-decision acceptance commit: `742643e358af9bdb54efdcdcabdf667cbc48fd85`
+- Current architecture extraction commit: `49ebcf1393893bbbc61c5fcd48359770c3e554e7`
+- Current C8 post-patch surface-decision acceptance commit: `49ebcf1393893bbbc61c5fcd48359770c3e554e7`
 
 ## High-level state
 
