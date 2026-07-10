@@ -1,0 +1,1457 @@
+{
+  "advisory_ranking": {
+    "advisory_first_surface_candidate": "S10_SOURCE_IDENTITY_FRESHNESS_POLICY_SURFACE",
+    "advisory_first_surface_is_selected_next_phase": false,
+    "machine_selected_next_phase": false,
+    "ranking_basis": "non-binding dependency and source-trust ordering only",
+    "ranking_enabled": true,
+    "ranking_is_binding": false
+  },
+  "advisory_ranking_policy": {
+    "allowed_ranking_criteria": [
+      "source_identity_freshness_first",
+      "scope_and_core_contracts_before_control_policy",
+      "receipt_and_guard_surfaces_before_sweep_surfaces",
+      "readiness_reaudit_after_required_blocker_surfaces"
+    ],
+    "forbidden_ranking_criteria": [
+      "speed_to_execution",
+      "machine_preference",
+      "auto_select_next_phase",
+      "authorize_build_from_rank"
+    ],
+    "ranking_affects_candidate_validity": false,
+    "ranking_authorizes_build": false,
+    "ranking_authorizes_execution": false,
+    "ranking_authorizes_repair": false,
+    "ranking_enabled": true,
+    "ranking_is_binding": false,
+    "ranking_selects_next_phase": false
+  },
+  "artifact_id": "phase_vs1_missing_precondition_next_surface_map_v0",
+  "blocker_coverage": {
+    "all_typed_blockers_mapped": true,
+    "mapped_blocker_count": 20,
+    "out_of_scope_blockers": [],
+    "source_blocker_count": 20,
+    "unmapped_blocker_count": 0
+  },
+  "blocker_to_surface_map": {
+    "C01_SCOPE_REGIME_DECLARATION_CONTRACT": [
+      "S01_SCOPE_REGIME_DECLARATION_CONTRACT_SURFACE"
+    ],
+    "C02_TYPED_STATE_OBJECT_CONTRACT": [
+      "S02_TYPED_STATE_OBJECT_CONTRACT_SURFACE"
+    ],
+    "C03_EXPLICIT_MOVE_SPACE_CONTRACT": [
+      "S03_MOVE_SPACE_CONTRACT_SURFACE"
+    ],
+    "C04_MOVE_SELECTOR_CONTRACT": [
+      "S04_MOVE_SELECTOR_CONTRACT_SURFACE"
+    ],
+    "C05_MOVE_APPLICATOR_CONTRACT": [
+      "S05_MOVE_APPLICATOR_CONTRACT_SURFACE"
+    ],
+    "C06_AUTHORITY_POLICY": [
+      "S06_AUTHORITY_POLICY_SURFACE"
+    ],
+    "C07_RADIUS_BUDGET_POLICY": [
+      "S07_RADIUS_BUDGET_POLICY_SURFACE"
+    ],
+    "C08_HALT_POLICY": [
+      "S08_HALT_POLICY_SURFACE"
+    ],
+    "C09_RECEIPT_OBLIGATION_CONTRACT": [
+      "S09_RECEIPT_OBLIGATION_CONTRACT_SURFACE"
+    ],
+    "C10_SOURCE_IDENTITY_FRESHNESS_POLICY": [
+      "S10_SOURCE_IDENTITY_FRESHNESS_POLICY_SURFACE"
+    ],
+    "C11_MICRO_SWEEP_BOUNDS_CONTRACT": [
+      "S11_MICRO_SWEEP_BOUNDS_CONTRACT_SURFACE"
+    ],
+    "C12_PRESSURE_READOUT_CONTRACT": [
+      "S12_PRESSURE_READOUT_CONTRACT_SURFACE"
+    ],
+    "C13_PRESSURE_CLASSIFICATION_VOCABULARY": [
+      "S13_PRESSURE_CLASSIFICATION_VOCABULARY_SURFACE"
+    ],
+    "C14_LOCAL_REVISION_SURFACE_CONTRACT": [
+      "S14_LOCAL_REVISION_SURFACE_CONTRACT"
+    ],
+    "C15_BOUNDED_PORTABILITY_MAP_CONTRACT": [
+      "S15_BOUNDED_PORTABILITY_MAP_CONTRACT_SURFACE"
+    ],
+    "C16_REPLAY_AUDIT_CONTRACT": [
+      "S16_REPLAY_AUDIT_CONTRACT_SURFACE"
+    ],
+    "C17_FORBIDDEN_EFFECT_GUARD": [
+      "S17_FORBIDDEN_EFFECT_GUARD_SURFACE"
+    ],
+    "C18_EVIDENCE_YIELD_REPORT_HOOK": [
+      "S18_EVIDENCE_YIELD_HOOK_SURFACE"
+    ],
+    "C19_HUMAN_ESCALATION_DECISION_BOUNDARY": [
+      "S19_HUMAN_ESCALATION_DECISION_BOUNDARY_SURFACE"
+    ],
+    "C20_CONVERGENCE_CRITERION_CONTRACT": [
+      "S20_CONVERGENCE_CRITERION_CONTRACT_SURFACE"
+    ]
+  },
+  "dependency_layers": [
+    {
+      "layer": 0,
+      "layer_name": "SOURCE_TRUST",
+      "surface_ids": [
+        "S10_SOURCE_IDENTITY_FRESHNESS_POLICY_SURFACE"
+      ]
+    },
+    {
+      "layer": 1,
+      "layer_name": "SCOPE_REGIME_CONVERGENCE_AND_CORE_STRUCTURAL_CONTRACTS",
+      "surface_ids": [
+        "S01_SCOPE_REGIME_DECLARATION_CONTRACT_SURFACE",
+        "S02_TYPED_STATE_OBJECT_CONTRACT_SURFACE",
+        "S03_MOVE_SPACE_CONTRACT_SURFACE",
+        "S04_MOVE_SELECTOR_CONTRACT_SURFACE",
+        "S05_MOVE_APPLICATOR_CONTRACT_SURFACE",
+        "S20_CONVERGENCE_CRITERION_CONTRACT_SURFACE"
+      ]
+    },
+    {
+      "layer": 2,
+      "layer_name": "CONTROL_AND_AUTHORITY",
+      "surface_ids": [
+        "S06_AUTHORITY_POLICY_SURFACE",
+        "S07_RADIUS_BUDGET_POLICY_SURFACE",
+        "S08_HALT_POLICY_SURFACE",
+        "S19_HUMAN_ESCALATION_DECISION_BOUNDARY_SURFACE"
+      ]
+    },
+    {
+      "layer": 3,
+      "layer_name": "RECEIPT_AND_AUDIT",
+      "surface_ids": [
+        "S09_RECEIPT_OBLIGATION_CONTRACT_SURFACE",
+        "S16_REPLAY_AUDIT_CONTRACT_SURFACE",
+        "S17_FORBIDDEN_EFFECT_GUARD_SURFACE"
+      ]
+    },
+    {
+      "layer": 4,
+      "layer_name": "SWEEP_AND_PRESSURE",
+      "surface_ids": [
+        "S11_MICRO_SWEEP_BOUNDS_CONTRACT_SURFACE",
+        "S12_PRESSURE_READOUT_CONTRACT_SURFACE",
+        "S13_PRESSURE_CLASSIFICATION_VOCABULARY_SURFACE",
+        "S18_EVIDENCE_YIELD_HOOK_SURFACE"
+      ]
+    },
+    {
+      "layer": 5,
+      "layer_name": "REVISION_AND_PORTABILITY",
+      "surface_ids": [
+        "S14_LOCAL_REVISION_SURFACE_CONTRACT",
+        "S15_BOUNDED_PORTABILITY_MAP_CONTRACT_SURFACE"
+      ]
+    },
+    {
+      "layer": 6,
+      "layer_name": "READINESS_REAUDIT",
+      "surface_ids": [
+        "S21_CONTROLLED_LOOP_READINESS_REAUDIT_SURFACE"
+      ]
+    }
+  ],
+  "evidence_yield": {
+    "confirmation_yield_reason": "typed VS1.4 readiness blockers were converted into bounded candidate surface records with non-binding ranking and no build, repair, promotion, selection, execution, or authority consumption",
+    "diagnostic_yield_available_on_mapping_failure": true,
+    "yield_branch": "CONFIRMATION_YIELD"
+  },
+  "expected_current_branch_from_vs1_4": {
+    "controlled_loop_ready": false,
+    "mapping_branch": "NOT_READY_BLOCKER_MAP",
+    "missing_or_blocked_component_count": 20,
+    "primary_verdict": "CONTROLLED_LOOP_NOT_READY_MIXED_BLOCKERS",
+    "readiness_audit_gate": "VS1_4_CONTROLLED_LOOP_READINESS_AUDIT_PASS_NOT_READY_BLOCKERS_EXPOSED",
+    "ready_branch_surface_included": false,
+    "ready_component_count": 0,
+    "source_readiness_audit_commit_sha": "68c846386a79cc89215c1b16dbd1389333269b80"
+  },
+  "failures": [],
+  "forbidden_claim_checks": {
+    "candidate_promotion_attempted": false,
+    "component_build_attempted": false,
+    "global_generalization_claimed": false,
+    "human_authority_consumed": false,
+    "local_revision_authorized": false,
+    "loop_execution_authorized": false,
+    "micro_sweeps_authorized": false,
+    "next_phase_auto_selected": false,
+    "optimization_target_assumed": false,
+    "phase_closure_claimed": false,
+    "post_vs1_phase_selected": false,
+    "ranking_used_as_selection": false,
+    "repair_attempted": false,
+    "runner_created": false,
+    "surface_artifact_created": false,
+    "surface_built": false,
+    "vs1_6_executed": false
+  },
+  "map_verdict": "VS1_5_MISSING_PRECONDITION_NEXT_SURFACE_MAP_PASS",
+  "mapping_branch": "NOT_READY_BLOCKER_MAP",
+  "mapping_policy": {
+    "authority_consumed": false,
+    "candidate_promotion_allowed": false,
+    "component_build_allowed": false,
+    "loop_execution_authorized": false,
+    "machine_selection_allowed": false,
+    "maps_typed_readiness_results_only": true,
+    "next_phase_auto_selected": false,
+    "repairs_allowed": false,
+    "runner_created": false,
+    "surface_artifact_creation_allowed": false
+  },
+  "non_claims": {
+    "advisory_ranking_binding": false,
+    "candidate_promoted": false,
+    "first_ranked_surface_must_be_next": false,
+    "human_authority_consumed": false,
+    "local_revision_authorized": false,
+    "loop_may_execute": false,
+    "loop_ready": false,
+    "mapped_surface_built": false,
+    "mapped_surface_selected": false,
+    "micro_sweeps_authorized": false,
+    "missing_component_repaired": false,
+    "performance_optimization_begun": false,
+    "phase_closure_claimed": false,
+    "portability_demonstrated": false,
+    "post_vs1_phase_selected": false,
+    "runner_authority_exists": false,
+    "runner_exists": false,
+    "runner_readiness_exists": false,
+    "scale_optimization_begun": false,
+    "vs0_generalized": false,
+    "vs1_6_executed": false
+  },
+  "phase_id": "PHASE_VS1",
+  "ranked_surface_candidates": [
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 1,
+      "ranking_basis": "non-binding advisory rank 1; dependency layer 0; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S10_SOURCE_IDENTITY_FRESHNESS_POLICY_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 2,
+      "ranking_basis": "non-binding advisory rank 2; dependency layer 1; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S01_SCOPE_REGIME_DECLARATION_CONTRACT_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 3,
+      "ranking_basis": "non-binding advisory rank 3; dependency layer 1; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S02_TYPED_STATE_OBJECT_CONTRACT_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 4,
+      "ranking_basis": "non-binding advisory rank 4; dependency layer 1; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S03_MOVE_SPACE_CONTRACT_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 5,
+      "ranking_basis": "non-binding advisory rank 5; dependency layer 1; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S04_MOVE_SELECTOR_CONTRACT_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 6,
+      "ranking_basis": "non-binding advisory rank 6; dependency layer 1; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S05_MOVE_APPLICATOR_CONTRACT_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 7,
+      "ranking_basis": "non-binding advisory rank 7; dependency layer 1; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S20_CONVERGENCE_CRITERION_CONTRACT_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 8,
+      "ranking_basis": "non-binding advisory rank 8; dependency layer 2; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S06_AUTHORITY_POLICY_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 9,
+      "ranking_basis": "non-binding advisory rank 9; dependency layer 2; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S07_RADIUS_BUDGET_POLICY_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 10,
+      "ranking_basis": "non-binding advisory rank 10; dependency layer 2; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S08_HALT_POLICY_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 11,
+      "ranking_basis": "non-binding advisory rank 11; dependency layer 2; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S19_HUMAN_ESCALATION_DECISION_BOUNDARY_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 12,
+      "ranking_basis": "non-binding advisory rank 12; dependency layer 3; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S09_RECEIPT_OBLIGATION_CONTRACT_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 13,
+      "ranking_basis": "non-binding advisory rank 13; dependency layer 3; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S16_REPLAY_AUDIT_CONTRACT_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 14,
+      "ranking_basis": "non-binding advisory rank 14; dependency layer 3; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S17_FORBIDDEN_EFFECT_GUARD_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 15,
+      "ranking_basis": "non-binding advisory rank 15; dependency layer 4; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S11_MICRO_SWEEP_BOUNDS_CONTRACT_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 16,
+      "ranking_basis": "non-binding advisory rank 16; dependency layer 4; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S12_PRESSURE_READOUT_CONTRACT_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 17,
+      "ranking_basis": "non-binding advisory rank 17; dependency layer 4; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S13_PRESSURE_CLASSIFICATION_VOCABULARY_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 18,
+      "ranking_basis": "non-binding advisory rank 18; dependency layer 4; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S18_EVIDENCE_YIELD_HOOK_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 19,
+      "ranking_basis": "non-binding advisory rank 19; dependency layer 5; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S14_LOCAL_REVISION_SURFACE_CONTRACT"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 20,
+      "ranking_basis": "non-binding advisory rank 20; dependency layer 5; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S15_BOUNDED_PORTABILITY_MAP_CONTRACT_SURFACE"
+    },
+    {
+      "build_authorized": false,
+      "machine_selected": false,
+      "rank": 21,
+      "ranking_basis": "non-binding advisory rank 21; dependency layer 6; S21 remains after unresolved required blocker surfaces",
+      "ranking_is_binding": false,
+      "surface_id": "S21_CONTROLLED_LOOP_READINESS_REAUDIT_SURFACE"
+    }
+  ],
+  "readiness_reaudit_boundary": {
+    "s21_candidate_allowed": true,
+    "s21_executed_by_vs1_5": false,
+    "s21_ranked_before_unresolved_required_blockers": false,
+    "s21_requires_prior_blocker_resolution_evidence": true
+  },
+  "ready_branch_surface_candidate": {
+    "authority_consumed": false,
+    "included_current_branch": false,
+    "included_only_if_ready_branch": true,
+    "loop_execution_authorized": false,
+    "machine_selected": false,
+    "surface_id": "S_READY_HUMAN_EXECUTION_AUTHORITY_DECISION_SURFACE",
+    "surface_type": "AUTHORITY_DECISION_SURFACE"
+  },
+  "schema_version": "matrixlabs_phase_vs1_missing_precondition_next_surface_map_v0",
+  "source_preservation": {
+    "post_vs0_direction_decision_receipt_mutated_by_vs1_5": false,
+    "source_contract_mutated_by_vs1_5": false,
+    "source_inventory_mutated_by_vs1_5": false,
+    "source_readiness_audit_mutated_by_vs1_5": false,
+    "vs0_source_artifacts_mutated_by_vs1_5": false,
+    "vs1_1_source_intake_mutated_by_vs1_5": false
+  },
+  "source_readiness_audit": {
+    "allowed_statuses": [
+      "VS1_4_CONTROLLED_LOOP_READINESS_AUDIT_PASS_NOT_READY_BLOCKERS_EXPOSED",
+      "VS1_4_CONTROLLED_LOOP_READINESS_AUDIT_PASS_READY_FOR_HUMAN_EXECUTION_AUTHORITY_DECISION"
+    ],
+    "artifact_id": "phase_vs1_controlled_loop_readiness_audit_v0",
+    "commit_sha": "68c846386a79cc89215c1b16dbd1389333269b80",
+    "path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+    "required_transition": "ADVANCE(VS1_5_MISSING_PRECONDITION_NEXT_SURFACE_MAP_PENDING)",
+    "sha256": "0e413d4fcb929397b80151df2df8c4714ea8bd6278f73b8247d3adf093f5ba94",
+    "source_role": "TYPED_READINESS_RESULT_SOURCE"
+  },
+  "surface_candidates": [
+    {
+      "blocker_classes_addressed": [
+        "SCOPE_REGIME_BLOCKER",
+        "SCHEMA_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C01_SCOPE_REGIME_DECLARATION_CONTRACT"
+      ],
+      "dependency_layer": 1,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s01_scope_regime_declaration_contract_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 2,
+      "ranking_basis": "non-binding advisory rank 2; dependency layer 1; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C01_SCOPE_REGIME_DECLARATION_CONTRACT"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_MISSING",
+        "BLOCKED_SCHEMA_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_MISSING",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S01_SCOPE_REGIME_DECLARATION_CONTRACT_SURFACE",
+      "surface_name": "SCOPE_REGIME_DECLARATION_CONTRACT_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRES_SCHEMA_FIRST",
+      "surface_type": "CONTRACT_DEFINITION_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "STRUCTURAL_BLOCKER",
+        "SCHEMA_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C02_TYPED_STATE_OBJECT_CONTRACT"
+      ],
+      "dependency_layer": 1,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s02_typed_state_object_contract_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 3,
+      "ranking_basis": "non-binding advisory rank 3; dependency layer 1; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C02_TYPED_STATE_OBJECT_CONTRACT"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_MISSING",
+        "BLOCKED_SCHEMA_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_MISSING",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S02_TYPED_STATE_OBJECT_CONTRACT_SURFACE",
+      "surface_name": "TYPED_STATE_OBJECT_CONTRACT_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRES_SCHEMA_FIRST",
+      "surface_type": "CONTRACT_DEFINITION_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "STRUCTURAL_BLOCKER",
+        "AUTHORITY_BLOCKER",
+        "SCHEMA_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C03_EXPLICIT_MOVE_SPACE_CONTRACT"
+      ],
+      "dependency_layer": 1,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s03_move_space_contract_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 4,
+      "ranking_basis": "non-binding advisory rank 4; dependency layer 1; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C03_EXPLICIT_MOVE_SPACE_CONTRACT"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_MISSING",
+        "BLOCKED_AUTHORITY_REQUIRED",
+        "BLOCKED_SCHEMA_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_MISSING",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S03_MOVE_SPACE_CONTRACT_SURFACE",
+      "surface_name": "MOVE_SPACE_CONTRACT_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRES_SCHEMA_FIRST",
+      "surface_type": "CONTRACT_DEFINITION_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "STRUCTURAL_BLOCKER",
+        "SCHEMA_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C04_MOVE_SELECTOR_CONTRACT"
+      ],
+      "dependency_layer": 1,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s04_move_selector_contract_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 5,
+      "ranking_basis": "non-binding advisory rank 5; dependency layer 1; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C04_MOVE_SELECTOR_CONTRACT"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_MISSING",
+        "BLOCKED_SCHEMA_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_MISSING",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S04_MOVE_SELECTOR_CONTRACT_SURFACE",
+      "surface_name": "MOVE_SELECTOR_CONTRACT_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRES_SCHEMA_FIRST",
+      "surface_type": "CONTRACT_DEFINITION_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "STRUCTURAL_BLOCKER",
+        "AUTHORITY_BLOCKER",
+        "SCHEMA_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C05_MOVE_APPLICATOR_CONTRACT"
+      ],
+      "dependency_layer": 1,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s05_move_applicator_contract_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 6,
+      "ranking_basis": "non-binding advisory rank 6; dependency layer 1; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C05_MOVE_APPLICATOR_CONTRACT"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_MISSING",
+        "BLOCKED_AUTHORITY_REQUIRED",
+        "BLOCKED_SCHEMA_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_MISSING",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S05_MOVE_APPLICATOR_CONTRACT_SURFACE",
+      "surface_name": "MOVE_APPLICATOR_CONTRACT_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRES_SCHEMA_FIRST",
+      "surface_type": "CONTRACT_DEFINITION_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "AUTHORITY_BLOCKER",
+        "GOVERNANCE_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C06_AUTHORITY_POLICY"
+      ],
+      "dependency_layer": 2,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s06_authority_policy_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 8,
+      "ranking_basis": "non-binding advisory rank 8; dependency layer 2; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C06_AUTHORITY_POLICY"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_PARTIAL",
+        "BLOCKED_AUTHORITY_REQUIRED",
+        "BLOCKED_HUMAN_DECISION_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_PARTIAL",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S06_AUTHORITY_POLICY_SURFACE",
+      "surface_name": "AUTHORITY_POLICY_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRES_AUTHORITY_FIRST",
+      "surface_type": "POLICY_DEFINITION_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "CONTROL_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C07_RADIUS_BUDGET_POLICY"
+      ],
+      "dependency_layer": 2,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s07_radius_budget_policy_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 9,
+      "ranking_basis": "non-binding advisory rank 9; dependency layer 2; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C07_RADIUS_BUDGET_POLICY"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_CANDIDATE_ONLY",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_CANDIDATE_ONLY",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S07_RADIUS_BUDGET_POLICY_SURFACE",
+      "surface_name": "RADIUS_BUDGET_POLICY_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRED_BLOCKER",
+      "surface_type": "POLICY_DEFINITION_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "CONTROL_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C08_HALT_POLICY"
+      ],
+      "dependency_layer": 2,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s08_halt_policy_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 10,
+      "ranking_basis": "non-binding advisory rank 10; dependency layer 2; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C08_HALT_POLICY"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_PARTIAL",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_PARTIAL",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S08_HALT_POLICY_SURFACE",
+      "surface_name": "HALT_POLICY_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRED_BLOCKER",
+      "surface_type": "POLICY_DEFINITION_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "AUDIT_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C09_RECEIPT_OBLIGATION_CONTRACT"
+      ],
+      "dependency_layer": 3,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s09_receipt_obligation_contract_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 12,
+      "ranking_basis": "non-binding advisory rank 12; dependency layer 3; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C09_RECEIPT_OBLIGATION_CONTRACT"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_PARTIAL",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_PARTIAL",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S09_RECEIPT_OBLIGATION_CONTRACT_SURFACE",
+      "surface_name": "RECEIPT_OBLIGATION_CONTRACT_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRED_BLOCKER",
+      "surface_type": "RECEIPT_CONTRACT_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "AUDIT_BLOCKER",
+        "SOURCE_TRUST_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C10_SOURCE_IDENTITY_FRESHNESS_POLICY"
+      ],
+      "dependency_layer": 0,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s10_source_identity_freshness_policy_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 1,
+      "ranking_basis": "non-binding advisory rank 1; dependency layer 0; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C10_SOURCE_IDENTITY_FRESHNESS_POLICY"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_PARTIAL",
+        "BLOCKED_SOURCE_STATUS_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_PARTIAL",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S10_SOURCE_IDENTITY_FRESHNESS_POLICY_SURFACE",
+      "surface_name": "SOURCE_IDENTITY_FRESHNESS_POLICY_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRES_SOURCE_VERIFICATION_FIRST",
+      "surface_type": "SOURCE_IDENTITY_VERIFICATION_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "CONTROL_BLOCKER",
+        "AUTHORITY_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C11_MICRO_SWEEP_BOUNDS_CONTRACT"
+      ],
+      "dependency_layer": 4,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s11_micro_sweep_bounds_contract_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 15,
+      "ranking_basis": "non-binding advisory rank 15; dependency layer 4; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C11_MICRO_SWEEP_BOUNDS_CONTRACT"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_CANDIDATE_ONLY",
+        "BLOCKED_AUTHORITY_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_CANDIDATE_ONLY",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S11_MICRO_SWEEP_BOUNDS_CONTRACT_SURFACE",
+      "surface_name": "MICRO_SWEEP_BOUNDS_CONTRACT_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRED_BLOCKER",
+      "surface_type": "SWEEP_BOUNDING_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "OBSERVABILITY_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C12_PRESSURE_READOUT_CONTRACT"
+      ],
+      "dependency_layer": 4,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s12_pressure_readout_contract_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 16,
+      "ranking_basis": "non-binding advisory rank 16; dependency layer 4; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C12_PRESSURE_READOUT_CONTRACT"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_PARTIAL",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_PARTIAL",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S12_PRESSURE_READOUT_CONTRACT_SURFACE",
+      "surface_name": "PRESSURE_READOUT_CONTRACT_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRED_BLOCKER",
+      "surface_type": "READOUT_VOCABULARY_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "OBSERVABILITY_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C13_PRESSURE_CLASSIFICATION_VOCABULARY"
+      ],
+      "dependency_layer": 4,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s13_pressure_classification_vocabulary_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 17,
+      "ranking_basis": "non-binding advisory rank 17; dependency layer 4; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C13_PRESSURE_CLASSIFICATION_VOCABULARY"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_CANDIDATE_ONLY",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_CANDIDATE_ONLY",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S13_PRESSURE_CLASSIFICATION_VOCABULARY_SURFACE",
+      "surface_name": "PRESSURE_CLASSIFICATION_VOCABULARY_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRED_BLOCKER",
+      "surface_type": "READOUT_VOCABULARY_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "REVISION_BLOCKER",
+        "AUTHORITY_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C14_LOCAL_REVISION_SURFACE_CONTRACT"
+      ],
+      "dependency_layer": 5,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s14_local_revision_surface_contract_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 19,
+      "ranking_basis": "non-binding advisory rank 19; dependency layer 5; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C14_LOCAL_REVISION_SURFACE_CONTRACT"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_CANDIDATE_ONLY",
+        "BLOCKED_AUTHORITY_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_CANDIDATE_ONLY",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S14_LOCAL_REVISION_SURFACE_CONTRACT",
+      "surface_name": "LOCAL_REVISION_SURFACE_CONTRACT",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRED_BLOCKER",
+      "surface_type": "REVISION_SURFACE_CONTRACT"
+    },
+    {
+      "blocker_classes_addressed": [
+        "PORTABILITY_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C15_BOUNDED_PORTABILITY_MAP_CONTRACT"
+      ],
+      "dependency_layer": 5,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s15_bounded_portability_map_contract_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 20,
+      "ranking_basis": "non-binding advisory rank 20; dependency layer 5; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C15_BOUNDED_PORTABILITY_MAP_CONTRACT"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_CANDIDATE_ONLY",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_CANDIDATE_ONLY",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S15_BOUNDED_PORTABILITY_MAP_CONTRACT_SURFACE",
+      "surface_name": "BOUNDED_PORTABILITY_MAP_CONTRACT_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRED_BLOCKER",
+      "surface_type": "PORTABILITY_MAP_CONTRACT_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "AUDIT_BLOCKER",
+        "SCHEMA_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C16_REPLAY_AUDIT_CONTRACT"
+      ],
+      "dependency_layer": 3,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s16_replay_audit_contract_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 13,
+      "ranking_basis": "non-binding advisory rank 13; dependency layer 3; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C16_REPLAY_AUDIT_CONTRACT"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_MISSING",
+        "BLOCKED_SCHEMA_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_MISSING",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S16_REPLAY_AUDIT_CONTRACT_SURFACE",
+      "surface_name": "REPLAY_AUDIT_CONTRACT_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRED_BLOCKER",
+      "surface_type": "REPLAY_AUDIT_CONTRACT_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "AUDIT_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C17_FORBIDDEN_EFFECT_GUARD"
+      ],
+      "dependency_layer": 3,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s17_forbidden_effect_guard_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 14,
+      "ranking_basis": "non-binding advisory rank 14; dependency layer 3; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C17_FORBIDDEN_EFFECT_GUARD"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_BOUNDARY_ONLY",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_BOUNDARY_ONLY",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S17_FORBIDDEN_EFFECT_GUARD_SURFACE",
+      "surface_name": "FORBIDDEN_EFFECT_GUARD_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRED_BLOCKER",
+      "surface_type": "FORBIDDEN_EFFECT_GUARD_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "OBSERVABILITY_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C18_EVIDENCE_YIELD_REPORT_HOOK"
+      ],
+      "dependency_layer": 4,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s18_evidence_yield_hook_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 18,
+      "ranking_basis": "non-binding advisory rank 18; dependency layer 4; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C18_EVIDENCE_YIELD_REPORT_HOOK"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_PARTIAL",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_PARTIAL",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S18_EVIDENCE_YIELD_HOOK_SURFACE",
+      "surface_name": "EVIDENCE_YIELD_HOOK_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRED_BLOCKER",
+      "surface_type": "EVIDENCE_YIELD_HOOK_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "GOVERNANCE_BLOCKER",
+        "AUTHORITY_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C19_HUMAN_ESCALATION_DECISION_BOUNDARY"
+      ],
+      "dependency_layer": 2,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s19_human_escalation_decision_boundary_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 11,
+      "ranking_basis": "non-binding advisory rank 11; dependency layer 2; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C19_HUMAN_ESCALATION_DECISION_BOUNDARY"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_BOUNDARY_ONLY",
+        "BLOCKED_AUTHORITY_REQUIRED",
+        "BLOCKED_HUMAN_DECISION_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_BOUNDARY_ONLY",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S19_HUMAN_ESCALATION_DECISION_BOUNDARY_SURFACE",
+      "surface_name": "HUMAN_ESCALATION_DECISION_BOUNDARY_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRES_HUMAN_DECISION",
+      "surface_type": "HUMAN_ESCALATION_BOUNDARY_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "CONVERGENCE_BLOCKER",
+        "SCHEMA_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C20_CONVERGENCE_CRITERION_CONTRACT"
+      ],
+      "dependency_layer": 1,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s20_convergence_criterion_contract_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 7,
+      "ranking_basis": "non-binding advisory rank 7; dependency layer 1; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "C20_CONVERGENCE_CRITERION_CONTRACT"
+      ],
+      "source_readiness_blockers": [
+        "BLOCKED_CANDIDATE_ONLY",
+        "BLOCKED_SCHEMA_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ],
+      "source_readiness_result": "BLOCKED_CANDIDATE_ONLY",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S20_CONVERGENCE_CRITERION_CONTRACT_SURFACE",
+      "surface_name": "CONVERGENCE_CRITERION_CONTRACT_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_REQUIRED_BLOCKER",
+      "surface_type": "CONVERGENCE_CRITERION_CONTRACT_SURFACE"
+    },
+    {
+      "blocker_classes_addressed": [
+        "READINESS_REAUDIT_BLOCKER"
+      ],
+      "component_ids_addressed": [
+        "C01_SCOPE_REGIME_DECLARATION_CONTRACT",
+        "C02_TYPED_STATE_OBJECT_CONTRACT",
+        "C03_EXPLICIT_MOVE_SPACE_CONTRACT",
+        "C04_MOVE_SELECTOR_CONTRACT",
+        "C05_MOVE_APPLICATOR_CONTRACT",
+        "C06_AUTHORITY_POLICY",
+        "C07_RADIUS_BUDGET_POLICY",
+        "C08_HALT_POLICY",
+        "C09_RECEIPT_OBLIGATION_CONTRACT",
+        "C10_SOURCE_IDENTITY_FRESHNESS_POLICY",
+        "C11_MICRO_SWEEP_BOUNDS_CONTRACT",
+        "C12_PRESSURE_READOUT_CONTRACT",
+        "C13_PRESSURE_CLASSIFICATION_VOCABULARY",
+        "C14_LOCAL_REVISION_SURFACE_CONTRACT",
+        "C15_BOUNDED_PORTABILITY_MAP_CONTRACT",
+        "C16_REPLAY_AUDIT_CONTRACT",
+        "C17_FORBIDDEN_EFFECT_GUARD",
+        "C18_EVIDENCE_YIELD_REPORT_HOOK",
+        "C19_HUMAN_ESCALATION_DECISION_BOUNDARY",
+        "C20_CONVERGENCE_CRITERION_CONTRACT"
+      ],
+      "dependency_layer": 6,
+      "expected_output_artifact": "docs/matrixlabs/phase_vs1/candidate_surface_records/s21_controlled_loop_readiness_reaudit_surface_v0.json",
+      "forbidden_effects": [
+        "do_not_authorize_loop_execution",
+        "do_not_create_runner",
+        "do_not_run_micro_sweeps",
+        "do_not_generalize_trace",
+        "do_not_select_next_phase",
+        "do_not_build_surface_artifact",
+        "do_not_repair_component",
+        "do_not_promote_candidate"
+      ],
+      "machine_selected": false,
+      "may_be_selected_by_human": true,
+      "rank": 21,
+      "ranking_basis": "non-binding advisory rank 21; dependency layer 6; S21 remains after unresolved required blocker surfaces",
+      "required_authority": "HUMAN_OR_NEXT_PHASE_SELECTION_REQUIRED",
+      "required_inputs": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "all_prior_required_blocker_surfaces"
+      ],
+      "source_readiness_blockers": [
+        "READINESS_REAUDIT_AFTER_BLOCKERS"
+      ],
+      "source_readiness_result": "CONTROLLED_LOOP_NOT_READY_MIXED_BLOCKERS",
+      "surface_artifact_created_by_vs1_5": false,
+      "surface_build_authorized_by_vs1_5": false,
+      "surface_candidate_record_created_by_vs1_5": true,
+      "surface_id": "S21_CONTROLLED_LOOP_READINESS_REAUDIT_SURFACE",
+      "surface_name": "CONTROLLED_LOOP_READINESS_REAUDIT_SURFACE",
+      "surface_selected_by_vs1_5": false,
+      "surface_status": "SURFACE_OPTIONAL_SUPPORT",
+      "surface_type": "CONTROLLED_LOOP_READINESS_REAUDIT_SURFACE"
+    }
+  ],
+  "terminal_transition": {
+    "authorizes_loop_execution": false,
+    "authorizes_runner": false,
+    "authorizes_selected_surface_build": false,
+    "executes_vs1_6": false,
+    "selects_post_vs1_phase": false,
+    "transition": "ADVANCE(VS1_6_PHASE_CLOSURE_PENDING)"
+  },
+  "unit_id": "VS1.5_MISSING_PRECONDITION_NEXT_SURFACE_MAP",
+  "unit_role": "NEXT_SURFACE_MAPPING_ONLY",
+  "vs1_6_boundary": {
+    "vs1_6_built": false,
+    "vs1_6_may_authorize_loop_execution": false,
+    "vs1_6_may_authorize_surface_build": false,
+    "vs1_6_may_close_phase_vs1_from_map": true,
+    "vs1_6_may_select_post_vs1_phase": false,
+    "vs1_6_run": false
+  }
+}
