@@ -359,6 +359,13 @@ PHASE_VS1_CONTROLLED_LOOP_CONTRACT_DOCS = [
 PHASE_VS1_CONTROLLED_LOOP_CONTRACT_SCRIPT = (
     "scripts/build_phase_vs1_controlled_convergence_loop_contract_v0.py"
 )
+PHASE_VS1_CONTROLLED_LOOP_PRECONDITION_INVENTORY_DOCS = [
+    "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+    "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.md",
+]
+PHASE_VS1_CONTROLLED_LOOP_PRECONDITION_INVENTORY_SCRIPT = (
+    "scripts/build_phase_vs1_controlled_loop_precondition_inventory_v0.py"
+)
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -451,6 +458,8 @@ SOURCE_DOCS = [
     PHASE_VS1_SOURCE_INTAKE_SCRIPT,
     *PHASE_VS1_CONTROLLED_LOOP_CONTRACT_DOCS,
     PHASE_VS1_CONTROLLED_LOOP_CONTRACT_SCRIPT,
+    *PHASE_VS1_CONTROLLED_LOOP_PRECONDITION_INVENTORY_DOCS,
+    PHASE_VS1_CONTROLLED_LOOP_PRECONDITION_INVENTORY_SCRIPT,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -1129,6 +1138,37 @@ def build_manifest(
     phase_vs1_contract_terminal = phase_vs1_controlled_loop_contract.get(
         "terminal_transition", {}
     )
+    phase_vs1_precondition_inventory_path = (
+        root / PHASE_VS1_CONTROLLED_LOOP_PRECONDITION_INVENTORY_DOCS[0]
+    )
+    phase_vs1_precondition_inventory_present = (
+        phase_vs1_precondition_inventory_path.exists()
+    )
+    phase_vs1_precondition_inventory = (
+        json.loads(
+            phase_vs1_precondition_inventory_path.read_text(encoding="utf-8")
+        )
+        if phase_vs1_precondition_inventory_present
+        else {}
+    )
+    phase_vs1_precondition_inventory_source_contract = (
+        phase_vs1_precondition_inventory.get("source_contract", {})
+    )
+    phase_vs1_precondition_inventory_counts = (
+        phase_vs1_precondition_inventory.get("summary_counts", {})
+    )
+    phase_vs1_precondition_inventory_mode = (
+        phase_vs1_precondition_inventory.get("inventory_mode", {})
+    )
+    phase_vs1_precondition_inventory_repair_boundary = (
+        phase_vs1_precondition_inventory.get("repair_and_ranking_boundary", {})
+    )
+    phase_vs1_precondition_inventory_non_claims = (
+        phase_vs1_precondition_inventory.get("non_claims", {})
+    )
+    phase_vs1_precondition_inventory_terminal = (
+        phase_vs1_precondition_inventory.get("terminal_transition", {})
+    )
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -1594,7 +1634,7 @@ def build_manifest(
         "post_vs0_direction_registry_activation_authorized": post_vs0_direction_forbidden_scope.get("registry_activation_authorized", False) if post_vs0_direction_receipt_present else False,
         "post_vs0_direction_trace_generalization_authorized": post_vs0_direction_forbidden_scope.get("trace_generalization_authorized", False) if post_vs0_direction_receipt_present else False,
         "post_vs0_direction_next_phase_selected_by_machine": post_vs0_direction_forbidden_scope.get("next_phase_selected_by_machine", False) if post_vs0_direction_receipt_present else False,
-        "phase_vs1_current_unit": phase_vs1_controlled_loop_contract.get("unit_id") if phase_vs1_controlled_loop_contract_present else (phase_vs1_source_intake.get("unit_id") if phase_vs1_source_intake_present else None),
+        "phase_vs1_current_unit": phase_vs1_precondition_inventory.get("unit_id") if phase_vs1_precondition_inventory_present else (phase_vs1_controlled_loop_contract.get("unit_id") if phase_vs1_controlled_loop_contract_present else (phase_vs1_source_intake.get("unit_id") if phase_vs1_source_intake_present else None)),
         "phase_vs1_source_intake_id": phase_vs1_source_intake.get("artifact_id") if phase_vs1_source_intake_present else None,
         "phase_vs1_source_intake_verdict": phase_vs1_source_intake.get("intake_verdict") if phase_vs1_source_intake_present else None,
         "phase_vs1_source_intake_scope": phase_vs1_source_intake_scope.get("scope"),
@@ -1626,7 +1666,24 @@ def build_manifest(
         "phase_vs1_global_generalization_claimed": phase_vs1_contract_loop.get("global_generalization_claimed", False) if phase_vs1_controlled_loop_contract_present else False,
         "phase_vs1_performance_optimization_claimed": phase_vs1_contract_loop.get("performance_optimization_claimed", False) if phase_vs1_controlled_loop_contract_present else False,
         "phase_vs1_scale_optimization_claimed": phase_vs1_contract_loop.get("scale_optimization_claimed", False) if phase_vs1_controlled_loop_contract_present else False,
-        "phase_vs1_next_transition": phase_vs1_contract_terminal.get("transition") if phase_vs1_controlled_loop_contract_present else None,
+        "phase_vs1_next_transition": phase_vs1_precondition_inventory_terminal.get("transition") if phase_vs1_precondition_inventory_present else (phase_vs1_contract_terminal.get("transition") if phase_vs1_controlled_loop_contract_present else None),
+        "phase_vs1_controlled_loop_precondition_inventory_id": phase_vs1_precondition_inventory.get("artifact_id") if phase_vs1_precondition_inventory_present else None,
+        "phase_vs1_controlled_loop_precondition_inventory_verdict": phase_vs1_precondition_inventory.get("inventory_verdict") if phase_vs1_precondition_inventory_present else None,
+        "phase_vs1_source_contract_commit_sha": phase_vs1_precondition_inventory_source_contract.get("commit_sha"),
+        "phase_vs1_inventory_required_components_total": phase_vs1_precondition_inventory_counts.get("required_components_total"),
+        "phase_vs1_all_required_components_inventoried": len(phase_vs1_precondition_inventory.get("component_records", [])) == phase_vs1_precondition_inventory_counts.get("required_components_total", 0) if phase_vs1_precondition_inventory_present else False,
+        "phase_vs1_component_set_matches_vs1_2_contract": list(phase_vs1_precondition_inventory.get("component_status_table", {}).keys()) == phase_vs1_controlled_loop_contract.get("required_components", []) if phase_vs1_precondition_inventory_present else False,
+        "phase_vs1_readiness_audit_performed": phase_vs1_precondition_inventory_mode.get("readiness_audit_performed", False) if phase_vs1_precondition_inventory_present else False,
+        "phase_vs1_repairs_allowed": phase_vs1_precondition_inventory_mode.get("repairs_allowed", False) if phase_vs1_precondition_inventory_present else False,
+        "phase_vs1_promotions_allowed": phase_vs1_precondition_inventory_mode.get("promotions_allowed", False) if phase_vs1_precondition_inventory_present else False,
+        "phase_vs1_missing_components_ranked": phase_vs1_precondition_inventory_repair_boundary.get("missing_components_ranked", False) if phase_vs1_precondition_inventory_present else False,
+        "phase_vs1_next_component_to_build_selected": phase_vs1_precondition_inventory_repair_boundary.get("next_component_to_build_selected", False) if phase_vs1_precondition_inventory_present else False,
+        "phase_vs1_repair_plan_created": phase_vs1_precondition_inventory_repair_boundary.get("repair_plan_created", False) if phase_vs1_precondition_inventory_present else False,
+        "phase_vs1_loop_execution_authorized": phase_vs1_precondition_inventory_mode.get("loop_execution_authorized", False) if phase_vs1_precondition_inventory_present else False,
+        "phase_vs1_runner_authority_created": phase_vs1_precondition_inventory_non_claims.get("runner_authority_exists", False) if phase_vs1_precondition_inventory_present else False,
+        "phase_vs1_micro_sweeps_authorized": phase_vs1_precondition_inventory_non_claims.get("micro_sweeps_authorized", False) if phase_vs1_precondition_inventory_present else False,
+        "phase_vs1_local_revision_authorized": phase_vs1_precondition_inventory_non_claims.get("local_revision_authorized", False) if phase_vs1_precondition_inventory_present else False,
+        "phase_vs1_vs1_4_executed": phase_vs1_precondition_inventory_terminal.get("executes_vs1_4", False) if phase_vs1_precondition_inventory_present else False,
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,

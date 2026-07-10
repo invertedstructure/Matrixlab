@@ -1,7 +1,7 @@
 # Commit Context
 
-- Generated at UTC: `2026-07-10T12:58:48Z`
-- Current HEAD SHA: `8f4b57c697d8dc7110e3ea9d73183d36c806a66c`
+- Generated at UTC: `2026-07-10T13:35:46Z`
+- Current HEAD SHA: `d62db2d74f2ff42bf7f633b4e2169aed409a0703`
 - Branch: `master`
 - Worktree state at generation time: `dirty`
 - Generator script: `scripts/build_baseline_share_v0.py`
@@ -9,6 +9,7 @@
 ## Recent 10 commits
 
 ```text
+d62db2d74 Add Phase VS1.2 controlled loop contract v0
 8f4b57c69 Add Phase VS1.1 post-VS0 source intake v0
 f8c51de1b Add post-VS0 direction decision receipt v0
 18324fd7d Add Phase VS0.6 closure v0
@@ -18,7 +19,6 @@ daec73d1a Add Phase VS0.3 happy-path verification v0
 9f7277608 Repair Phase VS0.2 A-to-F chain index hash parity
 49ebcf139 Add Phase VS0 happy-path A-to-F specimen build v0
 742643e35 Add Phase VS0 source inventory preflight v0
-fb4a0ce16 Add C8 n22 registry candidate closure v0
 ```
 
 ## Git status short
@@ -29,9 +29,9 @@ M baseline_share/COMMIT_CONTEXT.md
  M baseline_share/MANIFEST.json
  M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json
-?? docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.md
-?? scripts/build_phase_vs1_controlled_convergence_loop_contract_v0.py
+?? docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json
+?? docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.md
+?? scripts/build_phase_vs1_controlled_loop_precondition_inventory_v0.py
 ```
 
 ## Git status short excluding generated baseline_share
@@ -39,9 +39,9 @@ M baseline_share/COMMIT_CONTEXT.md
 ```text
  M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json
-?? docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.md
-?? scripts/build_phase_vs1_controlled_convergence_loop_contract_v0.py
+?? docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json
+?? docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.md
+?? scripts/build_phase_vs1_controlled_loop_precondition_inventory_v0.py
 ```
 
 ## Safety facts

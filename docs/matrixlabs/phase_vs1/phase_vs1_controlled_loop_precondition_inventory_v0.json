@@ -1,0 +1,1353 @@
+{
+  "artifact_id": "phase_vs1_controlled_loop_precondition_inventory_v0",
+  "blocker_flag_summary": {
+    "authority_required": 6,
+    "contract_revision_required": 20,
+    "human_decision_required": 2,
+    "none": 0,
+    "promotion_required": 0,
+    "schema_required": 7,
+    "source_status_required": 1
+  },
+  "component_records": [
+    {
+      "blocker_flags": [
+        "SCHEMA_REQUIRED",
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "No independent component artifact is present."
+      ],
+      "candidate_source_paths": [],
+      "component_id": "C01",
+      "component_name": "SCOPE_REGIME_DECLARATION_CONTRACT",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "declare the local scope/regime and allowed/forbidden regime movement",
+      "forbidden_inferences": [
+        "do_not_infer_loop_regime_from_vs0_phase_naming",
+        "do_not_infer_loop_regime_from_a_to_f_chain_structure"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [],
+        "independent_artifact_present": false
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": false,
+      "missing_fields": [
+        "scope_id",
+        "regime_id",
+        "allowed_source_surfaces",
+        "forbidden_source_surfaces",
+        "allowed_regime_transitions",
+        "forbidden_regime_transitions",
+        "object_identity_rules",
+        "sameness_difference_criteria",
+        "authority_boundary",
+        "claim_boundary"
+      ],
+      "missing_schema": true,
+      "observed_source_paths": [],
+      "primary_inventory_status": "MISSING",
+      "required_for_loop_stage": "L0_SCOPE_REGIME_DECLARATION",
+      "source_identity_status": "NO_CANDIDATE_PATHS_DECLARED",
+      "supporting_evidence": [
+        "No declared candidate evidence path exists beyond VS1.2 declaration evidence.",
+        "Observed declared candidate paths: none",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "SCHEMA_REQUIRED",
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "No independent component artifact is present."
+      ],
+      "candidate_source_paths": [],
+      "component_id": "C02",
+      "component_name": "TYPED_STATE_OBJECT_CONTRACT",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "define the required starting typed state object for controlled loop execution",
+      "forbidden_inferences": [
+        "do_not_treat_vs0_closure_as_controlled_loop_state_without_explicit_state_contract"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [],
+        "independent_artifact_present": false
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": false,
+      "missing_fields": [
+        "state_id",
+        "source_references",
+        "authority_state",
+        "loop_position",
+        "available_move_references",
+        "radius_state",
+        "prior_receipts",
+        "halt_state",
+        "forbidden_effects"
+      ],
+      "missing_schema": true,
+      "observed_source_paths": [],
+      "primary_inventory_status": "MISSING",
+      "required_for_loop_stage": "L1_STATE_INTAKE",
+      "source_identity_status": "NO_CANDIDATE_PATHS_DECLARED",
+      "supporting_evidence": [
+        "No declared MCCL typed-state contract is present in the evidence map.",
+        "Observed declared candidate paths: none",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "AUTHORITY_REQUIRED",
+        "SCHEMA_REQUIRED",
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "No independent component artifact is present."
+      ],
+      "candidate_source_paths": [],
+      "component_id": "C03",
+      "component_name": "EXPLICIT_MOVE_SPACE_CONTRACT",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "declare the explicit set of moves a controlled loop may consider",
+      "forbidden_inferences": [
+        "do_not_infer_move_space_from_a_to_f_specimen",
+        "do_not_infer_moves_from_file_names",
+        "do_not_infer_runner_authority"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [],
+        "independent_artifact_present": false
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": true,
+      "missing_fields": [
+        "move_ids",
+        "move_kinds",
+        "input_shapes",
+        "output_shapes",
+        "authority_requirements",
+        "radius_costs",
+        "receipt_obligations",
+        "halt_conditions",
+        "forbidden_effects",
+        "source_freshness_rules"
+      ],
+      "missing_schema": true,
+      "observed_source_paths": [],
+      "primary_inventory_status": "MISSING",
+      "required_for_loop_stage": "L2_MOVE_SPACE_ADMISSION",
+      "source_identity_status": "NO_CANDIDATE_PATHS_DECLARED",
+      "supporting_evidence": [
+        "No declared move-space artifact is present, and move-space may not be inferred from VS0 files.",
+        "Observed declared candidate paths: none",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "SCHEMA_REQUIRED",
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "No independent component artifact is present."
+      ],
+      "candidate_source_paths": [],
+      "component_id": "C04",
+      "component_name": "MOVE_SELECTOR_CONTRACT",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "define a bounded selector rule for choosing one admitted move",
+      "forbidden_inferences": [
+        "do_not_treat_next_likely_thing_as_selector",
+        "do_not_select_by_vibes",
+        "do_not_select_by_newest_file"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [],
+        "independent_artifact_present": false
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": false,
+      "missing_fields": [
+        "selection_rule",
+        "tie_break_rule",
+        "authority_check",
+        "radius_check",
+        "source_check",
+        "halt_check",
+        "determinism_or_seed_witness"
+      ],
+      "missing_schema": true,
+      "observed_source_paths": [],
+      "primary_inventory_status": "MISSING",
+      "required_for_loop_stage": "L3_MOVE_SELECTION",
+      "source_identity_status": "NO_CANDIDATE_PATHS_DECLARED",
+      "supporting_evidence": [
+        "No declared selector contract exists.",
+        "Observed declared candidate paths: none",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "AUTHORITY_REQUIRED",
+        "SCHEMA_REQUIRED",
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "No independent component artifact is present."
+      ],
+      "candidate_source_paths": [],
+      "component_id": "C05",
+      "component_name": "MOVE_APPLICATOR_CONTRACT",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "map state plus admitted move to output or typed stop",
+      "forbidden_inferences": [
+        "do_not_treat_existing_build_scripts_as_generic_applicator_unless_explicitly_contracted"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [],
+        "independent_artifact_present": false
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": true,
+      "missing_fields": [
+        "input_object_shape",
+        "move_object_shape",
+        "precondition_checks",
+        "state_transition_rule",
+        "output_shape",
+        "failure_behavior",
+        "receipt_obligation",
+        "no_mutation_boundary"
+      ],
+      "missing_schema": true,
+      "observed_source_paths": [],
+      "primary_inventory_status": "MISSING",
+      "required_for_loop_stage": "L4_MOVE_APPLICATION_CONTRACT",
+      "source_identity_status": "NO_CANDIDATE_PATHS_DECLARED",
+      "supporting_evidence": [
+        "No declared move applicator contract exists.",
+        "Observed declared candidate paths: none",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "AUTHORITY_REQUIRED",
+        "HUMAN_DECISION_REQUIRED",
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "Independent declared paths provide precedent or boundary evidence only."
+      ],
+      "candidate_source_paths": [
+        "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "component_id": "C06",
+      "component_name": "AUTHORITY_POLICY",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "determine whether a move or loop transition is authorized",
+      "forbidden_inferences": [
+        "do_not_treat_boundary_fragments_as_loop_ready_authority_policy",
+        "do_not_consume_human_authority_without_decision_receipt"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [
+          "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+          "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json"
+        ],
+        "independent_artifact_present": true
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": true,
+      "missing_fields": [
+        "authority_source",
+        "authority_state_vocabulary",
+        "authorized_action_scope",
+        "forbidden_action_scope",
+        "human_decision_boundary",
+        "promotion_boundary",
+        "authority_drift_stops"
+      ],
+      "missing_schema": false,
+      "observed_source_paths": [
+        "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "primary_inventory_status": "PRESENT_PARTIAL",
+      "required_for_loop_stage": "L0_L3_L4_L11",
+      "source_identity_status": "DECLARED_CANDIDATE_PATHS_PRESENT",
+      "supporting_evidence": [
+        "Declared paths contain authority boundary and non-execution material, but no MCCL-specific authority policy.",
+        "Observed declared candidate paths: docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json, docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json, docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "No independent component artifact is present."
+      ],
+      "candidate_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "component_id": "C07",
+      "component_name": "RADIUS_BUDGET_POLICY",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "define reusable radius/budget accounting for controlled loop execution",
+      "forbidden_inferences": [
+        "do_not_generalize_vs0_radius_behavior_without_explicit_contract"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [],
+        "independent_artifact_present": false
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": false,
+      "missing_fields": [
+        "radius_before",
+        "radius_cost",
+        "radius_consumed",
+        "radius_after",
+        "exhaustion_rule",
+        "renewal_rule",
+        "budget_overflow_stop"
+      ],
+      "missing_schema": false,
+      "observed_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "primary_inventory_status": "PRESENT_CANDIDATE_ONLY",
+      "required_for_loop_stage": "L3_L4_L11",
+      "source_identity_status": "DECLARED_CANDIDATE_PATHS_PRESENT",
+      "supporting_evidence": [
+        "VS1.2 declares radius budget policy as required, but no independent radius policy artifact exists.",
+        "Observed declared candidate paths: docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "Independent declared paths provide precedent or boundary evidence only."
+      ],
+      "candidate_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_battery_v0.json"
+      ],
+      "component_id": "C08",
+      "component_name": "HALT_POLICY",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "define explicit halt policy for controlled loop execution",
+      "forbidden_inferences": [
+        "do_not_treat_existing_halt_vocabulary_as_loop_ready_without_explicit_contract"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [
+          "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_battery_v0.json"
+        ],
+        "independent_artifact_present": true
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": false,
+      "missing_fields": [
+        "typed_halt_codes",
+        "hard_stops",
+        "soft_stops",
+        "escalation_stops",
+        "missing_object_stops",
+        "authority_stops",
+        "radius_stops",
+        "ambiguous_stop_handling",
+        "next_lawful_surface_rule"
+      ],
+      "missing_schema": false,
+      "observed_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_battery_v0.json"
+      ],
+      "primary_inventory_status": "PRESENT_PARTIAL",
+      "required_for_loop_stage": "L4_L11",
+      "source_identity_status": "DECLARED_CANDIDATE_PATHS_PRESENT",
+      "supporting_evidence": [
+        "Declared negative-probe evidence contains typed stop precedent, but no MCCL halt policy contract exists.",
+        "Observed declared candidate paths: docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json, docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_battery_v0.json",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "Independent declared paths provide precedent or boundary evidence only."
+      ],
+      "candidate_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json"
+      ],
+      "component_id": "C09",
+      "component_name": "RECEIPT_OBLIGATION_CONTRACT",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "define receipt obligations for every attempted loop step",
+      "forbidden_inferences": [
+        "do_not_treat_vs0_receipts_as_reusable_loop_receipt_contract_without_explicit_contract"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [
+          "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+          "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json"
+        ],
+        "independent_artifact_present": true
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": false,
+      "missing_fields": [
+        "attempted_move",
+        "source_state",
+        "authority_basis",
+        "radius_before",
+        "radius_consumed",
+        "radius_after",
+        "preconditions_checked",
+        "output_or_stop",
+        "forbidden_effects_checked",
+        "next_lawful_surface",
+        "self_repair_flag"
+      ],
+      "missing_schema": false,
+      "observed_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json"
+      ],
+      "primary_inventory_status": "PRESENT_PARTIAL",
+      "required_for_loop_stage": "L5_RECEIPT_EMISSION",
+      "source_identity_status": "DECLARED_CANDIDATE_PATHS_PRESENT",
+      "supporting_evidence": [
+        "Declared source artifacts emit receipts and obligations, but no reusable MCCL loop-step receipt contract exists.",
+        "Observed declared candidate paths: docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json, docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json, docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "SOURCE_STATUS_REQUIRED",
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "Independent declared paths provide precedent or boundary evidence only."
+      ],
+      "candidate_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json",
+        "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json"
+      ],
+      "component_id": "C10",
+      "component_name": "SOURCE_IDENTITY_FRESHNESS_POLICY",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "define trusted source identity, hashes, statuses, source roles, and freshness rules",
+      "forbidden_inferences": [
+        "do_not_use_latest_file_selection",
+        "do_not_use_mtime_selection",
+        "do_not_use_baseline_share_as_source_authority"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [
+          "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json",
+          "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json"
+        ],
+        "independent_artifact_present": true
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": false,
+      "missing_fields": [
+        "explicit_paths",
+        "hashes_or_commit_identity",
+        "source_role",
+        "allowed_source_resolver",
+        "forbidden_latest_file_resolution",
+        "forbidden_mtime_resolution",
+        "stale_source_stop"
+      ],
+      "missing_schema": false,
+      "observed_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json",
+        "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json"
+      ],
+      "primary_inventory_status": "PRESENT_PARTIAL",
+      "required_for_loop_stage": "L0_L1_L2_L3_L4_L5",
+      "source_identity_status": "DECLARED_CANDIDATE_PATHS_PRESENT",
+      "supporting_evidence": [
+        "Declared artifacts include paths, commits, and hashes, but no complete freshness policy contract exists.",
+        "Observed declared candidate paths: docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json, docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json, docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "AUTHORITY_REQUIRED",
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "No independent component artifact is present."
+      ],
+      "candidate_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "component_id": "C11",
+      "component_name": "MICRO_SWEEP_BOUNDS_CONTRACT",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "define bounded micro-sweeps over declared variations if later authorized",
+      "forbidden_inferences": [
+        "do_not_treat_negative_probes_as_micro_sweeps_without_explicit_contract",
+        "do_not_authorize_micro_sweeps_from_inventory"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [],
+        "independent_artifact_present": false
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": true,
+      "missing_fields": [
+        "sweep_purpose",
+        "variation_set",
+        "max_cases",
+        "max_steps",
+        "allowed_moves",
+        "radius_budget",
+        "aggregation_rule",
+        "forbidden_inference_boundary"
+      ],
+      "missing_schema": false,
+      "observed_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "primary_inventory_status": "PRESENT_CANDIDATE_ONLY",
+      "required_for_loop_stage": "L6_MICRO_SWEEP_BOUNDS_CONTRACT",
+      "source_identity_status": "DECLARED_CANDIDATE_PATHS_PRESENT",
+      "supporting_evidence": [
+        "VS1.2 declares the bounds contract but does not authorize or operationalize micro-sweeps.",
+        "Observed declared candidate paths: docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "Independent declared paths provide precedent or boundary evidence only."
+      ],
+      "candidate_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.json",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_battery_v0.json"
+      ],
+      "component_id": "C12",
+      "component_name": "PRESSURE_READOUT_CONTRACT",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "define how pressure is read from execution or halted execution",
+      "forbidden_inferences": [
+        "do_not_treat_evidence_yield_as_complete_loop_pressure_readout_without_explicit_contract"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [
+          "docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.json",
+          "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_battery_v0.json"
+        ],
+        "independent_artifact_present": true
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": false,
+      "missing_fields": [
+        "held_signal",
+        "failed_signal",
+        "stopped_signal",
+        "missing_object",
+        "missing_field",
+        "boundary_hit",
+        "ambiguity",
+        "burden",
+        "stale_source",
+        "next_surface_exposed"
+      ],
+      "missing_schema": false,
+      "observed_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.json",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_battery_v0.json"
+      ],
+      "primary_inventory_status": "PRESENT_PARTIAL",
+      "required_for_loop_stage": "L7_PRESSURE_READOUT",
+      "source_identity_status": "DECLARED_CANDIDATE_PATHS_PRESENT",
+      "supporting_evidence": [
+        "VS0 evidence yield and negative probes provide readout precedent, not a complete MCCL pressure contract.",
+        "Observed declared candidate paths: docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json, docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.json, docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_battery_v0.json",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "No independent component artifact is present."
+      ],
+      "candidate_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "component_id": "C13",
+      "component_name": "PRESSURE_CLASSIFICATION_VOCABULARY",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "provide typed vocabulary for classifying pressure",
+      "forbidden_inferences": [
+        "do_not_treat_vocabulary_declaration_as_operational_classifier"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [],
+        "independent_artifact_present": false
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": false,
+      "missing_fields": [
+        "classification_vocabulary",
+        "classification_basis",
+        "source_reference",
+        "next_surface"
+      ],
+      "missing_schema": false,
+      "observed_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "primary_inventory_status": "PRESENT_CANDIDATE_ONLY",
+      "required_for_loop_stage": "L8_PRESSURE_CLASSIFICATION",
+      "source_identity_status": "DECLARED_CANDIDATE_PATHS_PRESENT",
+      "supporting_evidence": [
+        "VS1.2 declares vocabulary only; it is not an operational classifier.",
+        "Observed declared candidate paths: docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "AUTHORITY_REQUIRED",
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "No independent component artifact is present."
+      ],
+      "candidate_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "component_id": "C14",
+      "component_name": "LOCAL_REVISION_SURFACE_CONTRACT",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "define lawful surface where local revisions may be proposed",
+      "forbidden_inferences": [
+        "pressure_does_not_self_authorize_revision",
+        "do_not_apply_revision_from_inventory"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [],
+        "independent_artifact_present": false
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": true,
+      "missing_fields": [
+        "revision_target_type",
+        "pressure_source",
+        "proposal_only_boundary",
+        "authority_requirement",
+        "validation_admissibility_requirement",
+        "apply_boundary",
+        "receipt_obligation"
+      ],
+      "missing_schema": false,
+      "observed_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "primary_inventory_status": "PRESENT_CANDIDATE_ONLY",
+      "required_for_loop_stage": "L9_LOCAL_REVISION_SURFACE",
+      "source_identity_status": "DECLARED_CANDIDATE_PATHS_PRESENT",
+      "supporting_evidence": [
+        "VS1.2 declares a local revision surface shape but does not authorize revision.",
+        "Observed declared candidate paths: docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "No independent component artifact is present."
+      ],
+      "candidate_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "component_id": "C15",
+      "component_name": "BOUNDED_PORTABILITY_MAP_CONTRACT",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "record where a loop shape carries, fails, adapts, or remains untested",
+      "forbidden_inferences": [
+        "do_not_call_portability_generalization",
+        "do_not_infer_portability_from_vs0"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [],
+        "independent_artifact_present": false
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": false,
+      "missing_fields": [
+        "source_case",
+        "target_case",
+        "declared_transport_or_adaptation",
+        "stable_fields",
+        "changed_fields",
+        "failed_fields",
+        "revision_required",
+        "untested_boundary",
+        "claim_boundary",
+        "receipt_references"
+      ],
+      "missing_schema": false,
+      "observed_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "primary_inventory_status": "PRESENT_CANDIDATE_ONLY",
+      "required_for_loop_stage": "L10_BOUNDED_PORTABILITY_MAPPING",
+      "source_identity_status": "DECLARED_CANDIDATE_PATHS_PRESENT",
+      "supporting_evidence": [
+        "VS1.2 declares bounded portability mapping only; portability is not demonstrated.",
+        "Observed declared candidate paths: docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "SCHEMA_REQUIRED",
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "No independent component artifact is present."
+      ],
+      "candidate_source_paths": [],
+      "component_id": "C16",
+      "component_name": "REPLAY_AUDIT_CONTRACT",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "verify loop steps after the fact through replay or audit",
+      "forbidden_inferences": [
+        "do_not_infer_replay_contract_from_source_hash_presence_only"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [],
+        "independent_artifact_present": false
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": false,
+      "missing_fields": [
+        "state_snapshot",
+        "move_receipt",
+        "source_hashes",
+        "result_hash",
+        "replay_boundary",
+        "audit_pass_fail_vocabulary",
+        "mutation_detection"
+      ],
+      "missing_schema": true,
+      "observed_source_paths": [],
+      "primary_inventory_status": "MISSING",
+      "required_for_loop_stage": "L5_L11",
+      "source_identity_status": "NO_CANDIDATE_PATHS_DECLARED",
+      "supporting_evidence": [
+        "No declared replay audit contract path exists.",
+        "Observed declared candidate paths: none",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "Independent declared paths provide precedent or boundary evidence only."
+      ],
+      "candidate_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json",
+        "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+        "docs/matrixlabs/phase_vs0/phase_vs0_closure_v0.json"
+      ],
+      "component_id": "C17",
+      "component_name": "FORBIDDEN_EFFECT_GUARD",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "guard against forbidden semantic effects",
+      "forbidden_inferences": [
+        "do_not_treat_local_vs0_boundary_language_as_reusable_guard_contract_without_explicit_contract"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [
+          "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json",
+          "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+          "docs/matrixlabs/phase_vs0/phase_vs0_closure_v0.json"
+        ],
+        "independent_artifact_present": true
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": false,
+      "missing_fields": [
+        "runner_authority_created_guard",
+        "runner_readiness_claimed_guard",
+        "active_registry_created_guard",
+        "trace_generalized_guard",
+        "radius_renewed_without_authority_guard",
+        "move_space_expanded_without_authority_guard",
+        "source_authority_replaced_guard",
+        "next_phase_auto_selected_guard",
+        "optimization_claimed_guard",
+        "global_portability_claimed_guard",
+        "local_revision_applied_without_authority_guard",
+        "micro_sweep_executed_without_authority_guard"
+      ],
+      "missing_schema": false,
+      "observed_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json",
+        "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+        "docs/matrixlabs/phase_vs0/phase_vs0_closure_v0.json"
+      ],
+      "primary_inventory_status": "PRESENT_BOUNDARY_ONLY",
+      "required_for_loop_stage": "ALL_STAGES",
+      "source_identity_status": "DECLARED_CANDIDATE_PATHS_PRESENT",
+      "supporting_evidence": [
+        "Declared paths contain boundary and prohibition language, not an operational guard contract.",
+        "Observed declared candidate paths: docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json, docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json, docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json, docs/matrixlabs/phase_vs0/phase_vs0_closure_v0.json",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "Independent declared paths provide precedent or boundary evidence only."
+      ],
+      "candidate_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.json"
+      ],
+      "component_id": "C18",
+      "component_name": "EVIDENCE_YIELD_REPORT_HOOK",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "report Confirmation Yield and Diagnostic Yield from loop events",
+      "forbidden_inferences": [
+        "do_not_treat_vs0_5_as_loop_level_hook_without_explicit_contract"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [
+          "docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.json"
+        ],
+        "independent_artifact_present": true
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": false,
+      "missing_fields": [
+        "successful_execution_events",
+        "halted_stopped_execution_events",
+        "decision_relevant_evidence_checks",
+        "non_optimization_boundary",
+        "next_lawful_surface"
+      ],
+      "missing_schema": false,
+      "observed_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.json"
+      ],
+      "primary_inventory_status": "PRESENT_PARTIAL",
+      "required_for_loop_stage": "L5_L7_L8_L11",
+      "source_identity_status": "DECLARED_CANDIDATE_PATHS_PRESENT",
+      "supporting_evidence": [
+        "VS0.5 provides evidence-yield precedent, but no MCCL-level hook contract exists.",
+        "Observed declared candidate paths: docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json, docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.json",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "AUTHORITY_REQUIRED",
+        "HUMAN_DECISION_REQUIRED",
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "Independent declared paths provide precedent or boundary evidence only."
+      ],
+      "candidate_source_paths": [
+        "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "component_id": "C19",
+      "component_name": "HUMAN_ESCALATION_DECISION_BOUNDARY",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "define when the loop must escalate to a human decision surface",
+      "forbidden_inferences": [
+        "machine_may_expose_decision_surface_candidate_but_not_consume_human_authority_without_decision_receipt"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [
+          "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+          "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json"
+        ],
+        "independent_artifact_present": true
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": true,
+      "missing_fields": [
+        "authority_required",
+        "promotion_required",
+        "unclear_boundary",
+        "forbidden_effect_risk",
+        "schema_missing",
+        "next_phase_decision",
+        "revision_apply_decision",
+        "radius_renewal_decision",
+        "runner_authority_decision",
+        "micro_sweep_execution_decision"
+      ],
+      "missing_schema": false,
+      "observed_source_paths": [
+        "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "primary_inventory_status": "PRESENT_BOUNDARY_ONLY",
+      "required_for_loop_stage": "L0_L3_L4_L9_L11",
+      "source_identity_status": "DECLARED_CANDIDATE_PATHS_PRESENT",
+      "supporting_evidence": [
+        "Declared paths preserve human decision boundaries, but no operational escalation contract exists.",
+        "Observed declared candidate paths: docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json, docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json, docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    },
+    {
+      "blocker_flags": [
+        "SCHEMA_REQUIRED",
+        "CONTRACT_REVISION_REQUIRED"
+      ],
+      "boundary_notes": [
+        "Declaration evidence does not create authority.",
+        "Inventory status does not authorize readiness, repair, promotion, or execution.",
+        "No independent component artifact is present."
+      ],
+      "candidate_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "component_id": "C20",
+      "component_name": "CONVERGENCE_CRITERION_CONTRACT",
+      "declaration_evidence": {
+        "declaration_is_component_presence_evidence": false,
+        "declaration_source_path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "declared_in_vs1_2_contract": true
+      },
+      "declared_by": "phase_vs1_controlled_convergence_loop_contract_v0",
+      "expected_function": "define local terminal condition, repeat condition, non-progress condition, and halt behavior for convergence",
+      "forbidden_inferences": [
+        "do_not_infer_convergence_from_repeated_movement",
+        "do_not_infer_convergence_from_successful_vs0_closure",
+        "do_not_treat_optimization_progress_as_convergence_without_explicit_metric_contract"
+      ],
+      "independent_component_evidence": {
+        "independent_artifact_paths": [],
+        "independent_artifact_present": false
+      },
+      "may_feed_vs1_4_readiness_audit_as_evidence": true,
+      "missing_authority": false,
+      "missing_fields": [
+        "local_terminal_condition",
+        "allowed_repeat_condition",
+        "non_progress_condition",
+        "oscillation_or_repeated_state_guard",
+        "max_cycle_or_radius_boundary",
+        "evidence_required_to_continue",
+        "typed_halt_when_not_met"
+      ],
+      "missing_schema": true,
+      "observed_source_paths": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "primary_inventory_status": "PRESENT_CANDIDATE_ONLY",
+      "required_for_loop_stage": "L11_REPEAT_OR_HALT_DECISION",
+      "source_identity_status": "DECLARED_CANDIDATE_PATHS_PRESENT",
+      "supporting_evidence": [
+        "VS1.2 declares convergence criterion fields but supplies no domain-specific criterion.",
+        "Observed declared candidate paths: docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "VS1.2 declaration evidence is recorded but not treated as component-presence evidence."
+      ]
+    }
+  ],
+  "component_status_table": {
+    "C01_SCOPE_REGIME_DECLARATION_CONTRACT": "MISSING",
+    "C02_TYPED_STATE_OBJECT_CONTRACT": "MISSING",
+    "C03_EXPLICIT_MOVE_SPACE_CONTRACT": "MISSING",
+    "C04_MOVE_SELECTOR_CONTRACT": "MISSING",
+    "C05_MOVE_APPLICATOR_CONTRACT": "MISSING",
+    "C06_AUTHORITY_POLICY": "PRESENT_PARTIAL",
+    "C07_RADIUS_BUDGET_POLICY": "PRESENT_CANDIDATE_ONLY",
+    "C08_HALT_POLICY": "PRESENT_PARTIAL",
+    "C09_RECEIPT_OBLIGATION_CONTRACT": "PRESENT_PARTIAL",
+    "C10_SOURCE_IDENTITY_FRESHNESS_POLICY": "PRESENT_PARTIAL",
+    "C11_MICRO_SWEEP_BOUNDS_CONTRACT": "PRESENT_CANDIDATE_ONLY",
+    "C12_PRESSURE_READOUT_CONTRACT": "PRESENT_PARTIAL",
+    "C13_PRESSURE_CLASSIFICATION_VOCABULARY": "PRESENT_CANDIDATE_ONLY",
+    "C14_LOCAL_REVISION_SURFACE_CONTRACT": "PRESENT_CANDIDATE_ONLY",
+    "C15_BOUNDED_PORTABILITY_MAP_CONTRACT": "PRESENT_CANDIDATE_ONLY",
+    "C16_REPLAY_AUDIT_CONTRACT": "MISSING",
+    "C17_FORBIDDEN_EFFECT_GUARD": "PRESENT_BOUNDARY_ONLY",
+    "C18_EVIDENCE_YIELD_REPORT_HOOK": "PRESENT_PARTIAL",
+    "C19_HUMAN_ESCALATION_DECISION_BOUNDARY": "PRESENT_BOUNDARY_ONLY",
+    "C20_CONVERGENCE_CRITERION_CONTRACT": "PRESENT_CANDIDATE_ONLY"
+  },
+  "evidence_yield": {
+    "confirmation_yield_reason": "all VS1.2-declared required components were classified with source-backed inventory statuses and blocker flags without readiness, repair, promotion, or execution",
+    "diagnostic_yield_available_for_non_present_verified_components": true,
+    "diagnostic_yield_component_records_present": true,
+    "yield_branch": "CONFIRMATION_YIELD"
+  },
+  "failures": [],
+  "forbidden_inferences_checked": {
+    "boundary_only_component_treated_as_operational": false,
+    "candidate_authority_inferred": false,
+    "candidate_promoted": false,
+    "component_presence_inferred_from_declaration_only": false,
+    "component_sufficiency_inferred_from_partial_presence": false,
+    "local_revision_authorized": false,
+    "loop_execution_authorized": false,
+    "loop_readiness_inferred": false,
+    "micro_sweeps_authorized": false,
+    "missing_component_repaired": false,
+    "runner_authority_created": false,
+    "vs1_4_executed": false
+  },
+  "inventory_evidence_map": {
+    "baseline_share_used_as_source_authority": false,
+    "candidate_evidence_paths": {
+      "C01_SCOPE_REGIME_DECLARATION_CONTRACT": [],
+      "C02_TYPED_STATE_OBJECT_CONTRACT": [],
+      "C03_EXPLICIT_MOVE_SPACE_CONTRACT": [],
+      "C04_MOVE_SELECTOR_CONTRACT": [],
+      "C05_MOVE_APPLICATOR_CONTRACT": [],
+      "C06_AUTHORITY_POLICY": [
+        "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "C07_RADIUS_BUDGET_POLICY": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "C08_HALT_POLICY": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_battery_v0.json"
+      ],
+      "C09_RECEIPT_OBLIGATION_CONTRACT": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json"
+      ],
+      "C10_SOURCE_IDENTITY_FRESHNESS_POLICY": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json",
+        "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json"
+      ],
+      "C11_MICRO_SWEEP_BOUNDS_CONTRACT": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "C12_PRESSURE_READOUT_CONTRACT": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.json",
+        "docs/matrixlabs/phase_vs0/runs/phase_vs0_first_specimen_runtime_v0/negative_probes/phase_vs0_negative_probe_battery_v0.json"
+      ],
+      "C13_PRESSURE_CLASSIFICATION_VOCABULARY": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "C14_LOCAL_REVISION_SURFACE_CONTRACT": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "C15_BOUNDED_PORTABILITY_MAP_CONTRACT": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "C16_REPLAY_AUDIT_CONTRACT": [],
+      "C17_FORBIDDEN_EFFECT_GUARD": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json",
+        "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+        "docs/matrixlabs/phase_vs0/phase_vs0_closure_v0.json"
+      ],
+      "C18_EVIDENCE_YIELD_REPORT_HOOK": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+        "docs/matrixlabs/phase_vs0/phase_vs0_evidence_yield_report_v0.json"
+      ],
+      "C19_HUMAN_ESCALATION_DECISION_BOUNDARY": [
+        "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json",
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ],
+      "C20_CONVERGENCE_CRITERION_CONTRACT": [
+        "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json"
+      ]
+    },
+    "declaration_source": {
+      "declaration_is_component_presence_evidence": false,
+      "path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+      "role": "DECLARATION_EVIDENCE_ONLY"
+    },
+    "declared_candidate_paths_only": true,
+    "discussion_packets_used_as_source_authority": false,
+    "evidence_map_declared": true,
+    "latest_file_resolution_used": false,
+    "mtime_resolution_used": false,
+    "repo_wide_search_used": false,
+    "uncommitted_residue_used_as_source_authority": false
+  },
+  "inventory_mode": {
+    "additional_requirements_load_bearing": false,
+    "baseline_share_as_source_of_truth": false,
+    "baseline_share_used_as_source_authority": false,
+    "chat_memory_used_as_source_authority": false,
+    "declared_components_only": true,
+    "declared_path_existence_checks_allowed": true,
+    "directory_scan_authority_allowed": false,
+    "discussion_packets_used_as_source_authority": false,
+    "latest_file_resolution_allowed": false,
+    "latest_file_resolution_used": false,
+    "loop_execution_authorized": false,
+    "mtime_resolution_used": false,
+    "promotions_allowed": false,
+    "readiness_audit_performed": false,
+    "repairs_allowed": false,
+    "repo_wide_search_used": false,
+    "uncommitted_residue_used_as_source_authority": false
+  },
+  "inventory_pass_semantics": {
+    "all_components_classified": true,
+    "all_components_present_required_for_pass": false,
+    "boundary_only_components_allowed_in_pass": true,
+    "candidate_only_components_allowed_in_pass": true,
+    "missing_component_is_failure": false,
+    "missing_components_allowed_in_pass": true,
+    "partial_components_allowed_in_pass": true,
+    "unclassified_component_is_failure": true
+  },
+  "inventory_verdict": "VS1_3_CONTROLLED_LOOP_PRECONDITION_INVENTORY_PASS",
+  "non_claims": {
+    "boundary_only_components_are_operational": false,
+    "candidate_components_should_be_promoted": false,
+    "controlled_loop_authorized": false,
+    "controlled_loop_operational": false,
+    "controlled_loop_ready": false,
+    "local_revision_authorized": false,
+    "micro_sweeps_authorized": false,
+    "missing_components_should_be_built": false,
+    "partial_components_are_sufficient": false,
+    "portability_demonstrated": false,
+    "runner_authority_exists": false,
+    "runner_exists": false,
+    "runner_readiness_exists": false,
+    "vs1_4_executed": false
+  },
+  "observed_additional_candidate_requirements": [],
+  "phase_id": "PHASE_VS1",
+  "repair_and_ranking_boundary": {
+    "candidate_promoted": false,
+    "human_decision_consumed": false,
+    "implementation_prompt_created": false,
+    "missing_components_ranked": false,
+    "next_component_to_build_selected": false,
+    "repair_plan_created": false,
+    "schema_promotion_requested": false
+  },
+  "schema_version": "matrixlabs_phase_vs1_controlled_loop_precondition_inventory_v0",
+  "source_contract": {
+    "artifact_id": "phase_vs1_controlled_convergence_loop_contract_v0",
+    "commit_sha": "d62db2d74f2ff42bf7f633b4e2169aed409a0703",
+    "path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+    "required_status": "VS1_2_CONTROLLED_LOOP_CONTRACT_DEFINITION_PASS",
+    "required_transition": "ADVANCE(VS1_3_CONTROLLED_LOOP_PRECONDITION_INVENTORY_PENDING)",
+    "sha256": "93fbfb7c65c61d6757c7251b7aa81aa37593146ef950a4c834115b6c05bdc035",
+    "source_role": "DECLARED_COMPONENT_LIST"
+  },
+  "source_preservation": {
+    "post_vs0_direction_decision_receipt_mutated_by_vs1_3": false,
+    "vs0_source_artifacts_mutated_by_vs1_3": false,
+    "vs1_1_source_intake_mutated_by_vs1_3": false,
+    "vs1_2_contract_mutated_by_vs1_3": false
+  },
+  "summary_counts": {
+    "insufficient": 0,
+    "missing": 6,
+    "out_of_scope": 0,
+    "present_boundary_only": 2,
+    "present_candidate_only": 6,
+    "present_partial": 6,
+    "present_verified": 0,
+    "required_components_total": 20,
+    "source_unverified": 0
+  },
+  "terminal_transition": {
+    "authorizes_local_revision": false,
+    "authorizes_loop_execution": false,
+    "authorizes_micro_sweeps": false,
+    "executes_vs1_4": false,
+    "transition": "ADVANCE(VS1_4_CONTROLLED_LOOP_READINESS_AUDIT_PENDING)"
+  },
+  "unit_id": "VS1.3_CONTROLLED_LOOP_PRECONDITION_INVENTORY",
+  "unit_role": "PRECONDITION_INVENTORY_ONLY"
+}
