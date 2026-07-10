@@ -1,0 +1,472 @@
+{
+  "allowed_future_inventory_questions": [
+    "Is the component present?",
+    "Is the component missing?",
+    "Is the component candidate-only?",
+    "Is the component insufficient?",
+    "Does the component require authority?",
+    "Does the component require promotion?",
+    "Does the component require a schema?",
+    "Is the component out of scope?",
+    "Which exact next surface would be lawful if the component is missing or blocked?"
+  ],
+  "artifact_id": "phase_vs1_controlled_convergence_loop_contract_v0",
+  "component_presence_claims": {
+    "all_components_present": false,
+    "component_authority_checked": false,
+    "component_missingness_checked": false,
+    "component_sufficiency_checked": false,
+    "components_declared": true,
+    "components_inventoried": false
+  },
+  "contract_boundary": {
+    "contract_authorized_for_execution": false,
+    "contract_component_inventory_complete": false,
+    "contract_defined": true,
+    "contract_execution_preconditions_passed": false,
+    "contract_readiness_certified": false
+  },
+  "contract_verdict": "VS1_2_CONTROLLED_LOOP_CONTRACT_DEFINITION_PASS",
+  "convergence_meaning": {
+    "convergence_criterion_required_before_execution": true,
+    "definition": "bounded progression toward a declared local terminal condition, typed halt, or decision surface under explicit radius, receipt, pressure, and authority rules",
+    "domain_metric_supplied_by_vs1_2": false,
+    "global_convergence_claimed": false,
+    "minimum_convergence_criterion_fields": [
+      "local_terminal_condition",
+      "allowed_repeat_condition",
+      "non_progress_condition",
+      "oscillation_or_repeated_state_guard",
+      "max_cycle_or_radius_boundary",
+      "evidence_required_to_continue",
+      "typed_halt_when_not_met"
+    ],
+    "missing_convergence_criterion_stop": "STOP_CONTROLLED_LOOP_CONVERGENCE_CRITERION_MISSING",
+    "optimization_claimed": false,
+    "success_guaranteed": false
+  },
+  "evidence_yield": {
+    "confirmation_yield_reason": "controlled loop contract was defined with bounded convergence meaning, declared stages, required component list, future inventory target, and preserved non-execution boundaries",
+    "diagnostic_yield_available_on_typed_stop": true,
+    "yield_branch": "CONFIRMATION_YIELD"
+  },
+  "failures": [],
+  "forbidden_execution_claims": {
+    "applicator_exists": false,
+    "controlled_loop_authorized": false,
+    "controlled_loop_exists_as_executable": false,
+    "controlled_loop_ready": false,
+    "local_revision_authorized": false,
+    "micro_sweeps_authorized": false,
+    "move_space_exists": false,
+    "next_unit_executed": false,
+    "pressure_classification_operational": false,
+    "runner_authority_exists": false,
+    "runner_exists": false,
+    "runner_readiness_exists": false,
+    "selector_exists": false
+  },
+  "forbidden_future_inventory_questions": [
+    "Can we run the loop now without completing the inventory?",
+    "Can we execute a micro-sweep?",
+    "Can we apply a local revision?",
+    "Can we activate a runner?",
+    "Can we infer portability from VS0?",
+    "Can we promote a candidate because it appears useful?",
+    "Can we generalize from one specimen?"
+  ],
+  "forbidden_generalization_claims": {
+    "global_generalization_claimed": false,
+    "performance_optimization_begun": false,
+    "portability_demonstrated": false,
+    "scale_optimization_begun": false,
+    "total_coverage_claimed": false,
+    "vs0_generalized": false
+  },
+  "future_inventory_target": {
+    "authorizes_micro_sweeps": false,
+    "certifies_readiness": false,
+    "executes_loop": false,
+    "next_unit": "phase_vs1_controlled_loop_precondition_inventory_v0",
+    "next_unit_role": "INVENTORY_DECLARED_COMPONENTS"
+  },
+  "loop_contract": {
+    "compact_shape": [
+      "declared_scope_or_regime",
+      "typed_state",
+      "lawful_move",
+      "receipt",
+      "bounded_micro_sweep_contract",
+      "pressure_readout",
+      "pressure_classification",
+      "local_revision_surface",
+      "bounded_portability_map",
+      "repeat_or_halt"
+    ],
+    "contract_status": "DEFINED_NOT_AUTHORIZED",
+    "definition": "A Minimal Controlled Convergence Loop is a bounded, receipt-producing loop shape that may, if later authorized and found ready, load a declared typed state inside a declared scope/regime, select lawful moves from an explicit move-space, apply moves under authority/radius/halt rules, emit receipts, expose pressure through bounded micro-sweeps across declared variations, classify what held or failed, permit only separately authorized local revision proposals, record bounded portability conditions, and repeat or halt under an explicit repeat/halt policy.",
+    "execution_authorized": false,
+    "global_generalization_claimed": false,
+    "local_revision_authorized": false,
+    "loop_name": "MINIMAL_CONTROLLED_CONVERGENCE_LOOP",
+    "micro_sweeps_authorized": false,
+    "performance_optimization_claimed": false,
+    "portability_claimed": false,
+    "runner_created": false,
+    "scale_optimization_claimed": false,
+    "short_name": "MCCL"
+  },
+  "loop_stages": [
+    {
+      "contract_requirement": "A controlled loop cannot begin without knowing which regime it is operating inside and what regime movement is allowed.",
+      "executable_in_vs1_2": false,
+      "missing_stop": "STOP_CONTROLLED_LOOP_SCOPE_REGIME_CONTRACT_MISSING",
+      "required_fields": [
+        "scope_id",
+        "regime_id",
+        "allowed_source_surfaces",
+        "forbidden_source_surfaces",
+        "allowed_regime_transitions",
+        "forbidden_regime_transitions",
+        "object_identity_rules",
+        "sameness_difference_criteria",
+        "authority_boundary",
+        "claim_boundary"
+      ],
+      "stage_id": "L0_SCOPE_REGIME_DECLARATION",
+      "stage_name": "Scope / Regime Declaration",
+      "stage_role": "defines local scope and allowed regime movement"
+    },
+    {
+      "contract_requirement": "A controlled loop cannot begin without a typed state object.",
+      "executable_in_vs1_2": false,
+      "missing_stop": "STOP_CONTROLLED_LOOP_STATE_OBJECT_MISSING",
+      "required_fields": [
+        "state_id",
+        "source_artifacts",
+        "authority_state",
+        "current_loop_position",
+        "available_move_references",
+        "radius_budget_state",
+        "prior_receipts",
+        "known_forbidden_effects",
+        "current_halt_condition_if_any"
+      ],
+      "stage_id": "L1_STATE_INTAKE",
+      "stage_name": "State Intake",
+      "stage_role": "defines the required starting typed state object"
+    },
+    {
+      "contract_requirement": "No implicit move-space. No inferred moves. No latest-object guessing.",
+      "executable_in_vs1_2": false,
+      "missing_stop": "STOP_CONTROLLED_LOOP_MOVE_SPACE_MISSING",
+      "required_fields": [
+        "move_id",
+        "move_kind",
+        "input_shape",
+        "output_shape",
+        "authority_requirement",
+        "radius_cost",
+        "receipt_obligation",
+        "halt_conditions",
+        "forbidden_effects",
+        "source_freshness_requirements"
+      ],
+      "stage_id": "L2_MOVE_SPACE_ADMISSION",
+      "stage_name": "Move-Space Admission",
+      "stage_role": "defines the explicit set of moves the loop may consider"
+    },
+    {
+      "contract_requirement": "Move selection must be bounded, source-aware, authority-aware, radius-aware, halt-aware, and receipt-aware.",
+      "executable_in_vs1_2": false,
+      "forbidden_selector_behavior": [
+        "select_by_vibes",
+        "select_by_newest_file",
+        "select_by_human_looking_importance",
+        "select_by_unstated_priority",
+        "select_forbidden_repair",
+        "select_next_phase_automatically"
+      ],
+      "missing_stop": "STOP_CONTROLLED_LOOP_MOVE_SELECTOR_MISSING",
+      "required_fields": [
+        "deterministic_or_seeded_stochastic_rule",
+        "bounded_selection_scope",
+        "source_awareness",
+        "authority_awareness",
+        "radius_awareness",
+        "halt_awareness",
+        "receipt_awareness"
+      ],
+      "stage_id": "L3_MOVE_SELECTION",
+      "stage_name": "Move Selection",
+      "stage_role": "defines the rule by which one move may be selected"
+    },
+    {
+      "contract_requirement": "Move application must produce either a typed output or a typed stop.",
+      "executable_in_vs1_2": false,
+      "missing_stop": "STOP_CONTROLLED_LOOP_MOVE_APPLICATOR_MISSING",
+      "required_fields": [
+        "input_object",
+        "move_object",
+        "authority_source",
+        "precondition_checks",
+        "state_transition_rule",
+        "output_object",
+        "receipt_obligation",
+        "failure_behavior",
+        "rollback_or_no_mutation_boundary"
+      ],
+      "stage_id": "L4_MOVE_APPLICATION_CONTRACT",
+      "stage_name": "Move Application Contract",
+      "stage_role": "defines how an admitted move would be applied if later authorized"
+    },
+    {
+      "contract_requirement": "No receipt, no loop step.",
+      "executable_in_vs1_2": false,
+      "missing_stop": "STOP_CONTROLLED_LOOP_RECEIPT_CONTRACT_MISSING",
+      "required_fields": [
+        "attempted_move",
+        "source_state",
+        "authority_basis",
+        "radius_before",
+        "radius_consumed",
+        "radius_after",
+        "preconditions_checked",
+        "output_or_stop",
+        "forbidden_effects_checked",
+        "next_lawful_surface",
+        "self_repair_flag"
+      ],
+      "stage_id": "L5_RECEIPT_EMISSION",
+      "stage_name": "Receipt Emission",
+      "stage_role": "defines the minimum receipt obligation for every attempted move"
+    },
+    {
+      "contract_requirement": "Micro-sweeps expose pressure. They do not optimize goals by default. They do not create generalization by repetition. They are not authorized by VS1.2.",
+      "executable_in_vs1_2": false,
+      "missing_stop": "STOP_CONTROLLED_LOOP_MICRO_SWEEP_BOUNDS_MISSING",
+      "required_fields": [
+        "sweep_id",
+        "sweep_purpose",
+        "variation_set",
+        "max_cases",
+        "max_steps",
+        "radius_budget",
+        "allowed_moves",
+        "stop_conditions",
+        "receipt_aggregation",
+        "forbidden_inference_boundary"
+      ],
+      "stage_id": "L6_MICRO_SWEEP_BOUNDS_CONTRACT",
+      "stage_name": "Micro-Sweep Bounds Contract",
+      "stage_role": "defines bounded repeated executions over declared variations if later authorized"
+    },
+    {
+      "contract_requirement": "Pressure readout precedes pressure classification.",
+      "executable_in_vs1_2": false,
+      "missing_stop": "STOP_CONTROLLED_LOOP_PRESSURE_READOUT_MISSING",
+      "required_fields": [
+        "what_held",
+        "what_failed",
+        "what_stopped",
+        "what_was_missing",
+        "what_boundary_was_hit",
+        "what_became_ambiguous",
+        "what_cost_or_burden_appeared",
+        "what_source_became_stale",
+        "what_next_surface_was_exposed"
+      ],
+      "stage_id": "L7_PRESSURE_READOUT",
+      "stage_name": "Pressure Readout",
+      "stage_role": "defines readout shape for signals produced by future authorized execution or halted execution"
+    },
+    {
+      "contract_requirement": "Pressure must be classified before revision is proposed.",
+      "executable_in_vs1_2": false,
+      "missing_stop": "STOP_CONTROLLED_LOOP_PRESSURE_CLASSIFIER_MISSING",
+      "required_fields": [
+        "classification_vocabulary",
+        "classification_basis",
+        "source_reference",
+        "next_surface"
+      ],
+      "stage_id": "L8_PRESSURE_CLASSIFICATION",
+      "stage_name": "Pressure Classification",
+      "stage_role": "defines classification of pressure into typed families"
+    },
+    {
+      "allowed_revision_targets": [
+        "language",
+        "schema",
+        "move_space",
+        "boundary_vocabulary",
+        "receipt_obligation",
+        "halt_vocabulary",
+        "pressure_classification",
+        "portability_map_schema"
+      ],
+      "contract_requirement": "Pressure may justify a proposed local revision. Pressure does not self-authorize revision.",
+      "executable_in_vs1_2": false,
+      "missing_stop": "STOP_CONTROLLED_LOOP_LOCAL_REVISION_SURFACE_MISSING",
+      "required_fields": [
+        "revision_target",
+        "revision_basis",
+        "authority_requirement",
+        "proposal_only_flag",
+        "application_authority"
+      ],
+      "stage_id": "L9_LOCAL_REVISION_SURFACE",
+      "stage_name": "Local Revision Surface",
+      "stage_role": "defines the lawful surface where local revision may be proposed"
+    },
+    {
+      "allowed_claim_shape": [
+        "tested_under_X",
+        "failed_under_Y",
+        "adapted_under_Z",
+        "untested_under_W"
+      ],
+      "contract_requirement": "Portability is receipt-backed and condition-indexed.",
+      "executable_in_vs1_2": false,
+      "forbidden_claim": "this_generalizes_globally",
+      "missing_stop": "STOP_CONTROLLED_LOOP_PORTABILITY_MAP_MISSING",
+      "required_fields": [
+        "source_case",
+        "target_case",
+        "declared_transport_or_adaptation",
+        "what_remained_stable",
+        "what_changed",
+        "what_failed",
+        "what_required_local_revision",
+        "what_remains_untested",
+        "claim_boundary",
+        "receipt_references"
+      ],
+      "stage_id": "L10_BOUNDED_PORTABILITY_MAPPING",
+      "stage_name": "Bounded Portability Mapping",
+      "stage_role": "defines how the loop records whether a shape carried across cases"
+    },
+    {
+      "contract_requirement": "Repeat is a controlled transition. It is not ambient continuation.",
+      "executable_in_vs1_2": false,
+      "halt_requires": [
+        "typed_halt_code",
+        "reason",
+        "state_snapshot",
+        "next_lawful_surface",
+        "self_repair_false_unless_explicitly_authorized"
+      ],
+      "missing_stop": "STOP_CONTROLLED_LOOP_REPEAT_HALT_POLICY_MISSING",
+      "repeat_requires": [
+        "remaining_radius",
+        "allowed_move",
+        "valid_state",
+        "no_unresolved_hard_stop",
+        "receipt_from_prior_step",
+        "no_forbidden_effect_leak",
+        "explicit_repeat_policy",
+        "declared_convergence_criterion_not_yet_met"
+      ],
+      "required_fields": [
+        "repeat_requires",
+        "halt_requires"
+      ],
+      "stage_id": "L11_REPEAT_OR_HALT_DECISION",
+      "stage_name": "Repeat / Halt Decision",
+      "stage_role": "defines how the loop decides whether another bounded cycle may occur"
+    }
+  ],
+  "phase_id": "PHASE_VS1",
+  "pressure_classification_vocabulary": [
+    "MISSING_OBJECT",
+    "MISSING_FIELD",
+    "AUTHORITY_ABSENT",
+    "AUTHORITY_DRIFT",
+    "BOUNDARY_VIOLATION",
+    "RADIUS_EXHAUSTED",
+    "SOURCE_STALE_OR_UNKNOWN",
+    "MOVE_SPACE_GAP",
+    "RECEIPT_OBLIGATION_GAP",
+    "HALT_POLICY_GAP",
+    "PRESSURE_READOUT_GAP",
+    "LANGUAGE_AMBIGUITY",
+    "LOCAL_REVISION_REQUIRED",
+    "PORTABILITY_BOUNDARY_HIT",
+    "BURDEN_SIGNAL",
+    "UNEXPECTED_SUCCESS",
+    "AMBIGUOUS_STOP"
+  ],
+  "receipt_obligations": {
+    "allowed_future_inventory_questions_emitted": true,
+    "contract_verdict_emitted": true,
+    "convergence_meaning_emitted": true,
+    "forbidden_claims_checked": true,
+    "forbidden_future_inventory_questions_emitted": true,
+    "future_inventory_target_emitted": true,
+    "loop_definition_emitted": true,
+    "loop_name_emitted": true,
+    "loop_stages_emitted": true,
+    "required_component_list_emitted": true,
+    "source_intake_consumed": true,
+    "terminal_transition_emitted": true,
+    "unit_id_emitted": true
+  },
+  "required_components": [
+    "C01_SCOPE_REGIME_DECLARATION_CONTRACT",
+    "C02_TYPED_STATE_OBJECT_CONTRACT",
+    "C03_EXPLICIT_MOVE_SPACE_CONTRACT",
+    "C04_MOVE_SELECTOR_CONTRACT",
+    "C05_MOVE_APPLICATOR_CONTRACT",
+    "C06_AUTHORITY_POLICY",
+    "C07_RADIUS_BUDGET_POLICY",
+    "C08_HALT_POLICY",
+    "C09_RECEIPT_OBLIGATION_CONTRACT",
+    "C10_SOURCE_IDENTITY_FRESHNESS_POLICY",
+    "C11_MICRO_SWEEP_BOUNDS_CONTRACT",
+    "C12_PRESSURE_READOUT_CONTRACT",
+    "C13_PRESSURE_CLASSIFICATION_VOCABULARY",
+    "C14_LOCAL_REVISION_SURFACE_CONTRACT",
+    "C15_BOUNDED_PORTABILITY_MAP_CONTRACT",
+    "C16_REPLAY_AUDIT_CONTRACT",
+    "C17_FORBIDDEN_EFFECT_GUARD",
+    "C18_EVIDENCE_YIELD_REPORT_HOOK",
+    "C19_HUMAN_ESCALATION_DECISION_BOUNDARY",
+    "C20_CONVERGENCE_CRITERION_CONTRACT"
+  ],
+  "schema_version": "matrixlabs_phase_vs1_controlled_convergence_loop_contract_v0",
+  "source_intake": {
+    "artifact_id": "phase_vs1_post_vs0_source_intake_v0",
+    "commit_sha": "8f4b57c697d8dc7110e3ea9d73183d36c806a66c",
+    "loop_execution_authorized_by_source_intake": false,
+    "path": "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json",
+    "required_status": "VS1_1_POST_VS0_SOURCE_INTAKE_PASS",
+    "required_transition": "ADVANCE(VS1_2_CONTROLLED_LOOP_CONTRACT_DEFINITION_PENDING)",
+    "runner_authority_created_by_source_intake": false,
+    "sha256": "73987d441e719196292ffb89ce79e8ec7335f715a05237777dc29a827dd2e2b6",
+    "source_role": "BOUNDED_LOCAL_VS0_EVIDENCE_ADMITTED_FOR_DEFINITION",
+    "source_vs0_remains_bounded_local_evidence": true
+  },
+  "source_preservation": {
+    "post_vs0_direction_decision_receipt_mutated_by_vs1_2": false,
+    "vs0_6_phase_closure_mutated_by_vs1_2": false,
+    "vs0_source_artifacts_mutated_by_vs1_2": false,
+    "vs1_1_source_intake_mutated_by_vs1_2": false
+  },
+  "terminal_transition": {
+    "authorizes_local_revision": false,
+    "authorizes_loop_execution": false,
+    "authorizes_micro_sweeps": false,
+    "executes_vs1_3": false,
+    "transition": "ADVANCE(VS1_3_CONTROLLED_LOOP_PRECONDITION_INVENTORY_PENDING)"
+  },
+  "unit_id": "VS1.2_CONTROLLED_CONVERGENCE_LOOP_CONTRACT_DEFINITION",
+  "unit_role": "CONTRACT_DEFINITION_ONLY",
+  "vs1_3_boundary": {
+    "vs1_3_may_apply_revisions": false,
+    "vs1_3_may_authorize_micro_sweeps": false,
+    "vs1_3_may_certify_loop_readiness": false,
+    "vs1_3_may_create_runner": false,
+    "vs1_3_may_execute_loop": false,
+    "vs1_3_may_inventory_declared_components": true
+  }
+}

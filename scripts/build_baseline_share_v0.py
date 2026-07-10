@@ -352,6 +352,13 @@ PHASE_VS1_SOURCE_INTAKE_DOCS = [
 PHASE_VS1_SOURCE_INTAKE_SCRIPT = (
     "scripts/build_phase_vs1_post_vs0_source_intake_v0.py"
 )
+PHASE_VS1_CONTROLLED_LOOP_CONTRACT_DOCS = [
+    "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+    "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.md",
+]
+PHASE_VS1_CONTROLLED_LOOP_CONTRACT_SCRIPT = (
+    "scripts/build_phase_vs1_controlled_convergence_loop_contract_v0.py"
+)
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -442,6 +449,8 @@ SOURCE_DOCS = [
     POST_VS0_DIRECTION_DECISION_RECEIPT_SCRIPT,
     *PHASE_VS1_SOURCE_INTAKE_DOCS,
     PHASE_VS1_SOURCE_INTAKE_SCRIPT,
+    *PHASE_VS1_CONTROLLED_LOOP_CONTRACT_DOCS,
+    PHASE_VS1_CONTROLLED_LOOP_CONTRACT_SCRIPT,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -1092,6 +1101,34 @@ def build_manifest(
     phase_vs1_source_intake_boundary = phase_vs1_source_intake.get(
         "boundary_preservation_status", {}
     )
+    phase_vs1_controlled_loop_contract_path = (
+        root / PHASE_VS1_CONTROLLED_LOOP_CONTRACT_DOCS[0]
+    )
+    phase_vs1_controlled_loop_contract_present = (
+        phase_vs1_controlled_loop_contract_path.exists()
+    )
+    phase_vs1_controlled_loop_contract = (
+        json.loads(
+            phase_vs1_controlled_loop_contract_path.read_text(encoding="utf-8")
+        )
+        if phase_vs1_controlled_loop_contract_present
+        else {}
+    )
+    phase_vs1_contract_source_intake = phase_vs1_controlled_loop_contract.get(
+        "source_intake", {}
+    )
+    phase_vs1_contract_loop = phase_vs1_controlled_loop_contract.get(
+        "loop_contract", {}
+    )
+    phase_vs1_contract_components = phase_vs1_controlled_loop_contract.get(
+        "component_presence_claims", {}
+    )
+    phase_vs1_contract_boundary = phase_vs1_controlled_loop_contract.get(
+        "contract_boundary", {}
+    )
+    phase_vs1_contract_terminal = phase_vs1_controlled_loop_contract.get(
+        "terminal_transition", {}
+    )
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -1557,7 +1594,7 @@ def build_manifest(
         "post_vs0_direction_registry_activation_authorized": post_vs0_direction_forbidden_scope.get("registry_activation_authorized", False) if post_vs0_direction_receipt_present else False,
         "post_vs0_direction_trace_generalization_authorized": post_vs0_direction_forbidden_scope.get("trace_generalization_authorized", False) if post_vs0_direction_receipt_present else False,
         "post_vs0_direction_next_phase_selected_by_machine": post_vs0_direction_forbidden_scope.get("next_phase_selected_by_machine", False) if post_vs0_direction_receipt_present else False,
-        "phase_vs1_current_unit": phase_vs1_source_intake.get("unit_id") if phase_vs1_source_intake_present else None,
+        "phase_vs1_current_unit": phase_vs1_controlled_loop_contract.get("unit_id") if phase_vs1_controlled_loop_contract_present else (phase_vs1_source_intake.get("unit_id") if phase_vs1_source_intake_present else None),
         "phase_vs1_source_intake_id": phase_vs1_source_intake.get("artifact_id") if phase_vs1_source_intake_present else None,
         "phase_vs1_source_intake_verdict": phase_vs1_source_intake.get("intake_verdict") if phase_vs1_source_intake_present else None,
         "phase_vs1_source_intake_scope": phase_vs1_source_intake_scope.get("scope"),
@@ -1570,6 +1607,26 @@ def build_manifest(
         "phase_vs1_source_intake_registry_activation_authorized": phase_vs1_source_intake_scope.get("may_feed_registry_activation", False) if phase_vs1_source_intake_present else False,
         "phase_vs1_source_intake_trace_generalization_authorized": phase_vs1_source_intake_scope.get("may_feed_trace_generalization", False) if phase_vs1_source_intake_present else False,
         "phase_vs1_source_intake_next_transition": phase_vs1_source_intake.get("terminal_transition") if phase_vs1_source_intake_present else None,
+        "phase_vs1_controlled_loop_contract_id": phase_vs1_controlled_loop_contract.get("artifact_id") if phase_vs1_controlled_loop_contract_present else None,
+        "phase_vs1_controlled_loop_contract_verdict": phase_vs1_controlled_loop_contract.get("contract_verdict") if phase_vs1_controlled_loop_contract_present else None,
+        "phase_vs1_controlled_loop_name": phase_vs1_contract_loop.get("loop_name"),
+        "phase_vs1_controlled_loop_short_name": phase_vs1_contract_loop.get("short_name"),
+        "phase_vs1_controlled_loop_contract_status": phase_vs1_contract_loop.get("contract_status"),
+        "phase_vs1_source_intake_commit_sha": phase_vs1_contract_source_intake.get("commit_sha"),
+        "phase_vs1_component_count_declared": len(phase_vs1_controlled_loop_contract.get("required_components", [])) if phase_vs1_controlled_loop_contract_present else 0,
+        "phase_vs1_components_inventoried": phase_vs1_contract_components.get("components_inventoried", False) if phase_vs1_controlled_loop_contract_present else False,
+        "phase_vs1_all_components_present": phase_vs1_contract_components.get("all_components_present", False) if phase_vs1_controlled_loop_contract_present else False,
+        "phase_vs1_contract_authorized_for_execution": phase_vs1_contract_boundary.get("contract_authorized_for_execution", False) if phase_vs1_controlled_loop_contract_present else False,
+        "phase_vs1_contract_readiness_certified": phase_vs1_contract_boundary.get("contract_readiness_certified", False) if phase_vs1_controlled_loop_contract_present else False,
+        "phase_vs1_controlled_loop_execution_authorized": phase_vs1_contract_loop.get("execution_authorized", False) if phase_vs1_controlled_loop_contract_present else False,
+        "phase_vs1_runner_created": phase_vs1_contract_loop.get("runner_created", False) if phase_vs1_controlled_loop_contract_present else False,
+        "phase_vs1_micro_sweeps_authorized": phase_vs1_contract_loop.get("micro_sweeps_authorized", False) if phase_vs1_controlled_loop_contract_present else False,
+        "phase_vs1_local_revision_authorized": phase_vs1_contract_loop.get("local_revision_authorized", False) if phase_vs1_controlled_loop_contract_present else False,
+        "phase_vs1_portability_claimed": phase_vs1_contract_loop.get("portability_claimed", False) if phase_vs1_controlled_loop_contract_present else False,
+        "phase_vs1_global_generalization_claimed": phase_vs1_contract_loop.get("global_generalization_claimed", False) if phase_vs1_controlled_loop_contract_present else False,
+        "phase_vs1_performance_optimization_claimed": phase_vs1_contract_loop.get("performance_optimization_claimed", False) if phase_vs1_controlled_loop_contract_present else False,
+        "phase_vs1_scale_optimization_claimed": phase_vs1_contract_loop.get("scale_optimization_claimed", False) if phase_vs1_controlled_loop_contract_present else False,
+        "phase_vs1_next_transition": phase_vs1_contract_terminal.get("transition") if phase_vs1_controlled_loop_contract_present else None,
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,
