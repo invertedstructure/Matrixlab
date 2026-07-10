@@ -380,6 +380,11 @@ PHASE_VS1_MISSING_PRECONDITION_NEXT_SURFACE_MAP_DOCS = [
 PHASE_VS1_MISSING_PRECONDITION_NEXT_SURFACE_MAP_SCRIPT = (
     "scripts/build_phase_vs1_missing_precondition_next_surface_map_v0.py"
 )
+PHASE_VS1_CLOSURE_DOCS = [
+    "docs/matrixlabs/phase_vs1/phase_vs1_closure_v0.json",
+    "docs/matrixlabs/phase_vs1/phase_vs1_closure_v0.md",
+]
+PHASE_VS1_CLOSURE_SCRIPT = "scripts/close_phase_vs1_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -478,6 +483,8 @@ SOURCE_DOCS = [
     PHASE_VS1_CONTROLLED_LOOP_READINESS_AUDIT_SCRIPT,
     *PHASE_VS1_MISSING_PRECONDITION_NEXT_SURFACE_MAP_DOCS,
     PHASE_VS1_MISSING_PRECONDITION_NEXT_SURFACE_MAP_SCRIPT,
+    *PHASE_VS1_CLOSURE_DOCS,
+    PHASE_VS1_CLOSURE_SCRIPT,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -1250,6 +1257,28 @@ def build_manifest(
     phase_vs1_next_surface_terminal = phase_vs1_next_surface_map.get(
         "terminal_transition", {}
     )
+    phase_vs1_closure_path = root / PHASE_VS1_CLOSURE_DOCS[0]
+    phase_vs1_closure_present = phase_vs1_closure_path.exists()
+    phase_vs1_closure = (
+        json.loads(phase_vs1_closure_path.read_text(encoding="utf-8"))
+        if phase_vs1_closure_present
+        else {}
+    )
+    phase_vs1_closure_source_chain = phase_vs1_closure.get(
+        "source_chain_commit_bindings", {}
+    )
+    phase_vs1_closure_phase_result = phase_vs1_closure.get("phase_result", {})
+    phase_vs1_closure_blocker_summary = phase_vs1_closure.get(
+        "blocker_summary", {}
+    )
+    phase_vs1_closure_next_surface = phase_vs1_closure.get(
+        "next_surface_summary", {}
+    )
+    phase_vs1_closure_readiness = phase_vs1_closure.get("readiness_summary", {})
+    phase_vs1_closure_post_vs1 = phase_vs1_closure.get(
+        "post_vs1_decision_surface", {}
+    )
+    phase_vs1_closure_terminal = phase_vs1_closure.get("terminal_transition", {})
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -1715,7 +1744,7 @@ def build_manifest(
         "post_vs0_direction_registry_activation_authorized": post_vs0_direction_forbidden_scope.get("registry_activation_authorized", False) if post_vs0_direction_receipt_present else False,
         "post_vs0_direction_trace_generalization_authorized": post_vs0_direction_forbidden_scope.get("trace_generalization_authorized", False) if post_vs0_direction_receipt_present else False,
         "post_vs0_direction_next_phase_selected_by_machine": post_vs0_direction_forbidden_scope.get("next_phase_selected_by_machine", False) if post_vs0_direction_receipt_present else False,
-        "phase_vs1_current_unit": phase_vs1_next_surface_map.get("unit_id") if phase_vs1_next_surface_map_present else (phase_vs1_readiness_audit.get("unit_id") if phase_vs1_readiness_audit_present else (phase_vs1_precondition_inventory.get("unit_id") if phase_vs1_precondition_inventory_present else (phase_vs1_controlled_loop_contract.get("unit_id") if phase_vs1_controlled_loop_contract_present else (phase_vs1_source_intake.get("unit_id") if phase_vs1_source_intake_present else None)))),
+        "phase_vs1_current_unit": phase_vs1_closure.get("unit_id") if phase_vs1_closure_present else (phase_vs1_next_surface_map.get("unit_id") if phase_vs1_next_surface_map_present else (phase_vs1_readiness_audit.get("unit_id") if phase_vs1_readiness_audit_present else (phase_vs1_precondition_inventory.get("unit_id") if phase_vs1_precondition_inventory_present else (phase_vs1_controlled_loop_contract.get("unit_id") if phase_vs1_controlled_loop_contract_present else (phase_vs1_source_intake.get("unit_id") if phase_vs1_source_intake_present else None))))),
         "phase_vs1_source_intake_id": phase_vs1_source_intake.get("artifact_id") if phase_vs1_source_intake_present else None,
         "phase_vs1_source_intake_verdict": phase_vs1_source_intake.get("intake_verdict") if phase_vs1_source_intake_present else None,
         "phase_vs1_source_intake_scope": phase_vs1_source_intake_scope.get("scope"),
@@ -1747,7 +1776,7 @@ def build_manifest(
         "phase_vs1_global_generalization_claimed": phase_vs1_contract_loop.get("global_generalization_claimed", False) if phase_vs1_controlled_loop_contract_present else False,
         "phase_vs1_performance_optimization_claimed": phase_vs1_contract_loop.get("performance_optimization_claimed", False) if phase_vs1_controlled_loop_contract_present else False,
         "phase_vs1_scale_optimization_claimed": phase_vs1_contract_loop.get("scale_optimization_claimed", False) if phase_vs1_controlled_loop_contract_present else False,
-        "phase_vs1_next_transition": phase_vs1_next_surface_terminal.get("transition") if phase_vs1_next_surface_map_present else (phase_vs1_readiness_terminal.get("transition") if phase_vs1_readiness_audit_present else (phase_vs1_precondition_inventory_terminal.get("transition") if phase_vs1_precondition_inventory_present else (phase_vs1_contract_terminal.get("transition") if phase_vs1_controlled_loop_contract_present else None))),
+        "phase_vs1_next_transition": phase_vs1_closure_terminal.get("transition") if phase_vs1_closure_present else (phase_vs1_next_surface_terminal.get("transition") if phase_vs1_next_surface_map_present else (phase_vs1_readiness_terminal.get("transition") if phase_vs1_readiness_audit_present else (phase_vs1_precondition_inventory_terminal.get("transition") if phase_vs1_precondition_inventory_present else (phase_vs1_contract_terminal.get("transition") if phase_vs1_controlled_loop_contract_present else None)))),
         "phase_vs1_controlled_loop_precondition_inventory_id": phase_vs1_precondition_inventory.get("artifact_id") if phase_vs1_precondition_inventory_present else None,
         "phase_vs1_controlled_loop_precondition_inventory_verdict": phase_vs1_precondition_inventory.get("inventory_verdict") if phase_vs1_precondition_inventory_present else None,
         "phase_vs1_source_contract_commit_sha": phase_vs1_precondition_inventory_source_contract.get("commit_sha"),
@@ -1817,6 +1846,42 @@ def build_manifest(
         "phase_vs1_vs1_6_run": phase_vs1_next_surface_vs1_6.get("vs1_6_run", False) if phase_vs1_next_surface_map_present else False,
         "phase_vs1_phase_closure_claimed": phase_vs1_next_surface_forbidden.get("phase_closure_claimed", False) if phase_vs1_next_surface_map_present else False,
         "phase_vs1_post_vs1_phase_selected": phase_vs1_next_surface_forbidden.get("post_vs1_phase_selected", False) if phase_vs1_next_surface_map_present else False,
+        "phase_vs1_closure_id": phase_vs1_closure.get("artifact_id") if phase_vs1_closure_present else None,
+        "phase_vs1_closure_gate": phase_vs1_closure.get("closure_gate") if phase_vs1_closure_present else None,
+        "phase_vs1_phase_status": phase_vs1_closure.get("phase_status") if phase_vs1_closure_present else None,
+        "phase_vs1_closure_branch": phase_vs1_closure.get("closure_branch") if phase_vs1_closure_present else None,
+        "phase_vs1_closed": phase_vs1_closure_terminal.get("phase_vs1_closed", False) if phase_vs1_closure_present else False,
+        "phase_vs1_source_chain_complete": len(phase_vs1_closure.get("source_chain", {})) == 5 if phase_vs1_closure_present else False,
+        "phase_vs1_source_chain_vs1_1_commit_sha": phase_vs1_closure_source_chain.get("vs1_1_commit_sha"),
+        "phase_vs1_source_chain_vs1_2_commit_sha": phase_vs1_closure_source_chain.get("vs1_2_commit_sha"),
+        "phase_vs1_source_chain_vs1_3_commit_sha": phase_vs1_closure_source_chain.get("vs1_3_commit_sha"),
+        "phase_vs1_source_chain_vs1_4_commit_sha": phase_vs1_closure_source_chain.get("vs1_4_commit_sha"),
+        "phase_vs1_source_chain_vs1_5_commit_sha": phase_vs1_closure_source_chain.get("vs1_5_commit_sha"),
+        "phase_vs1_controlled_loop_ready": phase_vs1_closure_phase_result.get("controlled_loop_ready", False) if phase_vs1_closure_present else phase_vs1_readiness_aggregate.get("controlled_loop_ready", False),
+        "phase_vs1_typed_blockers_exposed": phase_vs1_closure_phase_result.get("typed_blockers_exposed", False) if phase_vs1_closure_present else False,
+        "phase_vs1_required_components_total": phase_vs1_closure_phase_result.get("required_components_total") if phase_vs1_closure_present else phase_vs1_precondition_inventory_counts.get("required_components_total"),
+        "phase_vs1_ready_component_count": phase_vs1_closure_blocker_summary.get("ready_component_count") if phase_vs1_closure_present else phase_vs1_readiness_aggregate.get("ready_component_count"),
+        "phase_vs1_missing_or_blocked_component_count": phase_vs1_closure_blocker_summary.get("missing_or_blocked_component_count") if phase_vs1_closure_present else phase_vs1_readiness_aggregate.get("missing_or_blocked_component_count"),
+        "phase_vs1_next_surfaces_mapped": phase_vs1_closure_phase_result.get("next_surfaces_mapped", False) if phase_vs1_closure_present else False,
+        "phase_vs1_source_blocker_count": phase_vs1_closure_next_surface.get("source_blocker_count") if phase_vs1_closure_present else (phase_vs1_next_surface_coverage.get("source_blocker_count") if phase_vs1_next_surface_map_present else None),
+        "phase_vs1_mapped_blocker_count": phase_vs1_closure_next_surface.get("mapped_blocker_count") if phase_vs1_closure_present else (phase_vs1_next_surface_coverage.get("mapped_blocker_count") if phase_vs1_next_surface_map_present else None),
+        "phase_vs1_unmapped_blocker_count": phase_vs1_closure_next_surface.get("unmapped_blocker_count") if phase_vs1_closure_present else (phase_vs1_next_surface_coverage.get("unmapped_blocker_count") if phase_vs1_next_surface_map_present else None),
+        "phase_vs1_surface_candidate_record_count": phase_vs1_closure_next_surface.get("surface_candidate_count") if phase_vs1_closure_present else (len(phase_vs1_next_surface_map.get("surface_candidates", [])) if phase_vs1_next_surface_map_present else None),
+        "phase_vs1_advisory_first_surface_from_vs1_5": phase_vs1_closure_next_surface.get("advisory_first_surface_from_vs1_5") if phase_vs1_closure_present else None,
+        "phase_vs1_ranking_recomputed_by_vs1_6": phase_vs1_closure_next_surface.get("ranking_recomputed_by_vs1_6", False) if phase_vs1_closure_present else False,
+        "phase_vs1_ranking_modified_by_vs1_6": phase_vs1_closure_next_surface.get("ranking_modified_by_vs1_6", False) if phase_vs1_closure_present else False,
+        "phase_vs1_post_vs1_decision_surface": phase_vs1_closure_post_vs1.get("surface") if phase_vs1_closure_present else None,
+        "phase_vs1_post_vs1_decision_surface_named": phase_vs1_closure_post_vs1.get("named_by_vs1_6", False) if phase_vs1_closure_present else False,
+        "phase_vs1_post_vs1_decision_artifact_created": phase_vs1_closure_post_vs1.get("decision_artifact_created_by_vs1_6", False) if phase_vs1_closure_present else False,
+        "phase_vs1_machine_may_select_next_phase": phase_vs1_closure_post_vs1.get("machine_may_select_next_phase", False) if phase_vs1_closure_present else False,
+        "phase_vs1_loop_execution_authorized": phase_vs1_closure_readiness.get("loop_execution_authorized", False) if phase_vs1_closure_present else (phase_vs1_next_surface_policy.get("loop_execution_authorized", False) if phase_vs1_next_surface_map_present else False),
+        "phase_vs1_runner_created": phase_vs1_closure_readiness.get("runner_created", False) if phase_vs1_closure_present else (phase_vs1_next_surface_policy.get("runner_created", False) if phase_vs1_next_surface_map_present else False),
+        "phase_vs1_micro_sweeps_authorized": phase_vs1_closure_readiness.get("micro_sweeps_authorized", False) if phase_vs1_closure_present else (phase_vs1_next_surface_forbidden.get("micro_sweeps_authorized", False) if phase_vs1_next_surface_map_present else False),
+        "phase_vs1_local_revision_authorized": phase_vs1_closure_readiness.get("local_revision_authorized", False) if phase_vs1_closure_present else (phase_vs1_next_surface_forbidden.get("local_revision_authorized", False) if phase_vs1_next_surface_map_present else False),
+        "phase_vs1_mapped_surface_selected": phase_vs1_closure.get("forbidden_claim_checks", {}).get("mapped_surface_selected", False) if phase_vs1_closure_present else False,
+        "phase_vs1_mapped_surface_built": phase_vs1_closure.get("forbidden_claim_checks", {}).get("mapped_surface_built", False) if phase_vs1_closure_present else False,
+        "phase_vs1_human_authority_consumed": phase_vs1_closure_readiness.get("human_authority_consumed", False) if phase_vs1_closure_present else False,
+        "phase_vs1_terminal_transition": phase_vs1_closure_terminal.get("transition") if phase_vs1_closure_present else None,
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,
