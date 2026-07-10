@@ -338,6 +338,13 @@ PHASE_VS0_CLOSURE_DOCS = [
     "docs/matrixlabs/phase_vs0/phase_vs0_closure_v0.md",
 ]
 PHASE_VS0_CLOSURE_SCRIPT = "scripts/close_phase_vs0_v0.py"
+POST_VS0_DIRECTION_DECISION_RECEIPT_DOCS = [
+    "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.json",
+    "docs/matrixlabs/phase_vs1/post_vs0_direction_decision_receipt_v0.md",
+]
+POST_VS0_DIRECTION_DECISION_RECEIPT_SCRIPT = (
+    "scripts/build_post_vs0_direction_decision_receipt_v0.py"
+)
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -424,6 +431,8 @@ SOURCE_DOCS = [
     PHASE_VS0_EVIDENCE_YIELD_REPORT_SCRIPT,
     *PHASE_VS0_CLOSURE_DOCS,
     PHASE_VS0_CLOSURE_SCRIPT,
+    *POST_VS0_DIRECTION_DECISION_RECEIPT_DOCS,
+    POST_VS0_DIRECTION_DECISION_RECEIPT_SCRIPT,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -1030,6 +1039,31 @@ def build_manifest(
     phase_vs0_closure_source_commits = phase_vs0_closure.get(
         "source_commits", {}
     )
+    post_vs0_direction_receipt_path = (
+        root / POST_VS0_DIRECTION_DECISION_RECEIPT_DOCS[0]
+    )
+    post_vs0_direction_receipt_present = (
+        post_vs0_direction_receipt_path.exists()
+    )
+    post_vs0_direction_receipt = (
+        json.loads(
+            post_vs0_direction_receipt_path.read_text(encoding="utf-8")
+        )
+        if post_vs0_direction_receipt_present
+        else {}
+    )
+    post_vs0_direction_decision = post_vs0_direction_receipt.get(
+        "decision", {}
+    )
+    post_vs0_direction_forbidden_scope = post_vs0_direction_receipt.get(
+        "forbidden_scope", {}
+    )
+    post_vs0_direction_source_closure = post_vs0_direction_receipt.get(
+        "source_closure", {}
+    )
+    post_vs0_direction_next_unit = post_vs0_direction_receipt.get(
+        "next_unit", {}
+    )
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -1482,6 +1516,19 @@ def build_manifest(
         "phase_vs0_evidence_yield_report_passed": phase_vs0_evidence_yield_report_passed,
         "phase_vs0_next_required_object": phase_vs0_closure_next_surface.get("surface_name") if phase_vs0_closure_passed else (phase_vs0_evidence_yield_report.get("next_required_object") if phase_vs0_evidence_yield_report_passed else (phase_vs0_negative_probe_battery.get("next_required_object") if phase_vs0_negative_probe_battery_passed else (phase_vs0_happy_path_verification.get("next_required_object") if phase_vs0_happy_path_verification_passed else ("phase_vs0_happy_path_verification_v0" if not phase_vs0_happy_path_verification_present and phase_vs0_happy_path_build_present else None)))),
         "phase_vs0_terminal_transition": phase_vs0_closure.get("terminal_transition") if phase_vs0_closure_present else (phase_vs0_evidence_yield_report.get("terminal_transition") if phase_vs0_evidence_yield_report_present else (phase_vs0_negative_probe_battery.get("terminal_transition") if phase_vs0_negative_probe_battery_present else (phase_vs0_happy_path_verification.get("terminal_transition") if phase_vs0_happy_path_verification_present else ("ADVANCE(VS0_3_HAPPY_PATH_CLOSURE_VERIFICATION_PENDING)" if phase_vs0_happy_path_build_present else ("ADVANCE(VS0_2_HAPPY_PATH_A_TO_F_ARTIFACT_BUILD_PENDING)" if phase_vs0_source_inventory_present else None))))),
+        "post_vs0_direction_decision_receipt_id": post_vs0_direction_receipt.get("decision_receipt_id") if post_vs0_direction_receipt_present else None,
+        "post_vs0_direction_decision_status": post_vs0_direction_receipt.get("receipt_gate") if post_vs0_direction_receipt_present else None,
+        "post_vs0_direction_decision": post_vs0_direction_decision.get("decision"),
+        "post_vs0_direction_allowed_scope": post_vs0_direction_decision.get("decision_scope"),
+        "post_vs0_direction_source_closure_commit_sha": post_vs0_direction_source_closure.get("source_closure_commit_sha"),
+        "post_vs0_direction_next_unit": post_vs0_direction_next_unit.get("next_unit_id"),
+        "post_vs0_direction_controlled_loop_execution_authorized": post_vs0_direction_forbidden_scope.get("controlled_loop_execution_authorized", False) if post_vs0_direction_receipt_present else False,
+        "post_vs0_direction_runner_creation_authorized": post_vs0_direction_forbidden_scope.get("runner_creation_authorized", False) if post_vs0_direction_receipt_present else False,
+        "post_vs0_direction_move_execution_authorized": post_vs0_direction_forbidden_scope.get("move_execution_authorized", False) if post_vs0_direction_receipt_present else False,
+        "post_vs0_direction_micro_sweeps_authorized": post_vs0_direction_forbidden_scope.get("micro_sweeps_authorized", False) if post_vs0_direction_receipt_present else False,
+        "post_vs0_direction_registry_activation_authorized": post_vs0_direction_forbidden_scope.get("registry_activation_authorized", False) if post_vs0_direction_receipt_present else False,
+        "post_vs0_direction_trace_generalization_authorized": post_vs0_direction_forbidden_scope.get("trace_generalization_authorized", False) if post_vs0_direction_receipt_present else False,
+        "post_vs0_direction_next_phase_selected_by_machine": post_vs0_direction_forbidden_scope.get("next_phase_selected_by_machine", False) if post_vs0_direction_receipt_present else False,
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,

@@ -1,7 +1,7 @@
 # Commit Context
 
-- Generated at UTC: `2026-07-09T15:57:20Z`
-- Current HEAD SHA: `1a1306a2c84ef747d1a5aa50e706048b5800fa04`
+- Generated at UTC: `2026-07-10T10:03:32Z`
+- Current HEAD SHA: `18324fd7d82da4a5f9210c1e30d94e8fe5ed783b`
 - Branch: `master`
 - Worktree state at generation time: `dirty`
 - Generator script: `scripts/build_baseline_share_v0.py`
@@ -9,6 +9,7 @@
 ## Recent 10 commits
 
 ```text
+18324fd7d Add Phase VS0.6 closure v0
 1a1306a2c Add Phase VS0.5 evidence yield report v0
 6f1fb9175 Add Phase VS0.4 negative shortcut probe battery v0
 daec73d1a Add Phase VS0.3 happy-path verification v0
@@ -18,7 +19,6 @@ daec73d1a Add Phase VS0.3 happy-path verification v0
 fb4a0ce16 Add C8 n22 registry candidate closure v0
 a7bffbe41 Add C8 n22 registry candidate admissibility audit v0
 84a816590 Add C8 n22 radius-bound prepare trace registry candidate v0
-5fe49bc46 Add compression trace registry entry schema contract v0
 ```
 
 ## Git status short
@@ -29,9 +29,8 @@ M baseline_share/COMMIT_CONTEXT.md
  M baseline_share/MANIFEST.json
  M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/phase_vs0/phase_vs0_closure_v0.json
-?? docs/matrixlabs/phase_vs0/phase_vs0_closure_v0.md
-?? scripts/close_phase_vs0_v0.py
+?? docs/matrixlabs/phase_vs1/
+?? scripts/build_post_vs0_direction_decision_receipt_v0.py
 ```
 
 ## Git status short excluding generated baseline_share
@@ -39,9 +38,8 @@ M baseline_share/COMMIT_CONTEXT.md
 ```text
  M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/phase_vs0/phase_vs0_closure_v0.json
-?? docs/matrixlabs/phase_vs0/phase_vs0_closure_v0.md
-?? scripts/close_phase_vs0_v0.py
+?? docs/matrixlabs/phase_vs1/
+?? scripts/build_post_vs0_direction_decision_receipt_v0.py
 ```
 
 ## Safety facts

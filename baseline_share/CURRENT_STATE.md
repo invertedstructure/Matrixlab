@@ -1,10 +1,10 @@
 # Current State
 
-Generated at UTC: `2026-07-09T15:57:20Z`
+Generated at UTC: `2026-07-10T10:03:32Z`
 
 ## Git context
 
-- Current HEAD SHA: `1a1306a2c84ef747d1a5aa50e706048b5800fa04`
+- Current HEAD SHA: `18324fd7d82da4a5f9210c1e30d94e8fe5ed783b`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
@@ -14,22 +14,20 @@ Generated at UTC: `2026-07-09T15:57:20Z`
 - ` M baseline_share/MANIFEST.json`
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/phase_vs0/phase_vs0_closure_v0.json`
-- `?? docs/matrixlabs/phase_vs0/phase_vs0_closure_v0.md`
-- `?? scripts/close_phase_vs0_v0.py`
+- `?? docs/matrixlabs/phase_vs1/`
+- `?? scripts/build_post_vs0_direction_decision_receipt_v0.py`
 - Git status excluding generated `baseline_share/`:
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/phase_vs0/phase_vs0_closure_v0.json`
-- `?? docs/matrixlabs/phase_vs0/phase_vs0_closure_v0.md`
-- `?? scripts/close_phase_vs0_v0.py`
+- `?? docs/matrixlabs/phase_vs1/`
+- `?? scripts/build_post_vs0_direction_decision_receipt_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `1a1306a2c84ef747d1a5aa50e706048b5800fa04`
-- Current C8 post-patch surface-decision acceptance commit: `1a1306a2c84ef747d1a5aa50e706048b5800fa04`
+- Current architecture extraction commit: `18324fd7d82da4a5f9210c1e30d94e8fe5ed783b`
+- Current C8 post-patch surface-decision acceptance commit: `18324fd7d82da4a5f9210c1e30d94e8fe5ed783b`
 
 ## High-level state
 
