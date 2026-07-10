@@ -1,10 +1,10 @@
 # Current State
 
-Generated at UTC: `2026-07-10T13:35:46Z`
+Generated at UTC: `2026-07-10T14:08:13Z`
 
 ## Git context
 
-- Current HEAD SHA: `d62db2d74f2ff42bf7f633b4e2169aed409a0703`
+- Current HEAD SHA: `741f28223d93b27d5a00fa06bb45a1739d66cb13`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
@@ -14,22 +14,22 @@ Generated at UTC: `2026-07-10T13:35:46Z`
 - ` M baseline_share/MANIFEST.json`
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json`
-- `?? docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.md`
-- `?? scripts/build_phase_vs1_controlled_loop_precondition_inventory_v0.py`
+- `?? docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json`
+- `?? docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.md`
+- `?? scripts/build_phase_vs1_controlled_loop_readiness_audit_v0.py`
 - Git status excluding generated `baseline_share/`:
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json`
-- `?? docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.md`
-- `?? scripts/build_phase_vs1_controlled_loop_precondition_inventory_v0.py`
+- `?? docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.json`
+- `?? docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_readiness_audit_v0.md`
+- `?? scripts/build_phase_vs1_controlled_loop_readiness_audit_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `d62db2d74f2ff42bf7f633b4e2169aed409a0703`
-- Current C8 post-patch surface-decision acceptance commit: `d62db2d74f2ff42bf7f633b4e2169aed409a0703`
+- Current architecture extraction commit: `741f28223d93b27d5a00fa06bb45a1739d66cb13`
+- Current C8 post-patch surface-decision acceptance commit: `741f28223d93b27d5a00fa06bb45a1739d66cb13`
 
 ## High-level state
 

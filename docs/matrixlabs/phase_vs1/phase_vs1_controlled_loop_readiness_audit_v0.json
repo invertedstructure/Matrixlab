@@ -1,0 +1,1033 @@
+{
+  "aggregate_readiness_verdict": {
+    "controlled_loop_ready": false,
+    "human_execution_authority_decision_requested_by_vs1_4": false,
+    "missing_or_blocked_component_count": 20,
+    "primary_verdict": "CONTROLLED_LOOP_NOT_READY_MIXED_BLOCKERS",
+    "ready_component_count": 0,
+    "ready_for_human_execution_authority_decision": false
+  },
+  "artifact_id": "phase_vs1_controlled_loop_readiness_audit_v0",
+  "blocker_class_summary": {
+    "AUDIT_BLOCKER": true,
+    "AUTHORITY_BLOCKER": true,
+    "CONTRACT_REVISION_BLOCKER": true,
+    "CONTROL_BLOCKER": true,
+    "CONVERGENCE_BLOCKER": true,
+    "GOVERNANCE_BLOCKER": true,
+    "OBSERVABILITY_BLOCKER": true,
+    "PORTABILITY_BLOCKER": true,
+    "PROMOTION_BLOCKER": false,
+    "REVISION_BLOCKER": true,
+    "SCHEMA_BLOCKER": true,
+    "SCOPE_REGIME_BLOCKER": true,
+    "SOURCE_TRUST_BLOCKER": true,
+    "STRUCTURAL_BLOCKER": true,
+    "class_counts": {
+      "AUDIT_BLOCKER": 4,
+      "AUTHORITY_BLOCKER": 6,
+      "CONTRACT_REVISION_BLOCKER": 20,
+      "CONTROL_BLOCKER": 3,
+      "CONVERGENCE_BLOCKER": 1,
+      "GOVERNANCE_BLOCKER": 2,
+      "OBSERVABILITY_BLOCKER": 3,
+      "PORTABILITY_BLOCKER": 1,
+      "PROMOTION_BLOCKER": 0,
+      "REVISION_BLOCKER": 1,
+      "SCHEMA_BLOCKER": 7,
+      "SCOPE_REGIME_BLOCKER": 1,
+      "SOURCE_TRUST_BLOCKER": 1,
+      "STRUCTURAL_BLOCKER": 4
+    }
+  },
+  "blocker_table": [
+    {
+      "blocker_classes": [
+        "SCOPE_REGIME_BLOCKER",
+        "SCHEMA_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C01_SCOPE_REGIME_DECLARATION_CONTRACT",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_SCOPE_REGIME_CONTRACT_NOT_READY",
+      "primary_readiness_status": "BLOCKED_MISSING",
+      "reason": "C01_SCOPE_REGIME_DECLARATION_CONTRACT derives BLOCKED_MISSING from VS1.3 status MISSING; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_SCHEMA_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "STRUCTURAL_BLOCKER",
+        "SCHEMA_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C02_TYPED_STATE_OBJECT_CONTRACT",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_STATE_OBJECT_NOT_READY",
+      "primary_readiness_status": "BLOCKED_MISSING",
+      "reason": "C02_TYPED_STATE_OBJECT_CONTRACT derives BLOCKED_MISSING from VS1.3 status MISSING; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_SCHEMA_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "STRUCTURAL_BLOCKER",
+        "AUTHORITY_BLOCKER",
+        "SCHEMA_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C03_EXPLICIT_MOVE_SPACE_CONTRACT",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_MOVE_SPACE_NOT_READY",
+      "primary_readiness_status": "BLOCKED_MISSING",
+      "reason": "C03_EXPLICIT_MOVE_SPACE_CONTRACT derives BLOCKED_MISSING from VS1.3 status MISSING; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_AUTHORITY_REQUIRED",
+        "BLOCKED_SCHEMA_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "STRUCTURAL_BLOCKER",
+        "SCHEMA_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C04_MOVE_SELECTOR_CONTRACT",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_MOVE_SELECTOR_NOT_READY",
+      "primary_readiness_status": "BLOCKED_MISSING",
+      "reason": "C04_MOVE_SELECTOR_CONTRACT derives BLOCKED_MISSING from VS1.3 status MISSING; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_SCHEMA_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "STRUCTURAL_BLOCKER",
+        "AUTHORITY_BLOCKER",
+        "SCHEMA_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C05_MOVE_APPLICATOR_CONTRACT",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_MOVE_APPLICATOR_NOT_READY",
+      "primary_readiness_status": "BLOCKED_MISSING",
+      "reason": "C05_MOVE_APPLICATOR_CONTRACT derives BLOCKED_MISSING from VS1.3 status MISSING; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_AUTHORITY_REQUIRED",
+        "BLOCKED_SCHEMA_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "AUTHORITY_BLOCKER",
+        "GOVERNANCE_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C06_AUTHORITY_POLICY",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_AUTHORITY_POLICY_NOT_READY",
+      "primary_readiness_status": "BLOCKED_PARTIAL",
+      "reason": "C06_AUTHORITY_POLICY derives BLOCKED_PARTIAL from VS1.3 status PRESENT_PARTIAL; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_AUTHORITY_REQUIRED",
+        "BLOCKED_HUMAN_DECISION_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "CONTROL_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C07_RADIUS_BUDGET_POLICY",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_RADIUS_POLICY_NOT_READY",
+      "primary_readiness_status": "BLOCKED_CANDIDATE_ONLY",
+      "reason": "C07_RADIUS_BUDGET_POLICY derives BLOCKED_CANDIDATE_ONLY from VS1.3 status PRESENT_CANDIDATE_ONLY; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "CONTROL_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C08_HALT_POLICY",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_HALT_POLICY_NOT_READY",
+      "primary_readiness_status": "BLOCKED_PARTIAL",
+      "reason": "C08_HALT_POLICY derives BLOCKED_PARTIAL from VS1.3 status PRESENT_PARTIAL; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "AUDIT_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C09_RECEIPT_OBLIGATION_CONTRACT",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_RECEIPT_CONTRACT_NOT_READY",
+      "primary_readiness_status": "BLOCKED_PARTIAL",
+      "reason": "C09_RECEIPT_OBLIGATION_CONTRACT derives BLOCKED_PARTIAL from VS1.3 status PRESENT_PARTIAL; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "AUDIT_BLOCKER",
+        "SOURCE_TRUST_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C10_SOURCE_IDENTITY_FRESHNESS_POLICY",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_SOURCE_POLICY_NOT_READY",
+      "primary_readiness_status": "BLOCKED_PARTIAL",
+      "reason": "C10_SOURCE_IDENTITY_FRESHNESS_POLICY derives BLOCKED_PARTIAL from VS1.3 status PRESENT_PARTIAL; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_SOURCE_STATUS_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "CONTROL_BLOCKER",
+        "AUTHORITY_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C11_MICRO_SWEEP_BOUNDS_CONTRACT",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_MICRO_SWEEP_BOUNDS_NOT_READY",
+      "primary_readiness_status": "BLOCKED_CANDIDATE_ONLY",
+      "reason": "C11_MICRO_SWEEP_BOUNDS_CONTRACT derives BLOCKED_CANDIDATE_ONLY from VS1.3 status PRESENT_CANDIDATE_ONLY; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_AUTHORITY_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "OBSERVABILITY_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C12_PRESSURE_READOUT_CONTRACT",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_PRESSURE_READOUT_NOT_READY",
+      "primary_readiness_status": "BLOCKED_PARTIAL",
+      "reason": "C12_PRESSURE_READOUT_CONTRACT derives BLOCKED_PARTIAL from VS1.3 status PRESENT_PARTIAL; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "OBSERVABILITY_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C13_PRESSURE_CLASSIFICATION_VOCABULARY",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_PRESSURE_CLASSIFIER_NOT_READY",
+      "primary_readiness_status": "BLOCKED_CANDIDATE_ONLY",
+      "reason": "C13_PRESSURE_CLASSIFICATION_VOCABULARY derives BLOCKED_CANDIDATE_ONLY from VS1.3 status PRESENT_CANDIDATE_ONLY; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "REVISION_BLOCKER",
+        "AUTHORITY_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C14_LOCAL_REVISION_SURFACE_CONTRACT",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_LOCAL_REVISION_SURFACE_NOT_READY",
+      "primary_readiness_status": "BLOCKED_CANDIDATE_ONLY",
+      "reason": "C14_LOCAL_REVISION_SURFACE_CONTRACT derives BLOCKED_CANDIDATE_ONLY from VS1.3 status PRESENT_CANDIDATE_ONLY; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_AUTHORITY_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "PORTABILITY_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C15_BOUNDED_PORTABILITY_MAP_CONTRACT",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_PORTABILITY_MAP_NOT_READY",
+      "primary_readiness_status": "BLOCKED_CANDIDATE_ONLY",
+      "reason": "C15_BOUNDED_PORTABILITY_MAP_CONTRACT derives BLOCKED_CANDIDATE_ONLY from VS1.3 status PRESENT_CANDIDATE_ONLY; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "AUDIT_BLOCKER",
+        "SCHEMA_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C16_REPLAY_AUDIT_CONTRACT",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_REPLAY_AUDIT_NOT_READY",
+      "primary_readiness_status": "BLOCKED_MISSING",
+      "reason": "C16_REPLAY_AUDIT_CONTRACT derives BLOCKED_MISSING from VS1.3 status MISSING; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_SCHEMA_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "AUDIT_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C17_FORBIDDEN_EFFECT_GUARD",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_FORBIDDEN_EFFECT_GUARD_NOT_READY",
+      "primary_readiness_status": "BLOCKED_BOUNDARY_ONLY",
+      "reason": "C17_FORBIDDEN_EFFECT_GUARD derives BLOCKED_BOUNDARY_ONLY from VS1.3 status PRESENT_BOUNDARY_ONLY; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "OBSERVABILITY_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C18_EVIDENCE_YIELD_REPORT_HOOK",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_EVIDENCE_YIELD_HOOK_NOT_READY",
+      "primary_readiness_status": "BLOCKED_PARTIAL",
+      "reason": "C18_EVIDENCE_YIELD_REPORT_HOOK derives BLOCKED_PARTIAL from VS1.3 status PRESENT_PARTIAL; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "GOVERNANCE_BLOCKER",
+        "AUTHORITY_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C19_HUMAN_ESCALATION_DECISION_BOUNDARY",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_HUMAN_ESCALATION_BOUNDARY_NOT_READY",
+      "primary_readiness_status": "BLOCKED_BOUNDARY_ONLY",
+      "reason": "C19_HUMAN_ESCALATION_DECISION_BOUNDARY derives BLOCKED_BOUNDARY_ONLY from VS1.3 status PRESENT_BOUNDARY_ONLY; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_AUTHORITY_REQUIRED",
+        "BLOCKED_HUMAN_DECISION_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    },
+    {
+      "blocker_classes": [
+        "CONVERGENCE_BLOCKER",
+        "SCHEMA_BLOCKER",
+        "CONTRACT_REVISION_BLOCKER"
+      ],
+      "component_key": "C20_CONVERGENCE_CRITERION_CONTRACT",
+      "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_CONVERGENCE_CRITERION_NOT_READY",
+      "primary_readiness_status": "BLOCKED_CANDIDATE_ONLY",
+      "reason": "C20_CONVERGENCE_CRITERION_CONTRACT derives BLOCKED_CANDIDATE_ONLY from VS1.3 status PRESENT_CANDIDATE_ONLY; secondary blockers are preserved without repair, promotion, or upgrade.",
+      "secondary_readiness_blockers": [
+        "BLOCKED_SCHEMA_REQUIRED",
+        "BLOCKED_CONTRACT_REVISION_REQUIRED"
+      ]
+    }
+  ],
+  "component_readiness_table": {
+    "C01_SCOPE_REGIME_DECLARATION_CONTRACT": "BLOCKED_MISSING",
+    "C02_TYPED_STATE_OBJECT_CONTRACT": "BLOCKED_MISSING",
+    "C03_EXPLICIT_MOVE_SPACE_CONTRACT": "BLOCKED_MISSING",
+    "C04_MOVE_SELECTOR_CONTRACT": "BLOCKED_MISSING",
+    "C05_MOVE_APPLICATOR_CONTRACT": "BLOCKED_MISSING",
+    "C06_AUTHORITY_POLICY": "BLOCKED_PARTIAL",
+    "C07_RADIUS_BUDGET_POLICY": "BLOCKED_CANDIDATE_ONLY",
+    "C08_HALT_POLICY": "BLOCKED_PARTIAL",
+    "C09_RECEIPT_OBLIGATION_CONTRACT": "BLOCKED_PARTIAL",
+    "C10_SOURCE_IDENTITY_FRESHNESS_POLICY": "BLOCKED_PARTIAL",
+    "C11_MICRO_SWEEP_BOUNDS_CONTRACT": "BLOCKED_CANDIDATE_ONLY",
+    "C12_PRESSURE_READOUT_CONTRACT": "BLOCKED_PARTIAL",
+    "C13_PRESSURE_CLASSIFICATION_VOCABULARY": "BLOCKED_CANDIDATE_ONLY",
+    "C14_LOCAL_REVISION_SURFACE_CONTRACT": "BLOCKED_CANDIDATE_ONLY",
+    "C15_BOUNDED_PORTABILITY_MAP_CONTRACT": "BLOCKED_CANDIDATE_ONLY",
+    "C16_REPLAY_AUDIT_CONTRACT": "BLOCKED_MISSING",
+    "C17_FORBIDDEN_EFFECT_GUARD": "BLOCKED_BOUNDARY_ONLY",
+    "C18_EVIDENCE_YIELD_REPORT_HOOK": "BLOCKED_PARTIAL",
+    "C19_HUMAN_ESCALATION_DECISION_BOUNDARY": "BLOCKED_BOUNDARY_ONLY",
+    "C20_CONVERGENCE_CRITERION_CONTRACT": "BLOCKED_CANDIDATE_ONLY"
+  },
+  "evidence_yield": {
+    "confirmation_yield_reason": "the strict readiness audit completed, derived component readiness from VS1.3 inventory, exposed typed blockers, and preserved non-execution boundaries",
+    "diagnostic_yield_present": true,
+    "diagnostic_yield_reason": "the MCCL is not ready and the blocking components/classes are typed",
+    "yield_branch": "CONFIRMATION_YIELD"
+  },
+  "execution_authority_status": {
+    "local_revision_authorized": false,
+    "loop_execution_authorized": false,
+    "micro_sweeps_authorized": false,
+    "registry_activation_authorized": false,
+    "runner_created": false,
+    "trace_generalization_authorized": false
+  },
+  "failures": [],
+  "forbidden_claim_checks": {
+    "candidate_promotion_attempted": false,
+    "component_build_attempted": false,
+    "execution_authority_claimed": false,
+    "global_generalization_claimed": false,
+    "local_revision_authorized": false,
+    "loop_execution_authorized": false,
+    "micro_sweeps_authorized": false,
+    "missing_precondition_map_created": false,
+    "next_surface_ranking_attempted": false,
+    "optimization_target_assumed": false,
+    "repair_attempted": false,
+    "runner_created": false
+  },
+  "non_claims": {
+    "active_registry_required_next": false,
+    "candidate_components_should_be_promoted": false,
+    "human_execution_authority_granted": false,
+    "human_execution_authority_requested": false,
+    "local_revision_authorized": false,
+    "loop_may_execute": false,
+    "micro_sweeps_authorized": false,
+    "missing_components_should_be_built": false,
+    "performance_optimization_begun": false,
+    "portability_demonstrated": false,
+    "runner_authority_exists": false,
+    "runner_exists": false,
+    "runner_readiness_exists": false,
+    "scale_optimization_begun": false,
+    "vs0_generalized": false,
+    "vs1_5_executed": false,
+    "which_missing_component_should_be_built_first": false
+  },
+  "phase_id": "PHASE_VS1",
+  "readiness_audit_gate": "VS1_4_CONTROLLED_LOOP_READINESS_AUDIT_PASS_NOT_READY_BLOCKERS_EXPOSED",
+  "readiness_audit_pass_semantics": {
+    "all_components_ready_required_for_ready_verdict": true,
+    "not_ready_can_pass": true,
+    "not_ready_is_phase_failure": false,
+    "ready_for_human_decision_is_not_execution_authority": true,
+    "unclear_not_ready_reason_is_failure": true
+  },
+  "readiness_derivation_policy": {
+    "blocker_flags_secondary_for_non_present_verified": true,
+    "derivation_source": "VS1.3 primary_inventory_status + blocker_flags",
+    "non_present_verified_may_not_be_upgraded": true,
+    "only_present_verified_can_be_downgraded_by_blocker_flags": true,
+    "primary_inventory_status_derived_first": true,
+    "secondary_blockers_preserved": true
+  },
+  "readiness_derivation_table": {
+    "component_derivations": [
+      {
+        "blocker_classes": [
+          "SCOPE_REGIME_BLOCKER",
+          "SCHEMA_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C01",
+        "component_key": "C01_SCOPE_REGIME_DECLARATION_CONTRACT",
+        "component_name": "SCOPE_REGIME_DECLARATION_CONTRACT",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_SCOPE_REGIME_CONTRACT_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_MISSING",
+        "readiness_reason": "C01_SCOPE_REGIME_DECLARATION_CONTRACT derives BLOCKED_MISSING from VS1.3 status MISSING; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_SCHEMA_REQUIRED",
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "SCHEMA_REQUIRED",
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "MISSING"
+      },
+      {
+        "blocker_classes": [
+          "STRUCTURAL_BLOCKER",
+          "SCHEMA_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C02",
+        "component_key": "C02_TYPED_STATE_OBJECT_CONTRACT",
+        "component_name": "TYPED_STATE_OBJECT_CONTRACT",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_STATE_OBJECT_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_MISSING",
+        "readiness_reason": "C02_TYPED_STATE_OBJECT_CONTRACT derives BLOCKED_MISSING from VS1.3 status MISSING; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_SCHEMA_REQUIRED",
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "SCHEMA_REQUIRED",
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "MISSING"
+      },
+      {
+        "blocker_classes": [
+          "STRUCTURAL_BLOCKER",
+          "AUTHORITY_BLOCKER",
+          "SCHEMA_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C03",
+        "component_key": "C03_EXPLICIT_MOVE_SPACE_CONTRACT",
+        "component_name": "EXPLICIT_MOVE_SPACE_CONTRACT",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_MOVE_SPACE_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_MISSING",
+        "readiness_reason": "C03_EXPLICIT_MOVE_SPACE_CONTRACT derives BLOCKED_MISSING from VS1.3 status MISSING; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_AUTHORITY_REQUIRED",
+          "BLOCKED_SCHEMA_REQUIRED",
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "AUTHORITY_REQUIRED",
+          "SCHEMA_REQUIRED",
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "MISSING"
+      },
+      {
+        "blocker_classes": [
+          "STRUCTURAL_BLOCKER",
+          "SCHEMA_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C04",
+        "component_key": "C04_MOVE_SELECTOR_CONTRACT",
+        "component_name": "MOVE_SELECTOR_CONTRACT",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_MOVE_SELECTOR_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_MISSING",
+        "readiness_reason": "C04_MOVE_SELECTOR_CONTRACT derives BLOCKED_MISSING from VS1.3 status MISSING; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_SCHEMA_REQUIRED",
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "SCHEMA_REQUIRED",
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "MISSING"
+      },
+      {
+        "blocker_classes": [
+          "STRUCTURAL_BLOCKER",
+          "AUTHORITY_BLOCKER",
+          "SCHEMA_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C05",
+        "component_key": "C05_MOVE_APPLICATOR_CONTRACT",
+        "component_name": "MOVE_APPLICATOR_CONTRACT",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_MOVE_APPLICATOR_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_MISSING",
+        "readiness_reason": "C05_MOVE_APPLICATOR_CONTRACT derives BLOCKED_MISSING from VS1.3 status MISSING; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_AUTHORITY_REQUIRED",
+          "BLOCKED_SCHEMA_REQUIRED",
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "AUTHORITY_REQUIRED",
+          "SCHEMA_REQUIRED",
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "MISSING"
+      },
+      {
+        "blocker_classes": [
+          "AUTHORITY_BLOCKER",
+          "GOVERNANCE_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C06",
+        "component_key": "C06_AUTHORITY_POLICY",
+        "component_name": "AUTHORITY_POLICY",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_AUTHORITY_POLICY_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_PARTIAL",
+        "readiness_reason": "C06_AUTHORITY_POLICY derives BLOCKED_PARTIAL from VS1.3 status PRESENT_PARTIAL; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_AUTHORITY_REQUIRED",
+          "BLOCKED_HUMAN_DECISION_REQUIRED",
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "AUTHORITY_REQUIRED",
+          "HUMAN_DECISION_REQUIRED",
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "PRESENT_PARTIAL"
+      },
+      {
+        "blocker_classes": [
+          "CONTROL_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C07",
+        "component_key": "C07_RADIUS_BUDGET_POLICY",
+        "component_name": "RADIUS_BUDGET_POLICY",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_RADIUS_POLICY_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_CANDIDATE_ONLY",
+        "readiness_reason": "C07_RADIUS_BUDGET_POLICY derives BLOCKED_CANDIDATE_ONLY from VS1.3 status PRESENT_CANDIDATE_ONLY; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "PRESENT_CANDIDATE_ONLY"
+      },
+      {
+        "blocker_classes": [
+          "CONTROL_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C08",
+        "component_key": "C08_HALT_POLICY",
+        "component_name": "HALT_POLICY",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_HALT_POLICY_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_PARTIAL",
+        "readiness_reason": "C08_HALT_POLICY derives BLOCKED_PARTIAL from VS1.3 status PRESENT_PARTIAL; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "PRESENT_PARTIAL"
+      },
+      {
+        "blocker_classes": [
+          "AUDIT_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C09",
+        "component_key": "C09_RECEIPT_OBLIGATION_CONTRACT",
+        "component_name": "RECEIPT_OBLIGATION_CONTRACT",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_RECEIPT_CONTRACT_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_PARTIAL",
+        "readiness_reason": "C09_RECEIPT_OBLIGATION_CONTRACT derives BLOCKED_PARTIAL from VS1.3 status PRESENT_PARTIAL; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "PRESENT_PARTIAL"
+      },
+      {
+        "blocker_classes": [
+          "AUDIT_BLOCKER",
+          "SOURCE_TRUST_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C10",
+        "component_key": "C10_SOURCE_IDENTITY_FRESHNESS_POLICY",
+        "component_name": "SOURCE_IDENTITY_FRESHNESS_POLICY",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_SOURCE_POLICY_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_PARTIAL",
+        "readiness_reason": "C10_SOURCE_IDENTITY_FRESHNESS_POLICY derives BLOCKED_PARTIAL from VS1.3 status PRESENT_PARTIAL; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_SOURCE_STATUS_REQUIRED",
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "SOURCE_STATUS_REQUIRED",
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "PRESENT_PARTIAL"
+      },
+      {
+        "blocker_classes": [
+          "CONTROL_BLOCKER",
+          "AUTHORITY_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C11",
+        "component_key": "C11_MICRO_SWEEP_BOUNDS_CONTRACT",
+        "component_name": "MICRO_SWEEP_BOUNDS_CONTRACT",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_MICRO_SWEEP_BOUNDS_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_CANDIDATE_ONLY",
+        "readiness_reason": "C11_MICRO_SWEEP_BOUNDS_CONTRACT derives BLOCKED_CANDIDATE_ONLY from VS1.3 status PRESENT_CANDIDATE_ONLY; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_AUTHORITY_REQUIRED",
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "AUTHORITY_REQUIRED",
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "PRESENT_CANDIDATE_ONLY"
+      },
+      {
+        "blocker_classes": [
+          "OBSERVABILITY_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C12",
+        "component_key": "C12_PRESSURE_READOUT_CONTRACT",
+        "component_name": "PRESSURE_READOUT_CONTRACT",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_PRESSURE_READOUT_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_PARTIAL",
+        "readiness_reason": "C12_PRESSURE_READOUT_CONTRACT derives BLOCKED_PARTIAL from VS1.3 status PRESENT_PARTIAL; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "PRESENT_PARTIAL"
+      },
+      {
+        "blocker_classes": [
+          "OBSERVABILITY_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C13",
+        "component_key": "C13_PRESSURE_CLASSIFICATION_VOCABULARY",
+        "component_name": "PRESSURE_CLASSIFICATION_VOCABULARY",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_PRESSURE_CLASSIFIER_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_CANDIDATE_ONLY",
+        "readiness_reason": "C13_PRESSURE_CLASSIFICATION_VOCABULARY derives BLOCKED_CANDIDATE_ONLY from VS1.3 status PRESENT_CANDIDATE_ONLY; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "PRESENT_CANDIDATE_ONLY"
+      },
+      {
+        "blocker_classes": [
+          "REVISION_BLOCKER",
+          "AUTHORITY_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C14",
+        "component_key": "C14_LOCAL_REVISION_SURFACE_CONTRACT",
+        "component_name": "LOCAL_REVISION_SURFACE_CONTRACT",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_LOCAL_REVISION_SURFACE_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_CANDIDATE_ONLY",
+        "readiness_reason": "C14_LOCAL_REVISION_SURFACE_CONTRACT derives BLOCKED_CANDIDATE_ONLY from VS1.3 status PRESENT_CANDIDATE_ONLY; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_AUTHORITY_REQUIRED",
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "AUTHORITY_REQUIRED",
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "PRESENT_CANDIDATE_ONLY"
+      },
+      {
+        "blocker_classes": [
+          "PORTABILITY_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C15",
+        "component_key": "C15_BOUNDED_PORTABILITY_MAP_CONTRACT",
+        "component_name": "BOUNDED_PORTABILITY_MAP_CONTRACT",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_PORTABILITY_MAP_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_CANDIDATE_ONLY",
+        "readiness_reason": "C15_BOUNDED_PORTABILITY_MAP_CONTRACT derives BLOCKED_CANDIDATE_ONLY from VS1.3 status PRESENT_CANDIDATE_ONLY; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "PRESENT_CANDIDATE_ONLY"
+      },
+      {
+        "blocker_classes": [
+          "AUDIT_BLOCKER",
+          "SCHEMA_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C16",
+        "component_key": "C16_REPLAY_AUDIT_CONTRACT",
+        "component_name": "REPLAY_AUDIT_CONTRACT",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_REPLAY_AUDIT_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_MISSING",
+        "readiness_reason": "C16_REPLAY_AUDIT_CONTRACT derives BLOCKED_MISSING from VS1.3 status MISSING; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_SCHEMA_REQUIRED",
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "SCHEMA_REQUIRED",
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "MISSING"
+      },
+      {
+        "blocker_classes": [
+          "AUDIT_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C17",
+        "component_key": "C17_FORBIDDEN_EFFECT_GUARD",
+        "component_name": "FORBIDDEN_EFFECT_GUARD",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_FORBIDDEN_EFFECT_GUARD_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_BOUNDARY_ONLY",
+        "readiness_reason": "C17_FORBIDDEN_EFFECT_GUARD derives BLOCKED_BOUNDARY_ONLY from VS1.3 status PRESENT_BOUNDARY_ONLY; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "PRESENT_BOUNDARY_ONLY"
+      },
+      {
+        "blocker_classes": [
+          "OBSERVABILITY_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C18",
+        "component_key": "C18_EVIDENCE_YIELD_REPORT_HOOK",
+        "component_name": "EVIDENCE_YIELD_REPORT_HOOK",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_EVIDENCE_YIELD_HOOK_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_PARTIAL",
+        "readiness_reason": "C18_EVIDENCE_YIELD_REPORT_HOOK derives BLOCKED_PARTIAL from VS1.3 status PRESENT_PARTIAL; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "PRESENT_PARTIAL"
+      },
+      {
+        "blocker_classes": [
+          "GOVERNANCE_BLOCKER",
+          "AUTHORITY_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C19",
+        "component_key": "C19_HUMAN_ESCALATION_DECISION_BOUNDARY",
+        "component_name": "HUMAN_ESCALATION_DECISION_BOUNDARY",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_HUMAN_ESCALATION_BOUNDARY_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_BOUNDARY_ONLY",
+        "readiness_reason": "C19_HUMAN_ESCALATION_DECISION_BOUNDARY derives BLOCKED_BOUNDARY_ONLY from VS1.3 status PRESENT_BOUNDARY_ONLY; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_AUTHORITY_REQUIRED",
+          "BLOCKED_HUMAN_DECISION_REQUIRED",
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "AUTHORITY_REQUIRED",
+          "HUMAN_DECISION_REQUIRED",
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "PRESENT_BOUNDARY_ONLY"
+      },
+      {
+        "blocker_classes": [
+          "CONVERGENCE_BLOCKER",
+          "SCHEMA_BLOCKER",
+          "CONTRACT_REVISION_BLOCKER"
+        ],
+        "component_id": "C20",
+        "component_key": "C20_CONVERGENCE_CRITERION_CONTRACT",
+        "component_name": "CONVERGENCE_CRITERION_CONTRACT",
+        "component_promoted_by_vs1_4": false,
+        "component_repaired_by_vs1_4": false,
+        "component_stop_if_blocked": "STOP_CONTROLLED_LOOP_CONVERGENCE_CRITERION_NOT_READY",
+        "component_upgraded_by_vs1_4": false,
+        "derived_from_vs1_3_inventory": true,
+        "may_feed_vs1_5_missing_precondition_map": true,
+        "primary_readiness_status": "BLOCKED_CANDIDATE_ONLY",
+        "readiness_reason": "C20_CONVERGENCE_CRITERION_CONTRACT derives BLOCKED_CANDIDATE_ONLY from VS1.3 status PRESENT_CANDIDATE_ONLY; secondary blockers are preserved without repair, promotion, or upgrade.",
+        "secondary_readiness_blockers": [
+          "BLOCKED_SCHEMA_REQUIRED",
+          "BLOCKED_CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_blocker_flags": [
+          "SCHEMA_REQUIRED",
+          "CONTRACT_REVISION_REQUIRED"
+        ],
+        "source_inventory_status": "PRESENT_CANDIDATE_ONLY"
+      }
+    ],
+    "derivation_source": "VS1.3 primary_inventory_status + blocker_flags"
+  },
+  "readiness_profile": {
+    "all_components_ready_required_for_ready_verdict": true,
+    "profile_id": "MCCL_STRICT_INITIAL_READINESS_PROFILE_V0",
+    "readiness_rule": "ALL_DECLARED_COMPONENTS_MUST_BE_READY",
+    "required_components_total": 20,
+    "weaker_profile_defined": false
+  },
+  "readiness_summary_counts": {
+    "blocked_authority_required": 0,
+    "blocked_boundary_only": 2,
+    "blocked_candidate_only": 6,
+    "blocked_contract_revision_required": 0,
+    "blocked_human_decision_required": 0,
+    "blocked_insufficient": 0,
+    "blocked_missing": 6,
+    "blocked_out_of_scope": 0,
+    "blocked_partial": 6,
+    "blocked_promotion_required": 0,
+    "blocked_schema_required": 0,
+    "blocked_source_status_required": 0,
+    "blocked_source_unverified": 0,
+    "missing_or_blocked_component_count": 20,
+    "ready": 0,
+    "ready_component_count": 0,
+    "required_components_total": 20
+  },
+  "readiness_target": {
+    "loop_name": "MINIMAL_CONTROLLED_CONVERGENCE_LOOP",
+    "ready_for_human_execution_authority_decision_is_execution_authority": false,
+    "short_name": "MCCL"
+  },
+  "schema_version": "matrixlabs_phase_vs1_controlled_loop_readiness_audit_v0",
+  "secondary_blocker_summary": {
+    "blocked_authority_required": 6,
+    "blocked_contract_revision_required": 20,
+    "blocked_human_decision_required": 2,
+    "blocked_promotion_required": 0,
+    "blocked_schema_required": 7,
+    "blocked_source_status_required": 1
+  },
+  "source_contract": {
+    "artifact_id": "phase_vs1_controlled_convergence_loop_contract_v0",
+    "path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_convergence_loop_contract_v0.json",
+    "source_role": "MCCL_CONTRACT_REFERENCE"
+  },
+  "source_inventory": {
+    "artifact_id": "phase_vs1_controlled_loop_precondition_inventory_v0",
+    "commit_sha": "741f28223d93b27d5a00fa06bb45a1739d66cb13",
+    "path": "docs/matrixlabs/phase_vs1/phase_vs1_controlled_loop_precondition_inventory_v0.json",
+    "required_status": "VS1_3_CONTROLLED_LOOP_PRECONDITION_INVENTORY_PASS",
+    "required_transition": "ADVANCE(VS1_4_CONTROLLED_LOOP_READINESS_AUDIT_PENDING)",
+    "sha256": "46d8415a505be7a7234c25fa5761c7aee1e5ebd6b4bc2da981c5fba511936b9c",
+    "source_role": "COMPONENT_STATUS_TABLE"
+  },
+  "source_preservation": {
+    "post_vs0_direction_decision_receipt_mutated_by_vs1_4": false,
+    "source_contract_mutated_by_vs1_4": false,
+    "source_inventory_mutated_by_vs1_4": false,
+    "vs0_source_artifacts_mutated_by_vs1_4": false,
+    "vs1_1_source_intake_mutated_by_vs1_4": false
+  },
+  "terminal_transition": {
+    "authorizes_component_build": false,
+    "authorizes_loop_execution": false,
+    "authorizes_ranking": false,
+    "authorizes_repair": false,
+    "executes_vs1_5": false,
+    "transition": "ADVANCE(VS1_5_MISSING_PRECONDITION_NEXT_SURFACE_MAP_PENDING)"
+  },
+  "unit_id": "VS1.4_CONTROLLED_LOOP_READINESS_AUDIT",
+  "unit_role": "READINESS_AUDIT_ONLY",
+  "vs1_5_boundary": {
+    "component_build_authorized": false,
+    "missing_precondition_next_surface_map_created": false,
+    "next_surfaces_ranked": false,
+    "repair_sequence_created": false,
+    "vs1_5_built": false,
+    "vs1_5_may_map_missing_preconditions_after_commit": true,
+    "vs1_5_run": false
+  }
+}
