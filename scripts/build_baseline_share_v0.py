@@ -345,6 +345,13 @@ POST_VS0_DIRECTION_DECISION_RECEIPT_DOCS = [
 POST_VS0_DIRECTION_DECISION_RECEIPT_SCRIPT = (
     "scripts/build_post_vs0_direction_decision_receipt_v0.py"
 )
+PHASE_VS1_SOURCE_INTAKE_DOCS = [
+    "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.json",
+    "docs/matrixlabs/phase_vs1/phase_vs1_post_vs0_source_intake_v0.md",
+]
+PHASE_VS1_SOURCE_INTAKE_SCRIPT = (
+    "scripts/build_phase_vs1_post_vs0_source_intake_v0.py"
+)
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -433,6 +440,8 @@ SOURCE_DOCS = [
     PHASE_VS0_CLOSURE_SCRIPT,
     *POST_VS0_DIRECTION_DECISION_RECEIPT_DOCS,
     POST_VS0_DIRECTION_DECISION_RECEIPT_SCRIPT,
+    *PHASE_VS1_SOURCE_INTAKE_DOCS,
+    PHASE_VS1_SOURCE_INTAKE_SCRIPT,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -1064,6 +1073,25 @@ def build_manifest(
     post_vs0_direction_next_unit = post_vs0_direction_receipt.get(
         "next_unit", {}
     )
+    phase_vs1_source_intake_path = root / PHASE_VS1_SOURCE_INTAKE_DOCS[0]
+    phase_vs1_source_intake_present = phase_vs1_source_intake_path.exists()
+    phase_vs1_source_intake = (
+        json.loads(phase_vs1_source_intake_path.read_text(encoding="utf-8"))
+        if phase_vs1_source_intake_present
+        else {}
+    )
+    phase_vs1_source_intake_authority = phase_vs1_source_intake.get(
+        "source_authority_basis", {}
+    )
+    phase_vs1_source_intake_vs0_6 = phase_vs1_source_intake.get(
+        "source_vs0_6_closure_binding", {}
+    )
+    phase_vs1_source_intake_scope = phase_vs1_source_intake.get(
+        "accepted_input_scope", {}
+    )
+    phase_vs1_source_intake_boundary = phase_vs1_source_intake.get(
+        "boundary_preservation_status", {}
+    )
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -1529,6 +1557,19 @@ def build_manifest(
         "post_vs0_direction_registry_activation_authorized": post_vs0_direction_forbidden_scope.get("registry_activation_authorized", False) if post_vs0_direction_receipt_present else False,
         "post_vs0_direction_trace_generalization_authorized": post_vs0_direction_forbidden_scope.get("trace_generalization_authorized", False) if post_vs0_direction_receipt_present else False,
         "post_vs0_direction_next_phase_selected_by_machine": post_vs0_direction_forbidden_scope.get("next_phase_selected_by_machine", False) if post_vs0_direction_receipt_present else False,
+        "phase_vs1_current_unit": phase_vs1_source_intake.get("unit_id") if phase_vs1_source_intake_present else None,
+        "phase_vs1_source_intake_id": phase_vs1_source_intake.get("artifact_id") if phase_vs1_source_intake_present else None,
+        "phase_vs1_source_intake_verdict": phase_vs1_source_intake.get("intake_verdict") if phase_vs1_source_intake_present else None,
+        "phase_vs1_source_intake_scope": phase_vs1_source_intake_scope.get("scope"),
+        "phase_vs1_source_intake_source_direction_receipt_commit_sha": phase_vs1_source_intake_authority.get("decision_artifact_commit_sha"),
+        "phase_vs1_source_intake_source_vs0_6_commit_sha": phase_vs1_source_intake_vs0_6.get("source_vs0_6_closure_commit_sha"),
+        "phase_vs1_source_intake_may_feed_vs1_2_contract_definition": phase_vs1_source_intake_scope.get("may_feed_vs1_2_contract_definition"),
+        "phase_vs1_source_intake_may_feed_loop_execution": phase_vs1_source_intake_scope.get("may_feed_loop_execution", False) if phase_vs1_source_intake_present else False,
+        "phase_vs1_source_intake_controlled_loop_execution_authorized": phase_vs1_source_intake_boundary.get("controlled_loop_execution_authorized", False) if phase_vs1_source_intake_present else False,
+        "phase_vs1_source_intake_runner_authority_created": phase_vs1_source_intake_boundary.get("runner_authority_created", False) if phase_vs1_source_intake_present else False,
+        "phase_vs1_source_intake_registry_activation_authorized": phase_vs1_source_intake_scope.get("may_feed_registry_activation", False) if phase_vs1_source_intake_present else False,
+        "phase_vs1_source_intake_trace_generalization_authorized": phase_vs1_source_intake_scope.get("may_feed_trace_generalization", False) if phase_vs1_source_intake_present else False,
+        "phase_vs1_source_intake_next_transition": phase_vs1_source_intake.get("terminal_transition") if phase_vs1_source_intake_present else None,
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,
