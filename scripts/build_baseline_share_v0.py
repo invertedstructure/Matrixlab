@@ -394,6 +394,13 @@ POST_VS1_DIRECTION_SURFACE_DOCS = [
 POST_VS1_DIRECTION_SURFACE_SCRIPT = (
     "scripts/build_post_vs1_direction_decision_surface_v0.py"
 )
+POST_VS1_DIRECTION_RECEIPT_DOCS = [
+    "docs/matrixlabs/post_vs1/post_vs1_direction_decision_receipt_v0.json",
+    "docs/matrixlabs/post_vs1/post_vs1_direction_decision_receipt_v0.md",
+]
+POST_VS1_DIRECTION_RECEIPT_SCRIPT = (
+    "scripts/build_post_vs1_direction_decision_receipt_v0.py"
+)
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -496,6 +503,8 @@ SOURCE_DOCS = [
     PHASE_VS1_CLOSURE_SCRIPT,
     *POST_VS1_DIRECTION_SURFACE_DOCS,
     POST_VS1_DIRECTION_SURFACE_SCRIPT,
+    *POST_VS1_DIRECTION_RECEIPT_DOCS,
+    POST_VS1_DIRECTION_RECEIPT_SCRIPT,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -1318,6 +1327,52 @@ def build_manifest(
     post_vs1_decision_state = post_vs1_direction_surface.get("decision_state", {})
     post_vs1_recommended = post_vs1_direction_surface.get("recommended_direction", {})
     post_vs1_terminal = post_vs1_direction_surface.get("terminal_transition", {})
+    post_vs1_direction_receipt_path = root / POST_VS1_DIRECTION_RECEIPT_DOCS[0]
+    post_vs1_direction_receipt_present = post_vs1_direction_receipt_path.exists()
+    post_vs1_direction_receipt = (
+        json.loads(post_vs1_direction_receipt_path.read_text(encoding="utf-8"))
+        if post_vs1_direction_receipt_present
+        else {}
+    )
+    post_vs1_receipt_selection = post_vs1_direction_receipt.get(
+        "decision_selection", {}
+    )
+    post_vs1_receipt_state = post_vs1_direction_receipt.get(
+        "decision_state_after_receipt", {}
+    )
+    post_vs1_receipt_source_binding = post_vs1_direction_receipt.get(
+        "source_surface_binding", {}
+    )
+    post_vs1_receipt_terminal = post_vs1_direction_receipt.get(
+        "terminal_transition", {}
+    )
+    post_vs1_receipt_binding = post_vs1_direction_receipt.get(
+        "decision_receipt_binding", {}
+    )
+    post_vs1_receipt_payload = post_vs1_receipt_binding.get(
+        "decision_receipt_payload", {}
+    )
+    post_vs1_receipt_hash = post_vs1_receipt_binding.get(
+        "decision_receipt_sha256"
+    )
+    post_vs1_receipt_recomputed_hash = (
+        hashlib.sha256(
+            json.dumps(
+                post_vs1_receipt_payload,
+                sort_keys=True,
+                separators=(",", ":"),
+                ensure_ascii=False,
+            ).encode("utf-8")
+        ).hexdigest()
+        if post_vs1_direction_receipt_present
+        else None
+    )
+    post_vs1_receipt_approved_scope = post_vs1_direction_receipt.get(
+        "approved_scope", {}
+    )
+    post_vs1_receipt_authority_effects = post_vs1_direction_receipt.get(
+        "authority_effects", {}
+    )
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -1921,10 +1976,22 @@ def build_manifest(
         "phase_vs1_mapped_surface_built": phase_vs1_closure.get("forbidden_claim_checks", {}).get("mapped_surface_built", False) if phase_vs1_closure_present else False,
         "phase_vs1_human_authority_consumed": phase_vs1_closure_readiness.get("human_authority_consumed", False) if phase_vs1_closure_present else False,
         "phase_vs1_terminal_transition": phase_vs1_closure_terminal.get("transition") if phase_vs1_closure_present else None,
-        "post_vs1_current_unit": post_vs1_direction_surface.get("object_id") if post_vs1_direction_surface_present else None,
+        "post_vs1_current_unit": post_vs1_direction_receipt.get("object_id") if post_vs1_direction_receipt_present else (post_vs1_direction_surface.get("object_id") if post_vs1_direction_surface_present else None),
         "post_vs1_surface_artifact_id": post_vs1_direction_surface.get("artifact_id") if post_vs1_direction_surface_present else None,
         "post_vs1_surface_gate": post_vs1_direction_surface.get("surface_gate") if post_vs1_direction_surface_present else None,
         "post_vs1_applicable_closure_branch": post_vs1_direction_surface.get("applicable_closure_branch") if post_vs1_direction_surface_present else None,
+        "post_vs1_direction_decision_receipt_artifact_id": post_vs1_direction_receipt.get("artifact_id") if post_vs1_direction_receipt_present else None,
+        "post_vs1_direction_decision_receipt_gate": post_vs1_direction_receipt.get("receipt_gate") if post_vs1_direction_receipt_present else None,
+        "post_vs1_source_surface_commit_sha": post_vs1_receipt_source_binding.get("source_surface_commit_sha") if post_vs1_direction_receipt_present else None,
+        "post_vs1_accepted_decision_package_sha256": post_vs1_receipt_selection.get("accepted_decision_package_sha256") if post_vs1_direction_receipt_present else None,
+        "post_vs1_accepted_option": post_vs1_receipt_selection.get("accepted_option") if post_vs1_direction_receipt_present else None,
+        "post_vs1_decision_mode": post_vs1_receipt_selection.get("decision_mode") if post_vs1_direction_receipt_present else None,
+        "post_vs1_approved_scope_eligible_for_authority_update": post_vs1_receipt_approved_scope.get("approved_scope_eligible_for_authority_update") if post_vs1_direction_receipt_present else False,
+        "post_vs1_approved_scope_applied_to_authority_state": post_vs1_receipt_approved_scope.get("approved_scope_applied_to_authority_state") if post_vs1_direction_receipt_present else False,
+        "post_vs1_pre_repair_decision_receipt_sha256": "de8a3130cd7f61096464b12bb3346ec82e6c81530a46b7ba38b67d79f36fe85d" if post_vs1_direction_receipt_present else None,
+        "post_vs1_decision_receipt_sha256": post_vs1_receipt_hash if post_vs1_direction_receipt_present else None,
+        "post_vs1_decision_receipt_hash_recomputes": (post_vs1_receipt_hash == post_vs1_receipt_recomputed_hash) if post_vs1_direction_receipt_present else False,
+        "post_vs1_decision_receipt_hash_changed_for_declared_serialization_repair": (post_vs1_receipt_hash != "de8a3130cd7f61096464b12bb3346ec82e6c81530a46b7ba38b67d79f36fe85d") if post_vs1_direction_receipt_present else False,
         "post_vs1_proposal_source_artifact_id": post_vs1_proposal_source.get("artifact_id") if post_vs1_proposal_source_present else None,
         "post_vs1_proposal_source_role": post_vs1_proposal_source.get("source_role") if post_vs1_proposal_source_present else None,
         "post_vs1_proposal_source_durability_status": post_vs1_proposal_source.get("source_durability_status") if post_vs1_proposal_source_present else None,
@@ -1942,24 +2009,34 @@ def build_manifest(
         "post_vs1_decision_options_count": len(post_vs1_direction_surface.get("decision_options", [])) if post_vs1_direction_surface_present else None,
         "post_vs1_default_option": post_vs1_defaults.get("default_option") if post_vs1_direction_surface_present else None,
         "post_vs1_preselected_option": post_vs1_defaults.get("preselected_option") if post_vs1_direction_surface_present else None,
-        "post_vs1_human_decision_required": post_vs1_decision_state.get("human_decision_required", False) if post_vs1_direction_surface_present else False,
-        "post_vs1_human_decision_recorded": post_vs1_decision_state.get("human_decision_recorded", False) if post_vs1_direction_surface_present else False,
-        "post_vs1_direction_selected": post_vs1_decision_state.get("direction_selected", False) if post_vs1_direction_surface_present else False,
-        "post_vs1_target_family_selected": post_vs1_decision_state.get("target_family_selected", False) if post_vs1_direction_surface_present else False,
-        "post_vs1_first_target_selected": post_vs1_decision_state.get("first_target_selected", False) if post_vs1_direction_surface_present else False,
-        "post_vs1_definition_scope_approved": post_vs1_decision_state.get("definition_scope_approved", False) if post_vs1_direction_surface_present else False,
-        "post_vs1_construction_scope_approved": post_vs1_decision_state.get("construction_scope_approved", False) if post_vs1_direction_surface_present else False,
-        "post_vs1_construction_verification_scope_approved": post_vs1_decision_state.get("construction_verification_scope_approved", False) if post_vs1_direction_surface_present else False,
-        "post_vs1_decision_receipt_created": post_vs1_decision_state.get("decision_receipt_created", False) if post_vs1_direction_surface_present else False,
-        "post_vs1_authority_update_applied": post_vs1_decision_state.get("authority_update_applied", False) if post_vs1_direction_surface_present else False,
-        "post_vs1_authority_transition_closed": post_vs1_decision_state.get("authority_transition_closed", False) if post_vs1_direction_surface_present else False,
-        "post_vs1_vs2_started": post_vs1_decision_state.get("vs2_started", False) if post_vs1_direction_surface_present else False,
-        "post_vs1_vs2_1_built": post_vs1_terminal.get("builds_vs2_1", False) if post_vs1_direction_surface_present else False,
-        "post_vs1_execution_authorized": post_vs1_decision_state.get("execution_authorized", False) if post_vs1_direction_surface_present else False,
-        "post_vs1_sweep_authorized": post_vs1_decision_state.get("sweep_authorized", False) if post_vs1_direction_surface_present else False,
-        "post_vs1_automatic_rerun_authorized": post_vs1_decision_state.get("automatic_rerun_authorized", False) if post_vs1_direction_surface_present else False,
-        "post_vs1_runner_authority_created": post_vs1_decision_state.get("runner_authority_created", False) if post_vs1_direction_surface_present else False,
-        "post_vs1_terminal_transition": post_vs1_terminal.get("transition") if post_vs1_direction_surface_present else None,
+        "post_vs1_human_decision_required": post_vs1_receipt_state.get("human_decision_required", False) if post_vs1_direction_receipt_present else (post_vs1_decision_state.get("human_decision_required", False) if post_vs1_direction_surface_present else False),
+        "post_vs1_human_decision_recorded": post_vs1_receipt_state.get("human_decision_recorded", False) if post_vs1_direction_receipt_present else (post_vs1_decision_state.get("human_decision_recorded", False) if post_vs1_direction_surface_present else False),
+        "post_vs1_decision_receipt_created": post_vs1_receipt_state.get("decision_receipt_created", False) if post_vs1_direction_receipt_present else (post_vs1_decision_state.get("decision_receipt_created", False) if post_vs1_direction_surface_present else False),
+        "post_vs1_direction_selected": post_vs1_receipt_state.get("direction_selected", False) if post_vs1_direction_receipt_present else (post_vs1_decision_state.get("direction_selected", False) if post_vs1_direction_surface_present else False),
+        "post_vs1_target_family_selected": post_vs1_receipt_state.get("target_family_selected", False) if post_vs1_direction_receipt_present else (post_vs1_decision_state.get("target_family_selected", False) if post_vs1_direction_surface_present else False),
+        "post_vs1_first_target_selected": post_vs1_receipt_state.get("first_target_selected", False) if post_vs1_direction_receipt_present else (post_vs1_decision_state.get("first_target_selected", False) if post_vs1_direction_surface_present else False),
+        "post_vs1_selected_direction": post_vs1_receipt_selection.get("direction_id") if post_vs1_direction_receipt_present else None,
+        "post_vs1_selected_target_family": post_vs1_receipt_selection.get("target_family") if post_vs1_direction_receipt_present else None,
+        "post_vs1_selected_first_target": post_vs1_receipt_selection.get("first_target") if post_vs1_direction_receipt_present else None,
+        "post_vs1_definition_scope_approved": post_vs1_receipt_state.get("definition_scope_approved", False) if post_vs1_direction_receipt_present else (post_vs1_decision_state.get("definition_scope_approved", False) if post_vs1_direction_surface_present else False),
+        "post_vs1_construction_scope_approved": post_vs1_receipt_state.get("construction_scope_approved", False) if post_vs1_direction_receipt_present else (post_vs1_decision_state.get("construction_scope_approved", False) if post_vs1_direction_surface_present else False),
+        "post_vs1_bounded_construction_scope_approved": post_vs1_receipt_state.get("bounded_construction_scope_approved", False) if post_vs1_direction_receipt_present else False,
+        "post_vs1_construction_verification_scope_approved": post_vs1_receipt_state.get("construction_verification_scope_approved", False) if post_vs1_direction_receipt_present else (post_vs1_decision_state.get("construction_verification_scope_approved", False) if post_vs1_direction_surface_present else False),
+        "post_vs1_accepted_with_revisions": post_vs1_receipt_selection.get("accepted_with_revisions", False) if post_vs1_direction_receipt_present else False,
+        "post_vs1_revision_count": post_vs1_receipt_selection.get("revision_count", 0) if post_vs1_direction_receipt_present else 0,
+        "post_vs1_second_target_scope_approved": post_vs1_receipt_state.get("second_target_selected", False) if post_vs1_direction_receipt_present else False,
+        "post_vs1_portability_scope_approved": post_vs1_receipt_state.get("portability_scope_selected", False) if post_vs1_direction_receipt_present else False,
+        "post_vs1_authority_update_applied": post_vs1_receipt_state.get("authority_update_applied", False) if post_vs1_direction_receipt_present else (post_vs1_decision_state.get("authority_update_applied", False) if post_vs1_direction_surface_present else False),
+        "post_vs1_authority_transition_closed": post_vs1_receipt_state.get("authority_transition_closed", False) if post_vs1_direction_receipt_present else (post_vs1_decision_state.get("authority_transition_closed", False) if post_vs1_direction_surface_present else False),
+        "post_vs1_vs2_authority_granted": post_vs1_receipt_state.get("vs2_authority_granted", False) if post_vs1_direction_receipt_present else False,
+        "post_vs1_vs2_started": post_vs1_receipt_state.get("vs2_started", False) if post_vs1_direction_receipt_present else (post_vs1_decision_state.get("vs2_started", False) if post_vs1_direction_surface_present else False),
+        "post_vs1_vs2_1_built": post_vs1_receipt_state.get("vs2_1_built", False) if post_vs1_direction_receipt_present else (post_vs1_terminal.get("builds_vs2_1", False) if post_vs1_direction_surface_present else False),
+        "post_vs1_execution_authorized": post_vs1_receipt_state.get("execution_authorized", False) if post_vs1_direction_receipt_present else (post_vs1_decision_state.get("execution_authorized", False) if post_vs1_direction_surface_present else False),
+        "post_vs1_sweep_authorized": post_vs1_receipt_state.get("sweep_authorized", False) if post_vs1_direction_receipt_present else (post_vs1_decision_state.get("sweep_authorized", False) if post_vs1_direction_surface_present else False),
+        "post_vs1_automatic_rerun_authorized": post_vs1_receipt_state.get("automatic_rerun_authorized", False) if post_vs1_direction_receipt_present else (post_vs1_decision_state.get("automatic_rerun_authorized", False) if post_vs1_direction_surface_present else False),
+        "post_vs1_runner_authority_created": post_vs1_receipt_state.get("runner_authority_created", False) if post_vs1_direction_receipt_present else (post_vs1_decision_state.get("runner_authority_created", False) if post_vs1_direction_surface_present else False),
+        "post_vs1_next_unit": "POST_VS1_DIRECTION_AUTHORITY_UPDATE_V0_PENDING" if post_vs1_direction_receipt_present else None,
+        "post_vs1_terminal_transition": post_vs1_receipt_terminal.get("transition") if post_vs1_direction_receipt_present else (post_vs1_terminal.get("transition") if post_vs1_direction_surface_present else None),
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,

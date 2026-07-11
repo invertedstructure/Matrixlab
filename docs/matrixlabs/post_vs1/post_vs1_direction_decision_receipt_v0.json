@@ -1,0 +1,679 @@
+{
+  "schema_version": "matrixlabs_post_vs1_direction_decision_receipt_v0",
+  "artifact_id": "post_vs1_direction_decision_receipt_v0",
+  "object_id": "POST_VS1_DIRECTION_DECISION_RECEIPT",
+  "object_role": "HUMAN_DIRECTION_DECISION_RECEIPT_ONLY",
+  "receipt_status": "HUMAN_ACCEPTANCE_RECORDED_PENDING_AUTHORITY_UPDATE",
+  "source_surface_binding": {
+    "source_surface_artifact_id": "post_vs1_direction_decision_surface_v0",
+    "source_surface_path": "docs/matrixlabs/post_vs1/post_vs1_direction_decision_surface_v0.json",
+    "source_surface_commit_sha": "975d05dfda23a632c91faeaae66abbfcf4e85da6",
+    "source_surface_content_sha256": "7ffae36f8918dc3fdaec09f53f8527cd54a33a2650b3ed723d2e64996652c33f",
+    "source_surface_gate": "POST_VS1_DIRECTION_DECISION_SURFACE_PASS_READY_FOR_HUMAN_DECISION",
+    "source_surface_terminal_transition": "STOP_POST_VS1_DIRECTION_SURFACE_READY_PENDING_HUMAN_DECISION",
+    "source_decision_package_sha256": "e9e4143ad2efdd285fe9e598e50d965d82057f7a8d6ccc4c52478a596d6b788b",
+    "source_surface_human_decision_recorded": false,
+    "source_surface_decision_receipt_created": false,
+    "source_surface_authority_update_applied": false,
+    "source_surface_status": "PREPARED_PENDING_HUMAN_DECISION"
+  },
+  "source_decision_package_binding": {
+    "canonicalization": "MATRIXLAB_CANONICAL_JSON_V0",
+    "canonicalization_contract": "MATRIXLAB_CANONICAL_JSON_V0",
+    "bound_sections": [
+      "proposal_source_binding",
+      "proposal_overbreadth_normalization",
+      "proposal_bundle",
+      "proposal_bundle_membership_contract",
+      "proposal_bundle_traceability",
+      "vs1_5_advisory_alignment",
+      "decision_question",
+      "recommended_direction",
+      "decision_options",
+      "decision_option_payload_contracts",
+      "proposed_approval_scope",
+      "excluded_authority_scope",
+      "alternative_scope_non_inheritance",
+      "downstream_branch_map"
+    ],
+    "bound_section_count": 14,
+    "bound_sections_match_payload_keys": true,
+    "decision_package_sha256": "e9e4143ad2efdd285fe9e598e50d965d82057f7a8d6ccc4c52478a596d6b788b",
+    "decision_package_hash_recomputes": true
+  },
+  "human_decision_evidence": {
+    "decision_actor_class": "HUMAN_OPERATOR",
+    "decision_actor_identity": "HUMAN_OPERATOR_CURRENT_MATRIXLAB_SESSION",
+    "decision_source_kind": "EXPLICIT_INTERACTIVE_USER_INSTRUCTION",
+    "decision_statement_exact": "accepted, proceed",
+    "decision_statement_normalized": "ACCEPT_FIRST_SWEEP_CAPABLE_KERNEL_DIRECTION_AND_PROPOSED_SCOPE",
+    "decision_interpretation": "ACCEPT_EXACT_PROPOSED_SCOPE",
+    "decision_date_local": "2026-07-11",
+    "decision_timezone": "Europe/Lisbon",
+    "decision_time_precision": "DATE_AND_SESSION_SEQUENCE_ONLY",
+    "decision_sequence_anchor": "AFTER_COMMIT_975D05DFDA23A632C91FAEAAE66ABBFCF4E85DA6",
+    "decision_statement_sha256": "553f3bee1a1bd94cce6d500aeecf5412ec1ffc7f1bf0f09b616f2a7e47070fcf",
+    "acceptance_has_declared_revisions": false,
+    "acceptance_selects_recommended_option": true,
+    "acceptance_uses_exact_bound_package": true,
+    "acceptance_requires_new_package_hash": false,
+    "acceptance_is_default_or_timeout_derived": false,
+    "human_decision_explicit": true
+  },
+  "decision_selection": {
+    "decision_branch": "ACCEPT_EXACT_PROPOSED_SCOPE",
+    "decision_mode": "ACCEPT_EXACT_PROPOSED_SCOPE",
+    "accepted_option": "ACCEPT_FIRST_SWEEP_CAPABLE_KERNEL_DIRECTION_AND_PROPOSED_SCOPE",
+    "direction_id": "FIRST_SWEEP_CAPABLE_KERNEL_V0",
+    "target_family": "BOUNDED_CONTRACT_CONVERGENCE",
+    "first_target": "TYPED_STATE_CONTRACT_CONVERGENCE_V0",
+    "bundle_id": "POST_VS1_FIRST_SWEEP_CAPABLE_KERNEL_BUNDLE_V0",
+    "accepted_decision_package_sha256": "e9e4143ad2efdd285fe9e598e50d965d82057f7a8d6ccc4c52478a596d6b788b",
+    "accepted_with_revisions": false,
+    "revision_count": 0,
+    "revisions": [],
+    "second_target_selected": false,
+    "portability_scope_selected": false,
+    "option_a_requires_explicit_scope_vector": true,
+    "option_token_alone_is_not_a_complete_decision_receipt": true
+  },
+  "approval_vector": {
+    "direction_selected": true,
+    "target_family_selected": true,
+    "first_target_selected": true,
+    "definition_scope_approved": true,
+    "bounded_construction_scope_approved": true,
+    "construction_verification_scope_approved": true,
+    "execution_scope_approved": false,
+    "positive_path_execution_scope_approved": false,
+    "negative_path_execution_scope_approved": false,
+    "sweep_scope_approved": false,
+    "automatic_rerun_scope_approved": false,
+    "runner_scope_approved": false,
+    "reusable_schema_scope_approved": false,
+    "reusable_move_scope_approved": false,
+    "second_target_scope_approved": false,
+    "portability_scope_approved": false
+  },
+  "approved_scope": {
+    "direction_selection_scope": [
+      "select FIRST_SWEEP_CAPABLE_KERNEL_V0",
+      "select BOUNDED_CONTRACT_CONVERGENCE",
+      "select TYPED_STATE_CONTRACT_CONVERGENCE_V0"
+    ],
+    "definition_scope": [
+      "define First Sweep-Capable Kernel profile",
+      "freeze one target family",
+      "freeze one first target",
+      "define target scope and regime",
+      "define runtime control-state contract",
+      "define candidate contract",
+      "define frozen target contract",
+      "define finite move-space",
+      "define selector contract",
+      "define applicator contract",
+      "define validation and admissibility boundaries",
+      "define source identity and freshness policy",
+      "define authority policy",
+      "define radius, budget, and halt policy",
+      "define convergence criterion",
+      "define move-receipt contract",
+      "define run-report and Evidence Yield contract",
+      "define forbidden-effect guard",
+      "define human escalation boundary"
+    ],
+    "bounded_construction_scope": [
+      "construct declared contract and schema artifacts",
+      "construct one bounded fixture set",
+      "construct positive-path fixtures",
+      "construct negative-path fixtures",
+      "construct bounded perturbation fixtures",
+      "construct first-run readiness-gate artifacts",
+      "construct replay and audit evidence surfaces",
+      "construct run-package manifest and source bindings"
+    ],
+    "construction_verification_scope": [
+      "verify required construction artifacts are present",
+      "verify hashes and source bindings",
+      "verify fixture identities",
+      "verify move-space finiteness",
+      "verify selector and applicator contracts",
+      "verify budgets and halts",
+      "verify forbidden effects remain false",
+      "verify execution entrypoint remains disabled or unauthorized",
+      "verify package eligibility for a later execution-authority decision"
+    ],
+    "maximum_scope": [
+      "target-bound",
+      "phase-bound",
+      "bundle-bound",
+      "definition-bound",
+      "construction-bound",
+      "construction-verification-bound",
+      "non-execution",
+      "non-reusable",
+      "non-generalizing",
+      "single-target",
+      "non-portability"
+    ],
+    "approved_scope_eligible_for_authority_update": true,
+    "approved_scope_applied_to_authority_state": false
+  },
+  "excluded_authority_scope": {
+    "excluded_authorities": [
+      "kernel execution",
+      "positive-path execution",
+      "negative-path execution",
+      "perturbation sweep execution",
+      "automatic rerun",
+      "automatic radius renewal",
+      "radius expansion",
+      "move-budget expansion",
+      "case-budget expansion",
+      "target-family expansion",
+      "second-target selection",
+      "first-target substitution",
+      "portability testing",
+      "automatic source acquisition",
+      "automatic schema invention",
+      "automatic capability creation",
+      "automatic authority escalation",
+      "automatic repair",
+      "automatic local revision",
+      "refinement application",
+      "candidate promotion",
+      "reusable schema approval",
+      "reusable move-space approval",
+      "active registry creation",
+      "runner authority",
+      "autonomous continuation",
+      "cross-domain generalization",
+      "performance optimization",
+      "scale optimization"
+    ],
+    "execution_authority_included": false
+  },
+  "revision_state": {
+    "accepted_with_revisions": false,
+    "revision_count": 0,
+    "revisions": [],
+    "acceptance_has_declared_revisions": false,
+    "acceptance_requires_new_package_hash": false
+  },
+  "decision_state_after_receipt": {
+    "human_decision_required": true,
+    "human_decision_recorded": true,
+    "decision_receipt_created": true,
+    "direction_selected": true,
+    "target_family_selected": true,
+    "first_target_selected": true,
+    "definition_scope_approved": true,
+    "bounded_construction_scope_approved": true,
+    "construction_scope_approved": true,
+    "construction_verification_scope_approved": true,
+    "accepted_exact_package": true,
+    "accepted_with_revisions": false,
+    "authority_state_mutated": false,
+    "authority_update_applied": false,
+    "authority_transition_closed": false,
+    "vs2_authority_granted": false,
+    "vs2_profile_and_target_freeze_authority_granted": false,
+    "vs2_bounded_construction_authority_granted": false,
+    "fixture_construction_authority_granted": false,
+    "readiness_gate_construction_authority_granted": false,
+    "construction_package_verification_authority_granted": false,
+    "vs2_started": false,
+    "vs2_1_built": false,
+    "execution_authorized": false,
+    "positive_path_execution_authorized": false,
+    "negative_path_execution_authorized": false,
+    "sweep_authorized": false,
+    "automatic_rerun_authorized": false,
+    "runner_authority_created": false,
+    "second_target_selected": false,
+    "portability_scope_selected": false
+  },
+  "authority_effects": {
+    "decision_receipt_mutates_authority": false,
+    "decision_receipt_grants_authority": false,
+    "decision_receipt_consumes_construction_authority": false,
+    "decision_receipt_consumes_execution_authority": false,
+    "approved_scope_eligible_for_authority_update": true,
+    "approved_scope_applied_to_authority_state": false,
+    "authority_update_required": true,
+    "authority_update_created_by_this_unit": false,
+    "transition_closure_required_after_authority_update": true,
+    "transition_closure_created_by_this_unit": false
+  },
+  "downstream_authority_update_requirement": {
+    "required": true,
+    "next_unit": "POST_VS1_DIRECTION_AUTHORITY_UPDATE_V0_PENDING",
+    "authority_update_created_by_this_unit": false,
+    "authority_update_must_bind_decision_receipt_sha256": true
+  },
+  "downstream_transition_closure_requirement": {
+    "required_after_authority_update": true,
+    "transition_closure_created_by_this_unit": false,
+    "transition_closure_must_bind_authority_update": true
+  },
+  "decision_receipt_binding": {
+    "canonicalization": "MATRIXLAB_CANONICAL_JSON_V0",
+    "canonicalization_contract": "MATRIXLAB_CANONICAL_JSON_V0",
+    "bound_sections": [
+      "source_surface_binding",
+      "source_decision_package_binding",
+      "human_decision_evidence",
+      "decision_selection",
+      "approval_vector",
+      "approved_scope",
+      "excluded_authority_scope",
+      "revision_state",
+      "decision_state_after_receipt",
+      "authority_effects",
+      "downstream_authority_update_requirement",
+      "downstream_transition_closure_requirement"
+    ],
+    "decision_receipt_payload": {
+      "source_surface_binding": {
+        "source_surface_artifact_id": "post_vs1_direction_decision_surface_v0",
+        "source_surface_path": "docs/matrixlabs/post_vs1/post_vs1_direction_decision_surface_v0.json",
+        "source_surface_commit_sha": "975d05dfda23a632c91faeaae66abbfcf4e85da6",
+        "source_surface_content_sha256": "7ffae36f8918dc3fdaec09f53f8527cd54a33a2650b3ed723d2e64996652c33f",
+        "source_surface_gate": "POST_VS1_DIRECTION_DECISION_SURFACE_PASS_READY_FOR_HUMAN_DECISION",
+        "source_surface_terminal_transition": "STOP_POST_VS1_DIRECTION_SURFACE_READY_PENDING_HUMAN_DECISION",
+        "source_decision_package_sha256": "e9e4143ad2efdd285fe9e598e50d965d82057f7a8d6ccc4c52478a596d6b788b",
+        "source_surface_human_decision_recorded": false,
+        "source_surface_decision_receipt_created": false,
+        "source_surface_authority_update_applied": false,
+        "source_surface_status": "PREPARED_PENDING_HUMAN_DECISION"
+      },
+      "source_decision_package_binding": {
+        "canonicalization": "MATRIXLAB_CANONICAL_JSON_V0",
+        "canonicalization_contract": "MATRIXLAB_CANONICAL_JSON_V0",
+        "bound_sections": [
+          "proposal_source_binding",
+          "proposal_overbreadth_normalization",
+          "proposal_bundle",
+          "proposal_bundle_membership_contract",
+          "proposal_bundle_traceability",
+          "vs1_5_advisory_alignment",
+          "decision_question",
+          "recommended_direction",
+          "decision_options",
+          "decision_option_payload_contracts",
+          "proposed_approval_scope",
+          "excluded_authority_scope",
+          "alternative_scope_non_inheritance",
+          "downstream_branch_map"
+        ],
+        "bound_section_count": 14,
+        "bound_sections_match_payload_keys": true,
+        "decision_package_sha256": "e9e4143ad2efdd285fe9e598e50d965d82057f7a8d6ccc4c52478a596d6b788b",
+        "decision_package_hash_recomputes": true
+      },
+      "human_decision_evidence": {
+        "decision_actor_class": "HUMAN_OPERATOR",
+        "decision_actor_identity": "HUMAN_OPERATOR_CURRENT_MATRIXLAB_SESSION",
+        "decision_source_kind": "EXPLICIT_INTERACTIVE_USER_INSTRUCTION",
+        "decision_statement_exact": "accepted, proceed",
+        "decision_statement_normalized": "ACCEPT_FIRST_SWEEP_CAPABLE_KERNEL_DIRECTION_AND_PROPOSED_SCOPE",
+        "decision_interpretation": "ACCEPT_EXACT_PROPOSED_SCOPE",
+        "decision_date_local": "2026-07-11",
+        "decision_timezone": "Europe/Lisbon",
+        "decision_time_precision": "DATE_AND_SESSION_SEQUENCE_ONLY",
+        "decision_sequence_anchor": "AFTER_COMMIT_975D05DFDA23A632C91FAEAAE66ABBFCF4E85DA6",
+        "decision_statement_sha256": "553f3bee1a1bd94cce6d500aeecf5412ec1ffc7f1bf0f09b616f2a7e47070fcf",
+        "acceptance_has_declared_revisions": false,
+        "acceptance_selects_recommended_option": true,
+        "acceptance_uses_exact_bound_package": true,
+        "acceptance_requires_new_package_hash": false,
+        "acceptance_is_default_or_timeout_derived": false,
+        "human_decision_explicit": true
+      },
+      "decision_selection": {
+        "decision_branch": "ACCEPT_EXACT_PROPOSED_SCOPE",
+        "decision_mode": "ACCEPT_EXACT_PROPOSED_SCOPE",
+        "accepted_option": "ACCEPT_FIRST_SWEEP_CAPABLE_KERNEL_DIRECTION_AND_PROPOSED_SCOPE",
+        "direction_id": "FIRST_SWEEP_CAPABLE_KERNEL_V0",
+        "target_family": "BOUNDED_CONTRACT_CONVERGENCE",
+        "first_target": "TYPED_STATE_CONTRACT_CONVERGENCE_V0",
+        "bundle_id": "POST_VS1_FIRST_SWEEP_CAPABLE_KERNEL_BUNDLE_V0",
+        "accepted_decision_package_sha256": "e9e4143ad2efdd285fe9e598e50d965d82057f7a8d6ccc4c52478a596d6b788b",
+        "accepted_with_revisions": false,
+        "revision_count": 0,
+        "revisions": [],
+        "second_target_selected": false,
+        "portability_scope_selected": false,
+        "option_a_requires_explicit_scope_vector": true,
+        "option_token_alone_is_not_a_complete_decision_receipt": true
+      },
+      "approval_vector": {
+        "direction_selected": true,
+        "target_family_selected": true,
+        "first_target_selected": true,
+        "definition_scope_approved": true,
+        "bounded_construction_scope_approved": true,
+        "construction_verification_scope_approved": true,
+        "execution_scope_approved": false,
+        "positive_path_execution_scope_approved": false,
+        "negative_path_execution_scope_approved": false,
+        "sweep_scope_approved": false,
+        "automatic_rerun_scope_approved": false,
+        "runner_scope_approved": false,
+        "reusable_schema_scope_approved": false,
+        "reusable_move_scope_approved": false,
+        "second_target_scope_approved": false,
+        "portability_scope_approved": false
+      },
+      "approved_scope": {
+        "direction_selection_scope": [
+          "select FIRST_SWEEP_CAPABLE_KERNEL_V0",
+          "select BOUNDED_CONTRACT_CONVERGENCE",
+          "select TYPED_STATE_CONTRACT_CONVERGENCE_V0"
+        ],
+        "definition_scope": [
+          "define First Sweep-Capable Kernel profile",
+          "freeze one target family",
+          "freeze one first target",
+          "define target scope and regime",
+          "define runtime control-state contract",
+          "define candidate contract",
+          "define frozen target contract",
+          "define finite move-space",
+          "define selector contract",
+          "define applicator contract",
+          "define validation and admissibility boundaries",
+          "define source identity and freshness policy",
+          "define authority policy",
+          "define radius, budget, and halt policy",
+          "define convergence criterion",
+          "define move-receipt contract",
+          "define run-report and Evidence Yield contract",
+          "define forbidden-effect guard",
+          "define human escalation boundary"
+        ],
+        "bounded_construction_scope": [
+          "construct declared contract and schema artifacts",
+          "construct one bounded fixture set",
+          "construct positive-path fixtures",
+          "construct negative-path fixtures",
+          "construct bounded perturbation fixtures",
+          "construct first-run readiness-gate artifacts",
+          "construct replay and audit evidence surfaces",
+          "construct run-package manifest and source bindings"
+        ],
+        "construction_verification_scope": [
+          "verify required construction artifacts are present",
+          "verify hashes and source bindings",
+          "verify fixture identities",
+          "verify move-space finiteness",
+          "verify selector and applicator contracts",
+          "verify budgets and halts",
+          "verify forbidden effects remain false",
+          "verify execution entrypoint remains disabled or unauthorized",
+          "verify package eligibility for a later execution-authority decision"
+        ],
+        "maximum_scope": [
+          "target-bound",
+          "phase-bound",
+          "bundle-bound",
+          "definition-bound",
+          "construction-bound",
+          "construction-verification-bound",
+          "non-execution",
+          "non-reusable",
+          "non-generalizing",
+          "single-target",
+          "non-portability"
+        ],
+        "approved_scope_eligible_for_authority_update": true,
+        "approved_scope_applied_to_authority_state": false
+      },
+      "excluded_authority_scope": {
+        "excluded_authorities": [
+          "kernel execution",
+          "positive-path execution",
+          "negative-path execution",
+          "perturbation sweep execution",
+          "automatic rerun",
+          "automatic radius renewal",
+          "radius expansion",
+          "move-budget expansion",
+          "case-budget expansion",
+          "target-family expansion",
+          "second-target selection",
+          "first-target substitution",
+          "portability testing",
+          "automatic source acquisition",
+          "automatic schema invention",
+          "automatic capability creation",
+          "automatic authority escalation",
+          "automatic repair",
+          "automatic local revision",
+          "refinement application",
+          "candidate promotion",
+          "reusable schema approval",
+          "reusable move-space approval",
+          "active registry creation",
+          "runner authority",
+          "autonomous continuation",
+          "cross-domain generalization",
+          "performance optimization",
+          "scale optimization"
+        ],
+        "execution_authority_included": false
+      },
+      "revision_state": {
+        "accepted_with_revisions": false,
+        "revision_count": 0,
+        "revisions": [],
+        "acceptance_has_declared_revisions": false,
+        "acceptance_requires_new_package_hash": false
+      },
+      "decision_state_after_receipt": {
+        "human_decision_required": true,
+        "human_decision_recorded": true,
+        "decision_receipt_created": true,
+        "direction_selected": true,
+        "target_family_selected": true,
+        "first_target_selected": true,
+        "definition_scope_approved": true,
+        "bounded_construction_scope_approved": true,
+        "construction_scope_approved": true,
+        "construction_verification_scope_approved": true,
+        "accepted_exact_package": true,
+        "accepted_with_revisions": false,
+        "authority_state_mutated": false,
+        "authority_update_applied": false,
+        "authority_transition_closed": false,
+        "vs2_authority_granted": false,
+        "vs2_profile_and_target_freeze_authority_granted": false,
+        "vs2_bounded_construction_authority_granted": false,
+        "fixture_construction_authority_granted": false,
+        "readiness_gate_construction_authority_granted": false,
+        "construction_package_verification_authority_granted": false,
+        "vs2_started": false,
+        "vs2_1_built": false,
+        "execution_authorized": false,
+        "positive_path_execution_authorized": false,
+        "negative_path_execution_authorized": false,
+        "sweep_authorized": false,
+        "automatic_rerun_authorized": false,
+        "runner_authority_created": false,
+        "second_target_selected": false,
+        "portability_scope_selected": false
+      },
+      "authority_effects": {
+        "decision_receipt_mutates_authority": false,
+        "decision_receipt_grants_authority": false,
+        "decision_receipt_consumes_construction_authority": false,
+        "decision_receipt_consumes_execution_authority": false,
+        "approved_scope_eligible_for_authority_update": true,
+        "approved_scope_applied_to_authority_state": false,
+        "authority_update_required": true,
+        "authority_update_created_by_this_unit": false,
+        "transition_closure_required_after_authority_update": true,
+        "transition_closure_created_by_this_unit": false
+      },
+      "downstream_authority_update_requirement": {
+        "required": true,
+        "next_unit": "POST_VS1_DIRECTION_AUTHORITY_UPDATE_V0_PENDING",
+        "authority_update_created_by_this_unit": false,
+        "authority_update_must_bind_decision_receipt_sha256": true
+      },
+      "downstream_transition_closure_requirement": {
+        "required_after_authority_update": true,
+        "transition_closure_created_by_this_unit": false,
+        "transition_closure_must_bind_authority_update": true
+      }
+    },
+    "decision_receipt_sha256": "19defc100428931ed455e4d2a64697bb9d886b11b856ececb0da6743c94f0dfe",
+    "volatile_filesystem_metadata_excluded_from_hash": true,
+    "generated_at_metadata_excluded_from_hash": true,
+    "commit_created_fields_excluded_from_hash": true,
+    "future_authority_update_fields_excluded_from_hash": true,
+    "authority_update_must_bind_decision_receipt_sha256": true,
+    "transition_closure_must_bind_authority_update": true
+  },
+  "receipt_checks": [
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_SOURCE_SURFACE_VERIFIED",
+      "check_result": "POST_VS1_DECISION_RECEIPT_SOURCE_SURFACE_VERIFIED",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_SOURCE_PACKAGE_HASH_VERIFIED",
+      "check_result": "POST_VS1_DECISION_RECEIPT_SOURCE_PACKAGE_HASH_VERIFIED",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_EXPLICIT_HUMAN_ACCEPTANCE_VERIFIED",
+      "check_result": "POST_VS1_DECISION_RECEIPT_EXPLICIT_HUMAN_ACCEPTANCE_VERIFIED",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_OPTION_A_PRESENT",
+      "check_result": "POST_VS1_DECISION_RECEIPT_OPTION_A_PRESENT",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_OPTION_A_APPROVAL_VECTOR_EXACT",
+      "check_result": "POST_VS1_DECISION_RECEIPT_OPTION_A_APPROVAL_VECTOR_EXACT",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_APPROVED_SCOPE_BOUND_TO_SURFACE",
+      "check_result": "POST_VS1_DECISION_RECEIPT_APPROVED_SCOPE_BOUND_TO_SURFACE",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_EXCLUDED_SCOPE_PRESERVED",
+      "check_result": "POST_VS1_DECISION_RECEIPT_EXCLUDED_SCOPE_PRESERVED",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_NO_REVISIONS_PASS",
+      "check_result": "POST_VS1_DECISION_RECEIPT_NO_REVISIONS_PASS",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_SINGLE_TARGET_BOUNDARY_PASS",
+      "check_result": "POST_VS1_DECISION_RECEIPT_SINGLE_TARGET_BOUNDARY_PASS",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_NON_PORTABILITY_BOUNDARY_PASS",
+      "check_result": "POST_VS1_DECISION_RECEIPT_NON_PORTABILITY_BOUNDARY_PASS",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_AUTHORITY_NOT_MUTATED",
+      "check_result": "POST_VS1_DECISION_RECEIPT_AUTHORITY_NOT_MUTATED",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_EXECUTION_AUTHORITY_ABSENT",
+      "check_result": "POST_VS1_DECISION_RECEIPT_EXECUTION_AUTHORITY_ABSENT",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_SWEEP_AUTHORITY_ABSENT",
+      "check_result": "POST_VS1_DECISION_RECEIPT_SWEEP_AUTHORITY_ABSENT",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_RUNNER_AUTHORITY_ABSENT",
+      "check_result": "POST_VS1_DECISION_RECEIPT_RUNNER_AUTHORITY_ABSENT",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_CANONICAL_BINDING_PASS",
+      "check_result": "POST_VS1_DECISION_RECEIPT_CANONICAL_BINDING_PASS",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_DECISION_MODE_CANONICAL_PATH_PASS",
+      "check_result": "POST_VS1_DECISION_RECEIPT_DECISION_MODE_CANONICAL_PATH_PASS",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_DECISION_MODE_ALIAS_CONSISTENCY_PASS",
+      "check_result": "POST_VS1_DECISION_RECEIPT_DECISION_MODE_ALIAS_CONSISTENCY_PASS",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_APPROVED_SCOPE_ELIGIBILITY_CANONICAL_PATH_PASS",
+      "check_result": "POST_VS1_DECISION_RECEIPT_APPROVED_SCOPE_ELIGIBILITY_CANONICAL_PATH_PASS",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_APPROVED_SCOPE_ELIGIBILITY_ALIAS_CONSISTENCY_PASS",
+      "check_result": "POST_VS1_DECISION_RECEIPT_APPROVED_SCOPE_ELIGIBILITY_ALIAS_CONSISTENCY_PASS",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_APPROVED_SCOPE_APPLICATION_CANONICAL_PATH_PASS",
+      "check_result": "POST_VS1_DECISION_RECEIPT_APPROVED_SCOPE_APPLICATION_CANONICAL_PATH_PASS",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_APPROVED_SCOPE_APPLICATION_ALIAS_CONSISTENCY_PASS",
+      "check_result": "POST_VS1_DECISION_RECEIPT_APPROVED_SCOPE_APPLICATION_ALIAS_CONSISTENCY_PASS",
+      "status": "PASS"
+    },
+    {
+      "check_id": "POST_VS1_DECISION_RECEIPT_DECLARED_SERIALIZATION_REHASH_PASS",
+      "check_result": "POST_VS1_DECISION_RECEIPT_DECLARED_SERIALIZATION_REHASH_PASS",
+      "status": "PASS"
+    }
+  ],
+  "receipt_gate": "POST_VS1_DIRECTION_DECISION_RECEIPT_PASS_ACCEPT_EXACT_SCOPE_RECORDED",
+  "terminal_transition": {
+    "transition": "ADVANCE(POST_VS1_DIRECTION_AUTHORITY_UPDATE_V0_PENDING)",
+    "records_human_decision": true,
+    "creates_decision_receipt": true,
+    "applies_authority_update": false,
+    "grants_vs2_authority": false,
+    "closes_authority_transition": false,
+    "starts_vs2": false,
+    "builds_vs2_1": false,
+    "authorizes_execution": false,
+    "authorizes_sweep": false,
+    "authorizes_rerun": false,
+    "creates_runner_authority": false
+  },
+  "evidence_yield": {
+    "branch": "CONFIRMATION_YIELD",
+    "source_surface_verified": true,
+    "human_decision_explicit": true,
+    "receipt_hash_bound": true
+  },
+  "non_claims": [
+    "This receipt records a human decision only.",
+    "This receipt does not mutate authority state.",
+    "This receipt does not grant VS2 authority.",
+    "This receipt does not authorize execution, sweeps, reruns, or runner authority.",
+    "This receipt does not create an authority update or transition closure."
+  ],
+  "failures": []
+}
