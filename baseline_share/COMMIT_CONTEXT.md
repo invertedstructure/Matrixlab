@@ -1,7 +1,7 @@
 # Commit Context
 
-- Generated at UTC: `2026-07-11T12:49:15Z`
-- Current HEAD SHA: `ebeb85a867b559df9f004ce8f4495e1581e79d14`
+- Generated at UTC: `2026-07-11T17:23:24Z`
+- Current HEAD SHA: `c7759b1d1e7bbc76c2c0092b07ba92be377d0dcf`
 - Branch: `master`
 - Worktree state at generation time: `dirty`
 - Generator script: `scripts/build_baseline_share_v0.py`
@@ -9,6 +9,7 @@
 ## Recent 10 commits
 
 ```text
+c7759b1d1 Close post-VS1 direction authority transition v0
 ebeb85a86 Apply post-VS1 direction authority update v0
 3dc012d9d Record post-VS1 direction decision receipt v0
 975d05dfd Prepare post-VS1 direction decision surface v0
@@ -18,7 +19,6 @@ eabe605de Close Phase VS1 precondition map v0
 741f28223 Add Phase VS1.3 precondition inventory v0
 d62db2d74 Add Phase VS1.2 controlled loop contract v0
 8f4b57c69 Add Phase VS1.1 post-VS0 source intake v0
-f8c51de1b Add post-VS0 direction decision receipt v0
 ```
 
 ## Git status short
@@ -29,20 +29,16 @@ M baseline_share/COMMIT_CONTEXT.md
  M baseline_share/MANIFEST.json
  M baseline_share/RECEIPT_POINTERS.md
  M scripts/build_baseline_share_v0.py
-?? discussion_packets/
-?? docs/matrixlabs/post_vs1/post_vs1_direction_transition_closure_v0.json
-?? docs/matrixlabs/post_vs1/post_vs1_direction_transition_closure_v0.md
-?? scripts/build_post_vs1_direction_transition_closure_v0.py
+?? docs/matrixlabs/phase_vs2/
+?? scripts/build_phase_vs2_1_post_vs1_source_intake_v0.py
 ```
 
 ## Git status short excluding generated baseline_share
 
 ```text
  M scripts/build_baseline_share_v0.py
-?? discussion_packets/
-?? docs/matrixlabs/post_vs1/post_vs1_direction_transition_closure_v0.json
-?? docs/matrixlabs/post_vs1/post_vs1_direction_transition_closure_v0.md
-?? scripts/build_post_vs1_direction_transition_closure_v0.py
+?? docs/matrixlabs/phase_vs2/
+?? scripts/build_phase_vs2_1_post_vs1_source_intake_v0.py
 ```
 
 ## Safety facts
