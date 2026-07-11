@@ -423,6 +423,16 @@ PHASE_VS2_1_POST_VS1_SOURCE_INTAKE_DOCS = [
 PHASE_VS2_1_POST_VS1_SOURCE_INTAKE_SCRIPT = (
     "scripts/build_phase_vs2_1_post_vs1_source_intake_v0.py"
 )
+PHASE_VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_DOCS = [
+    "docs/matrixlabs/phase_vs2/phase_vs2_first_sweep_capable_kernel_profile_v0.json",
+    "docs/matrixlabs/phase_vs2/phase_vs2_first_sweep_capable_kernel_profile_v0.md",
+    "docs/matrixlabs/phase_vs2/phase_vs2_typed_state_contract_convergence_target_freeze_v0.json",
+    "docs/matrixlabs/phase_vs2/phase_vs2_typed_state_contract_convergence_target_freeze_v0.md",
+    "docs/matrixlabs/phase_vs2/phase_vs2_2_kernel_profile_and_target_freeze_receipt_v0.json",
+]
+PHASE_VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_SCRIPT = (
+    "scripts/build_phase_vs2_2_kernel_profile_and_target_freeze_v0.py"
+)
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -533,6 +543,8 @@ SOURCE_DOCS = [
     POST_VS1_DIRECTION_TRANSITION_CLOSURE_SCRIPT,
     *PHASE_VS2_1_POST_VS1_SOURCE_INTAKE_DOCS,
     PHASE_VS2_1_POST_VS1_SOURCE_INTAKE_SCRIPT,
+    *PHASE_VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_DOCS,
+    PHASE_VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_SCRIPT,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -910,8 +922,10 @@ def render_open_questions(proposals_doc: str) -> str:
 def render_receipt_pointers(root: Path, architecture_receipt_matches: list[str]) -> str:
     external_archive = Path("/home/asd/matrixlab_receipts")
     docs_receipts = root / "docs/matrixlabs/receipts"
+    phase_vs2_dir = root / "docs/matrixlabs/phase_vs2"
     docs_count = count_files(docs_receipts)
     external_count = count_files(external_archive)
+    phase_vs2_receipt_count = len(list(phase_vs2_dir.glob("*receipt*.json"))) if phase_vs2_dir.exists() else 0
     c8_receipt_present = (root / C8_POST_PATCH_RECEIPT).exists()
     arch_matches = (
         "\n".join(f"- `{path}`" for path in architecture_receipt_matches)
@@ -926,6 +940,7 @@ This packet does not copy the full receipt stack. Receipts remain evidence and s
 
 - External WSL receipt archive: `/home/asd/matrixlab_receipts/` - {'present' if external_archive.exists() else 'missing'}; file count: `{external_count}`.
 - Repo architecture extraction receipt copy: `docs/matrixlabs/receipts/` - {'present' if docs_receipts.exists() else 'missing'}; file count: `{docs_count}`.
+- Repo Phase VS2 receipt JSONs: `docs/matrixlabs/phase_vs2/*receipt*.json` - file count: `{phase_vs2_receipt_count}`.
 
 ## Current load-bearing recent receipt pointers
 
@@ -1510,6 +1525,56 @@ def build_manifest(
     )
     phase_vs2_1_post_state = phase_vs2_1_source_intake.get(
         "post_intake_phase_state", {}
+    )
+    phase_vs2_2_profile_path = (
+        root / PHASE_VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_DOCS[0]
+    )
+    phase_vs2_2_profile_present = phase_vs2_2_profile_path.exists()
+    phase_vs2_2_profile = (
+        json.loads(phase_vs2_2_profile_path.read_text(encoding="utf-8"))
+        if phase_vs2_2_profile_present
+        else {}
+    )
+    phase_vs2_2_target_path = (
+        root / PHASE_VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_DOCS[2]
+    )
+    phase_vs2_2_target_present = phase_vs2_2_target_path.exists()
+    phase_vs2_2_target = (
+        json.loads(phase_vs2_2_target_path.read_text(encoding="utf-8"))
+        if phase_vs2_2_target_present
+        else {}
+    )
+    phase_vs2_2_receipt_path = (
+        root / PHASE_VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_DOCS[4]
+    )
+    phase_vs2_2_receipt_present = phase_vs2_2_receipt_path.exists()
+    phase_vs2_2_receipt = (
+        json.loads(phase_vs2_2_receipt_path.read_text(encoding="utf-8"))
+        if phase_vs2_2_receipt_present
+        else {}
+    )
+    phase_vs2_2_profile_binding = phase_vs2_2_profile.get("profile_binding", {})
+    phase_vs2_2_target_binding = phase_vs2_2_target.get("target_freeze_binding", {})
+    phase_vs2_2_profile_identity = phase_vs2_2_profile.get("profile_identity", {})
+    phase_vs2_2_target_identity = phase_vs2_2_target.get("target_identity", {})
+    phase_vs2_2_component_summary = phase_vs2_2_profile.get(
+        "component_profile_summary", {}
+    )
+    phase_vs2_2_remaining_grants = phase_vs2_2_profile.get(
+        "remaining_grant_routing", {}
+    )
+    phase_vs2_2_post_state = phase_vs2_2_profile.get("post_vs2_2_phase_state", {})
+    phase_vs2_2_construction_envelope = phase_vs2_2_profile.get(
+        "maximum_construction_envelope", {}
+    )
+    phase_vs2_2_execution_envelope = phase_vs2_2_profile.get(
+        "maximum_future_execution_envelope", {}
+    )
+    phase_vs2_2_downstream_sequence = phase_vs2_2_profile.get(
+        "downstream_construction_sequence", {}
+    )
+    phase_vs2_2_downstream_objects = phase_vs2_2_profile.get(
+        "downstream_construction_objects", {}
     )
     manifest = {
         "schema_version": SCHEMA_VERSION,
@@ -2213,38 +2278,66 @@ def build_manifest(
         "post_vs1_portability_authority_granted": post_vs1_effective_authority_state.get("portability_authority_granted", False) if (post_vs1_direction_transition_closure_present or post_vs1_direction_authority_update_present) else False,
         "post_vs1_next_unit": "VS2_1_POST_VS1_SOURCE_INTAKE_PENDING" if post_vs1_direction_transition_closure_present else ("POST_VS1_DIRECTION_TRANSITION_CLOSURE_V0_PENDING" if post_vs1_direction_authority_update_present else ("POST_VS1_DIRECTION_AUTHORITY_UPDATE_V0_PENDING" if post_vs1_direction_receipt_present else None)),
         "post_vs1_terminal_transition": post_vs1_effective_terminal.get("transition") if (post_vs1_direction_transition_closure_present or post_vs1_direction_authority_update_present) else (post_vs1_receipt_terminal.get("transition") if post_vs1_direction_receipt_present else (post_vs1_terminal.get("transition") if post_vs1_direction_surface_present else None)),
-        "phase_vs2_current_unit": phase_vs2_1_source_intake.get("unit_id") if phase_vs2_1_source_intake_present else None,
+        "phase_vs2_current_unit": phase_vs2_2_profile.get("unit_id") if phase_vs2_2_profile_present else (phase_vs2_1_source_intake.get("unit_id") if phase_vs2_1_source_intake_present else None),
         "phase_vs2_source_intake_artifact_id": phase_vs2_1_source_intake.get("artifact_id") if phase_vs2_1_source_intake_present else None,
         "phase_vs2_source_intake_receipt_artifact_id": phase_vs2_1_source_intake_receipt.get("artifact_id") if phase_vs2_1_source_intake_receipt_present else None,
         "phase_vs2_source_intake_sha256": phase_vs2_1_intake_binding.get("source_intake_sha256") if phase_vs2_1_source_intake_present else None,
         "phase_vs2_source_manifest_sha256": phase_vs2_1_source_manifest.get("source_manifest_sha256") if phase_vs2_1_source_intake_present else None,
         "phase_vs2_source_manifest_entry_count": phase_vs2_1_source_manifest.get("source_manifest_entry_count") if phase_vs2_1_source_intake_present else None,
+        "phase_vs2_source_intake_committed": phase_vs2_2_profile.get("source_intake_commit_reconciliation", {}).get("source_intake_committed", False) if phase_vs2_2_profile_present else False,
+        "phase_vs2_source_manifest_committed": phase_vs2_2_profile.get("source_intake_commit_reconciliation", {}).get("source_manifest_committed", False) if phase_vs2_2_profile_present else False,
         "phase_vs2_source_manifest_frozen": phase_vs2_1_post_state.get("source_manifest_frozen", False) if phase_vs2_1_source_intake_present else False,
         "phase_vs2_source_manifest_commit_pending": phase_vs2_1_post_state.get("source_manifest_commit_pending", False) if phase_vs2_1_source_intake_present else False,
-        "phase_vs2_bookkeeping_commit_required": phase_vs2_1_post_state.get("bookkeeping_commit_required", False) if phase_vs2_1_source_intake_present else False,
+        "phase_vs2_bookkeeping_commit_required": phase_vs2_2_post_state.get("bookkeeping_commit_required", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("bookkeeping_commit_required", False) if phase_vs2_1_source_intake_present else False),
         "phase_vs2_source_intake_built": phase_vs2_1_post_state.get("vs2_source_intake_built", False) if phase_vs2_1_source_intake_present else False,
-        "phase_vs2_started": phase_vs2_1_post_state.get("vs2_started", False) if phase_vs2_1_source_intake_present else False,
+        "phase_vs2_started": phase_vs2_2_post_state.get("vs2_started", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("vs2_started", False) if phase_vs2_1_source_intake_present else False),
         "phase_vs2_1_built": phase_vs2_1_post_state.get("vs2_1_built", False) if phase_vs2_1_source_intake_present else False,
+        "phase_vs2_2_built": phase_vs2_2_post_state.get("vs2_2_built", False) if phase_vs2_2_profile_present else False,
         "phase_vs2_2_may_begin": phase_vs2_1_post_state.get("vs2_2_may_begin", False) if phase_vs2_1_source_intake_present else False,
+        "phase_vs2_3_may_begin": phase_vs2_2_post_state.get("vs2_3_may_begin", False) if phase_vs2_2_profile_present else False,
         "phase_vs2_effective_grant_count": phase_vs2_1_effective_grants.get("effective_grant_count") if phase_vs2_1_source_intake_present else None,
         "phase_vs2_five_grants_effective": phase_vs2_1_effective_grants.get("effective_grant_count") == 5 if phase_vs2_1_source_intake_present else False,
-        "phase_vs2_any_vs2_grant_consumed": phase_vs2_1_post_state.get("any_vs2_grant_consumed", False) if phase_vs2_1_source_intake_present else False,
-        "phase_vs2_grant_consumption_count": phase_vs2_1_post_state.get("vs2_grant_consumption_count", 0) if phase_vs2_1_source_intake_present else 0,
+        "phase_vs2_any_vs2_grant_consumed": phase_vs2_2_post_state.get("any_vs2_grant_consumed", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("any_vs2_grant_consumed", False) if phase_vs2_1_source_intake_present else False),
+        "phase_vs2_grant_consumption_count": phase_vs2_2_post_state.get("vs2_grant_consumption_count", 0) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("vs2_grant_consumption_count", 0) if phase_vs2_1_source_intake_present else 0),
+        "phase_vs2_profile_and_target_freeze_grant_consumed": phase_vs2_2_post_state.get("profile_and_target_freeze_grant_consumed", False) if phase_vs2_2_profile_present else False,
+        "phase_vs2_profile_and_target_freeze_grant_consumption_count": phase_vs2_2_post_state.get("profile_and_target_freeze_grant_consumption_count", 0) if phase_vs2_2_profile_present else 0,
+        "phase_vs2_remaining_effective_grant_count": phase_vs2_2_remaining_grants.get("remaining_effective_grant_count") if phase_vs2_2_profile_present else None,
+        "phase_vs2_remaining_grants_consumed_by_vs2_2": phase_vs2_2_remaining_grants.get("remaining_grants_consumed_by_vs2_2") if phase_vs2_2_profile_present else None,
         "phase_vs2_profile_grant_routed_to_vs2_2": phase_vs2_1_grant_routing.get("profile_grant_routed_to_vs2_2", False) if phase_vs2_1_source_intake_present else False,
-        "phase_vs2_remaining_grant_consumers_frozen": phase_vs2_1_grant_routing.get("remaining_grant_consumers_frozen", False) if phase_vs2_1_source_intake_present else False,
-        "phase_vs2_next_unit": "VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_PENDING" if phase_vs2_1_source_intake_present else None,
-        "phase_vs2_kernel_profile_frozen": phase_vs2_1_post_state.get("kernel_profile_frozen", False) if phase_vs2_1_source_intake_present else False,
-        "phase_vs2_semantic_target_frozen": phase_vs2_1_post_state.get("semantic_target_frozen", False) if phase_vs2_1_source_intake_present else False,
-        "phase_vs2_construction_started": phase_vs2_1_post_state.get("construction_performed", False) if phase_vs2_1_source_intake_present else False,
-        "phase_vs2_construction_performed": phase_vs2_1_post_state.get("construction_performed", False) if phase_vs2_1_source_intake_present else False,
-        "phase_vs2_fixture_construction_performed": phase_vs2_1_post_state.get("fixture_construction_performed", False) if phase_vs2_1_source_intake_present else False,
-        "phase_vs2_readiness_gate_constructed": phase_vs2_1_post_state.get("readiness_gate_constructed", False) if phase_vs2_1_source_intake_present else False,
-        "phase_vs2_construction_package_verified": phase_vs2_1_post_state.get("construction_package_verified", False) if phase_vs2_1_source_intake_present else False,
-        "phase_vs2_execution_authorized": phase_vs2_1_post_state.get("execution_authorized", False) if phase_vs2_1_source_intake_present else False,
-        "phase_vs2_execution_performed": phase_vs2_1_post_state.get("execution_performed", False) if phase_vs2_1_source_intake_present else False,
-        "phase_vs2_sweep_authorized": phase_vs2_1_post_state.get("sweep_authorized", False) if phase_vs2_1_source_intake_present else False,
-        "phase_vs2_runner_created": phase_vs2_1_post_state.get("runner_created", False) if phase_vs2_1_source_intake_present else False,
-        "phase_vs2_terminal_transition": phase_vs2_1_source_intake.get("terminal_transition") if phase_vs2_1_source_intake_present else None,
+        "phase_vs2_remaining_grant_consumers_frozen": phase_vs2_2_remaining_grants.get("remaining_grant_routes_frozen", False) if phase_vs2_2_profile_present else (phase_vs2_1_grant_routing.get("remaining_grant_consumers_frozen", False) if phase_vs2_1_source_intake_present else False),
+        "phase_vs2_next_unit": "VS2_3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION_PENDING" if phase_vs2_2_profile_present else ("VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_PENDING" if phase_vs2_1_source_intake_present else None),
+        "phase_vs2_profile_artifact_id": phase_vs2_2_profile.get("artifact_id") if phase_vs2_2_profile_present else None,
+        "phase_vs2_profile_id": phase_vs2_2_profile_identity.get("profile_id") if phase_vs2_2_profile_present else None,
+        "phase_vs2_profile_sha256": phase_vs2_2_profile_binding.get("profile_sha256") if phase_vs2_2_profile_present else None,
+        "phase_vs2_profile_gate": phase_vs2_2_profile.get("profile_gate") if phase_vs2_2_profile_present else None,
+        "phase_vs2_target_freeze_artifact_id": phase_vs2_2_target.get("artifact_id") if phase_vs2_2_target_present else None,
+        "phase_vs2_target_freeze_sha256": phase_vs2_2_target_binding.get("target_freeze_sha256") if phase_vs2_2_target_present else None,
+        "phase_vs2_target_freeze_gate": phase_vs2_2_target.get("target_freeze_gate") if phase_vs2_2_target_present else None,
+        "phase_vs2_target_family": phase_vs2_2_target_identity.get("target_family") if phase_vs2_2_target_present else None,
+        "phase_vs2_target_id": phase_vs2_2_target_identity.get("target_id") if phase_vs2_2_target_present else None,
+        "phase_vs2_profile_and_target_freeze_receipt_artifact_id": phase_vs2_2_receipt.get("artifact_id") if phase_vs2_2_receipt_present else None,
+        "phase_vs2_profile_and_target_freeze_receipt_sha256": phase_vs2_2_receipt.get("receipt_binding", {}).get("receipt_sha256") if phase_vs2_2_receipt_present else None,
+        "phase_vs2_profile_and_target_freeze_receipt_gate": phase_vs2_2_receipt.get("receipt_gate") if phase_vs2_2_receipt_present else None,
+        "phase_vs2_component_count": phase_vs2_2_component_summary.get("component_count") if phase_vs2_2_profile_present else None,
+        "phase_vs2_required_full_count": phase_vs2_2_component_summary.get("required_full_count") if phase_vs2_2_profile_present else None,
+        "phase_vs2_required_minimal_count": phase_vs2_2_component_summary.get("required_minimal_count") if phase_vs2_2_profile_present else None,
+        "phase_vs2_deferred_count": phase_vs2_2_component_summary.get("deferred_count") if phase_vs2_2_profile_present else None,
+        "phase_vs2_kernel_profile_frozen": phase_vs2_2_post_state.get("kernel_profile_frozen", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("kernel_profile_frozen", False) if phase_vs2_1_source_intake_present else False),
+        "phase_vs2_semantic_target_frozen": phase_vs2_2_post_state.get("semantic_target_frozen", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("semantic_target_frozen", False) if phase_vs2_1_source_intake_present else False),
+        "phase_vs2_maximum_construction_envelope_frozen": phase_vs2_2_construction_envelope.get("maximum_construction_envelope_frozen", False) if phase_vs2_2_profile_present else False,
+        "phase_vs2_maximum_future_execution_envelope_frozen": phase_vs2_2_execution_envelope.get("maximum_future_execution_envelope_frozen", False) if phase_vs2_2_profile_present else False,
+        "phase_vs2_downstream_sequence_frozen": phase_vs2_2_downstream_sequence.get("downstream_sequence_frozen", False) if phase_vs2_2_profile_present else False,
+        "phase_vs2_downstream_construction_object_count": phase_vs2_2_downstream_objects.get("downstream_construction_object_count") if phase_vs2_2_profile_present else None,
+        "phase_vs2_construction_started": phase_vs2_2_post_state.get("construction_performed", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("construction_performed", False) if phase_vs2_1_source_intake_present else False),
+        "phase_vs2_construction_performed": phase_vs2_2_post_state.get("construction_performed", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("construction_performed", False) if phase_vs2_1_source_intake_present else False),
+        "phase_vs2_fixture_construction_performed": phase_vs2_2_post_state.get("fixture_construction_performed", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("fixture_construction_performed", False) if phase_vs2_1_source_intake_present else False),
+        "phase_vs2_readiness_gate_constructed": phase_vs2_2_post_state.get("readiness_gate_constructed", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("readiness_gate_constructed", False) if phase_vs2_1_source_intake_present else False),
+        "phase_vs2_construction_package_verified": phase_vs2_2_post_state.get("construction_package_verified", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("construction_package_verified", False) if phase_vs2_1_source_intake_present else False),
+        "phase_vs2_execution_authorized": phase_vs2_2_post_state.get("execution_authorized", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("execution_authorized", False) if phase_vs2_1_source_intake_present else False),
+        "phase_vs2_execution_performed": phase_vs2_2_post_state.get("execution_performed", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("execution_performed", False) if phase_vs2_1_source_intake_present else False),
+        "phase_vs2_sweep_authorized": phase_vs2_2_post_state.get("sweep_authorized", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("sweep_authorized", False) if phase_vs2_1_source_intake_present else False),
+        "phase_vs2_runner_created": phase_vs2_2_post_state.get("runner_created", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("runner_created", False) if phase_vs2_1_source_intake_present else False),
+        "phase_vs2_terminal_transition": phase_vs2_2_profile.get("construction_session_terminal") if phase_vs2_2_profile_present else (phase_vs2_1_source_intake.get("terminal_transition") if phase_vs2_1_source_intake_present else None),
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,

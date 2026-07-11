@@ -1,0 +1,490 @@
+{
+  "schema_version": "matrixlabs_phase_vs2_typed_state_contract_convergence_target_freeze_v0",
+  "artifact_id": "phase_vs2_typed_state_contract_convergence_target_freeze_v0",
+  "phase_id": "PHASE_VS2",
+  "unit_id": "VS2.2_KERNEL_PROFILE_AND_TARGET_FREEZE",
+  "unit_role": "PROFILE_AND_SEMANTIC_TARGET_FREEZE_ONLY",
+  "target_status": "SEMANTIC_TARGET_FROZEN_IMPLEMENTATION_SCHEMA_PENDING",
+  "source_intake_binding": {
+    "source_intake_artifact_id": "phase_vs2_post_vs1_source_intake_v0",
+    "source_intake_path": "docs/matrixlabs/phase_vs2/phase_vs2_post_vs1_source_intake_v0.json",
+    "source_intake_commit_sha": "9d529c6813fd5db38eb4a63368a8d538aa7a88e4",
+    "source_intake_file_sha256": "aac9ba4eec3ca577ead6cd23f8af6b9ecc6a9d542ec2395450a698f45465514b",
+    "source_intake_sha256": "830c62352e6eab4445b8cac9bbb7851da49a39633fc5cb673b71283bba1eaaeb",
+    "source_manifest_sha256": "9aaceb1758920971d8f5d7f305b837b7021ebc0a84714dea08755efce1c0a6ef",
+    "source_intake_receipt_artifact_id": "phase_vs2_1_post_vs1_source_intake_receipt_v0",
+    "source_intake_receipt_path": "docs/matrixlabs/phase_vs2/phase_vs2_1_post_vs1_source_intake_receipt_v0.json",
+    "source_intake_receipt_file_sha256": "97e0046641b67bdc4740c1a82e5356eb4ffda6df0d2584e04d474b2b8e6cac5f",
+    "source_intake_receipt_sha256": "b8b440b920993d38f77b0359ea928a255d780e5e682572fcc9144c35e63609cd",
+    "source_intake_markdown_path": "docs/matrixlabs/phase_vs2/phase_vs2_post_vs1_source_intake_v0.md",
+    "source_intake_markdown_file_sha256": "a1a892efd2819c59ff0144464fbb5dec4d72e6dd82a70a3bad63ee04010aa7f3",
+    "committed_bytes_verified": true,
+    "worktree_bytes_match_commit": true,
+    "source_manifest_hash_recomputes": true,
+    "source_intake_hash_recomputes": true,
+    "receipt_hash_recomputes": true,
+    "baseline_share_used_as_source_authority": false,
+    "latest_file_resolution_used": false,
+    "mtime_resolution_used": false,
+    "directory_ordering_used": false
+  },
+  "accepted_direction_binding": {
+    "direction_id": "FIRST_SWEEP_CAPABLE_KERNEL_V0",
+    "target_family": "BOUNDED_CONTRACT_CONVERGENCE",
+    "first_target": "TYPED_STATE_CONTRACT_CONVERGENCE_V0",
+    "bundle_id": "POST_VS1_FIRST_SWEEP_CAPABLE_KERNEL_BUNDLE_V0",
+    "decision_package_sha256": "e9e4143ad2efdd285fe9e598e50d965d82057f7a8d6ccc4c52478a596d6b788b"
+  },
+  "profile_binding_reference": {
+    "profile_artifact_id": "phase_vs2_first_sweep_capable_kernel_profile_v0",
+    "profile_id": "FIRST_SWEEP_CAPABLE_KERNEL_PROFILE_V0",
+    "profile_sha256": "844fe441ecda5ec84076e9f665d09868373c9b24ea89d5d7056c485823db3142",
+    "profile_gate": "VS2_2_FIRST_SWEEP_KERNEL_PROFILE_FREEZE_PASS",
+    "kernel_profile_frozen": true,
+    "kernel_constructed": false
+  },
+  "profile_grant_consumption_reference": {
+    "profile_grant_id": "VS2_PROFILE_AND_TARGET_FREEZE_AUTHORITY",
+    "profile_grant_consumed": true,
+    "profile_grant_consumption_count": 1,
+    "profile_grant_reusable": false,
+    "consumption_status": "CONSUMED_ONCE_FOR_DECLARED_PROFILE_AND_TARGET_FREEZE"
+  },
+  "target_identity": {
+    "artifact_id": "phase_vs2_typed_state_contract_convergence_target_freeze_v0",
+    "target_family": "BOUNDED_CONTRACT_CONVERGENCE",
+    "target_id": "TYPED_STATE_CONTRACT_CONVERGENCE_V0",
+    "target_status": "SEMANTIC_TARGET_FROZEN_IMPLEMENTATION_SCHEMA_PENDING",
+    "target_count": 1,
+    "semantic_target_frozen": true,
+    "serialized_target_schema_constructed": false,
+    "admissibility_policy_constructed": false,
+    "convergence_criterion_constructed": false,
+    "fixture_set_constructed": false,
+    "source_snapshot_frozen": false,
+    "execution_authorized": false
+  },
+  "target_statement": "Given one declared local scope/regime, one bounded typed-state contract candidate, one frozen local target contract, one frozen local admissibility policy, one finite authorized transformation move-space, one fixed move and case budget, one declared source snapshot, and one frozen convergence criterion, the kernel may, after later construction, construction verification, and separate execution authorization, attempt to reach a locally valid and lawfully admissible terminal typed-state contract.",
+  "target_path": [
+    "candidate typed-state contract",
+    "expose current target condition or defect",
+    "enumerate lawful transformations",
+    "select one lawful transformation",
+    "apply one bounded candidate delta",
+    "validate resulting candidate",
+    "evaluate admissibility",
+    "evaluate convergence criterion",
+    "emit move receipt",
+    "continue under an explicit repeat condition or halt",
+    "emit terminal receipt and run report"
+  ],
+  "scope_regime_requirements": {
+    "operating_scope_required": true,
+    "target_regime_required": true,
+    "candidate_object_regime_required": true,
+    "allowed_source_surfaces_required": true,
+    "forbidden_source_surfaces_required": true,
+    "allowed_transformations_required": true,
+    "forbidden_transformations_required": true,
+    "object_identity_rules_required": true,
+    "sameness_and_difference_criteria_required": true,
+    "authority_boundary_required": true,
+    "claim_boundary_required": true,
+    "scope_regime_expansion_allowed": false
+  },
+  "object_role_separation": {
+    "distinct_roles": [
+      "declared scope/regime",
+      "runtime control state",
+      "candidate contract",
+      "frozen target contract"
+    ],
+    "three_object_model_roles": [
+      "runtime control state",
+      "candidate contract",
+      "frozen target contract"
+    ],
+    "scope_regime_is_external_governing_frame": true,
+    "scope_runtime_candidate_target_conflated": false
+  },
+  "target_success_condition": {
+    "target_reached_only_when": [
+      "candidate validates against the frozen target schema",
+      "candidate passes the frozen admissibility policy",
+      "all required source bindings are valid",
+      "scope/regime boundaries remain intact",
+      "no forbidden effect is present",
+      "all applied moves were authorized",
+      "move and case budgets were respected",
+      "convergence criterion reports the terminal target condition",
+      "terminal receipt was emitted"
+    ],
+    "movement_marked_as_convergence": false,
+    "typed_stop_marked_target_reached": false,
+    "unclassified_result_marked_success": false
+  },
+  "already_valid_candidate_semantics": {
+    "terminal_outcome": "TARGET_REACHED",
+    "initial_target_status": "ALREADY_AT_TARGET",
+    "moves_attempted": 0,
+    "moves_applied": 0,
+    "unnecessary_mutation_absent": true
+  },
+  "positive_path_requirement": {
+    "repairable_positive_path_specimen_must_eventually_terminate_with": "TARGET_REACHED",
+    "typed_stop_may_produce_diagnostic_yield": true,
+    "typed_stop_completes_positive_path_milestone": false
+  },
+  "admissibility_policy_requirements": {
+    "frozen_local_admissibility_policy_required": true,
+    "admissibility_policy_constructed": false,
+    "candidate_must_pass_admissibility": true,
+    "admissibility_failure_terminal_outcome": "STOP_ADMISSIBILITY_FAILED"
+  },
+  "convergence_criterion_requirements": {
+    "continue_condition_required": true,
+    "repeat_condition_required": true,
+    "non_progress_condition_required": true,
+    "repeated_state_condition_required": true,
+    "oscillation_guard_required": true,
+    "maximum_cycle_boundary_required": true,
+    "maximum_radius_boundary_required": true,
+    "target_reached_condition_required": true,
+    "typed_halt_when_repeat_is_not_lawful_required": true,
+    "movement_equals_progress": false,
+    "progress_equals_target_reached": false,
+    "repeated_movement_equals_convergence": false,
+    "typed_containment_stop_equals_convergence": false,
+    "convergence_criterion_constructed": false
+  },
+  "source_policy_requirements": {
+    "declared_source_identity_required": true,
+    "automatic_source_acquisition_allowed": false,
+    "latest_file_selection_allowed": false,
+    "mtime_authority_allowed": false,
+    "directory_position_authority_allowed": false,
+    "silent_source_replacement_allowed": false,
+    "ambient_repository_context_allowed": false,
+    "chat_memory_sourcing_allowed": false,
+    "source_snapshot_frozen": false
+  },
+  "terminal_outcome_family": {
+    "terminal_outcomes": [
+      "TARGET_REACHED",
+      "STOP_REPAIR_NOT_LAWFUL",
+      "STOP_MISSING_SOURCE",
+      "STOP_MISSING_SCHEMA",
+      "STOP_MISSING_AUTHORITY",
+      "STOP_MISSING_CAPABILITY",
+      "STOP_RADIUS_EXHAUSTED",
+      "STOP_NO_ADMISSIBLE_MOVE",
+      "STOP_VALIDATION_FAILED",
+      "STOP_ADMISSIBILITY_FAILED",
+      "STOP_FORBIDDEN_EFFECT_DETECTED",
+      "STOP_SOURCE_IDENTITY_UNVERIFIED",
+      "STOP_SCOPE_REGIME_VIOLATION",
+      "STOP_NON_PROGRESS",
+      "STOP_REPEATED_STATE",
+      "STOP_CONVERGENCE_CRITERION_UNMET",
+      "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT"
+    ],
+    "terminal_outcome_count": 17,
+    "distinctions_collapsed": false,
+    "unclassified_result_posture": {
+      "terminal_outcome": "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT",
+      "execution_remained_contained": true,
+      "current_classification_vocabulary_was_insufficient": true,
+      "target_was_not_reached": true,
+      "automatic_continuation_forbidden": true,
+      "automatic_taxonomy_modification_forbidden": true,
+      "automatic_rerun_forbidden": true,
+      "may_produce_diagnostic_yield": true,
+      "counts_as_success_or_convergence": false
+    }
+  },
+  "unclassified_result_posture": {
+    "terminal_outcome": "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT",
+    "execution_remained_contained": true,
+    "current_classification_vocabulary_was_insufficient": true,
+    "target_was_not_reached": true,
+    "automatic_continuation_forbidden": true,
+    "automatic_taxonomy_modification_forbidden": true,
+    "automatic_rerun_forbidden": true,
+    "may_produce_diagnostic_yield": true,
+    "counts_as_success_or_convergence": false
+  },
+  "target_mutation_boundaries": {
+    "target_mutation_allowed": false,
+    "target_schema_mutation_allowed": false,
+    "move_space_mutation_allowed": false,
+    "scope_regime_expansion_allowed": false,
+    "first_target_substitution_allowed": false,
+    "second_target_selection_allowed": false,
+    "automatic_taxonomy_modification_allowed": false
+  },
+  "target_nonclaims": {
+    "serialized_target_schema_constructed": false,
+    "admissibility_policy_constructed": false,
+    "convergence_criterion_constructed": false,
+    "fixture_set_constructed": false,
+    "source_snapshot_frozen": false,
+    "execution_authorized": false
+  },
+  "target_freeze_binding": {
+    "canonicalization": "MATRIXLAB_CANONICAL_JSON_V0",
+    "bound_sections": [
+      "source_intake_binding",
+      "accepted_direction_binding",
+      "profile_binding_reference",
+      "profile_grant_consumption_reference",
+      "target_identity",
+      "target_statement",
+      "target_path",
+      "scope_regime_requirements",
+      "object_role_separation",
+      "target_success_condition",
+      "already_valid_candidate_semantics",
+      "positive_path_requirement",
+      "admissibility_policy_requirements",
+      "convergence_criterion_requirements",
+      "source_policy_requirements",
+      "terminal_outcome_family",
+      "unclassified_result_posture",
+      "target_mutation_boundaries",
+      "target_nonclaims"
+    ],
+    "target_freeze_payload": {
+      "source_intake_binding": {
+        "source_intake_artifact_id": "phase_vs2_post_vs1_source_intake_v0",
+        "source_intake_path": "docs/matrixlabs/phase_vs2/phase_vs2_post_vs1_source_intake_v0.json",
+        "source_intake_commit_sha": "9d529c6813fd5db38eb4a63368a8d538aa7a88e4",
+        "source_intake_file_sha256": "aac9ba4eec3ca577ead6cd23f8af6b9ecc6a9d542ec2395450a698f45465514b",
+        "source_intake_sha256": "830c62352e6eab4445b8cac9bbb7851da49a39633fc5cb673b71283bba1eaaeb",
+        "source_manifest_sha256": "9aaceb1758920971d8f5d7f305b837b7021ebc0a84714dea08755efce1c0a6ef",
+        "source_intake_receipt_artifact_id": "phase_vs2_1_post_vs1_source_intake_receipt_v0",
+        "source_intake_receipt_path": "docs/matrixlabs/phase_vs2/phase_vs2_1_post_vs1_source_intake_receipt_v0.json",
+        "source_intake_receipt_file_sha256": "97e0046641b67bdc4740c1a82e5356eb4ffda6df0d2584e04d474b2b8e6cac5f",
+        "source_intake_receipt_sha256": "b8b440b920993d38f77b0359ea928a255d780e5e682572fcc9144c35e63609cd",
+        "source_intake_markdown_path": "docs/matrixlabs/phase_vs2/phase_vs2_post_vs1_source_intake_v0.md",
+        "source_intake_markdown_file_sha256": "a1a892efd2819c59ff0144464fbb5dec4d72e6dd82a70a3bad63ee04010aa7f3",
+        "committed_bytes_verified": true,
+        "worktree_bytes_match_commit": true,
+        "source_manifest_hash_recomputes": true,
+        "source_intake_hash_recomputes": true,
+        "receipt_hash_recomputes": true,
+        "baseline_share_used_as_source_authority": false,
+        "latest_file_resolution_used": false,
+        "mtime_resolution_used": false,
+        "directory_ordering_used": false
+      },
+      "accepted_direction_binding": {
+        "direction_id": "FIRST_SWEEP_CAPABLE_KERNEL_V0",
+        "target_family": "BOUNDED_CONTRACT_CONVERGENCE",
+        "first_target": "TYPED_STATE_CONTRACT_CONVERGENCE_V0",
+        "bundle_id": "POST_VS1_FIRST_SWEEP_CAPABLE_KERNEL_BUNDLE_V0",
+        "decision_package_sha256": "e9e4143ad2efdd285fe9e598e50d965d82057f7a8d6ccc4c52478a596d6b788b"
+      },
+      "profile_binding_reference": {
+        "profile_artifact_id": "phase_vs2_first_sweep_capable_kernel_profile_v0",
+        "profile_id": "FIRST_SWEEP_CAPABLE_KERNEL_PROFILE_V0",
+        "profile_sha256": "844fe441ecda5ec84076e9f665d09868373c9b24ea89d5d7056c485823db3142",
+        "profile_gate": "VS2_2_FIRST_SWEEP_KERNEL_PROFILE_FREEZE_PASS",
+        "kernel_profile_frozen": true,
+        "kernel_constructed": false
+      },
+      "profile_grant_consumption_reference": {
+        "profile_grant_id": "VS2_PROFILE_AND_TARGET_FREEZE_AUTHORITY",
+        "profile_grant_consumed": true,
+        "profile_grant_consumption_count": 1,
+        "profile_grant_reusable": false,
+        "consumption_status": "CONSUMED_ONCE_FOR_DECLARED_PROFILE_AND_TARGET_FREEZE"
+      },
+      "target_identity": {
+        "artifact_id": "phase_vs2_typed_state_contract_convergence_target_freeze_v0",
+        "target_family": "BOUNDED_CONTRACT_CONVERGENCE",
+        "target_id": "TYPED_STATE_CONTRACT_CONVERGENCE_V0",
+        "target_status": "SEMANTIC_TARGET_FROZEN_IMPLEMENTATION_SCHEMA_PENDING",
+        "target_count": 1,
+        "semantic_target_frozen": true,
+        "serialized_target_schema_constructed": false,
+        "admissibility_policy_constructed": false,
+        "convergence_criterion_constructed": false,
+        "fixture_set_constructed": false,
+        "source_snapshot_frozen": false,
+        "execution_authorized": false
+      },
+      "target_statement": "Given one declared local scope/regime, one bounded typed-state contract candidate, one frozen local target contract, one frozen local admissibility policy, one finite authorized transformation move-space, one fixed move and case budget, one declared source snapshot, and one frozen convergence criterion, the kernel may, after later construction, construction verification, and separate execution authorization, attempt to reach a locally valid and lawfully admissible terminal typed-state contract.",
+      "target_path": [
+        "candidate typed-state contract",
+        "expose current target condition or defect",
+        "enumerate lawful transformations",
+        "select one lawful transformation",
+        "apply one bounded candidate delta",
+        "validate resulting candidate",
+        "evaluate admissibility",
+        "evaluate convergence criterion",
+        "emit move receipt",
+        "continue under an explicit repeat condition or halt",
+        "emit terminal receipt and run report"
+      ],
+      "scope_regime_requirements": {
+        "operating_scope_required": true,
+        "target_regime_required": true,
+        "candidate_object_regime_required": true,
+        "allowed_source_surfaces_required": true,
+        "forbidden_source_surfaces_required": true,
+        "allowed_transformations_required": true,
+        "forbidden_transformations_required": true,
+        "object_identity_rules_required": true,
+        "sameness_and_difference_criteria_required": true,
+        "authority_boundary_required": true,
+        "claim_boundary_required": true,
+        "scope_regime_expansion_allowed": false
+      },
+      "object_role_separation": {
+        "distinct_roles": [
+          "declared scope/regime",
+          "runtime control state",
+          "candidate contract",
+          "frozen target contract"
+        ],
+        "three_object_model_roles": [
+          "runtime control state",
+          "candidate contract",
+          "frozen target contract"
+        ],
+        "scope_regime_is_external_governing_frame": true,
+        "scope_runtime_candidate_target_conflated": false
+      },
+      "target_success_condition": {
+        "target_reached_only_when": [
+          "candidate validates against the frozen target schema",
+          "candidate passes the frozen admissibility policy",
+          "all required source bindings are valid",
+          "scope/regime boundaries remain intact",
+          "no forbidden effect is present",
+          "all applied moves were authorized",
+          "move and case budgets were respected",
+          "convergence criterion reports the terminal target condition",
+          "terminal receipt was emitted"
+        ],
+        "movement_marked_as_convergence": false,
+        "typed_stop_marked_target_reached": false,
+        "unclassified_result_marked_success": false
+      },
+      "already_valid_candidate_semantics": {
+        "terminal_outcome": "TARGET_REACHED",
+        "initial_target_status": "ALREADY_AT_TARGET",
+        "moves_attempted": 0,
+        "moves_applied": 0,
+        "unnecessary_mutation_absent": true
+      },
+      "positive_path_requirement": {
+        "repairable_positive_path_specimen_must_eventually_terminate_with": "TARGET_REACHED",
+        "typed_stop_may_produce_diagnostic_yield": true,
+        "typed_stop_completes_positive_path_milestone": false
+      },
+      "admissibility_policy_requirements": {
+        "frozen_local_admissibility_policy_required": true,
+        "admissibility_policy_constructed": false,
+        "candidate_must_pass_admissibility": true,
+        "admissibility_failure_terminal_outcome": "STOP_ADMISSIBILITY_FAILED"
+      },
+      "convergence_criterion_requirements": {
+        "continue_condition_required": true,
+        "repeat_condition_required": true,
+        "non_progress_condition_required": true,
+        "repeated_state_condition_required": true,
+        "oscillation_guard_required": true,
+        "maximum_cycle_boundary_required": true,
+        "maximum_radius_boundary_required": true,
+        "target_reached_condition_required": true,
+        "typed_halt_when_repeat_is_not_lawful_required": true,
+        "movement_equals_progress": false,
+        "progress_equals_target_reached": false,
+        "repeated_movement_equals_convergence": false,
+        "typed_containment_stop_equals_convergence": false,
+        "convergence_criterion_constructed": false
+      },
+      "source_policy_requirements": {
+        "declared_source_identity_required": true,
+        "automatic_source_acquisition_allowed": false,
+        "latest_file_selection_allowed": false,
+        "mtime_authority_allowed": false,
+        "directory_position_authority_allowed": false,
+        "silent_source_replacement_allowed": false,
+        "ambient_repository_context_allowed": false,
+        "chat_memory_sourcing_allowed": false,
+        "source_snapshot_frozen": false
+      },
+      "terminal_outcome_family": {
+        "terminal_outcomes": [
+          "TARGET_REACHED",
+          "STOP_REPAIR_NOT_LAWFUL",
+          "STOP_MISSING_SOURCE",
+          "STOP_MISSING_SCHEMA",
+          "STOP_MISSING_AUTHORITY",
+          "STOP_MISSING_CAPABILITY",
+          "STOP_RADIUS_EXHAUSTED",
+          "STOP_NO_ADMISSIBLE_MOVE",
+          "STOP_VALIDATION_FAILED",
+          "STOP_ADMISSIBILITY_FAILED",
+          "STOP_FORBIDDEN_EFFECT_DETECTED",
+          "STOP_SOURCE_IDENTITY_UNVERIFIED",
+          "STOP_SCOPE_REGIME_VIOLATION",
+          "STOP_NON_PROGRESS",
+          "STOP_REPEATED_STATE",
+          "STOP_CONVERGENCE_CRITERION_UNMET",
+          "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT"
+        ],
+        "terminal_outcome_count": 17,
+        "distinctions_collapsed": false,
+        "unclassified_result_posture": {
+          "terminal_outcome": "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT",
+          "execution_remained_contained": true,
+          "current_classification_vocabulary_was_insufficient": true,
+          "target_was_not_reached": true,
+          "automatic_continuation_forbidden": true,
+          "automatic_taxonomy_modification_forbidden": true,
+          "automatic_rerun_forbidden": true,
+          "may_produce_diagnostic_yield": true,
+          "counts_as_success_or_convergence": false
+        }
+      },
+      "unclassified_result_posture": {
+        "terminal_outcome": "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT",
+        "execution_remained_contained": true,
+        "current_classification_vocabulary_was_insufficient": true,
+        "target_was_not_reached": true,
+        "automatic_continuation_forbidden": true,
+        "automatic_taxonomy_modification_forbidden": true,
+        "automatic_rerun_forbidden": true,
+        "may_produce_diagnostic_yield": true,
+        "counts_as_success_or_convergence": false
+      },
+      "target_mutation_boundaries": {
+        "target_mutation_allowed": false,
+        "target_schema_mutation_allowed": false,
+        "move_space_mutation_allowed": false,
+        "scope_regime_expansion_allowed": false,
+        "first_target_substitution_allowed": false,
+        "second_target_selection_allowed": false,
+        "automatic_taxonomy_modification_allowed": false
+      },
+      "target_nonclaims": {
+        "serialized_target_schema_constructed": false,
+        "admissibility_policy_constructed": false,
+        "convergence_criterion_constructed": false,
+        "fixture_set_constructed": false,
+        "source_snapshot_frozen": false,
+        "execution_authorized": false
+      }
+    },
+    "target_freeze_sha256": "518bf3238994cfc88ea542289eb622c90f9eb7f3d6575398c95dd57203669eb8",
+    "target_freeze_hash_recomputes": true
+  },
+  "target_freeze_gate": "VS2_2_TYPED_STATE_CONTRACT_CONVERGENCE_TARGET_FREEZE_PASS",
+  "logical_terminal_transition": "ADVANCE(VS2_3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION_PENDING)",
+  "construction_session_terminal": "ADVANCE(BOOKKEEPING_COMMIT_PHASE_VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_V0_PENDING)",
+  "failures": []
+}
