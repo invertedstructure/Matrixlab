@@ -1,10 +1,10 @@
 # Current State
 
-Generated at UTC: `2026-07-11T08:12:19Z`
+Generated at UTC: `2026-07-11T11:20:57Z`
 
 ## Git context
 
-- Current HEAD SHA: `975d05dfda23a632c91faeaae66abbfcf4e85da6`
+- Current HEAD SHA: `3dc012d9d72201d2baf4c7d31d7545a68659ce9d`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
@@ -15,22 +15,22 @@ Generated at UTC: `2026-07-11T08:12:19Z`
 - ` M baseline_share/RECEIPT_POINTERS.md`
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/post_vs1/post_vs1_direction_decision_receipt_v0.json`
-- `?? docs/matrixlabs/post_vs1/post_vs1_direction_decision_receipt_v0.md`
-- `?? scripts/build_post_vs1_direction_decision_receipt_v0.py`
+- `?? docs/matrixlabs/post_vs1/post_vs1_direction_authority_update_v0.json`
+- `?? docs/matrixlabs/post_vs1/post_vs1_direction_authority_update_v0.md`
+- `?? scripts/build_post_vs1_direction_authority_update_v0.py`
 - Git status excluding generated `baseline_share/`:
 - ` M scripts/build_baseline_share_v0.py`
 - `?? discussion_packets/`
-- `?? docs/matrixlabs/post_vs1/post_vs1_direction_decision_receipt_v0.json`
-- `?? docs/matrixlabs/post_vs1/post_vs1_direction_decision_receipt_v0.md`
-- `?? scripts/build_post_vs1_direction_decision_receipt_v0.py`
+- `?? docs/matrixlabs/post_vs1/post_vs1_direction_authority_update_v0.json`
+- `?? docs/matrixlabs/post_vs1/post_vs1_direction_authority_update_v0.md`
+- `?? scripts/build_post_vs1_direction_authority_update_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `975d05dfda23a632c91faeaae66abbfcf4e85da6`
-- Current C8 post-patch surface-decision acceptance commit: `975d05dfda23a632c91faeaae66abbfcf4e85da6`
+- Current architecture extraction commit: `3dc012d9d72201d2baf4c7d31d7545a68659ce9d`
+- Current C8 post-patch surface-decision acceptance commit: `3dc012d9d72201d2baf4c7d31d7545a68659ce9d`
 
 ## High-level state
 

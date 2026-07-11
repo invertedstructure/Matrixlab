@@ -1,7 +1,7 @@
 # Commit Context
 
-- Generated at UTC: `2026-07-11T08:12:19Z`
-- Current HEAD SHA: `975d05dfda23a632c91faeaae66abbfcf4e85da6`
+- Generated at UTC: `2026-07-11T11:20:57Z`
+- Current HEAD SHA: `3dc012d9d72201d2baf4c7d31d7545a68659ce9d`
 - Branch: `master`
 - Worktree state at generation time: `dirty`
 - Generator script: `scripts/build_baseline_share_v0.py`
@@ -9,6 +9,7 @@
 ## Recent 10 commits
 
 ```text
+3dc012d9d Record post-VS1 direction decision receipt v0
 975d05dfd Prepare post-VS1 direction decision surface v0
 eabe605de Close Phase VS1 precondition map v0
 955743f9c Add Phase VS1.5 next-surface map v0
@@ -18,7 +19,6 @@ d62db2d74 Add Phase VS1.2 controlled loop contract v0
 8f4b57c69 Add Phase VS1.1 post-VS0 source intake v0
 f8c51de1b Add post-VS0 direction decision receipt v0
 18324fd7d Add Phase VS0.6 closure v0
-1a1306a2c Add Phase VS0.5 evidence yield report v0
 ```
 
 ## Git status short
@@ -30,9 +30,9 @@ M baseline_share/COMMIT_CONTEXT.md
  M baseline_share/RECEIPT_POINTERS.md
  M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/post_vs1/post_vs1_direction_decision_receipt_v0.json
-?? docs/matrixlabs/post_vs1/post_vs1_direction_decision_receipt_v0.md
-?? scripts/build_post_vs1_direction_decision_receipt_v0.py
+?? docs/matrixlabs/post_vs1/post_vs1_direction_authority_update_v0.json
+?? docs/matrixlabs/post_vs1/post_vs1_direction_authority_update_v0.md
+?? scripts/build_post_vs1_direction_authority_update_v0.py
 ```
 
 ## Git status short excluding generated baseline_share
@@ -40,9 +40,9 @@ M baseline_share/COMMIT_CONTEXT.md
 ```text
  M scripts/build_baseline_share_v0.py
 ?? discussion_packets/
-?? docs/matrixlabs/post_vs1/post_vs1_direction_decision_receipt_v0.json
-?? docs/matrixlabs/post_vs1/post_vs1_direction_decision_receipt_v0.md
-?? scripts/build_post_vs1_direction_decision_receipt_v0.py
+?? docs/matrixlabs/post_vs1/post_vs1_direction_authority_update_v0.json
+?? docs/matrixlabs/post_vs1/post_vs1_direction_authority_update_v0.md
+?? scripts/build_post_vs1_direction_authority_update_v0.py
 ```
 
 ## Safety facts
