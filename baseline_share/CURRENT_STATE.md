@@ -1,10 +1,10 @@
 # Current State
 
-Generated at UTC: `2026-07-11T20:45:36Z`
+Generated at UTC: `2026-07-11T23:00:06Z`
 
 ## Git context
 
-- Current HEAD SHA: `9d529c6813fd5db38eb4a63368a8d538aa7a88e4`
+- Current HEAD SHA: `007244b3483464f76b91141ca47c85457e7f0bf1`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
@@ -14,27 +14,23 @@ Generated at UTC: `2026-07-11T20:45:36Z`
 - ` M baseline_share/MANIFEST.json`
 - ` M baseline_share/RECEIPT_POINTERS.md`
 - ` M scripts/build_baseline_share_v0.py`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_2_kernel_profile_and_target_freeze_receipt_v0.json`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_first_sweep_capable_kernel_profile_v0.json`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_first_sweep_capable_kernel_profile_v0.md`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_typed_state_contract_convergence_target_freeze_v0.json`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_typed_state_contract_convergence_target_freeze_v0.md`
-- `?? scripts/build_phase_vs2_2_kernel_profile_and_target_freeze_v0.py`
+- `?? docs/matrixlabs/phase_vs2/object_model/`
+- `?? docs/matrixlabs/phase_vs2/phase_vs2_3_scope_regime_and_three_object_model_definition_receipt_v0.json`
+- `?? scripts/build_phase_vs2_3_scope_regime_and_three_object_model_definition_v0.py`
+- `?? scripts/verify_phase_vs2_3_scope_regime_and_three_object_model_definition_v0.py`
 - Git status excluding generated `baseline_share/`:
 - ` M scripts/build_baseline_share_v0.py`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_2_kernel_profile_and_target_freeze_receipt_v0.json`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_first_sweep_capable_kernel_profile_v0.json`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_first_sweep_capable_kernel_profile_v0.md`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_typed_state_contract_convergence_target_freeze_v0.json`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_typed_state_contract_convergence_target_freeze_v0.md`
-- `?? scripts/build_phase_vs2_2_kernel_profile_and_target_freeze_v0.py`
+- `?? docs/matrixlabs/phase_vs2/object_model/`
+- `?? docs/matrixlabs/phase_vs2/phase_vs2_3_scope_regime_and_three_object_model_definition_receipt_v0.json`
+- `?? scripts/build_phase_vs2_3_scope_regime_and_three_object_model_definition_v0.py`
+- `?? scripts/verify_phase_vs2_3_scope_regime_and_three_object_model_definition_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `9d529c6813fd5db38eb4a63368a8d538aa7a88e4`
-- Current C8 post-patch surface-decision acceptance commit: `9d529c6813fd5db38eb4a63368a8d538aa7a88e4`
+- Current architecture extraction commit: `007244b3483464f76b91141ca47c85457e7f0bf1`
+- Current C8 post-patch surface-decision acceptance commit: `007244b3483464f76b91141ca47c85457e7f0bf1`
 
 ## High-level state
 

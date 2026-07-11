@@ -1,0 +1,394 @@
+{
+  "schema_version": "matrixlabs_phase_vs2_scope_regime_contract_v0",
+  "artifact_id": "phase_vs2_scope_regime_contract_v0",
+  "artifact_kind": "STATIC_FRAME_CONTRACT",
+  "contract_id": "first_sweep_kernel_scope_regime_contract_v0",
+  "contract_version": "v0",
+  "scope_id": "FIRST_SWEEP_KERNEL_SCOPE_V0",
+  "scope_version": "v0",
+  "regime_id": "TYPED_STATE_CONTRACT_CONVERGENCE_REGIME_V0",
+  "regime_version": "v0",
+  "profile_reference": {
+    "reference_id": "vs2_2_profile_reference",
+    "reference_role": "UPSTREAM_PROFILE",
+    "binding_status": "BOUND",
+    "expected_artifact_kind": "KERNEL_PROFILE",
+    "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION",
+    "artifact_id": "phase_vs2_first_sweep_capable_kernel_profile_v0",
+    "artifact_kind": "KERNEL_PROFILE",
+    "artifact_version": "v0",
+    "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_first_sweep_capable_kernel_profile_v0.json",
+    "content_sha256": "844fe441ecda5ec84076e9f665d09868373c9b24ea89d5d7056c485823db3142",
+    "hash_algorithm": "SHA-256",
+    "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+    "binding_reason": "Committed VS2.2 profile is the bounded profile source."
+  },
+  "semantic_target_freeze_reference": {
+    "reference_id": "vs2_2_semantic_target_freeze_reference",
+    "reference_role": "UPSTREAM_SEMANTIC_TARGET_FREEZE",
+    "binding_status": "BOUND",
+    "expected_artifact_kind": "SEMANTIC_TARGET_FREEZE",
+    "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION",
+    "artifact_id": "phase_vs2_typed_state_contract_convergence_target_freeze_v0",
+    "artifact_kind": "SEMANTIC_TARGET_FREEZE",
+    "artifact_version": "v0",
+    "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_typed_state_contract_convergence_target_freeze_v0.json",
+    "content_sha256": "518bf3238994cfc88ea542289eb622c90f9eb7f3d6575398c95dd57203669eb8",
+    "hash_algorithm": "SHA-256",
+    "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+    "binding_reason": "Committed VS2.2 target freeze is the target source."
+  },
+  "target_family": "BOUNDED_CONTRACT_CONVERGENCE",
+  "first_target": "TYPED_STATE_CONTRACT_CONVERGENCE_V0",
+  "candidate_family": "TYPED_STATE_CONTRACT_CANDIDATE",
+  "allowed_execution_domain_object_roles": [
+    "RUNTIME_CONTROL_STATE",
+    "CANDIDATE_TYPED_STATE_CONTRACT",
+    "FROZEN_TARGET_CONTRACT"
+  ],
+  "allowed_source_classes": [
+    "BOUND_PROFILE_OR_TARGET_ARTIFACT",
+    "BOUND_CONSTRUCTION_CONTRACT_ARTIFACT",
+    "BOUND_AUTHORITY_RECORD",
+    "BOUND_EXECUTION_SOURCE_SNAPSHOT_MEMBER",
+    "BOUND_RECEIPT_OR_EVALUATION_RECORD"
+  ],
+  "forbidden_source_classes": [
+    "AMBIENT_CHAT_CONTEXT",
+    "BASELINE_PROJECTION_AS_SOURCE_AUTHORITY",
+    "UNDECLARED_WORKTREE_RESIDUE",
+    "LATEST_FILE_SELECTED_SOURCE",
+    "MTIME_SELECTED_SOURCE",
+    "DIRECTORY_ORDER_SELECTED_SOURCE",
+    "AUTOMATICALLY_ACQUIRED_SOURCE",
+    "UNBOUND_EXTERNAL_SOURCE",
+    "SILENTLY_SUBSTITUTED_SOURCE",
+    "FUTURE_EXECUTION_RESULT_AS_CONSTRUCTION_SOURCE"
+  ],
+  "allowed_future_transformation_class": "FINITE_TARGET_BOUND_TYPED_STATE_CONTRACT_TRANSFORMATION",
+  "forbidden_transformation_classes": [
+    "SCOPE_EXPANDING_TRANSFORMATION",
+    "TARGET_REPLACING_TRANSFORMATION",
+    "SOURCE_SNAPSHOT_EXPANDING_TRANSFORMATION",
+    "AUTHORITY_ESCALATING_TRANSFORMATION",
+    "SCHEMA_SELF_MODIFYING_TRANSFORMATION",
+    "MOVE_SPACE_SELF_MODIFYING_TRANSFORMATION",
+    "AUTOMATIC_REPAIR_TRANSFORMATION",
+    "AUTOMATIC_TAXONOMY_MUTATION",
+    "PORTABILITY_GENERALIZATION_TRANSFORMATION"
+  ],
+  "object_identity_rules": {
+    "execution_domain_object_role_count": 3,
+    "static_scope_regime_frame_count": 1,
+    "static_object_model_manifest_count": 1,
+    "additional_mutable_execution_domain_object_count": 0
+  },
+  "sameness_rules": {
+    "artifact_sameness_requires": [
+      "same artifact_id",
+      "same artifact_version",
+      "same canonical content hash"
+    ],
+    "execution_frame_sameness_requires": [
+      "same scope_id and scope_version",
+      "same regime_id and regime_version",
+      "same target_family and first_target",
+      "same candidate_family",
+      "same F0 canonical hash"
+    ]
+  },
+  "difference_rules": {
+    "different_artifact_when_hash_differs": true,
+    "different_execution_frame_when_scope_regime_target_or_candidate_family_differs": true
+  },
+  "authority_boundary": {
+    "construction_authority_limited_to_declared_vs2_3_to_vs2_5_frame": true,
+    "runtime_execution_requires_separate_execution_authority_package": true,
+    "candidate_authority_declarations_are_semantic_content_only": true,
+    "target_authority_requirements_are_semantic_evaluation_requirements_only": true,
+    "pending_references_grant_no_authority": true,
+    "objects_cannot_self_authorize": true,
+    "objects_cannot_expand_their_authority_frame": true
+  },
+  "claim_boundary": {
+    "claims_limited_to_static_frame_contract": true,
+    "runtime_success_claimed": false,
+    "target_reached_claimed": false,
+    "move_space_defined": false
+  },
+  "expansion_boundary": {
+    "forbidden_within_one_package": [
+      "second target family",
+      "second target identity",
+      "new candidate family",
+      "new source class",
+      "new capability class",
+      "new transformation class",
+      "new authority frame",
+      "new scope version",
+      "new regime version",
+      "automatic move-space expansion",
+      "automatic source-snapshot expansion"
+    ]
+  },
+  "immutability_contract": {
+    "frame_mutable": false
+  },
+  "construction_authority_provenance": {
+    "bounded_construction_grant_id": "VS2_BOUNDED_CONSTRUCTION_AUTHORITY",
+    "source_route_status": "ROUTED_NOT_CONSUMED",
+    "first_lawful_exercising_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION",
+    "consumption_frame": "VS2.3_TO_VS2.5_BOUND_TARGET_CONSTRUCTION_SEQUENCE",
+    "bounded_construction_grant_consumed": true,
+    "bounded_construction_consumption_count_before": 0,
+    "bounded_construction_consumption_count_after": 1,
+    "bounded_construction_local_exercise_scope": "SCOPE_REGIME_AND_THREE_OBJECT_MODEL_ONLY",
+    "same_bounded_construction_grant_may_be_consumed_again": false,
+    "bounded_construction_grant_exhausted": false,
+    "bounded_construction_frame_open": true,
+    "remaining_frame_units": [
+      "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE",
+      "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+    ],
+    "total_effective_grant_count": 5,
+    "total_consumed_grant_count": 2,
+    "profile_and_target_grant_consumed": true,
+    "unconsumed_effective_grant_count": 3,
+    "unconsumed_grant_ids": [
+      "VS2_FIXTURE_CONSTRUCTION_AUTHORITY",
+      "VS2_FIRST_RUN_READINESS_GATE_CONSTRUCTION_AUTHORITY",
+      "VS2_CONSTRUCTION_PACKAGE_VERIFICATION_AUTHORITY"
+    ],
+    "fixture_construction_authority_consumed_by_vs2_3": false,
+    "readiness_gate_construction_authority_consumed_by_vs2_3": false,
+    "construction_package_verification_authority_consumed_by_vs2_3": false,
+    "execution_authority_consumed_by_vs2_3": false,
+    "basis_receipt_sha256": "9e17272877e96f9db6885334e2531df8be8fdd7bb2d501d853c393b8f16ce425"
+  },
+  "source_basis": [
+    {
+      "section": "profile_reference",
+      "basis_class": "UPSTREAM_PROFILE_DERIVED",
+      "basis_reason": "F0 is a deterministic static projection of committed VS2.2 profile/target boundaries.",
+      "source_authority": "committed_vs2_2_profile_target_receipt_or_deterministic_representation"
+    },
+    {
+      "section": "semantic_target_freeze_reference",
+      "basis_class": "UPSTREAM_PROFILE_DERIVED",
+      "basis_reason": "F0 is a deterministic static projection of committed VS2.2 profile/target boundaries.",
+      "source_authority": "committed_vs2_2_profile_target_receipt_or_deterministic_representation"
+    },
+    {
+      "section": "authority_boundary",
+      "basis_class": "UPSTREAM_PROFILE_DERIVED",
+      "basis_reason": "F0 is a deterministic static projection of committed VS2.2 profile/target boundaries.",
+      "source_authority": "committed_vs2_2_profile_target_receipt_or_deterministic_representation"
+    },
+    {
+      "section": "immutability_contract",
+      "basis_class": "UPSTREAM_PROFILE_DERIVED",
+      "basis_reason": "F0 is a deterministic static projection of committed VS2.2 profile/target boundaries.",
+      "source_authority": "committed_vs2_2_profile_target_receipt_or_deterministic_representation"
+    }
+  ],
+  "contract_status": "FROZEN_FOR_FIRST_SWEEP_CAPABLE_KERNEL_PROFILE",
+  "contract_binding": {
+    "canonicalization": "MATRIXLAB_CANONICAL_JSON_V0",
+    "contract_payload": {
+      "schema_version": "matrixlabs_phase_vs2_scope_regime_contract_v0",
+      "artifact_id": "phase_vs2_scope_regime_contract_v0",
+      "artifact_kind": "STATIC_FRAME_CONTRACT",
+      "contract_id": "first_sweep_kernel_scope_regime_contract_v0",
+      "contract_version": "v0",
+      "scope_id": "FIRST_SWEEP_KERNEL_SCOPE_V0",
+      "scope_version": "v0",
+      "regime_id": "TYPED_STATE_CONTRACT_CONVERGENCE_REGIME_V0",
+      "regime_version": "v0",
+      "profile_reference": {
+        "reference_id": "vs2_2_profile_reference",
+        "reference_role": "UPSTREAM_PROFILE",
+        "binding_status": "BOUND",
+        "expected_artifact_kind": "KERNEL_PROFILE",
+        "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION",
+        "artifact_id": "phase_vs2_first_sweep_capable_kernel_profile_v0",
+        "artifact_kind": "KERNEL_PROFILE",
+        "artifact_version": "v0",
+        "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_first_sweep_capable_kernel_profile_v0.json",
+        "content_sha256": "844fe441ecda5ec84076e9f665d09868373c9b24ea89d5d7056c485823db3142",
+        "hash_algorithm": "SHA-256",
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "binding_reason": "Committed VS2.2 profile is the bounded profile source."
+      },
+      "semantic_target_freeze_reference": {
+        "reference_id": "vs2_2_semantic_target_freeze_reference",
+        "reference_role": "UPSTREAM_SEMANTIC_TARGET_FREEZE",
+        "binding_status": "BOUND",
+        "expected_artifact_kind": "SEMANTIC_TARGET_FREEZE",
+        "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION",
+        "artifact_id": "phase_vs2_typed_state_contract_convergence_target_freeze_v0",
+        "artifact_kind": "SEMANTIC_TARGET_FREEZE",
+        "artifact_version": "v0",
+        "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_typed_state_contract_convergence_target_freeze_v0.json",
+        "content_sha256": "518bf3238994cfc88ea542289eb622c90f9eb7f3d6575398c95dd57203669eb8",
+        "hash_algorithm": "SHA-256",
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "binding_reason": "Committed VS2.2 target freeze is the target source."
+      },
+      "target_family": "BOUNDED_CONTRACT_CONVERGENCE",
+      "first_target": "TYPED_STATE_CONTRACT_CONVERGENCE_V0",
+      "candidate_family": "TYPED_STATE_CONTRACT_CANDIDATE",
+      "allowed_execution_domain_object_roles": [
+        "RUNTIME_CONTROL_STATE",
+        "CANDIDATE_TYPED_STATE_CONTRACT",
+        "FROZEN_TARGET_CONTRACT"
+      ],
+      "allowed_source_classes": [
+        "BOUND_PROFILE_OR_TARGET_ARTIFACT",
+        "BOUND_CONSTRUCTION_CONTRACT_ARTIFACT",
+        "BOUND_AUTHORITY_RECORD",
+        "BOUND_EXECUTION_SOURCE_SNAPSHOT_MEMBER",
+        "BOUND_RECEIPT_OR_EVALUATION_RECORD"
+      ],
+      "forbidden_source_classes": [
+        "AMBIENT_CHAT_CONTEXT",
+        "BASELINE_PROJECTION_AS_SOURCE_AUTHORITY",
+        "UNDECLARED_WORKTREE_RESIDUE",
+        "LATEST_FILE_SELECTED_SOURCE",
+        "MTIME_SELECTED_SOURCE",
+        "DIRECTORY_ORDER_SELECTED_SOURCE",
+        "AUTOMATICALLY_ACQUIRED_SOURCE",
+        "UNBOUND_EXTERNAL_SOURCE",
+        "SILENTLY_SUBSTITUTED_SOURCE",
+        "FUTURE_EXECUTION_RESULT_AS_CONSTRUCTION_SOURCE"
+      ],
+      "allowed_future_transformation_class": "FINITE_TARGET_BOUND_TYPED_STATE_CONTRACT_TRANSFORMATION",
+      "forbidden_transformation_classes": [
+        "SCOPE_EXPANDING_TRANSFORMATION",
+        "TARGET_REPLACING_TRANSFORMATION",
+        "SOURCE_SNAPSHOT_EXPANDING_TRANSFORMATION",
+        "AUTHORITY_ESCALATING_TRANSFORMATION",
+        "SCHEMA_SELF_MODIFYING_TRANSFORMATION",
+        "MOVE_SPACE_SELF_MODIFYING_TRANSFORMATION",
+        "AUTOMATIC_REPAIR_TRANSFORMATION",
+        "AUTOMATIC_TAXONOMY_MUTATION",
+        "PORTABILITY_GENERALIZATION_TRANSFORMATION"
+      ],
+      "object_identity_rules": {
+        "execution_domain_object_role_count": 3,
+        "static_scope_regime_frame_count": 1,
+        "static_object_model_manifest_count": 1,
+        "additional_mutable_execution_domain_object_count": 0
+      },
+      "sameness_rules": {
+        "artifact_sameness_requires": [
+          "same artifact_id",
+          "same artifact_version",
+          "same canonical content hash"
+        ],
+        "execution_frame_sameness_requires": [
+          "same scope_id and scope_version",
+          "same regime_id and regime_version",
+          "same target_family and first_target",
+          "same candidate_family",
+          "same F0 canonical hash"
+        ]
+      },
+      "difference_rules": {
+        "different_artifact_when_hash_differs": true,
+        "different_execution_frame_when_scope_regime_target_or_candidate_family_differs": true
+      },
+      "authority_boundary": {
+        "construction_authority_limited_to_declared_vs2_3_to_vs2_5_frame": true,
+        "runtime_execution_requires_separate_execution_authority_package": true,
+        "candidate_authority_declarations_are_semantic_content_only": true,
+        "target_authority_requirements_are_semantic_evaluation_requirements_only": true,
+        "pending_references_grant_no_authority": true,
+        "objects_cannot_self_authorize": true,
+        "objects_cannot_expand_their_authority_frame": true
+      },
+      "claim_boundary": {
+        "claims_limited_to_static_frame_contract": true,
+        "runtime_success_claimed": false,
+        "target_reached_claimed": false,
+        "move_space_defined": false
+      },
+      "expansion_boundary": {
+        "forbidden_within_one_package": [
+          "second target family",
+          "second target identity",
+          "new candidate family",
+          "new source class",
+          "new capability class",
+          "new transformation class",
+          "new authority frame",
+          "new scope version",
+          "new regime version",
+          "automatic move-space expansion",
+          "automatic source-snapshot expansion"
+        ]
+      },
+      "immutability_contract": {
+        "frame_mutable": false
+      },
+      "construction_authority_provenance": {
+        "bounded_construction_grant_id": "VS2_BOUNDED_CONSTRUCTION_AUTHORITY",
+        "source_route_status": "ROUTED_NOT_CONSUMED",
+        "first_lawful_exercising_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION",
+        "consumption_frame": "VS2.3_TO_VS2.5_BOUND_TARGET_CONSTRUCTION_SEQUENCE",
+        "bounded_construction_grant_consumed": true,
+        "bounded_construction_consumption_count_before": 0,
+        "bounded_construction_consumption_count_after": 1,
+        "bounded_construction_local_exercise_scope": "SCOPE_REGIME_AND_THREE_OBJECT_MODEL_ONLY",
+        "same_bounded_construction_grant_may_be_consumed_again": false,
+        "bounded_construction_grant_exhausted": false,
+        "bounded_construction_frame_open": true,
+        "remaining_frame_units": [
+          "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE",
+          "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+        ],
+        "total_effective_grant_count": 5,
+        "total_consumed_grant_count": 2,
+        "profile_and_target_grant_consumed": true,
+        "unconsumed_effective_grant_count": 3,
+        "unconsumed_grant_ids": [
+          "VS2_FIXTURE_CONSTRUCTION_AUTHORITY",
+          "VS2_FIRST_RUN_READINESS_GATE_CONSTRUCTION_AUTHORITY",
+          "VS2_CONSTRUCTION_PACKAGE_VERIFICATION_AUTHORITY"
+        ],
+        "fixture_construction_authority_consumed_by_vs2_3": false,
+        "readiness_gate_construction_authority_consumed_by_vs2_3": false,
+        "construction_package_verification_authority_consumed_by_vs2_3": false,
+        "execution_authority_consumed_by_vs2_3": false,
+        "basis_receipt_sha256": "9e17272877e96f9db6885334e2531df8be8fdd7bb2d501d853c393b8f16ce425"
+      },
+      "source_basis": [
+        {
+          "section": "profile_reference",
+          "basis_class": "UPSTREAM_PROFILE_DERIVED",
+          "basis_reason": "F0 is a deterministic static projection of committed VS2.2 profile/target boundaries.",
+          "source_authority": "committed_vs2_2_profile_target_receipt_or_deterministic_representation"
+        },
+        {
+          "section": "semantic_target_freeze_reference",
+          "basis_class": "UPSTREAM_PROFILE_DERIVED",
+          "basis_reason": "F0 is a deterministic static projection of committed VS2.2 profile/target boundaries.",
+          "source_authority": "committed_vs2_2_profile_target_receipt_or_deterministic_representation"
+        },
+        {
+          "section": "authority_boundary",
+          "basis_class": "UPSTREAM_PROFILE_DERIVED",
+          "basis_reason": "F0 is a deterministic static projection of committed VS2.2 profile/target boundaries.",
+          "source_authority": "committed_vs2_2_profile_target_receipt_or_deterministic_representation"
+        },
+        {
+          "section": "immutability_contract",
+          "basis_class": "UPSTREAM_PROFILE_DERIVED",
+          "basis_reason": "F0 is a deterministic static projection of committed VS2.2 profile/target boundaries.",
+          "source_authority": "committed_vs2_2_profile_target_receipt_or_deterministic_representation"
+        }
+      ],
+      "contract_status": "FROZEN_FOR_FIRST_SWEEP_CAPABLE_KERNEL_PROFILE"
+    },
+    "contract_sha256": "a6b4819aee35e5f09686a5a69d471b31f3a5cfdcab2078a29323ba1d31211179"
+  }
+}
