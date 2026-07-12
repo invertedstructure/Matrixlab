@@ -4,9 +4,9 @@ This packet does not copy the full receipt stack. Receipts remain evidence and s
 
 ## Full receipt locations
 
-- External WSL receipt archive: `/home/asd/matrixlab_receipts/` - present; file count: `848`.
+- External WSL receipt archive: `/home/asd/matrixlab_receipts/` - present; file count: `850`.
 - Repo architecture extraction receipt copy: `docs/matrixlabs/receipts/` - present; file count: `714`.
-- Repo Phase VS2 receipt JSONs: `docs/matrixlabs/phase_vs2/*receipt*.json` - file count: `3`.
+- Repo Phase VS2 receipt JSONs: `docs/matrixlabs/phase_vs2/*receipt*.json` - file count: `4`.
 
 ## Current load-bearing recent receipt pointers
 

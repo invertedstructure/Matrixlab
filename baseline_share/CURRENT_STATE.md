@@ -4,33 +4,29 @@ Generated at UTC: `2026-07-11T23:00:06Z`
 
 ## Git context
 
-- Current HEAD SHA: `007244b3483464f76b91141ca47c85457e7f0bf1`
+- Current HEAD SHA: `99ed9ab2244c95d781ee709088839a79236f173b`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
 - Git status:
-- `M baseline_share/COMMIT_CONTEXT.md`
-- ` M baseline_share/CURRENT_STATE.md`
-- ` M baseline_share/MANIFEST.json`
-- ` M baseline_share/RECEIPT_POINTERS.md`
 - ` M scripts/build_baseline_share_v0.py`
-- `?? docs/matrixlabs/phase_vs2/object_model/`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_3_scope_regime_and_three_object_model_definition_receipt_v0.json`
-- `?? scripts/build_phase_vs2_3_scope_regime_and_three_object_model_definition_v0.py`
-- `?? scripts/verify_phase_vs2_3_scope_regime_and_three_object_model_definition_v0.py`
+- `?? docs/matrixlabs/phase_vs2/move_space/`
+- `?? docs/matrixlabs/phase_vs2/phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0.json`
+- `?? scripts/build_phase_vs2_4_finite_move_space_source_and_authority_freeze_v0.py`
+- `?? scripts/verify_phase_vs2_4_finite_move_space_source_and_authority_freeze_v0.py`
 - Git status excluding generated `baseline_share/`:
 - ` M scripts/build_baseline_share_v0.py`
-- `?? docs/matrixlabs/phase_vs2/object_model/`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_3_scope_regime_and_three_object_model_definition_receipt_v0.json`
-- `?? scripts/build_phase_vs2_3_scope_regime_and_three_object_model_definition_v0.py`
-- `?? scripts/verify_phase_vs2_3_scope_regime_and_three_object_model_definition_v0.py`
+- `?? docs/matrixlabs/phase_vs2/move_space/`
+- `?? docs/matrixlabs/phase_vs2/phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0.json`
+- `?? scripts/build_phase_vs2_4_finite_move_space_source_and_authority_freeze_v0.py`
+- `?? scripts/verify_phase_vs2_4_finite_move_space_source_and_authority_freeze_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `007244b3483464f76b91141ca47c85457e7f0bf1`
-- Current C8 post-patch surface-decision acceptance commit: `007244b3483464f76b91141ca47c85457e7f0bf1`
+- Current architecture extraction commit: `99ed9ab2244c95d781ee709088839a79236f173b`
+- Current C8 post-patch surface-decision acceptance commit: `99ed9ab2244c95d781ee709088839a79236f173b`
 
 ## High-level state
 

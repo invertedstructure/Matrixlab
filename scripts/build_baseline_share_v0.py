@@ -452,6 +452,27 @@ PHASE_VS2_3_SCOPE_REGIME_OBJECT_MODEL_SCRIPT = (
 PHASE_VS2_3_SCOPE_REGIME_OBJECT_MODEL_VERIFY_SCRIPT = (
     "scripts/verify_phase_vs2_3_scope_regime_and_three_object_model_definition_v0.py"
 )
+PHASE_VS2_4_MOVE_SPACE_DOCS = [
+    "docs/matrixlabs/phase_vs2/move_space/phase_vs2_source_and_version_binding_contract_v0.json",
+    "docs/matrixlabs/phase_vs2/move_space/phase_vs2_source_and_version_binding_contract_v0.md",
+    "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_vocabulary_partition_v0.json",
+    "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_vocabulary_partition_v0.md",
+    "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_authority_matrix_v0.json",
+    "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_authority_matrix_v0.md",
+    "docs/matrixlabs/phase_vs2/move_space/phase_vs2_finite_move_space_v0.json",
+    "docs/matrixlabs/phase_vs2/move_space/phase_vs2_finite_move_space_v0.md",
+    "docs/matrixlabs/phase_vs2/move_space/phase_vs2_prospective_controlled_step_authority_envelope_v0.json",
+    "docs/matrixlabs/phase_vs2/move_space/phase_vs2_prospective_controlled_step_authority_envelope_v0.md",
+    "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_space_binding_manifest_v0.json",
+    "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_space_binding_manifest_v0.md",
+    "docs/matrixlabs/phase_vs2/phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0.json",
+]
+PHASE_VS2_4_MOVE_SPACE_SCRIPT = (
+    "scripts/build_phase_vs2_4_finite_move_space_source_and_authority_freeze_v0.py"
+)
+PHASE_VS2_4_MOVE_SPACE_VERIFY_SCRIPT = (
+    "scripts/verify_phase_vs2_4_finite_move_space_source_and_authority_freeze_v0.py"
+)
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -567,6 +588,9 @@ SOURCE_DOCS = [
     *PHASE_VS2_3_SCOPE_REGIME_OBJECT_MODEL_DOCS,
     PHASE_VS2_3_SCOPE_REGIME_OBJECT_MODEL_SCRIPT,
     PHASE_VS2_3_SCOPE_REGIME_OBJECT_MODEL_VERIFY_SCRIPT,
+    *PHASE_VS2_4_MOVE_SPACE_DOCS,
+    PHASE_VS2_4_MOVE_SPACE_SCRIPT,
+    PHASE_VS2_4_MOVE_SPACE_VERIFY_SCRIPT,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -596,6 +620,16 @@ def run_git(root: Path, args: list[str], check: bool = False) -> str:
             f"git {' '.join(args)} failed: {proc.stderr.strip() or proc.stdout.strip()}"
         )
     return proc.stdout.strip()
+
+
+def stable_generated_at_for_head(root: Path, head: str) -> str:
+    commit_timestamp = int(run_git(root, ["show", "-s", "--format=%ct", head], check=True))
+    return (
+        datetime.fromtimestamp(commit_timestamp, timezone.utc)
+        .replace(microsecond=0)
+        .isoformat()
+        .replace("+00:00", "Z")
+    )
 
 
 def git_status_excluding_baseline_share(root: Path, status_lines: list[str]) -> list[str]:
@@ -1613,6 +1647,19 @@ def build_manifest(
     phase_vs2_3_gates = phase_vs2_3_receipt.get("gates", {})
     phase_vs2_3_authority = phase_vs2_3_receipt.get("construction_authority", {})
     phase_vs2_3_receipt_binding = phase_vs2_3_receipt.get("receipt_binding", {})
+    phase_vs2_4_receipt_path = root / PHASE_VS2_4_MOVE_SPACE_DOCS[12]
+    phase_vs2_4_receipt_present = phase_vs2_4_receipt_path.exists()
+    phase_vs2_4_receipt = (
+        json.loads(phase_vs2_4_receipt_path.read_text(encoding="utf-8"))
+        if phase_vs2_4_receipt_present
+        else {}
+    )
+    phase_vs2_4_post_state = phase_vs2_4_receipt.get("post_state", {})
+    phase_vs2_4_bindings = phase_vs2_4_receipt.get("vs2_4_artifact_bindings", {})
+    phase_vs2_4_move_hashes = phase_vs2_4_receipt.get("move_hashes", {})
+    phase_vs2_4_gates = phase_vs2_4_receipt.get("gates", {})
+    phase_vs2_4_authority = phase_vs2_4_receipt.get("construction_authority", {})
+    phase_vs2_4_receipt_binding = phase_vs2_4_receipt.get("receipt_binding", {})
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -2419,6 +2466,73 @@ def build_manifest(
         "phase_vs2_pending_binding_count_after_vs2_3": phase_vs2_3_counts.get("pending_binding_count") if phase_vs2_3_receipt_present else None,
         "phase_vs2_absent_by_policy_binding_count_after_vs2_3": phase_vs2_3_counts.get("absent_by_policy_binding_count") if phase_vs2_3_receipt_present else None,
         "phase_vs2_fabricated_future_reference_count": phase_vs2_3_counts.get("fabricated_future_reference_count") if phase_vs2_3_receipt_present else None,
+        "phase_vs2_current_unit": phase_vs2_4_receipt.get("unit_id") if phase_vs2_4_receipt_present else (phase_vs2_3_receipt.get("unit_id") if phase_vs2_3_receipt_present else (phase_vs2_2_profile.get("unit_id") if phase_vs2_2_profile_present else (phase_vs2_1_source_intake.get("unit_id") if phase_vs2_1_source_intake_present else None))),
+        "phase_vs2_next_unit": "VS2_5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION_PENDING" if phase_vs2_4_receipt_present else ("VS2_4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE_PENDING" if phase_vs2_3_receipt_present else ("VS2_3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION_PENDING" if phase_vs2_2_profile_present else ("VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_PENDING" if phase_vs2_1_source_intake_present else None))),
+        "phase_vs2_grant_consumption_count": phase_vs2_4_authority.get("bounded_construction_consumption_count_after", phase_vs2_3_authority.get("total_consumed_grant_count", 0)) if phase_vs2_4_receipt_present else (phase_vs2_3_authority.get("total_consumed_grant_count", 0) if phase_vs2_3_receipt_present else (phase_vs2_2_post_state.get("vs2_grant_consumption_count", 0) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("vs2_grant_consumption_count", 0) if phase_vs2_1_source_intake_present else 0))),
+        "phase_vs2_remaining_effective_grant_count": phase_vs2_4_authority.get("unconsumed_effective_grant_count") if phase_vs2_4_receipt_present else (phase_vs2_3_authority.get("unconsumed_effective_grant_count") if phase_vs2_3_receipt_present else (phase_vs2_2_remaining_grants.get("remaining_effective_grant_count") if phase_vs2_2_profile_present else None)),
+        "phase_vs2_construction_started": phase_vs2_4_receipt_present or (phase_vs2_3_post_state.get("construction_performed", False) if phase_vs2_3_receipt_present else (phase_vs2_2_post_state.get("construction_performed", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("construction_performed", False) if phase_vs2_1_source_intake_present else False))),
+        "phase_vs2_construction_performed": phase_vs2_4_receipt_present or (phase_vs2_3_post_state.get("construction_performed", False) if phase_vs2_3_receipt_present else (phase_vs2_2_post_state.get("construction_performed", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("construction_performed", False) if phase_vs2_1_source_intake_present else False))),
+        "phase_vs2_execution_authorized": phase_vs2_4_post_state.get("execution_authorized", False) if phase_vs2_4_receipt_present else (phase_vs2_3_post_state.get("execution_authorized", False) if phase_vs2_3_receipt_present else (phase_vs2_2_post_state.get("execution_authorized", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("execution_authorized", False) if phase_vs2_1_source_intake_present else False))),
+        "phase_vs2_execution_performed": phase_vs2_4_post_state.get("execution_performed", False) if phase_vs2_4_receipt_present else (phase_vs2_3_post_state.get("execution_performed", False) if phase_vs2_3_receipt_present else (phase_vs2_2_post_state.get("execution_performed", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("execution_performed", False) if phase_vs2_1_source_intake_present else False))),
+        "phase_vs2_sweep_authorized": phase_vs2_4_post_state.get("sweep_authorized", False) if phase_vs2_4_receipt_present else (phase_vs2_3_post_state.get("sweep_authorized", False) if phase_vs2_3_receipt_present else (phase_vs2_2_post_state.get("sweep_authorized", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("sweep_authorized", False) if phase_vs2_1_source_intake_present else False))),
+        "phase_vs2_sweep_executed": phase_vs2_4_post_state.get("sweep_executed", False) if phase_vs2_4_receipt_present else (phase_vs2_3_post_state.get("sweep_executed", False) if phase_vs2_3_receipt_present else False),
+        "phase_vs2_runner_created": phase_vs2_4_post_state.get("runner_created", False) if phase_vs2_4_receipt_present else (phase_vs2_3_post_state.get("runner_created", False) if phase_vs2_3_receipt_present else (phase_vs2_2_post_state.get("runner_created", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("runner_created", False) if phase_vs2_1_source_intake_present else False))),
+        "phase_vs2_runtime_instance_created": phase_vs2_4_post_state.get("runtime_instance_created", False) if phase_vs2_4_receipt_present else (phase_vs2_3_post_state.get("runtime_instance_created", False) if phase_vs2_3_receipt_present else False),
+        "phase_vs2_candidate_instance_created": phase_vs2_4_post_state.get("candidate_instance_created", False) if phase_vs2_4_receipt_present else (phase_vs2_3_post_state.get("candidate_instance_created", False) if phase_vs2_3_receipt_present else False),
+        "phase_vs2_fixture_instance_created": phase_vs2_4_post_state.get("fixture_instance_created", False) if phase_vs2_4_receipt_present else (phase_vs2_3_post_state.get("fixture_instance_created", False) if phase_vs2_3_receipt_present else False),
+        "phase_vs2_fixture_construction_performed": phase_vs2_4_post_state.get("fixture_instance_created", False) if phase_vs2_4_receipt_present else (phase_vs2_3_post_state.get("fixture_instance_created", False) if phase_vs2_3_receipt_present else (phase_vs2_2_post_state.get("fixture_construction_performed", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("fixture_construction_performed", False) if phase_vs2_1_source_intake_present else False))),
+        "phase_vs2_readiness_gate_constructed": False if phase_vs2_4_receipt_present else (phase_vs2_3_post_state.get("readiness_gate_constructed", False) if phase_vs2_3_receipt_present else (phase_vs2_2_post_state.get("readiness_gate_constructed", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("readiness_gate_constructed", False) if phase_vs2_1_source_intake_present else False))),
+        "phase_vs2_construction_package_verified": False if phase_vs2_4_receipt_present else (phase_vs2_3_post_state.get("construction_package_verified", False) if phase_vs2_3_receipt_present else (phase_vs2_2_post_state.get("construction_package_verified", False) if phase_vs2_2_profile_present else (phase_vs2_1_post_state.get("construction_package_verified", False) if phase_vs2_1_source_intake_present else False))),
+        "phase_vs2_move_space_constructed": phase_vs2_4_receipt_present or (phase_vs2_3_post_state.get("move_space_constructed", False) if phase_vs2_3_receipt_present else False),
+        "phase_vs2_move_space_frozen": phase_vs2_4_post_state.get("move_space_frozen", False) if phase_vs2_4_receipt_present else False,
+        "phase_vs2_move_space_active": phase_vs2_4_post_state.get("move_space_active", False) if phase_vs2_4_receipt_present else False,
+        "phase_vs2_source_and_version_binding_contract_constructed": phase_vs2_4_post_state.get("source_and_version_binding_contract_constructed", False) if phase_vs2_4_receipt_present else False,
+        "phase_vs2_exact_source_snapshot_frozen": phase_vs2_4_post_state.get("exact_source_snapshot_frozen", False) if phase_vs2_4_receipt_present else False,
+        "phase_vs2_move_authority_matrix_constructed": phase_vs2_4_post_state.get("move_authority_matrix_constructed", False) if phase_vs2_4_receipt_present else False,
+        "phase_vs2_prospective_authority_envelope_constructed": phase_vs2_4_post_state.get("prospective_authority_envelope_constructed", False) if phase_vs2_4_receipt_present else False,
+        "phase_vs2_prospective_authority_envelope_active": phase_vs2_4_post_state.get("prospective_authority_envelope_active", False) if phase_vs2_4_receipt_present else False,
+        "phase_vs2_successor_binding_manifest_constructed": phase_vs2_4_post_state.get("successor_binding_manifest_constructed", False) if phase_vs2_4_receipt_present else False,
+        "phase_vs2_m0_unchanged": phase_vs2_4_post_state.get("M0_unchanged", False) if phase_vs2_4_receipt_present else False,
+        "phase_vs2_selector_constructed": phase_vs2_4_post_state.get("selector_constructed", False) if phase_vs2_4_receipt_present else (phase_vs2_3_post_state.get("selector_constructed", False) if phase_vs2_3_receipt_present else False),
+        "phase_vs2_applicator_constructed": phase_vs2_4_post_state.get("applicator_constructed", False) if phase_vs2_4_receipt_present else (phase_vs2_3_post_state.get("applicator_constructed", False) if phase_vs2_3_receipt_present else False),
+        "phase_vs2_validation_execution_logic_constructed": phase_vs2_4_post_state.get("validation_execution_logic_constructed", False) if phase_vs2_4_receipt_present else (phase_vs2_3_post_state.get("validation_execution_logic_constructed", False) if phase_vs2_3_receipt_present else False),
+        "phase_vs2_admissibility_execution_logic_constructed": phase_vs2_4_post_state.get("candidate_admissibility_execution_logic_constructed", False) if phase_vs2_4_receipt_present else (phase_vs2_3_post_state.get("admissibility_execution_logic_constructed", False) if phase_vs2_3_receipt_present else False),
+        "phase_vs2_convergence_criterion_constructed": phase_vs2_4_post_state.get("convergence_criterion_constructed", False) if phase_vs2_4_receipt_present else (phase_vs2_3_post_state.get("convergence_criterion_constructed", False) if phase_vs2_3_receipt_present else False),
+        "phase_vs2_source_snapshot_frozen": phase_vs2_4_post_state.get("exact_source_snapshot_frozen", False) if phase_vs2_4_receipt_present else (phase_vs2_3_post_state.get("source_snapshot_frozen", False) if phase_vs2_3_receipt_present else False),
+        "phase_vs2_4_built": phase_vs2_4_post_state.get("source_and_version_binding_contract_constructed", False) if phase_vs2_4_receipt_present else False,
+        "phase_vs2_5_may_begin": phase_vs2_4_post_state.get("vs2_5_may_begin", False) if phase_vs2_4_receipt_present else False,
+        "phase_vs2_4_receipt_artifact_id": phase_vs2_4_receipt.get("artifact_id") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_4_receipt_sha256": phase_vs2_4_receipt_binding.get("receipt_sha256") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_4_receipt_gate": phase_vs2_4_gates.get("receipt_gate", phase_vs2_4_receipt.get("receipt_gate")) if phase_vs2_4_receipt_present else None,
+        "phase_vs2_4_construction_verdict": phase_vs2_4_receipt.get("construction_verdict") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_terminal_transition": phase_vs2_4_receipt.get("terminal_transition") if phase_vs2_4_receipt_present else (phase_vs2_3_receipt.get("terminal_transition") if phase_vs2_3_receipt_present else (phase_vs2_2_profile.get("construction_session_terminal") if phase_vs2_2_profile_present else (phase_vs2_1_source_intake.get("terminal_transition") if phase_vs2_1_source_intake_present else None))),
+        "phase_vs2_logical_terminal_transition": phase_vs2_4_receipt.get("logical_terminal_transition") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_move_count": phase_vs2_4_receipt.get("move_count") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_move_contract_count": phase_vs2_4_receipt.get("move_contract_count") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_vocabulary_partition_count": phase_vs2_4_receipt.get("vocabulary_partition_count") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_terminal_outcome_count": phase_vs2_4_receipt.get("terminal_outcome_count") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_stop_budget_exhausted_present": phase_vs2_4_receipt.get("stop_budget_exhausted_present") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_downstream_binding_count_after_vs2_4": phase_vs2_4_receipt.get("downstream_binding_count") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_pending_binding_count_after_vs2_4": phase_vs2_4_receipt.get("pending_binding_count") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_absent_by_policy_binding_count_after_vs2_4": phase_vs2_4_receipt.get("absent_by_policy_binding_count") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_fabricated_future_reference_count_after_vs2_4": phase_vs2_4_receipt.get("fabricated_future_reference_count") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_source_and_version_binding_contract_artifact_id": phase_vs2_4_bindings.get("S0", {}).get("artifact_id") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_source_and_version_binding_contract_sha256": phase_vs2_4_bindings.get("S0", {}).get("canonical_sha256") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_move_vocabulary_partition_artifact_id": phase_vs2_4_bindings.get("V0", {}).get("artifact_id") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_move_vocabulary_partition_sha256": phase_vs2_4_bindings.get("V0", {}).get("canonical_sha256") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_move_authority_matrix_artifact_id": phase_vs2_4_bindings.get("A0", {}).get("artifact_id") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_move_authority_matrix_sha256": phase_vs2_4_bindings.get("A0", {}).get("canonical_sha256") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_finite_move_space_artifact_id": phase_vs2_4_bindings.get("MS0", {}).get("artifact_id") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_finite_move_space_sha256": phase_vs2_4_bindings.get("MS0", {}).get("canonical_sha256") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_prospective_authority_envelope_artifact_id": phase_vs2_4_bindings.get("P0", {}).get("artifact_id") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_prospective_authority_envelope_sha256": phase_vs2_4_bindings.get("P0", {}).get("canonical_sha256") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_move_space_binding_manifest_artifact_id": phase_vs2_4_bindings.get("M1", {}).get("artifact_id") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_move_space_binding_manifest_sha256": phase_vs2_4_bindings.get("M1", {}).get("canonical_sha256") if phase_vs2_4_receipt_present else None,
+        "phase_vs2_move_hashes": phase_vs2_4_move_hashes if phase_vs2_4_receipt_present else {},
+        "phase_vs2_execution_authority_absent": not phase_vs2_4_post_state.get("execution_authorized", False) if phase_vs2_4_receipt_present else None,
+        "phase_vs2_sweep_authority_absent": not phase_vs2_4_post_state.get("sweep_authorized", False) if phase_vs2_4_receipt_present else None,
+        "phase_vs2_automatic_rerun_authority_absent": not phase_vs2_4_post_state.get("automatic_rerun_authorized", False) if phase_vs2_4_receipt_present else None,
+        "phase_vs2_runner_authority_absent": not phase_vs2_4_post_state.get("runner_created", False) if phase_vs2_4_receipt_present else None,
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,
@@ -2433,11 +2547,12 @@ def generate() -> int:
     root = detect_repo_root(Path.cwd())
     baseline = ensure_safe_baseline_dir(root)
 
-    generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     head = run_git(root, ["rev-parse", "HEAD"], check=True)
+    generated_at = stable_generated_at_for_head(root, head)
     branch = run_git(root, ["branch", "--show-current"])
-    status_lines = run_git(root, ["status", "--short"]).splitlines()
-    status_lines_excluding_baseline_share = git_status_excluding_baseline_share(root, status_lines)
+    raw_status_lines = run_git(root, ["status", "--short"]).splitlines()
+    status_lines = git_status_excluding_baseline_share(root, raw_status_lines)
+    status_lines_excluding_baseline_share = status_lines
     recent_commits = run_git(root, ["log", "-n", "10", "--oneline"])
     architecture_commit = commit_for_paths(root, ["docs/matrixlabs"])
     c8_post_patch_commit = commit_for_paths(root, [*C8_POST_PATCH_DIRS, GENERATOR_SCRIPT])

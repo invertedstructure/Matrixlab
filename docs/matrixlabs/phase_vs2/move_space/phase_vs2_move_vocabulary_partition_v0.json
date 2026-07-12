@@ -1,0 +1,1926 @@
+{
+  "artifact_id": "phase_vs2_move_vocabulary_partition_v0",
+  "artifact_kind": "STATIC_DISJOINT_VOCABULARY_PARTITION",
+  "auxiliary_move_evaluation_namespaces": {
+    "globally_collision_free": true,
+    "may_mutate_o2": false,
+    "not_v1_through_v7_entries": [
+      "MOVE_APPLICABILITY_*",
+      "MOVE_RUNTIME_AUTHORIZATION_*",
+      "MOVE_APPLICATION_*"
+    ],
+    "runtime_authorization_results": [
+      "MOVE_RUNTIME_AUTHORIZATION_PASS",
+      "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_ACTIVE_AUTHORITY_MISSING",
+      "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_MOVE_NOT_GRANTED",
+      "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_BINDING_MISMATCH",
+      "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_SCOPE_EXHAUSTED",
+      "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_BUDGET_INSUFFICIENT",
+      "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_TERMINAL_STATE",
+      "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_HARD_HALT",
+      "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_FORBIDDEN_EFFECT_RISK",
+      "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_EXPIRED"
+    ],
+    "structural_applicability_results": [
+      "MOVE_APPLICABILITY_PASS",
+      "MOVE_APPLICABILITY_BLOCKED_OBSERVATION_ABSENT",
+      "MOVE_APPLICABILITY_BLOCKED_CONDITION_ABSENT",
+      "MOVE_APPLICABILITY_BLOCKED_SCOPE_REGIME_MISMATCH",
+      "MOVE_APPLICABILITY_BLOCKED_OBJECT_BINDING_MISMATCH",
+      "MOVE_APPLICABILITY_BLOCKED_SOURCE_MISSING",
+      "MOVE_APPLICABILITY_BLOCKED_SOURCE_UNVERIFIED",
+      "MOVE_APPLICABILITY_BLOCKED_SOURCE_VERSION_MISMATCH",
+      "MOVE_APPLICABILITY_BLOCKED_SCHEMA_MISSING",
+      "MOVE_APPLICABILITY_BLOCKED_CAPABILITY_MISSING",
+      "MOVE_APPLICABILITY_BLOCKED_CANDIDATE_PATH_IMMUTABLE",
+      "MOVE_APPLICABILITY_BLOCKED_TARGET_RULE_MISSING",
+      "MOVE_APPLICABILITY_BLOCKED_FORBIDDEN_EFFECT_RISK",
+      "MOVE_APPLICABILITY_BLOCKED_DELTA_NOT_DETERMINISTIC"
+    ]
+  },
+  "candidate_schema_reference": {
+    "artifact_id": "phase_vs2_candidate_typed_state_contract_schema_v0",
+    "artifact_kind": "INSTANCE_SCHEMA_AND_VERSION_CONTRACT",
+    "artifact_version": "v0",
+    "binding_reason": "VS2.3-built phase_vs2_candidate_typed_state_contract_schema_v0 canonical binding.",
+    "binding_status": "BOUND",
+    "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+    "content_sha256": "0216eb5944f87e760844d018d253f5e808a7a5b7ebd208d8d717e6709b979070",
+    "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_candidate_typed_state_contract_schema_v0.json",
+    "expected_artifact_kind": "INSTANCE_SCHEMA_AND_VERSION_CONTRACT",
+    "hash_algorithm": "SHA-256",
+    "reference_id": "phase_vs2_candidate_typed_state_contract_schema_v0_reference",
+    "reference_role": "CANDIDATE_SCHEMA",
+    "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+  },
+  "construction_authority_provenance": {
+    "additional_bounded_construction_grant_consumption_by_vs2_4": false,
+    "bounded_construction_consumption_count_after": 1,
+    "bounded_construction_consumption_count_before": 1,
+    "bounded_construction_frame": "VS2.3_TO_VS2.5_BOUND_TARGET_CONSTRUCTION_SEQUENCE",
+    "bounded_construction_frame_exercised_by_vs2_4": true,
+    "bounded_construction_frame_open_after_vs2_4": true,
+    "bounded_construction_grant_id": "VS2_BOUNDED_CONSTRUCTION_AUTHORITY",
+    "bounded_construction_grant_prior_consumed": true,
+    "bounded_construction_local_exercise_scope": "FINITE_MOVE_SPACE_SOURCE_BINDING_AND_PROSPECTIVE_AUTHORITY_ONLY",
+    "construction_package_verification_authority_consumed_by_vs2_4": false,
+    "execution_authority_consumed_by_vs2_4": false,
+    "fixture_construction_authority_consumed_by_vs2_4": false,
+    "readiness_gate_construction_authority_consumed_by_vs2_4": false,
+    "remaining_frame_units": [
+      "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+    ],
+    "same_bounded_construction_grant_may_be_consumed_again": false,
+    "source_vs2_3_consumption_frame": "VS2.3_TO_VS2.5_BOUND_TARGET_CONSTRUCTION_SEQUENCE",
+    "unconsumed_effective_grant_count": 3,
+    "unconsumed_effective_grant_ids": [
+      "VS2_FIXTURE_CONSTRUCTION_AUTHORITY",
+      "VS2_FIRST_RUN_READINESS_GATE_CONSTRUCTION_AUTHORITY",
+      "VS2_CONSTRUCTION_PACKAGE_VERIFICATION_AUTHORITY"
+    ]
+  },
+  "convergence_result_mapping": {
+    "CONVERGENCE_STOP_APPLIED_MOVE_BOUND_EXHAUSTED": {
+      "subordinate_detail": "APPLIED_MOVE_BUDGET_EXHAUSTED",
+      "terminal_outcome": "STOP_RADIUS_EXHAUSTED"
+    },
+    "CONVERGENCE_STOP_ATTEMPTED_MOVE_BOUND_EXHAUSTED": {
+      "subordinate_detail": "ATTEMPTED_MOVE_BUDGET_EXHAUSTED",
+      "terminal_outcome": "STOP_RADIUS_EXHAUSTED"
+    },
+    "CONVERGENCE_STOP_DECLARED_RADIUS_BOUND_EXHAUSTED": {
+      "subordinate_detail": "DECLARED_RADIUS_BOUND_EXHAUSTED",
+      "terminal_outcome": "STOP_RADIUS_EXHAUSTED"
+    }
+  },
+  "global_identifier_requirements": {
+    "every_identifier_appears_once": true,
+    "every_identifier_unique": true,
+    "only_v1_may_mutate_o2": true,
+    "stop_budget_exhausted_present": false,
+    "v2_through_v7_may_mutate_o2": false
+  },
+  "move_catalog": {
+    "catalog_closed": true,
+    "dynamic_move_creation_allowed": false,
+    "identity_order_is_selector_priority": false,
+    "move_count": 8,
+    "move_ids_unique": true,
+    "ordered_move_ids": [
+      "M01_ADD_AUTHORIZED_REQUIRED_FIELD",
+      "M02_NORMALIZE_TYPED_VALUE",
+      "M03_BIND_DECLARED_SOURCE_IDENTITY",
+      "M04_BIND_DECLARED_SOURCE_FRESHNESS",
+      "M05_REMOVE_PROHIBITED_CANDIDATE_DECLARATION",
+      "M06_TIGHTEN_AMBIGUOUS_BOUNDARY",
+      "M07_SPLIT_CONFLATED_DECLARATION",
+      "M08_REJECT_UNSUPPORTED_CLAIM"
+    ],
+    "selector_priority_defined": false
+  },
+  "partition_binding": {
+    "canonicalization": "MATRIXLAB_CANONICAL_JSON_V0",
+    "partition_payload": {
+      "artifact_id": "phase_vs2_move_vocabulary_partition_v0",
+      "artifact_kind": "STATIC_DISJOINT_VOCABULARY_PARTITION",
+      "auxiliary_move_evaluation_namespaces": {
+        "globally_collision_free": true,
+        "may_mutate_o2": false,
+        "not_v1_through_v7_entries": [
+          "MOVE_APPLICABILITY_*",
+          "MOVE_RUNTIME_AUTHORIZATION_*",
+          "MOVE_APPLICATION_*"
+        ],
+        "runtime_authorization_results": [
+          "MOVE_RUNTIME_AUTHORIZATION_PASS",
+          "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_ACTIVE_AUTHORITY_MISSING",
+          "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_MOVE_NOT_GRANTED",
+          "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_BINDING_MISMATCH",
+          "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_SCOPE_EXHAUSTED",
+          "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_BUDGET_INSUFFICIENT",
+          "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_TERMINAL_STATE",
+          "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_HARD_HALT",
+          "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_FORBIDDEN_EFFECT_RISK",
+          "MOVE_RUNTIME_AUTHORIZATION_BLOCKED_EXPIRED"
+        ],
+        "structural_applicability_results": [
+          "MOVE_APPLICABILITY_PASS",
+          "MOVE_APPLICABILITY_BLOCKED_OBSERVATION_ABSENT",
+          "MOVE_APPLICABILITY_BLOCKED_CONDITION_ABSENT",
+          "MOVE_APPLICABILITY_BLOCKED_SCOPE_REGIME_MISMATCH",
+          "MOVE_APPLICABILITY_BLOCKED_OBJECT_BINDING_MISMATCH",
+          "MOVE_APPLICABILITY_BLOCKED_SOURCE_MISSING",
+          "MOVE_APPLICABILITY_BLOCKED_SOURCE_UNVERIFIED",
+          "MOVE_APPLICABILITY_BLOCKED_SOURCE_VERSION_MISMATCH",
+          "MOVE_APPLICABILITY_BLOCKED_SCHEMA_MISSING",
+          "MOVE_APPLICABILITY_BLOCKED_CAPABILITY_MISSING",
+          "MOVE_APPLICABILITY_BLOCKED_CANDIDATE_PATH_IMMUTABLE",
+          "MOVE_APPLICABILITY_BLOCKED_TARGET_RULE_MISSING",
+          "MOVE_APPLICABILITY_BLOCKED_FORBIDDEN_EFFECT_RISK",
+          "MOVE_APPLICABILITY_BLOCKED_DELTA_NOT_DETERMINISTIC"
+        ]
+      },
+      "candidate_schema_reference": {
+        "artifact_id": "phase_vs2_candidate_typed_state_contract_schema_v0",
+        "artifact_kind": "INSTANCE_SCHEMA_AND_VERSION_CONTRACT",
+        "artifact_version": "v0",
+        "binding_reason": "VS2.3-built phase_vs2_candidate_typed_state_contract_schema_v0 canonical binding.",
+        "binding_status": "BOUND",
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "content_sha256": "0216eb5944f87e760844d018d253f5e808a7a5b7ebd208d8d717e6709b979070",
+        "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_candidate_typed_state_contract_schema_v0.json",
+        "expected_artifact_kind": "INSTANCE_SCHEMA_AND_VERSION_CONTRACT",
+        "hash_algorithm": "SHA-256",
+        "reference_id": "phase_vs2_candidate_typed_state_contract_schema_v0_reference",
+        "reference_role": "CANDIDATE_SCHEMA",
+        "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+      },
+      "construction_authority_provenance": {
+        "additional_bounded_construction_grant_consumption_by_vs2_4": false,
+        "bounded_construction_consumption_count_after": 1,
+        "bounded_construction_consumption_count_before": 1,
+        "bounded_construction_frame": "VS2.3_TO_VS2.5_BOUND_TARGET_CONSTRUCTION_SEQUENCE",
+        "bounded_construction_frame_exercised_by_vs2_4": true,
+        "bounded_construction_frame_open_after_vs2_4": true,
+        "bounded_construction_grant_id": "VS2_BOUNDED_CONSTRUCTION_AUTHORITY",
+        "bounded_construction_grant_prior_consumed": true,
+        "bounded_construction_local_exercise_scope": "FINITE_MOVE_SPACE_SOURCE_BINDING_AND_PROSPECTIVE_AUTHORITY_ONLY",
+        "construction_package_verification_authority_consumed_by_vs2_4": false,
+        "execution_authority_consumed_by_vs2_4": false,
+        "fixture_construction_authority_consumed_by_vs2_4": false,
+        "readiness_gate_construction_authority_consumed_by_vs2_4": false,
+        "remaining_frame_units": [
+          "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+        ],
+        "same_bounded_construction_grant_may_be_consumed_again": false,
+        "source_vs2_3_consumption_frame": "VS2.3_TO_VS2.5_BOUND_TARGET_CONSTRUCTION_SEQUENCE",
+        "unconsumed_effective_grant_count": 3,
+        "unconsumed_effective_grant_ids": [
+          "VS2_FIXTURE_CONSTRUCTION_AUTHORITY",
+          "VS2_FIRST_RUN_READINESS_GATE_CONSTRUCTION_AUTHORITY",
+          "VS2_CONSTRUCTION_PACKAGE_VERIFICATION_AUTHORITY"
+        ]
+      },
+      "convergence_result_mapping": {
+        "CONVERGENCE_STOP_APPLIED_MOVE_BOUND_EXHAUSTED": {
+          "subordinate_detail": "APPLIED_MOVE_BUDGET_EXHAUSTED",
+          "terminal_outcome": "STOP_RADIUS_EXHAUSTED"
+        },
+        "CONVERGENCE_STOP_ATTEMPTED_MOVE_BOUND_EXHAUSTED": {
+          "subordinate_detail": "ATTEMPTED_MOVE_BUDGET_EXHAUSTED",
+          "terminal_outcome": "STOP_RADIUS_EXHAUSTED"
+        },
+        "CONVERGENCE_STOP_DECLARED_RADIUS_BOUND_EXHAUSTED": {
+          "subordinate_detail": "DECLARED_RADIUS_BOUND_EXHAUSTED",
+          "terminal_outcome": "STOP_RADIUS_EXHAUSTED"
+        }
+      },
+      "global_identifier_requirements": {
+        "every_identifier_appears_once": true,
+        "every_identifier_unique": true,
+        "only_v1_may_mutate_o2": true,
+        "stop_budget_exhausted_present": false,
+        "v2_through_v7_may_mutate_o2": false
+      },
+      "move_catalog": {
+        "catalog_closed": true,
+        "dynamic_move_creation_allowed": false,
+        "identity_order_is_selector_priority": false,
+        "move_count": 8,
+        "move_ids_unique": true,
+        "ordered_move_ids": [
+          "M01_ADD_AUTHORIZED_REQUIRED_FIELD",
+          "M02_NORMALIZE_TYPED_VALUE",
+          "M03_BIND_DECLARED_SOURCE_IDENTITY",
+          "M04_BIND_DECLARED_SOURCE_FRESHNESS",
+          "M05_REMOVE_PROHIBITED_CANDIDATE_DECLARATION",
+          "M06_TIGHTEN_AMBIGUOUS_BOUNDARY",
+          "M07_SPLIT_CONFLATED_DECLARATION",
+          "M08_REJECT_UNSUPPORTED_CLAIM"
+        ],
+        "selector_priority_defined": false
+      },
+      "partition_count": 7,
+      "partition_id": "first_sweep_kernel_move_vocabulary_partition_v0",
+      "partition_status": "FROZEN",
+      "partition_version": "v0",
+      "partitions": {
+        "V1_TRANSFORMATION_MOVES": [
+          {
+            "consumer_role": "FUTURE_SELECTOR_AND_APPLICATOR",
+            "definition": "M01_ADD_AUTHORIZED_REQUIRED_FIELD is a V1_TRANSFORMATION_MOVES vocabulary member for the first-sweep kernel.",
+            "identifier": "M01_ADD_AUTHORIZED_REQUIRED_FIELD",
+            "may_mutate_o2": true,
+            "partition": "V1_TRANSFORMATION_MOVES",
+            "producer_role": "MOVE_SPACE_DEFINITION"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR_AND_APPLICATOR",
+            "definition": "M02_NORMALIZE_TYPED_VALUE is a V1_TRANSFORMATION_MOVES vocabulary member for the first-sweep kernel.",
+            "identifier": "M02_NORMALIZE_TYPED_VALUE",
+            "may_mutate_o2": true,
+            "partition": "V1_TRANSFORMATION_MOVES",
+            "producer_role": "MOVE_SPACE_DEFINITION"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR_AND_APPLICATOR",
+            "definition": "M03_BIND_DECLARED_SOURCE_IDENTITY is a V1_TRANSFORMATION_MOVES vocabulary member for the first-sweep kernel.",
+            "identifier": "M03_BIND_DECLARED_SOURCE_IDENTITY",
+            "may_mutate_o2": true,
+            "partition": "V1_TRANSFORMATION_MOVES",
+            "producer_role": "MOVE_SPACE_DEFINITION"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR_AND_APPLICATOR",
+            "definition": "M04_BIND_DECLARED_SOURCE_FRESHNESS is a V1_TRANSFORMATION_MOVES vocabulary member for the first-sweep kernel.",
+            "identifier": "M04_BIND_DECLARED_SOURCE_FRESHNESS",
+            "may_mutate_o2": true,
+            "partition": "V1_TRANSFORMATION_MOVES",
+            "producer_role": "MOVE_SPACE_DEFINITION"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR_AND_APPLICATOR",
+            "definition": "M05_REMOVE_PROHIBITED_CANDIDATE_DECLARATION is a V1_TRANSFORMATION_MOVES vocabulary member for the first-sweep kernel.",
+            "identifier": "M05_REMOVE_PROHIBITED_CANDIDATE_DECLARATION",
+            "may_mutate_o2": true,
+            "partition": "V1_TRANSFORMATION_MOVES",
+            "producer_role": "MOVE_SPACE_DEFINITION"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR_AND_APPLICATOR",
+            "definition": "M06_TIGHTEN_AMBIGUOUS_BOUNDARY is a V1_TRANSFORMATION_MOVES vocabulary member for the first-sweep kernel.",
+            "identifier": "M06_TIGHTEN_AMBIGUOUS_BOUNDARY",
+            "may_mutate_o2": true,
+            "partition": "V1_TRANSFORMATION_MOVES",
+            "producer_role": "MOVE_SPACE_DEFINITION"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR_AND_APPLICATOR",
+            "definition": "M07_SPLIT_CONFLATED_DECLARATION is a V1_TRANSFORMATION_MOVES vocabulary member for the first-sweep kernel.",
+            "identifier": "M07_SPLIT_CONFLATED_DECLARATION",
+            "may_mutate_o2": true,
+            "partition": "V1_TRANSFORMATION_MOVES",
+            "producer_role": "MOVE_SPACE_DEFINITION"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR_AND_APPLICATOR",
+            "definition": "M08_REJECT_UNSUPPORTED_CLAIM is a V1_TRANSFORMATION_MOVES vocabulary member for the first-sweep kernel.",
+            "identifier": "M08_REJECT_UNSUPPORTED_CLAIM",
+            "may_mutate_o2": true,
+            "partition": "V1_TRANSFORMATION_MOVES",
+            "producer_role": "MOVE_SPACE_DEFINITION"
+          }
+        ],
+        "V2_OBSERVATIONS": [
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_TARGET_ALREADY_REACHED is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_TARGET_ALREADY_REACHED",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_MISSING_REQUIRED_FIELD_DECLARATION is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_MISSING_REQUIRED_FIELD_DECLARATION",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_NONCANONICAL_TYPED_VALUE is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_NONCANONICAL_TYPED_VALUE",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_SOURCE_IDENTITY_DECLARATION_MISSING is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_SOURCE_IDENTITY_DECLARATION_MISSING",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_SOURCE_FRESHNESS_DECLARATION_MISSING is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_SOURCE_FRESHNESS_DECLARATION_MISSING",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_SOURCE_STALE is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_SOURCE_STALE",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_PROHIBITED_CANDIDATE_DECLARATION_PRESENT is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_PROHIBITED_CANDIDATE_DECLARATION_PRESENT",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_ACTUAL_FORBIDDEN_EFFECT_DETECTED is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_ACTUAL_FORBIDDEN_EFFECT_DETECTED",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_AMBIGUOUS_BOUNDARY_DECLARATION is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_AMBIGUOUS_BOUNDARY_DECLARATION",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_CONFLATED_DECLARATION_PRESENT is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_CONFLATED_DECLARATION_PRESENT",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_UNSUPPORTED_CLAIM_DECLARED_SUPPORTED is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_UNSUPPORTED_CLAIM_DECLARED_SUPPORTED",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_SCHEMA_REQUIREMENT_MISSING is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_SCHEMA_REQUIREMENT_MISSING",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_AUTHORITY_REQUIREMENT_MISSING is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_AUTHORITY_REQUIREMENT_MISSING",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_CAPABILITY_REQUIREMENT_MISSING is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_CAPABILITY_REQUIREMENT_MISSING",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_SCOPE_REGIME_VIOLATION is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_SCOPE_REGIME_VIOLATION",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_OBJECT_BINDING_MISMATCH is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_OBJECT_BINDING_MISMATCH",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_NON_PROGRESS is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_NON_PROGRESS",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_REPEATED_STATE is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_REPEATED_STATE",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          },
+          {
+            "consumer_role": "FUTURE_CLASSIFIER",
+            "definition": "OBS_NO_RECOGNIZED_CONDITION is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "OBS_NO_RECOGNIZED_CONDITION",
+            "may_mutate_o2": false,
+            "partition": "V2_OBSERVATIONS",
+            "producer_role": "FUTURE_INSPECTION"
+          }
+        ],
+        "V3_CONDITION_CLASSIFICATIONS": [
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_TARGET_SATISFIED is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_TARGET_SATISFIED",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_REPAIRABLE_DEFECT is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_REPAIRABLE_DEFECT",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_UNREPAIRABLE_UNDER_CURRENT_MOVE_SPACE is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_UNREPAIRABLE_UNDER_CURRENT_MOVE_SPACE",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_MISSING_SOURCE is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_MISSING_SOURCE",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_SOURCE_IDENTITY_UNVERIFIED is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_SOURCE_IDENTITY_UNVERIFIED",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_SOURCE_STALE is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_SOURCE_STALE",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_MISSING_SCHEMA is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_MISSING_SCHEMA",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_MISSING_AUTHORITY is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_MISSING_AUTHORITY",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_MISSING_CAPABILITY is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_MISSING_CAPABILITY",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_FORBIDDEN_EFFECT is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_FORBIDDEN_EFFECT",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_AMBIGUOUS_BOUNDARY is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_AMBIGUOUS_BOUNDARY",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_CONFLATED_FIELD is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_CONFLATED_FIELD",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_UNSUPPORTED_CLAIM is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_UNSUPPORTED_CLAIM",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_SCOPE_REGIME_VIOLATION is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_SCOPE_REGIME_VIOLATION",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_OBJECT_BINDING_MISMATCH is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_OBJECT_BINDING_MISMATCH",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_NON_PROGRESS is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_NON_PROGRESS",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_REPEATED_STATE is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_REPEATED_STATE",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_NO_ADMISSIBLE_MOVE is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_NO_ADMISSIBLE_MOVE",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          },
+          {
+            "consumer_role": "FUTURE_SELECTOR",
+            "definition": "CONDITION_UNCLASSIFIED is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONDITION_UNCLASSIFIED",
+            "may_mutate_o2": false,
+            "partition": "V3_CONDITION_CLASSIFICATIONS",
+            "producer_role": "FUTURE_CLASSIFIER"
+          }
+        ],
+        "V4_VALIDATION_RESULTS": [
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "VALIDATION_NOT_RUN is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "VALIDATION_NOT_RUN",
+            "may_mutate_o2": false,
+            "partition": "V4_VALIDATION_RESULTS",
+            "producer_role": "FUTURE_VALIDATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "VALIDATION_PASS is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "VALIDATION_PASS",
+            "may_mutate_o2": false,
+            "partition": "V4_VALIDATION_RESULTS",
+            "producer_role": "FUTURE_VALIDATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "VALIDATION_FAIL_REQUIRED_SECTION is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "VALIDATION_FAIL_REQUIRED_SECTION",
+            "may_mutate_o2": false,
+            "partition": "V4_VALIDATION_RESULTS",
+            "producer_role": "FUTURE_VALIDATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "VALIDATION_FAIL_REQUIRED_FIELD is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "VALIDATION_FAIL_REQUIRED_FIELD",
+            "may_mutate_o2": false,
+            "partition": "V4_VALIDATION_RESULTS",
+            "producer_role": "FUTURE_VALIDATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "VALIDATION_FAIL_TYPE is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "VALIDATION_FAIL_TYPE",
+            "may_mutate_o2": false,
+            "partition": "V4_VALIDATION_RESULTS",
+            "producer_role": "FUTURE_VALIDATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "VALIDATION_FAIL_VALUE_CONSTRAINT is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "VALIDATION_FAIL_VALUE_CONSTRAINT",
+            "may_mutate_o2": false,
+            "partition": "V4_VALIDATION_RESULTS",
+            "producer_role": "FUTURE_VALIDATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "VALIDATION_FAIL_CROSS_FIELD is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "VALIDATION_FAIL_CROSS_FIELD",
+            "may_mutate_o2": false,
+            "partition": "V4_VALIDATION_RESULTS",
+            "producer_role": "FUTURE_VALIDATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "VALIDATION_FAIL_SOURCE_DECLARATION is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "VALIDATION_FAIL_SOURCE_DECLARATION",
+            "may_mutate_o2": false,
+            "partition": "V4_VALIDATION_RESULTS",
+            "producer_role": "FUTURE_VALIDATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "VALIDATION_FAIL_AUTHORITY_DECLARATION is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "VALIDATION_FAIL_AUTHORITY_DECLARATION",
+            "may_mutate_o2": false,
+            "partition": "V4_VALIDATION_RESULTS",
+            "producer_role": "FUTURE_VALIDATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "VALIDATION_FAIL_PROHIBITED_DECLARATION is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "VALIDATION_FAIL_PROHIBITED_DECLARATION",
+            "may_mutate_o2": false,
+            "partition": "V4_VALIDATION_RESULTS",
+            "producer_role": "FUTURE_VALIDATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "VALIDATION_FAIL_SCOPE_REGIME_BINDING is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "VALIDATION_FAIL_SCOPE_REGIME_BINDING",
+            "may_mutate_o2": false,
+            "partition": "V4_VALIDATION_RESULTS",
+            "producer_role": "FUTURE_VALIDATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "VALIDATION_FAIL_OBJECT_BINDING is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "VALIDATION_FAIL_OBJECT_BINDING",
+            "may_mutate_o2": false,
+            "partition": "V4_VALIDATION_RESULTS",
+            "producer_role": "FUTURE_VALIDATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "VALIDATION_FAIL_SCHEMA_UNAVAILABLE is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "VALIDATION_FAIL_SCHEMA_UNAVAILABLE",
+            "may_mutate_o2": false,
+            "partition": "V4_VALIDATION_RESULTS",
+            "producer_role": "FUTURE_VALIDATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "VALIDATION_RESULT_AMBIGUOUS is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "VALIDATION_RESULT_AMBIGUOUS",
+            "may_mutate_o2": false,
+            "partition": "V4_VALIDATION_RESULTS",
+            "producer_role": "FUTURE_VALIDATOR"
+          }
+        ],
+        "V5_CANDIDATE_ADMISSIBILITY_RESULTS": [
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "ADMISSIBILITY_NOT_RUN is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "ADMISSIBILITY_NOT_RUN",
+            "may_mutate_o2": false,
+            "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+            "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "ADMISSIBILITY_PASS is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "ADMISSIBILITY_PASS",
+            "may_mutate_o2": false,
+            "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+            "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "ADMISSIBILITY_FAIL_UNSUPPORTED_CLAIM is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "ADMISSIBILITY_FAIL_UNSUPPORTED_CLAIM",
+            "may_mutate_o2": false,
+            "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+            "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "ADMISSIBILITY_FAIL_SOURCE is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "ADMISSIBILITY_FAIL_SOURCE",
+            "may_mutate_o2": false,
+            "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+            "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "ADMISSIBILITY_FAIL_AUTHORITY is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "ADMISSIBILITY_FAIL_AUTHORITY",
+            "may_mutate_o2": false,
+            "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+            "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "ADMISSIBILITY_FAIL_CAPABILITY is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "ADMISSIBILITY_FAIL_CAPABILITY",
+            "may_mutate_o2": false,
+            "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+            "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "ADMISSIBILITY_FAIL_FORBIDDEN_EFFECT is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "ADMISSIBILITY_FAIL_FORBIDDEN_EFFECT",
+            "may_mutate_o2": false,
+            "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+            "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "ADMISSIBILITY_FAIL_SCOPE_REGIME is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "ADMISSIBILITY_FAIL_SCOPE_REGIME",
+            "may_mutate_o2": false,
+            "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+            "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "ADMISSIBILITY_RESULT_AMBIGUOUS is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "ADMISSIBILITY_RESULT_AMBIGUOUS",
+            "may_mutate_o2": false,
+            "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+            "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+          }
+        ],
+        "V6_CONVERGENCE_RESULTS": [
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "CONVERGENCE_NOT_RUN is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONVERGENCE_NOT_RUN",
+            "may_mutate_o2": false,
+            "partition": "V6_CONVERGENCE_RESULTS",
+            "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "CONVERGENCE_CONTINUE_ALLOWED is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONVERGENCE_CONTINUE_ALLOWED",
+            "may_mutate_o2": false,
+            "partition": "V6_CONVERGENCE_RESULTS",
+            "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "CONVERGENCE_TARGET_TERMINAL_CONDITION_SATISFIED is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONVERGENCE_TARGET_TERMINAL_CONDITION_SATISFIED",
+            "may_mutate_o2": false,
+            "partition": "V6_CONVERGENCE_RESULTS",
+            "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "CONVERGENCE_STOP_NON_PROGRESS is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONVERGENCE_STOP_NON_PROGRESS",
+            "may_mutate_o2": false,
+            "partition": "V6_CONVERGENCE_RESULTS",
+            "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "CONVERGENCE_STOP_REPEATED_STATE is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONVERGENCE_STOP_REPEATED_STATE",
+            "may_mutate_o2": false,
+            "partition": "V6_CONVERGENCE_RESULTS",
+            "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "CONVERGENCE_STOP_OSCILLATION is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONVERGENCE_STOP_OSCILLATION",
+            "may_mutate_o2": false,
+            "partition": "V6_CONVERGENCE_RESULTS",
+            "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "CONVERGENCE_STOP_ATTEMPTED_MOVE_BOUND_EXHAUSTED is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONVERGENCE_STOP_ATTEMPTED_MOVE_BOUND_EXHAUSTED",
+            "may_mutate_o2": false,
+            "partition": "V6_CONVERGENCE_RESULTS",
+            "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "CONVERGENCE_STOP_APPLIED_MOVE_BOUND_EXHAUSTED is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONVERGENCE_STOP_APPLIED_MOVE_BOUND_EXHAUSTED",
+            "may_mutate_o2": false,
+            "partition": "V6_CONVERGENCE_RESULTS",
+            "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "CONVERGENCE_STOP_DECLARED_RADIUS_BOUND_EXHAUSTED is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONVERGENCE_STOP_DECLARED_RADIUS_BOUND_EXHAUSTED",
+            "may_mutate_o2": false,
+            "partition": "V6_CONVERGENCE_RESULTS",
+            "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "CONVERGENCE_CRITERION_UNMET is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONVERGENCE_CRITERION_UNMET",
+            "may_mutate_o2": false,
+            "partition": "V6_CONVERGENCE_RESULTS",
+            "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+          },
+          {
+            "consumer_role": "FUTURE_TERMINALIZER",
+            "definition": "CONVERGENCE_RESULT_AMBIGUOUS is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+            "identifier": "CONVERGENCE_RESULT_AMBIGUOUS",
+            "may_mutate_o2": false,
+            "partition": "V6_CONVERGENCE_RESULTS",
+            "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+          }
+        ],
+        "V7_TERMINAL_OUTCOMES": [
+          {
+            "consumer_role": "FUTURE_RECEIPT_LAYER",
+            "definition": "TARGET_REACHED is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+            "identifier": "TARGET_REACHED",
+            "may_mutate_o2": false,
+            "partition": "V7_TERMINAL_OUTCOMES",
+            "producer_role": "FUTURE_TERMINALIZER"
+          },
+          {
+            "consumer_role": "FUTURE_RECEIPT_LAYER",
+            "definition": "STOP_REPAIR_NOT_LAWFUL is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+            "identifier": "STOP_REPAIR_NOT_LAWFUL",
+            "may_mutate_o2": false,
+            "partition": "V7_TERMINAL_OUTCOMES",
+            "producer_role": "FUTURE_TERMINALIZER"
+          },
+          {
+            "consumer_role": "FUTURE_RECEIPT_LAYER",
+            "definition": "STOP_MISSING_SOURCE is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+            "identifier": "STOP_MISSING_SOURCE",
+            "may_mutate_o2": false,
+            "partition": "V7_TERMINAL_OUTCOMES",
+            "producer_role": "FUTURE_TERMINALIZER"
+          },
+          {
+            "consumer_role": "FUTURE_RECEIPT_LAYER",
+            "definition": "STOP_MISSING_SCHEMA is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+            "identifier": "STOP_MISSING_SCHEMA",
+            "may_mutate_o2": false,
+            "partition": "V7_TERMINAL_OUTCOMES",
+            "producer_role": "FUTURE_TERMINALIZER"
+          },
+          {
+            "consumer_role": "FUTURE_RECEIPT_LAYER",
+            "definition": "STOP_MISSING_AUTHORITY is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+            "identifier": "STOP_MISSING_AUTHORITY",
+            "may_mutate_o2": false,
+            "partition": "V7_TERMINAL_OUTCOMES",
+            "producer_role": "FUTURE_TERMINALIZER"
+          },
+          {
+            "consumer_role": "FUTURE_RECEIPT_LAYER",
+            "definition": "STOP_MISSING_CAPABILITY is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+            "identifier": "STOP_MISSING_CAPABILITY",
+            "may_mutate_o2": false,
+            "partition": "V7_TERMINAL_OUTCOMES",
+            "producer_role": "FUTURE_TERMINALIZER"
+          },
+          {
+            "consumer_role": "FUTURE_RECEIPT_LAYER",
+            "definition": "STOP_RADIUS_EXHAUSTED is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+            "identifier": "STOP_RADIUS_EXHAUSTED",
+            "may_mutate_o2": false,
+            "partition": "V7_TERMINAL_OUTCOMES",
+            "producer_role": "FUTURE_TERMINALIZER"
+          },
+          {
+            "consumer_role": "FUTURE_RECEIPT_LAYER",
+            "definition": "STOP_NO_ADMISSIBLE_MOVE is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+            "identifier": "STOP_NO_ADMISSIBLE_MOVE",
+            "may_mutate_o2": false,
+            "partition": "V7_TERMINAL_OUTCOMES",
+            "producer_role": "FUTURE_TERMINALIZER"
+          },
+          {
+            "consumer_role": "FUTURE_RECEIPT_LAYER",
+            "definition": "STOP_VALIDATION_FAILED is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+            "identifier": "STOP_VALIDATION_FAILED",
+            "may_mutate_o2": false,
+            "partition": "V7_TERMINAL_OUTCOMES",
+            "producer_role": "FUTURE_TERMINALIZER"
+          },
+          {
+            "consumer_role": "FUTURE_RECEIPT_LAYER",
+            "definition": "STOP_ADMISSIBILITY_FAILED is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+            "identifier": "STOP_ADMISSIBILITY_FAILED",
+            "may_mutate_o2": false,
+            "partition": "V7_TERMINAL_OUTCOMES",
+            "producer_role": "FUTURE_TERMINALIZER"
+          },
+          {
+            "consumer_role": "FUTURE_RECEIPT_LAYER",
+            "definition": "STOP_FORBIDDEN_EFFECT_DETECTED is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+            "identifier": "STOP_FORBIDDEN_EFFECT_DETECTED",
+            "may_mutate_o2": false,
+            "partition": "V7_TERMINAL_OUTCOMES",
+            "producer_role": "FUTURE_TERMINALIZER"
+          },
+          {
+            "consumer_role": "FUTURE_RECEIPT_LAYER",
+            "definition": "STOP_SOURCE_IDENTITY_UNVERIFIED is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+            "identifier": "STOP_SOURCE_IDENTITY_UNVERIFIED",
+            "may_mutate_o2": false,
+            "partition": "V7_TERMINAL_OUTCOMES",
+            "producer_role": "FUTURE_TERMINALIZER"
+          },
+          {
+            "consumer_role": "FUTURE_RECEIPT_LAYER",
+            "definition": "STOP_SCOPE_REGIME_VIOLATION is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+            "identifier": "STOP_SCOPE_REGIME_VIOLATION",
+            "may_mutate_o2": false,
+            "partition": "V7_TERMINAL_OUTCOMES",
+            "producer_role": "FUTURE_TERMINALIZER"
+          },
+          {
+            "consumer_role": "FUTURE_RECEIPT_LAYER",
+            "definition": "STOP_NON_PROGRESS is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+            "identifier": "STOP_NON_PROGRESS",
+            "may_mutate_o2": false,
+            "partition": "V7_TERMINAL_OUTCOMES",
+            "producer_role": "FUTURE_TERMINALIZER"
+          },
+          {
+            "consumer_role": "FUTURE_RECEIPT_LAYER",
+            "definition": "STOP_REPEATED_STATE is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+            "identifier": "STOP_REPEATED_STATE",
+            "may_mutate_o2": false,
+            "partition": "V7_TERMINAL_OUTCOMES",
+            "producer_role": "FUTURE_TERMINALIZER"
+          },
+          {
+            "consumer_role": "FUTURE_RECEIPT_LAYER",
+            "definition": "STOP_CONVERGENCE_CRITERION_UNMET is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+            "identifier": "STOP_CONVERGENCE_CRITERION_UNMET",
+            "may_mutate_o2": false,
+            "partition": "V7_TERMINAL_OUTCOMES",
+            "producer_role": "FUTURE_TERMINALIZER"
+          },
+          {
+            "consumer_role": "FUTURE_RECEIPT_LAYER",
+            "definition": "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+            "identifier": "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT",
+            "may_mutate_o2": false,
+            "partition": "V7_TERMINAL_OUTCOMES",
+            "producer_role": "FUTURE_TERMINALIZER"
+          }
+        ]
+      },
+      "phase_id": "PHASE_VS2",
+      "schema_version": "matrixlabs_phase_vs2_move_vocabulary_partition_v0",
+      "scope_regime_reference": {
+        "artifact_id": "phase_vs2_scope_regime_contract_v0",
+        "artifact_kind": "STATIC_FRAME_CONTRACT",
+        "artifact_version": "v0",
+        "binding_reason": "VS2.3-built phase_vs2_scope_regime_contract_v0 canonical binding.",
+        "binding_status": "BOUND",
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "content_sha256": "a6b4819aee35e5f09686a5a69d471b31f3a5cfdcab2078a29323ba1d31211179",
+        "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_scope_regime_contract_v0.json",
+        "expected_artifact_kind": "STATIC_FRAME_CONTRACT",
+        "hash_algorithm": "SHA-256",
+        "reference_id": "phase_vs2_scope_regime_contract_v0_reference",
+        "reference_role": "SCOPE_REGIME_FRAME",
+        "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+      },
+      "source_basis": [
+        {
+          "basis_class": "DETERMINISTIC_REPRESENTATION_REQUIRED",
+          "basis_reason": "V0 freezes the finite vocabulary required by the target-bound move space.",
+          "section": "partitions",
+          "source_authority": "committed_vs2_object_model_or_deterministic_representation"
+        },
+        {
+          "basis_class": "DETERMINISTIC_REPRESENTATION_REQUIRED",
+          "basis_reason": "V0 freezes the finite vocabulary required by the target-bound move space.",
+          "section": "move_catalog",
+          "source_authority": "committed_vs2_object_model_or_deterministic_representation"
+        },
+        {
+          "basis_class": "DETERMINISTIC_REPRESENTATION_REQUIRED",
+          "basis_reason": "V0 freezes the finite vocabulary required by the target-bound move space.",
+          "section": "terminal_outcomes",
+          "source_authority": "committed_vs2_object_model_or_deterministic_representation"
+        },
+        {
+          "basis_class": "DETERMINISTIC_REPRESENTATION_REQUIRED",
+          "basis_reason": "V0 freezes the finite vocabulary required by the target-bound move space.",
+          "section": "auxiliary_move_evaluation_namespaces",
+          "source_authority": "committed_vs2_object_model_or_deterministic_representation"
+        }
+      ],
+      "unit_id": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+    },
+    "partition_sha256": "a193dbbee21db8d5577445789d5971ffc29c8c5c37088d4bf88b14434c518c1d"
+  },
+  "partition_count": 7,
+  "partition_id": "first_sweep_kernel_move_vocabulary_partition_v0",
+  "partition_status": "FROZEN",
+  "partition_version": "v0",
+  "partitions": {
+    "V1_TRANSFORMATION_MOVES": [
+      {
+        "consumer_role": "FUTURE_SELECTOR_AND_APPLICATOR",
+        "definition": "M01_ADD_AUTHORIZED_REQUIRED_FIELD is a V1_TRANSFORMATION_MOVES vocabulary member for the first-sweep kernel.",
+        "identifier": "M01_ADD_AUTHORIZED_REQUIRED_FIELD",
+        "may_mutate_o2": true,
+        "partition": "V1_TRANSFORMATION_MOVES",
+        "producer_role": "MOVE_SPACE_DEFINITION"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR_AND_APPLICATOR",
+        "definition": "M02_NORMALIZE_TYPED_VALUE is a V1_TRANSFORMATION_MOVES vocabulary member for the first-sweep kernel.",
+        "identifier": "M02_NORMALIZE_TYPED_VALUE",
+        "may_mutate_o2": true,
+        "partition": "V1_TRANSFORMATION_MOVES",
+        "producer_role": "MOVE_SPACE_DEFINITION"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR_AND_APPLICATOR",
+        "definition": "M03_BIND_DECLARED_SOURCE_IDENTITY is a V1_TRANSFORMATION_MOVES vocabulary member for the first-sweep kernel.",
+        "identifier": "M03_BIND_DECLARED_SOURCE_IDENTITY",
+        "may_mutate_o2": true,
+        "partition": "V1_TRANSFORMATION_MOVES",
+        "producer_role": "MOVE_SPACE_DEFINITION"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR_AND_APPLICATOR",
+        "definition": "M04_BIND_DECLARED_SOURCE_FRESHNESS is a V1_TRANSFORMATION_MOVES vocabulary member for the first-sweep kernel.",
+        "identifier": "M04_BIND_DECLARED_SOURCE_FRESHNESS",
+        "may_mutate_o2": true,
+        "partition": "V1_TRANSFORMATION_MOVES",
+        "producer_role": "MOVE_SPACE_DEFINITION"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR_AND_APPLICATOR",
+        "definition": "M05_REMOVE_PROHIBITED_CANDIDATE_DECLARATION is a V1_TRANSFORMATION_MOVES vocabulary member for the first-sweep kernel.",
+        "identifier": "M05_REMOVE_PROHIBITED_CANDIDATE_DECLARATION",
+        "may_mutate_o2": true,
+        "partition": "V1_TRANSFORMATION_MOVES",
+        "producer_role": "MOVE_SPACE_DEFINITION"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR_AND_APPLICATOR",
+        "definition": "M06_TIGHTEN_AMBIGUOUS_BOUNDARY is a V1_TRANSFORMATION_MOVES vocabulary member for the first-sweep kernel.",
+        "identifier": "M06_TIGHTEN_AMBIGUOUS_BOUNDARY",
+        "may_mutate_o2": true,
+        "partition": "V1_TRANSFORMATION_MOVES",
+        "producer_role": "MOVE_SPACE_DEFINITION"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR_AND_APPLICATOR",
+        "definition": "M07_SPLIT_CONFLATED_DECLARATION is a V1_TRANSFORMATION_MOVES vocabulary member for the first-sweep kernel.",
+        "identifier": "M07_SPLIT_CONFLATED_DECLARATION",
+        "may_mutate_o2": true,
+        "partition": "V1_TRANSFORMATION_MOVES",
+        "producer_role": "MOVE_SPACE_DEFINITION"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR_AND_APPLICATOR",
+        "definition": "M08_REJECT_UNSUPPORTED_CLAIM is a V1_TRANSFORMATION_MOVES vocabulary member for the first-sweep kernel.",
+        "identifier": "M08_REJECT_UNSUPPORTED_CLAIM",
+        "may_mutate_o2": true,
+        "partition": "V1_TRANSFORMATION_MOVES",
+        "producer_role": "MOVE_SPACE_DEFINITION"
+      }
+    ],
+    "V2_OBSERVATIONS": [
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_TARGET_ALREADY_REACHED is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_TARGET_ALREADY_REACHED",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_MISSING_REQUIRED_FIELD_DECLARATION is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_MISSING_REQUIRED_FIELD_DECLARATION",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_NONCANONICAL_TYPED_VALUE is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_NONCANONICAL_TYPED_VALUE",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_SOURCE_IDENTITY_DECLARATION_MISSING is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_SOURCE_IDENTITY_DECLARATION_MISSING",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_SOURCE_FRESHNESS_DECLARATION_MISSING is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_SOURCE_FRESHNESS_DECLARATION_MISSING",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_SOURCE_STALE is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_SOURCE_STALE",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_PROHIBITED_CANDIDATE_DECLARATION_PRESENT is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_PROHIBITED_CANDIDATE_DECLARATION_PRESENT",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_ACTUAL_FORBIDDEN_EFFECT_DETECTED is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_ACTUAL_FORBIDDEN_EFFECT_DETECTED",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_AMBIGUOUS_BOUNDARY_DECLARATION is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_AMBIGUOUS_BOUNDARY_DECLARATION",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_CONFLATED_DECLARATION_PRESENT is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_CONFLATED_DECLARATION_PRESENT",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_UNSUPPORTED_CLAIM_DECLARED_SUPPORTED is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_UNSUPPORTED_CLAIM_DECLARED_SUPPORTED",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_SCHEMA_REQUIREMENT_MISSING is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_SCHEMA_REQUIREMENT_MISSING",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_AUTHORITY_REQUIREMENT_MISSING is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_AUTHORITY_REQUIREMENT_MISSING",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_CAPABILITY_REQUIREMENT_MISSING is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_CAPABILITY_REQUIREMENT_MISSING",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_SCOPE_REGIME_VIOLATION is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_SCOPE_REGIME_VIOLATION",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_OBJECT_BINDING_MISMATCH is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_OBJECT_BINDING_MISMATCH",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_NON_PROGRESS is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_NON_PROGRESS",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_REPEATED_STATE is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_REPEATED_STATE",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      },
+      {
+        "consumer_role": "FUTURE_CLASSIFIER",
+        "definition": "OBS_NO_RECOGNIZED_CONDITION is a V2_OBSERVATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "OBS_NO_RECOGNIZED_CONDITION",
+        "may_mutate_o2": false,
+        "partition": "V2_OBSERVATIONS",
+        "producer_role": "FUTURE_INSPECTION"
+      }
+    ],
+    "V3_CONDITION_CLASSIFICATIONS": [
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_TARGET_SATISFIED is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_TARGET_SATISFIED",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_REPAIRABLE_DEFECT is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_REPAIRABLE_DEFECT",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_UNREPAIRABLE_UNDER_CURRENT_MOVE_SPACE is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_UNREPAIRABLE_UNDER_CURRENT_MOVE_SPACE",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_MISSING_SOURCE is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_MISSING_SOURCE",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_SOURCE_IDENTITY_UNVERIFIED is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_SOURCE_IDENTITY_UNVERIFIED",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_SOURCE_STALE is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_SOURCE_STALE",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_MISSING_SCHEMA is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_MISSING_SCHEMA",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_MISSING_AUTHORITY is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_MISSING_AUTHORITY",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_MISSING_CAPABILITY is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_MISSING_CAPABILITY",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_FORBIDDEN_EFFECT is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_FORBIDDEN_EFFECT",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_AMBIGUOUS_BOUNDARY is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_AMBIGUOUS_BOUNDARY",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_CONFLATED_FIELD is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_CONFLATED_FIELD",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_UNSUPPORTED_CLAIM is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_UNSUPPORTED_CLAIM",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_SCOPE_REGIME_VIOLATION is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_SCOPE_REGIME_VIOLATION",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_OBJECT_BINDING_MISMATCH is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_OBJECT_BINDING_MISMATCH",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_NON_PROGRESS is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_NON_PROGRESS",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_REPEATED_STATE is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_REPEATED_STATE",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_NO_ADMISSIBLE_MOVE is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_NO_ADMISSIBLE_MOVE",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      },
+      {
+        "consumer_role": "FUTURE_SELECTOR",
+        "definition": "CONDITION_UNCLASSIFIED is a V3_CONDITION_CLASSIFICATIONS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONDITION_UNCLASSIFIED",
+        "may_mutate_o2": false,
+        "partition": "V3_CONDITION_CLASSIFICATIONS",
+        "producer_role": "FUTURE_CLASSIFIER"
+      }
+    ],
+    "V4_VALIDATION_RESULTS": [
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "VALIDATION_NOT_RUN is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "VALIDATION_NOT_RUN",
+        "may_mutate_o2": false,
+        "partition": "V4_VALIDATION_RESULTS",
+        "producer_role": "FUTURE_VALIDATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "VALIDATION_PASS is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "VALIDATION_PASS",
+        "may_mutate_o2": false,
+        "partition": "V4_VALIDATION_RESULTS",
+        "producer_role": "FUTURE_VALIDATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "VALIDATION_FAIL_REQUIRED_SECTION is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "VALIDATION_FAIL_REQUIRED_SECTION",
+        "may_mutate_o2": false,
+        "partition": "V4_VALIDATION_RESULTS",
+        "producer_role": "FUTURE_VALIDATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "VALIDATION_FAIL_REQUIRED_FIELD is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "VALIDATION_FAIL_REQUIRED_FIELD",
+        "may_mutate_o2": false,
+        "partition": "V4_VALIDATION_RESULTS",
+        "producer_role": "FUTURE_VALIDATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "VALIDATION_FAIL_TYPE is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "VALIDATION_FAIL_TYPE",
+        "may_mutate_o2": false,
+        "partition": "V4_VALIDATION_RESULTS",
+        "producer_role": "FUTURE_VALIDATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "VALIDATION_FAIL_VALUE_CONSTRAINT is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "VALIDATION_FAIL_VALUE_CONSTRAINT",
+        "may_mutate_o2": false,
+        "partition": "V4_VALIDATION_RESULTS",
+        "producer_role": "FUTURE_VALIDATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "VALIDATION_FAIL_CROSS_FIELD is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "VALIDATION_FAIL_CROSS_FIELD",
+        "may_mutate_o2": false,
+        "partition": "V4_VALIDATION_RESULTS",
+        "producer_role": "FUTURE_VALIDATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "VALIDATION_FAIL_SOURCE_DECLARATION is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "VALIDATION_FAIL_SOURCE_DECLARATION",
+        "may_mutate_o2": false,
+        "partition": "V4_VALIDATION_RESULTS",
+        "producer_role": "FUTURE_VALIDATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "VALIDATION_FAIL_AUTHORITY_DECLARATION is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "VALIDATION_FAIL_AUTHORITY_DECLARATION",
+        "may_mutate_o2": false,
+        "partition": "V4_VALIDATION_RESULTS",
+        "producer_role": "FUTURE_VALIDATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "VALIDATION_FAIL_PROHIBITED_DECLARATION is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "VALIDATION_FAIL_PROHIBITED_DECLARATION",
+        "may_mutate_o2": false,
+        "partition": "V4_VALIDATION_RESULTS",
+        "producer_role": "FUTURE_VALIDATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "VALIDATION_FAIL_SCOPE_REGIME_BINDING is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "VALIDATION_FAIL_SCOPE_REGIME_BINDING",
+        "may_mutate_o2": false,
+        "partition": "V4_VALIDATION_RESULTS",
+        "producer_role": "FUTURE_VALIDATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "VALIDATION_FAIL_OBJECT_BINDING is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "VALIDATION_FAIL_OBJECT_BINDING",
+        "may_mutate_o2": false,
+        "partition": "V4_VALIDATION_RESULTS",
+        "producer_role": "FUTURE_VALIDATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "VALIDATION_FAIL_SCHEMA_UNAVAILABLE is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "VALIDATION_FAIL_SCHEMA_UNAVAILABLE",
+        "may_mutate_o2": false,
+        "partition": "V4_VALIDATION_RESULTS",
+        "producer_role": "FUTURE_VALIDATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "VALIDATION_RESULT_AMBIGUOUS is a V4_VALIDATION_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "VALIDATION_RESULT_AMBIGUOUS",
+        "may_mutate_o2": false,
+        "partition": "V4_VALIDATION_RESULTS",
+        "producer_role": "FUTURE_VALIDATOR"
+      }
+    ],
+    "V5_CANDIDATE_ADMISSIBILITY_RESULTS": [
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "ADMISSIBILITY_NOT_RUN is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "ADMISSIBILITY_NOT_RUN",
+        "may_mutate_o2": false,
+        "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+        "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "ADMISSIBILITY_PASS is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "ADMISSIBILITY_PASS",
+        "may_mutate_o2": false,
+        "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+        "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "ADMISSIBILITY_FAIL_UNSUPPORTED_CLAIM is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "ADMISSIBILITY_FAIL_UNSUPPORTED_CLAIM",
+        "may_mutate_o2": false,
+        "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+        "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "ADMISSIBILITY_FAIL_SOURCE is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "ADMISSIBILITY_FAIL_SOURCE",
+        "may_mutate_o2": false,
+        "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+        "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "ADMISSIBILITY_FAIL_AUTHORITY is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "ADMISSIBILITY_FAIL_AUTHORITY",
+        "may_mutate_o2": false,
+        "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+        "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "ADMISSIBILITY_FAIL_CAPABILITY is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "ADMISSIBILITY_FAIL_CAPABILITY",
+        "may_mutate_o2": false,
+        "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+        "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "ADMISSIBILITY_FAIL_FORBIDDEN_EFFECT is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "ADMISSIBILITY_FAIL_FORBIDDEN_EFFECT",
+        "may_mutate_o2": false,
+        "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+        "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "ADMISSIBILITY_FAIL_SCOPE_REGIME is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "ADMISSIBILITY_FAIL_SCOPE_REGIME",
+        "may_mutate_o2": false,
+        "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+        "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "ADMISSIBILITY_RESULT_AMBIGUOUS is a V5_CANDIDATE_ADMISSIBILITY_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "ADMISSIBILITY_RESULT_AMBIGUOUS",
+        "may_mutate_o2": false,
+        "partition": "V5_CANDIDATE_ADMISSIBILITY_RESULTS",
+        "producer_role": "FUTURE_ADMISSIBILITY_EVALUATOR"
+      }
+    ],
+    "V6_CONVERGENCE_RESULTS": [
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "CONVERGENCE_NOT_RUN is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONVERGENCE_NOT_RUN",
+        "may_mutate_o2": false,
+        "partition": "V6_CONVERGENCE_RESULTS",
+        "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "CONVERGENCE_CONTINUE_ALLOWED is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONVERGENCE_CONTINUE_ALLOWED",
+        "may_mutate_o2": false,
+        "partition": "V6_CONVERGENCE_RESULTS",
+        "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "CONVERGENCE_TARGET_TERMINAL_CONDITION_SATISFIED is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONVERGENCE_TARGET_TERMINAL_CONDITION_SATISFIED",
+        "may_mutate_o2": false,
+        "partition": "V6_CONVERGENCE_RESULTS",
+        "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "CONVERGENCE_STOP_NON_PROGRESS is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONVERGENCE_STOP_NON_PROGRESS",
+        "may_mutate_o2": false,
+        "partition": "V6_CONVERGENCE_RESULTS",
+        "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "CONVERGENCE_STOP_REPEATED_STATE is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONVERGENCE_STOP_REPEATED_STATE",
+        "may_mutate_o2": false,
+        "partition": "V6_CONVERGENCE_RESULTS",
+        "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "CONVERGENCE_STOP_OSCILLATION is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONVERGENCE_STOP_OSCILLATION",
+        "may_mutate_o2": false,
+        "partition": "V6_CONVERGENCE_RESULTS",
+        "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "CONVERGENCE_STOP_ATTEMPTED_MOVE_BOUND_EXHAUSTED is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONVERGENCE_STOP_ATTEMPTED_MOVE_BOUND_EXHAUSTED",
+        "may_mutate_o2": false,
+        "partition": "V6_CONVERGENCE_RESULTS",
+        "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "CONVERGENCE_STOP_APPLIED_MOVE_BOUND_EXHAUSTED is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONVERGENCE_STOP_APPLIED_MOVE_BOUND_EXHAUSTED",
+        "may_mutate_o2": false,
+        "partition": "V6_CONVERGENCE_RESULTS",
+        "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "CONVERGENCE_STOP_DECLARED_RADIUS_BOUND_EXHAUSTED is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONVERGENCE_STOP_DECLARED_RADIUS_BOUND_EXHAUSTED",
+        "may_mutate_o2": false,
+        "partition": "V6_CONVERGENCE_RESULTS",
+        "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "CONVERGENCE_CRITERION_UNMET is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONVERGENCE_CRITERION_UNMET",
+        "may_mutate_o2": false,
+        "partition": "V6_CONVERGENCE_RESULTS",
+        "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+      },
+      {
+        "consumer_role": "FUTURE_TERMINALIZER",
+        "definition": "CONVERGENCE_RESULT_AMBIGUOUS is a V6_CONVERGENCE_RESULTS vocabulary member for the first-sweep kernel.",
+        "identifier": "CONVERGENCE_RESULT_AMBIGUOUS",
+        "may_mutate_o2": false,
+        "partition": "V6_CONVERGENCE_RESULTS",
+        "producer_role": "FUTURE_CONVERGENCE_EVALUATOR"
+      }
+    ],
+    "V7_TERMINAL_OUTCOMES": [
+      {
+        "consumer_role": "FUTURE_RECEIPT_LAYER",
+        "definition": "TARGET_REACHED is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+        "identifier": "TARGET_REACHED",
+        "may_mutate_o2": false,
+        "partition": "V7_TERMINAL_OUTCOMES",
+        "producer_role": "FUTURE_TERMINALIZER"
+      },
+      {
+        "consumer_role": "FUTURE_RECEIPT_LAYER",
+        "definition": "STOP_REPAIR_NOT_LAWFUL is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+        "identifier": "STOP_REPAIR_NOT_LAWFUL",
+        "may_mutate_o2": false,
+        "partition": "V7_TERMINAL_OUTCOMES",
+        "producer_role": "FUTURE_TERMINALIZER"
+      },
+      {
+        "consumer_role": "FUTURE_RECEIPT_LAYER",
+        "definition": "STOP_MISSING_SOURCE is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+        "identifier": "STOP_MISSING_SOURCE",
+        "may_mutate_o2": false,
+        "partition": "V7_TERMINAL_OUTCOMES",
+        "producer_role": "FUTURE_TERMINALIZER"
+      },
+      {
+        "consumer_role": "FUTURE_RECEIPT_LAYER",
+        "definition": "STOP_MISSING_SCHEMA is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+        "identifier": "STOP_MISSING_SCHEMA",
+        "may_mutate_o2": false,
+        "partition": "V7_TERMINAL_OUTCOMES",
+        "producer_role": "FUTURE_TERMINALIZER"
+      },
+      {
+        "consumer_role": "FUTURE_RECEIPT_LAYER",
+        "definition": "STOP_MISSING_AUTHORITY is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+        "identifier": "STOP_MISSING_AUTHORITY",
+        "may_mutate_o2": false,
+        "partition": "V7_TERMINAL_OUTCOMES",
+        "producer_role": "FUTURE_TERMINALIZER"
+      },
+      {
+        "consumer_role": "FUTURE_RECEIPT_LAYER",
+        "definition": "STOP_MISSING_CAPABILITY is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+        "identifier": "STOP_MISSING_CAPABILITY",
+        "may_mutate_o2": false,
+        "partition": "V7_TERMINAL_OUTCOMES",
+        "producer_role": "FUTURE_TERMINALIZER"
+      },
+      {
+        "consumer_role": "FUTURE_RECEIPT_LAYER",
+        "definition": "STOP_RADIUS_EXHAUSTED is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+        "identifier": "STOP_RADIUS_EXHAUSTED",
+        "may_mutate_o2": false,
+        "partition": "V7_TERMINAL_OUTCOMES",
+        "producer_role": "FUTURE_TERMINALIZER"
+      },
+      {
+        "consumer_role": "FUTURE_RECEIPT_LAYER",
+        "definition": "STOP_NO_ADMISSIBLE_MOVE is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+        "identifier": "STOP_NO_ADMISSIBLE_MOVE",
+        "may_mutate_o2": false,
+        "partition": "V7_TERMINAL_OUTCOMES",
+        "producer_role": "FUTURE_TERMINALIZER"
+      },
+      {
+        "consumer_role": "FUTURE_RECEIPT_LAYER",
+        "definition": "STOP_VALIDATION_FAILED is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+        "identifier": "STOP_VALIDATION_FAILED",
+        "may_mutate_o2": false,
+        "partition": "V7_TERMINAL_OUTCOMES",
+        "producer_role": "FUTURE_TERMINALIZER"
+      },
+      {
+        "consumer_role": "FUTURE_RECEIPT_LAYER",
+        "definition": "STOP_ADMISSIBILITY_FAILED is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+        "identifier": "STOP_ADMISSIBILITY_FAILED",
+        "may_mutate_o2": false,
+        "partition": "V7_TERMINAL_OUTCOMES",
+        "producer_role": "FUTURE_TERMINALIZER"
+      },
+      {
+        "consumer_role": "FUTURE_RECEIPT_LAYER",
+        "definition": "STOP_FORBIDDEN_EFFECT_DETECTED is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+        "identifier": "STOP_FORBIDDEN_EFFECT_DETECTED",
+        "may_mutate_o2": false,
+        "partition": "V7_TERMINAL_OUTCOMES",
+        "producer_role": "FUTURE_TERMINALIZER"
+      },
+      {
+        "consumer_role": "FUTURE_RECEIPT_LAYER",
+        "definition": "STOP_SOURCE_IDENTITY_UNVERIFIED is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+        "identifier": "STOP_SOURCE_IDENTITY_UNVERIFIED",
+        "may_mutate_o2": false,
+        "partition": "V7_TERMINAL_OUTCOMES",
+        "producer_role": "FUTURE_TERMINALIZER"
+      },
+      {
+        "consumer_role": "FUTURE_RECEIPT_LAYER",
+        "definition": "STOP_SCOPE_REGIME_VIOLATION is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+        "identifier": "STOP_SCOPE_REGIME_VIOLATION",
+        "may_mutate_o2": false,
+        "partition": "V7_TERMINAL_OUTCOMES",
+        "producer_role": "FUTURE_TERMINALIZER"
+      },
+      {
+        "consumer_role": "FUTURE_RECEIPT_LAYER",
+        "definition": "STOP_NON_PROGRESS is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+        "identifier": "STOP_NON_PROGRESS",
+        "may_mutate_o2": false,
+        "partition": "V7_TERMINAL_OUTCOMES",
+        "producer_role": "FUTURE_TERMINALIZER"
+      },
+      {
+        "consumer_role": "FUTURE_RECEIPT_LAYER",
+        "definition": "STOP_REPEATED_STATE is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+        "identifier": "STOP_REPEATED_STATE",
+        "may_mutate_o2": false,
+        "partition": "V7_TERMINAL_OUTCOMES",
+        "producer_role": "FUTURE_TERMINALIZER"
+      },
+      {
+        "consumer_role": "FUTURE_RECEIPT_LAYER",
+        "definition": "STOP_CONVERGENCE_CRITERION_UNMET is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+        "identifier": "STOP_CONVERGENCE_CRITERION_UNMET",
+        "may_mutate_o2": false,
+        "partition": "V7_TERMINAL_OUTCOMES",
+        "producer_role": "FUTURE_TERMINALIZER"
+      },
+      {
+        "consumer_role": "FUTURE_RECEIPT_LAYER",
+        "definition": "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT is a V7_TERMINAL_OUTCOMES vocabulary member for the first-sweep kernel.",
+        "identifier": "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT",
+        "may_mutate_o2": false,
+        "partition": "V7_TERMINAL_OUTCOMES",
+        "producer_role": "FUTURE_TERMINALIZER"
+      }
+    ]
+  },
+  "phase_id": "PHASE_VS2",
+  "schema_version": "matrixlabs_phase_vs2_move_vocabulary_partition_v0",
+  "scope_regime_reference": {
+    "artifact_id": "phase_vs2_scope_regime_contract_v0",
+    "artifact_kind": "STATIC_FRAME_CONTRACT",
+    "artifact_version": "v0",
+    "binding_reason": "VS2.3-built phase_vs2_scope_regime_contract_v0 canonical binding.",
+    "binding_status": "BOUND",
+    "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+    "content_sha256": "a6b4819aee35e5f09686a5a69d471b31f3a5cfdcab2078a29323ba1d31211179",
+    "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_scope_regime_contract_v0.json",
+    "expected_artifact_kind": "STATIC_FRAME_CONTRACT",
+    "hash_algorithm": "SHA-256",
+    "reference_id": "phase_vs2_scope_regime_contract_v0_reference",
+    "reference_role": "SCOPE_REGIME_FRAME",
+    "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+  },
+  "source_basis": [
+    {
+      "basis_class": "DETERMINISTIC_REPRESENTATION_REQUIRED",
+      "basis_reason": "V0 freezes the finite vocabulary required by the target-bound move space.",
+      "section": "partitions",
+      "source_authority": "committed_vs2_object_model_or_deterministic_representation"
+    },
+    {
+      "basis_class": "DETERMINISTIC_REPRESENTATION_REQUIRED",
+      "basis_reason": "V0 freezes the finite vocabulary required by the target-bound move space.",
+      "section": "move_catalog",
+      "source_authority": "committed_vs2_object_model_or_deterministic_representation"
+    },
+    {
+      "basis_class": "DETERMINISTIC_REPRESENTATION_REQUIRED",
+      "basis_reason": "V0 freezes the finite vocabulary required by the target-bound move space.",
+      "section": "terminal_outcomes",
+      "source_authority": "committed_vs2_object_model_or_deterministic_representation"
+    },
+    {
+      "basis_class": "DETERMINISTIC_REPRESENTATION_REQUIRED",
+      "basis_reason": "V0 freezes the finite vocabulary required by the target-bound move space.",
+      "section": "auxiliary_move_evaluation_namespaces",
+      "source_authority": "committed_vs2_object_model_or_deterministic_representation"
+    }
+  ],
+  "unit_id": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+}
