@@ -1,0 +1,936 @@
+{
+  "allowed_next_components": [
+    "S15_TERMINAL_AND_REPEAT_DECIDER"
+  ],
+  "artifact_id": "phase_vs2_convergence_criterion_contract_v0",
+  "artifact_kind": "STATIC_OPERATIONAL_CONVERGENCE_CRITERION_CONTRACT",
+  "authority_requirements": [
+    "C20 is defined by construction, but runtime evaluation requires active step authority"
+  ],
+  "canonical_signature_fields": [
+    "highest_completed_stage",
+    "sorted unmet rule IDs",
+    "sorted hard blocker classes",
+    "primary condition ID",
+    "candidate hash"
+  ],
+  "component_id": "S14_CONVERGENCE_CRITERION_EVALUATOR",
+  "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+  "component_version": "v0",
+  "construction_authority_provenance": {
+    "additional_bounded_construction_grant_consumption_by_vs2_5": false,
+    "bounded_construction_consumption_count_after": 1,
+    "bounded_construction_consumption_count_before": 1,
+    "bounded_construction_frame_completed_by_vs2_5": true,
+    "bounded_construction_frame_exercised_by_vs2_5": true,
+    "bounded_construction_frame_open_after_vs2_5": false,
+    "bounded_construction_grant_further_use_permitted": false,
+    "bounded_construction_grant_id": "VS2_BOUNDED_CONSTRUCTION_AUTHORITY",
+    "bounded_construction_grant_prior_consumed": true,
+    "bounded_construction_local_exercise_scope": "CONTROLLED_STEP_AND_CONVERGENCE_CONTRACTS_ONLY",
+    "construction_package_verification_authority_consumed_by_vs2_5": false,
+    "execution_authority_consumed_by_vs2_5": false,
+    "fixture_construction_authority_consumed_by_vs2_5": false,
+    "readiness_gate_construction_authority_consumed_by_vs2_5": false,
+    "same_bounded_construction_grant_may_be_consumed_again": false,
+    "source_vs2_4_construction_authority": {
+      "additional_bounded_construction_grant_consumption_by_vs2_4": false,
+      "bounded_construction_consumption_count_after": 1,
+      "bounded_construction_consumption_count_before": 1,
+      "bounded_construction_frame": "VS2.3_TO_VS2.5_BOUND_TARGET_CONSTRUCTION_SEQUENCE",
+      "bounded_construction_frame_exercised_by_vs2_4": true,
+      "bounded_construction_frame_open_after_vs2_4": true,
+      "bounded_construction_grant_id": "VS2_BOUNDED_CONSTRUCTION_AUTHORITY",
+      "bounded_construction_grant_prior_consumed": true,
+      "bounded_construction_local_exercise_scope": "FINITE_MOVE_SPACE_SOURCE_BINDING_AND_PROSPECTIVE_AUTHORITY_ONLY",
+      "construction_package_verification_authority_consumed_by_vs2_4": false,
+      "execution_authority_consumed_by_vs2_4": false,
+      "fixture_construction_authority_consumed_by_vs2_4": false,
+      "readiness_gate_construction_authority_consumed_by_vs2_4": false,
+      "remaining_frame_units": [
+        "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+      ],
+      "same_bounded_construction_grant_may_be_consumed_again": false,
+      "source_vs2_3_consumption_frame": "VS2.3_TO_VS2.5_BOUND_TARGET_CONSTRUCTION_SEQUENCE",
+      "unconsumed_effective_grant_count": 3,
+      "unconsumed_effective_grant_ids": [
+        "VS2_FIXTURE_CONSTRUCTION_AUTHORITY",
+        "VS2_FIRST_RUN_READINESS_GATE_CONSTRUCTION_AUTHORITY",
+        "VS2_CONSTRUCTION_PACKAGE_VERIFICATION_AUTHORITY"
+      ]
+    },
+    "unconsumed_effective_grant_count": 3,
+    "unconsumed_effective_grant_ids": [
+      "VS2_FIXTURE_CONSTRUCTION_AUTHORITY",
+      "VS2_FIRST_RUN_READINESS_GATE_CONSTRUCTION_AUTHORITY",
+      "VS2_CONSTRUCTION_PACKAGE_VERIFICATION_AUTHORITY"
+    ]
+  },
+  "continue_requires": [
+    "target not reached",
+    "one lawful O2 successor staged",
+    "strict local progress witnessed",
+    "candidate hash not repeated",
+    "oscillation absent",
+    "no hard stop",
+    "remaining radius positive",
+    "remaining attempted budget positive",
+    "remaining applied budget positive",
+    "all guard stages pass"
+  ],
+  "contract_binding": {
+    "canonicalization": "MATRIXLAB_CANONICAL_JSON_V0",
+    "contract_payload": {
+      "allowed_next_components": [
+        "S15_TERMINAL_AND_REPEAT_DECIDER"
+      ],
+      "artifact_id": "phase_vs2_convergence_criterion_contract_v0",
+      "artifact_kind": "STATIC_OPERATIONAL_CONVERGENCE_CRITERION_CONTRACT",
+      "authority_requirements": [
+        "C20 is defined by construction, but runtime evaluation requires active step authority"
+      ],
+      "canonical_signature_fields": [
+        "highest_completed_stage",
+        "sorted unmet rule IDs",
+        "sorted hard blocker classes",
+        "primary condition ID",
+        "candidate hash"
+      ],
+      "component_id": "S14_CONVERGENCE_CRITERION_EVALUATOR",
+      "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+      "component_version": "v0",
+      "construction_authority_provenance": {
+        "additional_bounded_construction_grant_consumption_by_vs2_5": false,
+        "bounded_construction_consumption_count_after": 1,
+        "bounded_construction_consumption_count_before": 1,
+        "bounded_construction_frame_completed_by_vs2_5": true,
+        "bounded_construction_frame_exercised_by_vs2_5": true,
+        "bounded_construction_frame_open_after_vs2_5": false,
+        "bounded_construction_grant_further_use_permitted": false,
+        "bounded_construction_grant_id": "VS2_BOUNDED_CONSTRUCTION_AUTHORITY",
+        "bounded_construction_grant_prior_consumed": true,
+        "bounded_construction_local_exercise_scope": "CONTROLLED_STEP_AND_CONVERGENCE_CONTRACTS_ONLY",
+        "construction_package_verification_authority_consumed_by_vs2_5": false,
+        "execution_authority_consumed_by_vs2_5": false,
+        "fixture_construction_authority_consumed_by_vs2_5": false,
+        "readiness_gate_construction_authority_consumed_by_vs2_5": false,
+        "same_bounded_construction_grant_may_be_consumed_again": false,
+        "source_vs2_4_construction_authority": {
+          "additional_bounded_construction_grant_consumption_by_vs2_4": false,
+          "bounded_construction_consumption_count_after": 1,
+          "bounded_construction_consumption_count_before": 1,
+          "bounded_construction_frame": "VS2.3_TO_VS2.5_BOUND_TARGET_CONSTRUCTION_SEQUENCE",
+          "bounded_construction_frame_exercised_by_vs2_4": true,
+          "bounded_construction_frame_open_after_vs2_4": true,
+          "bounded_construction_grant_id": "VS2_BOUNDED_CONSTRUCTION_AUTHORITY",
+          "bounded_construction_grant_prior_consumed": true,
+          "bounded_construction_local_exercise_scope": "FINITE_MOVE_SPACE_SOURCE_BINDING_AND_PROSPECTIVE_AUTHORITY_ONLY",
+          "construction_package_verification_authority_consumed_by_vs2_4": false,
+          "execution_authority_consumed_by_vs2_4": false,
+          "fixture_construction_authority_consumed_by_vs2_4": false,
+          "readiness_gate_construction_authority_consumed_by_vs2_4": false,
+          "remaining_frame_units": [
+            "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+          ],
+          "same_bounded_construction_grant_may_be_consumed_again": false,
+          "source_vs2_3_consumption_frame": "VS2.3_TO_VS2.5_BOUND_TARGET_CONSTRUCTION_SEQUENCE",
+          "unconsumed_effective_grant_count": 3,
+          "unconsumed_effective_grant_ids": [
+            "VS2_FIXTURE_CONSTRUCTION_AUTHORITY",
+            "VS2_FIRST_RUN_READINESS_GATE_CONSTRUCTION_AUTHORITY",
+            "VS2_CONSTRUCTION_PACKAGE_VERIFICATION_AUTHORITY"
+          ]
+        },
+        "unconsumed_effective_grant_count": 3,
+        "unconsumed_effective_grant_ids": [
+          "VS2_FIXTURE_CONSTRUCTION_AUTHORITY",
+          "VS2_FIRST_RUN_READINESS_GATE_CONSTRUCTION_AUTHORITY",
+          "VS2_CONSTRUCTION_PACKAGE_VERIFICATION_AUTHORITY"
+        ]
+      },
+      "continue_requires": [
+        "target not reached",
+        "one lawful O2 successor staged",
+        "strict local progress witnessed",
+        "candidate hash not repeated",
+        "oscillation absent",
+        "no hard stop",
+        "remaining radius positive",
+        "remaining attempted budget positive",
+        "remaining applied budget positive",
+        "all guard stages pass"
+      ],
+      "contract_id": "FIRST_SWEEP_KERNEL_CONVERGENCE_CRITERION_CONTRACT_V0",
+      "contract_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+      "contract_version": "v0",
+      "convergence_result_vocabulary": [
+        "CONVERGENCE_NOT_RUN",
+        "CONVERGENCE_CONTINUE_ALLOWED",
+        "CONVERGENCE_TARGET_TERMINAL_CONDITION_SATISFIED",
+        "CONVERGENCE_STOP_NON_PROGRESS",
+        "CONVERGENCE_STOP_REPEATED_STATE",
+        "CONVERGENCE_STOP_OSCILLATION",
+        "CONVERGENCE_STOP_ATTEMPTED_MOVE_BOUND_EXHAUSTED",
+        "CONVERGENCE_STOP_APPLIED_MOVE_BOUND_EXHAUSTED",
+        "CONVERGENCE_STOP_DECLARED_RADIUS_BOUND_EXHAUSTED",
+        "CONVERGENCE_CRITERION_UNMET",
+        "CONVERGENCE_RESULT_AMBIGUOUS"
+      ],
+      "evaluation_record_fields": [
+        "highest_completed_stage",
+        "unmet_rule_ids_at_current_stage",
+        "passed_rule_ids",
+        "hard_blocker_classes",
+        "candidate_hash",
+        "primary_condition",
+        "evaluation_signature"
+      ],
+      "evaluation_stages": [
+        "STAGE_0_BINDING_INTEGRITY",
+        "STAGE_1_TARGET_VALIDATION",
+        "STAGE_2_LAWFUL_ADMISSIBILITY",
+        "STAGE_3_TARGET_TERMINAL_CONDITION"
+      ],
+      "forbidden_actions": [
+        "source acquisition",
+        "source refresh",
+        "schema invention",
+        "capability creation",
+        "authority activation",
+        "authority escalation",
+        "automatic repair",
+        "automatic taxonomy upgrade",
+        "automatic rerun",
+        "automatic radius renewal",
+        "runtime publication",
+        "runner creation",
+        "registry activation",
+        "promotion record creation",
+        "mutate candidate",
+        "renew budget",
+        "authorize execution",
+        "invoke rerun",
+        "reinterpret ambiguous evidence as success"
+      ],
+      "nonclaims": [
+        "does_not_execute_convergence",
+        "does_not_mutate_candidate",
+        "does_not_authorize_execution",
+        "does_not_renew_budget_or_radius"
+      ],
+      "oscillation_rule": {
+        "evaluation_signature_repeats_after_intervening_different_signature": true,
+        "maps_to": [
+          "CONVERGENCE_STOP_OSCILLATION",
+          "STOP_REPEATED_STATE",
+          "OSCILLATION_DETECTED"
+        ],
+        "two_state_candidate_hash_cycle_detected": true
+      },
+      "phase_id": "PHASE_VS2",
+      "possible_results": [
+        "CONVERGENCE_NOT_RUN",
+        "CONVERGENCE_CONTINUE_ALLOWED",
+        "CONVERGENCE_TARGET_TERMINAL_CONDITION_SATISFIED",
+        "CONVERGENCE_STOP_NON_PROGRESS",
+        "CONVERGENCE_STOP_REPEATED_STATE",
+        "CONVERGENCE_STOP_OSCILLATION",
+        "CONVERGENCE_STOP_ATTEMPTED_MOVE_BOUND_EXHAUSTED",
+        "CONVERGENCE_STOP_APPLIED_MOVE_BOUND_EXHAUSTED",
+        "CONVERGENCE_STOP_DECLARED_RADIUS_BOUND_EXHAUSTED",
+        "CONVERGENCE_CRITERION_UNMET",
+        "CONVERGENCE_RESULT_AMBIGUOUS"
+      ],
+      "primary_role": "Evaluate target terminal, continue, non-progress, repeated-state, oscillation, radius, and ambiguous convergence states.",
+      "reads": [
+        "binding integrity",
+        "candidate integrity",
+        "validation result",
+        "admissibility result",
+        "guard results",
+        "candidate hash",
+        "case history",
+        "budget state"
+      ],
+      "receipt_obligations": [
+        "C20 result recorded in controlled-step receipt"
+      ],
+      "repeated_state_rule": "current candidate hash already appears in committed case history",
+      "required_inputs": [
+        "highest completed stage",
+        "unmet rule IDs",
+        "hard blocker classes",
+        "primary condition",
+        "candidate hash"
+      ],
+      "runtime_posture": {
+        "active_execution_authority_present": false,
+        "active_sweep_authority_present": false,
+        "candidate_instance_created": false,
+        "exact_runtime_budgets_bound": false,
+        "exact_source_snapshot_bound": false,
+        "execution_performed": false,
+        "fixture_set_bound": false,
+        "move_applied": false,
+        "move_enumerated_against_live_candidate": false,
+        "move_selected": false,
+        "runner_created": false,
+        "runtime_instance_created": false,
+        "sweep_executed": false
+      },
+      "schema_version": "matrixlabs_phase_vs2_convergence_criterion_contract_v0",
+      "source_basis": [
+        {
+          "basis_class": "VS2_5_PROMPT_AND_V0_DERIVED",
+          "basis_reason": "C20 preserves V6 and maps to the existing V7 terminal family.",
+          "section": "V6 vocabulary",
+          "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+        },
+        {
+          "basis_class": "VS2_5_PROMPT_AND_V0_DERIVED",
+          "basis_reason": "C20 preserves V6 and maps to the existing V7 terminal family.",
+          "section": "progress rule",
+          "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+        },
+        {
+          "basis_class": "VS2_5_PROMPT_AND_V0_DERIVED",
+          "basis_reason": "C20 preserves V6 and maps to the existing V7 terminal family.",
+          "section": "target and continue rules",
+          "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+        },
+        {
+          "basis_class": "VS2_5_PROMPT_AND_V0_DERIVED",
+          "basis_reason": "C20 preserves V6 and maps to the existing V7 terminal family.",
+          "section": "terminal mappings",
+          "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+        }
+      ],
+      "strict_local_progress_rule": {
+        "candidate_hash_change_alone_is_progress": false,
+        "move_application_alone_is_progress": false,
+        "movement_is_progress": false,
+        "progress_when_same_stage_unmet_rule_set_strict_subset": true,
+        "progress_when_stage_increases": true,
+        "requires_candidate_integrity_pass": true,
+        "requires_no_new_hard_blocker": true,
+        "requires_no_previously_passed_target_rule_regresses": true
+      },
+      "target_terminal_requires": [
+        "binding integrity passes",
+        "active step authority exists",
+        "candidate integrity passes or unchanged current candidate remains valid",
+        "VALIDATION_PASS",
+        "ADMISSIBILITY_PASS",
+        "all guard stages pass",
+        "candidate binding matches O1",
+        "target binding matches O3",
+        "F0 remains invariant",
+        "terminal bundle can be completed"
+      ],
+      "terminal_mappings": {
+        "CONVERGENCE_CRITERION_UNMET": {
+          "terminal_outcome": "STOP_CONVERGENCE_CRITERION_UNMET"
+        },
+        "CONVERGENCE_RESULT_AMBIGUOUS": {
+          "terminal_outcome": "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT"
+        },
+        "CONVERGENCE_STOP_APPLIED_MOVE_BOUND_EXHAUSTED": {
+          "detail": "APPLIED_MOVE_BUDGET_EXHAUSTED",
+          "terminal_outcome": "STOP_RADIUS_EXHAUSTED"
+        },
+        "CONVERGENCE_STOP_ATTEMPTED_MOVE_BOUND_EXHAUSTED": {
+          "detail": "ATTEMPTED_MOVE_BUDGET_EXHAUSTED",
+          "terminal_outcome": "STOP_RADIUS_EXHAUSTED"
+        },
+        "CONVERGENCE_STOP_DECLARED_RADIUS_BOUND_EXHAUSTED": {
+          "detail": "DECLARED_RADIUS_BOUND_EXHAUSTED",
+          "terminal_outcome": "STOP_RADIUS_EXHAUSTED"
+        },
+        "CONVERGENCE_STOP_NON_PROGRESS": {
+          "terminal_outcome": "STOP_NON_PROGRESS"
+        },
+        "CONVERGENCE_STOP_OSCILLATION": {
+          "detail": "OSCILLATION_DETECTED",
+          "terminal_outcome": "STOP_REPEATED_STATE"
+        },
+        "CONVERGENCE_STOP_REPEATED_STATE": {
+          "terminal_outcome": "STOP_REPEATED_STATE"
+        }
+      },
+      "unchanged_candidate_can_continue": false,
+      "unit_id": "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION",
+      "upstream_bindings": [
+        {
+          "artifact_id": "phase_vs2_scope_regime_contract_v0",
+          "artifact_kind": "STATIC_FRAME_CONTRACT",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_scope_regime_contract_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "a6b4819aee35e5f09686a5a69d471b31f3a5cfdcab2078a29323ba1d31211179",
+          "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_scope_regime_contract_v0.json",
+          "expected_artifact_kind": "STATIC_FRAME_CONTRACT",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_scope_regime_contract_v0_reference",
+          "reference_role": "SCOPE_REGIME_FRAME",
+          "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+        },
+        {
+          "artifact_id": "phase_vs2_runtime_control_state_contract_v0",
+          "artifact_kind": "INSTANCE_SCHEMA_AND_MUTATION_CONTRACT",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_runtime_control_state_contract_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "25fbdfb007372e346d61a3f5de8b0a4f5004c6dff1857e5fc31df38e17c087ad",
+          "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_runtime_control_state_contract_v0.json",
+          "expected_artifact_kind": "INSTANCE_SCHEMA_AND_MUTATION_CONTRACT",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_runtime_control_state_contract_v0_reference",
+          "reference_role": "RUNTIME_CONTROL_STATE_CONTRACT",
+          "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+        },
+        {
+          "artifact_id": "phase_vs2_candidate_typed_state_contract_schema_v0",
+          "artifact_kind": "INSTANCE_SCHEMA_AND_VERSION_CONTRACT",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_candidate_typed_state_contract_schema_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "0216eb5944f87e760844d018d253f5e808a7a5b7ebd208d8d717e6709b979070",
+          "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_candidate_typed_state_contract_schema_v0.json",
+          "expected_artifact_kind": "INSTANCE_SCHEMA_AND_VERSION_CONTRACT",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_candidate_typed_state_contract_schema_v0_reference",
+          "reference_role": "CANDIDATE_SCHEMA_CONTRACT",
+          "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+        },
+        {
+          "artifact_id": "phase_vs2_frozen_target_contract_v0",
+          "artifact_kind": "CONCRETE_IMMUTABLE_TARGET_CONTRACT",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_frozen_target_contract_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "378acf4fb02ad20bfd5213bde4b267fe605dc528812e29a985909fef251d7546",
+          "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_frozen_target_contract_v0.json",
+          "expected_artifact_kind": "CONCRETE_IMMUTABLE_TARGET_CONTRACT",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_frozen_target_contract_v0_reference",
+          "reference_role": "FROZEN_TARGET_CONTRACT",
+          "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+        },
+        {
+          "artifact_id": "phase_vs2_object_model_binding_manifest_v0",
+          "artifact_kind": "STATIC_CONTRACT_BINDING_MANIFEST",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_object_model_binding_manifest_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "0af5f635aaca5c37428cc94ca1a8ee6f3885d6e56543198bbdd33a5d4062db3c",
+          "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_object_model_binding_manifest_v0.json",
+          "expected_artifact_kind": "STATIC_CONTRACT_BINDING_MANIFEST",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_object_model_binding_manifest_v0_reference",
+          "reference_role": "OBJECT_MODEL_BINDING_MANIFEST",
+          "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+        },
+        {
+          "artifact_id": "phase_vs2_source_and_version_binding_contract_v0",
+          "artifact_kind": "STATIC_SOURCE_IDENTITY_VERSION_AND_FRESHNESS_BINDING_CONTRACT",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_source_and_version_binding_contract_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "9b9d6133965beec3b51600ec2d0ab9f002abbd48685cd82f1cf24e0d5d16d6ef",
+          "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_source_and_version_binding_contract_v0.json",
+          "expected_artifact_kind": "STATIC_SOURCE_IDENTITY_VERSION_AND_FRESHNESS_BINDING_CONTRACT",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_source_and_version_binding_contract_v0_reference",
+          "reference_role": "SOURCE_AND_VERSION_BINDING_CONTRACT",
+          "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+        },
+        {
+          "artifact_id": "phase_vs2_move_vocabulary_partition_v0",
+          "artifact_kind": "STATIC_DISJOINT_VOCABULARY_PARTITION",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_move_vocabulary_partition_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "a193dbbee21db8d5577445789d5971ffc29c8c5c37088d4bf88b14434c518c1d",
+          "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_vocabulary_partition_v0.json",
+          "expected_artifact_kind": "STATIC_DISJOINT_VOCABULARY_PARTITION",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_move_vocabulary_partition_v0_reference",
+          "reference_role": "MOVE_VOCABULARY_PARTITION",
+          "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+        },
+        {
+          "artifact_id": "phase_vs2_move_authority_matrix_v0",
+          "artifact_kind": "STATIC_MOVE_AUTHORITY_REQUIREMENT_MATRIX",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_move_authority_matrix_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "4fbd5ae95a00444201f0da70c52515e630b07972f9a3202944f007547d0db0ad",
+          "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_authority_matrix_v0.json",
+          "expected_artifact_kind": "STATIC_MOVE_AUTHORITY_REQUIREMENT_MATRIX",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_move_authority_matrix_v0_reference",
+          "reference_role": "MOVE_AUTHORITY_MATRIX",
+          "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+        },
+        {
+          "artifact_id": "phase_vs2_finite_move_space_v0",
+          "artifact_kind": "TARGET_BOUND_FINITE_CANDIDATE_TRANSFORMATION_MOVE_SPACE",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_finite_move_space_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "68b094ad5f7a283e591b7b23c66650db9921357e13b0e5c7ca7992723303cbe9",
+          "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_finite_move_space_v0.json",
+          "expected_artifact_kind": "TARGET_BOUND_FINITE_CANDIDATE_TRANSFORMATION_MOVE_SPACE",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_finite_move_space_v0_reference",
+          "reference_role": "FINITE_MOVE_SPACE",
+          "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+        },
+        {
+          "artifact_id": "phase_vs2_prospective_controlled_step_authority_envelope_v0",
+          "artifact_kind": "STATIC_PROSPECTIVE_AUTHORITY_ENVELOPE",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_prospective_controlled_step_authority_envelope_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "7f2878149b30ca59e46ffa7e12580d4b2c96784e1b7964698d56eca5853c484c",
+          "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_prospective_controlled_step_authority_envelope_v0.json",
+          "expected_artifact_kind": "STATIC_PROSPECTIVE_AUTHORITY_ENVELOPE",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_prospective_controlled_step_authority_envelope_v0_reference",
+          "reference_role": "PROSPECTIVE_AUTHORITY_ENVELOPE",
+          "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+        },
+        {
+          "artifact_id": "phase_vs2_move_space_binding_manifest_v0",
+          "artifact_kind": "STATIC_SUCCESSOR_BINDING_MANIFEST",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_move_space_binding_manifest_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "9cb7f9a66de7a0afc7109a07d789e56cb3629266d9f45821c0c971826afad389",
+          "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_space_binding_manifest_v0.json",
+          "expected_artifact_kind": "STATIC_SUCCESSOR_BINDING_MANIFEST",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_move_space_binding_manifest_v0_reference",
+          "reference_role": "MOVE_SPACE_BINDING_MANIFEST",
+          "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+        },
+        {
+          "artifact_id": "phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0",
+          "artifact_kind": "UNIT_RECEIPT",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "c78a48e892c0554327a2b1c27570453db48ce7368b27e4b58c6830defd7ff998",
+          "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0.json",
+          "expected_artifact_kind": "UNIT_RECEIPT",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_4_receipt_reference",
+          "reference_role": "UPSTREAM_UNIT_RECEIPT",
+          "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+        }
+      ],
+      "writes": [
+        "convergence result",
+        "evaluation signature"
+      ]
+    },
+    "contract_sha256": "a9c512025963df2a07ba93e3071683f392264013824f82ddbcfd923ab8321fd4"
+  },
+  "contract_id": "FIRST_SWEEP_KERNEL_CONVERGENCE_CRITERION_CONTRACT_V0",
+  "contract_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+  "contract_version": "v0",
+  "convergence_result_vocabulary": [
+    "CONVERGENCE_NOT_RUN",
+    "CONVERGENCE_CONTINUE_ALLOWED",
+    "CONVERGENCE_TARGET_TERMINAL_CONDITION_SATISFIED",
+    "CONVERGENCE_STOP_NON_PROGRESS",
+    "CONVERGENCE_STOP_REPEATED_STATE",
+    "CONVERGENCE_STOP_OSCILLATION",
+    "CONVERGENCE_STOP_ATTEMPTED_MOVE_BOUND_EXHAUSTED",
+    "CONVERGENCE_STOP_APPLIED_MOVE_BOUND_EXHAUSTED",
+    "CONVERGENCE_STOP_DECLARED_RADIUS_BOUND_EXHAUSTED",
+    "CONVERGENCE_CRITERION_UNMET",
+    "CONVERGENCE_RESULT_AMBIGUOUS"
+  ],
+  "evaluation_record_fields": [
+    "highest_completed_stage",
+    "unmet_rule_ids_at_current_stage",
+    "passed_rule_ids",
+    "hard_blocker_classes",
+    "candidate_hash",
+    "primary_condition",
+    "evaluation_signature"
+  ],
+  "evaluation_stages": [
+    "STAGE_0_BINDING_INTEGRITY",
+    "STAGE_1_TARGET_VALIDATION",
+    "STAGE_2_LAWFUL_ADMISSIBILITY",
+    "STAGE_3_TARGET_TERMINAL_CONDITION"
+  ],
+  "forbidden_actions": [
+    "source acquisition",
+    "source refresh",
+    "schema invention",
+    "capability creation",
+    "authority activation",
+    "authority escalation",
+    "automatic repair",
+    "automatic taxonomy upgrade",
+    "automatic rerun",
+    "automatic radius renewal",
+    "runtime publication",
+    "runner creation",
+    "registry activation",
+    "promotion record creation",
+    "mutate candidate",
+    "renew budget",
+    "authorize execution",
+    "invoke rerun",
+    "reinterpret ambiguous evidence as success"
+  ],
+  "nonclaims": [
+    "does_not_execute_convergence",
+    "does_not_mutate_candidate",
+    "does_not_authorize_execution",
+    "does_not_renew_budget_or_radius"
+  ],
+  "oscillation_rule": {
+    "evaluation_signature_repeats_after_intervening_different_signature": true,
+    "maps_to": [
+      "CONVERGENCE_STOP_OSCILLATION",
+      "STOP_REPEATED_STATE",
+      "OSCILLATION_DETECTED"
+    ],
+    "two_state_candidate_hash_cycle_detected": true
+  },
+  "phase_id": "PHASE_VS2",
+  "possible_results": [
+    "CONVERGENCE_NOT_RUN",
+    "CONVERGENCE_CONTINUE_ALLOWED",
+    "CONVERGENCE_TARGET_TERMINAL_CONDITION_SATISFIED",
+    "CONVERGENCE_STOP_NON_PROGRESS",
+    "CONVERGENCE_STOP_REPEATED_STATE",
+    "CONVERGENCE_STOP_OSCILLATION",
+    "CONVERGENCE_STOP_ATTEMPTED_MOVE_BOUND_EXHAUSTED",
+    "CONVERGENCE_STOP_APPLIED_MOVE_BOUND_EXHAUSTED",
+    "CONVERGENCE_STOP_DECLARED_RADIUS_BOUND_EXHAUSTED",
+    "CONVERGENCE_CRITERION_UNMET",
+    "CONVERGENCE_RESULT_AMBIGUOUS"
+  ],
+  "primary_role": "Evaluate target terminal, continue, non-progress, repeated-state, oscillation, radius, and ambiguous convergence states.",
+  "reads": [
+    "binding integrity",
+    "candidate integrity",
+    "validation result",
+    "admissibility result",
+    "guard results",
+    "candidate hash",
+    "case history",
+    "budget state"
+  ],
+  "receipt_obligations": [
+    "C20 result recorded in controlled-step receipt"
+  ],
+  "repeated_state_rule": "current candidate hash already appears in committed case history",
+  "required_inputs": [
+    "highest completed stage",
+    "unmet rule IDs",
+    "hard blocker classes",
+    "primary condition",
+    "candidate hash"
+  ],
+  "runtime_posture": {
+    "active_execution_authority_present": false,
+    "active_sweep_authority_present": false,
+    "candidate_instance_created": false,
+    "exact_runtime_budgets_bound": false,
+    "exact_source_snapshot_bound": false,
+    "execution_performed": false,
+    "fixture_set_bound": false,
+    "move_applied": false,
+    "move_enumerated_against_live_candidate": false,
+    "move_selected": false,
+    "runner_created": false,
+    "runtime_instance_created": false,
+    "sweep_executed": false
+  },
+  "schema_version": "matrixlabs_phase_vs2_convergence_criterion_contract_v0",
+  "source_basis": [
+    {
+      "basis_class": "VS2_5_PROMPT_AND_V0_DERIVED",
+      "basis_reason": "C20 preserves V6 and maps to the existing V7 terminal family.",
+      "section": "V6 vocabulary",
+      "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+    },
+    {
+      "basis_class": "VS2_5_PROMPT_AND_V0_DERIVED",
+      "basis_reason": "C20 preserves V6 and maps to the existing V7 terminal family.",
+      "section": "progress rule",
+      "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+    },
+    {
+      "basis_class": "VS2_5_PROMPT_AND_V0_DERIVED",
+      "basis_reason": "C20 preserves V6 and maps to the existing V7 terminal family.",
+      "section": "target and continue rules",
+      "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+    },
+    {
+      "basis_class": "VS2_5_PROMPT_AND_V0_DERIVED",
+      "basis_reason": "C20 preserves V6 and maps to the existing V7 terminal family.",
+      "section": "terminal mappings",
+      "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+    }
+  ],
+  "strict_local_progress_rule": {
+    "candidate_hash_change_alone_is_progress": false,
+    "move_application_alone_is_progress": false,
+    "movement_is_progress": false,
+    "progress_when_same_stage_unmet_rule_set_strict_subset": true,
+    "progress_when_stage_increases": true,
+    "requires_candidate_integrity_pass": true,
+    "requires_no_new_hard_blocker": true,
+    "requires_no_previously_passed_target_rule_regresses": true
+  },
+  "target_terminal_requires": [
+    "binding integrity passes",
+    "active step authority exists",
+    "candidate integrity passes or unchanged current candidate remains valid",
+    "VALIDATION_PASS",
+    "ADMISSIBILITY_PASS",
+    "all guard stages pass",
+    "candidate binding matches O1",
+    "target binding matches O3",
+    "F0 remains invariant",
+    "terminal bundle can be completed"
+  ],
+  "terminal_mappings": {
+    "CONVERGENCE_CRITERION_UNMET": {
+      "terminal_outcome": "STOP_CONVERGENCE_CRITERION_UNMET"
+    },
+    "CONVERGENCE_RESULT_AMBIGUOUS": {
+      "terminal_outcome": "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT"
+    },
+    "CONVERGENCE_STOP_APPLIED_MOVE_BOUND_EXHAUSTED": {
+      "detail": "APPLIED_MOVE_BUDGET_EXHAUSTED",
+      "terminal_outcome": "STOP_RADIUS_EXHAUSTED"
+    },
+    "CONVERGENCE_STOP_ATTEMPTED_MOVE_BOUND_EXHAUSTED": {
+      "detail": "ATTEMPTED_MOVE_BUDGET_EXHAUSTED",
+      "terminal_outcome": "STOP_RADIUS_EXHAUSTED"
+    },
+    "CONVERGENCE_STOP_DECLARED_RADIUS_BOUND_EXHAUSTED": {
+      "detail": "DECLARED_RADIUS_BOUND_EXHAUSTED",
+      "terminal_outcome": "STOP_RADIUS_EXHAUSTED"
+    },
+    "CONVERGENCE_STOP_NON_PROGRESS": {
+      "terminal_outcome": "STOP_NON_PROGRESS"
+    },
+    "CONVERGENCE_STOP_OSCILLATION": {
+      "detail": "OSCILLATION_DETECTED",
+      "terminal_outcome": "STOP_REPEATED_STATE"
+    },
+    "CONVERGENCE_STOP_REPEATED_STATE": {
+      "terminal_outcome": "STOP_REPEATED_STATE"
+    }
+  },
+  "unchanged_candidate_can_continue": false,
+  "unit_id": "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION",
+  "upstream_bindings": [
+    {
+      "artifact_id": "phase_vs2_scope_regime_contract_v0",
+      "artifact_kind": "STATIC_FRAME_CONTRACT",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_scope_regime_contract_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "a6b4819aee35e5f09686a5a69d471b31f3a5cfdcab2078a29323ba1d31211179",
+      "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_scope_regime_contract_v0.json",
+      "expected_artifact_kind": "STATIC_FRAME_CONTRACT",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_scope_regime_contract_v0_reference",
+      "reference_role": "SCOPE_REGIME_FRAME",
+      "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+    },
+    {
+      "artifact_id": "phase_vs2_runtime_control_state_contract_v0",
+      "artifact_kind": "INSTANCE_SCHEMA_AND_MUTATION_CONTRACT",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_runtime_control_state_contract_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "25fbdfb007372e346d61a3f5de8b0a4f5004c6dff1857e5fc31df38e17c087ad",
+      "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_runtime_control_state_contract_v0.json",
+      "expected_artifact_kind": "INSTANCE_SCHEMA_AND_MUTATION_CONTRACT",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_runtime_control_state_contract_v0_reference",
+      "reference_role": "RUNTIME_CONTROL_STATE_CONTRACT",
+      "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+    },
+    {
+      "artifact_id": "phase_vs2_candidate_typed_state_contract_schema_v0",
+      "artifact_kind": "INSTANCE_SCHEMA_AND_VERSION_CONTRACT",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_candidate_typed_state_contract_schema_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "0216eb5944f87e760844d018d253f5e808a7a5b7ebd208d8d717e6709b979070",
+      "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_candidate_typed_state_contract_schema_v0.json",
+      "expected_artifact_kind": "INSTANCE_SCHEMA_AND_VERSION_CONTRACT",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_candidate_typed_state_contract_schema_v0_reference",
+      "reference_role": "CANDIDATE_SCHEMA_CONTRACT",
+      "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+    },
+    {
+      "artifact_id": "phase_vs2_frozen_target_contract_v0",
+      "artifact_kind": "CONCRETE_IMMUTABLE_TARGET_CONTRACT",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_frozen_target_contract_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "378acf4fb02ad20bfd5213bde4b267fe605dc528812e29a985909fef251d7546",
+      "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_frozen_target_contract_v0.json",
+      "expected_artifact_kind": "CONCRETE_IMMUTABLE_TARGET_CONTRACT",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_frozen_target_contract_v0_reference",
+      "reference_role": "FROZEN_TARGET_CONTRACT",
+      "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+    },
+    {
+      "artifact_id": "phase_vs2_object_model_binding_manifest_v0",
+      "artifact_kind": "STATIC_CONTRACT_BINDING_MANIFEST",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_object_model_binding_manifest_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "0af5f635aaca5c37428cc94ca1a8ee6f3885d6e56543198bbdd33a5d4062db3c",
+      "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_object_model_binding_manifest_v0.json",
+      "expected_artifact_kind": "STATIC_CONTRACT_BINDING_MANIFEST",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_object_model_binding_manifest_v0_reference",
+      "reference_role": "OBJECT_MODEL_BINDING_MANIFEST",
+      "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+    },
+    {
+      "artifact_id": "phase_vs2_source_and_version_binding_contract_v0",
+      "artifact_kind": "STATIC_SOURCE_IDENTITY_VERSION_AND_FRESHNESS_BINDING_CONTRACT",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_source_and_version_binding_contract_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "9b9d6133965beec3b51600ec2d0ab9f002abbd48685cd82f1cf24e0d5d16d6ef",
+      "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_source_and_version_binding_contract_v0.json",
+      "expected_artifact_kind": "STATIC_SOURCE_IDENTITY_VERSION_AND_FRESHNESS_BINDING_CONTRACT",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_source_and_version_binding_contract_v0_reference",
+      "reference_role": "SOURCE_AND_VERSION_BINDING_CONTRACT",
+      "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+    },
+    {
+      "artifact_id": "phase_vs2_move_vocabulary_partition_v0",
+      "artifact_kind": "STATIC_DISJOINT_VOCABULARY_PARTITION",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_move_vocabulary_partition_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "a193dbbee21db8d5577445789d5971ffc29c8c5c37088d4bf88b14434c518c1d",
+      "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_vocabulary_partition_v0.json",
+      "expected_artifact_kind": "STATIC_DISJOINT_VOCABULARY_PARTITION",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_move_vocabulary_partition_v0_reference",
+      "reference_role": "MOVE_VOCABULARY_PARTITION",
+      "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+    },
+    {
+      "artifact_id": "phase_vs2_move_authority_matrix_v0",
+      "artifact_kind": "STATIC_MOVE_AUTHORITY_REQUIREMENT_MATRIX",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_move_authority_matrix_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "4fbd5ae95a00444201f0da70c52515e630b07972f9a3202944f007547d0db0ad",
+      "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_authority_matrix_v0.json",
+      "expected_artifact_kind": "STATIC_MOVE_AUTHORITY_REQUIREMENT_MATRIX",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_move_authority_matrix_v0_reference",
+      "reference_role": "MOVE_AUTHORITY_MATRIX",
+      "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+    },
+    {
+      "artifact_id": "phase_vs2_finite_move_space_v0",
+      "artifact_kind": "TARGET_BOUND_FINITE_CANDIDATE_TRANSFORMATION_MOVE_SPACE",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_finite_move_space_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "68b094ad5f7a283e591b7b23c66650db9921357e13b0e5c7ca7992723303cbe9",
+      "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_finite_move_space_v0.json",
+      "expected_artifact_kind": "TARGET_BOUND_FINITE_CANDIDATE_TRANSFORMATION_MOVE_SPACE",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_finite_move_space_v0_reference",
+      "reference_role": "FINITE_MOVE_SPACE",
+      "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+    },
+    {
+      "artifact_id": "phase_vs2_prospective_controlled_step_authority_envelope_v0",
+      "artifact_kind": "STATIC_PROSPECTIVE_AUTHORITY_ENVELOPE",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_prospective_controlled_step_authority_envelope_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "7f2878149b30ca59e46ffa7e12580d4b2c96784e1b7964698d56eca5853c484c",
+      "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_prospective_controlled_step_authority_envelope_v0.json",
+      "expected_artifact_kind": "STATIC_PROSPECTIVE_AUTHORITY_ENVELOPE",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_prospective_controlled_step_authority_envelope_v0_reference",
+      "reference_role": "PROSPECTIVE_AUTHORITY_ENVELOPE",
+      "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+    },
+    {
+      "artifact_id": "phase_vs2_move_space_binding_manifest_v0",
+      "artifact_kind": "STATIC_SUCCESSOR_BINDING_MANIFEST",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_move_space_binding_manifest_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "9cb7f9a66de7a0afc7109a07d789e56cb3629266d9f45821c0c971826afad389",
+      "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_space_binding_manifest_v0.json",
+      "expected_artifact_kind": "STATIC_SUCCESSOR_BINDING_MANIFEST",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_move_space_binding_manifest_v0_reference",
+      "reference_role": "MOVE_SPACE_BINDING_MANIFEST",
+      "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+    },
+    {
+      "artifact_id": "phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0",
+      "artifact_kind": "UNIT_RECEIPT",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "c78a48e892c0554327a2b1c27570453db48ce7368b27e4b58c6830defd7ff998",
+      "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0.json",
+      "expected_artifact_kind": "UNIT_RECEIPT",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_4_receipt_reference",
+      "reference_role": "UPSTREAM_UNIT_RECEIPT",
+      "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+    }
+  ],
+  "writes": [
+    "convergence result",
+    "evaluation signature"
+  ]
+}

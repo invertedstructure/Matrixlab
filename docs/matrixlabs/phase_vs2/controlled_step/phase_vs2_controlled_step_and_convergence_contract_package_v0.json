@@ -1,0 +1,4080 @@
+{
+  "artifact_id": "phase_vs2_controlled_step_and_convergence_contract_package_v0",
+  "artifact_kind": "STATIC_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_PACKAGE",
+  "c20_reference": {
+    "artifact_id": "phase_vs2_convergence_criterion_contract_v0",
+    "artifact_kind": "STATIC_OPERATIONAL_CONVERGENCE_CRITERION_CONTRACT",
+    "artifact_version": "v0",
+    "binding_reason": "VS2.5-built phase_vs2_convergence_criterion_contract_v0 canonical binding.",
+    "binding_status": "BOUND",
+    "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+    "content_sha256": "a9c512025963df2a07ba93e3071683f392264013824f82ddbcfd923ab8321fd4",
+    "declared_path": "docs/matrixlabs/phase_vs2/controlled_step/phase_vs2_convergence_criterion_contract_v0.json",
+    "expected_artifact_kind": "STATIC_OPERATIONAL_CONVERGENCE_CRITERION_CONTRACT",
+    "hash_algorithm": "SHA-256",
+    "reference_id": "phase_vs2_convergence_criterion_contract_v0_reference",
+    "reference_role": "CONVERGENCE_CRITERION_CONTRACT",
+    "required_by_unit": "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+  },
+  "candidate_integrity_auxiliary_results": [
+    "CANDIDATE_SUCCESSOR_INTEGRITY_PASS",
+    "CANDIDATE_SUCCESSOR_FAIL_SCHEMA",
+    "CANDIDATE_SUCCESSOR_FAIL_VERSION_CHAIN",
+    "CANDIDATE_SUCCESSOR_FAIL_DELTA_CONTRACT",
+    "CANDIDATE_SUCCESSOR_FAIL_WRITE_SET",
+    "CANDIDATE_SUCCESSOR_FAIL_HASH",
+    "CANDIDATE_SUCCESSOR_FAIL_FORBIDDEN_MUTATION"
+  ],
+  "component_count": 17,
+  "component_hashes": {
+    "S01_INPUT_BINDING_VERIFIER": "30377b5edda2a36c1ebc8481ffb017ea653994e0c5777353f077535ae48130e4",
+    "S02_CONDITION_INSPECTOR": "8ba6957217af6e008cd59c467b5e7e29bc6959f7c0d1ca671b08c4811a17286b",
+    "S03_CONDITION_CLASSIFIER": "2a0a2e2ab2c3e2391b93e4563b6ae4887bd2ae774baaba1cb2b8736d7606aae5",
+    "S04_CAPABILITY_BOUNDARY_EVALUATOR": "6923d3907e1cbd786a28ced4d68edc8b0ee89cddc6feb3c9344cc920032034e5",
+    "S05_TRANSFORMATION_MOVE_ENUMERATOR": "d81dc5210b3dc24d182290e5424538ca0788ad7d46d2ead9a7504fd13853d198",
+    "S06_STRUCTURAL_APPLICABILITY_EVALUATOR": "933b83662c0886fb5df8c81e026310f2e3bfbb160edd4dcdcc02a3078ecbd4ec",
+    "S07_RUNTIME_AUTHORITY_AND_BUDGET_GATE": "47dc0e244706ae50c20f25c1349e987851c80619c82ddab8f41020238903e131",
+    "S08_DETERMINISTIC_MOVE_SELECTOR": "8aca308fbd20f0713e6545ce7bc070056614d38830acb60e9c25bfcde001e5c3",
+    "S09_MOVE_APPLICATOR": "5de461a5d7f25b22e94bec3aaf75d984ba8543520266bd3508c0c59ad89489e7",
+    "S10_TARGET_CONFORMANCE_VALIDATOR": "b31215ef8354cbde00fc04f81242b76e26da2627cb3638bb7f3082d8bd83f2be",
+    "S11_LAWFUL_ADMISSIBILITY_EVALUATOR": "d17f99ece027f95e4ea75742df3efd5410bedd50b97fee41acba3039df38b262",
+    "S12_FORBIDDEN_EFFECT_GUARD": "6cc5f15cd6b4eddcf482e31c981fc910b67c6705d56955f568d08aeb022f1cee",
+    "S13_RECEIPT_AND_ATOMIC_PUBLICATION_BUILDER": "a5375ec82dd148d05d7199296b58f186747b27cf3f4922555bec6ed1ed29cbf4",
+    "S14_CONVERGENCE_CRITERION_EVALUATOR": "a9c512025963df2a07ba93e3071683f392264013824f82ddbcfd923ab8321fd4",
+    "S15_TERMINAL_AND_REPEAT_DECIDER": "b16c7b03e5d0b88e6c5ba59449a61657c4d39f171058cf722e520d88b2597e51",
+    "S16_CONTROLLED_STEP_ORCHESTRATOR": "1ea5c68116de0f06877ec4a8c4675195358dc178130ed28180c94b848d008bf4",
+    "S17_MINIMAL_REPLAY_AND_AUDIT_VERIFIER": "8e76645e6ea0ba8055ae99e9a1f22c85652b0dd203987ea7d389ed4a5b32d3b2"
+  },
+  "component_ids": [
+    "S01_INPUT_BINDING_VERIFIER",
+    "S02_CONDITION_INSPECTOR",
+    "S03_CONDITION_CLASSIFIER",
+    "S04_CAPABILITY_BOUNDARY_EVALUATOR",
+    "S05_TRANSFORMATION_MOVE_ENUMERATOR",
+    "S06_STRUCTURAL_APPLICABILITY_EVALUATOR",
+    "S07_RUNTIME_AUTHORITY_AND_BUDGET_GATE",
+    "S08_DETERMINISTIC_MOVE_SELECTOR",
+    "S09_MOVE_APPLICATOR",
+    "S10_TARGET_CONFORMANCE_VALIDATOR",
+    "S11_LAWFUL_ADMISSIBILITY_EVALUATOR",
+    "S12_FORBIDDEN_EFFECT_GUARD",
+    "S13_RECEIPT_AND_ATOMIC_PUBLICATION_BUILDER",
+    "S14_CONVERGENCE_CRITERION_EVALUATOR",
+    "S15_TERMINAL_AND_REPEAT_DECIDER",
+    "S16_CONTROLLED_STEP_ORCHESTRATOR",
+    "S17_MINIMAL_REPLAY_AND_AUDIT_VERIFIER"
+  ],
+  "component_ids_unique": true,
+  "component_registry": [
+    {
+      "component_id": "S01_INPUT_BINDING_VERIFIER",
+      "component_payload": {
+        "allowed_next_components": [
+          "S02_CONDITION_INSPECTOR",
+          "S15_TERMINAL_AND_REPEAT_DECIDER"
+        ],
+        "authority_absent_maps_to": [
+          "STEP_PREEXECUTION_TYPED_STOP",
+          "STOP_MISSING_AUTHORITY"
+        ],
+        "authority_requirements": [
+          "active step authority checked before semantic inspection",
+          "construction authority cannot substitute for execution authority"
+        ],
+        "component_id": "S01_INPUT_BINDING_VERIFIER",
+        "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+        "component_version": "v0",
+        "forbidden_actions": [
+          "source acquisition",
+          "source refresh",
+          "schema invention",
+          "capability creation",
+          "authority activation",
+          "authority escalation",
+          "automatic repair",
+          "automatic taxonomy upgrade",
+          "automatic rerun",
+          "automatic radius renewal",
+          "runtime publication",
+          "runner creation",
+          "registry activation",
+          "promotion record creation",
+          "repair bindings",
+          "substitute source",
+          "substitute authority",
+          "inspect candidate semantics",
+          "create O1 successor",
+          "create O2 successor"
+        ],
+        "input_rejection_creates_successor": false,
+        "malformed_invalid_or_mismatched_record_maps_to": "STEP_INPUT_REJECTED",
+        "move_budget_consumed": false,
+        "possible_results": [
+          "INPUT_BINDINGS_PASS",
+          "INPUT_BINDINGS_PASS_AUTHORITY_ABSENT",
+          "INPUT_BINDINGS_PASS_SOURCE_SNAPSHOT_ABSENT",
+          "INPUT_BINDING_FAIL_SCOPE_REGIME",
+          "INPUT_BINDING_FAIL_RUNTIME_STATE",
+          "INPUT_BINDING_FAIL_RUNTIME_CANDIDATE",
+          "INPUT_BINDING_FAIL_RUNTIME_TARGET",
+          "INPUT_BINDING_FAIL_TARGET_HASH",
+          "INPUT_BINDING_FAIL_OBJECT_MODEL",
+          "INPUT_BINDING_FAIL_MOVE_SPACE",
+          "INPUT_BINDING_FAIL_MOVE_SPACE_SUCCESSOR_MANIFEST",
+          "INPUT_BINDING_FAIL_STEP_PACKAGE",
+          "INPUT_BINDING_FAIL_STEP_SUCCESSOR_MANIFEST",
+          "INPUT_BINDING_FAIL_KERNEL_PROFILE",
+          "INPUT_BINDING_FAIL_SOURCE_RECORD",
+          "INPUT_BINDING_FAIL_FIXTURE_RECORD",
+          "INPUT_BINDING_FAIL_AUTHORITY_RECORD",
+          "INPUT_BINDING_FAIL_RUN_CASE",
+          "INPUT_BINDING_FAIL_STEP_INDEX",
+          "INPUT_BINDING_FAIL_IDEMPOTENCY_KEY",
+          "INPUT_BINDING_FAIL_TERMINAL_ALREADY_ACTIVE"
+        ],
+        "preexecution_stop_creates_successor": false,
+        "primary_role": "Verify invocation structure and immutable bindings before semantics.",
+        "reads": [
+          "F0",
+          "O1",
+          "O2",
+          "O3",
+          "M0",
+          "M1",
+          "MS0",
+          "K0",
+          "M2",
+          "kernel profile",
+          "source-snapshot record",
+          "fixture-set record",
+          "execution-authority record"
+        ],
+        "receipt_obligations": [
+          "input-rejection receipt for malformed, invalid, or mismatched records",
+          "pre-execution-stop receipt for well-typed absent authority or source snapshot"
+        ],
+        "required_inputs": [
+          "runtime state conforms to O1",
+          "candidate conforms to O2",
+          "target identity and hash match O3",
+          "terminal state not already active"
+        ],
+        "source_basis": [
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S01_INPUT_BINDING_VERIFIER is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "input verifier",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          },
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S01_INPUT_BINDING_VERIFIER is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "preexecution typed stop",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          }
+        ],
+        "source_snapshot_absent_maps_to": [
+          "STEP_PREEXECUTION_TYPED_STOP",
+          "STOP_MISSING_SOURCE"
+        ],
+        "writes": [
+          "input binding result",
+          "pre-execution typed stop disposition when authority or source snapshot is well typed but absent"
+        ]
+      },
+      "component_sha256": "30377b5edda2a36c1ebc8481ffb017ea653994e0c5777353f077535ae48130e4",
+      "component_storage": "EMBEDDED_IN_K0",
+      "component_version": "v0",
+      "external_contract_reference": null,
+      "primary_role": "Verify invocation structure and immutable bindings before semantics."
+    },
+    {
+      "component_id": "S02_CONDITION_INSPECTOR",
+      "component_payload": {
+        "allowed_next_components": [
+          "S03_CONDITION_CLASSIFIER"
+        ],
+        "authority_requirements": [
+          "inspection requires active step authority after S01 passes"
+        ],
+        "component_id": "S02_CONDITION_INSPECTOR",
+        "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+        "component_version": "v0",
+        "forbidden_actions": [
+          "source acquisition",
+          "source refresh",
+          "schema invention",
+          "capability creation",
+          "authority activation",
+          "authority escalation",
+          "automatic repair",
+          "automatic taxonomy upgrade",
+          "automatic rerun",
+          "automatic radius renewal",
+          "runtime publication",
+          "runner creation",
+          "registry activation",
+          "promotion record creation",
+          "introduce STOP_INSPECTION_INCOMPLETE",
+          "repair candidate",
+          "treat target observation as verdict"
+        ],
+        "incomplete_inspection_terminal_mapping": {
+          "missing authority": "STOP_MISSING_AUTHORITY",
+          "missing capability": "STOP_MISSING_CAPABILITY",
+          "missing schema": "STOP_MISSING_SCHEMA",
+          "missing source": "STOP_MISSING_SOURCE",
+          "otherwise": "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT"
+        },
+        "observation_vocabulary": [
+          "OBS_TARGET_ALREADY_REACHED",
+          "OBS_MISSING_REQUIRED_FIELD_DECLARATION",
+          "OBS_NONCANONICAL_TYPED_VALUE",
+          "OBS_SOURCE_IDENTITY_DECLARATION_MISSING",
+          "OBS_SOURCE_FRESHNESS_DECLARATION_MISSING",
+          "OBS_SOURCE_STALE",
+          "OBS_PROHIBITED_CANDIDATE_DECLARATION_PRESENT",
+          "OBS_ACTUAL_FORBIDDEN_EFFECT_DETECTED",
+          "OBS_AMBIGUOUS_BOUNDARY_DECLARATION",
+          "OBS_CONFLATED_DECLARATION_PRESENT",
+          "OBS_UNSUPPORTED_CLAIM_DECLARED_SUPPORTED",
+          "OBS_SCHEMA_REQUIREMENT_MISSING",
+          "OBS_AUTHORITY_REQUIREMENT_MISSING",
+          "OBS_CAPABILITY_REQUIREMENT_MISSING",
+          "OBS_SCOPE_REGIME_VIOLATION",
+          "OBS_OBJECT_BINDING_MISMATCH",
+          "OBS_NON_PROGRESS",
+          "OBS_REPEATED_STATE",
+          "OBS_NO_RECOGNIZED_CONDITION"
+        ],
+        "possible_results": [
+          "INSPECTION_COMPLETE",
+          "NOT_EVALUABLE_MISSING_SOURCE",
+          "NOT_EVALUABLE_MISSING_SCHEMA",
+          "NOT_EVALUABLE_MISSING_AUTHORITY",
+          "NOT_EVALUABLE_MISSING_CAPABILITY"
+        ],
+        "primary_role": "Inspect candidate conditions without deciding repair, target, or terminal status.",
+        "reads": [
+          "F0",
+          "current O1 instance",
+          "current O2 instance",
+          "O3",
+          "M0",
+          "S0-compliant source records"
+        ],
+        "receipt_obligations": [
+          "inspection receipt when authorized path proceeds"
+        ],
+        "required_inputs": [
+          "inspection_id",
+          "runtime_state_version",
+          "candidate_version",
+          "candidate_hash",
+          "target_version",
+          "target_hash",
+          "rules_checked",
+          "evidence_references"
+        ],
+        "required_observation_ids": [
+          "OBS_TARGET_ALREADY_REACHED",
+          "OBS_PROHIBITED_CANDIDATE_DECLARATION_PRESENT",
+          "OBS_ACTUAL_FORBIDDEN_EFFECT_DETECTED",
+          "OBS_NON_PROGRESS",
+          "OBS_REPEATED_STATE",
+          "OBS_NO_RECOGNIZED_CONDITION"
+        ],
+        "source_basis": [
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S02_CONDITION_INSPECTOR is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "inspection fields",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          },
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S02_CONDITION_INSPECTOR is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "V2 observations",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          }
+        ],
+        "writes": [
+          "condition_observation_set"
+        ]
+      },
+      "component_sha256": "8ba6957217af6e008cd59c467b5e7e29bc6959f7c0d1ca671b08c4811a17286b",
+      "component_storage": "EMBEDDED_IN_K0",
+      "component_version": "v0",
+      "external_contract_reference": null,
+      "primary_role": "Inspect candidate conditions without deciding repair, target, or terminal status."
+    },
+    {
+      "component_id": "S03_CONDITION_CLASSIFIER",
+      "component_payload": {
+        "allowed_next_components": [
+          "S04_CAPABILITY_BOUNDARY_EVALUATOR",
+          "S15_TERMINAL_AND_REPEAT_DECIDER"
+        ],
+        "authority_requirements": [
+          "classification requires prior authorized inspection"
+        ],
+        "component_id": "S03_CONDITION_CLASSIFIER",
+        "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+        "component_version": "v0",
+        "condition_vocabulary": [
+          "CONDITION_TARGET_SATISFIED",
+          "CONDITION_REPAIRABLE_DEFECT",
+          "CONDITION_UNREPAIRABLE_UNDER_CURRENT_MOVE_SPACE",
+          "CONDITION_MISSING_SOURCE",
+          "CONDITION_SOURCE_IDENTITY_UNVERIFIED",
+          "CONDITION_SOURCE_STALE",
+          "CONDITION_MISSING_SCHEMA",
+          "CONDITION_MISSING_AUTHORITY",
+          "CONDITION_MISSING_CAPABILITY",
+          "CONDITION_FORBIDDEN_EFFECT",
+          "CONDITION_AMBIGUOUS_BOUNDARY",
+          "CONDITION_CONFLATED_FIELD",
+          "CONDITION_UNSUPPORTED_CLAIM",
+          "CONDITION_SCOPE_REGIME_VIOLATION",
+          "CONDITION_OBJECT_BINDING_MISMATCH",
+          "CONDITION_NON_PROGRESS",
+          "CONDITION_REPEATED_STATE",
+          "CONDITION_NO_ADMISSIBLE_MOVE",
+          "CONDITION_UNCLASSIFIED"
+        ],
+        "forbidden_actions": [
+          "source acquisition",
+          "source refresh",
+          "schema invention",
+          "capability creation",
+          "authority activation",
+          "authority escalation",
+          "automatic repair",
+          "automatic taxonomy upgrade",
+          "automatic rerun",
+          "automatic radius renewal",
+          "runtime publication",
+          "runner creation",
+          "registry activation",
+          "promotion record creation",
+          "invent condition vocabulary",
+          "let target candidate outrank blocker or repairable defect"
+        ],
+        "possible_results": [
+          "HARD_FORBIDDEN_EFFECT_BLOCKER",
+          "SCOPE_REGIME_BLOCKER",
+          "OBJECT_BINDING_BLOCKER",
+          "SOURCE_BLOCKER",
+          "SCHEMA_BLOCKER",
+          "AUTHORITY_BLOCKER",
+          "CAPABILITY_BLOCKER",
+          "NON_PROGRESS_CONDITION",
+          "REPEATED_STATE_CONDITION",
+          "REPAIRABLE_CONDITION_CANDIDATE",
+          "NON_REPAIRABLE_CURRENT_MOVE_SPACE",
+          "TARGET_CANDIDATE_STATE",
+          "UNCLASSIFIED_CONDITION"
+        ],
+        "precedence": [
+          "HARD_FORBIDDEN_EFFECT_BLOCKER",
+          "SCOPE_REGIME_BLOCKER",
+          "OBJECT_BINDING_BLOCKER",
+          "SOURCE_BLOCKER",
+          "SCHEMA_BLOCKER",
+          "AUTHORITY_BLOCKER",
+          "CAPABILITY_BLOCKER",
+          "NON_PROGRESS_CONDITION",
+          "REPEATED_STATE_CONDITION",
+          "REPAIRABLE_CONDITION_CANDIDATE",
+          "NON_REPAIRABLE_CURRENT_MOVE_SPACE",
+          "TARGET_CANDIDATE_STATE",
+          "UNCLASSIFIED_CONDITION"
+        ],
+        "primary_role": "Classify observed conditions using frozen V3 condition IDs and deterministic precedence.",
+        "reads": [
+          "condition_observation_set",
+          "V3 condition classifications"
+        ],
+        "receipt_obligations": [
+          "classification trace included in controlled-step receipt when path proceeds"
+        ],
+        "required_inputs": [
+          "observed_condition_ids",
+          "classification precedence",
+          "canonical condition IDs"
+        ],
+        "source_basis": [
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S03_CONDITION_CLASSIFIER is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "classification groups",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          },
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S03_CONDITION_CLASSIFIER is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "V3 conditions",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          }
+        ],
+        "target_candidate_cannot_outrank_blocker_or_repairable_defect": true,
+        "tie_break": "lowest canonical condition ID",
+        "writes": [
+          "classified_condition_set",
+          "primary_exposed_condition",
+          "secondary_observed_conditions",
+          "classification_rule_trace"
+        ]
+      },
+      "component_sha256": "2a0a2e2ab2c3e2391b93e4563b6ae4887bd2ae774baaba1cb2b8736d7606aae5",
+      "component_storage": "EMBEDDED_IN_K0",
+      "component_version": "v0",
+      "external_contract_reference": null,
+      "primary_role": "Classify observed conditions using frozen V3 condition IDs and deterministic precedence."
+    },
+    {
+      "component_id": "S04_CAPABILITY_BOUNDARY_EVALUATOR",
+      "component_payload": {
+        "allowed_next_components": [
+          "S05_TRANSFORMATION_MOVE_ENUMERATOR",
+          "S15_TERMINAL_AND_REPEAT_DECIDER"
+        ],
+        "authority_requirements": [
+          "capability proposal is construction evidence only, not execution authority"
+        ],
+        "component_id": "S04_CAPABILITY_BOUNDARY_EVALUATOR",
+        "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+        "component_version": "v0",
+        "forbidden_actions": [
+          "source acquisition",
+          "source refresh",
+          "schema invention",
+          "capability creation",
+          "authority activation",
+          "authority escalation",
+          "automatic repair",
+          "automatic taxonomy upgrade",
+          "automatic rerun",
+          "automatic radius renewal",
+          "runtime publication",
+          "runner creation",
+          "registry activation",
+          "promotion record creation",
+          "approve capability",
+          "implement capability",
+          "register capability",
+          "activate capability",
+          "promote capability",
+          "auto-apply proposal candidate"
+        ],
+        "possible_results": [
+          "CAPABILITY_NOT_REQUIRED",
+          "CAPABILITY_BOUNDARY_PASS",
+          "CAPABILITY_MISSING",
+          "CAPABILITY_UNREPRESENTED",
+          "CAPABILITY_OUTSIDE_PROFILE",
+          "CAPABILITY_NOT_IMPLEMENTED_BY_MOVE_SPACE",
+          "CAPABILITY_EVIDENCE_INSUFFICIENT"
+        ],
+        "primary_role": "Separate identified, represented, admitted, implemented, and authorized capability states.",
+        "reads": [
+          "primary condition",
+          "F0",
+          "MS0",
+          "future active package metadata when present"
+        ],
+        "receipt_obligations": [
+          "capability boundary result in controlled-step receipt"
+        ],
+        "required_inputs": [
+          "capability identified",
+          "capability represented",
+          "capability admitted by F0",
+          "capability implemented by MS0",
+          "capability authorized by active package"
+        ],
+        "source_basis": [
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S04_CAPABILITY_BOUNDARY_EVALUATOR is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "capability statuses",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          },
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S04_CAPABILITY_BOUNDARY_EVALUATOR is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "capability mappings",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          }
+        ],
+        "terminal_mappings": {
+          "CAPABILITY_EVIDENCE_INSUFFICIENT": [
+            "STOP_MISSING_CAPABILITY",
+            "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT"
+          ],
+          "CAPABILITY_MISSING": "STOP_MISSING_CAPABILITY",
+          "CAPABILITY_NOT_IMPLEMENTED_BY_MOVE_SPACE": "STOP_NO_ADMISSIBLE_MOVE",
+          "CAPABILITY_OUTSIDE_PROFILE": "STOP_MISSING_CAPABILITY",
+          "CAPABILITY_UNREPRESENTED": "STOP_MISSING_CAPABILITY"
+        },
+        "writes": [
+          "capability boundary result",
+          "bounded proposal candidate only when missing capability branch requires it"
+        ]
+      },
+      "component_sha256": "6923d3907e1cbd786a28ced4d68edc8b0ee89cddc6feb3c9344cc920032034e5",
+      "component_storage": "EMBEDDED_IN_K0",
+      "component_version": "v0",
+      "external_contract_reference": null,
+      "primary_role": "Separate identified, represented, admitted, implemented, and authorized capability states."
+    },
+    {
+      "component_id": "S05_TRANSFORMATION_MOVE_ENUMERATOR",
+      "component_payload": {
+        "allowed_next_components": [
+          "S06_STRUCTURAL_APPLICABILITY_EVALUATOR"
+        ],
+        "authority_requirements": [
+          "enumeration consumes no move budget and requires no active move authority"
+        ],
+        "component_id": "S05_TRANSFORMATION_MOVE_ENUMERATOR",
+        "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+        "component_version": "v0",
+        "evaluated_move_count": 8,
+        "forbidden_actions": [
+          "source acquisition",
+          "source refresh",
+          "schema invention",
+          "capability creation",
+          "authority activation",
+          "authority escalation",
+          "automatic repair",
+          "automatic taxonomy upgrade",
+          "automatic rerun",
+          "automatic radius renewal",
+          "runtime publication",
+          "runner creation",
+          "registry activation",
+          "promotion record creation",
+          "stop after first candidate",
+          "select move",
+          "call move candidate-admissible"
+        ],
+        "ordered_move_ids": [
+          "M01_ADD_AUTHORIZED_REQUIRED_FIELD",
+          "M02_NORMALIZE_TYPED_VALUE",
+          "M03_BIND_DECLARED_SOURCE_IDENTITY",
+          "M04_BIND_DECLARED_SOURCE_FRESHNESS",
+          "M05_REMOVE_PROHIBITED_CANDIDATE_DECLARATION",
+          "M06_TIGHTEN_AMBIGUOUS_BOUNDARY",
+          "M07_SPLIT_CONFLATED_DECLARATION",
+          "M08_REJECT_UNSUPPORTED_CLAIM"
+        ],
+        "possible_results": [
+          "MOVE_ENUMERATION_COMPLETE",
+          "NOT_RUN_TYPED_NON_TRANSFORMATION_BRANCH"
+        ],
+        "primary_role": "Enumerate all frozen transformation moves on transformation branches.",
+        "reads": [
+          "primary condition",
+          "MS0 ordered move IDs",
+          "S0 source requirements",
+          "O2 mutable paths",
+          "O3 target rules"
+        ],
+        "receipt_obligations": [
+          "enumeration coverage in controlled-step receipt"
+        ],
+        "required_inputs": [
+          "transformation branch",
+          "MS0 bound",
+          "move vocabulary bound"
+        ],
+        "required_record_fields": [
+          "move_id",
+          "required_observation_match",
+          "required_condition_class_match",
+          "scope_regime_match",
+          "object_binding_match",
+          "target_rule_present",
+          "source_requirements_present",
+          "capability_requirements_present",
+          "candidate_write_paths_mutable",
+          "delta_shape_supported",
+          "structurally_applicable_candidate",
+          "structural_block_reasons"
+        ],
+        "source_basis": [
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S05_TRANSFORMATION_MOVE_ENUMERATOR is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "move enumeration",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          },
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S05_TRANSFORMATION_MOVE_ENUMERATOR is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "MS0 ordered moves",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          }
+        ],
+        "writes": [
+          "complete structural enumeration records"
+        ]
+      },
+      "component_sha256": "d81dc5210b3dc24d182290e5424538ca0788ad7d46d2ead9a7504fd13853d198",
+      "component_storage": "EMBEDDED_IN_K0",
+      "component_version": "v0",
+      "external_contract_reference": null,
+      "primary_role": "Enumerate all frozen transformation moves on transformation branches."
+    },
+    {
+      "component_id": "S06_STRUCTURAL_APPLICABILITY_EVALUATOR",
+      "component_payload": {
+        "active_move_authority_required": false,
+        "allowed_next_components": [
+          "S07_RUNTIME_AUTHORITY_AND_BUDGET_GATE"
+        ],
+        "authority_requirements": [
+          "structural applicability does not grant runtime authority"
+        ],
+        "component_id": "S06_STRUCTURAL_APPLICABILITY_EVALUATOR",
+        "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+        "component_version": "v0",
+        "evaluates_all_enumerated_moves": true,
+        "forbidden_actions": [
+          "source acquisition",
+          "source refresh",
+          "schema invention",
+          "capability creation",
+          "authority activation",
+          "authority escalation",
+          "automatic repair",
+          "automatic taxonomy upgrade",
+          "automatic rerun",
+          "automatic radius renewal",
+          "runtime publication",
+          "runner creation",
+          "registry activation",
+          "promotion record creation",
+          "require active authority for structural applicability",
+          "mutate candidate"
+        ],
+        "possible_results": [
+          "STRUCTURAL_APPLICABILITY_COMPLETE",
+          "NO_STRUCTURALLY_APPLICABLE_MOVE"
+        ],
+        "primary_role": "Evaluate every enumerated move structurally before runtime authority is considered.",
+        "reads": [
+          "enumerated move records",
+          "F0",
+          "O1",
+          "O2",
+          "O3",
+          "M0",
+          "M1",
+          "S0",
+          "MS0"
+        ],
+        "receipt_obligations": [
+          "structural applicability evidence in controlled-step receipt"
+        ],
+        "required_inputs": [
+          "complete enumeration",
+          "candidate write paths",
+          "target rules",
+          "capability representation"
+        ],
+        "source_basis": [
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S06_STRUCTURAL_APPLICABILITY_EVALUATOR is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "structural applicability",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          }
+        ],
+        "writes": [
+          "structurally_applicable_move_set",
+          "structurally_blocked_move_set"
+        ]
+      },
+      "component_sha256": "933b83662c0886fb5df8c81e026310f2e3bfbb160edd4dcdcc02a3078ecbd4ec",
+      "component_storage": "EMBEDDED_IN_K0",
+      "component_version": "v0",
+      "external_contract_reference": null,
+      "primary_role": "Evaluate every enumerated move structurally before runtime authority is considered."
+    },
+    {
+      "component_id": "S07_RUNTIME_AUTHORITY_AND_BUDGET_GATE",
+      "component_payload": {
+        "allowed_next_components": [
+          "S08_DETERMINISTIC_MOVE_SELECTOR",
+          "S15_TERMINAL_AND_REPEAT_DECIDER"
+        ],
+        "authority_requirements": [
+          "step authority before semantics",
+          "move authority after structural applicability",
+          "move authority immediately before attempted-move boundary"
+        ],
+        "budget_accounting": {
+          "capability_evaluation_consumes_move_budget": false,
+          "classification_consumes_move_budget": false,
+          "enumeration_consumes_move_budget": false,
+          "infrastructure_publication_abort_consumes_authoritative_budget": false,
+          "inspection_consumes_move_budget": false,
+          "runtime_authorization_consumes_move_budget": false,
+          "selection_consumes_move_budget": false,
+          "structural_applicability_consumes_move_budget": false
+        },
+        "component_id": "S07_RUNTIME_AUTHORITY_AND_BUDGET_GATE",
+        "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+        "component_version": "v0",
+        "forbidden_actions": [
+          "source acquisition",
+          "source refresh",
+          "schema invention",
+          "capability creation",
+          "authority activation",
+          "authority escalation",
+          "automatic repair",
+          "automatic taxonomy upgrade",
+          "automatic rerun",
+          "automatic radius renewal",
+          "runtime publication",
+          "runner creation",
+          "registry activation",
+          "promotion record creation",
+          "use definition authority as execution authority",
+          "use P0 as active authority",
+          "renew budget",
+          "renew radius",
+          "introduce STOP_BUDGET_EXHAUSTED"
+        ],
+        "forbidden_terminal": "STOP_BUDGET_EXHAUSTED",
+        "possible_results": [
+          "AUTHORITY_RADIUS_BUDGET_PASS",
+          "STOP_MISSING_AUTHORITY",
+          "STOP_RADIUS_EXHAUSTED",
+          "STOP_NO_ADMISSIBLE_MOVE",
+          "CONVERGENCE_STOP_ATTEMPTED_MOVE_BOUND_EXHAUSTED",
+          "CONVERGENCE_STOP_APPLIED_MOVE_BOUND_EXHAUSTED",
+          "CONVERGENCE_STOP_DECLARED_RADIUS_BOUND_EXHAUSTED"
+        ],
+        "primary_role": "Check active authority, radius, budget, bindings, and attempted boundary.",
+        "reads": [
+          "structurally applicable move set",
+          "active authority package if present",
+          "runtime budget state",
+          "P0 maxima"
+        ],
+        "receipt_obligations": [
+          "authority and budget check evidence in controlled-step receipt"
+        ],
+        "required_inputs": [
+          "step_index",
+          "attempted_moves_count",
+          "applied_moves_count",
+          "remaining attempted budget",
+          "remaining applied budget"
+        ],
+        "source_basis": [
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S07_RUNTIME_AUTHORITY_AND_BUDGET_GATE is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "authority gate",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          },
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S07_RUNTIME_AUTHORITY_AND_BUDGET_GATE is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "budget vocabulary",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          }
+        ],
+        "writes": [
+          "runtime-authorized move set",
+          "budget gate result",
+          "attempted-boundary eligibility"
+        ]
+      },
+      "component_sha256": "47dc0e244706ae50c20f25c1349e987851c80619c82ddab8f41020238903e131",
+      "component_storage": "EMBEDDED_IN_K0",
+      "component_version": "v0",
+      "external_contract_reference": null,
+      "primary_role": "Check active authority, radius, budget, bindings, and attempted boundary."
+    },
+    {
+      "component_id": "S08_DETERMINISTIC_MOVE_SELECTOR",
+      "component_payload": {
+        "allowed_next_components": [
+          "S07_RUNTIME_AUTHORITY_AND_BUDGET_GATE",
+          "S09_MOVE_APPLICATOR",
+          "S15_TERMINAL_AND_REPEAT_DECIDER"
+        ],
+        "authority_requirements": [
+          "selector consumes no move budget and cannot substitute missing runtime authority"
+        ],
+        "component_id": "S08_DETERMINISTIC_MOVE_SELECTOR",
+        "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+        "component_version": "v0",
+        "forbidden_actions": [
+          "source acquisition",
+          "source refresh",
+          "schema invention",
+          "capability creation",
+          "authority activation",
+          "authority escalation",
+          "automatic repair",
+          "automatic taxonomy upgrade",
+          "automatic rerun",
+          "automatic radius renewal",
+          "runtime publication",
+          "runner creation",
+          "registry activation",
+          "promotion record creation",
+          "mutate O2",
+          "invent a move",
+          "call authorized moves candidate-admissible"
+        ],
+        "identity_order_is_only_final_tie_break": true,
+        "policy": [
+          "discard moves not runtime-authorized",
+          "enforce frozen dependencies",
+          "retain moves directly addressing primary condition",
+          "prefer smallest candidate write-set",
+          "prefer lowest move cost",
+          "break remaining ties by canonical move ID"
+        ],
+        "possible_results": [
+          "MOVE_SELECTED",
+          "NO_RUNTIME_AUTHORIZED_MOVE"
+        ],
+        "primary_role": "Select at most one runtime-authorized move using frozen deterministic policy.",
+        "reads": [
+          "primary condition",
+          "runtime-authorized move set",
+          "move dependency metadata",
+          "candidate version",
+          "target version",
+          "move-space version",
+          "budget state"
+        ],
+        "receipt_obligations": [
+          "selection trace in controlled-step receipt"
+        ],
+        "required_inputs": [
+          "runtime-authorized move set",
+          "dependency metadata",
+          "primary condition"
+        ],
+        "source_basis": [
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S08_DETERMINISTIC_MOVE_SELECTOR is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "selector policy",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          }
+        ],
+        "writes": [
+          "selected_move_id",
+          "selection_rule_trace",
+          "unselected_runtime_authorized_move_ids"
+        ]
+      },
+      "component_sha256": "8aca308fbd20f0713e6545ce7bc070056614d38830acb60e9c25bfcde001e5c3",
+      "component_storage": "EMBEDDED_IN_K0",
+      "component_version": "v0",
+      "external_contract_reference": null,
+      "primary_role": "Select at most one runtime-authorized move using frozen deterministic policy."
+    },
+    {
+      "component_id": "S09_MOVE_APPLICATOR",
+      "component_payload": {
+        "allowed_next_components": [
+          "S12_FORBIDDEN_EFFECT_GUARD",
+          "S10_TARGET_CONFORMANCE_VALIDATOR"
+        ],
+        "authority_requirements": [
+          "application requires selected move, rechecked authority, budget, bindings, and preconditions"
+        ],
+        "candidate_integrity_results_are_auxiliary": true,
+        "candidate_version_increment": 1,
+        "component_id": "S09_MOVE_APPLICATOR",
+        "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+        "component_version": "v0",
+        "forbidden_actions": [
+          "source acquisition",
+          "source refresh",
+          "schema invention",
+          "capability creation",
+          "authority activation",
+          "authority escalation",
+          "automatic repair",
+          "automatic taxonomy upgrade",
+          "automatic rerun",
+          "automatic radius renewal",
+          "runtime publication",
+          "runner creation",
+          "registry activation",
+          "promotion record creation",
+          "select move",
+          "apply multiple moves",
+          "publish",
+          "mutate F0",
+          "mutate O1 directly",
+          "mutate O3",
+          "mutate M0",
+          "mutate M1",
+          "mutate MS0",
+          "write evaluator-owned O2 fields"
+        ],
+        "maximum_o2_successors_staged": 1,
+        "possible_results": [
+          "CANDIDATE_SUCCESSOR_INTEGRITY_PASS",
+          "CANDIDATE_SUCCESSOR_FAIL_SCHEMA",
+          "CANDIDATE_SUCCESSOR_FAIL_VERSION_CHAIN",
+          "CANDIDATE_SUCCESSOR_FAIL_DELTA_CONTRACT",
+          "CANDIDATE_SUCCESSOR_FAIL_WRITE_SET",
+          "CANDIDATE_SUCCESSOR_FAIL_HASH",
+          "CANDIDATE_SUCCESSOR_FAIL_FORBIDDEN_MUTATION"
+        ],
+        "primary_role": "Stage exactly one O2 successor from the selected move without publishing.",
+        "reads": [
+          "selected move",
+          "admitted sources",
+          "O2 candidate",
+          "O3 target rules",
+          "S0 source records"
+        ],
+        "receipt_obligations": [
+          "attempted-move receipt when attempted boundary is crossed"
+        ],
+        "required_inputs": [
+          "selected move only",
+          "declared O2 write paths",
+          "exact delta shape",
+          "predecessor identity/version/hash"
+        ],
+        "semantic_failure_after_attempted_boundary_may_consume_attempted_budget": true,
+        "source_basis": [
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S09_MOVE_APPLICATOR is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "applicator",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          },
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S09_MOVE_APPLICATOR is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "candidate integrity",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          }
+        ],
+        "writes": [
+          "staged candidate delta",
+          "canonical staged candidate hash",
+          "candidate integrity result"
+        ]
+      },
+      "component_sha256": "5de461a5d7f25b22e94bec3aaf75d984ba8543520266bd3508c0c59ad89489e7",
+      "component_storage": "EMBEDDED_IN_K0",
+      "component_version": "v0",
+      "external_contract_reference": null,
+      "primary_role": "Stage exactly one O2 successor from the selected move without publishing."
+    },
+    {
+      "component_id": "S10_TARGET_CONFORMANCE_VALIDATOR",
+      "component_payload": {
+        "allowed_next_components": [
+          "S11_LAWFUL_ADMISSIBILITY_EVALUATOR",
+          "S15_TERMINAL_AND_REPEAT_DECIDER"
+        ],
+        "authority_requirements": [
+          "validator requires authorized path and candidate under evaluation"
+        ],
+        "component_id": "S10_TARGET_CONFORMANCE_VALIDATOR",
+        "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+        "component_version": "v0",
+        "forbidden_actions": [
+          "source acquisition",
+          "source refresh",
+          "schema invention",
+          "capability creation",
+          "authority activation",
+          "authority escalation",
+          "automatic repair",
+          "automatic taxonomy upgrade",
+          "automatic rerun",
+          "automatic radius renewal",
+          "runtime publication",
+          "runner creation",
+          "registry activation",
+          "promotion record creation",
+          "repair O2",
+          "invent validation result",
+          "conflate with candidate integrity"
+        ],
+        "possible_results": [
+          "VALIDATION_NOT_RUN",
+          "VALIDATION_PASS",
+          "VALIDATION_FAIL_REQUIRED_SECTION",
+          "VALIDATION_FAIL_REQUIRED_FIELD",
+          "VALIDATION_FAIL_TYPE",
+          "VALIDATION_FAIL_VALUE_CONSTRAINT",
+          "VALIDATION_FAIL_CROSS_FIELD",
+          "VALIDATION_FAIL_SOURCE_DECLARATION",
+          "VALIDATION_FAIL_AUTHORITY_DECLARATION",
+          "VALIDATION_FAIL_PROHIBITED_DECLARATION",
+          "VALIDATION_FAIL_SCOPE_REGIME_BINDING",
+          "VALIDATION_FAIL_OBJECT_BINDING",
+          "VALIDATION_FAIL_SCHEMA_UNAVAILABLE",
+          "VALIDATION_RESULT_AMBIGUOUS"
+        ],
+        "primary_role": "Validate candidate conformance using exact V4 result vocabulary.",
+        "reads": [
+          "current or staged candidate",
+          "O2",
+          "O3",
+          "F0",
+          "S0"
+        ],
+        "receipt_obligations": [
+          "validation result in controlled-step receipt"
+        ],
+        "repairs_candidate": false,
+        "required_inputs": [
+          "candidate payload",
+          "target rules",
+          "source declarations"
+        ],
+        "source_basis": [
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S10_TARGET_CONFORMANCE_VALIDATOR is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "V4 validation vocabulary",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          }
+        ],
+        "validation_result_vocabulary": [
+          "VALIDATION_NOT_RUN",
+          "VALIDATION_PASS",
+          "VALIDATION_FAIL_REQUIRED_SECTION",
+          "VALIDATION_FAIL_REQUIRED_FIELD",
+          "VALIDATION_FAIL_TYPE",
+          "VALIDATION_FAIL_VALUE_CONSTRAINT",
+          "VALIDATION_FAIL_CROSS_FIELD",
+          "VALIDATION_FAIL_SOURCE_DECLARATION",
+          "VALIDATION_FAIL_AUTHORITY_DECLARATION",
+          "VALIDATION_FAIL_PROHIBITED_DECLARATION",
+          "VALIDATION_FAIL_SCOPE_REGIME_BINDING",
+          "VALIDATION_FAIL_OBJECT_BINDING",
+          "VALIDATION_FAIL_SCHEMA_UNAVAILABLE",
+          "VALIDATION_RESULT_AMBIGUOUS"
+        ],
+        "writes": [
+          "validation_result"
+        ]
+      },
+      "component_sha256": "b31215ef8354cbde00fc04f81242b76e26da2627cb3638bb7f3082d8bd83f2be",
+      "component_storage": "EMBEDDED_IN_K0",
+      "component_version": "v0",
+      "external_contract_reference": null,
+      "primary_role": "Validate candidate conformance using exact V4 result vocabulary."
+    },
+    {
+      "component_id": "S11_LAWFUL_ADMISSIBILITY_EVALUATOR",
+      "component_payload": {
+        "allowed_next_components": [
+          "S12_FORBIDDEN_EFFECT_GUARD",
+          "S14_CONVERGENCE_CRITERION_EVALUATOR",
+          "S15_TERMINAL_AND_REPEAT_DECIDER"
+        ],
+        "authority_requirements": [
+          "admissibility evaluation requires validation pass and active step authority"
+        ],
+        "component_id": "S11_LAWFUL_ADMISSIBILITY_EVALUATOR",
+        "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+        "component_version": "v0",
+        "forbidden_actions": [
+          "source acquisition",
+          "source refresh",
+          "schema invention",
+          "capability creation",
+          "authority activation",
+          "authority escalation",
+          "automatic repair",
+          "automatic taxonomy upgrade",
+          "automatic rerun",
+          "automatic radius renewal",
+          "runtime publication",
+          "runner creation",
+          "registry activation",
+          "promotion record creation",
+          "repair candidate",
+          "acquire sources",
+          "create schemas",
+          "create capabilities",
+          "grant authority",
+          "promote artifacts",
+          "run before VALIDATION_PASS"
+        ],
+        "not_run_detail_when_validation_not_passed": "VALIDATION_DID_NOT_PASS",
+        "possible_results": [
+          "ADMISSIBILITY_NOT_RUN",
+          "ADMISSIBILITY_PASS",
+          "ADMISSIBILITY_FAIL_UNSUPPORTED_CLAIM",
+          "ADMISSIBILITY_FAIL_SOURCE",
+          "ADMISSIBILITY_FAIL_AUTHORITY",
+          "ADMISSIBILITY_FAIL_CAPABILITY",
+          "ADMISSIBILITY_FAIL_FORBIDDEN_EFFECT",
+          "ADMISSIBILITY_FAIL_SCOPE_REGIME",
+          "ADMISSIBILITY_RESULT_AMBIGUOUS"
+        ],
+        "primary_role": "Evaluate candidate admissibility only after VALIDATION_PASS using exact V5 results.",
+        "reads": [
+          "validation result",
+          "candidate",
+          "sources",
+          "authority",
+          "capability evidence",
+          "F0"
+        ],
+        "receipt_obligations": [
+          "admissibility result in controlled-step receipt"
+        ],
+        "repairs_candidate": false,
+        "required_inputs": [
+          "VALIDATION_PASS"
+        ],
+        "source_basis": [
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S11_LAWFUL_ADMISSIBILITY_EVALUATOR is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "V5 admissibility vocabulary",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          }
+        ],
+        "writes": [
+          "admissibility_result"
+        ]
+      },
+      "component_sha256": "d17f99ece027f95e4ea75742df3efd5410bedd50b97fee41acba3039df38b262",
+      "component_storage": "EMBEDDED_IN_K0",
+      "component_version": "v0",
+      "external_contract_reference": null,
+      "primary_role": "Evaluate candidate admissibility only after VALIDATION_PASS using exact V5 results."
+    },
+    {
+      "component_id": "S12_FORBIDDEN_EFFECT_GUARD",
+      "component_payload": {
+        "allowed_next_components": [
+          "S10_TARGET_CONFORMANCE_VALIDATOR",
+          "S14_CONVERGENCE_CRITERION_EVALUATOR",
+          "S15_TERMINAL_AND_REPEAT_DECIDER"
+        ],
+        "authority_requirements": [
+          "guard checks cannot activate authority or repair state"
+        ],
+        "bundle_integrity_failure_maps_to": {
+          "primary_outcome": "STEP_PUBLICATION_ABORTED",
+          "publication_abort_detail": "STAGED_BUNDLE_INTEGRITY_FAILURE"
+        },
+        "component_id": "S12_FORBIDDEN_EFFECT_GUARD",
+        "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+        "component_version": "v0",
+        "forbidden_actions": [
+          "source acquisition",
+          "source refresh",
+          "schema invention",
+          "capability creation",
+          "authority activation",
+          "authority escalation",
+          "automatic repair",
+          "automatic taxonomy upgrade",
+          "automatic rerun",
+          "automatic radius renewal",
+          "runtime publication",
+          "runner creation",
+          "registry activation",
+          "promotion record creation",
+          "mark actual forbidden effect repairable",
+          "allow hidden continuation",
+          "introduce STOP_STEP_ATOMICITY_VIOLATION"
+        ],
+        "guard_stages": [
+          "G1_INVOCATION_BINDING_BOUNDARY",
+          "G2_POST_INSPECTION_PRE_ENUMERATION",
+          "G3_PRE_APPLICATION",
+          "G4_POST_DELTA_STAGING",
+          "G5_PRE_PUBLICATION_SEMANTIC_GUARD",
+          "G6_STAGED_BUNDLE_INTEGRITY",
+          "G7_PRE_TERMINAL_OR_REPEAT_DISPOSITION"
+        ],
+        "possible_results": [
+          "GUARD_PASS",
+          "STOP_FORBIDDEN_EFFECT_DETECTED",
+          "STEP_PUBLICATION_ABORTED"
+        ],
+        "primary_role": "Run seven guard stages and stop actual forbidden effects without repair.",
+        "reads": [
+          "invocation bundle",
+          "inspection outputs",
+          "staged delta",
+          "staged publication bundle",
+          "terminal or repeat disposition"
+        ],
+        "receipt_obligations": [
+          "guard evidence in controlled-step receipt and publication-attempt integrity receipt"
+        ],
+        "required_inputs": [
+          "guard stage inputs",
+          "scope/regime invariants",
+          "authority invariants"
+        ],
+        "source_basis": [
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S12_FORBIDDEN_EFFECT_GUARD is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "forbidden-effect guard stages",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          }
+        ],
+        "writes": [
+          "guard results",
+          "publication abort detail when staged bundle integrity fails"
+        ]
+      },
+      "component_sha256": "6cc5f15cd6b4eddcf482e31c981fc910b67c6705d56955f568d08aeb022f1cee",
+      "component_storage": "EMBEDDED_IN_K0",
+      "component_version": "v0",
+      "external_contract_reference": null,
+      "primary_role": "Run seven guard stages and stop actual forbidden effects without repair."
+    },
+    {
+      "component_id": "S13_RECEIPT_AND_ATOMIC_PUBLICATION_BUILDER",
+      "component_payload": null,
+      "component_sha256": "a5375ec82dd148d05d7199296b58f186747b27cf3f4922555bec6ed1ed29cbf4",
+      "component_storage": "EXTERNAL_STANDALONE_CONTRACT",
+      "component_version": "v0",
+      "external_contract_reference": {
+        "artifact_id": "phase_vs2_receipt_and_atomic_publication_contract_v0",
+        "artifact_kind": "STATIC_RECEIPT_AND_ATOMIC_PUBLICATION_CONTRACT",
+        "artifact_version": "v0",
+        "binding_reason": "VS2.5-built phase_vs2_receipt_and_atomic_publication_contract_v0 canonical binding.",
+        "binding_status": "BOUND",
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "content_sha256": "a5375ec82dd148d05d7199296b58f186747b27cf3f4922555bec6ed1ed29cbf4",
+        "declared_path": "docs/matrixlabs/phase_vs2/controlled_step/phase_vs2_receipt_and_atomic_publication_contract_v0.json",
+        "expected_artifact_kind": "STATIC_RECEIPT_AND_ATOMIC_PUBLICATION_CONTRACT",
+        "hash_algorithm": "SHA-256",
+        "reference_id": "phase_vs2_receipt_and_atomic_publication_contract_v0_reference",
+        "reference_role": "RECEIPT_AND_ATOMIC_PUBLICATION_CONTRACT",
+        "required_by_unit": "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+      },
+      "primary_role": "Build deterministic receipts and publish an authoritative bundle only after read-back passes."
+    },
+    {
+      "component_id": "S14_CONVERGENCE_CRITERION_EVALUATOR",
+      "component_payload": null,
+      "component_sha256": "a9c512025963df2a07ba93e3071683f392264013824f82ddbcfd923ab8321fd4",
+      "component_storage": "EXTERNAL_STANDALONE_CONTRACT",
+      "component_version": "v0",
+      "external_contract_reference": {
+        "artifact_id": "phase_vs2_convergence_criterion_contract_v0",
+        "artifact_kind": "STATIC_OPERATIONAL_CONVERGENCE_CRITERION_CONTRACT",
+        "artifact_version": "v0",
+        "binding_reason": "VS2.5-built phase_vs2_convergence_criterion_contract_v0 canonical binding.",
+        "binding_status": "BOUND",
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "content_sha256": "a9c512025963df2a07ba93e3071683f392264013824f82ddbcfd923ab8321fd4",
+        "declared_path": "docs/matrixlabs/phase_vs2/controlled_step/phase_vs2_convergence_criterion_contract_v0.json",
+        "expected_artifact_kind": "STATIC_OPERATIONAL_CONVERGENCE_CRITERION_CONTRACT",
+        "hash_algorithm": "SHA-256",
+        "reference_id": "phase_vs2_convergence_criterion_contract_v0_reference",
+        "reference_role": "CONVERGENCE_CRITERION_CONTRACT",
+        "required_by_unit": "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+      },
+      "primary_role": "Evaluate target terminal, continue, non-progress, repeated-state, oscillation, radius, and ambiguous convergence states."
+    },
+    {
+      "component_id": "S15_TERMINAL_AND_REPEAT_DECIDER",
+      "component_payload": {
+        "allowed_next_components": [
+          "S13_RECEIPT_AND_ATOMIC_PUBLICATION_BUILDER",
+          "S17_MINIMAL_REPLAY_AND_AUDIT_VERIFIER"
+        ],
+        "authority_requirements": [
+          "repeat eligibility requires separate bounded harness authority"
+        ],
+        "component_id": "S15_TERMINAL_AND_REPEAT_DECIDER",
+        "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+        "component_version": "v0",
+        "forbidden_actions": [
+          "source acquisition",
+          "source refresh",
+          "schema invention",
+          "capability creation",
+          "authority activation",
+          "authority escalation",
+          "automatic repair",
+          "automatic taxonomy upgrade",
+          "automatic rerun",
+          "automatic radius renewal",
+          "runtime publication",
+          "runner creation",
+          "registry activation",
+          "promotion record creation",
+          "self-invoke",
+          "start another step",
+          "reopen terminal state",
+          "assume future move"
+        ],
+        "possible_results": [
+          "TARGET_REACHED",
+          "REPEAT_NEXT_STEP_ELIGIBLE",
+          "TYPED_STOP",
+          "INPUT_REJECTED",
+          "PREEXECUTION_TYPED_STOP",
+          "PUBLICATION_ABORTED"
+        ],
+        "primary_role": "Decide target, repeat eligibility, typed stop, input rejection, pre-execution stop, or publication abort.",
+        "reads": [
+          "C20 result",
+          "validation result",
+          "admissibility result",
+          "guard results",
+          "receipt and publication status",
+          "runtime budget state"
+        ],
+        "receipt_obligations": [
+          "case-terminal or controlled-step receipt obligations according to disposition"
+        ],
+        "repeat_requires": [
+          "one O2 successor committed",
+          "one O1 successor committed",
+          "CONVERGENCE_CONTINUE_ALLOWED",
+          "strict progress witness",
+          "candidate hash not repeated",
+          "oscillation absent",
+          "remaining radius and budgets positive",
+          "controlled-step receipt committed",
+          "execution package still valid"
+        ],
+        "required_inputs": [
+          "complete upstream stage results",
+          "strict progress witness when repeat is considered"
+        ],
+        "source_basis": [
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S15_TERMINAL_AND_REPEAT_DECIDER is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "terminal and repeat policy",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          }
+        ],
+        "terminal_o1_state_immutable": true,
+        "writes": [
+          "controlled-step disposition"
+        ]
+      },
+      "component_sha256": "b16c7b03e5d0b88e6c5ba59449a61657c4d39f171058cf722e520d88b2597e51",
+      "component_storage": "EMBEDDED_IN_K0",
+      "component_version": "v0",
+      "external_contract_reference": null,
+      "primary_role": "Decide target, repeat eligibility, typed stop, input rejection, pre-execution stop, or publication abort."
+    },
+    {
+      "component_id": "S16_CONTROLLED_STEP_ORCHESTRATOR",
+      "component_payload": {
+        "allowed_next_components": [
+          "S17_MINIMAL_REPLAY_AND_AUDIT_VERIFIER"
+        ],
+        "authority_requirements": [
+          "orchestration requires active execution authority when passing preflight"
+        ],
+        "component_id": "S16_CONTROLLED_STEP_ORCHESTRATOR",
+        "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+        "component_version": "v0",
+        "forbidden_actions": [
+          "source acquisition",
+          "source refresh",
+          "schema invention",
+          "capability creation",
+          "authority activation",
+          "authority escalation",
+          "automatic repair",
+          "automatic taxonomy upgrade",
+          "automatic rerun",
+          "automatic radius renewal",
+          "runtime publication",
+          "runner creation",
+          "registry activation",
+          "promotion record creation",
+          "self-invoke",
+          "automatic rerun",
+          "hidden continuation",
+          "run fixture",
+          "stage runtime publication outside R13"
+        ],
+        "one_invocation_only": true,
+        "ordered_contract": [
+          "verify invocation structure and immutable bindings",
+          "reject malformed, invalid, or mismatched input",
+          "inspect active step-authority status",
+          "inspect source-snapshot status",
+          "run G1",
+          "inspect candidate",
+          "classify observations",
+          "evaluate capability boundary",
+          "target branch or hard-stop branch or transformation branch",
+          "allocate receipt IDs",
+          "stage O1 successor where lawful",
+          "compute state hashes",
+          "construct receipts",
+          "construct commit manifest",
+          "verify staged bundle",
+          "publish provisionally",
+          "read-back audit"
+        ],
+        "possible_results": [
+          "STEP_INPUT_REJECTED",
+          "STEP_PREEXECUTION_TYPED_STOP",
+          "STEP_TARGET_REACHED",
+          "STEP_MOVE_APPLIED_CONTINUE",
+          "STEP_TYPED_STOP",
+          "STEP_PUBLICATION_ABORTED"
+        ],
+        "primary_role": "Orchestrate exactly one controlled-step invocation without self-invocation.",
+        "reads": [
+          "all S01-S15 results",
+          "K0 package",
+          "M2 manifest",
+          "runtime envelope when present"
+        ],
+        "receipt_obligations": [
+          "controlled-step receipt references all executed and skipped stages"
+        ],
+        "required_inputs": [
+          "valid invocation structure",
+          "bound K0",
+          "bound M2"
+        ],
+        "skipped_stage_reason_prefix": "NOT_RUN_",
+        "source_basis": [
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S16_CONTROLLED_STEP_ORCHESTRATOR is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "S16 orchestration",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          }
+        ],
+        "writes": [
+          "ordered stage record",
+          "skipped stage typed reasons",
+          "single-invocation disposition"
+        ]
+      },
+      "component_sha256": "1ea5c68116de0f06877ec4a8c4675195358dc178130ed28180c94b848d008bf4",
+      "component_storage": "EMBEDDED_IN_K0",
+      "component_version": "v0",
+      "external_contract_reference": null,
+      "primary_role": "Orchestrate exactly one controlled-step invocation without self-invocation."
+    },
+    {
+      "component_id": "S17_MINIMAL_REPLAY_AND_AUDIT_VERIFIER",
+      "component_payload": {
+        "allowed_next_components": [],
+        "authority_requirements": [
+          "audit is read-only and creates no replay authority"
+        ],
+        "component_id": "S17_MINIMAL_REPLAY_AND_AUDIT_VERIFIER",
+        "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+        "component_version": "v0",
+        "forbidden_actions": [
+          "source acquisition",
+          "source refresh",
+          "schema invention",
+          "capability creation",
+          "authority activation",
+          "authority escalation",
+          "automatic repair",
+          "automatic taxonomy upgrade",
+          "automatic rerun",
+          "automatic radius renewal",
+          "runtime publication",
+          "runner creation",
+          "registry activation",
+          "promotion record creation",
+          "general replay authority",
+          "rerun authority",
+          "repair evidence",
+          "publish missing receipt"
+        ],
+        "general_replay_or_rerun_authority_created": false,
+        "possible_results": [
+          "STEP_AUDIT_PASS",
+          "STEP_AUDIT_FAIL_INPUT_IDENTITY",
+          "STEP_AUDIT_FAIL_SCOPE_REGIME",
+          "STEP_AUDIT_FAIL_SOURCE_BINDING",
+          "STEP_AUDIT_FAIL_CAPABILITY_BOUNDARY",
+          "STEP_AUDIT_FAIL_MOVE_ENUMERATION",
+          "STEP_AUDIT_FAIL_MOVE_SELECTION",
+          "STEP_AUDIT_FAIL_AUTHORITY_CHECK",
+          "STEP_AUDIT_FAIL_BUDGET_ACCOUNTING",
+          "STEP_AUDIT_FAIL_DELTA",
+          "STEP_AUDIT_FAIL_CANDIDATE_INTEGRITY",
+          "STEP_AUDIT_FAIL_TARGET_VALIDATION",
+          "STEP_AUDIT_FAIL_ADMISSIBILITY",
+          "STEP_AUDIT_FAIL_GUARD",
+          "STEP_AUDIT_FAIL_CONVERGENCE",
+          "STEP_AUDIT_FAIL_RUNTIME_HASH",
+          "STEP_AUDIT_FAIL_TERMINAL_DECISION",
+          "STEP_AUDIT_FAIL_ATOMIC_PUBLICATION",
+          "STEP_AUDIT_FAIL_RECEIPT_INCOMPLETE"
+        ],
+        "primary_role": "Verify minimal replay and audit evidence for a completed controlled-step bundle.",
+        "reads": [
+          "input identities and hashes",
+          "F0",
+          "O3",
+          "M0",
+          "M1",
+          "MS0",
+          "K0",
+          "M2",
+          "source-snapshot binding",
+          "execution-authority binding",
+          "stage results",
+          "receipt set",
+          "commit manifest"
+        ],
+        "receipt_obligations": [
+          "audit result and failure code in controlled-step receipt"
+        ],
+        "required_inputs": [
+          "complete controlled-step evidence bundle"
+        ],
+        "source_basis": [
+          {
+            "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+            "basis_reason": "S17_MINIMAL_REPLAY_AND_AUDIT_VERIFIER is frozen as part of the VS2.5 controlled-step contract package.",
+            "section": "minimal audit",
+            "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+          }
+        ],
+        "writes": [
+          "minimal audit result"
+        ]
+      },
+      "component_sha256": "8e76645e6ea0ba8055ae99e9a1f22c85652b0dd203987ea7d389ed4a5b32d3b2",
+      "component_storage": "EMBEDDED_IN_K0",
+      "component_version": "v0",
+      "external_contract_reference": null,
+      "primary_role": "Verify minimal replay and audit evidence for a completed controlled-step bundle."
+    }
+  ],
+  "construction_authority_provenance": {
+    "additional_bounded_construction_grant_consumption_by_vs2_5": false,
+    "bounded_construction_consumption_count_after": 1,
+    "bounded_construction_consumption_count_before": 1,
+    "bounded_construction_frame_completed_by_vs2_5": true,
+    "bounded_construction_frame_exercised_by_vs2_5": true,
+    "bounded_construction_frame_open_after_vs2_5": false,
+    "bounded_construction_grant_further_use_permitted": false,
+    "bounded_construction_grant_id": "VS2_BOUNDED_CONSTRUCTION_AUTHORITY",
+    "bounded_construction_grant_prior_consumed": true,
+    "bounded_construction_local_exercise_scope": "CONTROLLED_STEP_AND_CONVERGENCE_CONTRACTS_ONLY",
+    "construction_package_verification_authority_consumed_by_vs2_5": false,
+    "execution_authority_consumed_by_vs2_5": false,
+    "fixture_construction_authority_consumed_by_vs2_5": false,
+    "readiness_gate_construction_authority_consumed_by_vs2_5": false,
+    "same_bounded_construction_grant_may_be_consumed_again": false,
+    "source_vs2_4_construction_authority": {
+      "additional_bounded_construction_grant_consumption_by_vs2_4": false,
+      "bounded_construction_consumption_count_after": 1,
+      "bounded_construction_consumption_count_before": 1,
+      "bounded_construction_frame": "VS2.3_TO_VS2.5_BOUND_TARGET_CONSTRUCTION_SEQUENCE",
+      "bounded_construction_frame_exercised_by_vs2_4": true,
+      "bounded_construction_frame_open_after_vs2_4": true,
+      "bounded_construction_grant_id": "VS2_BOUNDED_CONSTRUCTION_AUTHORITY",
+      "bounded_construction_grant_prior_consumed": true,
+      "bounded_construction_local_exercise_scope": "FINITE_MOVE_SPACE_SOURCE_BINDING_AND_PROSPECTIVE_AUTHORITY_ONLY",
+      "construction_package_verification_authority_consumed_by_vs2_4": false,
+      "execution_authority_consumed_by_vs2_4": false,
+      "fixture_construction_authority_consumed_by_vs2_4": false,
+      "readiness_gate_construction_authority_consumed_by_vs2_4": false,
+      "remaining_frame_units": [
+        "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+      ],
+      "same_bounded_construction_grant_may_be_consumed_again": false,
+      "source_vs2_3_consumption_frame": "VS2.3_TO_VS2.5_BOUND_TARGET_CONSTRUCTION_SEQUENCE",
+      "unconsumed_effective_grant_count": 3,
+      "unconsumed_effective_grant_ids": [
+        "VS2_FIXTURE_CONSTRUCTION_AUTHORITY",
+        "VS2_FIRST_RUN_READINESS_GATE_CONSTRUCTION_AUTHORITY",
+        "VS2_CONSTRUCTION_PACKAGE_VERIFICATION_AUTHORITY"
+      ]
+    },
+    "unconsumed_effective_grant_count": 3,
+    "unconsumed_effective_grant_ids": [
+      "VS2_FIXTURE_CONSTRUCTION_AUTHORITY",
+      "VS2_FIRST_RUN_READINESS_GATE_CONSTRUCTION_AUTHORITY",
+      "VS2_CONSTRUCTION_PACKAGE_VERIFICATION_AUTHORITY"
+    ]
+  },
+  "construction_order": [
+    "construct and hash R13",
+    "construct and hash C20",
+    "construct and hash the fifteen embedded component contracts",
+    "construct and hash K0 without M2 hash",
+    "construct and hash M2 after K0 hash exists",
+    "construct and hash VS2.5 receipt",
+    "render deterministic Markdown projections"
+  ],
+  "controlled_step_contract": {
+    "contract_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+    "maximum_candidate_transformations_per_step": 1,
+    "self_invocation_allowed": false,
+    "step_class": "ONE_MOVE_BOUNDED_DETERMINISTIC_RECEIPTED_ATOMIC_STEP",
+    "step_contract_id": "FIRST_SWEEP_KERNEL_CONTROLLED_STEP_CONTRACT_V0",
+    "step_contract_version": "v0"
+  },
+  "embedded_component_count": 15,
+  "external_component_count": 2,
+  "frozen_auxiliary_vocabularies": {
+    "V2_OBSERVATIONS": [
+      "OBS_TARGET_ALREADY_REACHED",
+      "OBS_MISSING_REQUIRED_FIELD_DECLARATION",
+      "OBS_NONCANONICAL_TYPED_VALUE",
+      "OBS_SOURCE_IDENTITY_DECLARATION_MISSING",
+      "OBS_SOURCE_FRESHNESS_DECLARATION_MISSING",
+      "OBS_SOURCE_STALE",
+      "OBS_PROHIBITED_CANDIDATE_DECLARATION_PRESENT",
+      "OBS_ACTUAL_FORBIDDEN_EFFECT_DETECTED",
+      "OBS_AMBIGUOUS_BOUNDARY_DECLARATION",
+      "OBS_CONFLATED_DECLARATION_PRESENT",
+      "OBS_UNSUPPORTED_CLAIM_DECLARED_SUPPORTED",
+      "OBS_SCHEMA_REQUIREMENT_MISSING",
+      "OBS_AUTHORITY_REQUIREMENT_MISSING",
+      "OBS_CAPABILITY_REQUIREMENT_MISSING",
+      "OBS_SCOPE_REGIME_VIOLATION",
+      "OBS_OBJECT_BINDING_MISMATCH",
+      "OBS_NON_PROGRESS",
+      "OBS_REPEATED_STATE",
+      "OBS_NO_RECOGNIZED_CONDITION"
+    ],
+    "V3_CONDITION_CLASSIFICATIONS": [
+      "CONDITION_TARGET_SATISFIED",
+      "CONDITION_REPAIRABLE_DEFECT",
+      "CONDITION_UNREPAIRABLE_UNDER_CURRENT_MOVE_SPACE",
+      "CONDITION_MISSING_SOURCE",
+      "CONDITION_SOURCE_IDENTITY_UNVERIFIED",
+      "CONDITION_SOURCE_STALE",
+      "CONDITION_MISSING_SCHEMA",
+      "CONDITION_MISSING_AUTHORITY",
+      "CONDITION_MISSING_CAPABILITY",
+      "CONDITION_FORBIDDEN_EFFECT",
+      "CONDITION_AMBIGUOUS_BOUNDARY",
+      "CONDITION_CONFLATED_FIELD",
+      "CONDITION_UNSUPPORTED_CLAIM",
+      "CONDITION_SCOPE_REGIME_VIOLATION",
+      "CONDITION_OBJECT_BINDING_MISMATCH",
+      "CONDITION_NON_PROGRESS",
+      "CONDITION_REPEATED_STATE",
+      "CONDITION_NO_ADMISSIBLE_MOVE",
+      "CONDITION_UNCLASSIFIED"
+    ],
+    "V4_VALIDATION_RESULTS": [
+      "VALIDATION_NOT_RUN",
+      "VALIDATION_PASS",
+      "VALIDATION_FAIL_REQUIRED_SECTION",
+      "VALIDATION_FAIL_REQUIRED_FIELD",
+      "VALIDATION_FAIL_TYPE",
+      "VALIDATION_FAIL_VALUE_CONSTRAINT",
+      "VALIDATION_FAIL_CROSS_FIELD",
+      "VALIDATION_FAIL_SOURCE_DECLARATION",
+      "VALIDATION_FAIL_AUTHORITY_DECLARATION",
+      "VALIDATION_FAIL_PROHIBITED_DECLARATION",
+      "VALIDATION_FAIL_SCOPE_REGIME_BINDING",
+      "VALIDATION_FAIL_OBJECT_BINDING",
+      "VALIDATION_FAIL_SCHEMA_UNAVAILABLE",
+      "VALIDATION_RESULT_AMBIGUOUS"
+    ],
+    "V5_CANDIDATE_ADMISSIBILITY_RESULTS": [
+      "ADMISSIBILITY_NOT_RUN",
+      "ADMISSIBILITY_PASS",
+      "ADMISSIBILITY_FAIL_UNSUPPORTED_CLAIM",
+      "ADMISSIBILITY_FAIL_SOURCE",
+      "ADMISSIBILITY_FAIL_AUTHORITY",
+      "ADMISSIBILITY_FAIL_CAPABILITY",
+      "ADMISSIBILITY_FAIL_FORBIDDEN_EFFECT",
+      "ADMISSIBILITY_FAIL_SCOPE_REGIME",
+      "ADMISSIBILITY_RESULT_AMBIGUOUS"
+    ],
+    "V6_CONVERGENCE_RESULTS": [
+      "CONVERGENCE_NOT_RUN",
+      "CONVERGENCE_CONTINUE_ALLOWED",
+      "CONVERGENCE_TARGET_TERMINAL_CONDITION_SATISFIED",
+      "CONVERGENCE_STOP_NON_PROGRESS",
+      "CONVERGENCE_STOP_REPEATED_STATE",
+      "CONVERGENCE_STOP_OSCILLATION",
+      "CONVERGENCE_STOP_ATTEMPTED_MOVE_BOUND_EXHAUSTED",
+      "CONVERGENCE_STOP_APPLIED_MOVE_BOUND_EXHAUSTED",
+      "CONVERGENCE_STOP_DECLARED_RADIUS_BOUND_EXHAUSTED",
+      "CONVERGENCE_CRITERION_UNMET",
+      "CONVERGENCE_RESULT_AMBIGUOUS"
+    ],
+    "V7_TERMINAL_OUTCOMES": [
+      "TARGET_REACHED",
+      "STOP_REPAIR_NOT_LAWFUL",
+      "STOP_MISSING_SOURCE",
+      "STOP_MISSING_SCHEMA",
+      "STOP_MISSING_AUTHORITY",
+      "STOP_MISSING_CAPABILITY",
+      "STOP_RADIUS_EXHAUSTED",
+      "STOP_NO_ADMISSIBLE_MOVE",
+      "STOP_VALIDATION_FAILED",
+      "STOP_ADMISSIBILITY_FAILED",
+      "STOP_FORBIDDEN_EFFECT_DETECTED",
+      "STOP_SOURCE_IDENTITY_UNVERIFIED",
+      "STOP_SCOPE_REGIME_VIOLATION",
+      "STOP_NON_PROGRESS",
+      "STOP_REPEATED_STATE",
+      "STOP_CONVERGENCE_CRITERION_UNMET",
+      "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT"
+    ]
+  },
+  "m2_future_hash_bound": false,
+  "move_space_binding": {
+    "complete_enumeration_required": true,
+    "enumeration_bypass_status": "NOT_RUN_TYPED_NON_TRANSFORMATION_BRANCH",
+    "move_count": 8,
+    "ordered_move_ids": [
+      "M01_ADD_AUTHORIZED_REQUIRED_FIELD",
+      "M02_NORMALIZE_TYPED_VALUE",
+      "M03_BIND_DECLARED_SOURCE_IDENTITY",
+      "M04_BIND_DECLARED_SOURCE_FRESHNESS",
+      "M05_REMOVE_PROHIBITED_CANDIDATE_DECLARATION",
+      "M06_TIGHTEN_AMBIGUOUS_BOUNDARY",
+      "M07_SPLIT_CONFLATED_DECLARATION",
+      "M08_REJECT_UNSUPPORTED_CLAIM"
+    ]
+  },
+  "nonclaims": [
+    "does_not_create_fixture_instance",
+    "does_not_create_runtime_state_instance",
+    "does_not_create_candidate_instance",
+    "does_not_enumerate_live_candidate",
+    "does_not_select_move",
+    "does_not_apply_move",
+    "does_not_execute_sweep",
+    "does_not_create_runner"
+  ],
+  "one_primary_role_per_component": true,
+  "package_binding": {
+    "canonicalization": "MATRIXLAB_CANONICAL_JSON_V0",
+    "package_payload": {
+      "artifact_id": "phase_vs2_controlled_step_and_convergence_contract_package_v0",
+      "artifact_kind": "STATIC_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_PACKAGE",
+      "c20_reference": {
+        "artifact_id": "phase_vs2_convergence_criterion_contract_v0",
+        "artifact_kind": "STATIC_OPERATIONAL_CONVERGENCE_CRITERION_CONTRACT",
+        "artifact_version": "v0",
+        "binding_reason": "VS2.5-built phase_vs2_convergence_criterion_contract_v0 canonical binding.",
+        "binding_status": "BOUND",
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "content_sha256": "a9c512025963df2a07ba93e3071683f392264013824f82ddbcfd923ab8321fd4",
+        "declared_path": "docs/matrixlabs/phase_vs2/controlled_step/phase_vs2_convergence_criterion_contract_v0.json",
+        "expected_artifact_kind": "STATIC_OPERATIONAL_CONVERGENCE_CRITERION_CONTRACT",
+        "hash_algorithm": "SHA-256",
+        "reference_id": "phase_vs2_convergence_criterion_contract_v0_reference",
+        "reference_role": "CONVERGENCE_CRITERION_CONTRACT",
+        "required_by_unit": "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+      },
+      "candidate_integrity_auxiliary_results": [
+        "CANDIDATE_SUCCESSOR_INTEGRITY_PASS",
+        "CANDIDATE_SUCCESSOR_FAIL_SCHEMA",
+        "CANDIDATE_SUCCESSOR_FAIL_VERSION_CHAIN",
+        "CANDIDATE_SUCCESSOR_FAIL_DELTA_CONTRACT",
+        "CANDIDATE_SUCCESSOR_FAIL_WRITE_SET",
+        "CANDIDATE_SUCCESSOR_FAIL_HASH",
+        "CANDIDATE_SUCCESSOR_FAIL_FORBIDDEN_MUTATION"
+      ],
+      "component_count": 17,
+      "component_hashes": {
+        "S01_INPUT_BINDING_VERIFIER": "30377b5edda2a36c1ebc8481ffb017ea653994e0c5777353f077535ae48130e4",
+        "S02_CONDITION_INSPECTOR": "8ba6957217af6e008cd59c467b5e7e29bc6959f7c0d1ca671b08c4811a17286b",
+        "S03_CONDITION_CLASSIFIER": "2a0a2e2ab2c3e2391b93e4563b6ae4887bd2ae774baaba1cb2b8736d7606aae5",
+        "S04_CAPABILITY_BOUNDARY_EVALUATOR": "6923d3907e1cbd786a28ced4d68edc8b0ee89cddc6feb3c9344cc920032034e5",
+        "S05_TRANSFORMATION_MOVE_ENUMERATOR": "d81dc5210b3dc24d182290e5424538ca0788ad7d46d2ead9a7504fd13853d198",
+        "S06_STRUCTURAL_APPLICABILITY_EVALUATOR": "933b83662c0886fb5df8c81e026310f2e3bfbb160edd4dcdcc02a3078ecbd4ec",
+        "S07_RUNTIME_AUTHORITY_AND_BUDGET_GATE": "47dc0e244706ae50c20f25c1349e987851c80619c82ddab8f41020238903e131",
+        "S08_DETERMINISTIC_MOVE_SELECTOR": "8aca308fbd20f0713e6545ce7bc070056614d38830acb60e9c25bfcde001e5c3",
+        "S09_MOVE_APPLICATOR": "5de461a5d7f25b22e94bec3aaf75d984ba8543520266bd3508c0c59ad89489e7",
+        "S10_TARGET_CONFORMANCE_VALIDATOR": "b31215ef8354cbde00fc04f81242b76e26da2627cb3638bb7f3082d8bd83f2be",
+        "S11_LAWFUL_ADMISSIBILITY_EVALUATOR": "d17f99ece027f95e4ea75742df3efd5410bedd50b97fee41acba3039df38b262",
+        "S12_FORBIDDEN_EFFECT_GUARD": "6cc5f15cd6b4eddcf482e31c981fc910b67c6705d56955f568d08aeb022f1cee",
+        "S13_RECEIPT_AND_ATOMIC_PUBLICATION_BUILDER": "a5375ec82dd148d05d7199296b58f186747b27cf3f4922555bec6ed1ed29cbf4",
+        "S14_CONVERGENCE_CRITERION_EVALUATOR": "a9c512025963df2a07ba93e3071683f392264013824f82ddbcfd923ab8321fd4",
+        "S15_TERMINAL_AND_REPEAT_DECIDER": "b16c7b03e5d0b88e6c5ba59449a61657c4d39f171058cf722e520d88b2597e51",
+        "S16_CONTROLLED_STEP_ORCHESTRATOR": "1ea5c68116de0f06877ec4a8c4675195358dc178130ed28180c94b848d008bf4",
+        "S17_MINIMAL_REPLAY_AND_AUDIT_VERIFIER": "8e76645e6ea0ba8055ae99e9a1f22c85652b0dd203987ea7d389ed4a5b32d3b2"
+      },
+      "component_ids": [
+        "S01_INPUT_BINDING_VERIFIER",
+        "S02_CONDITION_INSPECTOR",
+        "S03_CONDITION_CLASSIFIER",
+        "S04_CAPABILITY_BOUNDARY_EVALUATOR",
+        "S05_TRANSFORMATION_MOVE_ENUMERATOR",
+        "S06_STRUCTURAL_APPLICABILITY_EVALUATOR",
+        "S07_RUNTIME_AUTHORITY_AND_BUDGET_GATE",
+        "S08_DETERMINISTIC_MOVE_SELECTOR",
+        "S09_MOVE_APPLICATOR",
+        "S10_TARGET_CONFORMANCE_VALIDATOR",
+        "S11_LAWFUL_ADMISSIBILITY_EVALUATOR",
+        "S12_FORBIDDEN_EFFECT_GUARD",
+        "S13_RECEIPT_AND_ATOMIC_PUBLICATION_BUILDER",
+        "S14_CONVERGENCE_CRITERION_EVALUATOR",
+        "S15_TERMINAL_AND_REPEAT_DECIDER",
+        "S16_CONTROLLED_STEP_ORCHESTRATOR",
+        "S17_MINIMAL_REPLAY_AND_AUDIT_VERIFIER"
+      ],
+      "component_ids_unique": true,
+      "component_registry": [
+        {
+          "component_id": "S01_INPUT_BINDING_VERIFIER",
+          "component_payload": {
+            "allowed_next_components": [
+              "S02_CONDITION_INSPECTOR",
+              "S15_TERMINAL_AND_REPEAT_DECIDER"
+            ],
+            "authority_absent_maps_to": [
+              "STEP_PREEXECUTION_TYPED_STOP",
+              "STOP_MISSING_AUTHORITY"
+            ],
+            "authority_requirements": [
+              "active step authority checked before semantic inspection",
+              "construction authority cannot substitute for execution authority"
+            ],
+            "component_id": "S01_INPUT_BINDING_VERIFIER",
+            "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+            "component_version": "v0",
+            "forbidden_actions": [
+              "source acquisition",
+              "source refresh",
+              "schema invention",
+              "capability creation",
+              "authority activation",
+              "authority escalation",
+              "automatic repair",
+              "automatic taxonomy upgrade",
+              "automatic rerun",
+              "automatic radius renewal",
+              "runtime publication",
+              "runner creation",
+              "registry activation",
+              "promotion record creation",
+              "repair bindings",
+              "substitute source",
+              "substitute authority",
+              "inspect candidate semantics",
+              "create O1 successor",
+              "create O2 successor"
+            ],
+            "input_rejection_creates_successor": false,
+            "malformed_invalid_or_mismatched_record_maps_to": "STEP_INPUT_REJECTED",
+            "move_budget_consumed": false,
+            "possible_results": [
+              "INPUT_BINDINGS_PASS",
+              "INPUT_BINDINGS_PASS_AUTHORITY_ABSENT",
+              "INPUT_BINDINGS_PASS_SOURCE_SNAPSHOT_ABSENT",
+              "INPUT_BINDING_FAIL_SCOPE_REGIME",
+              "INPUT_BINDING_FAIL_RUNTIME_STATE",
+              "INPUT_BINDING_FAIL_RUNTIME_CANDIDATE",
+              "INPUT_BINDING_FAIL_RUNTIME_TARGET",
+              "INPUT_BINDING_FAIL_TARGET_HASH",
+              "INPUT_BINDING_FAIL_OBJECT_MODEL",
+              "INPUT_BINDING_FAIL_MOVE_SPACE",
+              "INPUT_BINDING_FAIL_MOVE_SPACE_SUCCESSOR_MANIFEST",
+              "INPUT_BINDING_FAIL_STEP_PACKAGE",
+              "INPUT_BINDING_FAIL_STEP_SUCCESSOR_MANIFEST",
+              "INPUT_BINDING_FAIL_KERNEL_PROFILE",
+              "INPUT_BINDING_FAIL_SOURCE_RECORD",
+              "INPUT_BINDING_FAIL_FIXTURE_RECORD",
+              "INPUT_BINDING_FAIL_AUTHORITY_RECORD",
+              "INPUT_BINDING_FAIL_RUN_CASE",
+              "INPUT_BINDING_FAIL_STEP_INDEX",
+              "INPUT_BINDING_FAIL_IDEMPOTENCY_KEY",
+              "INPUT_BINDING_FAIL_TERMINAL_ALREADY_ACTIVE"
+            ],
+            "preexecution_stop_creates_successor": false,
+            "primary_role": "Verify invocation structure and immutable bindings before semantics.",
+            "reads": [
+              "F0",
+              "O1",
+              "O2",
+              "O3",
+              "M0",
+              "M1",
+              "MS0",
+              "K0",
+              "M2",
+              "kernel profile",
+              "source-snapshot record",
+              "fixture-set record",
+              "execution-authority record"
+            ],
+            "receipt_obligations": [
+              "input-rejection receipt for malformed, invalid, or mismatched records",
+              "pre-execution-stop receipt for well-typed absent authority or source snapshot"
+            ],
+            "required_inputs": [
+              "runtime state conforms to O1",
+              "candidate conforms to O2",
+              "target identity and hash match O3",
+              "terminal state not already active"
+            ],
+            "source_basis": [
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S01_INPUT_BINDING_VERIFIER is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "input verifier",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              },
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S01_INPUT_BINDING_VERIFIER is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "preexecution typed stop",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              }
+            ],
+            "source_snapshot_absent_maps_to": [
+              "STEP_PREEXECUTION_TYPED_STOP",
+              "STOP_MISSING_SOURCE"
+            ],
+            "writes": [
+              "input binding result",
+              "pre-execution typed stop disposition when authority or source snapshot is well typed but absent"
+            ]
+          },
+          "component_sha256": "30377b5edda2a36c1ebc8481ffb017ea653994e0c5777353f077535ae48130e4",
+          "component_storage": "EMBEDDED_IN_K0",
+          "component_version": "v0",
+          "external_contract_reference": null,
+          "primary_role": "Verify invocation structure and immutable bindings before semantics."
+        },
+        {
+          "component_id": "S02_CONDITION_INSPECTOR",
+          "component_payload": {
+            "allowed_next_components": [
+              "S03_CONDITION_CLASSIFIER"
+            ],
+            "authority_requirements": [
+              "inspection requires active step authority after S01 passes"
+            ],
+            "component_id": "S02_CONDITION_INSPECTOR",
+            "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+            "component_version": "v0",
+            "forbidden_actions": [
+              "source acquisition",
+              "source refresh",
+              "schema invention",
+              "capability creation",
+              "authority activation",
+              "authority escalation",
+              "automatic repair",
+              "automatic taxonomy upgrade",
+              "automatic rerun",
+              "automatic radius renewal",
+              "runtime publication",
+              "runner creation",
+              "registry activation",
+              "promotion record creation",
+              "introduce STOP_INSPECTION_INCOMPLETE",
+              "repair candidate",
+              "treat target observation as verdict"
+            ],
+            "incomplete_inspection_terminal_mapping": {
+              "missing authority": "STOP_MISSING_AUTHORITY",
+              "missing capability": "STOP_MISSING_CAPABILITY",
+              "missing schema": "STOP_MISSING_SCHEMA",
+              "missing source": "STOP_MISSING_SOURCE",
+              "otherwise": "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT"
+            },
+            "observation_vocabulary": [
+              "OBS_TARGET_ALREADY_REACHED",
+              "OBS_MISSING_REQUIRED_FIELD_DECLARATION",
+              "OBS_NONCANONICAL_TYPED_VALUE",
+              "OBS_SOURCE_IDENTITY_DECLARATION_MISSING",
+              "OBS_SOURCE_FRESHNESS_DECLARATION_MISSING",
+              "OBS_SOURCE_STALE",
+              "OBS_PROHIBITED_CANDIDATE_DECLARATION_PRESENT",
+              "OBS_ACTUAL_FORBIDDEN_EFFECT_DETECTED",
+              "OBS_AMBIGUOUS_BOUNDARY_DECLARATION",
+              "OBS_CONFLATED_DECLARATION_PRESENT",
+              "OBS_UNSUPPORTED_CLAIM_DECLARED_SUPPORTED",
+              "OBS_SCHEMA_REQUIREMENT_MISSING",
+              "OBS_AUTHORITY_REQUIREMENT_MISSING",
+              "OBS_CAPABILITY_REQUIREMENT_MISSING",
+              "OBS_SCOPE_REGIME_VIOLATION",
+              "OBS_OBJECT_BINDING_MISMATCH",
+              "OBS_NON_PROGRESS",
+              "OBS_REPEATED_STATE",
+              "OBS_NO_RECOGNIZED_CONDITION"
+            ],
+            "possible_results": [
+              "INSPECTION_COMPLETE",
+              "NOT_EVALUABLE_MISSING_SOURCE",
+              "NOT_EVALUABLE_MISSING_SCHEMA",
+              "NOT_EVALUABLE_MISSING_AUTHORITY",
+              "NOT_EVALUABLE_MISSING_CAPABILITY"
+            ],
+            "primary_role": "Inspect candidate conditions without deciding repair, target, or terminal status.",
+            "reads": [
+              "F0",
+              "current O1 instance",
+              "current O2 instance",
+              "O3",
+              "M0",
+              "S0-compliant source records"
+            ],
+            "receipt_obligations": [
+              "inspection receipt when authorized path proceeds"
+            ],
+            "required_inputs": [
+              "inspection_id",
+              "runtime_state_version",
+              "candidate_version",
+              "candidate_hash",
+              "target_version",
+              "target_hash",
+              "rules_checked",
+              "evidence_references"
+            ],
+            "required_observation_ids": [
+              "OBS_TARGET_ALREADY_REACHED",
+              "OBS_PROHIBITED_CANDIDATE_DECLARATION_PRESENT",
+              "OBS_ACTUAL_FORBIDDEN_EFFECT_DETECTED",
+              "OBS_NON_PROGRESS",
+              "OBS_REPEATED_STATE",
+              "OBS_NO_RECOGNIZED_CONDITION"
+            ],
+            "source_basis": [
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S02_CONDITION_INSPECTOR is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "inspection fields",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              },
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S02_CONDITION_INSPECTOR is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "V2 observations",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              }
+            ],
+            "writes": [
+              "condition_observation_set"
+            ]
+          },
+          "component_sha256": "8ba6957217af6e008cd59c467b5e7e29bc6959f7c0d1ca671b08c4811a17286b",
+          "component_storage": "EMBEDDED_IN_K0",
+          "component_version": "v0",
+          "external_contract_reference": null,
+          "primary_role": "Inspect candidate conditions without deciding repair, target, or terminal status."
+        },
+        {
+          "component_id": "S03_CONDITION_CLASSIFIER",
+          "component_payload": {
+            "allowed_next_components": [
+              "S04_CAPABILITY_BOUNDARY_EVALUATOR",
+              "S15_TERMINAL_AND_REPEAT_DECIDER"
+            ],
+            "authority_requirements": [
+              "classification requires prior authorized inspection"
+            ],
+            "component_id": "S03_CONDITION_CLASSIFIER",
+            "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+            "component_version": "v0",
+            "condition_vocabulary": [
+              "CONDITION_TARGET_SATISFIED",
+              "CONDITION_REPAIRABLE_DEFECT",
+              "CONDITION_UNREPAIRABLE_UNDER_CURRENT_MOVE_SPACE",
+              "CONDITION_MISSING_SOURCE",
+              "CONDITION_SOURCE_IDENTITY_UNVERIFIED",
+              "CONDITION_SOURCE_STALE",
+              "CONDITION_MISSING_SCHEMA",
+              "CONDITION_MISSING_AUTHORITY",
+              "CONDITION_MISSING_CAPABILITY",
+              "CONDITION_FORBIDDEN_EFFECT",
+              "CONDITION_AMBIGUOUS_BOUNDARY",
+              "CONDITION_CONFLATED_FIELD",
+              "CONDITION_UNSUPPORTED_CLAIM",
+              "CONDITION_SCOPE_REGIME_VIOLATION",
+              "CONDITION_OBJECT_BINDING_MISMATCH",
+              "CONDITION_NON_PROGRESS",
+              "CONDITION_REPEATED_STATE",
+              "CONDITION_NO_ADMISSIBLE_MOVE",
+              "CONDITION_UNCLASSIFIED"
+            ],
+            "forbidden_actions": [
+              "source acquisition",
+              "source refresh",
+              "schema invention",
+              "capability creation",
+              "authority activation",
+              "authority escalation",
+              "automatic repair",
+              "automatic taxonomy upgrade",
+              "automatic rerun",
+              "automatic radius renewal",
+              "runtime publication",
+              "runner creation",
+              "registry activation",
+              "promotion record creation",
+              "invent condition vocabulary",
+              "let target candidate outrank blocker or repairable defect"
+            ],
+            "possible_results": [
+              "HARD_FORBIDDEN_EFFECT_BLOCKER",
+              "SCOPE_REGIME_BLOCKER",
+              "OBJECT_BINDING_BLOCKER",
+              "SOURCE_BLOCKER",
+              "SCHEMA_BLOCKER",
+              "AUTHORITY_BLOCKER",
+              "CAPABILITY_BLOCKER",
+              "NON_PROGRESS_CONDITION",
+              "REPEATED_STATE_CONDITION",
+              "REPAIRABLE_CONDITION_CANDIDATE",
+              "NON_REPAIRABLE_CURRENT_MOVE_SPACE",
+              "TARGET_CANDIDATE_STATE",
+              "UNCLASSIFIED_CONDITION"
+            ],
+            "precedence": [
+              "HARD_FORBIDDEN_EFFECT_BLOCKER",
+              "SCOPE_REGIME_BLOCKER",
+              "OBJECT_BINDING_BLOCKER",
+              "SOURCE_BLOCKER",
+              "SCHEMA_BLOCKER",
+              "AUTHORITY_BLOCKER",
+              "CAPABILITY_BLOCKER",
+              "NON_PROGRESS_CONDITION",
+              "REPEATED_STATE_CONDITION",
+              "REPAIRABLE_CONDITION_CANDIDATE",
+              "NON_REPAIRABLE_CURRENT_MOVE_SPACE",
+              "TARGET_CANDIDATE_STATE",
+              "UNCLASSIFIED_CONDITION"
+            ],
+            "primary_role": "Classify observed conditions using frozen V3 condition IDs and deterministic precedence.",
+            "reads": [
+              "condition_observation_set",
+              "V3 condition classifications"
+            ],
+            "receipt_obligations": [
+              "classification trace included in controlled-step receipt when path proceeds"
+            ],
+            "required_inputs": [
+              "observed_condition_ids",
+              "classification precedence",
+              "canonical condition IDs"
+            ],
+            "source_basis": [
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S03_CONDITION_CLASSIFIER is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "classification groups",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              },
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S03_CONDITION_CLASSIFIER is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "V3 conditions",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              }
+            ],
+            "target_candidate_cannot_outrank_blocker_or_repairable_defect": true,
+            "tie_break": "lowest canonical condition ID",
+            "writes": [
+              "classified_condition_set",
+              "primary_exposed_condition",
+              "secondary_observed_conditions",
+              "classification_rule_trace"
+            ]
+          },
+          "component_sha256": "2a0a2e2ab2c3e2391b93e4563b6ae4887bd2ae774baaba1cb2b8736d7606aae5",
+          "component_storage": "EMBEDDED_IN_K0",
+          "component_version": "v0",
+          "external_contract_reference": null,
+          "primary_role": "Classify observed conditions using frozen V3 condition IDs and deterministic precedence."
+        },
+        {
+          "component_id": "S04_CAPABILITY_BOUNDARY_EVALUATOR",
+          "component_payload": {
+            "allowed_next_components": [
+              "S05_TRANSFORMATION_MOVE_ENUMERATOR",
+              "S15_TERMINAL_AND_REPEAT_DECIDER"
+            ],
+            "authority_requirements": [
+              "capability proposal is construction evidence only, not execution authority"
+            ],
+            "component_id": "S04_CAPABILITY_BOUNDARY_EVALUATOR",
+            "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+            "component_version": "v0",
+            "forbidden_actions": [
+              "source acquisition",
+              "source refresh",
+              "schema invention",
+              "capability creation",
+              "authority activation",
+              "authority escalation",
+              "automatic repair",
+              "automatic taxonomy upgrade",
+              "automatic rerun",
+              "automatic radius renewal",
+              "runtime publication",
+              "runner creation",
+              "registry activation",
+              "promotion record creation",
+              "approve capability",
+              "implement capability",
+              "register capability",
+              "activate capability",
+              "promote capability",
+              "auto-apply proposal candidate"
+            ],
+            "possible_results": [
+              "CAPABILITY_NOT_REQUIRED",
+              "CAPABILITY_BOUNDARY_PASS",
+              "CAPABILITY_MISSING",
+              "CAPABILITY_UNREPRESENTED",
+              "CAPABILITY_OUTSIDE_PROFILE",
+              "CAPABILITY_NOT_IMPLEMENTED_BY_MOVE_SPACE",
+              "CAPABILITY_EVIDENCE_INSUFFICIENT"
+            ],
+            "primary_role": "Separate identified, represented, admitted, implemented, and authorized capability states.",
+            "reads": [
+              "primary condition",
+              "F0",
+              "MS0",
+              "future active package metadata when present"
+            ],
+            "receipt_obligations": [
+              "capability boundary result in controlled-step receipt"
+            ],
+            "required_inputs": [
+              "capability identified",
+              "capability represented",
+              "capability admitted by F0",
+              "capability implemented by MS0",
+              "capability authorized by active package"
+            ],
+            "source_basis": [
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S04_CAPABILITY_BOUNDARY_EVALUATOR is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "capability statuses",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              },
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S04_CAPABILITY_BOUNDARY_EVALUATOR is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "capability mappings",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              }
+            ],
+            "terminal_mappings": {
+              "CAPABILITY_EVIDENCE_INSUFFICIENT": [
+                "STOP_MISSING_CAPABILITY",
+                "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT"
+              ],
+              "CAPABILITY_MISSING": "STOP_MISSING_CAPABILITY",
+              "CAPABILITY_NOT_IMPLEMENTED_BY_MOVE_SPACE": "STOP_NO_ADMISSIBLE_MOVE",
+              "CAPABILITY_OUTSIDE_PROFILE": "STOP_MISSING_CAPABILITY",
+              "CAPABILITY_UNREPRESENTED": "STOP_MISSING_CAPABILITY"
+            },
+            "writes": [
+              "capability boundary result",
+              "bounded proposal candidate only when missing capability branch requires it"
+            ]
+          },
+          "component_sha256": "6923d3907e1cbd786a28ced4d68edc8b0ee89cddc6feb3c9344cc920032034e5",
+          "component_storage": "EMBEDDED_IN_K0",
+          "component_version": "v0",
+          "external_contract_reference": null,
+          "primary_role": "Separate identified, represented, admitted, implemented, and authorized capability states."
+        },
+        {
+          "component_id": "S05_TRANSFORMATION_MOVE_ENUMERATOR",
+          "component_payload": {
+            "allowed_next_components": [
+              "S06_STRUCTURAL_APPLICABILITY_EVALUATOR"
+            ],
+            "authority_requirements": [
+              "enumeration consumes no move budget and requires no active move authority"
+            ],
+            "component_id": "S05_TRANSFORMATION_MOVE_ENUMERATOR",
+            "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+            "component_version": "v0",
+            "evaluated_move_count": 8,
+            "forbidden_actions": [
+              "source acquisition",
+              "source refresh",
+              "schema invention",
+              "capability creation",
+              "authority activation",
+              "authority escalation",
+              "automatic repair",
+              "automatic taxonomy upgrade",
+              "automatic rerun",
+              "automatic radius renewal",
+              "runtime publication",
+              "runner creation",
+              "registry activation",
+              "promotion record creation",
+              "stop after first candidate",
+              "select move",
+              "call move candidate-admissible"
+            ],
+            "ordered_move_ids": [
+              "M01_ADD_AUTHORIZED_REQUIRED_FIELD",
+              "M02_NORMALIZE_TYPED_VALUE",
+              "M03_BIND_DECLARED_SOURCE_IDENTITY",
+              "M04_BIND_DECLARED_SOURCE_FRESHNESS",
+              "M05_REMOVE_PROHIBITED_CANDIDATE_DECLARATION",
+              "M06_TIGHTEN_AMBIGUOUS_BOUNDARY",
+              "M07_SPLIT_CONFLATED_DECLARATION",
+              "M08_REJECT_UNSUPPORTED_CLAIM"
+            ],
+            "possible_results": [
+              "MOVE_ENUMERATION_COMPLETE",
+              "NOT_RUN_TYPED_NON_TRANSFORMATION_BRANCH"
+            ],
+            "primary_role": "Enumerate all frozen transformation moves on transformation branches.",
+            "reads": [
+              "primary condition",
+              "MS0 ordered move IDs",
+              "S0 source requirements",
+              "O2 mutable paths",
+              "O3 target rules"
+            ],
+            "receipt_obligations": [
+              "enumeration coverage in controlled-step receipt"
+            ],
+            "required_inputs": [
+              "transformation branch",
+              "MS0 bound",
+              "move vocabulary bound"
+            ],
+            "required_record_fields": [
+              "move_id",
+              "required_observation_match",
+              "required_condition_class_match",
+              "scope_regime_match",
+              "object_binding_match",
+              "target_rule_present",
+              "source_requirements_present",
+              "capability_requirements_present",
+              "candidate_write_paths_mutable",
+              "delta_shape_supported",
+              "structurally_applicable_candidate",
+              "structural_block_reasons"
+            ],
+            "source_basis": [
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S05_TRANSFORMATION_MOVE_ENUMERATOR is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "move enumeration",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              },
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S05_TRANSFORMATION_MOVE_ENUMERATOR is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "MS0 ordered moves",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              }
+            ],
+            "writes": [
+              "complete structural enumeration records"
+            ]
+          },
+          "component_sha256": "d81dc5210b3dc24d182290e5424538ca0788ad7d46d2ead9a7504fd13853d198",
+          "component_storage": "EMBEDDED_IN_K0",
+          "component_version": "v0",
+          "external_contract_reference": null,
+          "primary_role": "Enumerate all frozen transformation moves on transformation branches."
+        },
+        {
+          "component_id": "S06_STRUCTURAL_APPLICABILITY_EVALUATOR",
+          "component_payload": {
+            "active_move_authority_required": false,
+            "allowed_next_components": [
+              "S07_RUNTIME_AUTHORITY_AND_BUDGET_GATE"
+            ],
+            "authority_requirements": [
+              "structural applicability does not grant runtime authority"
+            ],
+            "component_id": "S06_STRUCTURAL_APPLICABILITY_EVALUATOR",
+            "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+            "component_version": "v0",
+            "evaluates_all_enumerated_moves": true,
+            "forbidden_actions": [
+              "source acquisition",
+              "source refresh",
+              "schema invention",
+              "capability creation",
+              "authority activation",
+              "authority escalation",
+              "automatic repair",
+              "automatic taxonomy upgrade",
+              "automatic rerun",
+              "automatic radius renewal",
+              "runtime publication",
+              "runner creation",
+              "registry activation",
+              "promotion record creation",
+              "require active authority for structural applicability",
+              "mutate candidate"
+            ],
+            "possible_results": [
+              "STRUCTURAL_APPLICABILITY_COMPLETE",
+              "NO_STRUCTURALLY_APPLICABLE_MOVE"
+            ],
+            "primary_role": "Evaluate every enumerated move structurally before runtime authority is considered.",
+            "reads": [
+              "enumerated move records",
+              "F0",
+              "O1",
+              "O2",
+              "O3",
+              "M0",
+              "M1",
+              "S0",
+              "MS0"
+            ],
+            "receipt_obligations": [
+              "structural applicability evidence in controlled-step receipt"
+            ],
+            "required_inputs": [
+              "complete enumeration",
+              "candidate write paths",
+              "target rules",
+              "capability representation"
+            ],
+            "source_basis": [
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S06_STRUCTURAL_APPLICABILITY_EVALUATOR is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "structural applicability",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              }
+            ],
+            "writes": [
+              "structurally_applicable_move_set",
+              "structurally_blocked_move_set"
+            ]
+          },
+          "component_sha256": "933b83662c0886fb5df8c81e026310f2e3bfbb160edd4dcdcc02a3078ecbd4ec",
+          "component_storage": "EMBEDDED_IN_K0",
+          "component_version": "v0",
+          "external_contract_reference": null,
+          "primary_role": "Evaluate every enumerated move structurally before runtime authority is considered."
+        },
+        {
+          "component_id": "S07_RUNTIME_AUTHORITY_AND_BUDGET_GATE",
+          "component_payload": {
+            "allowed_next_components": [
+              "S08_DETERMINISTIC_MOVE_SELECTOR",
+              "S15_TERMINAL_AND_REPEAT_DECIDER"
+            ],
+            "authority_requirements": [
+              "step authority before semantics",
+              "move authority after structural applicability",
+              "move authority immediately before attempted-move boundary"
+            ],
+            "budget_accounting": {
+              "capability_evaluation_consumes_move_budget": false,
+              "classification_consumes_move_budget": false,
+              "enumeration_consumes_move_budget": false,
+              "infrastructure_publication_abort_consumes_authoritative_budget": false,
+              "inspection_consumes_move_budget": false,
+              "runtime_authorization_consumes_move_budget": false,
+              "selection_consumes_move_budget": false,
+              "structural_applicability_consumes_move_budget": false
+            },
+            "component_id": "S07_RUNTIME_AUTHORITY_AND_BUDGET_GATE",
+            "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+            "component_version": "v0",
+            "forbidden_actions": [
+              "source acquisition",
+              "source refresh",
+              "schema invention",
+              "capability creation",
+              "authority activation",
+              "authority escalation",
+              "automatic repair",
+              "automatic taxonomy upgrade",
+              "automatic rerun",
+              "automatic radius renewal",
+              "runtime publication",
+              "runner creation",
+              "registry activation",
+              "promotion record creation",
+              "use definition authority as execution authority",
+              "use P0 as active authority",
+              "renew budget",
+              "renew radius",
+              "introduce STOP_BUDGET_EXHAUSTED"
+            ],
+            "forbidden_terminal": "STOP_BUDGET_EXHAUSTED",
+            "possible_results": [
+              "AUTHORITY_RADIUS_BUDGET_PASS",
+              "STOP_MISSING_AUTHORITY",
+              "STOP_RADIUS_EXHAUSTED",
+              "STOP_NO_ADMISSIBLE_MOVE",
+              "CONVERGENCE_STOP_ATTEMPTED_MOVE_BOUND_EXHAUSTED",
+              "CONVERGENCE_STOP_APPLIED_MOVE_BOUND_EXHAUSTED",
+              "CONVERGENCE_STOP_DECLARED_RADIUS_BOUND_EXHAUSTED"
+            ],
+            "primary_role": "Check active authority, radius, budget, bindings, and attempted boundary.",
+            "reads": [
+              "structurally applicable move set",
+              "active authority package if present",
+              "runtime budget state",
+              "P0 maxima"
+            ],
+            "receipt_obligations": [
+              "authority and budget check evidence in controlled-step receipt"
+            ],
+            "required_inputs": [
+              "step_index",
+              "attempted_moves_count",
+              "applied_moves_count",
+              "remaining attempted budget",
+              "remaining applied budget"
+            ],
+            "source_basis": [
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S07_RUNTIME_AUTHORITY_AND_BUDGET_GATE is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "authority gate",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              },
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S07_RUNTIME_AUTHORITY_AND_BUDGET_GATE is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "budget vocabulary",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              }
+            ],
+            "writes": [
+              "runtime-authorized move set",
+              "budget gate result",
+              "attempted-boundary eligibility"
+            ]
+          },
+          "component_sha256": "47dc0e244706ae50c20f25c1349e987851c80619c82ddab8f41020238903e131",
+          "component_storage": "EMBEDDED_IN_K0",
+          "component_version": "v0",
+          "external_contract_reference": null,
+          "primary_role": "Check active authority, radius, budget, bindings, and attempted boundary."
+        },
+        {
+          "component_id": "S08_DETERMINISTIC_MOVE_SELECTOR",
+          "component_payload": {
+            "allowed_next_components": [
+              "S07_RUNTIME_AUTHORITY_AND_BUDGET_GATE",
+              "S09_MOVE_APPLICATOR",
+              "S15_TERMINAL_AND_REPEAT_DECIDER"
+            ],
+            "authority_requirements": [
+              "selector consumes no move budget and cannot substitute missing runtime authority"
+            ],
+            "component_id": "S08_DETERMINISTIC_MOVE_SELECTOR",
+            "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+            "component_version": "v0",
+            "forbidden_actions": [
+              "source acquisition",
+              "source refresh",
+              "schema invention",
+              "capability creation",
+              "authority activation",
+              "authority escalation",
+              "automatic repair",
+              "automatic taxonomy upgrade",
+              "automatic rerun",
+              "automatic radius renewal",
+              "runtime publication",
+              "runner creation",
+              "registry activation",
+              "promotion record creation",
+              "mutate O2",
+              "invent a move",
+              "call authorized moves candidate-admissible"
+            ],
+            "identity_order_is_only_final_tie_break": true,
+            "policy": [
+              "discard moves not runtime-authorized",
+              "enforce frozen dependencies",
+              "retain moves directly addressing primary condition",
+              "prefer smallest candidate write-set",
+              "prefer lowest move cost",
+              "break remaining ties by canonical move ID"
+            ],
+            "possible_results": [
+              "MOVE_SELECTED",
+              "NO_RUNTIME_AUTHORIZED_MOVE"
+            ],
+            "primary_role": "Select at most one runtime-authorized move using frozen deterministic policy.",
+            "reads": [
+              "primary condition",
+              "runtime-authorized move set",
+              "move dependency metadata",
+              "candidate version",
+              "target version",
+              "move-space version",
+              "budget state"
+            ],
+            "receipt_obligations": [
+              "selection trace in controlled-step receipt"
+            ],
+            "required_inputs": [
+              "runtime-authorized move set",
+              "dependency metadata",
+              "primary condition"
+            ],
+            "source_basis": [
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S08_DETERMINISTIC_MOVE_SELECTOR is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "selector policy",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              }
+            ],
+            "writes": [
+              "selected_move_id",
+              "selection_rule_trace",
+              "unselected_runtime_authorized_move_ids"
+            ]
+          },
+          "component_sha256": "8aca308fbd20f0713e6545ce7bc070056614d38830acb60e9c25bfcde001e5c3",
+          "component_storage": "EMBEDDED_IN_K0",
+          "component_version": "v0",
+          "external_contract_reference": null,
+          "primary_role": "Select at most one runtime-authorized move using frozen deterministic policy."
+        },
+        {
+          "component_id": "S09_MOVE_APPLICATOR",
+          "component_payload": {
+            "allowed_next_components": [
+              "S12_FORBIDDEN_EFFECT_GUARD",
+              "S10_TARGET_CONFORMANCE_VALIDATOR"
+            ],
+            "authority_requirements": [
+              "application requires selected move, rechecked authority, budget, bindings, and preconditions"
+            ],
+            "candidate_integrity_results_are_auxiliary": true,
+            "candidate_version_increment": 1,
+            "component_id": "S09_MOVE_APPLICATOR",
+            "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+            "component_version": "v0",
+            "forbidden_actions": [
+              "source acquisition",
+              "source refresh",
+              "schema invention",
+              "capability creation",
+              "authority activation",
+              "authority escalation",
+              "automatic repair",
+              "automatic taxonomy upgrade",
+              "automatic rerun",
+              "automatic radius renewal",
+              "runtime publication",
+              "runner creation",
+              "registry activation",
+              "promotion record creation",
+              "select move",
+              "apply multiple moves",
+              "publish",
+              "mutate F0",
+              "mutate O1 directly",
+              "mutate O3",
+              "mutate M0",
+              "mutate M1",
+              "mutate MS0",
+              "write evaluator-owned O2 fields"
+            ],
+            "maximum_o2_successors_staged": 1,
+            "possible_results": [
+              "CANDIDATE_SUCCESSOR_INTEGRITY_PASS",
+              "CANDIDATE_SUCCESSOR_FAIL_SCHEMA",
+              "CANDIDATE_SUCCESSOR_FAIL_VERSION_CHAIN",
+              "CANDIDATE_SUCCESSOR_FAIL_DELTA_CONTRACT",
+              "CANDIDATE_SUCCESSOR_FAIL_WRITE_SET",
+              "CANDIDATE_SUCCESSOR_FAIL_HASH",
+              "CANDIDATE_SUCCESSOR_FAIL_FORBIDDEN_MUTATION"
+            ],
+            "primary_role": "Stage exactly one O2 successor from the selected move without publishing.",
+            "reads": [
+              "selected move",
+              "admitted sources",
+              "O2 candidate",
+              "O3 target rules",
+              "S0 source records"
+            ],
+            "receipt_obligations": [
+              "attempted-move receipt when attempted boundary is crossed"
+            ],
+            "required_inputs": [
+              "selected move only",
+              "declared O2 write paths",
+              "exact delta shape",
+              "predecessor identity/version/hash"
+            ],
+            "semantic_failure_after_attempted_boundary_may_consume_attempted_budget": true,
+            "source_basis": [
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S09_MOVE_APPLICATOR is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "applicator",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              },
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S09_MOVE_APPLICATOR is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "candidate integrity",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              }
+            ],
+            "writes": [
+              "staged candidate delta",
+              "canonical staged candidate hash",
+              "candidate integrity result"
+            ]
+          },
+          "component_sha256": "5de461a5d7f25b22e94bec3aaf75d984ba8543520266bd3508c0c59ad89489e7",
+          "component_storage": "EMBEDDED_IN_K0",
+          "component_version": "v0",
+          "external_contract_reference": null,
+          "primary_role": "Stage exactly one O2 successor from the selected move without publishing."
+        },
+        {
+          "component_id": "S10_TARGET_CONFORMANCE_VALIDATOR",
+          "component_payload": {
+            "allowed_next_components": [
+              "S11_LAWFUL_ADMISSIBILITY_EVALUATOR",
+              "S15_TERMINAL_AND_REPEAT_DECIDER"
+            ],
+            "authority_requirements": [
+              "validator requires authorized path and candidate under evaluation"
+            ],
+            "component_id": "S10_TARGET_CONFORMANCE_VALIDATOR",
+            "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+            "component_version": "v0",
+            "forbidden_actions": [
+              "source acquisition",
+              "source refresh",
+              "schema invention",
+              "capability creation",
+              "authority activation",
+              "authority escalation",
+              "automatic repair",
+              "automatic taxonomy upgrade",
+              "automatic rerun",
+              "automatic radius renewal",
+              "runtime publication",
+              "runner creation",
+              "registry activation",
+              "promotion record creation",
+              "repair O2",
+              "invent validation result",
+              "conflate with candidate integrity"
+            ],
+            "possible_results": [
+              "VALIDATION_NOT_RUN",
+              "VALIDATION_PASS",
+              "VALIDATION_FAIL_REQUIRED_SECTION",
+              "VALIDATION_FAIL_REQUIRED_FIELD",
+              "VALIDATION_FAIL_TYPE",
+              "VALIDATION_FAIL_VALUE_CONSTRAINT",
+              "VALIDATION_FAIL_CROSS_FIELD",
+              "VALIDATION_FAIL_SOURCE_DECLARATION",
+              "VALIDATION_FAIL_AUTHORITY_DECLARATION",
+              "VALIDATION_FAIL_PROHIBITED_DECLARATION",
+              "VALIDATION_FAIL_SCOPE_REGIME_BINDING",
+              "VALIDATION_FAIL_OBJECT_BINDING",
+              "VALIDATION_FAIL_SCHEMA_UNAVAILABLE",
+              "VALIDATION_RESULT_AMBIGUOUS"
+            ],
+            "primary_role": "Validate candidate conformance using exact V4 result vocabulary.",
+            "reads": [
+              "current or staged candidate",
+              "O2",
+              "O3",
+              "F0",
+              "S0"
+            ],
+            "receipt_obligations": [
+              "validation result in controlled-step receipt"
+            ],
+            "repairs_candidate": false,
+            "required_inputs": [
+              "candidate payload",
+              "target rules",
+              "source declarations"
+            ],
+            "source_basis": [
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S10_TARGET_CONFORMANCE_VALIDATOR is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "V4 validation vocabulary",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              }
+            ],
+            "validation_result_vocabulary": [
+              "VALIDATION_NOT_RUN",
+              "VALIDATION_PASS",
+              "VALIDATION_FAIL_REQUIRED_SECTION",
+              "VALIDATION_FAIL_REQUIRED_FIELD",
+              "VALIDATION_FAIL_TYPE",
+              "VALIDATION_FAIL_VALUE_CONSTRAINT",
+              "VALIDATION_FAIL_CROSS_FIELD",
+              "VALIDATION_FAIL_SOURCE_DECLARATION",
+              "VALIDATION_FAIL_AUTHORITY_DECLARATION",
+              "VALIDATION_FAIL_PROHIBITED_DECLARATION",
+              "VALIDATION_FAIL_SCOPE_REGIME_BINDING",
+              "VALIDATION_FAIL_OBJECT_BINDING",
+              "VALIDATION_FAIL_SCHEMA_UNAVAILABLE",
+              "VALIDATION_RESULT_AMBIGUOUS"
+            ],
+            "writes": [
+              "validation_result"
+            ]
+          },
+          "component_sha256": "b31215ef8354cbde00fc04f81242b76e26da2627cb3638bb7f3082d8bd83f2be",
+          "component_storage": "EMBEDDED_IN_K0",
+          "component_version": "v0",
+          "external_contract_reference": null,
+          "primary_role": "Validate candidate conformance using exact V4 result vocabulary."
+        },
+        {
+          "component_id": "S11_LAWFUL_ADMISSIBILITY_EVALUATOR",
+          "component_payload": {
+            "allowed_next_components": [
+              "S12_FORBIDDEN_EFFECT_GUARD",
+              "S14_CONVERGENCE_CRITERION_EVALUATOR",
+              "S15_TERMINAL_AND_REPEAT_DECIDER"
+            ],
+            "authority_requirements": [
+              "admissibility evaluation requires validation pass and active step authority"
+            ],
+            "component_id": "S11_LAWFUL_ADMISSIBILITY_EVALUATOR",
+            "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+            "component_version": "v0",
+            "forbidden_actions": [
+              "source acquisition",
+              "source refresh",
+              "schema invention",
+              "capability creation",
+              "authority activation",
+              "authority escalation",
+              "automatic repair",
+              "automatic taxonomy upgrade",
+              "automatic rerun",
+              "automatic radius renewal",
+              "runtime publication",
+              "runner creation",
+              "registry activation",
+              "promotion record creation",
+              "repair candidate",
+              "acquire sources",
+              "create schemas",
+              "create capabilities",
+              "grant authority",
+              "promote artifacts",
+              "run before VALIDATION_PASS"
+            ],
+            "not_run_detail_when_validation_not_passed": "VALIDATION_DID_NOT_PASS",
+            "possible_results": [
+              "ADMISSIBILITY_NOT_RUN",
+              "ADMISSIBILITY_PASS",
+              "ADMISSIBILITY_FAIL_UNSUPPORTED_CLAIM",
+              "ADMISSIBILITY_FAIL_SOURCE",
+              "ADMISSIBILITY_FAIL_AUTHORITY",
+              "ADMISSIBILITY_FAIL_CAPABILITY",
+              "ADMISSIBILITY_FAIL_FORBIDDEN_EFFECT",
+              "ADMISSIBILITY_FAIL_SCOPE_REGIME",
+              "ADMISSIBILITY_RESULT_AMBIGUOUS"
+            ],
+            "primary_role": "Evaluate candidate admissibility only after VALIDATION_PASS using exact V5 results.",
+            "reads": [
+              "validation result",
+              "candidate",
+              "sources",
+              "authority",
+              "capability evidence",
+              "F0"
+            ],
+            "receipt_obligations": [
+              "admissibility result in controlled-step receipt"
+            ],
+            "repairs_candidate": false,
+            "required_inputs": [
+              "VALIDATION_PASS"
+            ],
+            "source_basis": [
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S11_LAWFUL_ADMISSIBILITY_EVALUATOR is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "V5 admissibility vocabulary",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              }
+            ],
+            "writes": [
+              "admissibility_result"
+            ]
+          },
+          "component_sha256": "d17f99ece027f95e4ea75742df3efd5410bedd50b97fee41acba3039df38b262",
+          "component_storage": "EMBEDDED_IN_K0",
+          "component_version": "v0",
+          "external_contract_reference": null,
+          "primary_role": "Evaluate candidate admissibility only after VALIDATION_PASS using exact V5 results."
+        },
+        {
+          "component_id": "S12_FORBIDDEN_EFFECT_GUARD",
+          "component_payload": {
+            "allowed_next_components": [
+              "S10_TARGET_CONFORMANCE_VALIDATOR",
+              "S14_CONVERGENCE_CRITERION_EVALUATOR",
+              "S15_TERMINAL_AND_REPEAT_DECIDER"
+            ],
+            "authority_requirements": [
+              "guard checks cannot activate authority or repair state"
+            ],
+            "bundle_integrity_failure_maps_to": {
+              "primary_outcome": "STEP_PUBLICATION_ABORTED",
+              "publication_abort_detail": "STAGED_BUNDLE_INTEGRITY_FAILURE"
+            },
+            "component_id": "S12_FORBIDDEN_EFFECT_GUARD",
+            "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+            "component_version": "v0",
+            "forbidden_actions": [
+              "source acquisition",
+              "source refresh",
+              "schema invention",
+              "capability creation",
+              "authority activation",
+              "authority escalation",
+              "automatic repair",
+              "automatic taxonomy upgrade",
+              "automatic rerun",
+              "automatic radius renewal",
+              "runtime publication",
+              "runner creation",
+              "registry activation",
+              "promotion record creation",
+              "mark actual forbidden effect repairable",
+              "allow hidden continuation",
+              "introduce STOP_STEP_ATOMICITY_VIOLATION"
+            ],
+            "guard_stages": [
+              "G1_INVOCATION_BINDING_BOUNDARY",
+              "G2_POST_INSPECTION_PRE_ENUMERATION",
+              "G3_PRE_APPLICATION",
+              "G4_POST_DELTA_STAGING",
+              "G5_PRE_PUBLICATION_SEMANTIC_GUARD",
+              "G6_STAGED_BUNDLE_INTEGRITY",
+              "G7_PRE_TERMINAL_OR_REPEAT_DISPOSITION"
+            ],
+            "possible_results": [
+              "GUARD_PASS",
+              "STOP_FORBIDDEN_EFFECT_DETECTED",
+              "STEP_PUBLICATION_ABORTED"
+            ],
+            "primary_role": "Run seven guard stages and stop actual forbidden effects without repair.",
+            "reads": [
+              "invocation bundle",
+              "inspection outputs",
+              "staged delta",
+              "staged publication bundle",
+              "terminal or repeat disposition"
+            ],
+            "receipt_obligations": [
+              "guard evidence in controlled-step receipt and publication-attempt integrity receipt"
+            ],
+            "required_inputs": [
+              "guard stage inputs",
+              "scope/regime invariants",
+              "authority invariants"
+            ],
+            "source_basis": [
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S12_FORBIDDEN_EFFECT_GUARD is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "forbidden-effect guard stages",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              }
+            ],
+            "writes": [
+              "guard results",
+              "publication abort detail when staged bundle integrity fails"
+            ]
+          },
+          "component_sha256": "6cc5f15cd6b4eddcf482e31c981fc910b67c6705d56955f568d08aeb022f1cee",
+          "component_storage": "EMBEDDED_IN_K0",
+          "component_version": "v0",
+          "external_contract_reference": null,
+          "primary_role": "Run seven guard stages and stop actual forbidden effects without repair."
+        },
+        {
+          "component_id": "S13_RECEIPT_AND_ATOMIC_PUBLICATION_BUILDER",
+          "component_payload": null,
+          "component_sha256": "a5375ec82dd148d05d7199296b58f186747b27cf3f4922555bec6ed1ed29cbf4",
+          "component_storage": "EXTERNAL_STANDALONE_CONTRACT",
+          "component_version": "v0",
+          "external_contract_reference": {
+            "artifact_id": "phase_vs2_receipt_and_atomic_publication_contract_v0",
+            "artifact_kind": "STATIC_RECEIPT_AND_ATOMIC_PUBLICATION_CONTRACT",
+            "artifact_version": "v0",
+            "binding_reason": "VS2.5-built phase_vs2_receipt_and_atomic_publication_contract_v0 canonical binding.",
+            "binding_status": "BOUND",
+            "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+            "content_sha256": "a5375ec82dd148d05d7199296b58f186747b27cf3f4922555bec6ed1ed29cbf4",
+            "declared_path": "docs/matrixlabs/phase_vs2/controlled_step/phase_vs2_receipt_and_atomic_publication_contract_v0.json",
+            "expected_artifact_kind": "STATIC_RECEIPT_AND_ATOMIC_PUBLICATION_CONTRACT",
+            "hash_algorithm": "SHA-256",
+            "reference_id": "phase_vs2_receipt_and_atomic_publication_contract_v0_reference",
+            "reference_role": "RECEIPT_AND_ATOMIC_PUBLICATION_CONTRACT",
+            "required_by_unit": "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+          },
+          "primary_role": "Build deterministic receipts and publish an authoritative bundle only after read-back passes."
+        },
+        {
+          "component_id": "S14_CONVERGENCE_CRITERION_EVALUATOR",
+          "component_payload": null,
+          "component_sha256": "a9c512025963df2a07ba93e3071683f392264013824f82ddbcfd923ab8321fd4",
+          "component_storage": "EXTERNAL_STANDALONE_CONTRACT",
+          "component_version": "v0",
+          "external_contract_reference": {
+            "artifact_id": "phase_vs2_convergence_criterion_contract_v0",
+            "artifact_kind": "STATIC_OPERATIONAL_CONVERGENCE_CRITERION_CONTRACT",
+            "artifact_version": "v0",
+            "binding_reason": "VS2.5-built phase_vs2_convergence_criterion_contract_v0 canonical binding.",
+            "binding_status": "BOUND",
+            "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+            "content_sha256": "a9c512025963df2a07ba93e3071683f392264013824f82ddbcfd923ab8321fd4",
+            "declared_path": "docs/matrixlabs/phase_vs2/controlled_step/phase_vs2_convergence_criterion_contract_v0.json",
+            "expected_artifact_kind": "STATIC_OPERATIONAL_CONVERGENCE_CRITERION_CONTRACT",
+            "hash_algorithm": "SHA-256",
+            "reference_id": "phase_vs2_convergence_criterion_contract_v0_reference",
+            "reference_role": "CONVERGENCE_CRITERION_CONTRACT",
+            "required_by_unit": "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+          },
+          "primary_role": "Evaluate target terminal, continue, non-progress, repeated-state, oscillation, radius, and ambiguous convergence states."
+        },
+        {
+          "component_id": "S15_TERMINAL_AND_REPEAT_DECIDER",
+          "component_payload": {
+            "allowed_next_components": [
+              "S13_RECEIPT_AND_ATOMIC_PUBLICATION_BUILDER",
+              "S17_MINIMAL_REPLAY_AND_AUDIT_VERIFIER"
+            ],
+            "authority_requirements": [
+              "repeat eligibility requires separate bounded harness authority"
+            ],
+            "component_id": "S15_TERMINAL_AND_REPEAT_DECIDER",
+            "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+            "component_version": "v0",
+            "forbidden_actions": [
+              "source acquisition",
+              "source refresh",
+              "schema invention",
+              "capability creation",
+              "authority activation",
+              "authority escalation",
+              "automatic repair",
+              "automatic taxonomy upgrade",
+              "automatic rerun",
+              "automatic radius renewal",
+              "runtime publication",
+              "runner creation",
+              "registry activation",
+              "promotion record creation",
+              "self-invoke",
+              "start another step",
+              "reopen terminal state",
+              "assume future move"
+            ],
+            "possible_results": [
+              "TARGET_REACHED",
+              "REPEAT_NEXT_STEP_ELIGIBLE",
+              "TYPED_STOP",
+              "INPUT_REJECTED",
+              "PREEXECUTION_TYPED_STOP",
+              "PUBLICATION_ABORTED"
+            ],
+            "primary_role": "Decide target, repeat eligibility, typed stop, input rejection, pre-execution stop, or publication abort.",
+            "reads": [
+              "C20 result",
+              "validation result",
+              "admissibility result",
+              "guard results",
+              "receipt and publication status",
+              "runtime budget state"
+            ],
+            "receipt_obligations": [
+              "case-terminal or controlled-step receipt obligations according to disposition"
+            ],
+            "repeat_requires": [
+              "one O2 successor committed",
+              "one O1 successor committed",
+              "CONVERGENCE_CONTINUE_ALLOWED",
+              "strict progress witness",
+              "candidate hash not repeated",
+              "oscillation absent",
+              "remaining radius and budgets positive",
+              "controlled-step receipt committed",
+              "execution package still valid"
+            ],
+            "required_inputs": [
+              "complete upstream stage results",
+              "strict progress witness when repeat is considered"
+            ],
+            "source_basis": [
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S15_TERMINAL_AND_REPEAT_DECIDER is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "terminal and repeat policy",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              }
+            ],
+            "terminal_o1_state_immutable": true,
+            "writes": [
+              "controlled-step disposition"
+            ]
+          },
+          "component_sha256": "b16c7b03e5d0b88e6c5ba59449a61657c4d39f171058cf722e520d88b2597e51",
+          "component_storage": "EMBEDDED_IN_K0",
+          "component_version": "v0",
+          "external_contract_reference": null,
+          "primary_role": "Decide target, repeat eligibility, typed stop, input rejection, pre-execution stop, or publication abort."
+        },
+        {
+          "component_id": "S16_CONTROLLED_STEP_ORCHESTRATOR",
+          "component_payload": {
+            "allowed_next_components": [
+              "S17_MINIMAL_REPLAY_AND_AUDIT_VERIFIER"
+            ],
+            "authority_requirements": [
+              "orchestration requires active execution authority when passing preflight"
+            ],
+            "component_id": "S16_CONTROLLED_STEP_ORCHESTRATOR",
+            "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+            "component_version": "v0",
+            "forbidden_actions": [
+              "source acquisition",
+              "source refresh",
+              "schema invention",
+              "capability creation",
+              "authority activation",
+              "authority escalation",
+              "automatic repair",
+              "automatic taxonomy upgrade",
+              "automatic rerun",
+              "automatic radius renewal",
+              "runtime publication",
+              "runner creation",
+              "registry activation",
+              "promotion record creation",
+              "self-invoke",
+              "automatic rerun",
+              "hidden continuation",
+              "run fixture",
+              "stage runtime publication outside R13"
+            ],
+            "one_invocation_only": true,
+            "ordered_contract": [
+              "verify invocation structure and immutable bindings",
+              "reject malformed, invalid, or mismatched input",
+              "inspect active step-authority status",
+              "inspect source-snapshot status",
+              "run G1",
+              "inspect candidate",
+              "classify observations",
+              "evaluate capability boundary",
+              "target branch or hard-stop branch or transformation branch",
+              "allocate receipt IDs",
+              "stage O1 successor where lawful",
+              "compute state hashes",
+              "construct receipts",
+              "construct commit manifest",
+              "verify staged bundle",
+              "publish provisionally",
+              "read-back audit"
+            ],
+            "possible_results": [
+              "STEP_INPUT_REJECTED",
+              "STEP_PREEXECUTION_TYPED_STOP",
+              "STEP_TARGET_REACHED",
+              "STEP_MOVE_APPLIED_CONTINUE",
+              "STEP_TYPED_STOP",
+              "STEP_PUBLICATION_ABORTED"
+            ],
+            "primary_role": "Orchestrate exactly one controlled-step invocation without self-invocation.",
+            "reads": [
+              "all S01-S15 results",
+              "K0 package",
+              "M2 manifest",
+              "runtime envelope when present"
+            ],
+            "receipt_obligations": [
+              "controlled-step receipt references all executed and skipped stages"
+            ],
+            "required_inputs": [
+              "valid invocation structure",
+              "bound K0",
+              "bound M2"
+            ],
+            "skipped_stage_reason_prefix": "NOT_RUN_",
+            "source_basis": [
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S16_CONTROLLED_STEP_ORCHESTRATOR is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "S16 orchestration",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              }
+            ],
+            "writes": [
+              "ordered stage record",
+              "skipped stage typed reasons",
+              "single-invocation disposition"
+            ]
+          },
+          "component_sha256": "1ea5c68116de0f06877ec4a8c4675195358dc178130ed28180c94b848d008bf4",
+          "component_storage": "EMBEDDED_IN_K0",
+          "component_version": "v0",
+          "external_contract_reference": null,
+          "primary_role": "Orchestrate exactly one controlled-step invocation without self-invocation."
+        },
+        {
+          "component_id": "S17_MINIMAL_REPLAY_AND_AUDIT_VERIFIER",
+          "component_payload": {
+            "allowed_next_components": [],
+            "authority_requirements": [
+              "audit is read-only and creates no replay authority"
+            ],
+            "component_id": "S17_MINIMAL_REPLAY_AND_AUDIT_VERIFIER",
+            "component_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+            "component_version": "v0",
+            "forbidden_actions": [
+              "source acquisition",
+              "source refresh",
+              "schema invention",
+              "capability creation",
+              "authority activation",
+              "authority escalation",
+              "automatic repair",
+              "automatic taxonomy upgrade",
+              "automatic rerun",
+              "automatic radius renewal",
+              "runtime publication",
+              "runner creation",
+              "registry activation",
+              "promotion record creation",
+              "general replay authority",
+              "rerun authority",
+              "repair evidence",
+              "publish missing receipt"
+            ],
+            "general_replay_or_rerun_authority_created": false,
+            "possible_results": [
+              "STEP_AUDIT_PASS",
+              "STEP_AUDIT_FAIL_INPUT_IDENTITY",
+              "STEP_AUDIT_FAIL_SCOPE_REGIME",
+              "STEP_AUDIT_FAIL_SOURCE_BINDING",
+              "STEP_AUDIT_FAIL_CAPABILITY_BOUNDARY",
+              "STEP_AUDIT_FAIL_MOVE_ENUMERATION",
+              "STEP_AUDIT_FAIL_MOVE_SELECTION",
+              "STEP_AUDIT_FAIL_AUTHORITY_CHECK",
+              "STEP_AUDIT_FAIL_BUDGET_ACCOUNTING",
+              "STEP_AUDIT_FAIL_DELTA",
+              "STEP_AUDIT_FAIL_CANDIDATE_INTEGRITY",
+              "STEP_AUDIT_FAIL_TARGET_VALIDATION",
+              "STEP_AUDIT_FAIL_ADMISSIBILITY",
+              "STEP_AUDIT_FAIL_GUARD",
+              "STEP_AUDIT_FAIL_CONVERGENCE",
+              "STEP_AUDIT_FAIL_RUNTIME_HASH",
+              "STEP_AUDIT_FAIL_TERMINAL_DECISION",
+              "STEP_AUDIT_FAIL_ATOMIC_PUBLICATION",
+              "STEP_AUDIT_FAIL_RECEIPT_INCOMPLETE"
+            ],
+            "primary_role": "Verify minimal replay and audit evidence for a completed controlled-step bundle.",
+            "reads": [
+              "input identities and hashes",
+              "F0",
+              "O3",
+              "M0",
+              "M1",
+              "MS0",
+              "K0",
+              "M2",
+              "source-snapshot binding",
+              "execution-authority binding",
+              "stage results",
+              "receipt set",
+              "commit manifest"
+            ],
+            "receipt_obligations": [
+              "audit result and failure code in controlled-step receipt"
+            ],
+            "required_inputs": [
+              "complete controlled-step evidence bundle"
+            ],
+            "source_basis": [
+              {
+                "basis_class": "VS2_5_PROMPT_AND_UPSTREAM_CONTRACT_DERIVED",
+                "basis_reason": "S17_MINIMAL_REPLAY_AND_AUDIT_VERIFIER is frozen as part of the VS2.5 controlled-step contract package.",
+                "section": "minimal audit",
+                "source_authority": "committed_vs2_move_space_authority_or_deterministic_vs2_5_construction"
+              }
+            ],
+            "writes": [
+              "minimal audit result"
+            ]
+          },
+          "component_sha256": "8e76645e6ea0ba8055ae99e9a1f22c85652b0dd203987ea7d389ed4a5b32d3b2",
+          "component_storage": "EMBEDDED_IN_K0",
+          "component_version": "v0",
+          "external_contract_reference": null,
+          "primary_role": "Verify minimal replay and audit evidence for a completed controlled-step bundle."
+        }
+      ],
+      "construction_authority_provenance": {
+        "additional_bounded_construction_grant_consumption_by_vs2_5": false,
+        "bounded_construction_consumption_count_after": 1,
+        "bounded_construction_consumption_count_before": 1,
+        "bounded_construction_frame_completed_by_vs2_5": true,
+        "bounded_construction_frame_exercised_by_vs2_5": true,
+        "bounded_construction_frame_open_after_vs2_5": false,
+        "bounded_construction_grant_further_use_permitted": false,
+        "bounded_construction_grant_id": "VS2_BOUNDED_CONSTRUCTION_AUTHORITY",
+        "bounded_construction_grant_prior_consumed": true,
+        "bounded_construction_local_exercise_scope": "CONTROLLED_STEP_AND_CONVERGENCE_CONTRACTS_ONLY",
+        "construction_package_verification_authority_consumed_by_vs2_5": false,
+        "execution_authority_consumed_by_vs2_5": false,
+        "fixture_construction_authority_consumed_by_vs2_5": false,
+        "readiness_gate_construction_authority_consumed_by_vs2_5": false,
+        "same_bounded_construction_grant_may_be_consumed_again": false,
+        "source_vs2_4_construction_authority": {
+          "additional_bounded_construction_grant_consumption_by_vs2_4": false,
+          "bounded_construction_consumption_count_after": 1,
+          "bounded_construction_consumption_count_before": 1,
+          "bounded_construction_frame": "VS2.3_TO_VS2.5_BOUND_TARGET_CONSTRUCTION_SEQUENCE",
+          "bounded_construction_frame_exercised_by_vs2_4": true,
+          "bounded_construction_frame_open_after_vs2_4": true,
+          "bounded_construction_grant_id": "VS2_BOUNDED_CONSTRUCTION_AUTHORITY",
+          "bounded_construction_grant_prior_consumed": true,
+          "bounded_construction_local_exercise_scope": "FINITE_MOVE_SPACE_SOURCE_BINDING_AND_PROSPECTIVE_AUTHORITY_ONLY",
+          "construction_package_verification_authority_consumed_by_vs2_4": false,
+          "execution_authority_consumed_by_vs2_4": false,
+          "fixture_construction_authority_consumed_by_vs2_4": false,
+          "readiness_gate_construction_authority_consumed_by_vs2_4": false,
+          "remaining_frame_units": [
+            "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+          ],
+          "same_bounded_construction_grant_may_be_consumed_again": false,
+          "source_vs2_3_consumption_frame": "VS2.3_TO_VS2.5_BOUND_TARGET_CONSTRUCTION_SEQUENCE",
+          "unconsumed_effective_grant_count": 3,
+          "unconsumed_effective_grant_ids": [
+            "VS2_FIXTURE_CONSTRUCTION_AUTHORITY",
+            "VS2_FIRST_RUN_READINESS_GATE_CONSTRUCTION_AUTHORITY",
+            "VS2_CONSTRUCTION_PACKAGE_VERIFICATION_AUTHORITY"
+          ]
+        },
+        "unconsumed_effective_grant_count": 3,
+        "unconsumed_effective_grant_ids": [
+          "VS2_FIXTURE_CONSTRUCTION_AUTHORITY",
+          "VS2_FIRST_RUN_READINESS_GATE_CONSTRUCTION_AUTHORITY",
+          "VS2_CONSTRUCTION_PACKAGE_VERIFICATION_AUTHORITY"
+        ]
+      },
+      "construction_order": [
+        "construct and hash R13",
+        "construct and hash C20",
+        "construct and hash the fifteen embedded component contracts",
+        "construct and hash K0 without M2 hash",
+        "construct and hash M2 after K0 hash exists",
+        "construct and hash VS2.5 receipt",
+        "render deterministic Markdown projections"
+      ],
+      "controlled_step_contract": {
+        "contract_status": "DEFINED_AND_FROZEN_NOT_EXECUTED",
+        "maximum_candidate_transformations_per_step": 1,
+        "self_invocation_allowed": false,
+        "step_class": "ONE_MOVE_BOUNDED_DETERMINISTIC_RECEIPTED_ATOMIC_STEP",
+        "step_contract_id": "FIRST_SWEEP_KERNEL_CONTROLLED_STEP_CONTRACT_V0",
+        "step_contract_version": "v0"
+      },
+      "embedded_component_count": 15,
+      "external_component_count": 2,
+      "frozen_auxiliary_vocabularies": {
+        "V2_OBSERVATIONS": [
+          "OBS_TARGET_ALREADY_REACHED",
+          "OBS_MISSING_REQUIRED_FIELD_DECLARATION",
+          "OBS_NONCANONICAL_TYPED_VALUE",
+          "OBS_SOURCE_IDENTITY_DECLARATION_MISSING",
+          "OBS_SOURCE_FRESHNESS_DECLARATION_MISSING",
+          "OBS_SOURCE_STALE",
+          "OBS_PROHIBITED_CANDIDATE_DECLARATION_PRESENT",
+          "OBS_ACTUAL_FORBIDDEN_EFFECT_DETECTED",
+          "OBS_AMBIGUOUS_BOUNDARY_DECLARATION",
+          "OBS_CONFLATED_DECLARATION_PRESENT",
+          "OBS_UNSUPPORTED_CLAIM_DECLARED_SUPPORTED",
+          "OBS_SCHEMA_REQUIREMENT_MISSING",
+          "OBS_AUTHORITY_REQUIREMENT_MISSING",
+          "OBS_CAPABILITY_REQUIREMENT_MISSING",
+          "OBS_SCOPE_REGIME_VIOLATION",
+          "OBS_OBJECT_BINDING_MISMATCH",
+          "OBS_NON_PROGRESS",
+          "OBS_REPEATED_STATE",
+          "OBS_NO_RECOGNIZED_CONDITION"
+        ],
+        "V3_CONDITION_CLASSIFICATIONS": [
+          "CONDITION_TARGET_SATISFIED",
+          "CONDITION_REPAIRABLE_DEFECT",
+          "CONDITION_UNREPAIRABLE_UNDER_CURRENT_MOVE_SPACE",
+          "CONDITION_MISSING_SOURCE",
+          "CONDITION_SOURCE_IDENTITY_UNVERIFIED",
+          "CONDITION_SOURCE_STALE",
+          "CONDITION_MISSING_SCHEMA",
+          "CONDITION_MISSING_AUTHORITY",
+          "CONDITION_MISSING_CAPABILITY",
+          "CONDITION_FORBIDDEN_EFFECT",
+          "CONDITION_AMBIGUOUS_BOUNDARY",
+          "CONDITION_CONFLATED_FIELD",
+          "CONDITION_UNSUPPORTED_CLAIM",
+          "CONDITION_SCOPE_REGIME_VIOLATION",
+          "CONDITION_OBJECT_BINDING_MISMATCH",
+          "CONDITION_NON_PROGRESS",
+          "CONDITION_REPEATED_STATE",
+          "CONDITION_NO_ADMISSIBLE_MOVE",
+          "CONDITION_UNCLASSIFIED"
+        ],
+        "V4_VALIDATION_RESULTS": [
+          "VALIDATION_NOT_RUN",
+          "VALIDATION_PASS",
+          "VALIDATION_FAIL_REQUIRED_SECTION",
+          "VALIDATION_FAIL_REQUIRED_FIELD",
+          "VALIDATION_FAIL_TYPE",
+          "VALIDATION_FAIL_VALUE_CONSTRAINT",
+          "VALIDATION_FAIL_CROSS_FIELD",
+          "VALIDATION_FAIL_SOURCE_DECLARATION",
+          "VALIDATION_FAIL_AUTHORITY_DECLARATION",
+          "VALIDATION_FAIL_PROHIBITED_DECLARATION",
+          "VALIDATION_FAIL_SCOPE_REGIME_BINDING",
+          "VALIDATION_FAIL_OBJECT_BINDING",
+          "VALIDATION_FAIL_SCHEMA_UNAVAILABLE",
+          "VALIDATION_RESULT_AMBIGUOUS"
+        ],
+        "V5_CANDIDATE_ADMISSIBILITY_RESULTS": [
+          "ADMISSIBILITY_NOT_RUN",
+          "ADMISSIBILITY_PASS",
+          "ADMISSIBILITY_FAIL_UNSUPPORTED_CLAIM",
+          "ADMISSIBILITY_FAIL_SOURCE",
+          "ADMISSIBILITY_FAIL_AUTHORITY",
+          "ADMISSIBILITY_FAIL_CAPABILITY",
+          "ADMISSIBILITY_FAIL_FORBIDDEN_EFFECT",
+          "ADMISSIBILITY_FAIL_SCOPE_REGIME",
+          "ADMISSIBILITY_RESULT_AMBIGUOUS"
+        ],
+        "V6_CONVERGENCE_RESULTS": [
+          "CONVERGENCE_NOT_RUN",
+          "CONVERGENCE_CONTINUE_ALLOWED",
+          "CONVERGENCE_TARGET_TERMINAL_CONDITION_SATISFIED",
+          "CONVERGENCE_STOP_NON_PROGRESS",
+          "CONVERGENCE_STOP_REPEATED_STATE",
+          "CONVERGENCE_STOP_OSCILLATION",
+          "CONVERGENCE_STOP_ATTEMPTED_MOVE_BOUND_EXHAUSTED",
+          "CONVERGENCE_STOP_APPLIED_MOVE_BOUND_EXHAUSTED",
+          "CONVERGENCE_STOP_DECLARED_RADIUS_BOUND_EXHAUSTED",
+          "CONVERGENCE_CRITERION_UNMET",
+          "CONVERGENCE_RESULT_AMBIGUOUS"
+        ],
+        "V7_TERMINAL_OUTCOMES": [
+          "TARGET_REACHED",
+          "STOP_REPAIR_NOT_LAWFUL",
+          "STOP_MISSING_SOURCE",
+          "STOP_MISSING_SCHEMA",
+          "STOP_MISSING_AUTHORITY",
+          "STOP_MISSING_CAPABILITY",
+          "STOP_RADIUS_EXHAUSTED",
+          "STOP_NO_ADMISSIBLE_MOVE",
+          "STOP_VALIDATION_FAILED",
+          "STOP_ADMISSIBILITY_FAILED",
+          "STOP_FORBIDDEN_EFFECT_DETECTED",
+          "STOP_SOURCE_IDENTITY_UNVERIFIED",
+          "STOP_SCOPE_REGIME_VIOLATION",
+          "STOP_NON_PROGRESS",
+          "STOP_REPEATED_STATE",
+          "STOP_CONVERGENCE_CRITERION_UNMET",
+          "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT"
+        ]
+      },
+      "m2_future_hash_bound": false,
+      "move_space_binding": {
+        "complete_enumeration_required": true,
+        "enumeration_bypass_status": "NOT_RUN_TYPED_NON_TRANSFORMATION_BRANCH",
+        "move_count": 8,
+        "ordered_move_ids": [
+          "M01_ADD_AUTHORIZED_REQUIRED_FIELD",
+          "M02_NORMALIZE_TYPED_VALUE",
+          "M03_BIND_DECLARED_SOURCE_IDENTITY",
+          "M04_BIND_DECLARED_SOURCE_FRESHNESS",
+          "M05_REMOVE_PROHIBITED_CANDIDATE_DECLARATION",
+          "M06_TIGHTEN_AMBIGUOUS_BOUNDARY",
+          "M07_SPLIT_CONFLATED_DECLARATION",
+          "M08_REJECT_UNSUPPORTED_CLAIM"
+        ]
+      },
+      "nonclaims": [
+        "does_not_create_fixture_instance",
+        "does_not_create_runtime_state_instance",
+        "does_not_create_candidate_instance",
+        "does_not_enumerate_live_candidate",
+        "does_not_select_move",
+        "does_not_apply_move",
+        "does_not_execute_sweep",
+        "does_not_create_runner"
+      ],
+      "one_primary_role_per_component": true,
+      "package_id": "FIRST_SWEEP_KERNEL_CONTROLLED_STEP_AND_CONVERGENCE_PACKAGE_V0",
+      "package_status": "FROZEN_NOT_EXECUTED",
+      "package_version": "v0",
+      "phase_id": "PHASE_VS2",
+      "primary_invocation_outcome_count": 6,
+      "primary_invocation_outcomes": [
+        "STEP_INPUT_REJECTED",
+        "STEP_PREEXECUTION_TYPED_STOP",
+        "STEP_TARGET_REACHED",
+        "STEP_MOVE_APPLIED_CONTINUE",
+        "STEP_TYPED_STOP",
+        "STEP_PUBLICATION_ABORTED"
+      ],
+      "r13_reference": {
+        "artifact_id": "phase_vs2_receipt_and_atomic_publication_contract_v0",
+        "artifact_kind": "STATIC_RECEIPT_AND_ATOMIC_PUBLICATION_CONTRACT",
+        "artifact_version": "v0",
+        "binding_reason": "VS2.5-built phase_vs2_receipt_and_atomic_publication_contract_v0 canonical binding.",
+        "binding_status": "BOUND",
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "content_sha256": "a5375ec82dd148d05d7199296b58f186747b27cf3f4922555bec6ed1ed29cbf4",
+        "declared_path": "docs/matrixlabs/phase_vs2/controlled_step/phase_vs2_receipt_and_atomic_publication_contract_v0.json",
+        "expected_artifact_kind": "STATIC_RECEIPT_AND_ATOMIC_PUBLICATION_CONTRACT",
+        "hash_algorithm": "SHA-256",
+        "reference_id": "phase_vs2_receipt_and_atomic_publication_contract_v0_reference",
+        "reference_role": "RECEIPT_AND_ATOMIC_PUBLICATION_CONTRACT",
+        "required_by_unit": "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+      },
+      "runtime_posture": {
+        "active_execution_authority_present": false,
+        "active_sweep_authority_present": false,
+        "candidate_instance_created": false,
+        "exact_runtime_budgets_bound": false,
+        "exact_source_snapshot_bound": false,
+        "execution_performed": false,
+        "fixture_set_bound": false,
+        "move_applied": false,
+        "move_enumerated_against_live_candidate": false,
+        "move_selected": false,
+        "runner_created": false,
+        "runtime_instance_created": false,
+        "sweep_executed": false
+      },
+      "schema_version": "matrixlabs_phase_vs2_controlled_step_and_convergence_contract_package_v0",
+      "selector_policy": [
+        "discard moves not runtime-authorized",
+        "enforce frozen dependencies",
+        "retain moves directly addressing primary condition",
+        "prefer smallest candidate write-set",
+        "prefer lowest move cost",
+        "break remaining ties by canonical move ID"
+      ],
+      "terminal_family": {
+        "forbidden_terminal_outcomes": [
+          "STOP_BUDGET_EXHAUSTED",
+          "STOP_OBJECT_BINDING_MISMATCH",
+          "STOP_INSPECTION_INCOMPLETE",
+          "STOP_STEP_ATOMICITY_VIOLATION"
+        ],
+        "stop_budget_exhausted_present": false,
+        "terminal_outcome_count": 17,
+        "terminal_outcomes": [
+          "TARGET_REACHED",
+          "STOP_REPAIR_NOT_LAWFUL",
+          "STOP_MISSING_SOURCE",
+          "STOP_MISSING_SCHEMA",
+          "STOP_MISSING_AUTHORITY",
+          "STOP_MISSING_CAPABILITY",
+          "STOP_RADIUS_EXHAUSTED",
+          "STOP_NO_ADMISSIBLE_MOVE",
+          "STOP_VALIDATION_FAILED",
+          "STOP_ADMISSIBILITY_FAILED",
+          "STOP_FORBIDDEN_EFFECT_DETECTED",
+          "STOP_SOURCE_IDENTITY_UNVERIFIED",
+          "STOP_SCOPE_REGIME_VIOLATION",
+          "STOP_NON_PROGRESS",
+          "STOP_REPEATED_STATE",
+          "STOP_CONVERGENCE_CRITERION_UNMET",
+          "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT"
+        ]
+      },
+      "unit_id": "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION",
+      "upstream_bindings": [
+        {
+          "artifact_id": "phase_vs2_scope_regime_contract_v0",
+          "artifact_kind": "STATIC_FRAME_CONTRACT",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_scope_regime_contract_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "a6b4819aee35e5f09686a5a69d471b31f3a5cfdcab2078a29323ba1d31211179",
+          "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_scope_regime_contract_v0.json",
+          "expected_artifact_kind": "STATIC_FRAME_CONTRACT",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_scope_regime_contract_v0_reference",
+          "reference_role": "SCOPE_REGIME_FRAME",
+          "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+        },
+        {
+          "artifact_id": "phase_vs2_runtime_control_state_contract_v0",
+          "artifact_kind": "INSTANCE_SCHEMA_AND_MUTATION_CONTRACT",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_runtime_control_state_contract_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "25fbdfb007372e346d61a3f5de8b0a4f5004c6dff1857e5fc31df38e17c087ad",
+          "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_runtime_control_state_contract_v0.json",
+          "expected_artifact_kind": "INSTANCE_SCHEMA_AND_MUTATION_CONTRACT",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_runtime_control_state_contract_v0_reference",
+          "reference_role": "RUNTIME_CONTROL_STATE_CONTRACT",
+          "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+        },
+        {
+          "artifact_id": "phase_vs2_candidate_typed_state_contract_schema_v0",
+          "artifact_kind": "INSTANCE_SCHEMA_AND_VERSION_CONTRACT",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_candidate_typed_state_contract_schema_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "0216eb5944f87e760844d018d253f5e808a7a5b7ebd208d8d717e6709b979070",
+          "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_candidate_typed_state_contract_schema_v0.json",
+          "expected_artifact_kind": "INSTANCE_SCHEMA_AND_VERSION_CONTRACT",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_candidate_typed_state_contract_schema_v0_reference",
+          "reference_role": "CANDIDATE_SCHEMA_CONTRACT",
+          "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+        },
+        {
+          "artifact_id": "phase_vs2_frozen_target_contract_v0",
+          "artifact_kind": "CONCRETE_IMMUTABLE_TARGET_CONTRACT",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_frozen_target_contract_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "378acf4fb02ad20bfd5213bde4b267fe605dc528812e29a985909fef251d7546",
+          "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_frozen_target_contract_v0.json",
+          "expected_artifact_kind": "CONCRETE_IMMUTABLE_TARGET_CONTRACT",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_frozen_target_contract_v0_reference",
+          "reference_role": "FROZEN_TARGET_CONTRACT",
+          "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+        },
+        {
+          "artifact_id": "phase_vs2_object_model_binding_manifest_v0",
+          "artifact_kind": "STATIC_CONTRACT_BINDING_MANIFEST",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_object_model_binding_manifest_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "0af5f635aaca5c37428cc94ca1a8ee6f3885d6e56543198bbdd33a5d4062db3c",
+          "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_object_model_binding_manifest_v0.json",
+          "expected_artifact_kind": "STATIC_CONTRACT_BINDING_MANIFEST",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_object_model_binding_manifest_v0_reference",
+          "reference_role": "OBJECT_MODEL_BINDING_MANIFEST",
+          "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+        },
+        {
+          "artifact_id": "phase_vs2_source_and_version_binding_contract_v0",
+          "artifact_kind": "STATIC_SOURCE_IDENTITY_VERSION_AND_FRESHNESS_BINDING_CONTRACT",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_source_and_version_binding_contract_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "9b9d6133965beec3b51600ec2d0ab9f002abbd48685cd82f1cf24e0d5d16d6ef",
+          "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_source_and_version_binding_contract_v0.json",
+          "expected_artifact_kind": "STATIC_SOURCE_IDENTITY_VERSION_AND_FRESHNESS_BINDING_CONTRACT",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_source_and_version_binding_contract_v0_reference",
+          "reference_role": "SOURCE_AND_VERSION_BINDING_CONTRACT",
+          "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+        },
+        {
+          "artifact_id": "phase_vs2_move_vocabulary_partition_v0",
+          "artifact_kind": "STATIC_DISJOINT_VOCABULARY_PARTITION",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_move_vocabulary_partition_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "a193dbbee21db8d5577445789d5971ffc29c8c5c37088d4bf88b14434c518c1d",
+          "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_vocabulary_partition_v0.json",
+          "expected_artifact_kind": "STATIC_DISJOINT_VOCABULARY_PARTITION",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_move_vocabulary_partition_v0_reference",
+          "reference_role": "MOVE_VOCABULARY_PARTITION",
+          "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+        },
+        {
+          "artifact_id": "phase_vs2_move_authority_matrix_v0",
+          "artifact_kind": "STATIC_MOVE_AUTHORITY_REQUIREMENT_MATRIX",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_move_authority_matrix_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "4fbd5ae95a00444201f0da70c52515e630b07972f9a3202944f007547d0db0ad",
+          "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_authority_matrix_v0.json",
+          "expected_artifact_kind": "STATIC_MOVE_AUTHORITY_REQUIREMENT_MATRIX",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_move_authority_matrix_v0_reference",
+          "reference_role": "MOVE_AUTHORITY_MATRIX",
+          "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+        },
+        {
+          "artifact_id": "phase_vs2_finite_move_space_v0",
+          "artifact_kind": "TARGET_BOUND_FINITE_CANDIDATE_TRANSFORMATION_MOVE_SPACE",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_finite_move_space_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "68b094ad5f7a283e591b7b23c66650db9921357e13b0e5c7ca7992723303cbe9",
+          "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_finite_move_space_v0.json",
+          "expected_artifact_kind": "TARGET_BOUND_FINITE_CANDIDATE_TRANSFORMATION_MOVE_SPACE",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_finite_move_space_v0_reference",
+          "reference_role": "FINITE_MOVE_SPACE",
+          "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+        },
+        {
+          "artifact_id": "phase_vs2_prospective_controlled_step_authority_envelope_v0",
+          "artifact_kind": "STATIC_PROSPECTIVE_AUTHORITY_ENVELOPE",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_prospective_controlled_step_authority_envelope_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "7f2878149b30ca59e46ffa7e12580d4b2c96784e1b7964698d56eca5853c484c",
+          "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_prospective_controlled_step_authority_envelope_v0.json",
+          "expected_artifact_kind": "STATIC_PROSPECTIVE_AUTHORITY_ENVELOPE",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_prospective_controlled_step_authority_envelope_v0_reference",
+          "reference_role": "PROSPECTIVE_AUTHORITY_ENVELOPE",
+          "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+        },
+        {
+          "artifact_id": "phase_vs2_move_space_binding_manifest_v0",
+          "artifact_kind": "STATIC_SUCCESSOR_BINDING_MANIFEST",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_move_space_binding_manifest_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "9cb7f9a66de7a0afc7109a07d789e56cb3629266d9f45821c0c971826afad389",
+          "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_space_binding_manifest_v0.json",
+          "expected_artifact_kind": "STATIC_SUCCESSOR_BINDING_MANIFEST",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_move_space_binding_manifest_v0_reference",
+          "reference_role": "MOVE_SPACE_BINDING_MANIFEST",
+          "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+        },
+        {
+          "artifact_id": "phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0",
+          "artifact_kind": "UNIT_RECEIPT",
+          "artifact_version": "v0",
+          "binding_reason": "Committed upstream phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0 canonical binding.",
+          "binding_status": "BOUND",
+          "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+          "content_sha256": "c78a48e892c0554327a2b1c27570453db48ce7368b27e4b58c6830defd7ff998",
+          "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0.json",
+          "expected_artifact_kind": "UNIT_RECEIPT",
+          "hash_algorithm": "SHA-256",
+          "reference_id": "phase_vs2_4_receipt_reference",
+          "reference_role": "UPSTREAM_UNIT_RECEIPT",
+          "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+        }
+      ]
+    },
+    "package_sha256": "3448ee02a854abdd5de28e2feb1ce866854473d9f18435083d5634e82b7a98a0"
+  },
+  "package_id": "FIRST_SWEEP_KERNEL_CONTROLLED_STEP_AND_CONVERGENCE_PACKAGE_V0",
+  "package_status": "FROZEN_NOT_EXECUTED",
+  "package_version": "v0",
+  "phase_id": "PHASE_VS2",
+  "primary_invocation_outcome_count": 6,
+  "primary_invocation_outcomes": [
+    "STEP_INPUT_REJECTED",
+    "STEP_PREEXECUTION_TYPED_STOP",
+    "STEP_TARGET_REACHED",
+    "STEP_MOVE_APPLIED_CONTINUE",
+    "STEP_TYPED_STOP",
+    "STEP_PUBLICATION_ABORTED"
+  ],
+  "r13_reference": {
+    "artifact_id": "phase_vs2_receipt_and_atomic_publication_contract_v0",
+    "artifact_kind": "STATIC_RECEIPT_AND_ATOMIC_PUBLICATION_CONTRACT",
+    "artifact_version": "v0",
+    "binding_reason": "VS2.5-built phase_vs2_receipt_and_atomic_publication_contract_v0 canonical binding.",
+    "binding_status": "BOUND",
+    "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+    "content_sha256": "a5375ec82dd148d05d7199296b58f186747b27cf3f4922555bec6ed1ed29cbf4",
+    "declared_path": "docs/matrixlabs/phase_vs2/controlled_step/phase_vs2_receipt_and_atomic_publication_contract_v0.json",
+    "expected_artifact_kind": "STATIC_RECEIPT_AND_ATOMIC_PUBLICATION_CONTRACT",
+    "hash_algorithm": "SHA-256",
+    "reference_id": "phase_vs2_receipt_and_atomic_publication_contract_v0_reference",
+    "reference_role": "RECEIPT_AND_ATOMIC_PUBLICATION_CONTRACT",
+    "required_by_unit": "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+  },
+  "runtime_posture": {
+    "active_execution_authority_present": false,
+    "active_sweep_authority_present": false,
+    "candidate_instance_created": false,
+    "exact_runtime_budgets_bound": false,
+    "exact_source_snapshot_bound": false,
+    "execution_performed": false,
+    "fixture_set_bound": false,
+    "move_applied": false,
+    "move_enumerated_against_live_candidate": false,
+    "move_selected": false,
+    "runner_created": false,
+    "runtime_instance_created": false,
+    "sweep_executed": false
+  },
+  "schema_version": "matrixlabs_phase_vs2_controlled_step_and_convergence_contract_package_v0",
+  "selector_policy": [
+    "discard moves not runtime-authorized",
+    "enforce frozen dependencies",
+    "retain moves directly addressing primary condition",
+    "prefer smallest candidate write-set",
+    "prefer lowest move cost",
+    "break remaining ties by canonical move ID"
+  ],
+  "terminal_family": {
+    "forbidden_terminal_outcomes": [
+      "STOP_BUDGET_EXHAUSTED",
+      "STOP_OBJECT_BINDING_MISMATCH",
+      "STOP_INSPECTION_INCOMPLETE",
+      "STOP_STEP_ATOMICITY_VIOLATION"
+    ],
+    "stop_budget_exhausted_present": false,
+    "terminal_outcome_count": 17,
+    "terminal_outcomes": [
+      "TARGET_REACHED",
+      "STOP_REPAIR_NOT_LAWFUL",
+      "STOP_MISSING_SOURCE",
+      "STOP_MISSING_SCHEMA",
+      "STOP_MISSING_AUTHORITY",
+      "STOP_MISSING_CAPABILITY",
+      "STOP_RADIUS_EXHAUSTED",
+      "STOP_NO_ADMISSIBLE_MOVE",
+      "STOP_VALIDATION_FAILED",
+      "STOP_ADMISSIBILITY_FAILED",
+      "STOP_FORBIDDEN_EFFECT_DETECTED",
+      "STOP_SOURCE_IDENTITY_UNVERIFIED",
+      "STOP_SCOPE_REGIME_VIOLATION",
+      "STOP_NON_PROGRESS",
+      "STOP_REPEATED_STATE",
+      "STOP_CONVERGENCE_CRITERION_UNMET",
+      "STOP_UNCLASSIFIED_RESULT_REQUIRES_TAXONOMY_REFINEMENT"
+    ]
+  },
+  "unit_id": "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION",
+  "upstream_bindings": [
+    {
+      "artifact_id": "phase_vs2_scope_regime_contract_v0",
+      "artifact_kind": "STATIC_FRAME_CONTRACT",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_scope_regime_contract_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "a6b4819aee35e5f09686a5a69d471b31f3a5cfdcab2078a29323ba1d31211179",
+      "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_scope_regime_contract_v0.json",
+      "expected_artifact_kind": "STATIC_FRAME_CONTRACT",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_scope_regime_contract_v0_reference",
+      "reference_role": "SCOPE_REGIME_FRAME",
+      "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+    },
+    {
+      "artifact_id": "phase_vs2_runtime_control_state_contract_v0",
+      "artifact_kind": "INSTANCE_SCHEMA_AND_MUTATION_CONTRACT",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_runtime_control_state_contract_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "25fbdfb007372e346d61a3f5de8b0a4f5004c6dff1857e5fc31df38e17c087ad",
+      "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_runtime_control_state_contract_v0.json",
+      "expected_artifact_kind": "INSTANCE_SCHEMA_AND_MUTATION_CONTRACT",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_runtime_control_state_contract_v0_reference",
+      "reference_role": "RUNTIME_CONTROL_STATE_CONTRACT",
+      "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+    },
+    {
+      "artifact_id": "phase_vs2_candidate_typed_state_contract_schema_v0",
+      "artifact_kind": "INSTANCE_SCHEMA_AND_VERSION_CONTRACT",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_candidate_typed_state_contract_schema_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "0216eb5944f87e760844d018d253f5e808a7a5b7ebd208d8d717e6709b979070",
+      "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_candidate_typed_state_contract_schema_v0.json",
+      "expected_artifact_kind": "INSTANCE_SCHEMA_AND_VERSION_CONTRACT",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_candidate_typed_state_contract_schema_v0_reference",
+      "reference_role": "CANDIDATE_SCHEMA_CONTRACT",
+      "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+    },
+    {
+      "artifact_id": "phase_vs2_frozen_target_contract_v0",
+      "artifact_kind": "CONCRETE_IMMUTABLE_TARGET_CONTRACT",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_frozen_target_contract_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "378acf4fb02ad20bfd5213bde4b267fe605dc528812e29a985909fef251d7546",
+      "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_frozen_target_contract_v0.json",
+      "expected_artifact_kind": "CONCRETE_IMMUTABLE_TARGET_CONTRACT",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_frozen_target_contract_v0_reference",
+      "reference_role": "FROZEN_TARGET_CONTRACT",
+      "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+    },
+    {
+      "artifact_id": "phase_vs2_object_model_binding_manifest_v0",
+      "artifact_kind": "STATIC_CONTRACT_BINDING_MANIFEST",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_object_model_binding_manifest_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "0af5f635aaca5c37428cc94ca1a8ee6f3885d6e56543198bbdd33a5d4062db3c",
+      "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_object_model_binding_manifest_v0.json",
+      "expected_artifact_kind": "STATIC_CONTRACT_BINDING_MANIFEST",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_object_model_binding_manifest_v0_reference",
+      "reference_role": "OBJECT_MODEL_BINDING_MANIFEST",
+      "required_by_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+    },
+    {
+      "artifact_id": "phase_vs2_source_and_version_binding_contract_v0",
+      "artifact_kind": "STATIC_SOURCE_IDENTITY_VERSION_AND_FRESHNESS_BINDING_CONTRACT",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_source_and_version_binding_contract_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "9b9d6133965beec3b51600ec2d0ab9f002abbd48685cd82f1cf24e0d5d16d6ef",
+      "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_source_and_version_binding_contract_v0.json",
+      "expected_artifact_kind": "STATIC_SOURCE_IDENTITY_VERSION_AND_FRESHNESS_BINDING_CONTRACT",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_source_and_version_binding_contract_v0_reference",
+      "reference_role": "SOURCE_AND_VERSION_BINDING_CONTRACT",
+      "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+    },
+    {
+      "artifact_id": "phase_vs2_move_vocabulary_partition_v0",
+      "artifact_kind": "STATIC_DISJOINT_VOCABULARY_PARTITION",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_move_vocabulary_partition_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "a193dbbee21db8d5577445789d5971ffc29c8c5c37088d4bf88b14434c518c1d",
+      "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_vocabulary_partition_v0.json",
+      "expected_artifact_kind": "STATIC_DISJOINT_VOCABULARY_PARTITION",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_move_vocabulary_partition_v0_reference",
+      "reference_role": "MOVE_VOCABULARY_PARTITION",
+      "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+    },
+    {
+      "artifact_id": "phase_vs2_move_authority_matrix_v0",
+      "artifact_kind": "STATIC_MOVE_AUTHORITY_REQUIREMENT_MATRIX",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_move_authority_matrix_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "4fbd5ae95a00444201f0da70c52515e630b07972f9a3202944f007547d0db0ad",
+      "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_authority_matrix_v0.json",
+      "expected_artifact_kind": "STATIC_MOVE_AUTHORITY_REQUIREMENT_MATRIX",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_move_authority_matrix_v0_reference",
+      "reference_role": "MOVE_AUTHORITY_MATRIX",
+      "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+    },
+    {
+      "artifact_id": "phase_vs2_finite_move_space_v0",
+      "artifact_kind": "TARGET_BOUND_FINITE_CANDIDATE_TRANSFORMATION_MOVE_SPACE",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_finite_move_space_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "68b094ad5f7a283e591b7b23c66650db9921357e13b0e5c7ca7992723303cbe9",
+      "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_finite_move_space_v0.json",
+      "expected_artifact_kind": "TARGET_BOUND_FINITE_CANDIDATE_TRANSFORMATION_MOVE_SPACE",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_finite_move_space_v0_reference",
+      "reference_role": "FINITE_MOVE_SPACE",
+      "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+    },
+    {
+      "artifact_id": "phase_vs2_prospective_controlled_step_authority_envelope_v0",
+      "artifact_kind": "STATIC_PROSPECTIVE_AUTHORITY_ENVELOPE",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_prospective_controlled_step_authority_envelope_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "7f2878149b30ca59e46ffa7e12580d4b2c96784e1b7964698d56eca5853c484c",
+      "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_prospective_controlled_step_authority_envelope_v0.json",
+      "expected_artifact_kind": "STATIC_PROSPECTIVE_AUTHORITY_ENVELOPE",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_prospective_controlled_step_authority_envelope_v0_reference",
+      "reference_role": "PROSPECTIVE_AUTHORITY_ENVELOPE",
+      "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+    },
+    {
+      "artifact_id": "phase_vs2_move_space_binding_manifest_v0",
+      "artifact_kind": "STATIC_SUCCESSOR_BINDING_MANIFEST",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_move_space_binding_manifest_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "9cb7f9a66de7a0afc7109a07d789e56cb3629266d9f45821c0c971826afad389",
+      "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_space_binding_manifest_v0.json",
+      "expected_artifact_kind": "STATIC_SUCCESSOR_BINDING_MANIFEST",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_move_space_binding_manifest_v0_reference",
+      "reference_role": "MOVE_SPACE_BINDING_MANIFEST",
+      "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+    },
+    {
+      "artifact_id": "phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0",
+      "artifact_kind": "UNIT_RECEIPT",
+      "artifact_version": "v0",
+      "binding_reason": "Committed upstream phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0 canonical binding.",
+      "binding_status": "BOUND",
+      "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+      "content_sha256": "c78a48e892c0554327a2b1c27570453db48ce7368b27e4b58c6830defd7ff998",
+      "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0.json",
+      "expected_artifact_kind": "UNIT_RECEIPT",
+      "hash_algorithm": "SHA-256",
+      "reference_id": "phase_vs2_4_receipt_reference",
+      "reference_role": "UPSTREAM_UNIT_RECEIPT",
+      "required_by_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+    }
+  ]
+}
