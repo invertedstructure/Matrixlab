@@ -1,0 +1,195 @@
+{
+  "artifact_id": "post_vs2_first_execution_human_decision_input_contract_v0",
+  "artifact_version": "v0",
+  "contract_binding": {
+    "canonicalization": "MATRIXLAB_CANONICAL_JSON_V0",
+    "contract_payload": {
+      "branch_payload_contracts": {
+        "D01": {
+          "authority_applied": false,
+          "exact_execution_scope_source": "surface.execution_bounds and E0",
+          "gate": "POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_PASS_EXACT_AUTHORIZATION_RECORDED_AUTHORITY_NOT_APPLIED",
+          "required_payload_fields": [
+            "branch_id",
+            "requested_absolute_expiry_timestamp",
+            "earliest_expiry_rule_acknowledged"
+          ],
+          "route": "POST_VS2_FIRST_EXECUTION_AUTHORITY_UPDATE",
+          "selected_option": "AUTHORIZE_EXACT_SEALED_FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE",
+          "transition": "ADVANCE(POST_VS2_FIRST_EXECUTION_AUTHORITY_UPDATE_PENDING)"
+        },
+        "D02": {
+          "creates_replacement_package": false,
+          "gate": "POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_PASS_REDUCED_PACKAGE_REQUEST_RECORDED",
+          "required_payload_fields": [
+            "branch_id",
+            "requested_fixture_ids",
+            "requested_fixture_order",
+            "requested_fixture_count",
+            "requested_maximum_controlled_steps_per_case",
+            "requested_maximum_attempted_moves_per_case",
+            "requested_maximum_applied_moves_per_case",
+            "requested_maximum_total_controlled_steps",
+            "requested_maximum_total_attempted_moves",
+            "requested_maximum_total_applied_moves",
+            "reduction_rationale",
+            "desired_evidence_objective"
+          ],
+          "route": "POST_VS2_REDUCED_PACKAGE_REBUILD_SCOPE_PREPARATION",
+          "selected_option": "REQUEST_REDUCED_FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE_VERSION",
+          "transition": "ADVANCE(POST_VS2_REDUCED_PACKAGE_REBUILD_SCOPE_PREPARATION_PENDING)"
+        },
+        "D03": {
+          "applies_revision_authority": false,
+          "gate": "POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_PASS_REVISION_REQUEST_RECORDED",
+          "required_payload_fields": [
+            "branch_id",
+            "affected_artifact_id",
+            "affected_package_surface",
+            "requested_change",
+            "reason",
+            "expected_evidence_improvement",
+            "required_new_evidence"
+          ],
+          "route": "POST_VS2_EXECUTION_PACKAGE_REVISION_SCOPE_SURFACE",
+          "selected_option": "RETURN_SEALED_FIRST_SWEEP_KERNEL_PACKAGE_FOR_REVISION",
+          "transition": "ADVANCE(POST_VS2_EXECUTION_PACKAGE_REVISION_SCOPE_SURFACE_PENDING)"
+        },
+        "D04": {
+          "gate": "POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_PASS_DECISION_DEFERRED",
+          "required_payload_fields": [
+            "branch_id",
+            "defer_reason",
+            "reconsideration_condition",
+            "new_decision_surface_required",
+            "identity_revalidation_required",
+            "execution_eligibility_revalidation_required",
+            "readiness_rerun_condition"
+          ],
+          "selected_option": "DEFER_FIRST_SWEEP_KERNEL_EXECUTION_DECISION",
+          "terminal": "STOP_POST_VS2_EXECUTION_DECISION_DEFERRED"
+        },
+        "D05": {
+          "allowed_rejection_scopes": [
+            "CURRENT_EXECUTION_REQUEST_ONLY",
+            "CURRENT_DECISION_FRAME"
+          ],
+          "forbidden_rejection_scope": "CURRENT_PACKAGE_VERSION",
+          "gate": "POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_PASS_CURRENT_EXECUTION_REQUEST_REJECTED",
+          "required_payload_fields": [
+            "branch_id",
+            "rejection_reason",
+            "rejection_scope",
+            "package_may_be_reconsidered",
+            "revision_recommended",
+            "new_decision_surface_required_for_reconsideration"
+          ],
+          "selected_option": "REJECT_CURRENT_FIRST_SWEEP_KERNEL_EXECUTION_REQUEST",
+          "terminal": "STOP_POST_VS2_EXECUTION_REQUEST_REJECTED"
+        },
+        "D06": {
+          "applies_package_disposition": false,
+          "gate": "POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_PASS_PACKAGE_ABANDONMENT_DECISION_RECORDED",
+          "required_payload_fields": [
+            "branch_id",
+            "abandonment_reason",
+            "abandonment_scope",
+            "supersession_expected"
+          ],
+          "required_scope": "EXACT_EXECUTION_PACKAGE_CORE_AND_READINESS_SEAL_TUPLE",
+          "route": "POST_VS2_EXECUTION_PACKAGE_DISPOSITION_UPDATE",
+          "selected_option": "ABANDON_FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE_VERSION",
+          "transition": "ADVANCE(POST_VS2_EXECUTION_PACKAGE_DISPOSITION_UPDATE_PENDING)"
+        }
+      },
+      "contract_id": "POST_VS2_FIRST_EXECUTION_HUMAN_DECISION_INPUT_CONTRACT_V0",
+      "contract_status": "DEFINED_NOT_CONSUMED",
+      "decision_actor_authentication_reference_law": {
+        "is_cookie": false,
+        "is_credential": false,
+        "is_evidence_reference": true,
+        "is_password": false,
+        "is_private_key": false,
+        "is_token": false,
+        "secrets_embedded_in_input_or_receipt": false
+      },
+      "generic_proceed_language_maps_to_surface_option": false,
+      "invalid_generic_option_phrases": [
+        "proceed",
+        "continue",
+        "approved",
+        "do it",
+        "go ahead",
+        "no objection",
+        "proceed if ready",
+        "use the obvious option"
+      ],
+      "no_default_option_exists": true,
+      "option_to_branch_mapping": {
+        "ABANDON_FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE_VERSION": "D06",
+        "AUTHORIZE_EXACT_SEALED_FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE": "D01",
+        "DEFER_FIRST_SWEEP_KERNEL_EXECUTION_DECISION": "D04",
+        "REJECT_CURRENT_FIRST_SWEEP_KERNEL_EXECUTION_REQUEST": "D05",
+        "REQUEST_REDUCED_FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE_VERSION": "D02",
+        "RETURN_SEALED_FIRST_SWEEP_KERNEL_PACKAGE_FOR_REVISION": "D03"
+      },
+      "option_vocabulary": [
+        "AUTHORIZE_EXACT_SEALED_FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE",
+        "REQUEST_REDUCED_FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE_VERSION",
+        "RETURN_SEALED_FIRST_SWEEP_KERNEL_PACKAGE_FOR_REVISION",
+        "DEFER_FIRST_SWEEP_KERNEL_EXECUTION_DECISION",
+        "REJECT_CURRENT_FIRST_SWEEP_KERNEL_EXECUTION_REQUEST",
+        "ABANDON_FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE_VERSION"
+      ],
+      "rationale_law": {
+        "angle_bracket_template_values_forbidden": true,
+        "invalid_stop": "STOP_POST_VS2_DECISION_RECEIPT_DECISION_RATIONALE_INVALID",
+        "maximum_length": 2000,
+        "minimum_length": 1,
+        "second_primary_option_forbidden": true,
+        "type": "string",
+        "unresolved_placeholders_forbidden": true
+      },
+      "required_input_object": "post_vs2_first_execution_human_decision_input_v0",
+      "required_payload_fields": [
+        "schema_version",
+        "input_id",
+        "input_version",
+        "decision_timestamp",
+        "decision_actor_class",
+        "decision_actor_reference",
+        "decision_actor_authentication_reference",
+        "decision_interface_contract_reference",
+        "decision_surface_id",
+        "decision_surface_version",
+        "decision_surface_canonical_hash",
+        "selected_surface_option_code",
+        "decision_payload",
+        "decision_rationale"
+      ],
+      "required_values": {
+        "decision_actor_class": "HUMAN_AUTHORITY",
+        "decision_surface_canonical_hash": "d7150101acbfe46342c95506c526e2b49b6ca295881c2e390d78fdb4c5001d35",
+        "decision_surface_id": "POST_VS2_FIRST_EXECUTION_DECISION_SURFACE",
+        "decision_surface_version": "v0",
+        "input_id": "post_vs2_first_execution_human_decision_input_v0",
+        "input_version": "v0",
+        "schema_version": "matrixlabs_post_vs2_first_execution_human_decision_input_v0"
+      },
+      "surface_option_code_is_not_downstream_route_id": true,
+      "surface_option_code_is_not_receipt_branch_id": true,
+      "timestamp_law": {
+        "fractional_seconds_accepted": false,
+        "human_interface_supplied": true,
+        "immutable_after_capture": true,
+        "invalid_stop": "STOP_POST_VS2_DECISION_RECEIPT_DECISION_TIMESTAMP_INVALID",
+        "receipt_builder_generates_timestamp": false,
+        "receipt_builder_replaces_timestamp_during_reruns": false,
+        "syntax": "YYYY-MM-DDTHH:MM:SSZ",
+        "timezone_explicit_z": true
+      }
+    },
+    "contract_sha256": "5ca50c5a14e25db923ce2f40fe4e4c37190583223e6547266b2966cb9a53109c"
+  },
+  "schema_version": "matrixlabs_post_vs2_first_execution_human_decision_input_contract_v0"
+}

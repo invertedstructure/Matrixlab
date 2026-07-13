@@ -1,0 +1,100 @@
+{
+  "artifact_id": "post_vs2_first_execution_decision_receipt_contract_v0",
+  "artifact_version": "v0",
+  "contract_binding": {
+    "canonicalization": "MATRIXLAB_CANONICAL_JSON_V0",
+    "contract_payload": {
+      "authoritative_receipt_artifact_id": "post_vs2_first_execution_decision_receipt_v0",
+      "branch_specific_status_rule": "selected branch check PASS; non-selected branch checks NOT_APPLICABLE",
+      "builder_interface": {
+        "current_clock_timestamp_generation_forbidden": true,
+        "decision_input_required": true,
+        "default_option_selection_forbidden": true,
+        "environment_variable_option_selection_forbidden": true,
+        "interactive_selection_forbidden": true,
+        "modes_mutually_exclusive": true,
+        "required_modes": [
+          "--validate-only",
+          "--emit-authoritative"
+        ],
+        "script": "scripts/build_post_vs2_first_execution_decision_receipt_v0.py"
+      },
+      "contract_id": "POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_CONTRACT_V0",
+      "contract_status": "DEFINED_NOT_INSTANTIATED",
+      "decision_receipt_downstream_consumption_key_law": {
+        "decision_receipt_consumed_downstream_at_emission": false,
+        "derived_from": [
+          "receipt_id",
+          "receipt_version",
+          "receipt_canonical_sha256"
+        ],
+        "machinery_unit_creates_real_decision_event_key": false
+      },
+      "execution_eligibility_freshness": {
+        "D01": "PASS_REQUIRED",
+        "D01_stale_stop": "STOP_POST_VS2_DECISION_RECEIPT_EXECUTION_ELIGIBILITY_STALE",
+        "D02_through_D06": [
+          "PASS",
+          "STALE_NOT_AUTHORIZABLE"
+        ]
+      },
+      "future_output_paths": [
+        "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_v0.json",
+        "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_v0.md"
+      ],
+      "future_output_paths_absent_during_machinery_unit": true,
+      "hash_graph": {
+        "canonicalization": "MATRIXLAB_CANONICAL_JSON_V0",
+        "decision_event_id": "post_vs2_decision_event::<input_payload_sha256>",
+        "hash_algorithm": "sha256",
+        "input_payload_hash": "sha256(canonical human_decision_input_payload)",
+        "receipt_hash_excluded_from_hashed_payload": true,
+        "receipt_id": "receipt::<surface_canonical_hash>::<decision_event_id>",
+        "receipt_id_is_not_receipt_canonical_hash": true
+      },
+      "identity_and_integrity_freshness": "PASS_REQUIRED_FOR_EVERY_BRANCH",
+      "receipt_checks_R01_R20": [
+        "R01_SURFACE_PACKAGE_VERIFIED",
+        "R02_DECISION_SUBJECT_VERIFIED",
+        "R03_READINESS_CHAIN_VERIFIED",
+        "R04_IDENTITY_FRESHNESS_VERIFIED",
+        "R05_EXECUTION_ELIGIBILITY_FRESHNESS_VERIFIED",
+        "R06_HUMAN_DECISION_INPUT_AND_AUTHENTICITY_VERIFIED",
+        "R07_OPTION_BRANCH_MAPPING_VERIFIED",
+        "R08_SURFACE_CONSUMPTION_UNIQUENESS_VERIFIED",
+        "R09_D01_EXACT_AUTHORIZATION_VERIFIED",
+        "R10_D02_REDUCED_PACKAGE_REQUEST_VERIFIED",
+        "R11_D03_REVISION_REQUEST_VERIFIED",
+        "R12_D04_DEFERRAL_VERIFIED",
+        "R13_D05_REJECTION_VERIFIED",
+        "R14_D06_ABANDONMENT_VERIFIED",
+        "R15_NO_DIRECT_AUTHORITY_EFFECT_VERIFIED",
+        "R16_NO_DIRECT_PACKAGE_STATE_EFFECT_VERIFIED",
+        "R17_DOWNSTREAM_ROUTE_VERIFIED",
+        "R18_RECEIPT_NOT_PRECONSUMED_VERIFIED",
+        "R19_RECEIPT_HASH_GRAPH_VERIFIED",
+        "R20_NO_EXECUTION_DRIFT_VERIFIED"
+      ],
+      "source_binding": {
+        "complete_source_identity_table_preserved": true,
+        "source_identity_count": 44,
+        "source_linkage_count": 11,
+        "source_selected_by_filename_alone": false
+      },
+      "surface_consumption_key_law": {
+        "key": "3529a085e04b3c7e8b97fa60be7ad0edb0c619c1274054296ea3592434405396",
+        "machinery_preparation_receipt_counts_as_consumption": false,
+        "only_passing_authoritative_human_decision_receipt_consumes_surface": true,
+        "prior_consumption_required": false,
+        "surface_preparation_receipt_counts_as_consumption": false
+      },
+      "verifier_interface": {
+        "imports_builder": false,
+        "independent_source_reload_required": true,
+        "script": "scripts/verify_post_vs2_first_execution_decision_receipt_v0.py"
+      }
+    },
+    "contract_sha256": "0861255aa1293cd73edd2e690b9c871747f347cb9935175ba7b6ec1bcb8d3973"
+  },
+  "schema_version": "matrixlabs_post_vs2_first_execution_decision_receipt_contract_v0"
+}

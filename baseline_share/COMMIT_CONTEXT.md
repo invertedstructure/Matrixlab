@@ -1,7 +1,7 @@
 # Commit Context
 
-- Generated at UTC: `2026-07-13T02:30:15Z`
-- Current HEAD SHA: `af79cea2fd8cf98732ef074969a9a56ffb8a6406`
+- Generated at UTC: `2026-07-13T05:50:55Z`
+- Current HEAD SHA: `a6252de12e71ad9eb558a9a5a539e21002678dc3`
 - Branch: `master`
 - Worktree state at generation time: `dirty`
 - Generator script: `scripts/build_baseline_share_v0.py`
@@ -9,6 +9,7 @@
 ## Recent 10 commits
 
 ```text
+a6252de12 Create Post-VS2 first execution decision surface v0
 af79cea2f Close Phase VS2 at first execution decision surface v0
 2369f1786 Construct Phase VS2.6 fixtures and first-run readiness v0
 d6d57b8b1 Define Phase VS2.5 controlled step and convergence contracts v0
@@ -18,7 +19,6 @@ d6d57b8b1 Define Phase VS2.5 controlled step and convergence contracts v0
 9d529c681 Record Phase VS2.1 post-VS1 source intake v0
 c7759b1d1 Close post-VS1 direction authority transition v0
 ebeb85a86 Apply post-VS1 direction authority update v0
-3dc012d9d Record post-VS1 direction decision receipt v0
 ```
 
 ## Git status short
@@ -29,18 +29,30 @@ M baseline_share/COMMIT_CONTEXT.md
  M baseline_share/MANIFEST.json
  M baseline_share/RECEIPT_POINTERS.md
  M scripts/build_baseline_share_v0.py
-?? docs/matrixlabs/post_vs2/
-?? scripts/build_post_vs2_first_execution_decision_surface_v0.py
-?? scripts/verify_post_vs2_first_execution_decision_surface_v0.py
+?? docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_contract_v0.json
+?? docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_contract_v0.md
+?? docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_machinery_receipt_v0.json
+?? docs/matrixlabs/post_vs2/post_vs2_first_execution_human_decision_input_contract_v0.json
+?? docs/matrixlabs/post_vs2/post_vs2_first_execution_human_decision_input_contract_v0.md
+?? scripts/build_post_vs2_first_execution_decision_receipt_machinery_v0.py
+?? scripts/build_post_vs2_first_execution_decision_receipt_v0.py
+?? scripts/verify_post_vs2_first_execution_decision_receipt_machinery_v0.py
+?? scripts/verify_post_vs2_first_execution_decision_receipt_v0.py
 ```
 
 ## Git status short excluding generated baseline_share
 
 ```text
  M scripts/build_baseline_share_v0.py
-?? docs/matrixlabs/post_vs2/
-?? scripts/build_post_vs2_first_execution_decision_surface_v0.py
-?? scripts/verify_post_vs2_first_execution_decision_surface_v0.py
+?? docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_contract_v0.json
+?? docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_contract_v0.md
+?? docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_machinery_receipt_v0.json
+?? docs/matrixlabs/post_vs2/post_vs2_first_execution_human_decision_input_contract_v0.json
+?? docs/matrixlabs/post_vs2/post_vs2_first_execution_human_decision_input_contract_v0.md
+?? scripts/build_post_vs2_first_execution_decision_receipt_machinery_v0.py
+?? scripts/build_post_vs2_first_execution_decision_receipt_v0.py
+?? scripts/verify_post_vs2_first_execution_decision_receipt_machinery_v0.py
+?? scripts/verify_post_vs2_first_execution_decision_receipt_v0.py
 ```
 
 ## Safety facts
@@ -51,30 +63,26 @@ M baseline_share/COMMIT_CONTEXT.md
 
 ## Phase VS2 current unit
 
-- current_unit = `POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_PREPARATION`
+- current_unit = `POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_MACHINERY_PREPARATION`
 - current_surface = `POST_VS2_FIRST_EXECUTION_DECISION_SURFACE`
-- surface_gate = `POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_PASS_READY_FOR_HUMAN_DECISION`
 - surface_instance_state = `UNCONSUMED`
 - human_decision_required = `true`
+- human_decision_input_present = `false`
 - human_decision_recorded = `false`
+- selected_option = `None`
 - decision_receipt_created = `false`
+- decision_receipt_machinery_ready = `true`
 - decision_option_count = `6`
-- execution_package_core_id = `FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE_CORE_V0`
-- execution_package_core_sha256 = `cd3f9deed2278d8ab7292a7aa64cf1a68446312d26493f07e508f1d5360211c6`
-- readiness_seal_id = `FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE_READINESS_SEAL_V0`
-- readiness_seal_sha256 = `5c36c71da7bd70889c16a4722d882b0fe8dcfc5ce6cd8a72b80da4dbafbe2d79`
 - authority_update_applied = `false`
 - execution_authority_present = `false`
-- sweep_authority_present = `false`
-- run_allocation_authority_present = `false`
 - run_id_created = `false`
 - execution_source_intake_created = `false`
 - execution_started = `false`
 - runtime_receipts_emitted = `0`
 - runtime_reports_emitted = `0`
 - runner_created = `false`
-- terminal_transition = `STOP_POST_VS2_EXECUTION_SURFACE_READY_PENDING_HUMAN_DECISION`
-- next_lawful_action = `HUMAN_DECISION_REQUIRED`
+- terminal_transition = `STOP_POST_VS2_DECISION_RECEIPT_MACHINERY_READY_SURFACE_UNCONSUMED`
+- next_lawful_action = `SUPPLY_ONE_EXPLICIT_AUTHENTICATED_POST_VS2_HUMAN_DECISION_INPUT`
 
 ## Phase VS2 next lawful unit
 

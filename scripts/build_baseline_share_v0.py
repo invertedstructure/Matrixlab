@@ -759,6 +759,29 @@ POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_SCRIPT = (
 POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_VERIFY_SCRIPT = (
     "scripts/verify_post_vs2_first_execution_decision_surface_v0.py"
 )
+POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_MACHINERY_DOCS = [
+    "docs/matrixlabs/post_vs2/post_vs2_first_execution_human_decision_input_contract_v0.json",
+    "docs/matrixlabs/post_vs2/post_vs2_first_execution_human_decision_input_contract_v0.md",
+    "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_contract_v0.json",
+    "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_contract_v0.md",
+    "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_machinery_receipt_v0.json",
+]
+POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_MACHINERY_SCRIPT = (
+    "scripts/build_post_vs2_first_execution_decision_receipt_machinery_v0.py"
+)
+POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_MACHINERY_VERIFY_SCRIPT = (
+    "scripts/verify_post_vs2_first_execution_decision_receipt_machinery_v0.py"
+)
+POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_SCRIPT = (
+    "scripts/build_post_vs2_first_execution_decision_receipt_v0.py"
+)
+POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_VERIFY_SCRIPT = (
+    "scripts/verify_post_vs2_first_execution_decision_receipt_v0.py"
+)
+POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_AUTHORITATIVE_DOCS = [
+    "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_v0.json",
+    "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_v0.md",
+]
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -889,6 +912,11 @@ SOURCE_DOCS = [
     *POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_DOCS,
     POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_SCRIPT,
     POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_VERIFY_SCRIPT,
+    *POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_MACHINERY_DOCS,
+    POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_MACHINERY_SCRIPT,
+    POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_MACHINERY_VERIFY_SCRIPT,
+    POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_SCRIPT,
+    POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_VERIFY_SCRIPT,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -993,6 +1021,35 @@ def phase_vs2_6_current_unit_summary(root: Path) -> str:
 
 
 def phase_vs2_current_unit_summary(root: Path) -> str:
+    machinery = read_json_if_present(
+        root / POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_MACHINERY_DOCS[-1]
+    )
+    if machinery:
+        payload = machinery.get("receipt_binding", {}).get("receipt_payload", {})
+        return "\n".join(
+            [
+                f"- current_unit = `{payload.get('current_unit', 'POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_MACHINERY_PREPARATION')}`",
+                "- current_surface = `POST_VS2_FIRST_EXECUTION_DECISION_SURFACE`",
+                f"- surface_instance_state = `{payload.get('surface_state', 'UNCONSUMED')}`",
+                f"- human_decision_required = `{str(payload.get('human_decision_required', True)).lower()}`",
+                f"- human_decision_input_present = `{str(payload.get('human_decision_input_present', False)).lower()}`",
+                f"- human_decision_recorded = `{str(payload.get('human_decision_recorded', False)).lower()}`",
+                f"- selected_option = `{payload.get('selected_option')}`",
+                f"- decision_receipt_created = `{str(payload.get('decision_receipt_created', False)).lower()}`",
+                f"- decision_receipt_machinery_ready = `{str(payload.get('decision_receipt_machinery_ready', True)).lower()}`",
+                "- decision_option_count = `6`",
+                f"- authority_update_applied = `{str(payload.get('authority_update_applied', False)).lower()}`",
+                f"- execution_authority_present = `{str(payload.get('execution_authority_present', False)).lower()}`",
+                f"- run_id_created = `{str(payload.get('run_id_created', False)).lower()}`",
+                f"- execution_source_intake_created = `{str(payload.get('execution_source_intake_created', False)).lower()}`",
+                f"- execution_started = `{str(payload.get('execution_started', False)).lower()}`",
+                f"- runtime_receipts_emitted = `{payload.get('runtime_receipts_emitted', 0)}`",
+                f"- runtime_reports_emitted = `{payload.get('runtime_reports_emitted', 0)}`",
+                f"- runner_created = `{str(payload.get('runner_authority_present', False)).lower()}`",
+                f"- terminal_transition = `{payload.get('terminal_transition', 'STOP_POST_VS2_DECISION_RECEIPT_MACHINERY_READY_SURFACE_UNCONSUMED')}`",
+                "- next_lawful_action = `SUPPLY_ONE_EXPLICIT_AUTHENTICATED_POST_VS2_HUMAN_DECISION_INPUT`",
+            ]
+        )
     post_surface = read_json_if_present(
         root / POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_DOCS[0]
     )
@@ -1393,6 +1450,18 @@ def render_receipt_pointers(root: Path, architecture_receipt_matches: list[str])
         if post_vs2_dir.exists()
         else []
     )
+    post_vs2_surface_preparation_receipts = [
+        path for path in post_vs2_receipts
+        if path.endswith("post_vs2_first_execution_decision_surface_receipt_v0.json")
+    ]
+    post_vs2_machinery_preparation_receipts = [
+        path for path in post_vs2_receipts
+        if path.endswith("post_vs2_first_execution_decision_receipt_machinery_receipt_v0.json")
+    ]
+    post_vs2_authoritative_decision_receipts = [
+        path for path in post_vs2_receipts
+        if path.endswith("post_vs2_first_execution_decision_receipt_v0.json")
+    ]
     post_vs2_receipt_lines = (
         "\n".join(f"- `{path}`" for path in post_vs2_receipts)
         if post_vs2_receipts
@@ -1414,6 +1483,9 @@ This packet does not copy the full receipt stack. Receipts remain evidence and s
 - Repo architecture extraction receipt copy: `docs/matrixlabs/receipts/` - {'present' if docs_receipts.exists() else 'missing'}; file count: `{docs_count}`.
 - Repo Phase VS2 receipt JSONs: `docs/matrixlabs/phase_vs2/*receipt*.json` - file count: `{phase_vs2_receipt_count}`.
 - Repo Post-VS2 receipt JSONs: `docs/matrixlabs/post_vs2/*receipt*.json` - file count: `{len(post_vs2_receipts)}`.
+- Repo Post-VS2 surface-preparation receipt JSONs: file count: `{len(post_vs2_surface_preparation_receipts)}`.
+- Repo Post-VS2 receipt-machinery preparation receipt JSONs: file count: `{len(post_vs2_machinery_preparation_receipts)}`.
+- Repo authoritative Post-VS2 human decision receipt JSONs: file count: `{len(post_vs2_authoritative_decision_receipts)}`.
 
 ## Current load-bearing recent receipt pointers
 
@@ -2169,6 +2241,14 @@ def build_manifest(
         else {}
     )
     post_vs2_receipt_payload = post_vs2_receipt.get("receipt_payload", {})
+    post_vs2_machinery_receipt_path = root / POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_MACHINERY_DOCS[-1]
+    post_vs2_machinery_receipt_present = post_vs2_machinery_receipt_path.exists()
+    post_vs2_machinery_receipt = (
+        json.loads(post_vs2_machinery_receipt_path.read_text(encoding="utf-8"))
+        if post_vs2_machinery_receipt_present
+        else {}
+    )
+    post_vs2_machinery_payload = post_vs2_machinery_receipt.get("receipt_binding", {}).get("receipt_payload", {})
     phase_vs2_6_next_unit = (
         "VS2_7_PHASE_CLOSURE_PENDING"
         if phase_vs2_6_receipt_present
@@ -3272,6 +3352,42 @@ def build_manifest(
         "b2_created": b2_route_classification_present,
         "b3_created": b3_router_specimen_closure_present,
     }
+    if post_vs2_machinery_receipt_present:
+        manifest.update(
+            {
+                "current_unit": "POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_MACHINERY_PREPARATION",
+                "current_surface": "POST_VS2_FIRST_EXECUTION_DECISION_SURFACE",
+                "surface_instance_state": "UNCONSUMED",
+                "human_decision_required": True,
+                "human_decision_input_present": False,
+                "human_decision_recorded": False,
+                "selected_option": None,
+                "decision_receipt_created": False,
+                "decision_receipt_machinery_ready": True,
+                "decision_option_count": 6,
+                "authority_update_applied": False,
+                "execution_authority_present": False,
+                "sweep_authority_present": False,
+                "run_allocation_authority_present": False,
+                "run_id_created": False,
+                "execution_source_intake_created": False,
+                "execution_started": False,
+                "runtime_receipts_emitted": 0,
+                "runtime_reports_emitted": 0,
+                "runner_created": False,
+                "terminal_transition": "STOP_POST_VS2_DECISION_RECEIPT_MACHINERY_READY_SURFACE_UNCONSUMED",
+                "next_lawful_action": "SUPPLY_ONE_EXPLICIT_AUTHENTICATED_POST_VS2_HUMAN_DECISION_INPUT",
+                "decision_receipt_machinery_gate": post_vs2_machinery_payload.get("machinery_gate"),
+                "decision_receipt_machinery_receipt_id": post_vs2_machinery_receipt.get("receipt_id"),
+                "decision_receipt_machinery_receipt_sha256": post_vs2_machinery_receipt.get("receipt_binding", {}).get("receipt_sha256"),
+                "human_decision_input_contract_id": "POST_VS2_FIRST_EXECUTION_HUMAN_DECISION_INPUT_CONTRACT_V0",
+                "decision_receipt_contract_id": "POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_CONTRACT_V0",
+                "authoritative_decision_receipt_created": False,
+                "authoritative_human_decision_input_created": False,
+                "authority_update_eligibility_for_real_decision_claimed": False,
+                "execution_authorized": False,
+            }
+        )
     return manifest
 
 
