@@ -1,0 +1,52 @@
+{
+  "contract_binding": {
+    "canonicalization": "MATRIXLAB_CANONICAL_JSON_V0",
+    "contract_payload": {
+      "bound_decision_record_payload_sha256": "5b71d52337cf6a75e2bf19c105a77e03ccd174f7826afe3e700528fa83e2eb76",
+      "bound_draft_sha256": "dc985b583672d4b0f5bbcf0ef6726ed59d607b186e9366d18786b3daf9bdc946",
+      "bound_surface_hash": "16e07b0f0ede5d46dfd9d3773fc8a81b50e4be8f5e4ef9a9a14a96862b2dcfe6",
+      "conditional_human_fields": {
+        "requested_mechanical_correction": {
+          "required_when_confirmation_option": "RETURN_D01_RECEIPT_FOR_MECHANICAL_CORRECTION"
+        }
+      },
+      "confirmation_options": [
+        "CONFIRM_D01_RECEIPT_AS_POPULATED",
+        "RETURN_D01_RECEIPT_FOR_MECHANICAL_CORRECTION",
+        "WITHDRAW_D01_DECISION_BEFORE_AUTHORITATIVE_EMISSION"
+      ],
+      "contract_id": "post_vs2_d01_populated_receipt_confirmation_input_contract_v0",
+      "contract_version": "v0",
+      "human_supplied_fields": [
+        "confirmation_option"
+      ],
+      "machine_populated_fields": [
+        "confirmation_timestamp",
+        "confirmation_actor_class",
+        "confirmation_actor_reference",
+        "confirmation_actor_authentication_reference",
+        "confirmation_interface_contract_reference",
+        "confirmed_draft_id",
+        "confirmed_draft_version",
+        "confirmed_draft_sha256",
+        "confirmed_decision_record_payload_sha256",
+        "decision_input_event_id",
+        "surface_consumption_key"
+      ],
+      "rules": {
+        "confirmation_actor_must_equal_decision_actor": true,
+        "confirmation_creates_no_authority_by_itself": true,
+        "confirmation_option_must_exactly_match_one_surface_option": true,
+        "correction_may_not_change_substantive_decision": true,
+        "generic_proceed_is_invalid": true,
+        "machine_may_not_invent_authentication_evidence": true,
+        "withdrawal_creates_no_authoritative_receipt": true
+      }
+    },
+    "contract_sha256": "2edddca3f58f79abb5513d704e533910b118b7d3175095364c763e4a7425c88c",
+    "hash_algorithm": "SHA-256"
+  },
+  "contract_id": "post_vs2_d01_populated_receipt_confirmation_input_contract_v0",
+  "contract_version": "v0",
+  "schema_version": "matrixlabs_post_vs2_d01_populated_receipt_confirmation_input_contract_v0"
+}

@@ -1,10 +1,10 @@
 # Current State
 
-Generated at UTC: `2026-07-13T13:26:29Z`
+Generated at UTC: `2026-07-13T15:36:25Z`
 
 ## Git context
 
-- Current HEAD SHA: `8eb5a0ee42200efbc5f601da2795eb405e9e4e64`
+- Current HEAD SHA: `6c16bdfaa13636b19a572612b9e504b9e2c52c49`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
@@ -15,24 +15,36 @@ Generated at UTC: `2026-07-13T13:26:29Z`
 - ` M baseline_share/RECEIPT_POINTERS.md`
 - ` M scripts/build_baseline_share_v0.py`
 - ` M scripts/build_post_vs2_first_execution_decision_receipt_v0.py`
-- ` M scripts/verify_post_vs2_first_execution_decision_receipt_v0.py`
-- `?? docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_implementation_repair_receipt_v0.json`
-- `?? docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_implementation_repair_receipt_v0.md`
-- `?? docs/matrixlabs/post_vs2/post_vs2_first_execution_human_decision_input_v0.json`
+- `?? docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_input_contract_v0.json`
+- `?? docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_input_contract_v0.md`
+- `?? docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_surface_preparation_receipt_v0.json`
+- `?? docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_surface_preparation_receipt_v0.md`
+- `?? docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_surface_v0.json`
+- `?? docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_surface_v0.md`
+- `?? docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_d01_draft_v0.json`
+- `?? docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_d01_draft_v0.md`
+- `?? scripts/build_post_vs2_d01_populated_receipt_confirmation_surface_v0.py`
+- `?? scripts/verify_post_vs2_d01_populated_receipt_confirmation_surface_v0.py`
 - Git status excluding generated `baseline_share/`:
 - ` M scripts/build_baseline_share_v0.py`
 - ` M scripts/build_post_vs2_first_execution_decision_receipt_v0.py`
-- ` M scripts/verify_post_vs2_first_execution_decision_receipt_v0.py`
-- `?? docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_implementation_repair_receipt_v0.json`
-- `?? docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_implementation_repair_receipt_v0.md`
-- `?? docs/matrixlabs/post_vs2/post_vs2_first_execution_human_decision_input_v0.json`
+- `?? docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_input_contract_v0.json`
+- `?? docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_input_contract_v0.md`
+- `?? docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_surface_preparation_receipt_v0.json`
+- `?? docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_surface_preparation_receipt_v0.md`
+- `?? docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_surface_v0.json`
+- `?? docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_surface_v0.md`
+- `?? docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_d01_draft_v0.json`
+- `?? docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_d01_draft_v0.md`
+- `?? scripts/build_post_vs2_d01_populated_receipt_confirmation_surface_v0.py`
+- `?? scripts/verify_post_vs2_d01_populated_receipt_confirmation_surface_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `8eb5a0ee42200efbc5f601da2795eb405e9e4e64`
-- Current C8 post-patch surface-decision acceptance commit: `8eb5a0ee42200efbc5f601da2795eb405e9e4e64`
+- Current architecture extraction commit: `6c16bdfaa13636b19a572612b9e504b9e2c52c49`
+- Current C8 post-patch surface-decision acceptance commit: `6c16bdfaa13636b19a572612b9e504b9e2c52c49`
 
 ## High-level state
 
@@ -45,24 +57,32 @@ Generated at UTC: `2026-07-13T13:26:29Z`
 
 ## Phase VS2 current unit
 
-- current_unit = `POST_VS2_AUTHORITATIVE_DECISION_RECEIPT_EMISSION_PATH_REPAIR_AND_D01_INPUT_VALIDATION`
-- current_surface = `POST_VS2_FIRST_EXECUTION_DECISION_SURFACE`
+- current_unit = `PREPARE_POST_VS2_D01_POPULATED_RECEIPT_CONFIRMATION_SURFACE_V0`
 - human_decision_input_present = `true`
 - human_decision_input_validated = `true`
-- input_validated = `true`
 - selected_surface_option = `AUTHORIZE_EXACT_SEALED_FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE`
-- derived_branch = `D01`
-- human_decision_receipt_created = `false`
+- decision_branch = `D01`
+- populated_receipt_draft_created = `true`
+- confirmation_surface_created = `true`
+- confirmation_input_contract_created = `true`
+- human_confirmation_recorded = `false`
+- confirmation_event_created = `false`
+- authoritative_decision_receipt_created = `false`
 - human_decision_recorded_by_receipt = `false`
 - surface_state = `UNCONSUMED`
 - surface_consumed = `false`
+- execution_authority_update_eligible = `false`
 - authority_update_applied = `false`
+- package_state_updated = `false`
 - execution_authority_present = `false`
 - run_id_created = `false`
 - execution_source_intake_created = `false`
 - execution_started = `false`
-- next_lawful_action = `EMIT_AUTHORITATIVE_POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_D01`
-- terminal_transition = `STOP_POST_VS2_D01_INPUT_VALIDATED_PENDING_AUTHORITATIVE_RECEIPT_EMISSION`
+- fixtures_executed = `0`
+- generic_proceed_maps_to_confirmation = `false`
+- accepted_confirmation_options = `CONFIRM_D01_RECEIPT_AS_POPULATED`, `RETURN_D01_RECEIPT_FOR_MECHANICAL_CORRECTION`, `WITHDRAW_D01_DECISION_BEFORE_AUTHORITATIVE_EMISSION`
+- next_lawful_action = `SUPPLY_ONE_EXPLICIT_POST_VS2_D01_POPULATED_RECEIPT_CONFIRMATION`
+- terminal_transition = `STOP_POST_VS2_D01_POPULATED_RECEIPT_PENDING_HUMAN_CONFIRMATION`
 
 ## Uncertainty
 

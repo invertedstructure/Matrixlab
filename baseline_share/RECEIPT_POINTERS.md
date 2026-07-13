@@ -4,10 +4,10 @@ This packet does not copy the full receipt stack. Receipts remain evidence and s
 
 ## Full receipt locations
 
-- External WSL receipt archive: `/home/asd/matrixlab_receipts/` - present; file count: `870`.
+- External WSL receipt archive: `/home/asd/matrixlab_receipts/` - present; file count: `872`.
 - Repo architecture extraction receipt copy: `docs/matrixlabs/receipts/` - present; file count: `714`.
 - Repo Phase VS2 receipt JSONs: `docs/matrixlabs/phase_vs2/*receipt*.json` - file count: `7`.
-- Repo Post-VS2 receipt JSONs: `docs/matrixlabs/post_vs2/*receipt*.json` - file count: `4`.
+- Repo Post-VS2 receipt JSONs: `docs/matrixlabs/post_vs2/*receipt*.json` - file count: `8`.
 - Repo Post-VS2 surface-preparation receipt JSONs: file count: `1`.
 - Repo Post-VS2 receipt-machinery preparation receipt JSONs: file count: `1`.
 - Repo Post-VS2 decision-receipt implementation-repair receipt JSONs: file count: `1`.
@@ -19,7 +19,11 @@ This packet does not copy the full receipt stack. Receipts remain evidence and s
 
 ## Post-VS2 receipt pointers
 
+- `docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_input_contract_v0.json`
+- `docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_surface_preparation_receipt_v0.json`
+- `docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_surface_v0.json`
 - `docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_contract_v0.json`
+- `docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_d01_draft_v0.json`
 - `docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_implementation_repair_receipt_v0.json`
 - `docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_machinery_receipt_v0.json`
 - `docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_surface_receipt_v0.json`

@@ -19,7 +19,6 @@ import build_post_vs2_first_execution_decision_surface_v0 as surface_helper
 
 
 ROOT = "/home/asd/projects/matrixlab"
-HEAD = "8eb5a0ee42200efbc5f601da2795eb405e9e4e64"
 CANON = "MATRIXLAB_CANONICAL_JSON_V0"
 SURFACE_ID = "POST_VS2_FIRST_EXECUTION_DECISION_SURFACE"
 SURFACE_VERSION = "v0"
@@ -540,7 +539,7 @@ def main(argv: list[str]) -> int:
         args = parse_args(argv)
         root = Path.cwd().resolve()
         input_path = Path(args.decision_input)
-        receipt = envelope(build_receipt_payload(root, input_path, args.emit_authoritative))
+        receipt = envelope(build_receipt_payload(root, input_path, False))
         if args.validate_only:
             payload = receipt["receipt_binding"]["receipt_payload"]
             print("POST_VS2_FIRST_EXECUTION_DECISION_INPUT_VALIDATION_ONLY_PASS")
@@ -559,6 +558,8 @@ def main(argv: list[str]) -> int:
                 "proposed_receipt_payload": payload,
             }, indent=2, sort_keys=True))
             return 0
+        if args.emit_authoritative:
+            stop("STOP_POST_VS2_D01_HUMAN_CONFIRMATION_MISSING")
         atomic_pair(root / AUTH_JSON, root / AUTH_MD, receipt)
         print("POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_EMIT_AUTHORITATIVE_PASS")
         print(json.dumps({"authoritative_receipt_emitted": True, "receipt_id": receipt["receipt_id"]}, indent=2, sort_keys=True))
@@ -567,6 +568,9 @@ def main(argv: list[str]) -> int:
         print("POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_STOP")
         print(f"failure_code={exc.code}")
         print("authoritative_receipt_emitted=false")
+        print("surface_consumed=false")
+        print("authority_update_applied=false")
+        print("execution_authority_present=false")
         return 1
 
 

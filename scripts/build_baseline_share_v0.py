@@ -787,6 +787,22 @@ POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_REPAIR_DOCS = [
     "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_implementation_repair_receipt_v0.json",
     "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_implementation_repair_receipt_v0.md",
 ]
+POST_VS2_D01_POPULATED_RECEIPT_CONFIRMATION_DOCS = [
+    "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_d01_draft_v0.json",
+    "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_d01_draft_v0.md",
+    "docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_surface_v0.json",
+    "docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_surface_v0.md",
+    "docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_input_contract_v0.json",
+    "docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_input_contract_v0.md",
+    "docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_surface_preparation_receipt_v0.json",
+    "docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_surface_preparation_receipt_v0.md",
+]
+POST_VS2_D01_POPULATED_RECEIPT_CONFIRMATION_SCRIPT = (
+    "scripts/build_post_vs2_d01_populated_receipt_confirmation_surface_v0.py"
+)
+POST_VS2_D01_POPULATED_RECEIPT_CONFIRMATION_VERIFY_SCRIPT = (
+    "scripts/verify_post_vs2_d01_populated_receipt_confirmation_surface_v0.py"
+)
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -923,6 +939,9 @@ SOURCE_DOCS = [
     POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_SCRIPT,
     POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_VERIFY_SCRIPT,
     *POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_REPAIR_DOCS,
+    *POST_VS2_D01_POPULATED_RECEIPT_CONFIRMATION_DOCS,
+    POST_VS2_D01_POPULATED_RECEIPT_CONFIRMATION_SCRIPT,
+    POST_VS2_D01_POPULATED_RECEIPT_CONFIRMATION_VERIFY_SCRIPT,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -1027,6 +1046,41 @@ def phase_vs2_6_current_unit_summary(root: Path) -> str:
 
 
 def phase_vs2_current_unit_summary(root: Path) -> str:
+    prep = read_json_if_present(
+        root / "docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_surface_preparation_receipt_v0.json"
+    )
+    if prep:
+        payload = prep.get("receipt_binding", {}).get("receipt_payload", {})
+        return "\n".join(
+            [
+                "- current_unit = `PREPARE_POST_VS2_D01_POPULATED_RECEIPT_CONFIRMATION_SURFACE_V0`",
+                "- human_decision_input_present = `true`",
+                "- human_decision_input_validated = `true`",
+                "- selected_surface_option = `AUTHORIZE_EXACT_SEALED_FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE`",
+                "- decision_branch = `D01`",
+                "- populated_receipt_draft_created = `true`",
+                "- confirmation_surface_created = `true`",
+                "- confirmation_input_contract_created = `true`",
+                "- human_confirmation_recorded = `false`",
+                "- confirmation_event_created = `false`",
+                "- authoritative_decision_receipt_created = `false`",
+                "- human_decision_recorded_by_receipt = `false`",
+                "- surface_state = `UNCONSUMED`",
+                "- surface_consumed = `false`",
+                "- execution_authority_update_eligible = `false`",
+                "- authority_update_applied = `false`",
+                "- package_state_updated = `false`",
+                "- execution_authority_present = `false`",
+                "- run_id_created = `false`",
+                "- execution_source_intake_created = `false`",
+                "- execution_started = `false`",
+                "- fixtures_executed = `0`",
+                "- generic_proceed_maps_to_confirmation = `false`",
+                "- accepted_confirmation_options = `CONFIRM_D01_RECEIPT_AS_POPULATED`, `RETURN_D01_RECEIPT_FOR_MECHANICAL_CORRECTION`, `WITHDRAW_D01_DECISION_BEFORE_AUTHORITATIVE_EMISSION`",
+                "- next_lawful_action = `SUPPLY_ONE_EXPLICIT_POST_VS2_D01_POPULATED_RECEIPT_CONFIRMATION`",
+                f"- terminal_transition = `{payload.get('terminal_transition', 'STOP_POST_VS2_D01_POPULATED_RECEIPT_PENDING_HUMAN_CONFIRMATION')}`",
+            ]
+        )
     repair = read_json_if_present(
         root / "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_implementation_repair_receipt_v0.json"
     )
@@ -3450,6 +3504,50 @@ def build_manifest(
                 "human_decision_input_payload_sha256": repair_payload.get("human_decision_input_payload_sha256"),
                 "prospective_receipt_id": repair_payload.get("prospective_receipt_id"),
                 "authoritative_decision_receipt_created": False,
+            }
+        )
+    prep_receipt_path = root / "docs/matrixlabs/post_vs2/post_vs2_d01_populated_receipt_confirmation_surface_preparation_receipt_v0.json"
+    if prep_receipt_path.exists():
+        prep_receipt = json.loads(prep_receipt_path.read_text(encoding="utf-8"))
+        prep_payload = prep_receipt.get("receipt_binding", {}).get("receipt_payload", {})
+        manifest.update(
+            {
+                "current_unit": "PREPARE_POST_VS2_D01_POPULATED_RECEIPT_CONFIRMATION_SURFACE_V0",
+                "human_decision_input_present": True,
+                "human_decision_input_validated": True,
+                "selected_surface_option": "AUTHORIZE_EXACT_SEALED_FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE",
+                "decision_branch": "D01",
+                "populated_receipt_draft_created": True,
+                "confirmation_surface_created": True,
+                "confirmation_input_contract_created": True,
+                "human_confirmation_recorded": False,
+                "confirmation_event_created": False,
+                "authoritative_decision_receipt_created": False,
+                "human_decision_recorded_by_receipt": False,
+                "surface_state": "UNCONSUMED",
+                "surface_consumed": False,
+                "execution_authority_update_eligible": False,
+                "authority_update_applied": False,
+                "package_state_updated": False,
+                "execution_authority_present": False,
+                "run_id_created": False,
+                "execution_source_intake_created": False,
+                "execution_started": False,
+                "fixtures_executed": 0,
+                "generic_proceed_maps_to_confirmation": False,
+                "accepted_confirmation_options": [
+                    "CONFIRM_D01_RECEIPT_AS_POPULATED",
+                    "RETURN_D01_RECEIPT_FOR_MECHANICAL_CORRECTION",
+                    "WITHDRAW_D01_DECISION_BEFORE_AUTHORITATIVE_EMISSION",
+                ],
+                "next_lawful_action": "SUPPLY_ONE_EXPLICIT_POST_VS2_D01_POPULATED_RECEIPT_CONFIRMATION",
+                "terminal_transition": "STOP_POST_VS2_D01_POPULATED_RECEIPT_PENDING_HUMAN_CONFIRMATION",
+                "confirmation_surface_preparation_receipt_id": prep_receipt.get("receipt_id"),
+                "confirmation_surface_preparation_receipt_sha256": prep_receipt.get("receipt_binding", {}).get("receipt_sha256"),
+                "draft_sha256": prep_payload.get("draft_sha256"),
+                "decision_record_payload_sha256": prep_payload.get("decision_record_payload_sha256"),
+                "confirmation_surface_sha256": prep_payload.get("confirmation_surface_sha256"),
+                "confirmation_input_contract_sha256": prep_payload.get("confirmation_input_contract_sha256"),
             }
         )
     return manifest
