@@ -748,6 +748,17 @@ PHASE_VS2_7_PHASE_CLOSURE_DOCS = [
 ]
 PHASE_VS2_7_PHASE_CLOSURE_SCRIPT = "scripts/build_phase_vs2_7_phase_closure_v0.py"
 PHASE_VS2_7_PHASE_CLOSURE_VERIFY_SCRIPT = "scripts/verify_phase_vs2_7_phase_closure_v0.py"
+POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_DOCS = [
+    "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_surface_v0.json",
+    "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_surface_v0.md",
+    "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_surface_receipt_v0.json",
+]
+POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_SCRIPT = (
+    "scripts/build_post_vs2_first_execution_decision_surface_v0.py"
+)
+POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_VERIFY_SCRIPT = (
+    "scripts/verify_post_vs2_first_execution_decision_surface_v0.py"
+)
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -875,6 +886,9 @@ SOURCE_DOCS = [
     *PHASE_VS2_7_PHASE_CLOSURE_DOCS,
     PHASE_VS2_7_PHASE_CLOSURE_SCRIPT,
     PHASE_VS2_7_PHASE_CLOSURE_VERIFY_SCRIPT,
+    *POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_DOCS,
+    POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_SCRIPT,
+    POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_VERIFY_SCRIPT,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -979,6 +993,45 @@ def phase_vs2_6_current_unit_summary(root: Path) -> str:
 
 
 def phase_vs2_current_unit_summary(root: Path) -> str:
+    post_surface = read_json_if_present(
+        root / POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_DOCS[0]
+    )
+    if post_surface:
+        payload = post_surface.get("surface_payload", {})
+        e0 = payload.get("execution_package_core_reference", {})
+        rs0 = payload.get("readiness_seal_reference", {})
+        decision = payload.get("decision_state", {})
+        authority = payload.get("authority_state", {})
+        execution = payload.get("execution_state", {})
+        terminal = payload.get("terminal_transition", {})
+        return "\n".join(
+            [
+                f"- current_unit = `{payload.get('unit_id', 'POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_PREPARATION')}`",
+                f"- current_surface = `{payload.get('surface_id', 'POST_VS2_FIRST_EXECUTION_DECISION_SURFACE')}`",
+                f"- surface_gate = `{payload.get('surface_gate', 'UNKNOWN')}`",
+                f"- surface_instance_state = `{payload.get('surface_instance_state', 'UNKNOWN')}`",
+                f"- human_decision_required = `{str(decision.get('human_decision_required', 'UNKNOWN')).lower()}`",
+                f"- human_decision_recorded = `{str(decision.get('human_decision_recorded', 'UNKNOWN')).lower()}`",
+                f"- decision_receipt_created = `{str(decision.get('decision_receipt_created', 'UNKNOWN')).lower()}`",
+                f"- decision_option_count = `{len(payload.get('decision_options', []))}`",
+                f"- execution_package_core_id = `{e0.get('logical_package_id', 'UNKNOWN')}`",
+                f"- execution_package_core_sha256 = `{e0.get('canonical_sha256', 'UNKNOWN')}`",
+                f"- readiness_seal_id = `{rs0.get('logical_seal_id', 'UNKNOWN')}`",
+                f"- readiness_seal_sha256 = `{rs0.get('canonical_sha256', 'UNKNOWN')}`",
+                f"- authority_update_applied = `{str(authority.get('authority_update_applied', 'UNKNOWN')).lower()}`",
+                f"- execution_authority_present = `{str(authority.get('execution_authority_present', 'UNKNOWN')).lower()}`",
+                f"- sweep_authority_present = `{str(authority.get('sweep_authority_present', 'UNKNOWN')).lower()}`",
+                f"- run_allocation_authority_present = `{str(authority.get('run_allocation_authority_present', 'UNKNOWN')).lower()}`",
+                f"- run_id_created = `{str(execution.get('run_id_created', 'UNKNOWN')).lower()}`",
+                f"- execution_source_intake_created = `{str(execution.get('execution_source_intake_created', 'UNKNOWN')).lower()}`",
+                f"- execution_started = `{str(execution.get('execution_started', 'UNKNOWN')).lower()}`",
+                f"- runtime_receipts_emitted = `{execution.get('runtime_receipts_emitted', 'UNKNOWN')}`",
+                f"- runtime_reports_emitted = `{execution.get('runtime_reports_emitted', 'UNKNOWN')}`",
+                f"- runner_created = `{str(authority.get('runner_authority_present', 'UNKNOWN')).lower()}`",
+                f"- terminal_transition = `{terminal.get('transition', 'UNKNOWN')}`",
+                "- next_lawful_action = `HUMAN_DECISION_REQUIRED`",
+            ]
+        )
     closure = read_json_if_present(root / PHASE_VS2_7_PHASE_CLOSURE_DOCS[0])
     if not closure:
         return phase_vs2_6_current_unit_summary(root)
@@ -1331,9 +1384,20 @@ def render_receipt_pointers(root: Path, architecture_receipt_matches: list[str])
     external_archive = Path("/home/asd/matrixlab_receipts")
     docs_receipts = root / "docs/matrixlabs/receipts"
     phase_vs2_dir = root / "docs/matrixlabs/phase_vs2"
+    post_vs2_dir = root / "docs/matrixlabs/post_vs2"
     docs_count = count_files(docs_receipts)
     external_count = count_files(external_archive)
     phase_vs2_receipt_count = len(list(phase_vs2_dir.glob("*receipt*.json"))) if phase_vs2_dir.exists() else 0
+    post_vs2_receipts = (
+        sorted(str(path.relative_to(root)) for path in post_vs2_dir.glob("*receipt*.json"))
+        if post_vs2_dir.exists()
+        else []
+    )
+    post_vs2_receipt_lines = (
+        "\n".join(f"- `{path}`" for path in post_vs2_receipts)
+        if post_vs2_receipts
+        else "- none"
+    )
     c8_receipt_present = (root / C8_POST_PATCH_RECEIPT).exists()
     arch_matches = (
         "\n".join(f"- `{path}`" for path in architecture_receipt_matches)
@@ -1349,10 +1413,15 @@ This packet does not copy the full receipt stack. Receipts remain evidence and s
 - External WSL receipt archive: `/home/asd/matrixlab_receipts/` - {'present' if external_archive.exists() else 'missing'}; file count: `{external_count}`.
 - Repo architecture extraction receipt copy: `docs/matrixlabs/receipts/` - {'present' if docs_receipts.exists() else 'missing'}; file count: `{docs_count}`.
 - Repo Phase VS2 receipt JSONs: `docs/matrixlabs/phase_vs2/*receipt*.json` - file count: `{phase_vs2_receipt_count}`.
+- Repo Post-VS2 receipt JSONs: `docs/matrixlabs/post_vs2/*receipt*.json` - file count: `{len(post_vs2_receipts)}`.
 
 ## Current load-bearing recent receipt pointers
 
 - C8 post-patch surface decision acceptance receipt: `{C8_POST_PATCH_RECEIPT}` - {'present' if c8_receipt_present else 'missing/uncertain'}.
+
+## Post-VS2 receipt pointers
+
+{post_vs2_receipt_lines}
 
 ## Architecture extraction terminal receipt pointer
 
@@ -2078,6 +2147,28 @@ def build_manifest(
         else {}
     )
     phase_vs2_7_receipt_payload = phase_vs2_7_receipt.get("receipt_payload", {})
+    post_vs2_surface_path = root / POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_DOCS[0]
+    post_vs2_surface_present = post_vs2_surface_path.exists()
+    post_vs2_surface = (
+        json.loads(post_vs2_surface_path.read_text(encoding="utf-8"))
+        if post_vs2_surface_present
+        else {}
+    )
+    post_vs2_payload = post_vs2_surface.get("surface_payload", {})
+    post_vs2_e0 = post_vs2_payload.get("execution_package_core_reference", {})
+    post_vs2_rs0 = post_vs2_payload.get("readiness_seal_reference", {})
+    post_vs2_decision = post_vs2_payload.get("decision_state", {})
+    post_vs2_authority = post_vs2_payload.get("authority_state", {})
+    post_vs2_execution = post_vs2_payload.get("execution_state", {})
+    post_vs2_terminal = post_vs2_payload.get("terminal_transition", {})
+    post_vs2_receipt_path = root / POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_DOCS[-1]
+    post_vs2_receipt_present = post_vs2_receipt_path.exists()
+    post_vs2_receipt = (
+        json.loads(post_vs2_receipt_path.read_text(encoding="utf-8"))
+        if post_vs2_receipt_present
+        else {}
+    )
+    post_vs2_receipt_payload = post_vs2_receipt.get("receipt_payload", {})
     phase_vs2_6_next_unit = (
         "VS2_7_PHASE_CLOSURE_PENDING"
         if phase_vs2_6_receipt_present
@@ -2137,6 +2228,12 @@ def build_manifest(
             "surface_id",
             "POST_VS2_FIRST_EXECUTION_DECISION_SURFACE",
         )
+    if post_vs2_surface_present:
+        phase_vs2_current_unit = post_vs2_payload.get(
+            "unit_id",
+            "POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_PREPARATION",
+        )
+        phase_vs2_6_next_unit = "HUMAN_DECISION_REQUIRED"
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -3138,6 +3235,36 @@ def build_manifest(
         "phase_vs2_7_receipt_gate": phase_vs2_7_receipt_payload.get("closure_gate") if phase_vs2_7_receipt_present else None,
         "phase_vs2_next_unit": phase_vs2_6_next_unit,
         "next_lawful_unit": phase_vs2_6_next_unit,
+        "current_unit": post_vs2_payload.get("unit_id") if post_vs2_surface_present else phase_vs2_current_unit,
+        "current_surface": post_vs2_payload.get("surface_id") if post_vs2_surface_present else None,
+        "surface_gate": post_vs2_payload.get("surface_gate") if post_vs2_surface_present else None,
+        "surface_instance_state": post_vs2_payload.get("surface_instance_state") if post_vs2_surface_present else None,
+        "human_decision_required": post_vs2_decision.get("human_decision_required") if post_vs2_surface_present else None,
+        "human_decision_recorded": post_vs2_decision.get("human_decision_recorded") if post_vs2_surface_present else None,
+        "decision_receipt_created": post_vs2_decision.get("decision_receipt_created") if post_vs2_surface_present else None,
+        "decision_option_count": len(post_vs2_payload.get("decision_options", [])) if post_vs2_surface_present else None,
+        "execution_package_core_id": post_vs2_e0.get("logical_package_id") if post_vs2_surface_present else (phase_vs2_7_e0.get("package_id") if phase_vs2_7_closure_present else None),
+        "execution_package_core_sha256": post_vs2_e0.get("canonical_sha256") if post_vs2_surface_present else (phase_vs2_7_e0.get("canonical_sha256") if phase_vs2_7_closure_present else None),
+        "readiness_seal_id": post_vs2_rs0.get("logical_seal_id") if post_vs2_surface_present else (phase_vs2_7_rs0.get("seal_id") if phase_vs2_7_closure_present else None),
+        "readiness_seal_sha256": post_vs2_rs0.get("canonical_sha256") if post_vs2_surface_present else (phase_vs2_7_rs0.get("canonical_sha256") if phase_vs2_7_closure_present else None),
+        "authority_update_applied": post_vs2_authority.get("authority_update_applied") if post_vs2_surface_present else None,
+        "execution_authority_present": post_vs2_authority.get("execution_authority_present") if post_vs2_surface_present else (phase_vs2_7_authority.get("execution_authority_present") if phase_vs2_7_closure_present else None),
+        "sweep_authority_present": post_vs2_authority.get("sweep_authority_present") if post_vs2_surface_present else None,
+        "run_allocation_authority_present": post_vs2_authority.get("run_allocation_authority_present") if post_vs2_surface_present else None,
+        "run_id_created": post_vs2_execution.get("run_id_created") if post_vs2_surface_present else None,
+        "execution_source_intake_created": post_vs2_execution.get("execution_source_intake_created") if post_vs2_surface_present else None,
+        "execution_started": post_vs2_execution.get("execution_started") if post_vs2_surface_present else (phase_vs2_7_execution.get("execution_started") if phase_vs2_7_closure_present else None),
+        "runtime_receipts_emitted": post_vs2_execution.get("runtime_receipts_emitted") if post_vs2_surface_present else None,
+        "runtime_reports_emitted": post_vs2_execution.get("runtime_reports_emitted") if post_vs2_surface_present else None,
+        "runner_created": post_vs2_authority.get("runner_authority_present") if post_vs2_surface_present else (phase_vs2_7_authority.get("runner_created") if phase_vs2_7_closure_present else None),
+        "terminal_transition": post_vs2_terminal.get("transition") if post_vs2_surface_present else (phase_vs2_7_terminal.get("transition") if phase_vs2_7_closure_present else None),
+        "next_lawful_action": "HUMAN_DECISION_REQUIRED" if post_vs2_surface_present else None,
+        "post_vs2_surface_built": post_vs2_surface_present,
+        "post_vs2_surface_artifact_id": post_vs2_surface.get("artifact_id") if post_vs2_surface_present else None,
+        "post_vs2_surface_sha256": post_vs2_surface.get("surface_payload_sha256") if post_vs2_surface_present else None,
+        "post_vs2_receipt_artifact_id": post_vs2_receipt.get("receipt_id") if post_vs2_receipt_present else None,
+        "post_vs2_receipt_sha256": post_vs2_receipt.get("receipt_payload_sha256") if post_vs2_receipt_present else None,
+        "post_vs2_receipt_gate": post_vs2_receipt_payload.get("surface_gate") if post_vs2_receipt_present else None,
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,

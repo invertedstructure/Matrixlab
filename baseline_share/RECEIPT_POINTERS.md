@@ -4,13 +4,18 @@ This packet does not copy the full receipt stack. Receipts remain evidence and s
 
 ## Full receipt locations
 
-- External WSL receipt archive: `/home/asd/matrixlab_receipts/` - present; file count: `860`.
+- External WSL receipt archive: `/home/asd/matrixlab_receipts/` - present; file count: `863`.
 - Repo architecture extraction receipt copy: `docs/matrixlabs/receipts/` - present; file count: `714`.
 - Repo Phase VS2 receipt JSONs: `docs/matrixlabs/phase_vs2/*receipt*.json` - file count: `7`.
+- Repo Post-VS2 receipt JSONs: `docs/matrixlabs/post_vs2/*receipt*.json` - file count: `1`.
 
 ## Current load-bearing recent receipt pointers
 
 - C8 post-patch surface decision acceptance receipt: `data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0_receipts/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_receipt_22e01dcc.json` - present.
+
+## Post-VS2 receipt pointers
+
+- `docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_surface_receipt_v0.json`
 
 ## Architecture extraction terminal receipt pointer
 

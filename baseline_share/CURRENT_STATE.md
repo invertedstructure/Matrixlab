@@ -1,10 +1,10 @@
 # Current State
 
-Generated at UTC: `2026-07-13T00:44:35Z`
+Generated at UTC: `2026-07-13T02:30:15Z`
 
 ## Git context
 
-- Current HEAD SHA: `2369f1786d8ddcb905bc3609f983cb60af0fb70a`
+- Current HEAD SHA: `af79cea2fd8cf98732ef074969a9a56ffb8a6406`
 - Current branch: `master`
 - Worktree state at generation time: `dirty`
 - `baseline_share/` is generated output and may appear dirty while this packet is being refreshed.
@@ -14,27 +14,21 @@ Generated at UTC: `2026-07-13T00:44:35Z`
 - ` M baseline_share/MANIFEST.json`
 - ` M baseline_share/RECEIPT_POINTERS.md`
 - ` M scripts/build_baseline_share_v0.py`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_7_phase_closure_receipt_v0.json`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_closure_readout_v0.md`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_closure_v0.json`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_closure_v0.md`
-- `?? scripts/build_phase_vs2_7_phase_closure_v0.py`
-- `?? scripts/verify_phase_vs2_7_phase_closure_v0.py`
+- `?? docs/matrixlabs/post_vs2/`
+- `?? scripts/build_post_vs2_first_execution_decision_surface_v0.py`
+- `?? scripts/verify_post_vs2_first_execution_decision_surface_v0.py`
 - Git status excluding generated `baseline_share/`:
 - ` M scripts/build_baseline_share_v0.py`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_7_phase_closure_receipt_v0.json`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_closure_readout_v0.md`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_closure_v0.json`
-- `?? docs/matrixlabs/phase_vs2/phase_vs2_closure_v0.md`
-- `?? scripts/build_phase_vs2_7_phase_closure_v0.py`
-- `?? scripts/verify_phase_vs2_7_phase_closure_v0.py`
+- `?? docs/matrixlabs/post_vs2/`
+- `?? scripts/build_post_vs2_first_execution_decision_surface_v0.py`
+- `?? scripts/verify_post_vs2_first_execution_decision_surface_v0.py`
 
 ## Source layer
 
 - Current known source layer: `docs/matrixlabs/`
 - `docs/matrixlabs/` present: `true`
-- Current architecture extraction commit: `2369f1786d8ddcb905bc3609f983cb60af0fb70a`
-- Current C8 post-patch surface-decision acceptance commit: `2369f1786d8ddcb905bc3609f983cb60af0fb70a`
+- Current architecture extraction commit: `af79cea2fd8cf98732ef074969a9a56ffb8a6406`
+- Current C8 post-patch surface-decision acceptance commit: `af79cea2fd8cf98732ef074969a9a56ffb8a6406`
 
 ## High-level state
 
@@ -47,22 +41,30 @@ Generated at UTC: `2026-07-13T00:44:35Z`
 
 ## Phase VS2 current unit
 
-- current_unit = `VS2_7_PHASE_CLOSURE`
-- phase_status = `PHASE_VS2_PASS_FIRST_SWEEP_CAPABLE_KERNEL_SEALED_READY_FOR_ONE_BOUNDED_EXECUTION_DECISION`
-- closure_gate = `VS2_7_PHASE_CLOSURE_PASS_READY_FOR_ONE_EXECUTION_DECISION`
-- readiness_branch = `READY`
-- execution_package_core_artifact_id = `phase_vs2_execution_package_core_manifest_v0`
+- current_unit = `POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_PREPARATION`
+- current_surface = `POST_VS2_FIRST_EXECUTION_DECISION_SURFACE`
+- surface_gate = `POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_PASS_READY_FOR_HUMAN_DECISION`
+- surface_instance_state = `UNCONSUMED`
+- human_decision_required = `true`
+- human_decision_recorded = `false`
+- decision_receipt_created = `false`
+- decision_option_count = `6`
 - execution_package_core_id = `FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE_CORE_V0`
 - execution_package_core_sha256 = `cd3f9deed2278d8ab7292a7aa64cf1a68446312d26493f07e508f1d5360211c6`
-- readiness_seal_artifact_id = `phase_vs2_execution_package_readiness_seal_v0`
 - readiness_seal_id = `FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE_READINESS_SEAL_V0`
 - readiness_seal_sha256 = `5c36c71da7bd70889c16a4722d882b0fe8dcfc5ce6cd8a72b80da4dbafbe2d79`
-- next_lawful_surface = `POST_VS2_FIRST_EXECUTION_DECISION_SURFACE`
-- next_surface_state = `named, not created`
+- authority_update_applied = `false`
 - execution_authority_present = `false`
+- sweep_authority_present = `false`
+- run_allocation_authority_present = `false`
+- run_id_created = `false`
+- execution_source_intake_created = `false`
 - execution_started = `false`
+- runtime_receipts_emitted = `0`
+- runtime_reports_emitted = `0`
 - runner_created = `false`
-- terminal_transition = `STOP_PHASE_VS2_CLOSED_PENDING_FIRST_EXECUTION_DECISION`
+- terminal_transition = `STOP_POST_VS2_EXECUTION_SURFACE_READY_PENDING_HUMAN_DECISION`
+- next_lawful_action = `HUMAN_DECISION_REQUIRED`
 
 ## Uncertainty
 
