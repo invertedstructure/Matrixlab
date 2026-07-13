@@ -1,0 +1,222 @@
+{
+  "receipt_binding": {
+    "canonicalization": "MATRIXLAB_CANONICAL_JSON_V0",
+    "hash_algorithm": "SHA-256",
+    "receipt_payload": {
+      "D01_validation_only": "PASS",
+      "HEAD": "8eb5a0ee42200efbc5f601da2795eb405e9e4e64",
+      "R01_R20_validation_statuses": {
+        "R01_SURFACE_PACKAGE_VERIFIED": "PASS",
+        "R02_DECISION_SUBJECT_VERIFIED": "PASS",
+        "R03_READINESS_CHAIN_VERIFIED": "PASS",
+        "R04_IDENTITY_FRESHNESS_VERIFIED": "PASS",
+        "R05_EXECUTION_ELIGIBILITY_FRESHNESS_VERIFIED": "PASS",
+        "R06_HUMAN_DECISION_INPUT_AND_AUTHENTICITY_VERIFIED": "PASS",
+        "R07_OPTION_BRANCH_MAPPING_VERIFIED": "PASS",
+        "R08_SURFACE_CONSUMPTION_UNIQUENESS_VERIFIED": "PASS",
+        "R09_D01_EXACT_AUTHORIZATION_VERIFIED": "PASS",
+        "R10_D02_REDUCED_PACKAGE_REQUEST_VERIFIED": "NOT_APPLICABLE",
+        "R11_D03_REVISION_REQUEST_VERIFIED": "NOT_APPLICABLE",
+        "R12_D04_DEFERRAL_VERIFIED": "NOT_APPLICABLE",
+        "R13_D05_REJECTION_VERIFIED": "NOT_APPLICABLE",
+        "R14_D06_ABANDONMENT_VERIFIED": "NOT_APPLICABLE",
+        "R15_NO_DIRECT_AUTHORITY_EFFECT_VERIFIED": "PASS",
+        "R16_NO_DIRECT_PACKAGE_STATE_EFFECT_VERIFIED": "PASS",
+        "R17_DOWNSTREAM_ROUTE_VERIFIED": "PASS",
+        "R18_RECEIPT_NOT_PRECONSUMED_VERIFIED": "PASS",
+        "R19_RECEIPT_HASH_GRAPH_VERIFIED": "PASS",
+        "R20_NO_EXECUTION_DRIFT_VERIFIED": "PASS"
+      },
+      "authoritative_emission_blocked_before_repair": true,
+      "authoritative_receipt_emitted": false,
+      "authoritative_receipt_emitted_before_repair": false,
+      "authority_update_applied": false,
+      "branch": "master",
+      "builder_repaired": true,
+      "decision_actor_authentication_reference": "authenticated_chatgpt_user_session.current",
+      "decision_actor_reference": "human_actor.user.carlos",
+      "decision_branch_id": "D01",
+      "decision_event_id": "post_vs2_decision_event::d5eaaf7594f5b031146a5aa60ffaf9eb38fa7aba7801536ff4ce31e1571ed648",
+      "decision_interface_contract_reference": "POST_VS2_FIRST_EXECUTION_DECISION_SURFACE_V0",
+      "decision_rationale_preserved_exactly": true,
+      "decision_timestamp": "2026-07-13T13:47:38Z",
+      "earliest_expiry_rule_acknowledged": true,
+      "execution_authority_present": false,
+      "execution_eligibility_freshness": "PASS",
+      "execution_source_intake_created": false,
+      "failures": [],
+      "final_marker": "REPAIR_POST_VS2_AUTHORITATIVE_DECISION_RECEIPT_EMISSION_PATH_AND_VALIDATE_D01_INPUT_V0_COMPLETE",
+      "fixtures_executed": 0,
+      "gate": "REPAIR_POST_VS2_AUTHORITATIVE_DECISION_RECEIPT_EMISSION_PATH_AND_VALIDATE_D01_INPUT_V0_PASS",
+      "human_decision_input_payload_sha256": "d5eaaf7594f5b031146a5aa60ffaf9eb38fa7aba7801536ff4ce31e1571ed648",
+      "human_decision_recorded_by_receipt": false,
+      "human_input_artifact_created": true,
+      "human_input_hash_verified": true,
+      "human_input_path": "docs/matrixlabs/post_vs2/post_vs2_first_execution_human_decision_input_v0.json",
+      "human_input_raw_sha256": "680d79ed2a15e50d2c99e98dde6c6dc267a8eb0efba968dbb95a0d28cd2ae548",
+      "identity_and_integrity_freshness": "PASS",
+      "implementation_defect_classified": true,
+      "negative_probe_count": 18,
+      "negative_probe_reject_count": 18,
+      "negative_probe_results": [
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_DECISION_ACTOR_MISSING",
+          "probe_id": "NP01",
+          "probe_name": "missing actor reference",
+          "rejected": true
+        },
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_DECISION_AUTHENTICATION_MISSING",
+          "probe_id": "NP02",
+          "probe_name": "missing authentication reference",
+          "rejected": true
+        },
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_INTERFACE_REFERENCE_INVALID",
+          "probe_id": "NP03",
+          "probe_name": "wrong interface reference",
+          "rejected": true
+        },
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_DECISION_TIMESTAMP_INVALID",
+          "probe_id": "NP04",
+          "probe_name": "changed decision timestamp",
+          "rejected": true
+        },
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_DECISION_RATIONALE_INVALID",
+          "probe_id": "NP05",
+          "probe_name": "changed rationale",
+          "rejected": true
+        },
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_EXACT_AUTHORIZATION_EXPIRY_INVALID",
+          "probe_id": "NP06",
+          "probe_name": "changed D01 expiry",
+          "rejected": true
+        },
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_EXACT_AUTHORIZATION_EXPIRY_INVALID",
+          "probe_id": "NP07",
+          "probe_name": "expiry not later than decision timestamp",
+          "rejected": true
+        },
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_EXACT_AUTHORIZATION_EXPIRY_INVALID",
+          "probe_id": "NP08",
+          "probe_name": "earliest-expiry acknowledgement false",
+          "rejected": true
+        },
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_SURFACE_IDENTITY_MISMATCH",
+          "probe_id": "NP09",
+          "probe_name": "wrong surface hash",
+          "rejected": true
+        },
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_OPTION_BRANCH_MAPPING_INVALID",
+          "probe_id": "NP10",
+          "probe_name": "wrong branch id",
+          "rejected": true
+        },
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_EXACT_PACKAGE_SCOPE_MISMATCH",
+          "probe_id": "NP11",
+          "probe_name": "manual fixture subset in D01",
+          "rejected": true
+        },
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_EXACT_PACKAGE_SCOPE_MISMATCH",
+          "probe_id": "NP12",
+          "probe_name": "manual changed fixture order",
+          "rejected": true
+        },
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_IDENTITY_FRESHNESS_STALE",
+          "probe_id": "NP13",
+          "probe_name": "hardcoded freshness without source checks",
+          "rejected": true
+        },
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_SURFACE_ALREADY_CONSUMED",
+          "probe_id": "NP14",
+          "probe_name": "duplicate surface-consumption key",
+          "rejected": true
+        },
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_EXISTING_RECEIPT_WOULD_BE_OVERWRITTEN",
+          "probe_id": "NP15",
+          "probe_name": "existing authoritative receipt overwrite",
+          "rejected": true
+        },
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_EXECUTION_AUTHORITY_PRESENT",
+          "probe_id": "NP16",
+          "probe_name": "authority already active",
+          "rejected": true
+        },
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_RUN_ID_CREATED",
+          "probe_id": "NP17",
+          "probe_name": "run id already present",
+          "rejected": true
+        },
+        {
+          "authoritative_receipt_emitted": false,
+          "failure_code": "STOP_POST_VS2_DECISION_RECEIPT_EXECUTION_SOURCE_INTAKE_CREATED",
+          "probe_id": "NP18",
+          "probe_name": "execution-source intake already present",
+          "rejected": true
+        }
+      ],
+      "normalized_blocker_count": 0,
+      "normalized_blocker_source_count": 4,
+      "package_state_updated": false,
+      "prior_builder_hardcoded_freshness_results": true,
+      "prior_builder_validated_input_but_dropped_load_bearing_fields": true,
+      "prior_machinery_receipt_hash": "8d248077783bf512984cd50b1c1b4b3924c88617af38abbd806b1b426bf9411b",
+      "prior_machinery_receipt_id": "post_vs2_first_execution_decision_receipt_machinery_receipt_v0",
+      "prior_machinery_receipt_preserved": true,
+      "prior_machinery_receipt_rewritten": false,
+      "prior_verifier_did_not_independently_execute_R01_R20": true,
+      "prior_verifier_did_not_reload_complete_source_chain": true,
+      "prospective_receipt_id": "receipt::d7150101acbfe46342c95506c526e2b49b6ca295881c2e390d78fdb4c5001d35::post_vs2_decision_event::d5eaaf7594f5b031146a5aa60ffaf9eb38fa7aba7801536ff4ce31e1571ed648",
+      "repo_root": "/home/asd/projects/matrixlab",
+      "requested_absolute_expiry_timestamp": "2026-07-14T13:47:38Z",
+      "role": "AUTHORITATIVE_EMISSION_PATH_REPAIR_AND_D01_INPUT_VALIDATION_ONLY",
+      "run_id_created": false,
+      "runtime_receipts_emitted": 0,
+      "runtime_reports_emitted": 0,
+      "selected_surface_option_code": "AUTHORIZE_EXACT_SEALED_FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE",
+      "source_identity_count": 44,
+      "source_linkage_count": 11,
+      "status": "POST_VS2_DECISION_RECEIPT_IMPLEMENTATION_REPAIR_PASS_D01_INPUT_VALIDATED_READY_FOR_AUTHORITATIVE_EMISSION",
+      "surface_consumed": false,
+      "terminal_transition": "STOP_POST_VS2_D01_INPUT_VALIDATED_PENDING_AUTHORITATIVE_RECEIPT_EMISSION",
+      "unit": "REPAIR_POST_VS2_AUTHORITATIVE_DECISION_RECEIPT_EMISSION_PATH_AND_VALIDATE_D01_INPUT_V0",
+      "verifier_repaired": true
+    },
+    "receipt_sha256": "b14c3c4b24651ea291a74e8d1361ab79c8a60ce4b200a71f98e78f2645e36615"
+  },
+  "receipt_id": "post_vs2_first_execution_decision_receipt_implementation_repair_receipt_v0",
+  "receipt_role": "AUTHORITATIVE_EMISSION_PATH_REPAIR_AND_D01_INPUT_VALIDATION_ONLY",
+  "receipt_version": "v0",
+  "schema_version": "matrixlabs_post_vs2_decision_receipt_implementation_repair_receipt_v0"
+}

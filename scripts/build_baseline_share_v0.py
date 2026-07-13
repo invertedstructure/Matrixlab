@@ -782,6 +782,11 @@ POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_AUTHORITATIVE_DOCS = [
     "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_v0.json",
     "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_v0.md",
 ]
+POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_REPAIR_DOCS = [
+    "docs/matrixlabs/post_vs2/post_vs2_first_execution_human_decision_input_v0.json",
+    "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_implementation_repair_receipt_v0.json",
+    "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_implementation_repair_receipt_v0.md",
+]
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -917,6 +922,7 @@ SOURCE_DOCS = [
     POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_MACHINERY_VERIFY_SCRIPT,
     POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_SCRIPT,
     POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_VERIFY_SCRIPT,
+    *POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_REPAIR_DOCS,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -1021,6 +1027,33 @@ def phase_vs2_6_current_unit_summary(root: Path) -> str:
 
 
 def phase_vs2_current_unit_summary(root: Path) -> str:
+    repair = read_json_if_present(
+        root / "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_implementation_repair_receipt_v0.json"
+    )
+    if repair:
+        payload = repair.get("receipt_binding", {}).get("receipt_payload", {})
+        return "\n".join(
+            [
+                "- current_unit = `POST_VS2_AUTHORITATIVE_DECISION_RECEIPT_EMISSION_PATH_REPAIR_AND_D01_INPUT_VALIDATION`",
+                "- current_surface = `POST_VS2_FIRST_EXECUTION_DECISION_SURFACE`",
+                "- human_decision_input_present = `true`",
+                "- human_decision_input_validated = `true`",
+                "- input_validated = `true`",
+                "- selected_surface_option = `AUTHORIZE_EXACT_SEALED_FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE`",
+                "- derived_branch = `D01`",
+                "- human_decision_receipt_created = `false`",
+                "- human_decision_recorded_by_receipt = `false`",
+                "- surface_state = `UNCONSUMED`",
+                "- surface_consumed = `false`",
+                "- authority_update_applied = `false`",
+                "- execution_authority_present = `false`",
+                "- run_id_created = `false`",
+                "- execution_source_intake_created = `false`",
+                "- execution_started = `false`",
+                "- next_lawful_action = `EMIT_AUTHORITATIVE_POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_D01`",
+                f"- terminal_transition = `{payload.get('terminal_transition', 'STOP_POST_VS2_D01_INPUT_VALIDATED_PENDING_AUTHORITATIVE_RECEIPT_EMISSION')}`",
+            ]
+        )
     machinery = read_json_if_present(
         root / POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_MACHINERY_DOCS[-1]
     )
@@ -1485,6 +1518,7 @@ This packet does not copy the full receipt stack. Receipts remain evidence and s
 - Repo Post-VS2 receipt JSONs: `docs/matrixlabs/post_vs2/*receipt*.json` - file count: `{len(post_vs2_receipts)}`.
 - Repo Post-VS2 surface-preparation receipt JSONs: file count: `{len(post_vs2_surface_preparation_receipts)}`.
 - Repo Post-VS2 receipt-machinery preparation receipt JSONs: file count: `{len(post_vs2_machinery_preparation_receipts)}`.
+- Repo Post-VS2 decision-receipt implementation-repair receipt JSONs: file count: `{len([path for path in post_vs2_receipts if path.endswith("post_vs2_first_execution_decision_receipt_implementation_repair_receipt_v0.json")])}`.
 - Repo authoritative Post-VS2 human decision receipt JSONs: file count: `{len(post_vs2_authoritative_decision_receipts)}`.
 
 ## Current load-bearing recent receipt pointers
@@ -3388,6 +3422,36 @@ def build_manifest(
                 "execution_authorized": False,
             }
         )
+    repair_receipt_path = root / "docs/matrixlabs/post_vs2/post_vs2_first_execution_decision_receipt_implementation_repair_receipt_v0.json"
+    if repair_receipt_path.exists():
+        repair_receipt = json.loads(repair_receipt_path.read_text(encoding="utf-8"))
+        repair_payload = repair_receipt.get("receipt_binding", {}).get("receipt_payload", {})
+        manifest.update(
+            {
+                "current_unit": "POST_VS2_AUTHORITATIVE_DECISION_RECEIPT_EMISSION_PATH_REPAIR_AND_D01_INPUT_VALIDATION",
+                "human_decision_input_present": True,
+                "human_decision_input_validated": True,
+                "input_validated": True,
+                "selected_surface_option": "AUTHORIZE_EXACT_SEALED_FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE",
+                "derived_branch": "D01",
+                "human_decision_receipt_created": False,
+                "human_decision_recorded_by_receipt": False,
+                "surface_state": "UNCONSUMED",
+                "surface_consumed": False,
+                "authority_update_applied": False,
+                "execution_authority_present": False,
+                "run_id_created": False,
+                "execution_source_intake_created": False,
+                "execution_started": False,
+                "next_lawful_action": "EMIT_AUTHORITATIVE_POST_VS2_FIRST_EXECUTION_DECISION_RECEIPT_D01",
+                "terminal_transition": "STOP_POST_VS2_D01_INPUT_VALIDATED_PENDING_AUTHORITATIVE_RECEIPT_EMISSION",
+                "implementation_repair_receipt_id": repair_receipt.get("receipt_id"),
+                "implementation_repair_receipt_sha256": repair_receipt.get("receipt_binding", {}).get("receipt_sha256"),
+                "human_decision_input_payload_sha256": repair_payload.get("human_decision_input_payload_sha256"),
+                "prospective_receipt_id": repair_payload.get("prospective_receipt_id"),
+                "authoritative_decision_receipt_created": False,
+            }
+        )
     return manifest
 
 
@@ -3467,6 +3531,27 @@ def generate() -> int:
     return 0
 
 
+def refresh_manifest_file_hashes_after_late_projections(root: Path) -> None:
+    baseline = root / BASELINE_DIR
+    manifest_path = baseline / "MANIFEST.json"
+    if not manifest_path.exists():
+        return
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    hashes = {}
+    for filename in INCLUDED_FILES:
+        if filename == "MANIFEST.json":
+            continue
+        relative_path = f"{BASELINE_DIR}/{filename}"
+        hashes[relative_path] = sha256_file(baseline / filename)
+    manifest["file_hash_algorithm"] = "sha256"
+    manifest["file_hashes"] = hashes
+    manifest["manifest_self_hash_excluded_due_to_self_reference"] = True
+    write_text(
+        manifest_path,
+        json.dumps(manifest, indent=2, sort_keys=True),
+    )
+
+
 def main() -> int:
     try:
         return generate()
@@ -3476,7 +3561,24 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    try:
+        _vs2_6_identity_atexit.unregister(
+            _apply_vs2_6_baseline_logical_identity_projection_v0
+        )
+    except Exception:
+        pass
+    try:
+        _vs2_5_atexit.unregister(
+            _apply_vs2_5_human_next_unit_projection_v0
+        )
+    except Exception:
+        pass
+
     _baseline_exit_code = main()
-    # BASELINE_UNCOMMITTED_VS0_3_MARKER_FILTER_V1_MAIN_EXIT_CALL
-    _baseline_filter_uncommitted_vs0_3_markers_v1()
+    if _baseline_exit_code == 0:
+        _apply_vs2_6_baseline_logical_identity_projection_v0()
+        _apply_vs2_5_human_next_unit_projection_v0()
+        # BASELINE_UNCOMMITTED_VS0_3_MARKER_FILTER_V1_MAIN_EXIT_CALL
+        _baseline_filter_uncommitted_vs0_3_markers_v1()
+        refresh_manifest_file_hashes_after_late_projections(Path.cwd())
     raise SystemExit(_baseline_exit_code)
