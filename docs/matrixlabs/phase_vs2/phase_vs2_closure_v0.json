@@ -1,0 +1,2076 @@
+{
+  "artifact_id": "phase_vs2_closure_v0",
+  "artifact_kind": "STATIC_PHASE_CLOSURE",
+  "artifact_version": "v0",
+  "closure_payload": {
+    "authority_summary": {
+      "authority_update_applied_by_vs2_7": false,
+      "bounded_construction_authority_consumed_by_vs2_7": false,
+      "construction_package_verification_authority_consumed_by_vs2_7": false,
+      "consumed_authority_count_by_vs2_7": 0,
+      "created_authority_count_by_vs2_7": 0,
+      "execution_authority_consumed_by_vs2_7": false,
+      "execution_authority_present": false,
+      "fixture_construction_authority_consumed_by_vs2_7": false,
+      "prospective_authority_activated_by_vs2_7": false,
+      "prospective_authority_active": false,
+      "readiness_gate_construction_authority_consumed_by_vs2_7": false,
+      "renewed_authority_count_by_vs2_7": 0,
+      "reopened_authority_frame_count_by_vs2_7": 0,
+      "runner_authority_created_by_vs2_7": false,
+      "runner_created": false,
+      "sweep_authority_consumed_by_vs2_7": false,
+      "sweep_authority_present": false
+    },
+    "bookkeeping_transition": "ADVANCE(BOOKKEEPING_COMMIT_PHASE_VS2_7_PHASE_CLOSURE_V0_PENDING)",
+    "closure_action_scope": "VERIFY_AND_CLOSE_ALREADY_SEALED_VS2_CHAIN_ONLY",
+    "closure_check_table_CL01_CL21": [
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL01_SOURCE_SPINE_COMPLETE",
+        "closure_check_name": "Source spine complete",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_SOURCE_SPINE_COMPLETE"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL02_SOURCE_IDENTITIES_VERIFIED",
+        "closure_check_name": "Source identities verified",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_SOURCE_IDENTITY_TABLE_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL03_SOURCE_LINKAGE_AND_DEPENDENCY_ORDER",
+        "closure_check_name": "Source linkage and dependency order",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_SOURCE_LINKAGE_AND_DEPENDENCY_ORDER_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL04_PHASE_ENTRY_AUTHORITY",
+        "closure_check_name": "Phase entry authority boundary",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_PHASE_ENTRY_AUTHORITY_BOUNDARY_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL05_CONSTRUCTION_AUTHORITY_HISTORY",
+        "closure_check_name": "Construction authority consumption history",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_CONSTRUCTION_AUTHORITY_CONSUMPTION_HISTORY_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL06_PROFILE_AND_TARGET",
+        "closure_check_name": "Profile and target boundary",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_PROFILE_AND_TARGET_BOUNDARY_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL07_SCOPE_REGIME_AND_OBJECT_MODEL",
+        "closure_check_name": "Scope regime and object model boundary",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_SCOPE_REGIME_AND_OBJECT_MODEL_BOUNDARY_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL08_FINITE_MOVE_SPACE",
+        "closure_check_name": "Finite move space boundary",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_FINITE_MOVE_SPACE_BOUNDARY_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL09_PROSPECTIVE_AUTHORITY_INACTIVE",
+        "closure_check_name": "Prospective authority inactive",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_PROSPECTIVE_AUTHORITY_INACTIVE_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL10_CONTROLLED_STEP_AND_C20",
+        "closure_check_name": "Controlled step and convergence package",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_CONTROLLED_STEP_AND_CONVERGENCE_PACKAGE_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL11_FIXTURE_PACKAGE",
+        "closure_check_name": "Fixture package boundary",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_FIXTURE_SET_BOUNDARY_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL12_STATIC_EXPECTED_PATHS",
+        "closure_check_name": "Static repeat and preservation path boundary",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_STATIC_REPEAT_AND_PRESERVATION_PATH_BOUNDARY_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL13_RUNTIME_SOURCE_SNAPSHOT",
+        "closure_check_name": "Runtime source snapshot boundary",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_RUNTIME_SOURCE_SNAPSHOT_BOUNDARY_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL14_UPSTREAM_DEPENDENCY_INVENTORY",
+        "closure_check_name": "Upstream dependency inventory",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_UPSTREAM_DEPENDENCY_INVENTORY_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL15_REPORT_CONTRACTS",
+        "closure_check_name": "Report contract package",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_REPORT_CONTRACT_PACKAGE_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL16_EXECUTION_PACKAGE_CORE",
+        "closure_check_name": "Execution package core binding",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_EXECUTION_PACKAGE_CORE_BINDING_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL17_READINESS_GATE_AND_RECEIPT",
+        "closure_check_name": "Readiness gate and receipt",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_READINESS_GATE_AND_RECEIPT_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL18_READINESS_SEAL",
+        "closure_check_name": "Readiness seal binding",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_READINESS_SEAL_BINDING_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL19_READINESS_BRANCH",
+        "closure_check_name": "Readiness branch and blocker preservation",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_READINESS_BRANCH_AND_BLOCKER_PRESERVATION_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL20_AUTHORITY_POSTURE",
+        "closure_check_name": "Authority posture preservation",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_AUTHORITY_POSTURE_PRESERVATION_PASS"
+        ]
+      },
+      {
+        "bounded_interpretation": "Static closure verification only; no execution or authority mutation.",
+        "closure_check_id": "CL21_NO_EXECUTION_OR_FORBIDDEN_CLAIMS",
+        "closure_check_name": "No execution or forbidden claim drift",
+        "closure_check_status": "PASS",
+        "evidence_references": [
+          "source_identity_table",
+          "source_linkage_table",
+          "unit_gate_table",
+          "readiness_seal_binding"
+        ],
+        "failure_codes": [],
+        "verified_invariants": [
+          "VS2_7_NO_EXECUTION_OR_FORBIDDEN_CLAIM_DRIFT_PASS"
+        ]
+      }
+    ],
+    "closure_gate": "VS2_7_PHASE_CLOSURE_PASS_READY_FOR_ONE_EXECUTION_DECISION",
+    "construction_authority_consumption_history": {
+      "hard_rule": "one consumption across VS2.3-VS2.5 frame is not one consumption per unit",
+      "vs2_2": {
+        "bounded_construction_grant_consumed": false,
+        "profile_grant_consumed": true
+      },
+      "vs2_3": {
+        "consumption_count_after": 1,
+        "consumption_count_before": 0,
+        "consumption_frame": "VS2.3_TO_VS2.5_BOUND_TARGET_CONSTRUCTION_SEQUENCE",
+        "frame_open_after_vs2_3": true,
+        "grant": "VS2_BOUNDED_CONSTRUCTION_AUTHORITY"
+      },
+      "vs2_4": {
+        "additional_bounded_construction_consumption": false,
+        "consumption_count_after": 1,
+        "consumption_count_before": 1,
+        "frame_open_after_vs2_4": true
+      },
+      "vs2_5": {
+        "additional_bounded_construction_consumption": false,
+        "bounded_construction_grant_further_use_permitted": false,
+        "consumption_count_after": 1,
+        "consumption_count_before": 1,
+        "frame_completed_by_vs2_5": true,
+        "frame_open_after_vs2_5": false
+      },
+      "vs2_6": {
+        "bounded_construction_frame_reopened_by_vs2_6": false,
+        "bounded_construction_grant_reused_by_vs2_6": false,
+        "construction_package_verification_authority_consumed": true,
+        "fixture_construction_authority_consumed": true,
+        "prior_bounded_construction_consumption_count": 1,
+        "readiness_gate_construction_authority_consumed": true,
+        "remaining_effective_grant_count_after": 0,
+        "remaining_effective_grant_count_before": 3
+      },
+      "vs2_7": {
+        "consumed_authority_count": 0,
+        "created_authority_count": 0,
+        "renewed_authority_count": 0,
+        "reopened_authority_frame_count": 0
+      }
+    },
+    "controlled_step_summary": {
+      "S13_external_R13_hash": "a5375ec82dd148d05d7199296b58f186747b27cf3f4922555bec6ed1ed29cbf4",
+      "S14_external_C20_hash": "a9c512025963df2a07ba93e3071683f392264013824f82ddbcfd923ab8321fd4",
+      "component_count": 17,
+      "component_order": [
+        "S01_INPUT_BINDING_VERIFIER",
+        "S02_CONDITION_INSPECTOR",
+        "S03_CONDITION_CLASSIFIER",
+        "S04_CAPABILITY_BOUNDARY_EVALUATOR",
+        "S05_TRANSFORMATION_MOVE_ENUMERATOR",
+        "S06_STRUCTURAL_APPLICABILITY_EVALUATOR",
+        "S07_RUNTIME_AUTHORITY_AND_BUDGET_GATE",
+        "S08_DETERMINISTIC_MOVE_SELECTOR",
+        "S09_MOVE_APPLICATOR",
+        "S10_TARGET_CONFORMANCE_VALIDATOR",
+        "S11_LAWFUL_ADMISSIBILITY_EVALUATOR",
+        "S12_FORBIDDEN_EFFECT_GUARD",
+        "S13_RECEIPT_AND_ATOMIC_PUBLICATION_BUILDER",
+        "S14_CONVERGENCE_CRITERION_EVALUATOR",
+        "S15_TERMINAL_AND_REPEAT_DECIDER",
+        "S16_CONTROLLED_STEP_ORCHESTRATOR",
+        "S17_MINIMAL_REPLAY_AND_AUDIT_VERIFIER"
+      ],
+      "primary_invocation_outcome_count": 6
+    },
+    "convergence_summary": {
+      "convergence_vocabulary": [
+        "CONVERGENCE_NOT_RUN",
+        "CONVERGENCE_CONTINUE_ALLOWED",
+        "CONVERGENCE_TARGET_TERMINAL_CONDITION_SATISFIED",
+        "CONVERGENCE_STOP_NON_PROGRESS",
+        "CONVERGENCE_STOP_REPEATED_STATE",
+        "CONVERGENCE_STOP_OSCILLATION",
+        "CONVERGENCE_STOP_ATTEMPTED_MOVE_BOUND_EXHAUSTED",
+        "CONVERGENCE_STOP_APPLIED_MOVE_BOUND_EXHAUSTED",
+        "CONVERGENCE_STOP_DECLARED_RADIUS_BOUND_EXHAUSTED",
+        "CONVERGENCE_CRITERION_UNMET",
+        "CONVERGENCE_RESULT_AMBIGUOUS"
+      ],
+      "convergence_vocabulary_count": 11
+    },
+    "dependency_order_checks": {
+      "dependency_cycle_present": false,
+      "dependency_order_verified": true
+    },
+    "evidence_yield": "CONFIRMATION_YIELD",
+    "execution_package_core_binding": {
+      "artifact_id": "phase_vs2_execution_package_core_manifest_v0",
+      "canonical_sha256": "cd3f9deed2278d8ab7292a7aa64cf1a68446312d26493f07e508f1d5360211c6",
+      "package_id": "FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE_CORE_V0",
+      "raw_file_sha256": "b199cd4e698f275c01925a0e5272c3d86610ed1bbc14ba116d04215691f05ef2"
+    },
+    "execution_state": {
+      "execution_authority_present": false,
+      "execution_started": false,
+      "fixture_executed": false,
+      "fixtures_executed": 0,
+      "live_move_applied": false,
+      "live_move_enumerated": false,
+      "live_move_selected": false,
+      "moves_applied": 0,
+      "moves_attempted": 0,
+      "moves_selected": 0,
+      "prospective_authority_active": false,
+      "run_id_created": false,
+      "runner_created": false,
+      "runtime_candidate_transformed": false,
+      "runtime_case_report_emitted": false,
+      "runtime_commit_manifest_emitted": false,
+      "runtime_o1_instance_created": false,
+      "runtime_o2_candidate_instance_created": false,
+      "runtime_receipt_emitted": false,
+      "runtime_receipts_emitted": 0,
+      "runtime_reports_emitted": 0,
+      "runtime_state_published": false,
+      "runtime_sweep_report_emitted": false,
+      "sweep_authority_present": false
+    },
+    "failures": [],
+    "fixture_summary": {
+      "fixture_count": 10,
+      "fixture_definition_count": 10,
+      "fixture_status": "FROZEN_NOT_EXECUTED",
+      "runtime_candidate_instance_count": 0,
+      "static_candidate_specimen_count": 10,
+      "static_witness_count": 10
+    },
+    "forbidden_claim_checks": {
+      "forbidden_outputs_emitted": false,
+      "runtime_or_generalization_claim_drift": false
+    },
+    "kernel_profile_summary": {
+      "profile_id": "FIRST_SWEEP_CAPABLE_KERNEL_PROFILE_V0",
+      "profile_sha256": "844fe441ecda5ec84076e9f665d09868373c9b24ea89d5d7056c485823db3142"
+    },
+    "logical_transition": "STOP_PHASE_VS2_CLOSED_PENDING_FIRST_EXECUTION_DECISION",
+    "logical_transition_table": [
+      {
+        "expected_transition": "ADVANCE(VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_PENDING)",
+        "observed_transition": "ADVANCE(VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_PENDING)",
+        "transition_verified": true,
+        "unit": "VS2.1"
+      },
+      {
+        "expected_transition": "ADVANCE(VS2_3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION_PENDING)",
+        "observed_transition": "ADVANCE(VS2_3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION_PENDING)",
+        "transition_verified": true,
+        "unit": "VS2.2"
+      },
+      {
+        "expected_transition": "ADVANCE(VS2_4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE_PENDING)",
+        "observed_transition": "ADVANCE(VS2_4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE_PENDING)",
+        "transition_verified": true,
+        "unit": "VS2.3"
+      },
+      {
+        "expected_transition": "ADVANCE(VS2_5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION_PENDING)",
+        "observed_transition": "ADVANCE(VS2_5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION_PENDING)",
+        "transition_verified": true,
+        "unit": "VS2.4"
+      },
+      {
+        "expected_transition": "ADVANCE(VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS_PENDING)",
+        "observed_transition": "ADVANCE(VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS_PENDING)",
+        "transition_verified": true,
+        "unit": "VS2.5"
+      },
+      {
+        "expected_transition": "ADVANCE(VS2_7_PHASE_CLOSURE_PENDING)",
+        "observed_transition": "ADVANCE(VS2_7_PHASE_CLOSURE_PENDING)",
+        "transition_verified": true,
+        "unit": "VS2.6"
+      }
+    ],
+    "move_space_summary": {
+      "move_count": 8,
+      "move_ids": [
+        "M01_ADD_AUTHORIZED_REQUIRED_FIELD",
+        "M02_NORMALIZE_TYPED_VALUE",
+        "M03_BIND_DECLARED_SOURCE_IDENTITY",
+        "M04_BIND_DECLARED_SOURCE_FRESHNESS",
+        "M05_REMOVE_PROHIBITED_CANDIDATE_DECLARATION",
+        "M06_TIGHTEN_AMBIGUOUS_BOUNDARY",
+        "M07_SPLIT_CONFLATED_DECLARATION",
+        "M08_REJECT_UNSUPPORTED_CLAIM"
+      ],
+      "move_space_active": false,
+      "move_space_frozen": true,
+      "terminal_outcome_count": 17,
+      "vocabulary_partition_count": 7
+    },
+    "non_claims": [
+      "VS2.7 does not authorize execution.",
+      "VS2.7 does not create the post-phase execution-decision surface artifact.",
+      "VS2.7 does not rerun VS2.6 readiness audit.",
+      "VS2.7 does not create runtime state, runtime candidate, runtime receipt, runtime report, run id, or runner."
+    ],
+    "normalized_unit_id": "VS2_7_PHASE_CLOSURE",
+    "object_model_summary": {
+      "M0_not_O4": true,
+      "M0_static": true,
+      "execution_domain_object_count": 3
+    },
+    "phase_closed": true,
+    "phase_id": "PHASE_VS2",
+    "phase_name": "FIRST_SWEEP_CAPABLE_KERNEL_DEFINITION_CONSTRUCTION_AND_READINESS_V0",
+    "phase_status": "PHASE_VS2_PASS_FIRST_SWEEP_CAPABLE_KERNEL_SEALED_READY_FOR_ONE_BOUNDED_EXECUTION_DECISION",
+    "post_phase_decision_surface": {
+      "authority_update_applied": false,
+      "created_by_vs2_7": false,
+      "decision_recorded": false,
+      "execution_started": false,
+      "machine_may_authorize_execution": false,
+      "named_by_vs2_7": true,
+      "surface_id": "POST_VS2_FIRST_EXECUTION_DECISION_SURFACE"
+    },
+    "prospective_authority_summary": {
+      "prospective_authority_envelope_active": false,
+      "prospective_authority_envelope_status": "FROZEN_MAXIMUM_NOT_ACTIVE"
+    },
+    "readiness_blockers": [],
+    "readiness_branch": "READY",
+    "readiness_gate_binding": {
+      "artifact_id": "phase_vs2_first_run_construction_readiness_gate_v0",
+      "canonical_sha256": "94f1a98bbfb246226ef7f29887ea0a3ade2a4f71666b5852bbdf93815836cc99",
+      "gate_id": "FIRST_SWEEP_KERNEL_FIRST_RUN_CONSTRUCTION_READINESS_GATE_V0"
+    },
+    "readiness_receipt_binding": {
+      "artifact_id": "phase_vs2_first_run_construction_readiness_gate_receipt_v0",
+      "canonical_sha256": "705eb58f43460b289ac40a6e24557bce0be4accd04f372edd79df9ca38c12332"
+    },
+    "readiness_seal_binding": {
+      "artifact_id": "phase_vs2_execution_package_readiness_seal_v0",
+      "canonical_sha256": "5c36c71da7bd70889c16a4722d882b0fe8dcfc5ce6cd8a72b80da4dbafbe2d79",
+      "raw_file_sha256": "44621916b2ad757821408a417c7011a2327f031ffaa7052c533a870cf27136d8",
+      "seal_id": "FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE_READINESS_SEAL_V0"
+    },
+    "readiness_summary": {
+      "aggregate_gate": "VS2_6_FIRST_RUN_CONSTRUCTION_READINESS_PASS_READY_FOR_ONE_EXECUTION_DECISION",
+      "execution_decision_eligibility": true,
+      "readiness_component_count": 21,
+      "readiness_ready_count": 21,
+      "seal_status": "SEALED_READY_FOR_HUMAN_EXECUTION_DECISION",
+      "typed_readiness_blocker_count": 0
+    },
+    "report_package_summary": {
+      "report_contract_count": 5,
+      "runtime_case_reports_emitted": 0,
+      "runtime_sweep_reports_emitted": 0
+    },
+    "repository_anchor": {
+      "branch": "master",
+      "repo_root": "/home/asd/projects/matrixlab",
+      "source_commit_sha": "2369f1786d8ddcb905bc3609f983cb60af0fb70a"
+    },
+    "runtime_source_snapshot_summary": {
+      "live_source_acquisition_performed": false,
+      "source_snapshot_status": "FROZEN_FOR_CONSTRUCTION_READINESS_AUDIT"
+    },
+    "scope_regime_summary": {
+      "regime": "TYPED_STATE_CONTRACT_CONVERGENCE_REGIME_V0",
+      "scope": "FIRST_SWEEP_KERNEL_SCOPE_V0"
+    },
+    "source_chain": [
+      "VS2.1",
+      "VS2.2",
+      "VS2.3",
+      "VS2.4",
+      "VS2.5",
+      "VS2.6"
+    ],
+    "source_identity_table": [
+      {
+        "artifact_id": "phase_vs2_post_vs1_source_intake_v0",
+        "artifact_kind": "SOURCE_INTAKE",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "830c62352e6eab4445b8cac9bbb7851da49a39633fc5cb673b71283bba1eaaeb",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_post_vs1_source_intake_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "source_intake_binding",
+          "source_intake_binding.source_intake_payload",
+          "source_intake_binding.source_intake_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "aac9ba4eec3ca577ead6cd23f8af6b9ecc6a9d542ec2395450a698f45465514b",
+        "source_identity_verified": true,
+        "source_key": "VS2_1_SOURCE_INTAKE",
+        "source_role": "SOURCE_INTAKE",
+        "source_unit": "VS2.1_POST_VS1_SOURCE_INTAKE"
+      },
+      {
+        "artifact_id": "phase_vs2_1_post_vs1_source_intake_receipt_v0",
+        "artifact_kind": "UNIT_RECEIPT",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "b8b440b920993d38f77b0359ea928a255d780e5e682572fcc9144c35e63609cd",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_1_post_vs1_source_intake_receipt_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "receipt_binding",
+          "receipt_binding.receipt_payload",
+          "receipt_binding.receipt_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "97e0046641b67bdc4740c1a82e5356eb4ffda6df0d2584e04d474b2b8e6cac5f",
+        "source_identity_verified": true,
+        "source_key": "VS2_1_RECEIPT",
+        "source_role": "UNIT_RECEIPT",
+        "source_unit": "VS2.1_POST_VS1_SOURCE_INTAKE"
+      },
+      {
+        "artifact_id": "phase_vs2_first_sweep_capable_kernel_profile_v0",
+        "artifact_kind": "KERNEL_PROFILE",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "844fe441ecda5ec84076e9f665d09868373c9b24ea89d5d7056c485823db3142",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_first_sweep_capable_kernel_profile_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "profile_binding",
+          "profile_binding.profile_payload",
+          "profile_binding.profile_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "2d61b8f7aaa11c10416ffbf2097f4ff95069d5131a99b63b8d1728485e7cf96b",
+        "source_identity_verified": true,
+        "source_key": "PROFILE",
+        "source_role": "KERNEL_PROFILE",
+        "source_unit": "VS2.2_KERNEL_PROFILE_AND_TARGET_FREEZE"
+      },
+      {
+        "artifact_id": "phase_vs2_typed_state_contract_convergence_target_freeze_v0",
+        "artifact_kind": "TARGET_FREEZE",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "518bf3238994cfc88ea542289eb622c90f9eb7f3d6575398c95dd57203669eb8",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_typed_state_contract_convergence_target_freeze_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "target_freeze_binding",
+          "target_freeze_binding.target_freeze_payload",
+          "target_freeze_binding.target_freeze_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "5e31db512163961034c98790a762036afa1730d57c7cf7346f5e9f7260ec985a",
+        "source_identity_verified": true,
+        "source_key": "TARGET_FREEZE",
+        "source_role": "TARGET_FREEZE",
+        "source_unit": "VS2.2_KERNEL_PROFILE_AND_TARGET_FREEZE"
+      },
+      {
+        "artifact_id": "phase_vs2_2_kernel_profile_and_target_freeze_receipt_v0",
+        "artifact_kind": "UNIT_RECEIPT",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "9e17272877e96f9db6885334e2531df8be8fdd7bb2d501d853c393b8f16ce425",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_2_kernel_profile_and_target_freeze_receipt_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "receipt_binding",
+          "receipt_binding.receipt_payload",
+          "receipt_binding.receipt_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "a6a57810854215f912cb2251dbda277eb6bf8f110cd79371af615908497cc833",
+        "source_identity_verified": true,
+        "source_key": "VS2_2_RECEIPT",
+        "source_role": "UNIT_RECEIPT",
+        "source_unit": "VS2.2_KERNEL_PROFILE_AND_TARGET_FREEZE"
+      },
+      {
+        "artifact_id": "phase_vs2_scope_regime_contract_v0",
+        "artifact_kind": "STATIC_FRAME_CONTRACT",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "a6b4819aee35e5f09686a5a69d471b31f3a5cfdcab2078a29323ba1d31211179",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_scope_regime_contract_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "contract_binding",
+          "contract_binding.contract_payload",
+          "contract_binding.contract_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "afda05e34228cc40a2bcd476105c1f6c0f747717db3a3d7e657fcec84c53ffb1",
+        "source_identity_verified": true,
+        "source_key": "F0",
+        "source_role": "SCOPE_REGIME",
+        "source_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+      },
+      {
+        "artifact_id": "phase_vs2_runtime_control_state_contract_v0",
+        "artifact_kind": "INSTANCE_SCHEMA_AND_MUTATION_CONTRACT",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "25fbdfb007372e346d61a3f5de8b0a4f5004c6dff1857e5fc31df38e17c087ad",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_runtime_control_state_contract_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "contract_binding",
+          "contract_binding.contract_payload",
+          "contract_binding.contract_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "944eead2d69a2690b9ad61cb93b288abb9a4f05d98e1f76d7012113bed7c975e",
+        "source_identity_verified": true,
+        "source_key": "O1",
+        "source_role": "RUNTIME_CONTROL_STATE_CONTRACT",
+        "source_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+      },
+      {
+        "artifact_id": "phase_vs2_candidate_typed_state_contract_schema_v0",
+        "artifact_kind": "INSTANCE_SCHEMA_AND_VERSION_CONTRACT",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "0216eb5944f87e760844d018d253f5e808a7a5b7ebd208d8d717e6709b979070",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_candidate_typed_state_contract_schema_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "schema_binding",
+          "schema_binding.schema_payload",
+          "schema_binding.schema_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "d2b0beb329b4caf56ef9569a4100fd6aff6b2f7df1fa67b1dff5087234f5d32a",
+        "source_identity_verified": true,
+        "source_key": "O2",
+        "source_role": "CANDIDATE_TYPED_STATE_SCHEMA",
+        "source_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+      },
+      {
+        "artifact_id": "phase_vs2_frozen_target_contract_v0",
+        "artifact_kind": "CONCRETE_IMMUTABLE_TARGET_CONTRACT",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "378acf4fb02ad20bfd5213bde4b267fe605dc528812e29a985909fef251d7546",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_frozen_target_contract_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "target_contract_binding",
+          "target_contract_binding.target_contract_payload",
+          "target_contract_binding.target_contract_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "6cc4952517fbb1718e3247c5465c60ba1281e390fc12c38485163b6e0d6b91eb",
+        "source_identity_verified": true,
+        "source_key": "O3",
+        "source_role": "FROZEN_TARGET_CONTRACT",
+        "source_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+      },
+      {
+        "artifact_id": "phase_vs2_object_model_binding_manifest_v0",
+        "artifact_kind": "STATIC_CONTRACT_BINDING_MANIFEST",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "0af5f635aaca5c37428cc94ca1a8ee6f3885d6e56543198bbdd33a5d4062db3c",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/object_model/phase_vs2_object_model_binding_manifest_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "manifest_binding",
+          "manifest_binding.manifest_payload",
+          "manifest_binding.manifest_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "2586a52032d91fb4addb4ae12facb421423fef0979083174f97f51cc1cabdf71",
+        "source_identity_verified": true,
+        "source_key": "M0",
+        "source_role": "OBJECT_MODEL_BINDING_MANIFEST",
+        "source_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+      },
+      {
+        "artifact_id": "phase_vs2_3_scope_regime_and_three_object_model_definition_receipt_v0",
+        "artifact_kind": "UNIT_RECEIPT",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "61a2298c0d04fa3acf47c391cc593df70be1d8e239e26de891d88b05ac879d0c",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_3_scope_regime_and_three_object_model_definition_receipt_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "receipt_binding",
+          "receipt_binding.receipt_payload",
+          "receipt_binding.receipt_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "04ec78427d317b127d4c7d0f1ec50e159f8b7385ff56d8470132eec22fb51ef0",
+        "source_identity_verified": true,
+        "source_key": "VS2_3_RECEIPT",
+        "source_role": "UNIT_RECEIPT",
+        "source_unit": "VS2.3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION"
+      },
+      {
+        "artifact_id": "phase_vs2_source_and_version_binding_contract_v0",
+        "artifact_kind": "STATIC_SOURCE_IDENTITY_VERSION_AND_FRESHNESS_BINDING_CONTRACT",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "9b9d6133965beec3b51600ec2d0ab9f002abbd48685cd82f1cf24e0d5d16d6ef",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_source_and_version_binding_contract_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "contract_binding",
+          "contract_binding.contract_payload",
+          "contract_binding.contract_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "618f19d8e5caf43d14f0ba42b0bcc60ca0dc5212a732dad1f5ea388f3463390c",
+        "source_identity_verified": true,
+        "source_key": "S0",
+        "source_role": "SOURCE_VERSION_BINDING_CONTRACT",
+        "source_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+      },
+      {
+        "artifact_id": "phase_vs2_move_vocabulary_partition_v0",
+        "artifact_kind": "STATIC_DISJOINT_VOCABULARY_PARTITION",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "a193dbbee21db8d5577445789d5971ffc29c8c5c37088d4bf88b14434c518c1d",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_vocabulary_partition_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "partition_binding",
+          "partition_binding.partition_payload",
+          "partition_binding.partition_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "c1746ca746d35f51b7c786bb0f85b855a8e61d0d4bae93c3e6fc831cb985f579",
+        "source_identity_verified": true,
+        "source_key": "V0",
+        "source_role": "MOVE_VOCABULARY_PARTITION",
+        "source_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+      },
+      {
+        "artifact_id": "phase_vs2_move_authority_matrix_v0",
+        "artifact_kind": "STATIC_MOVE_AUTHORITY_REQUIREMENT_MATRIX",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "4fbd5ae95a00444201f0da70c52515e630b07972f9a3202944f007547d0db0ad",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_authority_matrix_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "matrix_binding",
+          "matrix_binding.matrix_payload",
+          "matrix_binding.matrix_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "dfeade066cf977484c85a4434f9715d2bdfe2a49efe900ee7c2a733850bba7df",
+        "source_identity_verified": true,
+        "source_key": "A0",
+        "source_role": "MOVE_AUTHORITY_MATRIX",
+        "source_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+      },
+      {
+        "artifact_id": "phase_vs2_finite_move_space_v0",
+        "artifact_kind": "TARGET_BOUND_FINITE_CANDIDATE_TRANSFORMATION_MOVE_SPACE",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "68b094ad5f7a283e591b7b23c66650db9921357e13b0e5c7ca7992723303cbe9",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_finite_move_space_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "move_space_binding",
+          "move_space_binding.move_space_payload",
+          "move_space_binding.move_space_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "ff716fd0dad59cd271d383bc8b2bc0c93e678d2c5619ff7ec46a473c333f2876",
+        "source_identity_verified": true,
+        "source_key": "MS0",
+        "source_role": "FINITE_MOVE_SPACE",
+        "source_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+      },
+      {
+        "artifact_id": "phase_vs2_prospective_controlled_step_authority_envelope_v0",
+        "artifact_kind": "STATIC_PROSPECTIVE_AUTHORITY_ENVELOPE",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "7f2878149b30ca59e46ffa7e12580d4b2c96784e1b7964698d56eca5853c484c",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_prospective_controlled_step_authority_envelope_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "envelope_binding",
+          "envelope_binding.envelope_payload",
+          "envelope_binding.envelope_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "4e3d5be7c14598dac52f382534c6ac2823dea9944918430393503743c8d64719",
+        "source_identity_verified": true,
+        "source_key": "P0",
+        "source_role": "PROSPECTIVE_AUTHORITY_ENVELOPE",
+        "source_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+      },
+      {
+        "artifact_id": "phase_vs2_move_space_binding_manifest_v0",
+        "artifact_kind": "STATIC_SUCCESSOR_BINDING_MANIFEST",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "9cb7f9a66de7a0afc7109a07d789e56cb3629266d9f45821c0c971826afad389",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/move_space/phase_vs2_move_space_binding_manifest_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "manifest_binding",
+          "manifest_binding.manifest_payload",
+          "manifest_binding.manifest_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "1c7f4459535c0ff36d62e1a9b66d993370a4b3c31dad81fffa3a8d03ee655c4f",
+        "source_identity_verified": true,
+        "source_key": "M1",
+        "source_role": "MOVE_SPACE_BINDING_MANIFEST",
+        "source_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+      },
+      {
+        "artifact_id": "phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0",
+        "artifact_kind": "UNIT_RECEIPT",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "c78a48e892c0554327a2b1c27570453db48ce7368b27e4b58c6830defd7ff998",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "receipt_binding",
+          "receipt_binding.receipt_payload",
+          "receipt_binding.receipt_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "ff8958094a8b8cf78c0ac40d535d7daa68feaa1599db7447ea0c64237c2a951b",
+        "source_identity_verified": true,
+        "source_key": "VS2_4_RECEIPT",
+        "source_role": "UNIT_RECEIPT",
+        "source_unit": "VS2.4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE"
+      },
+      {
+        "artifact_id": "phase_vs2_controlled_step_and_convergence_contract_package_v0",
+        "artifact_kind": "STATIC_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_PACKAGE",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "3448ee02a854abdd5de28e2feb1ce866854473d9f18435083d5634e82b7a98a0",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/controlled_step/phase_vs2_controlled_step_and_convergence_contract_package_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "package_binding",
+          "package_binding.package_payload",
+          "package_binding.package_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "b5f0ff69687ffd86f23f9e2949514887330e823267bb3d8a1dee37d4656f8d3d",
+        "source_identity_verified": true,
+        "source_key": "K0",
+        "source_role": "CONTROLLED_STEP_PACKAGE",
+        "source_unit": "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+      },
+      {
+        "artifact_id": "phase_vs2_convergence_criterion_contract_v0",
+        "artifact_kind": "STATIC_OPERATIONAL_CONVERGENCE_CRITERION_CONTRACT",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "a9c512025963df2a07ba93e3071683f392264013824f82ddbcfd923ab8321fd4",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/controlled_step/phase_vs2_convergence_criterion_contract_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "contract_binding",
+          "contract_binding.contract_payload",
+          "contract_binding.contract_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "6f975c485400046d0843d17dc0ec36037f540a6adc5d011e7956874fa54b4daa",
+        "source_identity_verified": true,
+        "source_key": "C20",
+        "source_role": "CONVERGENCE_CRITERION_CONTRACT",
+        "source_unit": "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+      },
+      {
+        "artifact_id": "phase_vs2_receipt_and_atomic_publication_contract_v0",
+        "artifact_kind": "STATIC_RECEIPT_AND_ATOMIC_PUBLICATION_CONTRACT",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "a5375ec82dd148d05d7199296b58f186747b27cf3f4922555bec6ed1ed29cbf4",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/controlled_step/phase_vs2_receipt_and_atomic_publication_contract_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "contract_binding",
+          "contract_binding.contract_payload",
+          "contract_binding.contract_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "d5ef7baca9af3336a40850fdddf9dba7b49f8e3d2d643734f96504011a717875",
+        "source_identity_verified": true,
+        "source_key": "R13",
+        "source_role": "RECEIPT_AND_ATOMIC_PUBLICATION_CONTRACT",
+        "source_unit": "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+      },
+      {
+        "artifact_id": "phase_vs2_controlled_step_binding_manifest_v0",
+        "artifact_kind": "STATIC_SUCCESSOR_BINDING_MANIFEST",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "ffb10d40f6dbf641879a3385ba312f80b9a1f9d667b230e49452ad48abce1e43",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/controlled_step/phase_vs2_controlled_step_binding_manifest_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "manifest_binding",
+          "manifest_binding.manifest_payload",
+          "manifest_binding.manifest_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "eb91252a3c9de0042cc670254a642d21c33293f74b1d052b8ed9cdab405db00b",
+        "source_identity_verified": true,
+        "source_key": "M2",
+        "source_role": "CONTROLLED_STEP_BINDING_MANIFEST",
+        "source_unit": "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+      },
+      {
+        "artifact_id": "phase_vs2_5_controlled_step_and_convergence_contract_construction_receipt_v0",
+        "artifact_kind": "UNIT_RECEIPT",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "31f88a51de957cca434747b02b3bbcbb1e0471f92323f5796a9607f2356e4c68",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_5_controlled_step_and_convergence_contract_construction_receipt_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "receipt_binding",
+          "receipt_binding.receipt_payload",
+          "receipt_binding.receipt_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "1fefd997f7df63c1a63331cdf65997402766e796cd462a80359933becc727ba8",
+        "source_identity_verified": true,
+        "source_key": "VS2_5_RECEIPT",
+        "source_role": "UNIT_RECEIPT",
+        "source_unit": "VS2.5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION"
+      },
+      {
+        "artifact_id": "phase_vs2_upstream_package_dependency_inventory_v0",
+        "artifact_kind": "STATIC_UPSTREAM_PACKAGE_DEPENDENCY_INVENTORY",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "fbc1e55d9e1c773244e72e0ed4fb14f901cb364566d0cc413c3cdcb21ec1943e",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/readiness/phase_vs2_upstream_package_dependency_inventory_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "inventory_binding",
+          "inventory_binding.inventory_payload",
+          "inventory_binding.inventory_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "12117fbef10a25cbf8578e19953803b63c45efd2d57e26f4b824c8ae7c3b29ce",
+        "source_identity_verified": true,
+        "source_key": "D0",
+        "source_role": "UPSTREAM_PACKAGE_DEPENDENCY_INVENTORY",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "phase_vs2_first_kernel_fixture_contract_v0",
+        "artifact_kind": "STATIC_FIXTURE_CONTRACT",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "d34e71cd9d75d5c6c36bde3d17092050f5f1b1f2ede0e5fb985c57931551dec4",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/phase_vs2_first_kernel_fixture_contract_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "contract_binding",
+          "contract_binding.contract_payload",
+          "contract_binding.contract_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "ba8f0e5e2b0f4800f97536440e7f9800c5562c0232126bfdb3870c1063010641",
+        "source_identity_verified": true,
+        "source_key": "F0X",
+        "source_role": "FIXTURE_CONTRACT",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "phase_vs2_first_kernel_runtime_source_snapshot_v0",
+        "artifact_kind": "STATIC_FIXTURE_SCOPED_RUNTIME_SOURCE_SNAPSHOT",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "5638c07f1ffa559e1b12e5effaa08e21426267ac4e98906782fb0bf42b29bc7b",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/readiness/phase_vs2_first_kernel_runtime_source_snapshot_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "snapshot_binding",
+          "snapshot_binding.snapshot_payload",
+          "snapshot_binding.snapshot_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "563a755d585fb9700312528b09def8e1786d86f1be1f1feed8b1c8d925583ed1",
+        "source_identity_verified": true,
+        "source_key": "S0X",
+        "source_role": "RUNTIME_SOURCE_SNAPSHOT",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "phase_vs2_first_kernel_fixture_set_v0",
+        "artifact_kind": "STATIC_FIXTURE_SET_MANIFEST",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "ce374e242bd0c9a910b8adf2002d8c037151d0dd7c5c093d5c073d6cc875eca8",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/phase_vs2_first_kernel_fixture_set_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "fixture_set_binding",
+          "fixture_set_binding.fixture_set_payload",
+          "fixture_set_binding.fixture_set_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "ff0c40c1fb0a10522a1c4212ce4b7754c99ba85ee25039e30f9317a278a5e463",
+        "source_identity_verified": true,
+        "source_key": "FS0",
+        "source_role": "FIXTURE_SET",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "phase_vs2_report_contract_package_v0",
+        "artifact_kind": "STATIC_REPORT_CONTRACT_PACKAGE",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "830b56386b5bb189d008d2bbc904000cfb07e0f25d3be27092b4467a11c7b2b6",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/reports/phase_vs2_report_contract_package_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "package_binding",
+          "package_binding.package_payload",
+          "package_binding.package_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "bcf17805a84ff30ed1baf9bb822be7b1a276bdb9878cf42707c783a43f16d50e",
+        "source_identity_verified": true,
+        "source_key": "RP0",
+        "source_role": "REPORT_CONTRACT_PACKAGE",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "phase_vs2_execution_package_core_manifest_v0",
+        "artifact_kind": "STATIC_EXECUTION_PACKAGE_CORE_MANIFEST",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "cd3f9deed2278d8ab7292a7aa64cf1a68446312d26493f07e508f1d5360211c6",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/readiness/phase_vs2_execution_package_core_manifest_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "manifest_binding",
+          "manifest_binding.manifest_payload",
+          "manifest_binding.manifest_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "b199cd4e698f275c01925a0e5272c3d86610ed1bbc14ba116d04215691f05ef2",
+        "source_identity_verified": true,
+        "source_key": "E0",
+        "source_role": "EXECUTION_PACKAGE_CORE",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "phase_vs2_first_run_construction_readiness_gate_v0",
+        "artifact_kind": "STATIC_CONSTRUCTION_READINESS_GATE",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "94f1a98bbfb246226ef7f29887ea0a3ade2a4f71666b5852bbdf93815836cc99",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/readiness/phase_vs2_first_run_construction_readiness_gate_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "gate_binding",
+          "gate_binding.gate_payload",
+          "gate_binding.gate_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "28512afad8bfc196349e08c06b666557076df8be1a47da3f581370789e9db655",
+        "source_identity_verified": true,
+        "source_key": "G0",
+        "source_role": "READINESS_GATE",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "phase_vs2_first_run_construction_readiness_gate_receipt_v0",
+        "artifact_kind": "STATIC_READINESS_GATE_RECEIPT",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "705eb58f43460b289ac40a6e24557bce0be4accd04f372edd79df9ca38c12332",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/readiness/phase_vs2_first_run_construction_readiness_gate_receipt_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "receipt_binding",
+          "receipt_binding.receipt_payload",
+          "receipt_binding.receipt_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "0056c100b81b867759257bac70a03fb804f2297bd40ce62eb577637a36824060",
+        "source_identity_verified": true,
+        "source_key": "GR0",
+        "source_role": "READINESS_GATE_RECEIPT",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "phase_vs2_execution_package_readiness_seal_v0",
+        "artifact_kind": "STATIC_EXECUTION_PACKAGE_READINESS_SEAL",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "5c36c71da7bd70889c16a4722d882b0fe8dcfc5ce6cd8a72b80da4dbafbe2d79",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/readiness/phase_vs2_execution_package_readiness_seal_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "seal_binding",
+          "seal_binding.seal_payload",
+          "seal_binding.seal_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "44621916b2ad757821408a417c7011a2327f031ffaa7052c533a870cf27136d8",
+        "source_identity_verified": true,
+        "source_key": "RS0",
+        "source_role": "READINESS_SEAL",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "phase_vs2_6_fixtures_reports_and_first_run_construction_readiness_receipt_v0",
+        "artifact_kind": "STATIC_CONSTRUCTION_READINESS_UNIT_RECEIPT",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "a651e622335001af85a79409b7074c7b1e5b1b46b9aaeb5e2b40beee4701ade5",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_6_fixtures_reports_and_first_run_construction_readiness_receipt_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "receipt_binding",
+          "receipt_binding.receipt_payload",
+          "receipt_binding.receipt_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "b0eb23beaba9b7d16c90e020d5031ba8b26d5f9f29c8c7a9f5791186db19f321",
+        "source_identity_verified": true,
+        "source_key": "U0",
+        "source_role": "VS2_6_UNIT_RECEIPT",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F01_candidate_v0",
+        "artifact_kind": "STATIC_O2_CANDIDATE_SPECIMEN",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "e506ede8ed7404a49e146d1456080890facb8c934ba058d51533cbf9572a3cea",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/candidates/F01_candidate_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "candidate_binding",
+          "candidate_binding.candidate_payload",
+          "candidate_binding.candidate_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "af6fab8cfeb5dcc48335f75bcdddcd452758e9dd3131a3e8d973f138c468bc61",
+        "source_identity_verified": true,
+        "source_key": "F01_CANDIDATE",
+        "source_role": "STATIC_CANDIDATE_SPECIMEN",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F02_candidate_v0",
+        "artifact_kind": "STATIC_O2_CANDIDATE_SPECIMEN",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "82e32053eedd264d9a2e969039a1140009fecee3e5815a11d4efc775a6ec8216",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/candidates/F02_candidate_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "candidate_binding",
+          "candidate_binding.candidate_payload",
+          "candidate_binding.candidate_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "c0c890d61d3360439900f947a24c3b81a641bb410797bed9e56c37d970bc3ec9",
+        "source_identity_verified": true,
+        "source_key": "F02_CANDIDATE",
+        "source_role": "STATIC_CANDIDATE_SPECIMEN",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F03_candidate_v0",
+        "artifact_kind": "STATIC_O2_CANDIDATE_SPECIMEN",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "113b5a37a34b1e32f84d784ae90d56a109b9394dbedb444bee3fbd681a54384b",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/candidates/F03_candidate_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "candidate_binding",
+          "candidate_binding.candidate_payload",
+          "candidate_binding.candidate_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "c88745f06c85784c0033d371c0287d1e4f819315cc79fedeaa32afc7201423aa",
+        "source_identity_verified": true,
+        "source_key": "F03_CANDIDATE",
+        "source_role": "STATIC_CANDIDATE_SPECIMEN",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F04_candidate_v0",
+        "artifact_kind": "STATIC_O2_CANDIDATE_SPECIMEN",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "e92f83c7c0a09c212d96eede86e19b8c8d70112f4dab83dc7b8fbf12d4b60680",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/candidates/F04_candidate_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "candidate_binding",
+          "candidate_binding.candidate_payload",
+          "candidate_binding.candidate_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "28bd60ec324b0f9078947c9678973036dd424bfe5e9cbaabb28c23b9d8be65ae",
+        "source_identity_verified": true,
+        "source_key": "F04_CANDIDATE",
+        "source_role": "STATIC_CANDIDATE_SPECIMEN",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F05_candidate_v0",
+        "artifact_kind": "STATIC_O2_CANDIDATE_SPECIMEN",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "76364c4de1a6073cc46c108164778bfc8ac34e3109b9832f27feacccc4a11dff",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/candidates/F05_candidate_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "candidate_binding",
+          "candidate_binding.candidate_payload",
+          "candidate_binding.candidate_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "fc222edd9e9cbce7f50ff84e2a962beec5f94843f7ad54f26ca027a0d57b706a",
+        "source_identity_verified": true,
+        "source_key": "F05_CANDIDATE",
+        "source_role": "STATIC_CANDIDATE_SPECIMEN",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F06_candidate_v0",
+        "artifact_kind": "STATIC_O2_CANDIDATE_SPECIMEN",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "18f7ce809068b3ae252bd6a461cbf18feed206364917729b2662d97265518220",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/candidates/F06_candidate_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "candidate_binding",
+          "candidate_binding.candidate_payload",
+          "candidate_binding.candidate_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "cc0b83d75916d90ce1effa2abba9038fa75bb8023d9882a1f84eb62fb87d924a",
+        "source_identity_verified": true,
+        "source_key": "F06_CANDIDATE",
+        "source_role": "STATIC_CANDIDATE_SPECIMEN",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F07_candidate_v0",
+        "artifact_kind": "STATIC_O2_CANDIDATE_SPECIMEN",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "42e626bf912ec03dbfbe90fde6b703644da3110243332f43c3b62c5c01a8264f",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/candidates/F07_candidate_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "candidate_binding",
+          "candidate_binding.candidate_payload",
+          "candidate_binding.candidate_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "b939ea7de76e9a188ef878d222fcfa1b39429bca86b85b2a10547e1407339a5a",
+        "source_identity_verified": true,
+        "source_key": "F07_CANDIDATE",
+        "source_role": "STATIC_CANDIDATE_SPECIMEN",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F08_candidate_v0",
+        "artifact_kind": "STATIC_O2_CANDIDATE_SPECIMEN",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "b5184aacd05ef641d0159827aa2cee17d5a4245994e03c7bb1f3d48363772825",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/candidates/F08_candidate_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "candidate_binding",
+          "candidate_binding.candidate_payload",
+          "candidate_binding.candidate_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "21b5fd2e0a7d47d111014bba061713617a13af65f20d3b38c7865473013c98de",
+        "source_identity_verified": true,
+        "source_key": "F08_CANDIDATE",
+        "source_role": "STATIC_CANDIDATE_SPECIMEN",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F09_candidate_v0",
+        "artifact_kind": "STATIC_O2_CANDIDATE_SPECIMEN",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "662f8b616361468f26c27013458ea1ceb95eaf86305c0f07bcf56387660e27f5",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/candidates/F09_candidate_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "candidate_binding",
+          "candidate_binding.candidate_payload",
+          "candidate_binding.candidate_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "101b82ee8e86d77b7a2e2581e4f1afe12a7b368dc70a2b244bd98d96a6047ea5",
+        "source_identity_verified": true,
+        "source_key": "F09_CANDIDATE",
+        "source_role": "STATIC_CANDIDATE_SPECIMEN",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F10_candidate_v0",
+        "artifact_kind": "STATIC_O2_CANDIDATE_SPECIMEN",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "dee168ed65016259b10208991cd3caf8d20093c6c4af74b8571421d9652c9a6f",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/candidates/F10_candidate_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "candidate_binding",
+          "candidate_binding.candidate_payload",
+          "candidate_binding.candidate_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "0985dafc76657ad85506163ba0c6781da59048f0c37c42043a6a5d56ed56fc72",
+        "source_identity_verified": true,
+        "source_key": "F10_CANDIDATE",
+        "source_role": "STATIC_CANDIDATE_SPECIMEN",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F01_positive_required_field_and_normalization_v0",
+        "artifact_kind": "STATIC_FIXTURE_DEFINITION_WITH_EXPECTATION_WITNESS",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "7cff20ee28dbf8fbef39e9729d1ae11f3e0e84a1357c227dddff61b40243799e",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/definitions/F01_positive_required_field_and_normalization_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "fixture_definition_binding",
+          "fixture_definition_binding.fixture_definition_payload",
+          "fixture_definition_binding.fixture_definition_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "e1c1fb7a1831161f9bddd8fc34246ce5f92a2a3941d1c4637d87ab0143a83403",
+        "source_identity_verified": true,
+        "source_key": "F01_DEFINITION",
+        "source_role": "FIXTURE_DEFINITION",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F02_already_valid_preservation_v0",
+        "artifact_kind": "STATIC_FIXTURE_DEFINITION_WITH_EXPECTATION_WITNESS",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "a30942e2e895a5da2c584b4880f2c5ceeb3992d5c6c3e58aa8e1abede487cb26",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/definitions/F02_already_valid_preservation_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "fixture_definition_binding",
+          "fixture_definition_binding.fixture_definition_payload",
+          "fixture_definition_binding.fixture_definition_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "bca74ac693271ce2db1170c0408ca3933b06a583bed0a963eb68624c07876dbb",
+        "source_identity_verified": true,
+        "source_key": "F02_DEFINITION",
+        "source_role": "FIXTURE_DEFINITION",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F03_repairable_typed_value_normalization_v0",
+        "artifact_kind": "STATIC_FIXTURE_DEFINITION_WITH_EXPECTATION_WITNESS",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "e781c266d2c5b9aaf268a11e2d76dc4db88d8becc78aaa92213d981bc6fd6580",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/definitions/F03_repairable_typed_value_normalization_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "fixture_definition_binding",
+          "fixture_definition_binding.fixture_definition_payload",
+          "fixture_definition_binding.fixture_definition_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "ac700f33789b034081d02ca5d91140e54b7339bbaded4a1b1700746578f00840",
+        "source_identity_verified": true,
+        "source_key": "F03_DEFINITION",
+        "source_role": "FIXTURE_DEFINITION",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F04_repairable_source_identity_binding_v0",
+        "artifact_kind": "STATIC_FIXTURE_DEFINITION_WITH_EXPECTATION_WITNESS",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "44b266053805b6632088226d812cb3db1ad503e1cbe80a7a2b5450b00401eddf",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/definitions/F04_repairable_source_identity_binding_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "fixture_definition_binding",
+          "fixture_definition_binding.fixture_definition_payload",
+          "fixture_definition_binding.fixture_definition_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "f5f8f442b167a6597fcbbe381a57badd977f6d8d51cf810a4dce608f19583397",
+        "source_identity_verified": true,
+        "source_key": "F04_DEFINITION",
+        "source_role": "FIXTURE_DEFINITION",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F05_missing_source_blocker_v0",
+        "artifact_kind": "STATIC_FIXTURE_DEFINITION_WITH_EXPECTATION_WITNESS",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "0d8d4a86fc1a31a7d0753e4d7f7e2bc3b577c8437314ff1b3f9e6e7a6e84b35b",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/definitions/F05_missing_source_blocker_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "fixture_definition_binding",
+          "fixture_definition_binding.fixture_definition_payload",
+          "fixture_definition_binding.fixture_definition_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "7a4833840aebec7c59bd8c5310d73e48d493d4abe32846d760141a279a7c0284",
+        "source_identity_verified": true,
+        "source_key": "F05_DEFINITION",
+        "source_role": "FIXTURE_DEFINITION",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F06_authority_overreach_blocker_v0",
+        "artifact_kind": "STATIC_FIXTURE_DEFINITION_WITH_EXPECTATION_WITNESS",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "e40d2290a5bba907665230203b7d9d2c97b29a6594daf60482643e5882d8797a",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/definitions/F06_authority_overreach_blocker_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "fixture_definition_binding",
+          "fixture_definition_binding.fixture_definition_payload",
+          "fixture_definition_binding.fixture_definition_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "8c33520fb19b84c7fc880cfd5e8793dcb3f8717bc27177d537a375e3eec4a1d5",
+        "source_identity_verified": true,
+        "source_key": "F06_DEFINITION",
+        "source_role": "FIXTURE_DEFINITION",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F07_repairable_prohibited_candidate_declaration_v0",
+        "artifact_kind": "STATIC_FIXTURE_DEFINITION_WITH_EXPECTATION_WITNESS",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "ab49b295dbb5be2170bbbcb88bd124adbe2703732e57f33a9950e608e3a03003",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/definitions/F07_repairable_prohibited_candidate_declaration_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "fixture_definition_binding",
+          "fixture_definition_binding.fixture_definition_payload",
+          "fixture_definition_binding.fixture_definition_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "530c68655b0a22580d0dd227746fd21b9db173bbb56af47927d683e3730777e2",
+        "source_identity_verified": true,
+        "source_key": "F07_DEFINITION",
+        "source_role": "FIXTURE_DEFINITION",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F08_missing_schema_blocker_v0",
+        "artifact_kind": "STATIC_FIXTURE_DEFINITION_WITH_EXPECTATION_WITNESS",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "f3b51d2d34a65d88869cfc2882afb2d38d506d8a21ef831b859e023eb43d8de4",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/definitions/F08_missing_schema_blocker_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "fixture_definition_binding",
+          "fixture_definition_binding.fixture_definition_payload",
+          "fixture_definition_binding.fixture_definition_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "0add26c0c1a8af74c491aa75011a15c73e10dba93cc5f7d63a3025946db05724",
+        "source_identity_verified": true,
+        "source_key": "F08_DEFINITION",
+        "source_role": "FIXTURE_DEFINITION",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F09_missing_capability_blocker_v0",
+        "artifact_kind": "STATIC_FIXTURE_DEFINITION_WITH_EXPECTATION_WITNESS",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "676a3d0d06d4fbad72ba6c9f8dd833ad89a2e320558acf6bd60c4d0bec9f4761",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/definitions/F09_missing_capability_blocker_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "fixture_definition_binding",
+          "fixture_definition_binding.fixture_definition_payload",
+          "fixture_definition_binding.fixture_definition_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "2f73f70821aa3dcd42a2d766651d7392697a40025cbe3cb3dcb65149e475ac5a",
+        "source_identity_verified": true,
+        "source_key": "F09_DEFINITION",
+        "source_role": "FIXTURE_DEFINITION",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "F10_no_admissible_move_gap_v0",
+        "artifact_kind": "STATIC_FIXTURE_DEFINITION_WITH_EXPECTATION_WITNESS",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "cbd14cacc59daf5f651b30f8cfddc2c90cdab36c23fbc3abef67953015e4b7b7",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/fixtures/definitions/F10_no_admissible_move_gap_v0.json",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "fixture_definition_binding",
+          "fixture_definition_binding.fixture_definition_payload",
+          "fixture_definition_binding.fixture_definition_sha256",
+          "artifact_id",
+          "artifact_kind"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "e4742cdf1163414b16b2e2a3182f364a858bf9567cd21b4307608090ea9b3866",
+        "source_identity_verified": true,
+        "source_key": "F10_DEFINITION",
+        "source_role": "FIXTURE_DEFINITION",
+        "source_unit": "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS"
+      },
+      {
+        "artifact_id": "phase_vs2_embedded_source_manifest_v0",
+        "artifact_kind": "EMBEDDED_SOURCE_MANIFEST",
+        "artifact_version": "v0",
+        "canonical_content_sha256": "9aaceb1758920971d8f5d7f305b837b7021ebc0a84714dea08755efce1c0a6ef",
+        "canonical_hash_recomputed": true,
+        "canonicalization_rule": "MATRIXLAB_CANONICAL_JSON_V0",
+        "declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_post_vs1_source_intake_v0.json#source_manifest_binding.source_manifest_payload",
+        "hash_algorithm": "sha256",
+        "identity_source_fields": [
+          "source_manifest_binding.source_manifest_payload",
+          "source_manifest_binding.source_manifest_sha256"
+        ],
+        "raw_file_hash_recomputed": true,
+        "raw_file_sha256": "aac9ba4eec3ca577ead6cd23f8af6b9ecc6a9d542ec2395450a698f45465514b",
+        "source_identity_verified": true,
+        "source_key": "VS2_1_SOURCE_MANIFEST",
+        "source_role": "SOURCE_MANIFEST",
+        "source_unit": "VS2.1_POST_VS1_SOURCE_INTAKE"
+      }
+    ],
+    "source_linkage_table": [
+      {
+        "child_artifact_id": "phase_vs2_first_sweep_capable_kernel_profile_v0",
+        "expected_parent_gate_or_status": "ADVANCE(VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_PENDING)",
+        "linkage_verified": true,
+        "observed_parent_gate_or_status": "ADVANCE(VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_PENDING)",
+        "parent_artifact_id": "phase_vs2_1_post_vs1_source_intake_receipt_v0",
+        "parent_artifact_version": "v0",
+        "parent_canonical_sha256": "b8b440b920993d38f77b0359ea928a255d780e5e682572fcc9144c35e63609cd",
+        "parent_declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_1_post_vs1_source_intake_receipt_v0.json",
+        "relationship_role": "VS2.1 intake and receipt",
+        "source_reference_fields": [
+          "phase_vs2_post_vs1_source_intake_v0.logical_terminal_transition",
+          "phase_vs2_2 receipt source fields"
+        ]
+      },
+      {
+        "child_artifact_id": "phase_vs2_object_model_binding_manifest_v0",
+        "expected_parent_gate_or_status": "ADVANCE(VS2_3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION_PENDING)",
+        "linkage_verified": true,
+        "observed_parent_gate_or_status": "ADVANCE(VS2_3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION_PENDING)",
+        "parent_artifact_id": "phase_vs2_2_kernel_profile_and_target_freeze_receipt_v0",
+        "parent_artifact_version": "v0",
+        "parent_canonical_sha256": "9e17272877e96f9db6885334e2531df8be8fdd7bb2d501d853c393b8f16ce425",
+        "parent_declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_2_kernel_profile_and_target_freeze_receipt_v0.json",
+        "relationship_role": "VS2.2 receipt",
+        "source_reference_fields": [
+          "profile.logical_terminal_transition",
+          "vs2_3 receipt upstream_gates"
+        ]
+      },
+      {
+        "child_artifact_id": "phase_vs2_move_space_binding_manifest_v0",
+        "expected_parent_gate_or_status": "ADVANCE(VS2_4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE_PENDING)",
+        "linkage_verified": true,
+        "observed_parent_gate_or_status": "ADVANCE(VS2_4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE_PENDING)",
+        "parent_artifact_id": "phase_vs2_3_scope_regime_and_three_object_model_definition_receipt_v0",
+        "parent_artifact_version": "v0",
+        "parent_canonical_sha256": "61a2298c0d04fa3acf47c391cc593df70be1d8e239e26de891d88b05ac879d0c",
+        "parent_declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_3_scope_regime_and_three_object_model_definition_receipt_v0.json",
+        "relationship_role": "VS2.3 M0 and receipt",
+        "source_reference_fields": [
+          "vs2_3_receipt.logical_terminal_transition",
+          "vs2_4 receipt upstream_vs2_3_transition"
+        ]
+      },
+      {
+        "child_artifact_id": "phase_vs2_controlled_step_binding_manifest_v0",
+        "expected_parent_gate_or_status": "ADVANCE(VS2_5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION_PENDING)",
+        "linkage_verified": true,
+        "observed_parent_gate_or_status": "ADVANCE(VS2_5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION_PENDING)",
+        "parent_artifact_id": "phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0",
+        "parent_artifact_version": "v0",
+        "parent_canonical_sha256": "c78a48e892c0554327a2b1c27570453db48ce7368b27e4b58c6830defd7ff998",
+        "parent_declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_4_finite_move_space_source_and_authority_freeze_receipt_v0.json",
+        "relationship_role": "VS2.4 M1 and receipt",
+        "source_reference_fields": [
+          "vs2_4_receipt.logical_terminal_transition",
+          "vs2_5 receipt upstream_vs2_4_transition"
+        ]
+      },
+      {
+        "child_artifact_id": "phase_vs2_execution_package_core_manifest_v0",
+        "expected_parent_gate_or_status": "ADVANCE(VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS_PENDING)",
+        "linkage_verified": true,
+        "observed_parent_gate_or_status": "ADVANCE(VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS_PENDING)",
+        "parent_artifact_id": "phase_vs2_5_controlled_step_and_convergence_contract_construction_receipt_v0",
+        "parent_artifact_version": "v0",
+        "parent_canonical_sha256": "31f88a51de957cca434747b02b3bbcbb1e0471f92323f5796a9607f2356e4c68",
+        "parent_declared_path": "docs/matrixlabs/phase_vs2/phase_vs2_5_controlled_step_and_convergence_contract_construction_receipt_v0.json",
+        "relationship_role": "VS2.5 M2 and receipt",
+        "source_reference_fields": [
+          "vs2_5_receipt.logical_terminal_transition",
+          "E0.package_references"
+        ]
+      },
+      {
+        "child_artifact_id": "phase_vs2_first_run_construction_readiness_gate_v0",
+        "expected_parent_gate_or_status": "E0_BOUND",
+        "linkage_verified": true,
+        "observed_parent_gate_or_status": "phase_vs2_execution_package_core_manifest_v0",
+        "parent_artifact_id": "phase_vs2_execution_package_core_manifest_v0",
+        "parent_artifact_version": "v0",
+        "parent_canonical_sha256": "cd3f9deed2278d8ab7292a7aa64cf1a68446312d26493f07e508f1d5360211c6",
+        "parent_declared_path": "docs/matrixlabs/phase_vs2/readiness/phase_vs2_execution_package_core_manifest_v0.json",
+        "relationship_role": "E0",
+        "source_reference_fields": [
+          "G0.execution_package_core_reference"
+        ]
+      },
+      {
+        "child_artifact_id": "phase_vs2_first_run_construction_readiness_gate_receipt_v0",
+        "expected_parent_gate_or_status": "G0_BOUND",
+        "linkage_verified": true,
+        "observed_parent_gate_or_status": "phase_vs2_first_run_construction_readiness_gate_v0",
+        "parent_artifact_id": "phase_vs2_first_run_construction_readiness_gate_v0",
+        "parent_artifact_version": "v0",
+        "parent_canonical_sha256": "94f1a98bbfb246226ef7f29887ea0a3ade2a4f71666b5852bbdf93815836cc99",
+        "parent_declared_path": "docs/matrixlabs/phase_vs2/readiness/phase_vs2_first_run_construction_readiness_gate_v0.json",
+        "relationship_role": "G0",
+        "source_reference_fields": [
+          "GR0.readiness_gate_reference"
+        ]
+      },
+      {
+        "child_artifact_id": "phase_vs2_execution_package_readiness_seal_v0",
+        "expected_parent_gate_or_status": "GR0_BOUND",
+        "linkage_verified": true,
+        "observed_parent_gate_or_status": "phase_vs2_first_run_construction_readiness_gate_receipt_v0",
+        "parent_artifact_id": "phase_vs2_first_run_construction_readiness_gate_receipt_v0",
+        "parent_artifact_version": "v0",
+        "parent_canonical_sha256": "705eb58f43460b289ac40a6e24557bce0be4accd04f372edd79df9ca38c12332",
+        "parent_declared_path": "docs/matrixlabs/phase_vs2/readiness/phase_vs2_first_run_construction_readiness_gate_receipt_v0.json",
+        "relationship_role": "E0+G0+GR0",
+        "source_reference_fields": [
+          "RS0.readiness_gate_receipt_reference"
+        ]
+      },
+      {
+        "child_artifact_id": "phase_vs2_6_fixtures_reports_and_first_run_construction_readiness_receipt_v0",
+        "expected_parent_gate_or_status": "VS2_6_FIRST_RUN_CONSTRUCTION_READINESS_PASS_READY_FOR_ONE_EXECUTION_DECISION",
+        "linkage_verified": true,
+        "observed_parent_gate_or_status": "VS2_6_FIRST_RUN_CONSTRUCTION_READINESS_PASS_READY_FOR_ONE_EXECUTION_DECISION",
+        "parent_artifact_id": "phase_vs2_execution_package_readiness_seal_v0",
+        "parent_artifact_version": "v0",
+        "parent_canonical_sha256": "5c36c71da7bd70889c16a4722d882b0fe8dcfc5ce6cd8a72b80da4dbafbe2d79",
+        "parent_declared_path": "docs/matrixlabs/phase_vs2/readiness/phase_vs2_execution_package_readiness_seal_v0.json",
+        "relationship_role": "RS0 and U0",
+        "source_reference_fields": [
+          "U0.readiness_verdict",
+          "RS0.seal_status"
+        ]
+      }
+    ],
+    "target_summary": {
+      "target_artifact_id": "phase_vs2_typed_state_contract_convergence_target_freeze_v0",
+      "target_family": "BOUNDED_CONTRACT_CONVERGENCE",
+      "target_id": "TYPED_STATE_CONTRACT_CONVERGENCE_V0"
+    },
+    "terminal_transition": {
+      "activates_move_authority": false,
+      "authorizes_execution": false,
+      "creates_execution_decision": false,
+      "creates_run_id": false,
+      "executes_next_surface": false,
+      "transition": "STOP_PHASE_VS2_CLOSED_PENDING_FIRST_EXECUTION_DECISION"
+    },
+    "unit_gate_table": [
+      {
+        "expected_gate": "VS2_1_POST_VS1_SOURCE_INTAKE_PASS",
+        "observed_gate": "VS2_1_POST_VS1_SOURCE_INTAKE_PASS",
+        "unit": "VS2.1",
+        "unit_gate_verified": true
+      },
+      {
+        "expected_gate": "VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_PASS",
+        "observed_gate": "VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_PASS",
+        "unit": "VS2.2",
+        "unit_gate_verified": true
+      },
+      {
+        "expected_gate": "VS2_3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION_PASS",
+        "observed_gate": "VS2_3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION_PASS",
+        "unit": "VS2.3",
+        "unit_gate_verified": true
+      },
+      {
+        "expected_gate": "VS2_4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE_PASS",
+        "observed_gate": "VS2_4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE_PASS",
+        "unit": "VS2.4",
+        "unit_gate_verified": true
+      },
+      {
+        "expected_gate": "VS2_5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION_PASS",
+        "observed_gate": "VS2_5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION_PASS",
+        "unit": "VS2.5",
+        "unit_gate_verified": true
+      },
+      {
+        "expected_gate": "VS2_6_FIRST_RUN_CONSTRUCTION_READINESS_PASS_READY_FOR_ONE_EXECUTION_DECISION",
+        "observed_gate": "VS2_6_FIRST_RUN_CONSTRUCTION_READINESS_PASS_READY_FOR_ONE_EXECUTION_DECISION",
+        "unit": "VS2.6",
+        "unit_gate_verified": true
+      }
+    ],
+    "unit_id": "VS2.7_PHASE_CLOSURE",
+    "unit_role": "PHASE_RESULT_AND_BOUNDARY_CLOSURE_ONLY",
+    "upstream_dependency_summary": {
+      "cycle_present": false,
+      "dependency_inventory_sha256": "fbc1e55d9e1c773244e72e0ed4fb14f901cb364566d0cc413c3cdcb21ec1943e"
+    }
+  },
+  "closure_payload_sha256": "73ef125f8e606c66ae6e19c5d7337318c88963898f36d3aa1366f36cf7fc7e51",
+  "schema_version": "matrixlabs_phase_vs2_closure_v0"
+}

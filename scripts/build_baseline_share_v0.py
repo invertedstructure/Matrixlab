@@ -740,6 +740,14 @@ PHASE_VS2_6_FIXTURES_REPORTS_READINESS_SCRIPT = (
 PHASE_VS2_6_FIXTURES_REPORTS_READINESS_VERIFY_SCRIPT = (
     "scripts/verify_phase_vs2_6_fixtures_reports_and_first_run_construction_readiness_v0.py"
 )
+PHASE_VS2_7_PHASE_CLOSURE_DOCS = [
+    "docs/matrixlabs/phase_vs2/phase_vs2_closure_v0.json",
+    "docs/matrixlabs/phase_vs2/phase_vs2_closure_v0.md",
+    "docs/matrixlabs/phase_vs2/phase_vs2_closure_readout_v0.md",
+    "docs/matrixlabs/phase_vs2/phase_vs2_7_phase_closure_receipt_v0.json",
+]
+PHASE_VS2_7_PHASE_CLOSURE_SCRIPT = "scripts/build_phase_vs2_7_phase_closure_v0.py"
+PHASE_VS2_7_PHASE_CLOSURE_VERIFY_SCRIPT = "scripts/verify_phase_vs2_7_phase_closure_v0.py"
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -864,6 +872,9 @@ SOURCE_DOCS = [
     *PHASE_VS2_6_FIXTURES_REPORTS_READINESS_DOCS,
     PHASE_VS2_6_FIXTURES_REPORTS_READINESS_SCRIPT,
     PHASE_VS2_6_FIXTURES_REPORTS_READINESS_VERIFY_SCRIPT,
+    *PHASE_VS2_7_PHASE_CLOSURE_DOCS,
+    PHASE_VS2_7_PHASE_CLOSURE_SCRIPT,
+    PHASE_VS2_7_PHASE_CLOSURE_VERIFY_SCRIPT,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -963,6 +974,39 @@ def phase_vs2_6_current_unit_summary(root: Path) -> str:
             f"- remaining_effective_grant_count = `{receipt.get('remaining_effective_grant_count_after', 'UNKNOWN')}`",
             f"- next_lawful_unit = `VS2_7_PHASE_CLOSURE_PENDING`",
             f"- logical_terminal_transition = `{receipt.get('logical_transition', 'UNKNOWN')}`",
+        ]
+    )
+
+
+def phase_vs2_current_unit_summary(root: Path) -> str:
+    closure = read_json_if_present(root / PHASE_VS2_7_PHASE_CLOSURE_DOCS[0])
+    if not closure:
+        return phase_vs2_6_current_unit_summary(root)
+    payload = closure.get("closure_payload", {})
+    e0 = payload.get("execution_package_core_binding", {})
+    rs0 = payload.get("readiness_seal_binding", {})
+    authority = payload.get("authority_summary", {})
+    execution = payload.get("execution_state", {})
+    surface = payload.get("post_phase_decision_surface", {})
+    terminal = payload.get("terminal_transition", {})
+    return "\n".join(
+        [
+            f"- current_unit = `{payload.get('normalized_unit_id', 'VS2_7_PHASE_CLOSURE')}`",
+            f"- phase_status = `{payload.get('phase_status', 'UNKNOWN')}`",
+            f"- closure_gate = `{payload.get('closure_gate', 'UNKNOWN')}`",
+            f"- readiness_branch = `{payload.get('readiness_branch', 'UNKNOWN')}`",
+            f"- execution_package_core_artifact_id = `{e0.get('artifact_id', 'UNKNOWN')}`",
+            f"- execution_package_core_id = `{e0.get('package_id', 'UNKNOWN')}`",
+            f"- execution_package_core_sha256 = `{e0.get('canonical_sha256', 'UNKNOWN')}`",
+            f"- readiness_seal_artifact_id = `{rs0.get('artifact_id', 'UNKNOWN')}`",
+            f"- readiness_seal_id = `{rs0.get('seal_id', 'UNKNOWN')}`",
+            f"- readiness_seal_sha256 = `{rs0.get('canonical_sha256', 'UNKNOWN')}`",
+            f"- next_lawful_surface = `{surface.get('surface_id', 'UNKNOWN')}`",
+            f"- next_surface_state = `named, not created`",
+            f"- execution_authority_present = `{str(authority.get('execution_authority_present', 'UNKNOWN')).lower()}`",
+            f"- execution_started = `{str(execution.get('execution_started', 'UNKNOWN')).lower()}`",
+            f"- runner_created = `{str(authority.get('runner_created', 'UNKNOWN')).lower()}`",
+            f"- terminal_transition = `{terminal.get('transition', 'UNKNOWN')}`",
         ]
     )
 
@@ -1147,7 +1191,7 @@ Generated at UTC: `{generated_at}`
 
 ## Phase VS2 current unit
 
-{phase_vs2_6_current_unit_summary(root)}
+{phase_vs2_current_unit_summary(root)}
 
 ## Uncertainty
 
@@ -1363,7 +1407,7 @@ def render_commit_context(
 
 ## Phase VS2 current unit
 
-{phase_vs2_6_current_unit_summary(root)}"""
+{phase_vs2_current_unit_summary(root)}"""
 
 
 def build_manifest(
@@ -2012,6 +2056,28 @@ def build_manifest(
         row.get("readiness_component_id"): row.get("readiness_status")
         for row in phase_vs2_6_records
     }
+    phase_vs2_7_closure_path = root / PHASE_VS2_7_PHASE_CLOSURE_DOCS[0]
+    phase_vs2_7_closure_present = phase_vs2_7_closure_path.exists()
+    phase_vs2_7_closure = (
+        json.loads(phase_vs2_7_closure_path.read_text(encoding="utf-8"))
+        if phase_vs2_7_closure_present
+        else {}
+    )
+    phase_vs2_7_payload = phase_vs2_7_closure.get("closure_payload", {})
+    phase_vs2_7_e0 = phase_vs2_7_payload.get("execution_package_core_binding", {})
+    phase_vs2_7_rs0 = phase_vs2_7_payload.get("readiness_seal_binding", {})
+    phase_vs2_7_authority = phase_vs2_7_payload.get("authority_summary", {})
+    phase_vs2_7_execution = phase_vs2_7_payload.get("execution_state", {})
+    phase_vs2_7_surface = phase_vs2_7_payload.get("post_phase_decision_surface", {})
+    phase_vs2_7_terminal = phase_vs2_7_payload.get("terminal_transition", {})
+    phase_vs2_7_receipt_path = root / PHASE_VS2_7_PHASE_CLOSURE_DOCS[-1]
+    phase_vs2_7_receipt_present = phase_vs2_7_receipt_path.exists()
+    phase_vs2_7_receipt = (
+        json.loads(phase_vs2_7_receipt_path.read_text(encoding="utf-8"))
+        if phase_vs2_7_receipt_present
+        else {}
+    )
+    phase_vs2_7_receipt_payload = phase_vs2_7_receipt.get("receipt_payload", {})
     phase_vs2_6_next_unit = (
         "VS2_7_PHASE_CLOSURE_PENDING"
         if phase_vs2_6_receipt_present
@@ -2062,6 +2128,15 @@ def build_manifest(
             )
         )
     )
+    if phase_vs2_7_closure_present:
+        phase_vs2_current_unit = phase_vs2_7_payload.get(
+            "normalized_unit_id",
+            "VS2_7_PHASE_CLOSURE",
+        )
+        phase_vs2_6_next_unit = phase_vs2_7_surface.get(
+            "surface_id",
+            "POST_VS2_FIRST_EXECUTION_DECISION_SURFACE",
+        )
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -3038,6 +3113,31 @@ def build_manifest(
         "phase_vs2_6_report_contract_hashes": {key: value.get("canonical_sha256") for key, value in phase_vs2_6_report_bindings.items()} if phase_vs2_6_receipt_present else {},
         "phase_vs2_6_r01_through_r21_statuses": phase_vs2_6_record_statuses if phase_vs2_6_receipt_present else {},
         "phase_vs2_6_r01_through_r21_count": len(phase_vs2_6_records) if phase_vs2_6_receipt_present else 0,
+        "current_unit": phase_vs2_current_unit,
+        "phase_vs2_current_unit": phase_vs2_current_unit,
+        "phase_status": phase_vs2_7_payload.get("phase_status") if phase_vs2_7_closure_present else None,
+        "closure_gate": phase_vs2_7_payload.get("closure_gate") if phase_vs2_7_closure_present else None,
+        "readiness_branch": phase_vs2_7_payload.get("readiness_branch") if phase_vs2_7_closure_present else None,
+        "execution_package_core_artifact_id": phase_vs2_7_e0.get("artifact_id") if phase_vs2_7_closure_present else None,
+        "execution_package_core_id": phase_vs2_7_e0.get("package_id") if phase_vs2_7_closure_present else (phase_vs2_6_bindings.get("E0", {}).get("artifact_id") if phase_vs2_6_receipt_present else None),
+        "execution_package_core_sha256": phase_vs2_7_e0.get("canonical_sha256") if phase_vs2_7_closure_present else (phase_vs2_6_bindings.get("E0", {}).get("canonical_sha256") if phase_vs2_6_receipt_present else None),
+        "readiness_seal_artifact_id": phase_vs2_7_rs0.get("artifact_id") if phase_vs2_7_closure_present else None,
+        "readiness_seal_id": phase_vs2_7_rs0.get("seal_id") if phase_vs2_7_closure_present else (phase_vs2_6_bindings.get("RS0", {}).get("artifact_id") if phase_vs2_6_receipt_present else None),
+        "readiness_seal_sha256": phase_vs2_7_rs0.get("canonical_sha256") if phase_vs2_7_closure_present else (phase_vs2_6_bindings.get("RS0", {}).get("canonical_sha256") if phase_vs2_6_receipt_present else None),
+        "next_lawful_surface": phase_vs2_7_surface.get("surface_id") if phase_vs2_7_closure_present else None,
+        "next_surface_created": phase_vs2_7_surface.get("created_by_vs2_7") if phase_vs2_7_closure_present else None,
+        "execution_authority_present": phase_vs2_7_authority.get("execution_authority_present") if phase_vs2_7_closure_present else (phase_vs2_6_receipt.get("execution_authority_present") if phase_vs2_6_receipt_present else None),
+        "execution_started": phase_vs2_7_execution.get("execution_started") if phase_vs2_7_closure_present else None,
+        "runner_created": phase_vs2_7_authority.get("runner_created") if phase_vs2_7_closure_present else None,
+        "terminal_transition": phase_vs2_7_terminal.get("transition") if phase_vs2_7_closure_present else None,
+        "phase_vs2_7_built": phase_vs2_7_closure_present,
+        "phase_vs2_7_closure_artifact_id": phase_vs2_7_closure.get("artifact_id") if phase_vs2_7_closure_present else None,
+        "phase_vs2_7_closure_sha256": phase_vs2_7_closure.get("closure_payload_sha256") if phase_vs2_7_closure_present else None,
+        "phase_vs2_7_receipt_artifact_id": phase_vs2_7_receipt.get("receipt_id") if phase_vs2_7_receipt_present else None,
+        "phase_vs2_7_receipt_sha256": phase_vs2_7_receipt.get("receipt_payload_sha256") if phase_vs2_7_receipt_present else None,
+        "phase_vs2_7_receipt_gate": phase_vs2_7_receipt_payload.get("closure_gate") if phase_vs2_7_receipt_present else None,
+        "phase_vs2_next_unit": phase_vs2_6_next_unit,
+        "next_lawful_unit": phase_vs2_6_next_unit,
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,
@@ -3056,8 +3156,11 @@ def generate() -> int:
     generated_at = stable_generated_at_for_head(root, head)
     branch = run_git(root, ["branch", "--show-current"])
     raw_status_lines = run_git(root, ["status", "--short"]).splitlines()
-    status_lines = git_status_excluding_baseline_share(root, raw_status_lines)
-    status_lines_excluding_baseline_share = status_lines
+    status_lines = raw_status_lines
+    status_lines_excluding_baseline_share = git_status_excluding_baseline_share(
+        root,
+        raw_status_lines,
+    )
     recent_commits = run_git(root, ["log", "-n", "10", "--oneline"])
     architecture_commit = commit_for_paths(root, ["docs/matrixlabs"])
     c8_post_patch_commit = commit_for_paths(root, [*C8_POST_PATCH_DIRS, GENERATOR_SCRIPT])
