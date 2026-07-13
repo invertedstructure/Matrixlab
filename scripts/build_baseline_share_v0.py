@@ -7,6 +7,143 @@ The repository remains the source of truth.
 
 from __future__ import annotations
 
+# VS2.6 baseline logical identity exposure v0 START
+import atexit as _vs2_6_identity_atexit
+import json as _vs2_6_identity_json
+from pathlib import Path as _VS2_6_Identity_Path
+
+_VS2_6_CORE_ARTIFACT_ID = (
+    "phase_vs2_execution_package_core_manifest_v0"
+)
+
+_VS2_6_CORE_LOGICAL_ID = (
+    "FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE_CORE_V0"
+)
+
+_VS2_6_SEAL_ARTIFACT_ID = (
+    "phase_vs2_execution_package_readiness_seal_v0"
+)
+
+_VS2_6_SEAL_LOGICAL_ID = (
+    "FIRST_SWEEP_KERNEL_EXECUTION_PACKAGE_READINESS_SEAL_V0"
+)
+
+_VS2_6_MD_START = (
+    "<!-- VS2_6_LOGICAL_IDENTITY_PROJECTION_START -->"
+)
+
+_VS2_6_MD_END = (
+    "<!-- VS2_6_LOGICAL_IDENTITY_PROJECTION_END -->"
+)
+
+
+def _vs2_6_upsert_markdown_identity_section(
+    current: str,
+) -> str:
+    section = "\n".join(
+        [
+            _VS2_6_MD_START,
+            "## Phase VS2.6 execution-package identities",
+            "",
+            "- `execution_package_core_artifact_id`: "
+            f"`{_VS2_6_CORE_ARTIFACT_ID}`",
+            "- `execution_package_core_id`: "
+            f"`{_VS2_6_CORE_LOGICAL_ID}`",
+            "- `readiness_seal_artifact_id`: "
+            f"`{_VS2_6_SEAL_ARTIFACT_ID}`",
+            "- `readiness_seal_id`: "
+            f"`{_VS2_6_SEAL_LOGICAL_ID}`",
+            _VS2_6_MD_END,
+        ]
+    )
+
+    if _VS2_6_MD_START in current:
+        before, remainder = current.split(
+            _VS2_6_MD_START,
+            1,
+        )
+
+        if _VS2_6_MD_END not in remainder:
+            raise RuntimeError(
+                "VS2.6 baseline logical identity "
+                "projection end marker missing"
+            )
+
+        _, after = remainder.split(
+            _VS2_6_MD_END,
+            1,
+        )
+
+        base = before.rstrip() + after
+
+    else:
+        base = current
+
+    return base.rstrip() + "\n\n" + section + "\n"
+
+
+def _apply_vs2_6_baseline_logical_identity_projection_v0(
+) -> None:
+    root = _VS2_6_Identity_Path(__file__).resolve().parents[1]
+
+    manifest_path = root / "baseline_share/MANIFEST.json"
+
+    manifest = _vs2_6_identity_json.loads(
+        manifest_path.read_text(encoding="utf-8")
+    )
+
+    if not isinstance(manifest, dict):
+        raise RuntimeError(
+            "VS2.6 baseline manifest must be an object"
+        )
+
+    manifest["phase_vs2_logical_identity_projection"] = {
+        "execution_package_core_artifact_id":
+            _VS2_6_CORE_ARTIFACT_ID,
+
+        "execution_package_core_id":
+            _VS2_6_CORE_LOGICAL_ID,
+
+        "readiness_seal_artifact_id":
+            _VS2_6_SEAL_ARTIFACT_ID,
+
+        "readiness_seal_id":
+            _VS2_6_SEAL_LOGICAL_ID,
+    }
+
+    manifest_path.write_text(
+        _vs2_6_identity_json.dumps(
+            manifest,
+            indent=2,
+            sort_keys=True,
+            ensure_ascii=False,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    for relative_path in (
+        "baseline_share/CURRENT_STATE.md",
+        "baseline_share/COMMIT_CONTEXT.md",
+    ):
+        target = root / relative_path
+        current = target.read_text(encoding="utf-8")
+
+        target.write_text(
+            _vs2_6_upsert_markdown_identity_section(
+                current
+            ),
+            encoding="utf-8",
+        )
+
+
+if __name__ == "__main__":
+    _vs2_6_identity_atexit.register(
+        _apply_vs2_6_baseline_logical_identity_projection_v0
+    )
+# VS2.6 baseline logical identity exposure v0 END
+
+
 # VS2.5 baseline human next-unit exposure v0
 import atexit as _vs2_5_atexit
 from pathlib import Path as _VS2_5_Path
@@ -554,6 +691,55 @@ PHASE_VS2_5_CONTROLLED_STEP_SCRIPT = (
 PHASE_VS2_5_CONTROLLED_STEP_VERIFY_SCRIPT = (
     "scripts/verify_phase_vs2_5_controlled_step_and_convergence_contract_construction_v0.py"
 )
+PHASE_VS2_6_FIXTURES_REPORTS_READINESS_DOCS = [
+    "docs/matrixlabs/phase_vs2/fixtures/phase_vs2_first_kernel_fixture_contract_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/phase_vs2_first_kernel_fixture_contract_v0.md",
+    "docs/matrixlabs/phase_vs2/fixtures/phase_vs2_first_kernel_fixture_set_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/phase_vs2_first_kernel_fixture_set_v0.md",
+    "docs/matrixlabs/phase_vs2/fixtures/candidates/F01_candidate_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/candidates/F02_candidate_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/candidates/F03_candidate_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/candidates/F04_candidate_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/candidates/F05_candidate_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/candidates/F06_candidate_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/candidates/F07_candidate_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/candidates/F08_candidate_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/candidates/F09_candidate_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/candidates/F10_candidate_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/definitions/F01_positive_required_field_and_normalization_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/definitions/F02_already_valid_preservation_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/definitions/F03_repairable_typed_value_normalization_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/definitions/F04_repairable_source_identity_binding_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/definitions/F05_missing_source_blocker_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/definitions/F06_authority_overreach_blocker_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/definitions/F07_repairable_prohibited_candidate_declaration_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/definitions/F08_missing_schema_blocker_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/definitions/F09_missing_capability_blocker_v0.json",
+    "docs/matrixlabs/phase_vs2/fixtures/definitions/F10_no_admissible_move_gap_v0.json",
+    "docs/matrixlabs/phase_vs2/readiness/phase_vs2_upstream_package_dependency_inventory_v0.json",
+    "docs/matrixlabs/phase_vs2/readiness/phase_vs2_first_kernel_runtime_source_snapshot_v0.json",
+    "docs/matrixlabs/phase_vs2/readiness/phase_vs2_execution_package_core_manifest_v0.json",
+    "docs/matrixlabs/phase_vs2/readiness/phase_vs2_execution_package_core_manifest_v0.md",
+    "docs/matrixlabs/phase_vs2/readiness/phase_vs2_first_run_construction_readiness_gate_v0.json",
+    "docs/matrixlabs/phase_vs2/readiness/phase_vs2_first_run_construction_readiness_gate_v0.md",
+    "docs/matrixlabs/phase_vs2/readiness/phase_vs2_first_run_construction_readiness_gate_receipt_v0.json",
+    "docs/matrixlabs/phase_vs2/readiness/phase_vs2_execution_package_readiness_seal_v0.json",
+    "docs/matrixlabs/phase_vs2/readiness/phase_vs2_execution_package_readiness_seal_v0.md",
+    "docs/matrixlabs/phase_vs2/reports/phase_vs2_case_report_contract_v0.json",
+    "docs/matrixlabs/phase_vs2/reports/phase_vs2_sweep_report_contract_v0.json",
+    "docs/matrixlabs/phase_vs2/reports/phase_vs2_evidence_yield_contract_v0.json",
+    "docs/matrixlabs/phase_vs2/reports/phase_vs2_unexpected_outcome_contract_v0.json",
+    "docs/matrixlabs/phase_vs2/reports/phase_vs2_refinement_candidate_contract_v0.json",
+    "docs/matrixlabs/phase_vs2/reports/phase_vs2_report_contract_package_v0.json",
+    "docs/matrixlabs/phase_vs2/reports/phase_vs2_report_contract_package_v0.md",
+    "docs/matrixlabs/phase_vs2/phase_vs2_6_fixtures_reports_and_first_run_construction_readiness_receipt_v0.json",
+]
+PHASE_VS2_6_FIXTURES_REPORTS_READINESS_SCRIPT = (
+    "scripts/build_phase_vs2_6_fixtures_reports_and_first_run_construction_readiness_v0.py"
+)
+PHASE_VS2_6_FIXTURES_REPORTS_READINESS_VERIFY_SCRIPT = (
+    "scripts/verify_phase_vs2_6_fixtures_reports_and_first_run_construction_readiness_v0.py"
+)
 SOURCE_DOCS = [
     "docs/matrixlabs/INDEX.md",
     "docs/matrixlabs/architecture/current_architecture_readout_v0.md",
@@ -675,6 +861,9 @@ SOURCE_DOCS = [
     *PHASE_VS2_5_CONTROLLED_STEP_DOCS,
     PHASE_VS2_5_CONTROLLED_STEP_SCRIPT,
     PHASE_VS2_5_CONTROLLED_STEP_VERIFY_SCRIPT,
+    *PHASE_VS2_6_FIXTURES_REPORTS_READINESS_DOCS,
+    PHASE_VS2_6_FIXTURES_REPORTS_READINESS_SCRIPT,
+    PHASE_VS2_6_FIXTURES_REPORTS_READINESS_VERIFY_SCRIPT,
 ]
 C8_POST_PATCH_DIRS = [
     "data/c8_unit_feedback_hardening_local_source_status_field_patch_execution_closure_readiness_packet_acceptance_for_post_patch_surface_decision_after_runtime_adoption_closure_v0",
@@ -745,6 +934,37 @@ def read_text(path: Path) -> str:
     if not path.exists():
         return ""
     return path.read_text(encoding="utf-8", errors="replace")
+
+
+def read_json_if_present(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {}
+
+
+def phase_vs2_6_current_unit_summary(root: Path) -> str:
+    receipt = read_json_if_present(root / PHASE_VS2_6_FIXTURES_REPORTS_READINESS_DOCS[-1])
+    if not receipt:
+        return "- current_unit = `UNKNOWN_PHASE_VS2_6_NOT_BUILT`"
+    return "\n".join(
+        [
+            f"- current_unit = `{receipt.get('unit_id', 'UNKNOWN')}`",
+            f"- readiness_verdict = `{receipt.get('readiness_verdict', 'UNKNOWN')}`",
+            f"- execution_package_core_id = `{receipt.get('artifact_bindings', {}).get('E0', {}).get('artifact_id', 'UNKNOWN')}`",
+            f"- readiness_seal_id = `{receipt.get('artifact_bindings', {}).get('RS0', {}).get('artifact_id', 'UNKNOWN')}`",
+            f"- fixture_count = `{receipt.get('fixture_count', 'UNKNOWN')}`",
+            f"- static_candidate_specimen_count = `{receipt.get('static_candidate_specimen_count', 'UNKNOWN')}`",
+            f"- runtime_candidate_instance_count = `{receipt.get('runtime_candidate_instance_count', 'UNKNOWN')}`",
+            f"- runtime_reports_emitted = `{receipt.get('runtime_reports_emitted', 'UNKNOWN')}`",
+            f"- execution_authority_present = `{str(receipt.get('execution_authority_present', 'UNKNOWN')).lower()}`",
+            f"- remaining_effective_grant_count = `{receipt.get('remaining_effective_grant_count_after', 'UNKNOWN')}`",
+            f"- next_lawful_unit = `VS2_7_PHASE_CLOSURE_PENDING`",
+            f"- logical_terminal_transition = `{receipt.get('logical_transition', 'UNKNOWN')}`",
+        ]
+    )
 
 
 def write_text(path: Path, text: str) -> None:
@@ -925,6 +1145,10 @@ Generated at UTC: `{generated_at}`
 - Receipts were not rewritten.
 - The full receipt stack was not copied into `baseline_share/`.
 
+## Phase VS2 current unit
+
+{phase_vs2_6_current_unit_summary(root)}
+
 ## Uncertainty
 
 - Any missing commit value above means the generator could not discover it from git history for the expected paths.
@@ -1096,6 +1320,7 @@ Upload `baseline_share/` first. Expand individual receipts only when a claim bec
 
 
 def render_commit_context(
+    root: Path,
     generated_at: str,
     head: str,
     branch: str,
@@ -1134,7 +1359,11 @@ def render_commit_context(
 
 - The generator did not run MatrixLabs runtime/probe/build/rerun commands.
 - The generator did not rewrite receipts.
-- The generator did not copy the full receipt stack into `baseline_share/`."""
+- The generator did not copy the full receipt stack into `baseline_share/`.
+
+## Phase VS2 current unit
+
+{phase_vs2_6_current_unit_summary(root)}"""
 
 
 def build_manifest(
@@ -1757,6 +1986,82 @@ def build_manifest(
     phase_vs2_5_gates = phase_vs2_5_receipt.get("gates", {})
     phase_vs2_5_authority = phase_vs2_5_receipt.get("construction_authority", {})
     phase_vs2_5_receipt_binding = phase_vs2_5_receipt.get("receipt_binding", {})
+    phase_vs2_6_receipt_path = (
+        root / PHASE_VS2_6_FIXTURES_REPORTS_READINESS_DOCS[-1]
+    )
+    phase_vs2_6_receipt_present = phase_vs2_6_receipt_path.exists()
+    phase_vs2_6_receipt = (
+        json.loads(phase_vs2_6_receipt_path.read_text(encoding="utf-8"))
+        if phase_vs2_6_receipt_present
+        else {}
+    )
+    phase_vs2_6_bindings = phase_vs2_6_receipt.get("artifact_bindings", {})
+    phase_vs2_6_candidate_bindings = phase_vs2_6_receipt.get(
+        "candidate_specimen_bindings", {}
+    )
+    phase_vs2_6_fixture_definition_bindings = phase_vs2_6_receipt.get(
+        "fixture_definition_bindings", {}
+    )
+    phase_vs2_6_report_bindings = phase_vs2_6_receipt.get(
+        "individual_report_contract_bindings", {}
+    )
+    phase_vs2_6_records = phase_vs2_6_receipt.get(
+        "r01_through_r21_result_table", []
+    )
+    phase_vs2_6_record_statuses = {
+        row.get("readiness_component_id"): row.get("readiness_status")
+        for row in phase_vs2_6_records
+    }
+    phase_vs2_6_next_unit = (
+        "VS2_7_PHASE_CLOSURE_PENDING"
+        if phase_vs2_6_receipt_present
+        else (
+            "VS2_6_FIXTURES_REPORTS_AND_FIRST_RUN_CONSTRUCTION_READINESS_PENDING"
+            if phase_vs2_5_receipt_present
+            else (
+                "VS2_5_CONTROLLED_STEP_AND_CONVERGENCE_CONTRACT_CONSTRUCTION_PENDING"
+                if phase_vs2_4_receipt_present
+                else (
+                    "VS2_4_FINITE_MOVE_SPACE_SOURCE_AND_AUTHORITY_FREEZE_PENDING"
+                    if phase_vs2_3_receipt_present
+                    else (
+                        "VS2_3_SCOPE_REGIME_AND_THREE_OBJECT_MODEL_DEFINITION_PENDING"
+                        if phase_vs2_2_profile_present
+                        else (
+                            "VS2_2_KERNEL_PROFILE_AND_TARGET_FREEZE_PENDING"
+                            if phase_vs2_1_source_intake_present
+                            else None
+                        )
+                    )
+                )
+            )
+        )
+    )
+    phase_vs2_current_unit = (
+        phase_vs2_6_receipt.get("unit_id")
+        if phase_vs2_6_receipt_present
+        else (
+            phase_vs2_5_receipt.get("unit_id")
+            if phase_vs2_5_receipt_present
+            else (
+                phase_vs2_4_receipt.get("unit_id")
+                if phase_vs2_4_receipt_present
+                else (
+                    phase_vs2_3_receipt.get("unit_id")
+                    if phase_vs2_3_receipt_present
+                    else (
+                        phase_vs2_2_profile.get("unit_id")
+                        if phase_vs2_2_profile_present
+                        else (
+                            phase_vs2_1_source_intake.get("unit_id")
+                            if phase_vs2_1_source_intake_present
+                            else None
+                        )
+                    )
+                )
+            )
+        )
+    )
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at_utc": generated_at,
@@ -2685,6 +2990,54 @@ def build_manifest(
         "phase_vs2_runner_created": phase_vs2_5_post_state.get("runner_created", False) if phase_vs2_5_receipt_present else (phase_vs2_4_post_state.get("runner_created", False) if phase_vs2_4_receipt_present else False),
         "phase_vs2_5_component_hashes": phase_vs2_5_component_hashes if phase_vs2_5_receipt_present else {},
         "phase_vs2_5_gates": phase_vs2_5_gates if phase_vs2_5_receipt_present else {},
+        "current_unit": phase_vs2_current_unit,
+        "phase_vs2_current_unit": phase_vs2_current_unit,
+        "phase_vs2_next_unit": phase_vs2_6_next_unit,
+        "next_lawful_unit": phase_vs2_6_next_unit,
+        "readiness_verdict": phase_vs2_6_receipt.get("readiness_verdict") if phase_vs2_6_receipt_present else None,
+        "execution_package_core_id": phase_vs2_6_bindings.get("E0", {}).get("artifact_id") if phase_vs2_6_receipt_present else None,
+        "execution_package_core_sha256": phase_vs2_6_bindings.get("E0", {}).get("canonical_sha256") if phase_vs2_6_receipt_present else None,
+        "readiness_seal_id": phase_vs2_6_bindings.get("RS0", {}).get("artifact_id") if phase_vs2_6_receipt_present else None,
+        "readiness_seal_sha256": phase_vs2_6_bindings.get("RS0", {}).get("canonical_sha256") if phase_vs2_6_receipt_present else None,
+        "fixture_count": phase_vs2_6_receipt.get("fixture_count") if phase_vs2_6_receipt_present else None,
+        "static_candidate_specimen_count": phase_vs2_6_receipt.get("static_candidate_specimen_count") if phase_vs2_6_receipt_present else None,
+        "runtime_candidate_instance_count": phase_vs2_6_receipt.get("runtime_candidate_instance_count") if phase_vs2_6_receipt_present else None,
+        "runtime_reports_emitted": phase_vs2_6_receipt.get("runtime_reports_emitted") if phase_vs2_6_receipt_present else None,
+        "execution_authority_present": phase_vs2_6_receipt.get("execution_authority_present") if phase_vs2_6_receipt_present else None,
+        "remaining_effective_grant_count": phase_vs2_6_receipt.get("remaining_effective_grant_count_after") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_remaining_effective_grant_count": phase_vs2_6_receipt.get("remaining_effective_grant_count_after") if phase_vs2_6_receipt_present else (phase_vs2_5_authority.get("unconsumed_effective_grant_count") if phase_vs2_5_receipt_present else None),
+        "logical_terminal_transition": phase_vs2_6_receipt.get("logical_transition") if phase_vs2_6_receipt_present else None,
+        "bookkeeping_transition": phase_vs2_6_receipt.get("bookkeeping_transition") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_built": phase_vs2_6_receipt_present,
+        "phase_vs2_6_built_but_uncommitted": phase_vs2_6_receipt_present,
+        "phase_vs2_6_receipt_artifact_id": phase_vs2_6_receipt.get("artifact_id") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_receipt_sha256": phase_vs2_6_receipt.get("receipt_binding", {}).get("receipt_sha256") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_readiness_verdict": phase_vs2_6_receipt.get("readiness_verdict") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_seal_status": phase_vs2_6_receipt.get("seal_status") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_eligible_for_execution_decision": phase_vs2_6_receipt.get("eligible_for_execution_decision") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_execution_package_core_artifact_id": phase_vs2_6_bindings.get("E0", {}).get("artifact_id") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_execution_package_core_sha256": phase_vs2_6_bindings.get("E0", {}).get("canonical_sha256") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_readiness_gate_artifact_id": phase_vs2_6_bindings.get("G0", {}).get("artifact_id") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_readiness_gate_sha256": phase_vs2_6_bindings.get("G0", {}).get("canonical_sha256") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_readiness_gate_receipt_artifact_id": phase_vs2_6_bindings.get("GR0", {}).get("artifact_id") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_readiness_gate_receipt_sha256": phase_vs2_6_bindings.get("GR0", {}).get("canonical_sha256") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_readiness_seal_artifact_id": phase_vs2_6_bindings.get("RS0", {}).get("artifact_id") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_readiness_seal_sha256": phase_vs2_6_bindings.get("RS0", {}).get("canonical_sha256") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_fixture_count": phase_vs2_6_receipt.get("fixture_count") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_static_candidate_specimen_count": phase_vs2_6_receipt.get("static_candidate_specimen_count") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_runtime_candidate_instance_count": phase_vs2_6_receipt.get("runtime_candidate_instance_count") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_runtime_reports_emitted": phase_vs2_6_receipt.get("runtime_reports_emitted") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_runtime_receipts_emitted": phase_vs2_6_receipt.get("runtime_receipts_emitted") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_execution_authority_present": phase_vs2_6_receipt.get("execution_authority_present") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_remaining_effective_grant_count": phase_vs2_6_receipt.get("remaining_effective_grant_count_after") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_logical_terminal_transition": phase_vs2_6_receipt.get("logical_transition") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_bookkeeping_transition": phase_vs2_6_receipt.get("bookkeeping_transition") if phase_vs2_6_receipt_present else None,
+        "phase_vs2_6_artifact_bindings": phase_vs2_6_bindings if phase_vs2_6_receipt_present else {},
+        "phase_vs2_6_candidate_hashes": {key: value.get("canonical_sha256") for key, value in phase_vs2_6_candidate_bindings.items()} if phase_vs2_6_receipt_present else {},
+        "phase_vs2_6_fixture_definition_hashes": {key: value.get("canonical_sha256") for key, value in phase_vs2_6_fixture_definition_bindings.items()} if phase_vs2_6_receipt_present else {},
+        "phase_vs2_6_report_contract_hashes": {key: value.get("canonical_sha256") for key, value in phase_vs2_6_report_bindings.items()} if phase_vs2_6_receipt_present else {},
+        "phase_vs2_6_r01_through_r21_statuses": phase_vs2_6_record_statuses if phase_vs2_6_receipt_present else {},
+        "phase_vs2_6_r01_through_r21_count": len(phase_vs2_6_records) if phase_vs2_6_receipt_present else 0,
         "promotion_receipt_created": d2_promotion_decision_receipt_present,
         "activation_object_created": False,
         "router_classification_created": b2_route_classification_present,
@@ -2732,6 +3085,7 @@ def generate() -> int:
         "OPEN_QUESTIONS.md": render_open_questions(proposals_doc),
         "RECEIPT_POINTERS.md": render_receipt_pointers(root, architecture_receipt_matches),
         "COMMIT_CONTEXT.md": render_commit_context(
+            root,
             generated_at,
             head,
             branch,
